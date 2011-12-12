@@ -1,8 +1,8 @@
 AC_PREREQ(2.60)
 
 AC_INIT([mate-media],
-        [2011.12.01],
-        [http://bugzilla.mate.org/enter_bug.cgi?product=mate-media])
+        [1.1.0],
+        [http://www.mate-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
 
@@ -59,7 +59,7 @@ AC_MSG_NOTICE([Using $GM_ERROR_CFLAGS as error checking CFLAGS])
 
 GLIB_REQUIRED_VERSION=2.18.2
 GTK_REQUIRED_VERSION=2.18.0
-MATECONF_REQUIRED_VERSION=2.6.1
+MATECONF_REQUIRED_VERSION=1.1.0
 PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
 
