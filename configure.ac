@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT([mate-media],
-        [1.1.0],
+        [1.2.0],
         [http://www.mate-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
@@ -241,7 +241,7 @@ dnl=======================================================================
 dnl i18n
 dnl=======================================================================
 
-GETTEXT_PACKAGE=mate-media-2.0
+GETTEXT_PACKAGE=mate-media
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the Gettext package name])
 AM_GLIB_GNU_GETTEXT

@@ -50,12 +50,10 @@ EXTRA_DIST = \
 	COPYING.grecord		\
 	COPYING.gst-mixer	\
 	COPYING.profiles	\
-	MAINTAINERS		\
         build-aux/git-version-gen \
 	build-aux/mate-doc-utils.make	\
 	m4/as-compiler-flag.m4	\
 	m4/as-version.m4	\
-	ChangeLog.pre-2-26	\
 	$(INTLTOOL_BUILT:=.in)	\
 	$(NULL)
 
