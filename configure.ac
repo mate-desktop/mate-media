@@ -442,19 +442,19 @@ echo "
                     ============
 
 
-        Prefix:                 ${prefix}
-        Source code location:   ${srcdir}
-        Compiler:               ${CC}
-        CFLAGS:                 ${CFLAGS}
+        Prefix:                      ${prefix}
+        Source code location:        ${srcdir}
+        Compiler:                    ${CC}
+        CFLAGS:                      ${CFLAGS}
 
-        Volume Control          $have_pulseaudio
-        GStreamer properties:   $have_gstprops
-        GStreamer profiles:     $have_profiles (GladeUI: $have_gladeui)
-        Sound recorder:         $have_grecord$grecord_reason
+        PulseAudio Volume Control    $have_pulseaudio
+        GStreamer properties:        $have_gstprops
+        GStreamer profiles:          $have_profiles (GladeUI: $have_gladeui)
+        Sound recorder:              $have_grecord$grecord_reason
 
   *Deprecated*:
 
-        GStreamer mixer:        $have_gstmixer
+        GStreamer mixer:             $have_gstmixer
 
 "
 
