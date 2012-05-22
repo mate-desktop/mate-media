@@ -173,7 +173,7 @@ GLADEUI_MODULE_DIR="`$PKG_CONFIG --variable=moduledir gladeui-1.0`"
 AC_SUBST(GLADEUI_MODULE_DIR)
 
 dnl=======================================================================
-dnl Check for GStreamer and GSR deps
+dnl Check for GStreamer deps
 dnl=======================================================================
 
 GST_REQ=0.10.23
@@ -187,50 +187,7 @@ AC_DEFINE_UNQUOTED(GST_MAJORMINOR_QUOTED, "$GST_MAJORMINOR",
 
 have_gst=no
 
-PKG_CHECK_MODULES(GSR, [
-  gstreamer-$GST_MAJORMINOR >= $GST_REQ
-  gstreamer-plugins-base-$GST_MAJORMINOR >= $GST_REQ
-  gtk+-2.0 >= 2.6.0
-  gio-2.0
-  mateconf-2.0],
-  have_gst=yes,
-  [
-    AC_MSG_RESULT(no)
-    AC_MSG_WARN($GSR_PKG_ERRORS)
-    PROGRAMS_GRECORD_ERROR="$GSR_PKG_ERRORS"
-  ])
-
-have_grecord=no
-grecord_reason=""
-
-AC_ARG_ENABLE([grecord],
-  AS_HELP_STRING([--enable-grecord], [enable mate sound recorder]),
-  ,enable_grecord=yes)
-
-if test "x$have_profiles" = "xno" ; then
-  AC_MSG_WARN([Grecord will be disabled because of disabled profiles])
-  enable_grecord=no
-  have_grecord=no
-  grecord_reason=", mate media profiles is disabled"
-fi
-
-if test "x$have_gst" = "xyes" && test "x$enable_grecord" = "xyes"; then
-  have_grecord=yes
-else
-  if test "x$have_gst" = "xno"; then
-    AC_MSG_WARN([You need GStreamer installed for the mixer and recorder to work])
-    sleep 5 2>/dev/null
-  fi
-fi
-
-AC_SUBST(GSR_CFLAGS)
-AC_SUBST(GSR_LIBS)
 AM_CONDITIONAL(HAVE_GSTREAMER, [test x$have_gst = xyes])
-AM_CONDITIONAL(HAVE_GRECORD, [test x$have_grecord = xyes])
-
-dnl uninstalled gsr ui dir
-AC_DEFINE_UNQUOTED(GSR_UIDIR_UNINSTALLED, "`pwd`/grecord/src",
-  [path to uninstalled mate-sound-recorder UI dir])
 
 AC_PATH_PROG(MATECONFTOOL, mateconftool-2)
 AM_MATECONF_SOURCE_2
@@ -403,17 +360,6 @@ mate-volume-control/data/icons/scalable/Makefile
 mate-volume-control/data/icons/scalable/devices/Makefile
 mate-volume-control/data/icons/scalable/status/Makefile
 mate-volume-control/src/Makefile
-grecord/Makefile
-grecord/mate-sound-recorder.schemas.in
-grecord/src/Makefile
-grecord/doc/Makefile
-grecord/icons/Makefile
-grecord/icons/16x16/Makefile
-grecord/icons/22x22/Makefile
-grecord/icons/24x24/Makefile
-grecord/icons/32x32/Makefile
-grecord/icons/48x48/Makefile
-grecord/icons/scalable/Makefile
 gstreamer-properties/Makefile
 gstreamer-properties/help/Makefile
 gst-mixer/Makefile
@@ -429,7 +375,6 @@ profiles/mate-audio-profiles.schemas.in
 profiles/mate-media-profiles.pc
 profiles/glade/Makefile
 profiles/help/Makefile
-grecord/mate-sound-recorder.desktop.in
 gst-mixer/mate-volume-control.desktop.in
 gstreamer-properties/mate-gstreamer-properties.desktop.in
 ])
@@ -450,7 +395,6 @@ echo "
         PulseAudio Volume Control    $have_pulseaudio
         GStreamer properties:        $have_gstprops
         GStreamer profiles:          $have_profiles (GladeUI: $have_gladeui)
-        Sound recorder:              $have_grecord$grecord_reason
 
   *Deprecated*:
 

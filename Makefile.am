@@ -6,10 +6,6 @@ if HAVE_GMP
 SUBDIRS += profiles
 endif
 
-if HAVE_GRECORD
-SUBDIRS += grecord
-endif
-
 if HAVE_SOUND_THEME
 SUBDIRS += sound-theme
 endif
@@ -35,7 +31,6 @@ DIST_SUBDIRS = \
 	po 			\
 	profiles		\
 	mate-volume-control	\
-	grecord			\
 	gst-mixer		\
 	gstreamer-properties	\
 	sound-theme		\
@@ -47,7 +42,6 @@ EXTRA_DIST = \
 	configure		\
 	COPYING			\
 	COPYING-DOCS		\
-	COPYING.grecord		\
 	COPYING.gst-mixer	\
 	COPYING.profiles	\
         build-aux/git-version-gen \
