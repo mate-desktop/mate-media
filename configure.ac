@@ -410,10 +410,6 @@ echo "
         PulseAudio Volume Control    $have_pulseaudio
         GStreamer properties:        $have_gstprops
         GStreamer profiles:          $have_profiles (GladeUI: $have_gladeui)
-
-  *Deprecated*:
-
         GStreamer mixer:             $have_gstmixer
 
 "
-
