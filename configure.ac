@@ -187,6 +187,19 @@ AC_DEFINE_UNQUOTED(GST_MAJORMINOR_QUOTED, "$GST_MAJORMINOR",
 
 have_gst=no
 
+PKG_CHECK_MODULES(GSR, [
+  gstreamer-$GST_MAJORMINOR >= $GST_REQ
+  gstreamer-plugins-base-$GST_MAJORMINOR >= $GST_REQ
+  gtk+-2.0 >= 2.6.0
+  gio-2.0
+  mateconf-2.0],
+  have_gst=yes,
+  [
+    AC_MSG_RESULT(no)
+    AC_MSG_WARN($GSR_PKG_ERRORS)
+    PROGRAMS_GRECORD_ERROR="$GSR_PKG_ERRORS"
+  ])
+
 AM_CONDITIONAL(HAVE_GSTREAMER, [test x$have_gst = xyes])
 
 AC_PATH_PROG(MATECONFTOOL, mateconftool-2)
