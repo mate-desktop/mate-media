@@ -13,8 +13,6 @@ mate-volume-control/src/gvc-mixer-control.c
 mate-volume-control/src/gvc-mixer-dialog.c
 mate-volume-control/src/gvc-speaker-test.c
 mate-volume-control/src/gvc-stream-status-icon.c
-grecord/src/mate-recorder.c
-grecord/src/gsr-window.c
 gst-mixer/mate-volume-control.desktop.in.in
 gst-mixer/mate-volume-control.schemas.in
 gst-mixer/src/element.c
