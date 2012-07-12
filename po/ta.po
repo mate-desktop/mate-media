@@ -1,55 +1,46 @@
-# translation of mate-media.master.ta.po to Tamil
-# translation of media.po to
-# Tamil translation of Tamil Mate Media 2.4.
-# Copyright (C) 2003, 2004, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-#
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Dinesh Nadarajah <n_dinesh@yahoo.com>, 2003.
-# Jayaradha N <jaya@pune.redhat.com>, 2004.
-# Felix <ifelix@redhat.com>, 2006.
-# Dr.T.Vasudevan <agnihot3@gmail.com>, 2007, 2009.
-# I. Felix <ifelix@redhat.com>, 2008, 2009.
 # Dr,T,Vasudevan <agnihot3@gmail.com>, 2010.
+# Dr.T.Vasudevan <agnihot3@gmail.com>, 2007, 2009.
+# Felix <ifelix@redhat.com>, 2006.
+# I. Felix <ifelix@redhat.com>, 2008, 2009.
+# Jayaradha N <jaya@pune.redhat.com>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media.master.ta\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-22 14:00+0530\n"
-"PO-Revision-Date: 2010-01-22 14:07+0530\n"
-"Last-Translator: Dr,T,Vasudevan <agnihot3@gmail.com>\n"
-"Language-Team: Tamil <Ubuntu-l10n-tam@lists.ubuntu.com>>\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 14:50+0200\n"
+"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"0500\n"
-"X-Generator: Lokalize 0.3\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-msgid "Show desktop volume control"
-msgstr "பணிமேடை ஒலியளவு கட்டுப்பாட்டை காட்டு"
-
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
 msgstr "ஒலிவளவு கட்டுப்பாடு"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-msgid "Change sound volume and sound events"
-msgstr "ஒலியளவு மற்றும்  ஒலி நிகழ்வுகளை மாற்று"
+#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+msgid "Show desktop volume control"
+msgstr "பணிமேடை ஒலியளவு கட்டுப்பாட்டை காட்டு"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ஒலியளவு"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "ஒலியளவு மற்றும்  ஒலி நிகழ்வுகளை மாற்று"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -62,8 +53,8 @@ msgid "Version of this application"
 msgstr "இந்த பயன்பாட்டின் பதிப்பு"
 
 #: ../mate-volume-control/src/applet-main.c:62
-msgid " - MATE Volume Control Applet"
-msgstr " - MATE ஒலி கட்டுப்பாடு ஆப்லெட்"
+msgid " — MATE Volume Control Applet"
+msgstr ""
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
@@ -74,91 +65,100 @@ msgid "Startup page"
 msgstr "துவக்க பக்கம்"
 
 #: ../mate-volume-control/src/dialog-main.c:168
-msgid " - MATE Volume Control"
-msgstr " - MATE ஒலியளவு கட்டுப்பாடு"
+msgid " — MATE Volume Control"
+msgstr ""
 
-#: ../mate-volume-control/src/gvc-applet.c:273
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1830
+#: ../mate-volume-control/src/gvc-applet.c:275
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
 msgstr "வெளிப்பாடு"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1744
+msgid "Sound Output Volume"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-applet.c:281
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
 msgstr "உள்ளீடு"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:108
+#: ../mate-volume-control/src/gvc-applet.c:283
+msgid "Microphone Volume"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
 msgstr "இடது"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:109
+#: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
 msgstr "வலது"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:112
+#: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
 msgstr "பின்"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:113
+#: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
 msgstr "முன்"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:116
+#: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
 msgstr "குறைந்த பட்சம்"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:117
+#: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
 msgstr "அதிக பட்சம்"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:291
+#: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
 msgstr "மீதி (_B):"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:294
+#: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
 msgstr "_F மெதுவாக அழி:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:297
+#: ../mate-volume-control/src/gvc-balance-bar.c:300
 msgid "_Subwoofer:"
 msgstr "_S சப் வூஃபர்"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:592
+#: ../mate-volume-control/src/gvc-channel-bar.c:602
+#: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:596
+#: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "செறிவூட்டாத"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:852
+#: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
 msgstr "அமைதியாக்கு"
 
-#: ../mate-volume-control/src/gvc-combo-box.c:148
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1494
+#: ../mate-volume-control/src/gvc-combo-box.c:166
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
 msgstr "விவரக்குறிப்பு: (_P)"
 
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-control.c:991
-#: ../sound-theme/gvc-sound-theme-editor.c:896
-#: ../sound-theme/gvc-sound-theme-editor.c:992
+#: ../mate-volume-control/src/gvc-mixer-control.c:1005
+#: ../sound-theme/gvc-sound-theme-editor.c:895
+#: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
 msgstr "செயல்நீக்கப்பட்டது"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:998
+#: ../mate-volume-control/src/gvc-mixer-control.c:1012
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -167,542 +167,148 @@ msgstr[1] "%u வெளிப்பாடுகள்"
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1008
+#: ../mate-volume-control/src/gvc-mixer-control.c:1022
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u உள்ளீடுகள்"
 msgstr[1] "%u உள்ளீடுகள்"
 
-#: ../mate-volume-control/src/gvc-mixer-control.c:1304
+#: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
 msgstr "கணினியின் ஒலியளவு"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:305
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:564
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:309
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:604
 msgid "Co_nnector:"
 msgstr "இணைப்பி: (_n)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:510
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:517
 msgid "Peak detect"
 msgstr "உச்ச கண்டறிதல்"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1423
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1576
-#: ../sound-theme/gvc-sound-theme-chooser.c:865
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
+#: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
 msgstr "பெயர்"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1428
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
 msgstr "சாதனம்"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1650
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
+#, c-format
+msgid "Speaker Testing for %s"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
+msgid "Test Speakers"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
 msgstr "வெளியேறும் ஒலியளவு: (_O)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1681
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
 msgstr "ஒலி விளைவுகள்"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1688
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
 msgstr "விழிப்பூட்டும் ஒலியளவு: (_A)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1701
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
 msgstr "வன் பொருட்கள்"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1706
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
 msgstr "கட்டமைப்புக்கு ஒரு சாதனத்தை தேர்ந்தெடு: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1733
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1862
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
 msgstr "தேர்ந்தெடுக்கப்பட்ட சாதனத்தின் அமைப்புகள்:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1751
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
 msgstr "உள்ளீடு ஒலியளவு: (_I)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1774
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
 msgstr "உள்ளீடு நிலை:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1800
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
 msgstr "ஒலி உள்ளீட்டிற்கு ஒரு சாதனத்தை தேர்ந்தெடு: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1835
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
 msgstr "ஒலி வெளிப்பாடு சாதனத்தை தேர்ந்தெடு: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1873
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
 msgstr "விண்ணப்பங்கள்"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1877
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
 msgstr "ஆடியோவை ஒரு பயன்பாடும் தற்போது இயக்கவில்லை அல்லது பதிவு செய்யவில்லை"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2001
-#: ../sound-theme/gvc-sound-theme-chooser.c:730
-#: ../sound-theme/gvc-sound-theme-chooser.c:742
-#: ../sound-theme/gvc-sound-theme-chooser.c:754
-#: ../sound-theme/gvc-sound-theme-editor.c:561
-#: ../sound-theme/gvc-sound-theme-editor.c:950
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
+#: ../sound-theme/gvc-sound-theme-chooser.c:739
+#: ../sound-theme/gvc-sound-theme-chooser.c:751
+#: ../sound-theme/gvc-sound-theme-chooser.c:763
+#: ../sound-theme/gvc-sound-theme-editor.c:560
+#: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
 msgstr "ஒலியளவு முன்னுரிமைகள்"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/src/gvc-speaker-test.c:220
+msgid "Stop"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-speaker-test.c:220
+#: ../mate-volume-control/src/gvc-speaker-test.c:332
+msgid "Test"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-speaker-test.c:228
+msgid "Subwoofer"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "ஒலியளவு கட்டுப்பாடு முன்னுரிமைகளில் தோல்வி : %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:255
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
 msgstr "அமைதியாக்கு(_M)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:264
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
 msgstr "ஒலியளவு முன்னுரிமைகள்(_S)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:448
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
 msgstr "நிறுத்தப்பட்டது"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:1
-msgid "Record sound clips"
-msgstr "ஒலி அமைப்புகளை பதிவு சேய்"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:2
-#: ../grecord/src/gsr-window.c:1238
-msgid "Sound Recorder"
-msgstr "ஒலியை பதிவு சேய் "
-
-#. Translator comment: default trackname is 'untitled', which
-#. * has as effect that the user cannot save to this file. The
-#. * 'save' action will open the save-as dialog instead to give
-#. * a proper filename. See mate-record.c:94.
-#: ../grecord/src/mate-recorder.c:142 ../grecord/src/gsr-window.c:1741
-#: ../grecord/src/gsr-window.c:2690
-msgid "Untitled"
-msgstr "தலைப்பில்லாத"
-
-#: ../grecord/src/mate-recorder.c:144 ../grecord/src/gsr-window.c:1743
-#, c-format
-msgid "Untitled-%d"
-msgstr "தலைப்பில்லாத-%d"
-
-#: ../grecord/src/gsr-window.c:193
-#, c-format
-msgid ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plug-in from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-msgstr ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plug-in from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-
-#: ../grecord/src/gsr-window.c:209
-msgid ""
-"Please verify its settings.\n"
-"You may be missing the necessary plug-ins."
-msgstr ""
-"அதன் அமைவுகளை சரிபார்க்கவும்.\n"
-"நீங்கள் தேவையான கூடுதல் வசதிகளை விட்டிருக்கலாம்."
-
-#: ../grecord/src/gsr-window.c:294
-#, c-format
-msgid "%ld minute"
-msgid_plural "%ld minutes"
-msgstr[0] "%ld நிமிடம்"
-msgstr[1] "%ld நிமிடங்கள்"
-
-#: ../grecord/src/gsr-window.c:295
-#, c-format
-msgid "%ld hour"
-msgid_plural "%ld hours"
-msgstr[0] "%ld மணி நேரம்"
-msgstr[1] "%ld மணி நேரங்கள்"
-
-#: ../grecord/src/gsr-window.c:296
-#, c-format
-msgid "%ld second"
-msgid_plural "%ld seconds"
-msgstr[0] "%ld நொடி"
-msgstr[1] "%ld நொடிகள்"
-
-#. Translators: the format is "X hours, X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:303
-#, c-format
-msgid "%s, %s and %s"
-msgstr "%s, %s மற்றும் %s"
-
-#. Translators: the format is "X hours and X minutes"
-#. Translators: the format is "X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:309 ../grecord/src/gsr-window.c:317
-#: ../grecord/src/gsr-window.c:328
-#, c-format
-msgid "%s and %s"
-msgstr "%s மற்றும் %s"
-
-#: ../grecord/src/gsr-window.c:371
-msgid "Open a File"
-msgstr "ஒரு கோப்பினை திறக்கவும்"
-
-#: ../grecord/src/gsr-window.c:448
-#, c-format
-msgid ""
-"Unable to load file:\n"
-"%s"
-msgstr ""
-"கோப்பினை ஏற்ற முடியவில்லை:\n"
-"%s"
-
-#: ../grecord/src/gsr-window.c:594 ../grecord/src/gsr-window.c:1540
-#: ../grecord/src/gsr-window.c:1800 ../grecord/src/gsr-window.c:2501
-msgid "Ready"
-msgstr "தயார்"
-
-#. Add replace button
-#: ../grecord/src/gsr-window.c:647
-msgid "_Replace"
-msgstr "மாற்று (_R)"
-
-#: ../grecord/src/gsr-window.c:664
-#, c-format
-msgid ""
-"A file named \"%s\" already exists. \n"
-"Do you want to replace it with the one you are saving?"
-msgstr ""
-"ஒரு கோப்பு பெயர் \"%s\" ஏற்கனவே உள்ளது. \n"
-"நீங்கள் சேமிப்பதை கொண்டு மாற்ற வேண்டுமா?"
-
-#: ../grecord/src/gsr-window.c:712
-#, c-format
-msgid "Could not save the file \"%s\""
-msgstr "\"%s\" கோப்பினை சேமிக்க முடியவில்லை"
-
-#: ../grecord/src/gsr-window.c:732
-msgid "Save file as"
-msgstr "கோப்பை சேமி"
-
-#: ../grecord/src/gsr-window.c:826
-#, c-format
-msgid "%s is not installed in the path."
-msgstr "%s பாதையில் சேமிக்க வில்லை "
-
-#: ../grecord/src/gsr-window.c:835
-#, c-format
-msgid "There was an error starting %s: %s"
-msgstr "துவக்கத்தில் பிழை %s: %s"
-
-#: ../grecord/src/gsr-window.c:864
-msgid "Save recording before closing?"
-msgstr "மூடுவதற்கு முன் பதிவை சேமிக்க வேண்டுமா?"
-
-#: ../grecord/src/gsr-window.c:865
-msgid "Save recording?"
-msgstr "பதிவை சேமிக்க வேண்டுமா?"
-
-#: ../grecord/src/gsr-window.c:869
-msgid "Close _without Saving"
-msgstr "சேமிக்காமல் மூடு (_w)"
-
-#: ../grecord/src/gsr-window.c:870
-msgid "Continue _without Saving"
-msgstr "சேமிக்காமல் தொடர்க (_w)"
-
-#: ../grecord/src/gsr-window.c:880
-msgid "Question"
-msgstr "வினா"
-
-#: ../grecord/src/gsr-window.c:987
-#, c-format
-msgid "%s (Has not been saved)"
-msgstr "%s(சேமிக்க வில்லை)"
-
-#: ../grecord/src/gsr-window.c:1003
-#, c-format
-msgid "%s (%llu byte)"
-msgid_plural "%s (%llu bytes)"
-msgstr[0] "%s (%llu பைட்)"
-msgstr[1] "%s (%llu பைட்கள்)"
-
-#: ../grecord/src/gsr-window.c:1007
-msgid "Unknown size"
-msgstr "சரியான அளவுஇல்லை"
-
-#. Attempts to get length ran out.
-#: ../grecord/src/gsr-window.c:1016 ../grecord/src/gsr-window.c:1026
-#: ../grecord/src/gsr-window.c:1042 ../grecord/src/gsr-window.c:1051
-#: ../grecord/src/gsr-window.c:1408
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "தெரியாதது"
-
-#: ../grecord/src/gsr-window.c:1028
-#, c-format
-msgid "%.1f kHz"
-msgstr "%.1f கிலோ ஆர்ட்ஸ்"
-
-#: ../grecord/src/gsr-window.c:1036
-#, c-format
-msgid "%.0f kb/s"
-msgstr "%.1f கிலோ பைட்ஸ்"
-
-#: ../grecord/src/gsr-window.c:1039
-#, c-format
-msgid "%.0f kb/s (Estimated)"
-msgstr "%.0f kb/s (கணிக்கிடப்பட்டது)"
-
-#: ../grecord/src/gsr-window.c:1054
-msgid "1 (mono)"
-msgstr "1 (மொனொ)"
-
-#: ../grecord/src/gsr-window.c:1057
-msgid "2 (stereo)"
-msgstr "2 (ஸ்டிரியோ)"
-
-#: ../grecord/src/gsr-window.c:1084
-#, c-format
-msgid "%s Information"
-msgstr "%s தகவல்"
-
-#: ../grecord/src/gsr-window.c:1108 ../grecord/src/gsr-window.c:2413
-msgid "File Information"
-msgstr "கோப்பின் தகவல்"
-
-#: ../grecord/src/gsr-window.c:1123
-msgid "Folder:"
-msgstr "கோப்புறை:"
-
-#: ../grecord/src/gsr-window.c:1129 ../grecord/src/gsr-window.c:2420
-msgid "Filename:"
-msgstr "கோப்பின் பெயர்            "
-
-#: ../grecord/src/gsr-window.c:1135
-msgid "File size:"
-msgstr "கோப்பின் அளவு"
-
-#: ../grecord/src/gsr-window.c:1144
-msgid "Audio Information"
-msgstr "ஆடியோ தகவல்"
-
-#: ../grecord/src/gsr-window.c:1159
-msgid "File duration:"
-msgstr "கோப்பு கால அளவு:"
-
-#: ../grecord/src/gsr-window.c:1165
-msgid "Number of channels:"
-msgstr "அதிக எண்ணிக்கையான தடங்கள்"
-
-#: ../grecord/src/gsr-window.c:1171
-msgid "Sample rate:"
-msgstr "மாதிரியான வீதம்"
-
-#: ../grecord/src/gsr-window.c:1177
-msgid "Bit rate:"
-msgstr "பிட் வீதம்"
-
-#: ../grecord/src/gsr-window.c:1241
-msgid ""
-"A sound recorder for MATE\n"
-" mate-multimedia@gnome.org"
-msgstr ""
-"MATEக்கான ஒரு ஒலி பதிவி\n"
-" mate-multimedia@gnome.org"
-
-#: ../grecord/src/gsr-window.c:1512
-msgid "Playing..."
-msgstr "விளையாட்டு..."
-
-#: ../grecord/src/gsr-window.c:1644
-msgid "MateConf audio output"
-msgstr "MateConf கேட்பொலி வெளியீடு"
-
-#: ../grecord/src/gsr-window.c:1653 ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "இயக்கு"
-
-#: ../grecord/src/gsr-window.c:1732
-msgid "Recording..."
-msgstr "பதிவேடுகள்..."
-
-#: ../grecord/src/gsr-window.c:1822
-msgid "MateConf audio recording"
-msgstr "MateConf கேட்பொலி பதிவு"
-
-#: ../grecord/src/gsr-window.c:1831
-msgid ""
-"Your audio capture settings are invalid. Please correct them with the "
-"\"Sound Preferences\" under the System-Preferences menu."
-msgstr ""
-"உங்கள் கேட்பொலி பதிவு அமைவுகள் தவறானவை. அவற்றை கணினி-முன்னுரிமைகளின் கீழ் \"ஒலி "
-"முன்னுரிமைகள்\" என்பதில் சரி செய்யவும்."
-
-#: ../grecord/src/gsr-window.c:2003
-msgid "file output"
-msgstr "கோப்பு வெளியீடு"
-
-#: ../grecord/src/gsr-window.c:2021
-msgid "level"
-msgstr "நிலை"
-
-#: ../grecord/src/gsr-window.c:2045
-#, c-format
-msgid "Could not parse the '%s' audio profile. "
-msgstr "'%s' கேட்பொலி விவரக்குறிப்பினை பகுக்க முடியவில்லை. "
-
-#: ../grecord/src/gsr-window.c:2062
-#, c-format
-msgid "Could not capture using the '%s' audio profile. "
-msgstr "'%s' கேட்பொலி விவரக்குறிப்பினை பயன்படுத்தி பதிவு செய்ய முடியவில்லை. "
-
-#: ../grecord/src/gsr-window.c:2071
-#, c-format
-msgid "Could not write to a file using the '%s' audio profile. "
-msgstr "'%s' கேட்பொலி விவரக்குறிப்பினை பயன்படுத்தி ஒரு கோப்பினை எழுத முடியாது. "
-
-#. File menu.
-#: ../grecord/src/gsr-window.c:2125
-msgid "_File"
-msgstr "_கோப்பு"
-
-#: ../grecord/src/gsr-window.c:2127
-msgid "Create a new sample"
-msgstr "புதிய மாதிரிகளை உருவாக்கு"
-
-#: ../grecord/src/gsr-window.c:2129
-msgid "Open a file"
-msgstr "ஓர் கோப்பைத் திறக்கவும்"
-
-#: ../grecord/src/gsr-window.c:2131
-msgid "Save the current file"
-msgstr "தற்போதைய ஆவணத்தை மின்-அஞ்சலால் அனுப்பவும்"
-
-#: ../grecord/src/gsr-window.c:2133
-msgid "Save the current file with a different name"
-msgstr "தற்போதையக் கோப்பை வேறு பெயரில் சேமிக்கவும்"
-
-#: ../grecord/src/gsr-window.c:2134
-msgid "Open Volu_me Control"
-msgstr "ஒலிவளவு கட்டுப்பாட்டினை திற (_m)"
-
-#: ../grecord/src/gsr-window.c:2135
-msgid "Open the audio mixer"
-msgstr "கேட்பொலி கலவியை திற"
-
-#: ../grecord/src/gsr-window.c:2137
-msgid "Show information about the current file"
-msgstr "தற்போதைய கோப்பின் தகவல்களை காட்டு"
-
-#: ../grecord/src/gsr-window.c:2139
-msgid "Close the current file"
-msgstr "நடப்பு கோப்பினை மூடவும்"
-
-#: ../grecord/src/gsr-window.c:2141
-msgid "Quit the program"
-msgstr "நிரலை விட்டு வெளியேறு"
-
-#. Control menu
-#: ../grecord/src/gsr-window.c:2144
-msgid "_Control"
-msgstr "கட்டுப்பாடுகள்"
-
-#: ../grecord/src/gsr-window.c:2146
-msgid "Record sound"
-msgstr "ஒலி பதிவேடு"
-
-#: ../grecord/src/gsr-window.c:2148
-msgid "Play sound"
-msgstr "ஒலி விளையாட்டு"
-
-#: ../grecord/src/gsr-window.c:2150
-msgid "Stop sound"
-msgstr "ஒலியை நிறுத்து"
-
-#. Help menu
-#: ../grecord/src/gsr-window.c:2153
-msgid "_Help"
-msgstr "உதவி"
-
-#: ../grecord/src/gsr-window.c:2154
-msgid "Contents"
-msgstr "உள்ளடக்கங்கள்"
-
-#: ../grecord/src/gsr-window.c:2155
-msgid "Open the manual"
-msgstr "கையேட்டினை திற"
-
-#: ../grecord/src/gsr-window.c:2157
-msgid "About this application"
-msgstr "இந்த பயன்பாடு பற்றி"
-
-#: ../grecord/src/gsr-window.c:2279
-msgid "Could not load ui.xml. The program may be not properly installed"
-msgstr "ui.xml ஐ ஏற்ற முடியவில்லை. நிரல் ஒழுங்காக நிறுவப்படவில்லை"
-
-#: ../grecord/src/gsr-window.c:2302
-msgid "Open"
-msgstr "திறக்கவும்"
-
-#: ../grecord/src/gsr-window.c:2304
-msgid "Save"
-msgstr "சேமி"
-
-#: ../grecord/src/gsr-window.c:2306
-msgid "Save As"
-msgstr "வேறு பெயரில் சேமி"
-
-#: ../grecord/src/gsr-window.c:2362
-msgid "Record from _input:"
-msgstr "உள்ளீடிலிருந்து பதிவு செய் (_i):"
-
-#: ../grecord/src/gsr-window.c:2380
-msgid "_Record as:"
-msgstr "இப்படி பதிவுசெய் (_R):"
-
-#: ../grecord/src/gsr-window.c:2427
-msgid "<none>"
-msgstr "<இல்லை>"
-
-#: ../grecord/src/gsr-window.c:2441
-msgid "Length:"
-msgstr "நீண்ட:"
-
-#: ../grecord/src/gsr-window.c:2479
-msgid "Level:"
-msgstr "நிலை:"
-
-#. Translators: this is the window title, %s is the currently open file's name or Untitled
-#: ../grecord/src/gsr-window.c:2574
-#, c-format
-msgid "%s - Sound Recorder"
-msgstr "%s - ஒலி பதிவி "
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
 msgstr "சாளரத்தின் உயரம்"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
-msgid "Height of the Window to be displayed"
-msgstr "காட்ட வேண்டிய சாளரத்தின் உயரம்"
+msgid "Height of the window to be displayed."
+msgstr ""
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
 msgstr "சாளரத்தின் அகலம்"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
-msgid "Width of the Window to be displayed"
-msgstr "காட்ட வேண்டிய சாளரத்தின் உயரம்"
+msgid "Width of the window to be displayed."
+msgstr ""
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
@@ -716,6 +322,10 @@ msgstr "தெரியாத ஒலியளவு கட்டுப்பா�
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
 msgstr "GStreamer ஒலியளவு கட்டுப்பாடு கூடுதல் வசதிகள் மற்றும் சாதனங்கள் ஒன்றும் இல்லை."
+
+#: ../gst-mixer/src/misc.c:62
+msgid "Playback"
+msgstr "இயக்கு"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
@@ -746,8 +356,8 @@ msgstr "%s:"
 #. mute button
 #: ../gst-mixer/src/track.c:339
 #, c-format
-msgid "Mute/unmute %s"
-msgstr "ஒலிநிறுத்து/ஒலி %s"
+msgid "Mute/Unmute %s"
+msgstr ""
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
@@ -887,11 +497,15 @@ msgid "Unsupported"
 msgstr "ஆதரவில்லாத"
 
 #: ../gstreamer-properties/gstreamer-properties.c:268
-#: ../sound-theme/gvc-sound-theme-chooser.c:841
-#: ../sound-theme/gvc-sound-theme-editor.c:892
-#: ../sound-theme/gvc-sound-theme-editor.c:996
+#: ../sound-theme/gvc-sound-theme-chooser.c:850
+#: ../sound-theme/gvc-sound-theme-editor.c:891
+#: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
 msgstr "முன்னிருப்பு"
+
+#: ../gstreamer-properties/gstreamer-properties.c:301
+msgid "Unknown"
+msgstr "தெரியாதது"
 
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
@@ -901,38 +515,38 @@ msgstr "முக்கிய விண்டொவில் தவறு "
 msgid "Failed to load UI file; please check your installation."
 msgstr "யூஐ கோப்பினை ஏற்ற முடியவில்லை; நிறுவலை சரிபார்க்கவும்."
 
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:1
-msgid "Configure defaults for GStreamer applications"
-msgstr "Gஉள்ளமை"
-
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:2
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
+#: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
 msgstr "மல்டிமிடியா அமைப்பு தேர்ந்தெடுக்கப்பட்டது"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Audio"
-msgstr "கேட்பொலி"
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
+msgid "Configure defaults for GStreamer applications"
+msgstr "Gஉள்ளமை"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Click Ok to finish."
-msgstr "முடிக்க ஓகே ஐ சொடுக்கவும்"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "D_evice:"
-msgstr "_e சாதனம்:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "Default Input"
-msgstr "முன்னிருப்பு உள்ளீடு"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "Default Output"
 msgstr "முன்னிருப்பு வெளிப்பாடு"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+#: ../gstreamer-properties/gstreamer-properties.ui.h:3
+msgid "_Plugin:"
+msgstr "_P சொருகி:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
 msgstr "_i குழாய்:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:5
+msgid "_Test"
+msgstr "_T சோதனை"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+msgid "_Device:"
+msgstr "சாதனம் (_D):"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+msgid "Default Input"
+msgstr "முன்னிருப்பு உள்ளீடு"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -947,112 +561,122 @@ msgid "Te_st"
 msgstr "_s சோதனை"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "Testing Pipeline"
-msgstr "குழாய்பாதை சோதிக்கப்படுகிறது"
+msgid "D_evice:"
+msgstr "_e சாதனம்:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Testing..."
-msgstr "சோதிக்கப்படுகிறது..."
+msgid "Audio"
+msgstr "கேட்பொலி"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
 msgstr "வீடியோ"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "_Device:"
-msgstr "சாதனம் (_D):"
+msgid "Testing Pipeline"
+msgstr "குழாய்பாதை சோதிக்கப்படுகிறது"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "_Plugin:"
-msgstr "_P சொருகி:"
+msgid "Testing…"
+msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "_Test"
-msgstr "_T சோதனை"
+msgid "Click Ok to finish."
+msgstr "முடிக்க ஓகே ஐ சொடுக்கவும்"
 
 #: ../gstreamer-properties/pipeline-constants.c:52
-#: ../gstreamer-properties/pipeline-constants.c:86
+#: ../gstreamer-properties/pipeline-constants.c:90
 msgid "Autodetect"
 msgstr "தானாகக் கண்டுபிடித்தல்"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
-#: ../gstreamer-properties/pipeline-constants.c:117
-msgid "ALSA - Advanced Linux Sound Architecture"
-msgstr "அல்ஸா(ALSA) முன்னேறிய லீனக்ஸ் ஒலி கட்டமைப்பு"
+#: ../gstreamer-properties/pipeline-constants.c:121
+msgid "ALSA — Advanced Linux Sound Architecture"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:69
-msgid "Artsd - ART Sound Daemon"
-msgstr "ஆர்ட் எஸ்டி(Artsd) ஏஆர்டி ஒலி கிங்கரன்"
+msgid "Artsd — ART Sound Daemon"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:71
-#: ../gstreamer-properties/pipeline-constants.c:119
-msgid "ESD - Enlightenment Sound Daemon"
-msgstr "ஈஎஸ்டி(ESD) - என்லைட்மென்ட் ஒலி கிங்கரன்"
+#: ../gstreamer-properties/pipeline-constants.c:123
+msgid "ESD — Enlightenment Sound Daemon"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:77
-#: ../gstreamer-properties/pipeline-constants.c:126
-msgid "OSS - Open Sound System"
-msgstr "ஓஎஸ்எஸ் (OSS) - திறந்த ஒலி அமைப்பு"
+#: ../gstreamer-properties/pipeline-constants.c:130
+msgid "OSS — Open Sound System"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:79
-#: ../gstreamer-properties/pipeline-constants.c:128
+#: ../gstreamer-properties/pipeline-constants.c:132
+msgid "OSS - Open Sound System Version 4"
+msgstr ""
+
+#: ../gstreamer-properties/pipeline-constants.c:81
+#: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
 msgstr "பல்ஸ்ஆடியோ ஒலி சேவையகம்"
 
-#: ../gstreamer-properties/pipeline-constants.c:81
-#: ../gstreamer-properties/pipeline-constants.c:112
-#: ../gstreamer-properties/pipeline-constants.c:136
-#: ../gstreamer-properties/pipeline-constants.c:151
-#: ../sound-theme/gvc-sound-theme-chooser.c:620
-#: ../sound-theme/gvc-sound-theme-editor.c:706
-#: ../sound-theme/gvc-sound-theme-editor.c:760
+#: ../gstreamer-properties/pipeline-constants.c:83
+#: ../gstreamer-properties/pipeline-constants.c:134
+msgid "Sun Audio"
+msgstr ""
+
+#: ../gstreamer-properties/pipeline-constants.c:85
+#: ../gstreamer-properties/pipeline-constants.c:116
+#: ../gstreamer-properties/pipeline-constants.c:144
+#: ../gstreamer-properties/pipeline-constants.c:159
+#: ../sound-theme/gvc-sound-theme-chooser.c:629
+#: ../sound-theme/gvc-sound-theme-editor.c:705
+#: ../sound-theme/gvc-sound-theme-editor.c:759
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
 msgstr "வழக்கம்"
 
-#: ../gstreamer-properties/pipeline-constants.c:104
+#: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
 msgstr "OpenGL"
 
-#: ../gstreamer-properties/pipeline-constants.c:106
-msgid "SDL - Simple DirectMedia Layer"
-msgstr "எஸ்டிஎல்(SDL) எளிய நேரடி ஊடக அடுக்கு"
+#: ../gstreamer-properties/pipeline-constants.c:110
+msgid "SDL — Simple DirectMedia Layer"
+msgstr ""
 
-#: ../gstreamer-properties/pipeline-constants.c:108
+#: ../gstreamer-properties/pipeline-constants.c:112
 msgid "X Window System (No Xv)"
 msgstr "எக்ஸ்(X) சாளர அமைப்பு (No Xv)"
 
-#: ../gstreamer-properties/pipeline-constants.c:110
+#: ../gstreamer-properties/pipeline-constants.c:114
 msgid "X Window System (X11/XShm/Xv)"
 msgstr "எக்ஸ்(X) சாளர அமைப்பு (X11/XShm/Xv)"
 
 #. Note: using triangle instead of sine for test sound so we
 #. * can test the vorbis encoder as well (otherwise it'd compress too well)
-#: ../gstreamer-properties/pipeline-constants.c:132
+#: ../gstreamer-properties/pipeline-constants.c:140
 msgid "Test Sound"
 msgstr "சோதனை ஒலி"
 
-#: ../gstreamer-properties/pipeline-constants.c:134
+#: ../gstreamer-properties/pipeline-constants.c:142
 msgid "Silence"
 msgstr "அமைதி"
 
-#: ../gstreamer-properties/pipeline-constants.c:141
+#: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
 msgstr "MJPEG (உதாரணம் ஜோரான் v4l சாதனம்.)"
 
-#: ../gstreamer-properties/pipeline-constants.c:143
+#: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
 msgstr "க்யூகாம்(QCAM)"
 
-#: ../gstreamer-properties/pipeline-constants.c:145
+#: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
 msgstr "சோதனை உள்ளீடு"
 
-#: ../gstreamer-properties/pipeline-constants.c:147
+#: ../gstreamer-properties/pipeline-constants.c:155
 msgid "Video for Linux (v4l)"
 msgstr "லீனக்ஸ் க்கு ஔதத்தோற்றம் (v4l)"
 
-#: ../gstreamer-properties/pipeline-constants.c:149
+#: ../gstreamer-properties/pipeline-constants.c:157
 msgid "Video for Linux 2 (v4l2)"
 msgstr "லீனக்ஸ் 2 க்கு ஔதத்தோற்றம் (v4l2)"
 
@@ -1061,7 +685,7 @@ msgstr "லீனக்ஸ் 2 க்கு ஔதத்தோற்றம் (
 msgid "Failed to construct test pipeline for '%s'"
 msgstr "தேக்கநீக்கத்தில் தவறு '%s'"
 
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:529
+#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "தொடங்கும் போது பிழை.%s"
@@ -1101,36 +725,36 @@ msgid "_Edit"
 msgstr "தொகுப்பு"
 
 #. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:456
+#: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
 msgstr[0] "விவரகுறிப்பு ஐ அழிக்கவா?\n"
 msgstr[1] "விவரகுறிப்புகள் %d ஐ அழிக்கவா?\n"
 
-#: ../profiles/audio-profiles-edit.c:475
+#: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
 msgstr "விவரகுறிப்புகளை அழி\"%s\"?"
 
-#: ../profiles/audio-profiles-edit.c:497
+#: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
 msgstr "விவரகுறிப்புகளை அழி"
 
-#: ../profiles/audio-profiles-edit.c:590
+#: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
 msgstr "MATE கேட்பொலி விவரக்குறிப்புகளை தொகு"
 
-#: ../profiles/audio-profiles-edit.c:639
+#: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
 msgstr "விவரக்குறிப்புகள்"
 
-#: ../profiles/audio-profiles-edit.c:823
+#: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
 msgstr "ஏற்கனவே உள்ள விவரக்குறிப்பு \"%s\" உள்ளது"
 
-#: ../profiles/audio-profiles-edit.c:848
+#: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
 msgstr "Gகான்ஸ்சில் பிழை%s\n"
@@ -1138,8 +762,8 @@ msgstr "Gகான்ஸ்சில் பிழை%s\n"
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed "
-"incorrectly, so the dialog can't be displayed."
+"The file \"%s\" is missing. This indicates that the application is installed"
+" incorrectly, so the dialog can't be displayed."
 msgstr "இந்த கோப்பு \"%s\" இல்லை.இந்த நிரல் தவறானது,அதனால் உரையாடல் காட்டப்படவில்லை."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
@@ -1147,9 +771,7 @@ msgstr "இந்த கோப்பு \"%s\" இல்லை.இந்த ந�
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"%s\n"
-" இருப்பில் உள்ள கட்டளை  வரி தேர்வுகளின் முழுபட்டியலை  அறிய '%s --help' ஐ  இயக்குக\n"
+msgstr "%s\n இருப்பில் உள்ள கட்டளை  வரி தேர்வுகளின் முழுபட்டியலை  அறிய '%s --help' ஐ  இயக்குக\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -1185,72 +807,75 @@ msgid "_Create"
 msgstr "உருவாக்கு"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "A description for the audio profile"
-msgstr "அடியோ விவரக்குறிப்பின் விவரங்கள்"
+msgid "List of profiles"
+msgstr "விவரக்குறிப்பின் பட்டியல்கள்"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:2
 msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr "விவரக்குறிப்பின் விரிவாக்கம்.அதிகமான அறிக்கைகளை சேமி"
+"List of audio recording profiles. The list contains strings naming "
+"subdirectories relative to "
+"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "கேட்பொலி பதிவு விவரக்குறிப்புகள் பட்டியல். பட்டியலை சரங்கள் பெயர்  /system/gstreamer/@GST_MAJORMINOR@/audio/profiles தொடர்புடைய துணை அடைவுகள் ஆகியவற்றை கொண்டுள்ளன."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid "A filename extension to be used when storing files encoded with this profile."
-msgstr "கோப்பின் விவரங்களை உபயோகப்படுத்தி அதற்கான கோப்பில் சேமி"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "_Gஸ்டிரிமெர் தேக்கநீக்கம் விவரக்குறிப்புகளை உபயோகப்படுத்தப்படுகிறது:"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A short name for the audio profile"
 msgstr "அடியோ விவரக்குறிப்பின் பெயர்கள்"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
 msgstr "ஆடியோ விவரக்குறிப்புகளின் பெயர்கள்,"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
+msgid "A description for the audio profile"
+msgstr "அடியோ விவரக்குறிப்பின் விவரங்கள்"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+msgid ""
+"A description of the profile, containing more information and describing "
+"when to use this profile."
+msgstr "விவரக்குறிப்பின் விரிவாக்கம்.அதிகமான அறிக்கைகளை சேமி"
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "CD Quality, AAC"
-msgstr "CD தரம், AAC"
+msgid "The partial GStreamer pipeline used"
+msgstr "Gஸ்டிரிமைர் தேக்கநீக்கம் உபயோகப்படுத்திடு"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "CD Quality, Lossless"
-msgstr "CD தரம், இழப்பிடுகள்"
+msgid "A partial GStreamer pipeline to use for this profile."
+msgstr "_Gஸ்டிரிமெர் தேக்கநீக்கம் விவரக்குறிப்புகளை உபயோகப்படுத்தப்படுகிறது:"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "CD Quality, Lossy"
-msgstr "CD தரம், இழப்பிடுகள்"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid "CD Quality, MP2"
-msgstr "CD தரம், MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "CD Quality, MP3"
-msgstr "CD தரம், MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
-"கேட்பொலி பதிவு விவரக்குறிப்புகள் பட்டியல். பட்டியலை சரங்கள் பெயர்  /system/gstreamer/"
-"@GST_MAJORMINOR@/audio/profiles தொடர்புடைய துணை அடைவுகள் ஆகியவற்றை கொண்டுள்ளன."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
-msgid "List of profiles"
-msgstr "விவரக்குறிப்பின் பட்டியல்கள்"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
 msgid "The default file extension for this profile"
 msgstr "கோப்பின் விவரங்கள் விவரக்குறிப்பில் உள்ளன"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
+msgid ""
+"A filename extension to be used when storing files encoded with this "
+"profile."
+msgstr "கோப்பின் விவரங்களை உபயோகப்படுத்தி அதற்கான கோப்பில் சேமி"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
+msgid "Whether this profile is to be used"
+msgstr ""
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
+msgid "Whether to use and display this profile."
+msgstr ""
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
+msgid "CD Quality, Lossy"
+msgstr "CD தரம், இழப்பிடுகள்"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+msgid ""
+"Used for converting to CD-quality audio, but with a lossy compression codec."
+" Use this for CD extraction and radio recordings."
+msgstr "CD ஆடியோவை உபயோகப்படுத்தி மாற்றுக,"
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "The partial GStreamer pipeline used"
-msgstr "Gஸ்டிரிமைர் தேக்கநீக்கம் உபயோகப்படுத்திடு"
+msgid "CD Quality, Lossless"
+msgstr "CD தரம், இழப்பிடுகள்"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
@@ -1259,81 +884,63 @@ msgid ""
 msgstr "CD ஆடியோவை உபயோகப்படுத்தி மாற்றுக, CD யில் கோப்புகளை உருவாக்கு"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec. "
-"Use this for CD extraction and radio recordings."
-msgstr "CD ஆடியோவை உபயோகப்படுத்தி மாற்றுக,"
+msgid "Voice, Lossless"
+msgstr "குரல், தளர்வில்லாத"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"குறுந்தட்டு தர ஒலியை இழப்புடன் கூடிய ஏஏசி குறியாக்கத்துக்கு மாற்ற உதவுகிறது. இதை "
-"ஏஏசி  குறியாக்கம் மட்டுமே பயன்படுத்தும் சாதனங்களுக்கு கோப்புகளை நகலெடுக்க "
-"பயன்படுத்துங்கள். இந்த பாங்கை பயன்படுத்துவது உங்கள் நாட்டில் சட்ட விரோதமாக இருக்கலாம். உங்கள் "
-"வக்கீலை கலந்தாலோசிக்கவும்."
+"Used for converting to lossless voice-quality audio. Use this for recording "
+"and editing speech."
+msgstr "கேட்பொலி தளர்வு குரல்-தரத்திற்கு மாற்ற பயன்படுத்தப்பட்டது. இதனை பேச்சு பதிவு செய்ய மற்றும்தொகுக்க பயன்படுத்து"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
+msgid "Voice, Lossy"
+msgstr "குரல், தளர்வு"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+msgid ""
+"Used for converting to lossy voice-quality audio. Use this for recording "
+"speech that doesn't need to be edited."
+msgstr "கேட்பொலி தளர்வு குரல்-தரத்திற்கு மாற்ற பயன்படுத்தப்பட்டது. இதனை தொகுக்க தேவையில்லாத குரல் பதிவிற்கு பயன்படுத்து"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
+msgid "CD Quality, MP2"
+msgstr "CD தரம், MP2"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"குறுந்தட்டு தர ஒலியை இழப்புடன் கூடிய எம்பி2 குறியாக்கத்துக்கு மாற்ற உதவுகிறது. இதை "
-"எம்பி2 குறியாக்கம் மட்டுமே பயன்படுத்தும் சாதனங்களுக்கு கோப்புகளை நகலெடுக்க "
-"பயன்படுத்துங்கள். இந்த பாங்கை பயன்படுத்துவது உங்கள் நாட்டில் சட்ட விரோதமாக இருக்கலாம். உங்கள் "
-"வக்கீலை கலந்தாலோசிக்கவும்."
+msgstr "குறுந்தட்டு தர ஒலியை இழப்புடன் கூடிய எம்பி2 குறியாக்கத்துக்கு மாற்ற உதவுகிறது. இதை எம்பி2 குறியாக்கம் மட்டுமே பயன்படுத்தும் சாதனங்களுக்கு கோப்புகளை நகலெடுக்க பயன்படுத்துங்கள். இந்த பாங்கை பயன்படுத்துவது உங்கள் நாட்டில் சட்ட விரோதமாக இருக்கலாம். உங்கள் வக்கீலை கலந்தாலோசிக்கவும்."
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
+msgid "CD Quality, MP3"
+msgstr "CD தரம், MP3"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"குறுந்தட்டு தர ஒலியை இழப்புடன் கூடிய எம்பி3 குறியாக்கத்துக்கு மாற்ற உதவுகிறது. இதை "
-"எம்பி3 குறியாக்கம் மட்டுமே பயன்படுத்தும் சாதனங்களுக்கு கோப்புகளை நகலெடுக்க "
-"பயன்படுத்துங்கள். இந்த பாங்கை பயன்படுத்துவது உங்கள் நாட்டில் சட்ட விரோதமாக இருக்கலாம். உங்கள் "
-"வக்கீலை கலந்தாலோசிக்கவும்."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr ""
-"கேட்பொலி தளர்வு குரல்-தரத்திற்கு மாற்ற பயன்படுத்தப்பட்டது. இதனை பேச்சு பதிவு செய்ய "
-"மற்றும்தொகுக்க பயன்படுத்து"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr ""
-"கேட்பொலி தளர்வு குரல்-தரத்திற்கு மாற்ற பயன்படுத்தப்பட்டது. இதனை தொகுக்க தேவையில்லாத குரல் "
-"பதிவிற்கு பயன்படுத்து"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "Voice, Lossless"
-msgstr "குரல், தளர்வில்லாத"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid "Voice, Lossy"
-msgstr "குரல், தளர்வு"
+msgstr "குறுந்தட்டு தர ஒலியை இழப்புடன் கூடிய எம்பி3 குறியாக்கத்துக்கு மாற்ற உதவுகிறது. இதை எம்பி3 குறியாக்கம் மட்டுமே பயன்படுத்தும் சாதனங்களுக்கு கோப்புகளை நகலெடுக்க பயன்படுத்துங்கள். இந்த பாங்கை பயன்படுத்துவது உங்கள் நாட்டில் சட்ட விரோதமாக இருக்கலாம். உங்கள் வக்கீலை கலந்தாலோசிக்கவும்."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "Whether or not this profile is to be used"
-msgstr "விவரக்குறிப்பை உபயோகப்படுத்து"
+msgid "CD Quality, AAC"
+msgstr "CD தரம், AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid "Whether or not to use and display this profile."
-msgstr "விவரக்குறிப்பை உபயோகப்படுத்தி காட்டு"
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
+"this for preparing files for copying to devices that only support the AAC "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "குறுந்தட்டு தர ஒலியை இழப்புடன் கூடிய ஏஏசி குறியாக்கத்துக்கு மாற்ற உதவுகிறது. இதை ஏஏசி  குறியாக்கம் மட்டுமே பயன்படுத்தும் சாதனங்களுக்கு கோப்புகளை நகலெடுக்க பயன்படுத்துங்கள். இந்த பாங்கை பயன்படுத்துவது உங்கள் நாட்டில் சட்ட விரோதமாக இருக்கலாம். உங்கள் வக்கீலை கலந்தாலோசிக்கவும்."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
-#: ../sound-theme/gvc-sound-theme-editor.c:523
+#: ../sound-theme/gvc-sound-theme-editor.c:522
 msgid "No sounds"
 msgstr "ஒலியளவு இல்லை"
 
@@ -1341,19 +948,19 @@ msgstr "ஒலியளவு இல்லை"
 msgid "Built-in"
 msgstr "உட்பொதியப்பட்டது"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:733
-#: ../sound-theme/gvc-sound-theme-chooser.c:744
-#: ../sound-theme/gvc-sound-theme-chooser.c:756
-#: ../sound-theme/gvc-sound-theme-editor.c:563
-#: ../sound-theme/gvc-sound-theme-editor.c:952
+#: ../sound-theme/gvc-sound-theme-chooser.c:742
+#: ../sound-theme/gvc-sound-theme-chooser.c:753
+#: ../sound-theme/gvc-sound-theme-chooser.c:765
+#: ../sound-theme/gvc-sound-theme-editor.c:562
+#: ../sound-theme/gvc-sound-theme-editor.c:951
 msgid "Testing event sound"
 msgstr "ஒலி நிகழ்வை சோதிக்கிறது"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:842
+#: ../sound-theme/gvc-sound-theme-chooser.c:851
 msgid "From theme"
 msgstr "தீமிலிருந்து"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:872
+#: ../sound-theme/gvc-sound-theme-chooser.c:881
 msgid "Type"
 msgstr "வகை"
 
@@ -1370,140 +977,143 @@ msgid "Enable _window and button sounds"
 msgstr "சாளரம் மற்றும் பொத்தான் ஒலிகளை செயல்படுத்து ( _w)"
 
 #. Bell
-#: ../sound-theme/gvc-sound-theme-editor.c:76
+#: ../sound-theme/gvc-sound-theme-editor.c:79
 msgctxt "Sound event"
 msgid "Alert sound"
 msgstr "எச்சரிக்கை ஒலியளவு"
 
 #. Windows and buttons
-#: ../sound-theme/gvc-sound-theme-editor.c:78
+#: ../sound-theme/gvc-sound-theme-editor.c:81
 msgctxt "Sound event"
 msgid "Windows and Buttons"
 msgstr "வின்டோஸ் மற்றும் பட்டன்கள்"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:79
+#: ../sound-theme/gvc-sound-theme-editor.c:82
 msgctxt "Sound event"
 msgid "Button clicked"
 msgstr "பொத்தான் சொடுக்கப்பட்டது"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:80
+#: ../sound-theme/gvc-sound-theme-editor.c:83
 msgctxt "Sound event"
 msgid "Toggle button clicked"
 msgstr "மாற்று பொத்தான் சொடுக்கப்பட்டது"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:81
+#: ../sound-theme/gvc-sound-theme-editor.c:84
 msgctxt "Sound event"
 msgid "Window maximized"
 msgstr "சாரளம் பெரிதாக்கப்பட்டது"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:82
+#: ../sound-theme/gvc-sound-theme-editor.c:85
 msgctxt "Sound event"
 msgid "Window unmaximized"
 msgstr "சாளர குறைத்தல் நீக்கு"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:83
+#: ../sound-theme/gvc-sound-theme-editor.c:86
 msgctxt "Sound event"
 msgid "Window minimised"
 msgstr "சாளர குறைத்தல்"
 
 #. Desktop
-#: ../sound-theme/gvc-sound-theme-editor.c:85
+#: ../sound-theme/gvc-sound-theme-editor.c:88
 msgctxt "Sound event"
 msgid "Desktop"
 msgstr "பணிமேடை"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:86
+#: ../sound-theme/gvc-sound-theme-editor.c:89
 msgctxt "Sound event"
 msgid "Login"
 msgstr "உள்நுழை"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:87
+#: ../sound-theme/gvc-sound-theme-editor.c:90
 msgctxt "Sound event"
 msgid "Logout"
 msgstr "வெளியேறு"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:88
+#: ../sound-theme/gvc-sound-theme-editor.c:91
 msgctxt "Sound event"
 msgid "New e-mail"
 msgstr "புதிய மின்னஞ்சல்"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:89
+#: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
 msgstr "குப்பையை வெற்றுப்படுத்து"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:90
+#: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
 msgstr "நீண்ட செயல் முடிந்தது (பதிவிறக்கம், குறுவட்டு எழுதுதல் முதலியவை)"
 
 #. Alerts?
-#: ../sound-theme/gvc-sound-theme-editor.c:92
+#: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
 msgid "Alerts"
 msgstr "எச்சரிக்கைகள்"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:93
+#: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
 msgid "Information or question"
 msgstr "தகவல் அல்லது கேள்வி"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:94
+#: ../sound-theme/gvc-sound-theme-editor.c:97
 msgctxt "Sound event"
 msgid "Warning"
 msgstr "எச்சரிக்கை"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:95
+#: ../sound-theme/gvc-sound-theme-editor.c:98
 msgctxt "Sound event"
 msgid "Error"
 msgstr "பிழை"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:96
+#: ../sound-theme/gvc-sound-theme-editor.c:99
 msgctxt "Sound event"
 msgid "Battery warning"
 msgstr "பாட்டரி எச்சரிக்கை"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:593
+#: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
 msgstr "ஒலி கோப்பினை தேர்ந்தெடு"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:604
+#: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
 msgstr "ஒலியளவு கோப்புக்கள்"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:900
-msgid "Custom..."
-msgstr "வழக்கம்..."
+#: ../sound-theme/gvc-sound-theme-editor.c:899
+msgid "Custom…"
+msgstr ""
 
-#: ../sound-theme/gvc-sound-theme-editor.c:1310
+#: ../sound-theme/gvc-sound-theme-editor.c:1302
 msgid "Sound Theme:"
 msgstr "ஒலியை பதிவு சேய் "
 
-#: ../sound-theme/gvc-sound-theme-editor.c:1338
+#: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
 msgstr "சாளரம் மற்றும் பொத்தான் ஒலிகளை செயல்படுத்து"
 
-#. Translators: This is the name of an audio file that sounds like the bark of a dog.
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "Bark"
 
-#. Translators: This is the name of an audio file that sounds like a water drip.
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "Drip"
 
-#. Translators: This is the name of an audio file that sounds like tapping glass.
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "க்ளாஸ்"
 
-#. Translators: This is the name of an audio file that sounds sort of like a submarine sonar ping.
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "சோனார்"
-

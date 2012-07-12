@@ -1,47 +1,41 @@
-# Bengali Translation of the mate-media.
-# This file is distributed under the same license as the MATE-MEDIA package.
-# Copyright (C) 2003-2005 The MATE Foundation.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# Sayamindu Dasgupta <unmadindu@Softhome.net>, 2003.
-# Runa Bhattacharjee <runab77@Softhome.net>, 2003.
-# Progga <progga@BengaLinux.Org>, 2005.
-# Runa Bhattacharjee <runabh@gmail.com>, 2006.
-# Runa Bhattacharjee <runab@redhat.com>, 2008, 2009.
-# Maruf Ovee <maruf@ankur.org.bd>, 2009.
+# Translators:
 # Sadia Afroz <sadia@ankur.org.bd>, 2010.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: bn\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=mate-"
-"media&component=general\n"
-"POT-Creation-Date: 2010-01-17 19:48+0000\n"
-"PO-Revision-Date: 2010-01-24 15:41+0600\n"
-"Last-Translator: Sadia Afroz <sadia@ankur.org.bd>\n"
-"Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 14:50+0200\n"
+"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: bn\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-msgid "Show desktop volume control"
-msgstr "ডেস্কটপের মধ্যে ভলিউম নিয়ন্ত্রণ ব্যবস্থা প্রদর্শন করা হবে"
-
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-msgid "Change sound volume and sound events"
-msgstr "ভলিউম পরিবর্তন করুন ও নির্দিষ্ট ঘটনার সাথে শব্দ যুক্ত করুন"
+#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+msgid "Show desktop volume control"
+msgstr "ডেস্কটপের মধ্যে ভলিউম নিয়ন্ত্রণ ব্যবস্থা প্রদর্শন করা হবে"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "শব্দ"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "ভলিউম পরিবর্তন করুন ও নির্দিষ্ট ঘটনার সাথে শব্দ যুক্ত করুন"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -54,8 +48,8 @@ msgid "Version of this application"
 msgstr "এই অ্যাপ্লিকেশনের সংস্করণ"
 
 #: ../mate-volume-control/src/applet-main.c:62
-msgid " - MATE Volume Control Applet"
-msgstr " - MATE শব্দের মাত্রা নিয়ন্ত্রণের অ্যাপ্লেট"
+msgid " — MATE Volume Control Applet"
+msgstr ""
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
@@ -66,646 +60,250 @@ msgid "Startup page"
 msgstr "প্রারম্ভিক পৃষ্ঠা"
 
 #: ../mate-volume-control/src/dialog-main.c:168
-msgid " - MATE Volume Control"
-msgstr " -MATE ভলিউম নিয়ন্ত্রণকারী"
+msgid " — MATE Volume Control"
+msgstr ""
 
-#: ../mate-volume-control/src/gvc-applet.c:273
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1830
+#: ../mate-volume-control/src/gvc-applet.c:275
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
 msgstr "আউটপুট"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1744
+msgid "Sound Output Volume"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-applet.c:281
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
 msgstr "ইনপুট"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:108
+#: ../mate-volume-control/src/gvc-applet.c:283
+msgid "Microphone Volume"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
 msgstr "বামদিকে"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:109
+#: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
 msgstr "ডানদিকে"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:112
+#: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
 msgstr "পেছনের অংশ"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:113
+#: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
 msgstr "সামনে"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:116
+#: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
 msgstr "সর্বনিম্ন"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:117
+#: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
 msgstr "সর্বোচ্চ"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:291
+#: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
 msgstr "ভারসাম্য: (_B)"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:294
+#: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
 msgstr "ফেইড (_F):"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:297
+#: ../mate-volume-control/src/gvc-balance-bar.c:300
 msgid "_Subwoofer:"
 msgstr "সাবউফার (_S):"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:592
+#: ../mate-volume-control/src/gvc-channel-bar.c:602
+#: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
 msgstr "১০০%"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:596
+#: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "অ্যাম্পলিফাই করা হবেনা"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:852
+#: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
 msgstr "নিঃশব্দ"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-combo-box.c:148
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1494
+#: ../mate-volume-control/src/gvc-combo-box.c:166
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
 msgstr "প্রোফাইল: (_P)"
 
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-control.c:991
-#: ../sound-theme/gvc-sound-theme-editor.c:896
-#: ../sound-theme/gvc-sound-theme-editor.c:992
+#: ../mate-volume-control/src/gvc-mixer-control.c:1005
+#: ../sound-theme/gvc-sound-theme-editor.c:895
+#: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
 msgstr "নিষ্ক্রিয়"
 
-# Translated by sadia
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:998
+#: ../mate-volume-control/src/gvc-mixer-control.c:1012
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] "%u আউটপুট"
 msgstr[1] "%u আউটপুট"
 
-# Translated by sadia
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1008
+#: ../mate-volume-control/src/gvc-mixer-control.c:1022
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u ইনপুট"
 msgstr[1] "%u ইনপুট"
 
-#: ../mate-volume-control/src/gvc-mixer-control.c:1304
+#: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
 msgstr "সিস্টেমের শব্দ"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:305
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:564
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:309
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:604
 msgid "Co_nnector:"
 msgstr "সংযোগকারী: (_n)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:510
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:517
 msgid "Peak detect"
 msgstr "সর্বাধিক মাত্রা সনাক্ত"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1423
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1576
-#: ../sound-theme/gvc-sound-theme-chooser.c:865
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
+#: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
 msgstr "নাম"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1428
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
 msgstr "ডিভাইস"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1650
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
+#, c-format
+msgid "Speaker Testing for %s"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
+msgid "Test Speakers"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
 msgstr "আউটপুট ভলিউম: (_O)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1681
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
 msgstr "শব্দের ইফেক্ট"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1688
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
 msgstr "সতর্কবার্তার ভলিউম: (_A)"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1701
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
 msgstr "হার্ডওয়্যার"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1706
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
 msgstr "কনফিগার করার জন্য একটি ডিভাইস নির্বাচন করুন: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1733
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1862
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
 msgstr "নির্বাচিত ডিভাইসের বৈশিষ্ট্য:"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1751
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
 msgstr "ইনপুট ভলিউম: (_I)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1774
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
 msgstr "ইনপুটের মাত্রা:"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1800
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
 msgstr "শব্দের ইনপুটের জন্য একটি ডিভাইস নির্বাচন করুন: (_h)"
 
-# Translated by sadia
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1835
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
 msgstr "শব্দের আউটপুটের জন্য একটি ডিভাইস নির্বাচন করুন: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1873
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1877
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
 msgstr "কোনো অ্যাপ্লিকেশন দ্বারা বর্তমানে অডিও বাজানো অথবা রেকর্ড করা হচ্ছে না।"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2001
-#: ../sound-theme/gvc-sound-theme-chooser.c:730
-#: ../sound-theme/gvc-sound-theme-chooser.c:742
-#: ../sound-theme/gvc-sound-theme-chooser.c:754
-#: ../sound-theme/gvc-sound-theme-editor.c:561
-#: ../sound-theme/gvc-sound-theme-editor.c:950
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
+#: ../sound-theme/gvc-sound-theme-chooser.c:739
+#: ../sound-theme/gvc-sound-theme-chooser.c:751
+#: ../sound-theme/gvc-sound-theme-chooser.c:763
+#: ../sound-theme/gvc-sound-theme-editor.c:560
+#: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
 msgstr "শব্দ সংক্রান্ত পছন্দ"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/src/gvc-speaker-test.c:220
+msgid "Stop"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-speaker-test.c:220
+#: ../mate-volume-control/src/gvc-speaker-test.c:332
+msgid "Test"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-speaker-test.c:228
+msgid "Subwoofer"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "শব্দ সংক্রান্ত পছন্দের মান আরম্ভ করতে ব্যর্থ: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:255
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
 msgstr "নিঃশব্দ (_M):"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:264
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
 msgstr "শব্দ সংক্রান্ত পছন্দ (_S)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:448
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
 msgstr "নিঃশব্দ অবস্থা"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:1
-msgid "Record sound clips"
-msgstr "শব্দের অংশ রেকর্ড করুন"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:2
-#: ../grecord/src/gsr-window.c:1238
-msgid "Sound Recorder"
-msgstr "শব্দ রেকর্ড ব্যবস্থা"
-
-#. Translator comment: default trackname is 'untitled', which
-#. * has as effect that the user cannot save to this file. The
-#. * 'save' action will open the save-as dialog instead to give
-#. * a proper filename. See mate-record.c:94.
-#: ../grecord/src/mate-recorder.c:142 ../grecord/src/gsr-window.c:1741
-#: ../grecord/src/gsr-window.c:2690
-msgid "Untitled"
-msgstr "শিরোনামহীন"
-
-#: ../grecord/src/mate-recorder.c:144 ../grecord/src/gsr-window.c:1743
-#, c-format
-msgid "Untitled-%d"
-msgstr "শিরোনামহীন-%d"
-
-#: ../grecord/src/gsr-window.c:193
-#, c-format
-msgid ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plug-in from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-msgstr ""
-"GStreamer %1$s বস্তু নির্মাণ করতে ব্যর্থ।\n"
-"অনুগ্রহ করে '%2$s' প্লাগ-ইন ('%3$s' মডিউলে উপস্থিত), ইনস্টল করুন।\n"
-"নিম্নলিখিত কমান্ড ব্যবহার করে ইনস্টলেশনের যথার্থতা পরীক্ষা করুন\n"
-"    gst-inspect-0.10 %4$s\n"
-"ও mate-sound-recorder পুনরারম্ভ করুন।"
-
-#: ../grecord/src/gsr-window.c:209
-msgid ""
-"Please verify its settings.\n"
-"You may be missing the necessary plug-ins."
-msgstr ""
-"অনুগ্রহ করে বৈশিষ্ট্য পরীক্ষা করুন।\n"
-"প্রয়োজনীয় প্লাগ-ইন উপস্থিত না থাকতে পারে।"
-
-#: ../grecord/src/gsr-window.c:294
-#, c-format
-msgid "%ld minute"
-msgid_plural "%ld minutes"
-msgstr[0] "%ld মিনিট"
-msgstr[1] "%ld মিনিট"
-
-#: ../grecord/src/gsr-window.c:295
-#, c-format
-msgid "%ld hour"
-msgid_plural "%ld hours"
-msgstr[0] "%ld ঘন্টা"
-msgstr[1] "%ld ঘন্টা"
-
-#: ../grecord/src/gsr-window.c:296
-#, c-format
-msgid "%ld second"
-msgid_plural "%ld seconds"
-msgstr[0] "%ld সেকেন্ড"
-msgstr[1] "%ld সেকেন্ড"
-
-#. Translators: the format is "X hours, X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:303
-#, c-format
-msgid "%s, %s and %s"
-msgstr "%1$s, %2$s ও %3$s"
-
-#. Translators: the format is "X hours and X minutes"
-#. Translators: the format is "X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:309 ../grecord/src/gsr-window.c:317
-#: ../grecord/src/gsr-window.c:328
-#, c-format
-msgid "%s and %s"
-msgstr "%1$s ও %2$s"
-
-#: ../grecord/src/gsr-window.c:371
-msgid "Open a File"
-msgstr "একটি ফাইল খুলুন"
-
-#: ../grecord/src/gsr-window.c:448
-#, c-format
-msgid ""
-"Unable to load file:\n"
-"%s"
-msgstr ""
-"চিহ্নিত ফাইল লোড করা যায়নি:\n"
-"%s"
-
-#: ../grecord/src/gsr-window.c:594 ../grecord/src/gsr-window.c:1540
-#: ../grecord/src/gsr-window.c:1800 ../grecord/src/gsr-window.c:2501
-msgid "Ready"
-msgstr "প্রস্তুত"
-
-#. Add replace button
-#: ../grecord/src/gsr-window.c:647
-msgid "_Replace"
-msgstr "প্রতিস্থাপন (_R)"
-
-#: ../grecord/src/gsr-window.c:664
-#, c-format
-msgid ""
-"A file named \"%s\" already exists. \n"
-"Do you want to replace it with the one you are saving?"
-msgstr ""
-"\"%s\" ফাইলটি বর্তমানে উপস্থিত। \n"
-"সংরক্ষণের জন্য চিহ্নিত ফাইল দ্বারা বর্তমান ফাইলটি কি প্রতিস্থাপন করা হবে?"
-
-#: ../grecord/src/gsr-window.c:712
-#, c-format
-msgid "Could not save the file \"%s\""
-msgstr "\"%s\" ফাইলটি সংরক্ষণ করা যায়নি"
-
-#: ../grecord/src/gsr-window.c:732
-msgid "Save file as"
-msgstr "নতুন ভাবে ফাইল সংরক্ষণ করুন"
-
-#: ../grecord/src/gsr-window.c:826
-#, c-format
-msgid "%s is not installed in the path."
-msgstr "পথ নির্দেশে %s ইনস্টল করা নেই।"
-
-#: ../grecord/src/gsr-window.c:835
-#, c-format
-msgid "There was an error starting %s: %s"
-msgstr "%1$s আরম্ভ করতে ত্রুটি: %2$s"
-
-#: ../grecord/src/gsr-window.c:864
-msgid "Save recording before closing?"
-msgstr "বন্ধ করার আগে কি রেকর্ডিং সংরক্ষণ করা হবে?"
-
-#: ../grecord/src/gsr-window.c:865
-msgid "Save recording?"
-msgstr "রেকর্ডিং কি সংরক্ষণ করা হবে?"
-
-#: ../grecord/src/gsr-window.c:869
-msgid "Close _without Saving"
-msgstr "সংরক্ষণ না করেই বন্ধ করুন (_w)"
-
-#: ../grecord/src/gsr-window.c:870
-msgid "Continue _without Saving"
-msgstr "সংরক্ষণ না করেই চালিয়ে যান (_w)"
-
-#: ../grecord/src/gsr-window.c:880
-msgid "Question"
-msgstr "প্রশ্ন"
-
-#: ../grecord/src/gsr-window.c:987
-#, c-format
-msgid "%s (Has not been saved)"
-msgstr "%s (সংরক্ষণ করা হয়নি)"
-
-#: ../grecord/src/gsr-window.c:1003
-#, c-format
-msgid "%s (%llu byte)"
-msgid_plural "%s (%llu bytes)"
-msgstr[0] "%s (%llu বাইট)"
-msgstr[1] "%s (%llu বাইট)"
-
-#: ../grecord/src/gsr-window.c:1007
-msgid "Unknown size"
-msgstr "অজানা মাপ"
-
-#. Attempts to get length ran out.
-#: ../grecord/src/gsr-window.c:1016 ../grecord/src/gsr-window.c:1026
-#: ../grecord/src/gsr-window.c:1042 ../grecord/src/gsr-window.c:1051
-#: ../grecord/src/gsr-window.c:1408
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "অজানা"
-
-#: ../grecord/src/gsr-window.c:1028
-#, c-format
-msgid "%.1f kHz"
-msgstr "%.1f kHz"
-
-#: ../grecord/src/gsr-window.c:1036
-#, c-format
-msgid "%.0f kb/s"
-msgstr "%.0f kb/s"
-
-#: ../grecord/src/gsr-window.c:1039
-#, c-format
-msgid "%.0f kb/s (Estimated)"
-msgstr "%.0f kb/s (আনুমানিক)"
-
-#: ../grecord/src/gsr-window.c:1054
-msgid "1 (mono)"
-msgstr "১ (মোনো)"
-
-#: ../grecord/src/gsr-window.c:1057
-msgid "2 (stereo)"
-msgstr "২ (স্টেরিও)"
-
-#: ../grecord/src/gsr-window.c:1084
-#, c-format
-msgid "%s Information"
-msgstr "%s তথ্য"
-
-#: ../grecord/src/gsr-window.c:1108 ../grecord/src/gsr-window.c:2413
-msgid "File Information"
-msgstr "ফাইল সম্বন্ধীয় তথ্য"
-
-#: ../grecord/src/gsr-window.c:1123
-msgid "Folder:"
-msgstr "ফোল্ডার:"
-
-#: ../grecord/src/gsr-window.c:1129 ../grecord/src/gsr-window.c:2420
-msgid "Filename:"
-msgstr "ফাইলের নাম:"
-
-#: ../grecord/src/gsr-window.c:1135
-msgid "File size:"
-msgstr "ফাইলের মাপ:"
-
-#: ../grecord/src/gsr-window.c:1144
-msgid "Audio Information"
-msgstr "অডিও সম্বন্ধীয় তথ্য"
-
-#: ../grecord/src/gsr-window.c:1159
-msgid "File duration:"
-msgstr "ফাইলের ব্যাপ্তি:"
-
-#: ../grecord/src/gsr-window.c:1165
-msgid "Number of channels:"
-msgstr "চ্যানেল সংখ্যা:"
-
-#: ../grecord/src/gsr-window.c:1171
-msgid "Sample rate:"
-msgstr "স্যাম্পলের গতি:"
-
-#: ../grecord/src/gsr-window.c:1177
-msgid "Bit rate:"
-msgstr "বিট মাত্রা:"
-
-#: ../grecord/src/gsr-window.c:1241
-msgid ""
-"A sound recorder for MATE\n"
-" mate-multimedia@gnome.org"
-msgstr ""
-"MATE-র সাথে ব্যবহারযোগ্য শব্দ রেকর্ড ব্যবস্থা\n"
-" mate-multimedia@gnome.org"
-
-#: ../grecord/src/gsr-window.c:1512
-msgid "Playing..."
-msgstr "বাজানো হচ্ছে..."
-
-#: ../grecord/src/gsr-window.c:1644
-msgid "MateConf audio output"
-msgstr "MateConf অডিও আউটপুট"
-
-#: ../grecord/src/gsr-window.c:1653 ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "প্লে-ব্যাক"
-
-#: ../grecord/src/gsr-window.c:1732
-msgid "Recording..."
-msgstr "রেকর্ড করা হচ্ছে..."
-
-#: ../grecord/src/gsr-window.c:1822
-msgid "MateConf audio recording"
-msgstr "MateConf অডিও রেকর্ড ব্যবস্থা"
-
-#: ../grecord/src/gsr-window.c:1831
-msgid ""
-"Your audio capture settings are invalid. Please correct them with the "
-"\"Sound Preferences\" under the System-Preferences menu."
-msgstr ""
-"অডিও ক্যাপচার সংক্রান্ত বৈশিষ্ট্যগুলি বৈধ নয়। অনুগ্রহ করে সিস্টেম-পছন্দ মেনুর মধ্যে "
-"\"শব্দ সংক্রান্ত পছন্দ\" প্রয়োগ করে বৈশিষ্ট্যগুলি পরিবর্তন করুন।"
-
-#: ../grecord/src/gsr-window.c:2003
-msgid "file output"
-msgstr "ফাইল আউটপুট"
-
-#: ../grecord/src/gsr-window.c:2021
-msgid "level"
-msgstr "মাত্রা"
-
-#: ../grecord/src/gsr-window.c:2045
-#, c-format
-msgid "Could not parse the '%s' audio profile. "
-msgstr "'%s' অডিও প্রোফাইল পার্স করতে ব্যর্থ। "
-
-#: ../grecord/src/gsr-window.c:2062
-#, c-format
-msgid "Could not capture using the '%s' audio profile. "
-msgstr "'%s' অডিও প্রোফাইল সহযোগে ক্যাপচার করা যায়নি। "
-
-#: ../grecord/src/gsr-window.c:2071
-#, c-format
-msgid "Could not write to a file using the '%s' audio profile. "
-msgstr "'%s' অডিও প্রোফাইল সহযোগে লিখতে ব্যর্থ"
-
-#. File menu.
-#: ../grecord/src/gsr-window.c:2125
-msgid "_File"
-msgstr "ফাইল (_F)"
-
-#: ../grecord/src/gsr-window.c:2127
-msgid "Create a new sample"
-msgstr "নতুন নমূনা তৈরি করুন"
-
-#: ../grecord/src/gsr-window.c:2129
-msgid "Open a file"
-msgstr "ফাইল খুলুন"
-
-#: ../grecord/src/gsr-window.c:2131
-msgid "Save the current file"
-msgstr "বর্তমান ফাইল সংরক্ষণ করুন"
-
-#: ../grecord/src/gsr-window.c:2133
-msgid "Save the current file with a different name"
-msgstr "ভিন্ন নামে বর্তমান ফাইল সংরক্ষণ করুন"
-
-#: ../grecord/src/gsr-window.c:2134
-msgid "Open Volu_me Control"
-msgstr "ভলিউম নিয়ন্ত্রণ খুলুন (_m)"
-
-#: ../grecord/src/gsr-window.c:2135
-msgid "Open the audio mixer"
-msgstr "অডিও-মিক্সার আরম্ভ করুন"
-
-#: ../grecord/src/gsr-window.c:2137
-msgid "Show information about the current file"
-msgstr "বর্তমান ফাইল সংক্রান্ত তথ্য প্রদর্শন করা হবে"
-
-#: ../grecord/src/gsr-window.c:2139
-msgid "Close the current file"
-msgstr "বর্তমান ফাইল বন্ধ করুন"
-
-#: ../grecord/src/gsr-window.c:2141
-msgid "Quit the program"
-msgstr "প্রোগ্রাম থেকে প্রস্থান করুন"
-
-#. Control menu
-#: ../grecord/src/gsr-window.c:2144
-msgid "_Control"
-msgstr "নিয়ন্ত্রণ (_C)"
-
-#: ../grecord/src/gsr-window.c:2146
-msgid "Record sound"
-msgstr "শব্দ রেকর্ড করুন"
-
-#: ../grecord/src/gsr-window.c:2148
-msgid "Play sound"
-msgstr "শব্দ বাজান"
-
-#: ../grecord/src/gsr-window.c:2150
-msgid "Stop sound"
-msgstr "শব্দ বন্ধ করুন"
-
-#. Help menu
-#: ../grecord/src/gsr-window.c:2153
-msgid "_Help"
-msgstr "সহায়তা (_H)"
-
-#: ../grecord/src/gsr-window.c:2154
-msgid "Contents"
-msgstr "বিষয়বস্তু"
-
-#: ../grecord/src/gsr-window.c:2155
-msgid "Open the manual"
-msgstr "সহায়িকা খুলুন"
-
-#: ../grecord/src/gsr-window.c:2157
-msgid "About this application"
-msgstr "অ্যাপ্লিকেশন পরিচিতি"
-
-#: ../grecord/src/gsr-window.c:2279
-msgid "Could not load ui.xml. The program may be not properly installed"
-msgstr "ui.xml লোড করা যায়নি।  এই প্রোগ্রামটি সম্ভবত সঠিকভাবে ইনস্টল করা হয়নি"
-
-#: ../grecord/src/gsr-window.c:2302
-msgid "Open"
-msgstr "খুলুন"
-
-#: ../grecord/src/gsr-window.c:2304
-msgid "Save"
-msgstr "সংরক্ষণ করুন"
-
-#: ../grecord/src/gsr-window.c:2306
-msgid "Save As"
-msgstr "নতুন ভাবে সংরক্ষণ করুন"
-
-#: ../grecord/src/gsr-window.c:2362
-msgid "Record from _input:"
-msgstr "প্রাপ্ত ইনপুট থেকে রেকর্ড করা হবে (_i):"
-
-#: ../grecord/src/gsr-window.c:2380
-msgid "_Record as:"
-msgstr "চিহ্নিত ভাবে রেকর্ড করা হবে (_R):"
-
-#: ../grecord/src/gsr-window.c:2427
-msgid "<none>"
-msgstr "<none>"
-
-#: ../grecord/src/gsr-window.c:2441
-msgid "Length:"
-msgstr "ব্যাপ্তি:"
-
-#: ../grecord/src/gsr-window.c:2479
-msgid "Level:"
-msgstr "মাত্রা:"
-
-#. Translators: this is the window title, %s is the currently open file's name or Untitled
-#: ../grecord/src/gsr-window.c:2574
-#, c-format
-msgid "%s - Sound Recorder"
-msgstr "%s - শব্দ রেকর্ডকারী"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
 msgstr "উইন্ডোর উচ্চতা"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
-msgid "Height of the Window to be displayed"
-msgstr "প্রদর্শনযোগ্য উইন্ডোর উচ্চতা"
+msgid "Height of the window to be displayed."
+msgstr ""
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
 msgstr "উইন্ডোর প্রস্থ"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
-msgid "Width of the Window to be displayed"
-msgstr "প্রদর্শনযোগ্য উইন্ডোর প্রস্থ"
+msgid "Width of the window to be displayed."
+msgstr ""
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
@@ -720,11 +318,14 @@ msgstr "অজ্ঞাত ভলিউম নিয়ন্ত্রক %d"
 msgid "No volume control GStreamer plugins and/or devices found."
 msgstr "শব্দ নিয়ন্ত্রণের জন্য GStreamer প্লাগ-ইন এবং/অথবা ডিভাইস পাওয়া যায়নি।"
 
+#: ../gst-mixer/src/misc.c:62
+msgid "Playback"
+msgstr "প্লে-ব্যাক"
+
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
 msgstr "রেকর্ড করা হচ্ছে"
 
-# FIXME
 #: ../gst-mixer/src/misc.c:66
 msgid "Switches"
 msgstr "পরিবর্তক"
@@ -750,8 +351,8 @@ msgstr "%s:"
 #. mute button
 #: ../gst-mixer/src/track.c:339
 #, c-format
-msgid "Mute/unmute %s"
-msgstr "নিঃশব্দ/শব্দ %s"
+msgid "Mute/Unmute %s"
+msgstr ""
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
@@ -864,10 +465,7 @@ msgstr "MATE/GStreamer-ভিত্তিক শব্দমাত্রা ন�
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr ""
-"অঙ্কুর প্রকল্পের পক্ষে, সায়মিন্দু দাশগুপ্ত <unmadindu@bengalinux.org>\n"
-"রুণা ভট্টাচার্য <Runa@Bengalinux.org>\n"
-"প্রজ্ঞা <progga@BengaLinux.Org>"
+msgstr "অঙ্কুর প্রকল্পের পক্ষে, সায়মিন্দু দাশগুপ্ত <unmadindu@bengalinux.org>\nরুণা ভট্টাচার্য <Runa@Bengalinux.org>\nপ্রজ্ঞা <progga@BengaLinux.Org>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -894,11 +492,15 @@ msgid "Unsupported"
 msgstr "অসমর্থিত"
 
 #: ../gstreamer-properties/gstreamer-properties.c:268
-#: ../sound-theme/gvc-sound-theme-chooser.c:841
-#: ../sound-theme/gvc-sound-theme-editor.c:892
-#: ../sound-theme/gvc-sound-theme-editor.c:996
+#: ../sound-theme/gvc-sound-theme-chooser.c:850
+#: ../sound-theme/gvc-sound-theme-editor.c:891
+#: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
 msgstr "ডিফল্ট"
+
+#: ../gstreamer-properties/gstreamer-properties.c:301
+msgid "Unknown"
+msgstr "অজানা"
 
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
@@ -908,38 +510,38 @@ msgstr "মূল উইন্ডো আরম্ভ করার প্রক�
 msgid "Failed to load UI file; please check your installation."
 msgstr "UI ফাইল লোড করতে ব্যর্থ; অনুগ্রহ করে ইনস্টলেশন পরীক্ষা করুন।"
 
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:1
-msgid "Configure defaults for GStreamer applications"
-msgstr "GStreamer অ্যাপ্লিকেশনের জন্য ডিফল্ট মান কনফিগার করুন"
-
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:2
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
+#: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
 msgstr "মাল্টিমিডিয়া সিস্টেম নির্বাচক"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Audio"
-msgstr "অডিও"
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
+msgid "Configure defaults for GStreamer applications"
+msgstr "GStreamer অ্যাপ্লিকেশনের জন্য ডিফল্ট মান কনফিগার করুন"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Click Ok to finish."
-msgstr "কর্ম সমাপ্ত করার জন্য ঠিক আছে ক্লিক করুন।"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "D_evice:"
-msgstr "ডিভাইস: (_e)"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "Default Input"
-msgstr "পূর্বনির্ধারিত ইনপুট"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "Default Output"
 msgstr "পূর্বনির্ধারিত আউটপুট"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+#: ../gstreamer-properties/gstreamer-properties.ui.h:3
+msgid "_Plugin:"
+msgstr "প্লাগ-ইন: (_P)"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
 msgstr "পাইপ লাইন: (_i)"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:5
+msgid "_Test"
+msgstr "পরীক্ষা (_T)"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+msgid "_Device:"
+msgstr "ডিভাইস (_D):"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+msgid "Default Input"
+msgstr "পূর্বনির্ধারিত ইনপুট"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -954,112 +556,122 @@ msgid "Te_st"
 msgstr "পরীক্ষা (_s)"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "Testing Pipeline"
-msgstr "পাইপ-লাইন পরীক্ষা করা হচ্ছে"
+msgid "D_evice:"
+msgstr "ডিভাইস: (_e)"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Testing..."
-msgstr "পরীক্ষা করা হচ্ছে..."
+msgid "Audio"
+msgstr "অডিও"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
 msgstr "ভিডিও"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "_Device:"
-msgstr "ডিভাইস (_D):"
+msgid "Testing Pipeline"
+msgstr "পাইপ-লাইন পরীক্ষা করা হচ্ছে"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "_Plugin:"
-msgstr "প্লাগ-ইন: (_P)"
+msgid "Testing…"
+msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "_Test"
-msgstr "পরীক্ষা (_T)"
+msgid "Click Ok to finish."
+msgstr "কর্ম সমাপ্ত করার জন্য ঠিক আছে ক্লিক করুন।"
 
 #: ../gstreamer-properties/pipeline-constants.c:52
-#: ../gstreamer-properties/pipeline-constants.c:86
+#: ../gstreamer-properties/pipeline-constants.c:90
 msgid "Autodetect"
 msgstr "স্বয়ংক্রিয় সনাক্তকরণ"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
-#: ../gstreamer-properties/pipeline-constants.c:117
-msgid "ALSA - Advanced Linux Sound Architecture"
-msgstr "ALSA - Advanced Linux Sound Architecture"
+#: ../gstreamer-properties/pipeline-constants.c:121
+msgid "ALSA — Advanced Linux Sound Architecture"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:69
-msgid "Artsd - ART Sound Daemon"
-msgstr "Artsd - ART Sound Daemon"
+msgid "Artsd — ART Sound Daemon"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:71
-#: ../gstreamer-properties/pipeline-constants.c:119
-msgid "ESD - Enlightenment Sound Daemon"
-msgstr "ESD - Enlightenment Sound Daemon"
+#: ../gstreamer-properties/pipeline-constants.c:123
+msgid "ESD — Enlightenment Sound Daemon"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:77
-#: ../gstreamer-properties/pipeline-constants.c:126
-msgid "OSS - Open Sound System"
-msgstr "OSS - Open Sound System"
+#: ../gstreamer-properties/pipeline-constants.c:130
+msgid "OSS — Open Sound System"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:79
-#: ../gstreamer-properties/pipeline-constants.c:128
+#: ../gstreamer-properties/pipeline-constants.c:132
+msgid "OSS - Open Sound System Version 4"
+msgstr ""
+
+#: ../gstreamer-properties/pipeline-constants.c:81
+#: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
 msgstr "PulseAudio সাউন্ড সার্ভার"
 
-#: ../gstreamer-properties/pipeline-constants.c:81
-#: ../gstreamer-properties/pipeline-constants.c:112
-#: ../gstreamer-properties/pipeline-constants.c:136
-#: ../gstreamer-properties/pipeline-constants.c:151
-#: ../sound-theme/gvc-sound-theme-chooser.c:620
-#: ../sound-theme/gvc-sound-theme-editor.c:706
-#: ../sound-theme/gvc-sound-theme-editor.c:760
+#: ../gstreamer-properties/pipeline-constants.c:83
+#: ../gstreamer-properties/pipeline-constants.c:134
+msgid "Sun Audio"
+msgstr ""
+
+#: ../gstreamer-properties/pipeline-constants.c:85
+#: ../gstreamer-properties/pipeline-constants.c:116
+#: ../gstreamer-properties/pipeline-constants.c:144
+#: ../gstreamer-properties/pipeline-constants.c:159
+#: ../sound-theme/gvc-sound-theme-chooser.c:629
+#: ../sound-theme/gvc-sound-theme-editor.c:705
+#: ../sound-theme/gvc-sound-theme-editor.c:759
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
 msgstr "স্বনির্ধারিত"
 
-#: ../gstreamer-properties/pipeline-constants.c:104
+#: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
 msgstr "OpenGL"
 
-#: ../gstreamer-properties/pipeline-constants.c:106
-msgid "SDL - Simple DirectMedia Layer"
-msgstr "SDL - Simple DirectMedia Layer"
+#: ../gstreamer-properties/pipeline-constants.c:110
+msgid "SDL — Simple DirectMedia Layer"
+msgstr ""
 
-#: ../gstreamer-properties/pipeline-constants.c:108
+#: ../gstreamer-properties/pipeline-constants.c:112
 msgid "X Window System (No Xv)"
 msgstr "X Window System (No Xv)"
 
-#: ../gstreamer-properties/pipeline-constants.c:110
+#: ../gstreamer-properties/pipeline-constants.c:114
 msgid "X Window System (X11/XShm/Xv)"
 msgstr "X Window System (X11/XShm/Xv)"
 
 #. Note: using triangle instead of sine for test sound so we
 #. * can test the vorbis encoder as well (otherwise it'd compress too well)
-#: ../gstreamer-properties/pipeline-constants.c:132
+#: ../gstreamer-properties/pipeline-constants.c:140
 msgid "Test Sound"
 msgstr "পরীক্ষামূলক শব্দ"
 
-#: ../gstreamer-properties/pipeline-constants.c:134
+#: ../gstreamer-properties/pipeline-constants.c:142
 msgid "Silence"
 msgstr "নিঃশব্দ"
 
-#: ../gstreamer-properties/pipeline-constants.c:141
+#: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
 msgstr "MJPEG (উদাহরণ, Zoran v4l ডিভাইস)"
 
-#: ../gstreamer-properties/pipeline-constants.c:143
+#: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
 msgstr "QCAM"
 
-#: ../gstreamer-properties/pipeline-constants.c:145
+#: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
 msgstr "পরীক্ষামূলক ইনপুট"
 
-#: ../gstreamer-properties/pipeline-constants.c:147
+#: ../gstreamer-properties/pipeline-constants.c:155
 msgid "Video for Linux (v4l)"
 msgstr "Linux-র  জন্য ভিডিও (v4l)"
 
-#: ../gstreamer-properties/pipeline-constants.c:149
+#: ../gstreamer-properties/pipeline-constants.c:157
 msgid "Video for Linux 2 (v4l2)"
 msgstr "Linux 2-র  জন্য ভিডিও (v4l2)"
 
@@ -1068,7 +680,7 @@ msgstr "Linux 2-র  জন্য ভিডিও (v4l2)"
 msgid "Failed to construct test pipeline for '%s'"
 msgstr "'%s'-র জন্য পরীক্ষামূলক পাইপ-লাইন নির্মাণ করা সম্ভব হয়নি"
 
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:529
+#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "সহায়িকা প্রদর্শনের সময় একটি সমস্যা হয়েছে: %s"
@@ -1091,15 +703,12 @@ msgstr "<no description>"
 msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
 msgstr "gm_audio প্রোফাইলের তালিকা সংগ্রহে একটি সমস্যা হয়েছে। (%s)\n"
 
-# FIXME
 #: ../profiles/audio-profile.c:709
 #, c-format
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr ""
-"অডিও প্রোফাইল তালিকায় পরিবর্তনের সূচনাবার্তা প্রাপ্তির উদ্দেশ্যে সাবস্ক্রাইব করতে "
-"সমস্যা। (%s)\n"
+msgstr "অডিও প্রোফাইল তালিকায় পরিবর্তনের সূচনাবার্তা প্রাপ্তির উদ্দেশ্যে সাবস্ক্রাইব করতে সমস্যা। (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
@@ -1111,37 +720,36 @@ msgid "_Edit"
 msgstr "সম্পাদনা (_E)"
 
 #. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:456
+#: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
 msgstr[0] "চিহ্নিত প্রোফাইলটি কি মুছে ফেলা হবে?\n"
 msgstr[1] "চিহ্নিত %d প্রোফাইলগুলি মুছে ফেলা হবে কি?\n"
 
-#: ../profiles/audio-profiles-edit.c:475
+#: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
 msgstr "\"%s\" প্রোফাইল কি মুছে ফেলা হবে?"
 
-#: ../profiles/audio-profiles-edit.c:497
+#: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
 msgstr "প্রোফাইল মুছে ফেলুন"
 
-#: ../profiles/audio-profiles-edit.c:590
+#: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
 msgstr "MATE অডিও প্রোফাইল সম্পাদনা"
 
-#: ../profiles/audio-profiles-edit.c:639
+#: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
 msgstr "প্রোফাইল (_P):"
 
-#: ../profiles/audio-profiles-edit.c:823
+#: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
 msgstr "\"%s\" নামের একটি প্রোফাইল বর্তমানে উপস্থিত রয়েছে"
 
-# FIXME: FIXME = ? ;-)
-#: ../profiles/audio-profiles-edit.c:848
+#: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
 msgstr "MateConf ত্রুটি (FIXME): %s\n"
@@ -1149,20 +757,16 @@ msgstr "MateConf ত্রুটি (FIXME): %s\n"
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed "
-"incorrectly, so the dialog can't be displayed."
-msgstr ""
-"\"%s\" ফাইলটি অনুপস্থিত। অর্থাৎ অ্যাপ্লিকেশনটি সঠিকরূপে ইনস্টল করা হয়নি ও এর ফলে "
-"ডায়লগ বক্স প্রদর্শন করা যাবে না।"
+"The file \"%s\" is missing. This indicates that the application is installed"
+" incorrectly, so the dialog can't be displayed."
+msgstr "\"%s\" ফাইলটি অনুপস্থিত। অর্থাৎ অ্যাপ্লিকেশনটি সঠিকরূপে ইনস্টল করা হয়নি ও এর ফলে ডায়লগ বক্স প্রদর্শন করা যাবে না।"
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"%1$s\n"
-"চালায় '%2$s --বিদ্যমান কমান্ড লাইন অপশনের একটি সম্পূর্ণ তালিকা দেখতে সহায়তা করে।\n"
+msgstr "%1$s\nচালায় '%2$s --বিদ্যমান কমান্ড লাইন অপশনের একটি সম্পূর্ণ তালিকা দেখতে সহায়তা করে।\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -1198,165 +802,140 @@ msgid "_Create"
 msgstr "নির্মাণ করুন (_C)"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "A description for the audio profile"
-msgstr "অডিও প্রোফাইলের বিবরণ"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr ""
-"প্রোফাইলের বর্ণনা। এর মধ্যে প্রোফাইল সম্পর্কিত অধিক তথ্য ও প্রোফাইল ব্যবহারের সঠিক "
-"পরিস্থিতি সংক্রান্ত তথ্য উপলব্ধ করা হয়েছে।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid ""
-"A filename extension to be used when storing files encoded with this profile."
-msgstr ""
-"চিহ্নিত প্রোফাইলসহ এনকোড করা ফাইলগুলি সংরক্ষণের সময় ব্যবহারযোগ্য ফাইল এক্সটেনশন।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "এই প্রোফাইলের জন্য যে আংশিক GStreamer পাইপলাইন ব্যবহার করতে হবে।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A short name for the audio profile"
-msgstr "অডিও প্রোফাইলটির জন্য একটি সংক্ষিপ্ত নাম"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr ""
-"অডিও প্রোফাইলটির জন্য একটি সংক্ষিপ্ত নাম, যা প্রোফাইল নির্বাচন ও সনাক্তকরণের সময় "
-"ব্যবহৃত হবে।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "CD Quality, AAC"
-msgstr "CD-এর গুণমান, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "CD Quality, Lossless"
-msgstr "CD-এর গুণমান, উচ্চ মান (লস-লেস)"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "CD Quality, Lossy"
-msgstr "CD-এর গুণমান, নিম্ন মান (লসি)"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid "CD Quality, MP2"
-msgstr "CD-এর গুণমান, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "CD Quality, MP3"
-msgstr "CD-এর গুণমান, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
-"অডিও রেকর্ডিং প্রোফাইলের তালিকা। /system/gstreamer/@GST_MAJORMINOR@/audio/"
-"profiles-র অপেক্ষায় সাব-ডিরেক্টরির নামগুলি পংক্তিরূপে এই তালিকায় অন্তর্ভুক্ত করা হয়।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "List of profiles"
 msgstr "প্রোফাইলের তালিকা"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
+msgid ""
+"List of audio recording profiles. The list contains strings naming "
+"subdirectories relative to "
+"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "অডিও রেকর্ডিং প্রোফাইলের তালিকা। /system/gstreamer/@GST_MAJORMINOR@/audio/profiles-র অপেক্ষায় সাব-ডিরেক্টরির নামগুলি পংক্তিরূপে এই তালিকায় অন্তর্ভুক্ত করা হয়।"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
+msgid "A short name for the audio profile"
+msgstr "অডিও প্রোফাইলটির জন্য একটি সংক্ষিপ্ত নাম"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
+msgid ""
+"A short name for the audio profile, to be used in selections and uniquely "
+"identifying the profile."
+msgstr "অডিও প্রোফাইলটির জন্য একটি সংক্ষিপ্ত নাম, যা প্রোফাইল নির্বাচন ও সনাক্তকরণের সময় ব্যবহৃত হবে।"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
+msgid "A description for the audio profile"
+msgstr "অডিও প্রোফাইলের বিবরণ"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+msgid ""
+"A description of the profile, containing more information and describing "
+"when to use this profile."
+msgstr "প্রোফাইলের বর্ণনা। এর মধ্যে প্রোফাইল সম্পর্কিত অধিক তথ্য ও প্রোফাইল ব্যবহারের সঠিক পরিস্থিতি সংক্রান্ত তথ্য উপলব্ধ করা হয়েছে।"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
+msgid "The partial GStreamer pipeline used"
+msgstr "ব্যবহৃত আংশিক GStreamer পাইপলাইন"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
+msgid "A partial GStreamer pipeline to use for this profile."
+msgstr "এই প্রোফাইলের জন্য যে আংশিক GStreamer পাইপলাইন ব্যবহার করতে হবে।"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
 msgstr "এই প্রোফাইলের জন্য ডিফল্ট ফাইল এক্সটেনশন"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
+msgid ""
+"A filename extension to be used when storing files encoded with this "
+"profile."
+msgstr "চিহ্নিত প্রোফাইলসহ এনকোড করা ফাইলগুলি সংরক্ষণের সময় ব্যবহারযোগ্য ফাইল এক্সটেনশন।"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
+msgid "Whether this profile is to be used"
+msgstr ""
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
+msgid "Whether to use and display this profile."
+msgstr ""
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
+msgid "CD Quality, Lossy"
+msgstr "CD-এর গুণমান, নিম্ন মান (লসি)"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+msgid ""
+"Used for converting to CD-quality audio, but with a lossy compression codec."
+" Use this for CD extraction and radio recordings."
+msgstr "CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের কম্প্রেশন কোডেক সহ। CD থেকে এক্সট্র্যাক্ট করার জন্য অথবা রেডিও রেকর্ডিং-এর জন্য এটি ব্যবহার করুন।"
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "The partial GStreamer pipeline used"
-msgstr "ব্যবহৃত আংশিক GStreamer পাইপলাইন"
+msgid "CD Quality, Lossless"
+msgstr "CD-এর গুণমান, উচ্চ মান (লস-লেস)"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr ""
-"CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু উচ্চ গুণমানের কম্প্রেশন কোডেক সহ। "
-"ফাইলটি পরে সম্পাদনা করার জন্য অথবা CD-তে বার্ন করতে হলে এটি ব্যবহার করুন।"
+msgstr "CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু উচ্চ গুণমানের কম্প্রেশন কোডেক সহ। ফাইলটি পরে সম্পাদনা করার জন্য অথবা CD-তে বার্ন করতে হলে এটি ব্যবহার করুন।"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec. "
-"Use this for CD extraction and radio recordings."
-msgstr ""
-"CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের কম্প্রেশন কোডেক সহ। CD "
-"থেকে এক্সট্র্যাক্ট করার জন্য অথবা রেডিও রেকর্ডিং-এর জন্য এটি ব্যবহার করুন।"
+msgid "Voice, Lossless"
+msgstr "কন্ঠস্বর, উচ্চ গুণমান"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের AAC কোডেক সহ। শুধুমাত্র "
-"AAC কোডেক ব্যবহারকারী ডিভাইসে অনুলিপি করার জন্য ফাইল প্রস্তুত করতে এটি ব্যবহার করুন। "
-"উল্লেখ্য, এই কোডেকের ব্যবহার আপনার এলাকায় বেআইনি হতে পারে এবং কোনো আইনী "
-"বিশেষজ্ঞের পরামর্শ নেওয়া বাঞ্ছনীয়।"
+"Used for converting to lossless voice-quality audio. Use this for recording "
+"and editing speech."
+msgstr "উচ্চ গুণমানের কন্ঠস্বরের অনুরূপ অডিওতে রূপান্তর করতে ব্যবহৃত। রেকর্ডিং অথবা স্বর সম্পাদনার জন্য ব্যবহার করুন।"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
+msgid "Voice, Lossy"
+msgstr "কন্ঠস্বর, নিম্ন গুণমান"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+msgid ""
+"Used for converting to lossy voice-quality audio. Use this for recording "
+"speech that doesn't need to be edited."
+msgstr "নিম্ন গুণমানের কন্ঠস্বরের অনুরূপ অডিওতে রূপান্তর করতে ব্যবহৃত। ভাষ্য রেকর্ডিং সম্পাদনার জন্য ব্যবহার করুন যা সম্পাদন করা হবে না।"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
+msgid "CD Quality, MP2"
+msgstr "CD-এর গুণমান, MP2"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের MP2 কোডেক সহ। শুধুমাত্র "
-"MP2 কোডেক ব্যবহারকারী ডিভাইসে অনুলিপি করার জন্য ফাইল প্রস্তুত করতে এটি ব্যবহার করুন। "
-"উল্লেখ্য, এই কোডেকের ব্যবহার আপনার এলাকায় বেআইনি হতে পারে এবং কোনো আইনী "
-"বিশেষজ্ঞের পরামর্শ নেওয়া বাঞ্ছনীয়।"
+msgstr "CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের MP2 কোডেক সহ। শুধুমাত্র MP2 কোডেক ব্যবহারকারী ডিভাইসে অনুলিপি করার জন্য ফাইল প্রস্তুত করতে এটি ব্যবহার করুন। উল্লেখ্য, এই কোডেকের ব্যবহার আপনার এলাকায় বেআইনি হতে পারে এবং কোনো আইনী বিশেষজ্ঞের পরামর্শ নেওয়া বাঞ্ছনীয়।"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
+msgid "CD Quality, MP3"
+msgstr "CD-এর গুণমান, MP3"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের MP3 কোডেক সহ। শুধুমাত্র "
-"MP3 কোডেক ব্যবহারকারী ডিভাইসে অনুলিপি করার জন্য ফাইল প্রস্তুত করতে এটি ব্যবহার করুন। "
-"উল্লেখ্য, এই কোডেকের ব্যবহার আপনার এলাকায় বেআইনি হতে পারে এবং কোনো আইনী "
-"বিশেষজ্ঞের পরামর্শ নেওয়া বাঞ্ছনীয়।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr ""
-"উচ্চ গুণমানের কন্ঠস্বরের অনুরূপ অডিওতে রূপান্তর করতে ব্যবহৃত। রেকর্ডিং অথবা স্বর "
-"সম্পাদনার জন্য ব্যবহার করুন।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr ""
-"নিম্ন গুণমানের কন্ঠস্বরের অনুরূপ অডিওতে রূপান্তর করতে ব্যবহৃত। ভাষ্য রেকর্ডিং সম্পাদনার "
-"জন্য ব্যবহার করুন যা সম্পাদন করা হবে না।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "Voice, Lossless"
-msgstr "কন্ঠস্বর, উচ্চ গুণমান"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid "Voice, Lossy"
-msgstr "কন্ঠস্বর, নিম্ন গুণমান"
+msgstr "CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের MP3 কোডেক সহ। শুধুমাত্র MP3 কোডেক ব্যবহারকারী ডিভাইসে অনুলিপি করার জন্য ফাইল প্রস্তুত করতে এটি ব্যবহার করুন। উল্লেখ্য, এই কোডেকের ব্যবহার আপনার এলাকায় বেআইনি হতে পারে এবং কোনো আইনী বিশেষজ্ঞের পরামর্শ নেওয়া বাঞ্ছনীয়।"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "Whether or not this profile is to be used"
-msgstr "এই প্রোফাইলটি ব্যবহৃত হবে কিনা"
+msgid "CD Quality, AAC"
+msgstr "CD-এর গুণমান, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid "Whether or not to use and display this profile."
-msgstr "এই প্রোফাইলটি ব্যবহৃত এবং প্রদর্শিত হবে কিনা।"
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
+"this for preparing files for copying to devices that only support the AAC "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "CD-গুণমানের অডিওতে রূপান্তর করতে ব্যবহৃত। কিন্তু নিম্ন গুণমানের AAC কোডেক সহ। শুধুমাত্র AAC কোডেক ব্যবহারকারী ডিভাইসে অনুলিপি করার জন্য ফাইল প্রস্তুত করতে এটি ব্যবহার করুন। উল্লেখ্য, এই কোডেকের ব্যবহার আপনার এলাকায় বেআইনি হতে পারে এবং কোনো আইনী বিশেষজ্ঞের পরামর্শ নেওয়া বাঞ্ছনীয়।"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
-#: ../sound-theme/gvc-sound-theme-editor.c:523
+#: ../sound-theme/gvc-sound-theme-editor.c:522
 msgid "No sounds"
 msgstr "শব্দবিহীন"
 
@@ -1364,1189 +943,172 @@ msgstr "শব্দবিহীন"
 msgid "Built-in"
 msgstr "বিল্ট-ইন"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:733
-#: ../sound-theme/gvc-sound-theme-chooser.c:744
-#: ../sound-theme/gvc-sound-theme-chooser.c:756
-#: ../sound-theme/gvc-sound-theme-editor.c:563
-#: ../sound-theme/gvc-sound-theme-editor.c:952
+#: ../sound-theme/gvc-sound-theme-chooser.c:742
+#: ../sound-theme/gvc-sound-theme-chooser.c:753
+#: ../sound-theme/gvc-sound-theme-chooser.c:765
+#: ../sound-theme/gvc-sound-theme-editor.c:562
+#: ../sound-theme/gvc-sound-theme-editor.c:951
 msgid "Testing event sound"
 msgstr "ঘটনার জন্য চিহ্নিত শব্দ পরীক্ষা করা হচ্ছে"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:842
+#: ../sound-theme/gvc-sound-theme-chooser.c:851
 msgid "From theme"
 msgstr "থিম থেকে প্রাপ্ত"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:872
+#: ../sound-theme/gvc-sound-theme-chooser.c:881
 msgid "Type"
 msgstr "ধরন"
 
-# Translated by sadia
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
 msgstr "শব্দের থিম: (_t)"
 
-# Translated by sadia
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
 msgstr "সতর্কবার্তার জন্য একটি শব্দ নির্বাচন করুন: (_h)"
 
-# Translated by sadia
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
 msgstr "উইন্ডো ও বোতামের শব্দগুলো সক্রিয় করুন (_w)"
 
 #. Bell
-#: ../sound-theme/gvc-sound-theme-editor.c:76
+#: ../sound-theme/gvc-sound-theme-editor.c:79
 msgctxt "Sound event"
 msgid "Alert sound"
 msgstr "সতর্কতামূলক শব্দ"
 
 #. Windows and buttons
-#: ../sound-theme/gvc-sound-theme-editor.c:78
+#: ../sound-theme/gvc-sound-theme-editor.c:81
 msgctxt "Sound event"
 msgid "Windows and Buttons"
 msgstr "উইন্ডো ও বোতাম"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:79
+#: ../sound-theme/gvc-sound-theme-editor.c:82
 msgctxt "Sound event"
 msgid "Button clicked"
 msgstr "বোতাম ক্লিক করা হয়েছে"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:80
+#: ../sound-theme/gvc-sound-theme-editor.c:83
 msgctxt "Sound event"
 msgid "Toggle button clicked"
 msgstr "টগল বেতাম ক্লিক করা হয়েছে"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:81
+#: ../sound-theme/gvc-sound-theme-editor.c:84
 msgctxt "Sound event"
 msgid "Window maximized"
 msgstr "উইন্ডোর সর্বাধিক মাপ নির্ধারণ"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:82
+#: ../sound-theme/gvc-sound-theme-editor.c:85
 msgctxt "Sound event"
 msgid "Window unmaximized"
 msgstr "উইন্ডোর স্বাভাবিক মাপ নির্ধারণ"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:83
+#: ../sound-theme/gvc-sound-theme-editor.c:86
 msgctxt "Sound event"
 msgid "Window minimised"
 msgstr "উইন্ডো আড়াল করা"
 
 #. Desktop
-#: ../sound-theme/gvc-sound-theme-editor.c:85
+#: ../sound-theme/gvc-sound-theme-editor.c:88
 msgctxt "Sound event"
 msgid "Desktop"
 msgstr "ডেস্কটপ"
 
-# C
-#: ../sound-theme/gvc-sound-theme-editor.c:86
+#: ../sound-theme/gvc-sound-theme-editor.c:89
 msgctxt "Sound event"
 msgid "Login"
 msgstr "লগ-ইন"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:87
+#: ../sound-theme/gvc-sound-theme-editor.c:90
 msgctxt "Sound event"
 msgid "Logout"
 msgstr "লগ-আউট"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:88
+#: ../sound-theme/gvc-sound-theme-editor.c:91
 msgctxt "Sound event"
 msgid "New e-mail"
 msgstr "নতুন ই-মেইল"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:89
+#: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
 msgstr "আবর্জনার বাক্স ফাঁকা হলে"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:90
+#: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
 msgstr "দীর্ঘ সময়ব্যাপী কর্মের সমাপ্তি (ডাউনলোড, CD বার্ন, প্রভৃতি)"
 
 #. Alerts?
-#: ../sound-theme/gvc-sound-theme-editor.c:92
+#: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
 msgid "Alerts"
 msgstr "সতর্কতামূলক"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:93
+#: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
 msgid "Information or question"
 msgstr "তথ্য অথবা প্রশ্ন"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:94
+#: ../sound-theme/gvc-sound-theme-editor.c:97
 msgctxt "Sound event"
 msgid "Warning"
 msgstr "সতর্কবার্তা"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:95
+#: ../sound-theme/gvc-sound-theme-editor.c:98
 msgctxt "Sound event"
 msgid "Error"
 msgstr "ত্রুটি"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:96
+#: ../sound-theme/gvc-sound-theme-editor.c:99
 msgctxt "Sound event"
 msgid "Battery warning"
 msgstr "ব্যাটারি সংক্রান্ত সতর্কবার্তা"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:593
+#: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
 msgstr "শব্দের ফাইল নির্বাচন করুন"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:604
+#: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
 msgstr "শব্দের ফাইল"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:900
-msgid "Custom..."
-msgstr "স্বনির্ধারিত..."
+#: ../sound-theme/gvc-sound-theme-editor.c:899
+msgid "Custom…"
+msgstr ""
 
-#: ../sound-theme/gvc-sound-theme-editor.c:1310
+#: ../sound-theme/gvc-sound-theme-editor.c:1302
 msgid "Sound Theme:"
 msgstr "শব্দের থিম:"
 
-#: ../sound-theme/gvc-sound-theme-editor.c:1338
+#: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
 msgstr "উইন্ডো ও বাটনের শব্দ সক্রিয় করুন"
 
-#. Translators: This is the name of an audio file that sounds like the bark of a dog.
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "গর্জন করা"
 
-#. Translators: This is the name of an audio file that sounds like a water drip.
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "টিপটিপ"
 
-#. Translators: This is the name of an audio file that sounds like tapping glass.
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "কাঁচ"
 
-#. Translators: This is the name of an audio file that sounds sort of like a submarine sonar ping.
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "সোনার"
-
-#~ msgid "Address of the server to contact for CD queries"
-#~ msgstr "CD সম্বন্ধে তথ্য জানার জন্য যে সার্ভারে অনুরোধ করা হবে"
-
-#~ msgid "Information to send to server"
-#~ msgstr "সার্ভারে প্রেরণের জন্য চিহ্নিত তথ্য"
-
-#~ msgid "Port"
-#~ msgstr "পোর্ট"
-
-#~ msgid "Server name"
-#~ msgstr "সার্ভারের নাম"
-
-#~ msgid "Server type"
-#~ msgstr "সার্ভারের ধরন"
-
-#~ msgid "The hostname that will be sent with all queries"
-#~ msgstr "সমস্ত প্রশ্নের সঙ্গে চিহ্নিত হোস্ট-নেম পাঠানো হবে"
-
-#~ msgid "The port that the server is running the database on"
-#~ msgstr "সার্ভারের মধ্যে যে পোর্টে ডাটাবেস চালানো হচ্ছে"
-
-#~ msgid ""
-#~ "The type of the server to contact for CD queries. Possible values are 0 "
-#~ "(FreeDB round robin server), 1 (other freedb server) and 2 (other server)."
-#~ msgstr ""
-#~ "CD সম্বন্ধীয় জিজ্ঞাসা থাকলে যে ধরনের সার্ভারের সাথে যোগাযোগ করা হবে। সম্ভাব্য "
-#~ "মান হলো ০ (FreeDB রাউন্ড রবিন সার্ভার), ১ (অন্যান্য freedb সার্ভার) এবং ২ "
-#~ "(অন্যান্য সার্ভার)।"
-
-# C
-#~ msgid "The username"
-#~ msgstr "ব্যবহারকারীর নাম"
-
-#~ msgid "The username that will be sent with all queries"
-#~ msgstr "সমস্ত প্রশ্নের সঙ্গে যে ব্যবহারকারী নাম পাঠানো হবে"
-
-#~ msgid ""
-#~ "This key specifies which user information will be sent to the server to "
-#~ "contact for CD queries. Possible values are 0 (no information), 1 (real "
-#~ "information) and 3 (other information)."
-#~ msgstr ""
-#~ "এই মানটি নির্ধারণ করে যে, CD সম্বন্ধীয় জিজ্ঞাসার ক্ষেত্রে সার্ভারকে ব্যবহারকারী "
-#~ "সম্বন্ধে কী তথ্য পাঠানো হবে। সম্ভাব্য মানগুলি হলো ০ (কোনো তথ্য পাঠানো হবে না), ১ "
-#~ "(যথার্থ তথ্য) এবং ৩ (অন্যান্য তথ্য)।"
-
-# C
-#~ msgid "Your hostname"
-#~ msgstr "আপনার হোস্ট-নেম"
-
-# C
-#~ msgid ""
-#~ "There was an error displaying help: \n"
-#~ "%s"
-#~ msgstr ""
-#~ "সহায়ক তথ্য প্রদর্শনে সমস্যা হয়েছে: \n"
-#~ "%s"
-
-#~ msgid "Sen_d no information"
-#~ msgstr "কোনো তথ্য পাঠানো হবে না (_d)"
-
-# C
-#~ msgid "Send real _information"
-#~ msgstr "যথার্থ তথ্য পাঠানো হবে ( _i)"
-
-# C
-#~ msgid "Send _other information:"
-#~ msgstr "অন্যান্য তথ্য পাঠানো হবে (_o)"
-
-#~ msgid "_Name:"
-#~ msgstr "নাম (_N):"
-
-#~ msgid "Hostna_me:"
-#~ msgstr "হোস্ট-নেম (_m):"
-
-#~ msgid "Login Information"
-#~ msgstr "লগ-ইন সম্বন্ধীয় তথ্য"
-
-#~ msgid "FreeDB _round robin server"
-#~ msgstr "FreeDB রাউন্ড রবিন সার্ভার (_r)"
-
-# C
-#~ msgid "Other _FreeDB server:"
-#~ msgstr "অন্যান্য FreeDB সার্ভার (_F):"
-
-#~ msgid "Server"
-#~ msgstr "সার্ভার"
-
-# C
-#~ msgid "Location"
-#~ msgstr "অবস্থান"
-
-#~ msgid "_Update Server List"
-#~ msgstr "সার্ভারের তালিকা হালনাগাদ করুন (_U)"
-
-#~ msgid "Other _server:"
-#~ msgstr "অন্য সার্ভার (_s):"
-
-#~ msgid "Hos_tname:"
-#~ msgstr "হোস্ট-নেম (_t):"
-
-#~ msgid "_Port:"
-#~ msgstr "পোর্ট (_P):"
-
-#~ msgid "CD Database Preferences"
-#~ msgstr "CD ডাটাবেস সম্বন্ধীয় পছন্দসই মান"
-
-# C
-#~ msgid "Unknown / Unknown"
-#~ msgstr "অজানা / অজানা"
-
-#~ msgid "Multiple matches..."
-#~ msgstr "একাধিক মিল..."
-
-#~ msgid ""
-#~ "There were multiple matches found in the database.\n"
-#~ "Below is a list of possible matches, please choose the best match"
-#~ msgstr ""
-#~ "ডাটাবেসে একাধিক মিল পাওয়া গিয়েছে।\n"
-#~ "অনুগ্রহ করে নিচে দেওয়া সম্ভাব্য মিলগুলির তালিকা থেকে প্রযোজ্য মান বেছে নিন"
-
-#~ msgid "Category"
-#~ msgstr "শ্রেণী"
-
-#~ msgid "Disc ID"
-#~ msgstr "ডিস্ক ID"
-
-#~ msgid "Artist and Title"
-#~ msgstr "শিল্পী এবং গানের নাম"
-
-#~ msgid "Unknown track"
-#~ msgstr "অজানা ট্র্যাক"
-
-#~ msgid "CD Database Server"
-#~ msgstr "CD ডাটাবেস সার্ভার"
-
-#~ msgid "Modify your CD database server preferences"
-#~ msgstr "CD ডাটাবেস সার্ভার সম্বন্ধীয় বৈশিষ্ট্য পরিবর্তন করুন"
-
-#~ msgid "Blues"
-#~ msgstr "ব্ল্যুস"
-
-#~ msgid "Classical Rock"
-#~ msgstr "ক্লাসিক্যাল রক"
-
-#~ msgid "Country"
-#~ msgstr "কান্ট্রি"
-
-#~ msgid "Dance"
-#~ msgstr "ডান্স"
-
-#~ msgid "Disco"
-#~ msgstr "ডিস্কো"
-
-#~ msgid "Funk"
-#~ msgstr "ফাঙ্ক"
-
-#~ msgid "Grunge"
-#~ msgstr "গ্রানজ"
-
-#~ msgid "Hip-Hop"
-#~ msgstr "হিপ-হপ"
-
-#~ msgid "Jazz"
-#~ msgstr "জ্যাজ"
-
-#~ msgid "Metal"
-#~ msgstr "মেটাল"
-
-#~ msgid "New Age"
-#~ msgstr "নিউ এজ"
-
-#~ msgid "Oldies"
-#~ msgstr "পুরাতন"
-
-#~ msgid "Other"
-#~ msgstr "অন্যান্য"
-
-#~ msgid "Pop"
-#~ msgstr "পপ"
-
-#~ msgid "R&B"
-#~ msgstr "আর & বি"
-
-#~ msgid "Rap"
-#~ msgstr "র‍্যাপ"
-
-#~ msgid "Reggae"
-#~ msgstr "রেগে"
-
-#~ msgid "Rock"
-#~ msgstr "রক"
-
-#~ msgid "Techno"
-#~ msgstr "টেকনো"
-
-#~ msgid "Industrial"
-#~ msgstr "ইন্ডাস্ট্রিয়াল"
-
-#~ msgid "Alternative"
-#~ msgstr "অল্টারনেটিভ"
-
-#~ msgid "Ska"
-#~ msgstr "স্কা"
-
-#~ msgid "Death Metal"
-#~ msgstr "ডেথ মেটাল"
-
-#~ msgid "Pranks"
-#~ msgstr "প্র্যাঙ্ক"
-
-#~ msgid "Soundtrack"
-#~ msgstr "সাউন্ডট্র্যাক"
-
-#~ msgid "Euro-Techno"
-#~ msgstr "ইউরো-টেকনো"
-
-#~ msgid "Ambient"
-#~ msgstr "অ্যামবিয়েন্ট"
-
-#~ msgid "Trip-Hop"
-#~ msgstr "ট্রিপ-হপ"
-
-#~ msgid "Vocal"
-#~ msgstr "ভোকাল"
-
-#~ msgid "Jazz+Funk"
-#~ msgstr "জ্যাজ+ফাঙ্ক"
-
-#~ msgid "Fusion"
-#~ msgstr "ফিউশন"
-
-#~ msgid "Trance"
-#~ msgstr "ট্রান্স"
-
-#~ msgid "Classical"
-#~ msgstr "ধ্রূপদী"
-
-#~ msgid "Instrumental"
-#~ msgstr "বাদ্যযন্ত্র"
-
-#~ msgid "Acid"
-#~ msgstr "অ্যাসিড"
-
-#~ msgid "House"
-#~ msgstr "হাউস"
-
-#~ msgid "Game"
-#~ msgstr "গেম"
-
-#~ msgid "Sound Clip"
-#~ msgstr "শব্দের অংশ"
-
-#~ msgid "Gospel"
-#~ msgstr "গস্পেল"
-
-#~ msgid "Noise"
-#~ msgstr "আওয়াজ"
-
-#~ msgid "Alt"
-#~ msgstr "Alt"
-
-#~ msgid "Bass"
-#~ msgstr "বেস"
-
-#~ msgid "Soul"
-#~ msgstr "সোল"
-
-#~ msgid "Punk"
-#~ msgstr "পাঙ্ক"
-
-#~ msgid "Space"
-#~ msgstr "স্পেস"
-
-#~ msgid "Meditative"
-#~ msgstr "মেডিটেটিভ"
-
-#~ msgid "Instrumental Pop"
-#~ msgstr "ইন্সট্রুমেন্টাল পপ"
-
-#~ msgid "Instrumental Rock"
-#~ msgstr "ইন্সট্রুমেন্টাল রক"
-
-#~ msgid "Ethnic"
-#~ msgstr "এথনিক"
-
-#~ msgid "Gothic"
-#~ msgstr "গথিক"
-
-#~ msgid "Darkwave"
-#~ msgstr "ডার্কওয়েভ"
-
-#~ msgid "Techno-Industrial"
-#~ msgstr "টেকনো-ইন্ডাস্ট্রিয়াল"
-
-#~ msgid "Electronic"
-#~ msgstr "ইলেক্ট্রনিক"
-
-#~ msgid "Pop-Folk"
-#~ msgstr "পপ-ফোক"
-
-#~ msgid "Eurodance"
-#~ msgstr "ইউরোড্যান্স"
-
-#~ msgid "Dream"
-#~ msgstr "ড্রিম"
-
-#~ msgid "Southern Rock"
-#~ msgstr "সাদার্ন রক"
-
-#~ msgid "Comedy"
-#~ msgstr "কমেডি"
-
-#~ msgid "Cult"
-#~ msgstr "কাল্ট"
-
-#~ msgid "Gangsta Rap"
-#~ msgstr "গ্যাঙ্গস্টা র‍্যাপ"
-
-#~ msgid "Top 40"
-#~ msgstr "সেরা ৪০"
-
-#~ msgid "Christian Rap"
-#~ msgstr "ক্রিশ্চান র‍্যাপ"
-
-#~ msgid "Pop/Funk"
-#~ msgstr "পপ/ফাঙ্ক"
-
-#~ msgid "Jungle"
-#~ msgstr "জঙ্গল"
-
-#~ msgid "Native American"
-#~ msgstr "নেটিভ আমেরিকান"
-
-#~ msgid "Cabaret"
-#~ msgstr "ক্যাবারে"
-
-#~ msgid "New Wave"
-#~ msgstr "নতুন ওয়েভ"
-
-#~ msgid "Psychedelic"
-#~ msgstr "সাইকেডেলিক"
-
-#~ msgid "Rave"
-#~ msgstr "রেভ"
-
-#~ msgid "Showtunes"
-#~ msgstr "শো-টিউনস"
-
-#~ msgid "Trailer"
-#~ msgstr "ট্রেইলার"
-
-#~ msgid "Lo-Fi"
-#~ msgstr "লো-ফাই"
-
-#~ msgid "Tribal"
-#~ msgstr "ট্রাইবাল"
-
-#~ msgid "Acid Punk"
-#~ msgstr "অ্যাসিড পাঙ্ক"
-
-#~ msgid "Acid Jazz"
-#~ msgstr "অ্যাসিড জ্যাজ"
-
-#~ msgid "Polka"
-#~ msgstr "পোল্কা"
-
-#~ msgid "Retro"
-#~ msgstr "রেট্রো"
-
-#~ msgid "Musical"
-#~ msgstr "মিউজিকাল"
-
-#~ msgid "Rock & Roll"
-#~ msgstr "রক এন্ড রোল"
-
-#~ msgid "Hard Rock"
-#~ msgstr "হার্ড রক"
-
-#~ msgid "Folk"
-#~ msgstr "ফোক"
-
-#~ msgid "Folk/Rock"
-#~ msgstr "ফোক/রক"
-
-#~ msgid "National Folk"
-#~ msgstr "ন্যাশনাল ফোক"
-
-#~ msgid "Swing"
-#~ msgstr "সুইং"
-
-#~ msgid "Fast-Fusion"
-#~ msgstr "ফাস্ট-ফিউশান"
-
-#~ msgid "Bebop"
-#~ msgstr "বিবপ"
-
-#~ msgid "Latin"
-#~ msgstr "ল্যাটিন"
-
-#~ msgid "Revival"
-#~ msgstr "রিভাইভাল"
-
-#~ msgid "Celtic"
-#~ msgstr "সেল্টিক"
-
-#~ msgid "Bluegrass"
-#~ msgstr "ব্ল্যুগ্রাস"
-
-#~ msgid "Avantgarde"
-#~ msgstr "অ্যাভনগাড"
-
-#~ msgid "Gothic Rock"
-#~ msgstr "গথিক রক"
-
-#~ msgid "Progressive Rock"
-#~ msgstr "প্রোগ্রেসিভ রক"
-
-#~ msgid "Psychedelic Rock"
-#~ msgstr "সাইকেডেলিক রক"
-
-#~ msgid "Symphonic Rock"
-#~ msgstr "সিম্ফনিক রক"
-
-#~ msgid "Slow Rock"
-#~ msgstr "স্লো রক"
-
-#~ msgid "Big Band"
-#~ msgstr "বিগ ব্যান্ড"
-
-#~ msgid "Chorus"
-#~ msgstr "কোরাস"
-
-#~ msgid "Easy Listening"
-#~ msgstr "হালকা সুর"
-
-#~ msgid "Acoustic"
-#~ msgstr "অ্যাকাউস্টিক"
-
-#~ msgid "Humour"
-#~ msgstr "রসিকতা"
-
-#~ msgid "Speech"
-#~ msgstr "স্পিচ"
-
-#~ msgid "Chanson"
-#~ msgstr "চান্সন"
-
-#~ msgid "Opera"
-#~ msgstr "ওপেরা"
-
-#~ msgid "Chamber Music"
-#~ msgstr "চেম্বার মিউজিক"
-
-#~ msgid "Sonata"
-#~ msgstr "সোনাটা"
-
-#~ msgid "Symphony"
-#~ msgstr "সিম্ফনি"
-
-#~ msgid "Booty Bass"
-#~ msgstr "বুটি বেইস"
-
-#~ msgid "Primus"
-#~ msgstr "প্রিমাস"
-
-#~ msgid "Porn Groove"
-#~ msgstr "পর্ন গ্রুভ"
-
-#~ msgid "Satire"
-#~ msgstr "স্যাটায়ার"
-
-#~ msgid "Slow Jam"
-#~ msgstr "স্লো জ্যাম"
-
-#~ msgid "Club"
-#~ msgstr "ক্লাব"
-
-#~ msgid "Tango"
-#~ msgstr "ট্যাঙ্গো"
-
-#~ msgid "Samba"
-#~ msgstr "সাম্বা"
-
-#~ msgid "Folklore"
-#~ msgstr "লোককথা"
-
-#~ msgid "Ballad"
-#~ msgstr "ব্যালাড"
-
-#~ msgid "Power Ballad"
-#~ msgstr "পাওয়ার ব্যালাড"
-
-#~ msgid "Rhythmic Soul"
-#~ msgstr "রিদমিক সৌল"
-
-#~ msgid "Freestyle"
-#~ msgstr "ফ্রিস্টাইল"
-
-#~ msgid "Duet"
-#~ msgstr "দ্বৈত"
-
-#~ msgid "Punk Rock"
-#~ msgstr "পাঙ্ক রক"
-
-#~ msgid "Drum Solo"
-#~ msgstr "ড্রাম সোলো"
-
-#~ msgid "A Cappella"
-#~ msgstr "আ কাপ্পেল্লা"
-
-#~ msgid "Euro-House"
-#~ msgstr "ইউরো-হাউস"
-
-#~ msgid "Dance Hall"
-#~ msgstr "ড্যান্স হল"
-
-#~ msgid "Goa"
-#~ msgstr "গোয়া"
-
-#~ msgid "Drum & Bass"
-#~ msgstr "ড্রাম আর বেইস"
-
-#~ msgid "Club-House"
-#~ msgstr "ক্লাব হাউস"
-
-#~ msgid "Terror"
-#~ msgstr "টেরর"
-
-#~ msgid "Indie"
-#~ msgstr "ইন্ডি"
-
-#~ msgid "BritPop"
-#~ msgstr "ব্রিটপপ"
-
-#~ msgid "Negerpunk"
-#~ msgstr "নেগারপাঙ্ক"
-
-#~ msgid "Polsk Punk"
-#~ msgstr "পোলস্ক পাঙ্ক"
-
-#~ msgid "Beat"
-#~ msgstr "বিট"
-
-#~ msgid "Christian Gangsta Rap"
-#~ msgstr "ক্রিশ্চান গ্যাঙ্গস্টা র‍্যাপ"
-
-#~ msgid "Heavy Metal"
-#~ msgstr "হেভি মেটাল"
-
-#~ msgid "Black Metal"
-#~ msgstr "ব্ল্যাক মেটাল"
-
-#~ msgid "Crossover"
-#~ msgstr "ক্রসওভার"
-
-#~ msgid "Contemporary Christian"
-#~ msgstr "আধুনিক ক্রিশ্চান"
-
-#~ msgid "Christian Rock"
-#~ msgstr "ক্রিশ্চান রক"
-
-#~ msgid "Merengue"
-#~ msgstr "মেরাঙ্গ"
-
-#~ msgid "Salsa"
-#~ msgstr "সালসা"
-
-#~ msgid "Thrash Metal"
-#~ msgstr "থ্র্যাশ মেটাল"
-
-#~ msgid "Anime"
-#~ msgstr "অ্যানিম"
-
-#~ msgid "JPop"
-#~ msgstr "জেপপ"
-
-#~ msgid "Synthpop"
-#~ msgstr "সিন্থপপ"
-
-#~ msgid "Nu-Metal"
-#~ msgstr "নু-মেটাল"
-
-#~ msgid "Art Rock"
-#~ msgstr "আর্ট রক"
-
-#~ msgid "Unknown Artist"
-#~ msgstr "অজানা শিল্পী"
-
-#~ msgid "Unknown Album"
-#~ msgstr "অজানা অ্যালবাম"
-
-#~ msgid "Editing Disc ID: %s"
-#~ msgstr "চিহ্নিত ডিস্ক ID সম্পাদন করা হচ্ছে: %s"
-
-#~ msgid "Hide advanced disc options"
-#~ msgstr "ডিস্ক সংক্রান্ত উন্নত অপশন আড়াল করা হবে"
-
-#~ msgid "Show advanced disc options"
-#~ msgstr "ডিস্ক সংক্রান্ত উন্নত অপশন প্রদর্শন করা হবে"
-
-#~ msgid "Hide advanced track options"
-#~ msgstr "গান সংক্রান্ত উন্নত অপশন আড়াল করা হবে"
-
-#~ msgid "Show advanced track options"
-#~ msgstr "গান সংক্রান্ত উন্নত অপশন প্রদর্শন করা হবে"
-
-#~ msgid "Editing Disc ID: "
-#~ msgstr "ডিস্ক ID সম্পাদনা করা হচ্ছে: "
-
-#~ msgid "_Artist:"
-#~ msgstr "শিল্পী (_A):"
-
-#~ msgid "Disc _Title:"
-#~ msgstr "ডিস্কের নাম (_T):"
-
-#~ msgid "_Disc comments:"
-#~ msgstr "ডিস্ক সম্বন্ধীয় মন্তব্য (_D):"
-
-#~ msgid "_Genre:"
-#~ msgstr "ধরন (_G):"
-
-#~ msgid "_Year:"
-#~ msgstr "বছর (_Y):"
-
-#~ msgid "Title"
-#~ msgstr "শিরোনাম"
-
-#~ msgid "Length"
-#~ msgstr "ব্যাপ্তি"
-
-#~ msgid "_Extra track data:"
-#~ msgstr "গান সম্বন্ধীয় অতিরিক্ত তথ্য (_E):"
-
-#~ msgid "CDDB Track Editor"
-#~ msgstr "CDDB ট্র্যাক সম্পাদক"
-
-#~ msgid ""
-#~ "Cannot create CDDBTrackEditor factory.\n"
-#~ "This may be caused by another copy of cddb-track-editor already running.\n"
-#~ msgstr ""
-#~ "CDDB TrackEditor ফ্যাক্টরি নির্মাণ করা সম্ভব হয়নি।\n"
-#~ "cddb-track-editor বর্তমানে চলতে থাকলে এই সমস্যা দেখা দিতে পারে।\n"
-
-#~ msgid "CD Display"
-#~ msgstr "CD-এর প্রদর্শন"
-
-#~ msgid ""
-#~ "Displays information about the currently playing album, artist and time "
-#~ "elapsed"
-#~ msgstr ""
-#~ "বর্তমানে চলমান অ্যালবাম, শিল্পী ও অতিবাহিত সময় সংক্রান্ত তথ্য প্রদর্শন করা হয়"
-
-#~ msgid "Time Line"
-#~ msgstr "সময় লাইন"
-
-#~ msgid "Line for displaying the time elapsed for the current track"
-#~ msgstr "বর্তমান গানটির অতিবাহিত সময় নির্দেশক রেখা"
-
-#~ msgid "Info Line"
-#~ msgstr "তথ্য লাইন"
-
-#~ msgid "Line for displaying information"
-#~ msgstr "তথ্য প্রদর্শন করার লাইন"
-
-#~ msgid "Artist Line"
-#~ msgstr "শিল্পী লাইন"
-
-#~ msgid "Line for displaying the name of the artist"
-#~ msgstr "শিল্পীর নাম প্রদর্শন করার রেখা"
-
-#~ msgid "Album Line"
-#~ msgstr "সংকলন লাইন"
-
-#~ msgid "Line for displaying the name of the album"
-#~ msgstr "সংকলনের নাম প্রদর্শন করার লাইন"
-
-#~ msgid "Play"
-#~ msgstr "বাজান"
-
-#~ msgid "Pause"
-#~ msgstr "বিরতি"
-
-#~ msgid ""
-#~ "Playing %s - %s\n"
-#~ "%s"
-#~ msgstr ""
-#~ "%1$s - %2$s বাজানো হচ্ছে\n"
-#~ "%3$s"
-
-#~ msgid ""
-#~ "Playing\n"
-#~ ": %s"
-#~ msgstr ""
-#~ "বাজানো হচ্ছে\n"
-#~ "%s"
-
-#~ msgid "Paused"
-#~ msgstr "স্থগিত"
-
-#~ msgid "CD Player"
-#~ msgstr "CD প্লেয়ার"
-
-#~ msgid "Stopped"
-#~ msgstr "বন্ধ"
-
-#~ msgid "Disc error"
-#~ msgstr "ডিস্ক ত্রুটি"
-
-#~ msgid "No disc"
-#~ msgstr "কোন ডিস্ক নেই"
-
-#~ msgid "Empty disc"
-#~ msgstr "ফাঁকা ডিস্ক"
-
-#~ msgid "Drive open"
-#~ msgstr "ড্রাইভ খোলা"
-
-#~ msgid "Data CD"
-#~ msgstr "ডাটা CD"
-
-#~ msgid "No Cdrom"
-#~ msgstr "কোনো Cdrom নেই"
-
-#~ msgid "Drive Error"
-#~ msgstr "ড্রাইভ ত্রুটি"
-
-#~ msgid "A CD player for MATE"
-#~ msgstr "MATE-এর সাথে ব্যবহারযোগ্য CD বাদন ব্যবস্থা"
-
-#~ msgid "Contents in the CDDB have changed"
-#~ msgstr "CDDB-এর তথ্য পরিবর্তিত হয়েছে"
-
-#~ msgid "Choosing 'Yes' will delete the previous contents in CDDB."
-#~ msgstr "'হ্যাঁ' বেছে নিলে CDDB-তে পূর্বে রক্ষিত তথ্য মুছে যাবে।"
-
-#~ msgid "Do you wish to continue?"
-#~ msgstr "আপনি কি এগিয়ে যেতে ইচ্ছুক?"
-
-#~ msgid "Volume %d%%"
-#~ msgstr "ভলিউম %d%%"
-
-#~ msgid "You do not seem to have permission to access %s."
-#~ msgstr "সম্ভবত %s ব্যবহার করার জন্য পর্যাপ্ত অনুমতি আপনার নেই।"
-
-#~ msgid ""
-#~ "%s does not appear to point to a valid CD device. This may be because:\n"
-#~ "a) CD support is not present in your machine\n"
-#~ "b) You do not have the correct permissions to access the CD drive\n"
-#~ "c) %s is not the CD drive.\n"
-#~ msgstr ""
-#~ "%1$s দ্বারা কোনো বৈধ CD ডিভাইসকে চিহ্নিত করা হয়নি। সম্ভাব্য কারণ: \n"
-#~ "ক) আপনার কম্পিউটারটি CD চালাতে সক্ষম নয়\n"
-#~ "খ) CD ড্রাইভ চালানোর সঠিক অনুমতি আপনার নেই\n"
-#~ "গ) %2$s CD ড্রাইভ নয়।\n"
-
-#~ msgid "%d - Unknown"
-#~ msgstr "%d - অজানা"
-
-#~ msgid "_Play / Pause"
-#~ msgstr "বাজান / স্থগিত করুন (_P)"
-
-#~ msgid "_Stop"
-#~ msgstr "বন্ধ করুন (_S)"
-
-#~ msgid "P_revious"
-#~ msgstr "পূর্ববর্তী (_r)"
-
-#~ msgid "_Next"
-#~ msgstr "পরবর্তী (_N)"
-
-#~ msgid "_Eject disc"
-#~ msgstr "ডিস্ক বের করুন (_E)"
-
-#~ msgid "_About"
-#~ msgstr "পরিচিতি (_A)"
-
-#~ msgid "_Quit"
-#~ msgstr "প্রস্থান (_Q)"
-
-#~ msgid ""
-#~ "There is no CD device set. This means that the CD player\n"
-#~ "will be unable to run. Click 'Set device' to go to a dialog\n"
-#~ "where you can set the device, or click 'Quit' to quit the CD player."
-#~ msgstr ""
-#~ "কোনো CD ডিভাইস নির্ধারণ করা হয়নি। এই কারনে CD প্লেয়ার চালানো\n"
-#~ "সম্ভব হবে না। ডিভাইস নির্ধারণের উদ্দেশ্যে 'ডিভাইস নির্ধারণ করুন' ক্লিক করে ডায়লগ "
-#~ "বক্সে\n"
-#~ "চলুন, অথবা 'প্রস্থান' টিপে CD প্লেয়ার বন্ধ করুন।"
-
-#~ msgid "Set device"
-#~ msgstr "ডিভাইস নির্ধারণ করুন"
-
-#~ msgid "No CD device"
-#~ msgstr "কোন CD ডিভাইস নেই"
-
-#~ msgid ""
-#~ "The CD player is unable to run correctly.\n"
-#~ "\n"
-#~ "Press 'Details' for more details on reasons for the failure.\n"
-#~ "\n"
-#~ "Press 'Set device' to go to a dialog where you can set the device, or "
-#~ "press 'Quit' to quit the CD player"
-#~ msgstr ""
-#~ "CD প্লেয়ার সঠিকভাবে চলছে না।\n"
-#~ "\n"
-#~ "সমস্যার কারণ জানতে হলে 'বিবরণ' -এ ক্লিক করুন।\n"
-#~ "\n"
-#~ "ডিভাইস নির্ধারণের উদ্দেশ্যে 'ডিভাইস নির্ধারণ করুন' ক্লিক করে ডায়লগ বক্সে\n"
-#~ "চলুন, অথবা 'প্রস্থান' টিপে CD প্লেয়ার বন্ধ করুন।"
-
-#~ msgid "_Details"
-#~ msgstr "বিবরণ (_D)"
-
-#~ msgid "_Set device"
-#~ msgstr "ডিভাইস নির্ধারণ করুন (_S)"
-
-#~ msgid "Invalid CD device"
-#~ msgstr "CD ডিভাইস সঠিক নয়"
-
-#~ msgid "Position"
-#~ msgstr "অবস্থান"
-
-#~ msgid "Open preferences"
-#~ msgstr "পছন্দের তালিকা খুলুন"
-
-#~ msgid "Preferences"
-#~ msgstr "পছন্দ তালিকা"
-
-#~ msgid "Track List"
-#~ msgstr "গানের তালিকা"
-
-#~ msgid "Open track editor"
-#~ msgstr "গানের তালিকা সম্পাদক খুলুন"
-
-#~ msgid "Track editor"
-#~ msgstr "গান সম্বন্ধীয় তথ্যের সম্পাদক"
-
-#~ msgid "Play / Pause"
-#~ msgstr "বাজান / স্থগিত করুন"
-
-#~ msgid "Stop"
-#~ msgstr "বন্ধ করুন"
-
-#~ msgid "Previous track"
-#~ msgstr "পূর্ববর্তী গান"
-
-#~ msgid "Previous"
-#~ msgstr "পূর্ববর্তী"
-
-#~ msgid "Rewind"
-#~ msgstr "পিছিয়ে যান"
-
-#~ msgid "Fast forward"
-#~ msgstr "দ্রুত এগিয়ে যান"
-
-#~ msgid "Next track"
-#~ msgstr "পরবর্তী গান"
-
-#~ msgid "Eject CD"
-#~ msgstr "CD বের করুন"
-
-#~ msgid "Eject"
-#~ msgstr "বের করে নিন"
-
-#~ msgid "CD device to use"
-#~ msgstr "ব্যবহারযোগ্য CD ডিভাইস"
-
-#~ msgid "Only start if there isn't already a CD player application running"
-#~ msgstr "কোনো CD প্লেয়ারের অ্যাপ্লিকেশন বর্তমানে না চললে তবেই আরম্ভ করা হবে"
-
-#~ msgid "Play the CD on startup"
-#~ msgstr "প্রারম্ভকালে CD বাজানো হবে"
-
-#~ msgid "Start iconified in notification area"
-#~ msgstr "প্রারম্ভ কালে সূচনাপ্রদানের স্থানে আইকনরূপে প্রদর্শন করা হবে"
-
-#~ msgid "Cannot create player"
-#~ msgstr "প্লেয়ার তৈরি করতে ব্যর্থ"
-
-#~ msgid "Play audio CDs"
-#~ msgstr "অডিও CD বাজান"
-
-#~ msgid "CD player Volume"
-#~ msgstr "CD প্লেয়ারের শব্দের মাত্রা"
-
-#~ msgid "CD player theme"
-#~ msgstr "CD প্লেয়ারের থিম"
-
-#~ msgid "Device path"
-#~ msgstr "ডিভাইসের পথ"
-
-#~ msgid "Display the Remaining time?"
-#~ msgstr "অবশিষ্ট সময় প্রদর্শিত হবে কি?"
-
-#~ msgid "Eject the CD when CD player quits?"
-#~ msgstr "CD প্লেয়ার থেকে প্রস্থানকালে ড্রাইভ থেকে  কি CD বের করে দেওয়া হবে?"
-
-#~ msgid "How the time should be displayed while CD Player is playing?"
-#~ msgstr "CD-প্লেয়ার চলাকালে, কিভাবে সময় প্রদর্শন করা হবে ?"
-
-#~ msgid "Play when the CD player starts?"
-#~ msgstr "CD প্লেয়ার প্রারম্ভকালে বাজানো হবে কি?"
-
-#~ msgid "Should the CD be ejected when the CD player quits?"
-#~ msgstr "CD প্লেয়ার থেকে প্রস্থানকালে ড্রাইভ থেকে কি CD বের করে দেওয়া হবে?"
-
-#~ msgid "The path to the CD drive that the CD player should use to play CDs"
-#~ msgstr "CD চালাতে হলে CD প্লেয়ার দ্বারা CD ড্রাইভের জন্য যে পাথ ব্যবহার করা হবে"
-
-#~ msgid "What theme should the CD player use for its appearance"
-#~ msgstr "CD প্লেয়ার প্রদর্শনের সময় কোন থিম ব্যবহৃত হবে"
-
-#~ msgid "What volume should the CD player use when it is started?"
-#~ msgstr "CD প্লেয়ার আরম্ভের সময় শব্দের মাত্রা কতো হবে?"
-
-#~ msgid "When the CD player is started, should it start playing the CD?"
-#~ msgstr "CD প্লেয়ার আরম্ভ হলে কি এটি CD চালাতে শুরু করবে? "
-
-#~ msgid "Failed to eject CD: %s"
-#~ msgstr "CD বের করতে ব্যর্থ: %s"
-
-#~ msgid ""
-#~ "%s\n"
-#~ "This means that the CD player will not be able to run."
-#~ msgstr ""
-#~ "%s\n"
-#~ "অর্থাৎ CD প্লেয়ার চলতে সক্ষম হবে না।"
-
-#~ msgid "Error setting device"
-#~ msgstr "ডিভাইস নির্ধারণে সমস্যা"
-
-#~ msgid "CD Player Preferences"
-#~ msgstr "CD প্লেয়ার সংক্রান্ত পছন্দ"
-
-#~ msgid "Behavior"
-#~ msgstr "আচরণ"
-
-#~ msgid "Start _playback when CD Player starts"
-#~ msgstr "CD প্লেয়ার আরম্ভ হলে বাজানো শুরু হবে (_p)"
-
-#~ msgid "Start playback when CD Player starts"
-#~ msgstr "CD প্লেয়ার আরম্ভ হলে বাজানো শুরু হবে"
-
-#~ msgid "Attempt to _eject CD when CD Player exits"
-#~ msgstr "CD প্লেয়ার বন্ধ করা হলে CD বের করার প্রচেষ্টা করা হবে (_e)"
-
-#~ msgid "Attempt to eject CD when CD Player exits"
-#~ msgstr "CD প্লেয়ার বন্ধ করা হলে CD বের করার প্রচেষ্টা করা হবে"
-
-#~ msgid "Themes"
-#~ msgstr "থিম"
-
-#~ msgid "_Select a theme:"
-#~ msgstr "একটি থিম বেছে নিন (_S):"
-
-#~ msgid "MATE Volume Control"
-#~ msgstr "MATE ভলিউম নিয়ন্ত্রণকারী"
-
-#~ msgid ""
-#~ "Cannot connect to sound daemon.\n"
-#~ "Please run 'esd' at a command prompt."
-#~ msgstr ""
-#~ "সাউন্ড ডেমনের সাথে সংযোগ করা যায়নি।\n"
-#~ "অনুগ্রহ করে কমান্ড প্রম্পটে 'esd' সঞ্চালন করুন।"
-
-#~ msgid "Specify the X position of the meter."
-#~ msgstr "মিটারের X অবস্থান নির্ধারণ করুন।"
-
-#~ msgid "X"
-#~ msgstr "X"
-
-#~ msgid "Specify the Y position of the meter."
-#~ msgstr "মিটারের Y অবস্থান নির্ধারণ করুন।"
-
-#~ msgid "Y"
-#~ msgstr "Y"
-
-#~ msgid "Connect to the esd server on this host."
-#~ msgstr "বর্তমান হোস্ট সিস্টেমের মধ্যে উপস্থিত esd সার্ভারের সাথে সংযোগ করুন।"
-
-#~ msgid "HOST"
-#~ msgstr "HOST"
-
-#~ msgid "Open a vertical version of the meter."
-#~ msgstr "পরিমাপ নির্দেশকের একটি উল্লম্ব সংস্করণ প্রদর্শন করা হবে।"
-
-# FIXME
-#~ msgid "Act as recording level meter."
-#~ msgstr "রেকর্ডিং-এর মাত্রার মিটার হিসেবে প্রয়োগ করা হবে।"
-
-#~ msgid "Host is %s\n"
-#~ msgstr "হোস্ট %s\n"
-
-#~ msgid "Recording level"
-#~ msgstr "রেকর্ডিং-এর মাত্রা"
-
-#~ msgid "Volume Meter"
-#~ msgstr "ভলিউম মিটার"
-
-#~ msgid "Monitor the recording input volume"
-#~ msgstr "রেকর্ডের ইনপুটের মাত্রা পর্যবেক্ষণ করুন"
-
-#~ msgid "Recording Level Monitor"
-#~ msgstr "রেকর্ডিং-এর স্তর পর্যবেক্ষক"
-
-#~ msgid "Monitor the sound output volume"
-#~ msgstr "শব্দের আউটপুটের মাত্রা পর্যবেক্ষণ করুন"
-
-#~ msgid "Volume Monitor"
-#~ msgstr "ভলিউম পর্যবেক্ষক"
-
-#~ msgid "Adjust the volume level"
-#~ msgstr "শব্দের মাত্রা পরিবর্তন করুন"
-
-#~ msgid "<span weight=\"bold\" size=\"x-large\">Testing...</span>"
-#~ msgstr "<span weight=\"bold\" size=\"x-large\">পরীক্ষা করা হচ্ছে...</span>"

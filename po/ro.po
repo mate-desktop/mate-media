@@ -1,45 +1,43 @@
-# translation of mate-media.HEAD.ro.po to Română
-# translation of mate-media.HEAD.ro.po to
-# Romanian translation for mate-media.
-# Copyright (C) 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# Mugurel Tudor <mugurelu@mate.ro>, 2002-2003, 2004, 2005, 2006, 2007.
-# Adi Roiban https://launchpad.net/~adiroiban, 2008, 2009
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Adi Roiban https://launchpad.net/~adiroiban, 2008, 2009.
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
+# Mugurel Tudor <mugurelu@mate.ro>, 2002-2003, 2004, 2005, 2006, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media.HEAD.ro\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=mate-"
-"media&component=general\n"
-"POT-Creation-Date: 2010-09-25 13:07+0000\n"
-"PO-Revision-Date: 2010-09-26 12:08+0300\n"
-"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
-"Language-Team: Romanian Mate Team <matero-list@lists.sourceforge.net>\n"
-"Language: ro\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 14:50+0200\n"
+"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.6.1\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-msgid "Show desktop volume control"
-msgstr "Afișare control volum desktop"
-
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
 msgstr "Control volum"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-msgid "Change sound volume and sound events"
-msgstr "Schimbă volumul sunetului și sunetele evenimentelor"
+#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+msgid "Show desktop volume control"
+msgstr "Afișare control volum desktop"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "Sunet"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "Schimbă volumul sunetului și sunetele evenimentelor"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -52,7 +50,6 @@ msgid "Version of this application"
 msgstr "Versiunea aceastei aplicații"
 
 #: ../mate-volume-control/src/applet-main.c:62
-#| msgid " - MATE Volume Control Applet"
 msgid " — MATE Volume Control Applet"
 msgstr " — Miniaplicație control volum MATE"
 
@@ -65,7 +62,6 @@ msgid "Startup page"
 msgstr "Pagină pornire"
 
 #: ../mate-volume-control/src/dialog-main.c:168
-#| msgid " - MATE Volume Control"
 msgid " — MATE Volume Control"
 msgstr " — Control volum MATE"
 
@@ -75,7 +71,6 @@ msgid "Output"
 msgstr "Ieșire"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
-#| msgid "_Output volume: "
 msgid "Sound Output Volume"
 msgstr "Volum sunet ieșire"
 
@@ -274,12 +269,10 @@ msgstr "Stop"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
-#| msgid "Te_st"
 msgid "Test"
 msgstr "Testează"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
-#| msgid "_Subwoofer:"
 msgid "Subwoofer"
 msgstr "Subwoofer"
 
@@ -300,450 +293,11 @@ msgstr "Preferințe _sunet"
 msgid "Muted"
 msgstr "Fără sunet"
 
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:1
-msgid "Record sound clips"
-msgstr "Înregistrează clipuri sonore"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:2
-#: ../grecord/src/gsr-window.c:1239
-msgid "Sound Recorder"
-msgstr "Înregistrare sunet"
-
-#. Translator comment: default trackname is 'untitled', which
-#. * has as effect that the user cannot save to this file. The
-#. * 'save' action will open the save-as dialog instead to give
-#. * a proper filename. See mate-record.c:94.
-#: ../grecord/src/mate-recorder.c:142 ../grecord/src/gsr-window.c:1742
-#: ../grecord/src/gsr-window.c:2691
-msgid "Untitled"
-msgstr "Fără titlu"
-
-#: ../grecord/src/mate-recorder.c:144 ../grecord/src/gsr-window.c:1744
-#, c-format
-msgid "Untitled-%d"
-msgstr "Fără titlu-%d"
-
-#: ../grecord/src/gsr-window.c:193
-#, fuzzy, c-format
-#| msgid ""
-#| "Could not create the GStreamer %s element.\n"
-#| "Please install the '%s' plug-in from the '%s' module.\n"
-#| "Verify that the installation is correct by running\n"
-#| "    gst-inspect-0.10 %s\n"
-#| "and then restart mate-sound-recorder."
-msgid ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plugin from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-msgstr ""
-"Eroare la crearea elementului GStreamer %s.\n"
-"Vă rugăm instalați modulul „%s”, parte a „%s”.\n"
-"Verificați corectitudinea instalării rulând\n"
-"    gst-inspect-0.10 %s\n"
-"si apoi restartați mate-sound-recorder."
-
-#: ../grecord/src/gsr-window.c:209
-#| msgid ""
-#| "Please verify its settings.\n"
-#| "You may be missing the necessary plug-ins."
-msgid ""
-"Please verify its settings.\n"
-"You may be missing the necessary plugins."
-msgstr ""
-"Verificați configurările.\n"
-"Probabil vă lipsesc modulele necesare."
-
-#: ../grecord/src/gsr-window.c:294
-#, c-format
-msgid "%ld minute"
-msgid_plural "%ld minutes"
-msgstr[0] "%ld minut"
-msgstr[1] "%ld minute"
-msgstr[2] "%ld de minute"
-
-#: ../grecord/src/gsr-window.c:295
-#, c-format
-msgid "%ld hour"
-msgid_plural "%ld hours"
-msgstr[0] "%ld oră"
-msgstr[1] "%ld ore"
-msgstr[2] "%ld de ore"
-
-#: ../grecord/src/gsr-window.c:296
-#, c-format
-msgid "%ld second"
-msgid_plural "%ld seconds"
-msgstr[0] "%ld secundă"
-msgstr[1] "%ld secunde"
-msgstr[2] "%ld de secunde"
-
-#. Translators: the format is "X hours, X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:303
-#, c-format
-msgid "%s, %s and %s"
-msgstr "%s, %s și %s"
-
-#. Translators: the format is "X hours and X minutes"
-#. Translators: the format is "X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:309 ../grecord/src/gsr-window.c:317
-#: ../grecord/src/gsr-window.c:328
-#, c-format
-msgid "%s and %s"
-msgstr "%s și %s"
-
-#: ../grecord/src/gsr-window.c:371
-msgid "Open a File"
-msgstr "Deschide un fișier"
-
-#: ../grecord/src/gsr-window.c:448
-#, c-format
-msgid ""
-"Unable to load file:\n"
-"%s"
-msgstr ""
-"Nu s-a putut încărca fișierul:\n"
-"%s"
-
-#: ../grecord/src/gsr-window.c:594 ../grecord/src/gsr-window.c:1541
-#: ../grecord/src/gsr-window.c:1801 ../grecord/src/gsr-window.c:2502
-msgid "Ready"
-msgstr "Pregătit"
-
-#. Add replace button
-#: ../grecord/src/gsr-window.c:647
-msgid "_Replace"
-msgstr "Î_nlocuiește"
-
-#: ../grecord/src/gsr-window.c:664
-#, c-format
-msgid ""
-"A file named \"%s\" already exists. \n"
-"Do you want to replace it with the one you are saving?"
-msgstr ""
-"Un fișier numit „%s” există deja.\n"
-"Doriți să îl înlocuiți cu cel pe care îl salvați?"
-
-#: ../grecord/src/gsr-window.c:712
-#, c-format
-msgid "Could not save the file \"%s\""
-msgstr "Nu s-a putut salva fișierul „%s”"
-
-#: ../grecord/src/gsr-window.c:732
-msgid "Save file as"
-msgstr "Salvați fișier ca"
-
-#: ../grecord/src/gsr-window.c:826
-#, c-format
-msgid "%s is not installed in the path."
-msgstr "%s nu este instalat în cale."
-
-#: ../grecord/src/gsr-window.c:835
-#, c-format
-msgid "There was an error starting %s: %s"
-msgstr "A intervenit o eroare la pornirea %s: %s"
-
-#: ../grecord/src/gsr-window.c:863
-msgid "Save recording before closing?"
-msgstr "Salvați înregistrarea înainte de închidere?"
-
-#: ../grecord/src/gsr-window.c:864
-msgid "Save recording?"
-msgstr "Salvați înregistrarea?"
-
-#: ../grecord/src/gsr-window.c:868
-msgid "Close _without Saving"
-msgstr "Închide _fără salvare"
-
-#: ../grecord/src/gsr-window.c:869
-msgid "Continue _without Saving"
-msgstr "Continuă _fără salvare"
-
-#: ../grecord/src/gsr-window.c:879
-msgid "Question"
-msgstr "Întrebare"
-
-#: ../grecord/src/gsr-window.c:986
-#, c-format
-msgid "%s (Has not been saved)"
-msgstr "%s (Nu a fost salvat)"
-
-#: ../grecord/src/gsr-window.c:1002
-#, c-format
-msgid "%s (%llu byte)"
-msgid_plural "%s (%llu bytes)"
-msgstr[0] "%s (%llu octet)"
-msgstr[1] "%s (%llu octeți)"
-msgstr[2] "%s (%llu de octeți)"
-
-#: ../grecord/src/gsr-window.c:1006
-msgid "Unknown size"
-msgstr "Mărime necunoscută"
-
-#. Attempts to get length ran out.
-#: ../grecord/src/gsr-window.c:1015 ../grecord/src/gsr-window.c:1025
-#: ../grecord/src/gsr-window.c:1041 ../grecord/src/gsr-window.c:1050
-#: ../grecord/src/gsr-window.c:1409
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "Necunoscut"
-
-#: ../grecord/src/gsr-window.c:1027
-#, c-format
-msgid "%.1f kHz"
-msgstr "%.1f kHz"
-
-#: ../grecord/src/gsr-window.c:1035
-#, c-format
-msgid "%.0f kb/s"
-msgstr "%.0f kb/s"
-
-#: ../grecord/src/gsr-window.c:1038
-#, c-format
-msgid "%.0f kb/s (Estimated)"
-msgstr "%.0f kb/s (estimat)"
-
-#: ../grecord/src/gsr-window.c:1053
-msgid "1 (mono)"
-msgstr "1 (mono)"
-
-#: ../grecord/src/gsr-window.c:1056
-msgid "2 (stereo)"
-msgstr "2 (stereo)"
-
-#: ../grecord/src/gsr-window.c:1083
-#, c-format
-msgid "%s Information"
-msgstr "Informații %s"
-
-#: ../grecord/src/gsr-window.c:1109 ../grecord/src/gsr-window.c:2414
-msgid "File Information"
-msgstr "Informații fișier"
-
-#: ../grecord/src/gsr-window.c:1124
-msgid "Folder:"
-msgstr "Dosar:"
-
-#: ../grecord/src/gsr-window.c:1130 ../grecord/src/gsr-window.c:2421
-msgid "Filename:"
-msgstr "Nume fișier:"
-
-#: ../grecord/src/gsr-window.c:1136
-msgid "File size:"
-msgstr "Mărime fișier:"
-
-#: ../grecord/src/gsr-window.c:1145
-msgid "Audio Information"
-msgstr "Informație audio"
-
-#: ../grecord/src/gsr-window.c:1160
-msgid "File duration:"
-msgstr "Durată fișier:"
-
-#: ../grecord/src/gsr-window.c:1166
-msgid "Number of channels:"
-msgstr "Număr de canale:"
-
-#: ../grecord/src/gsr-window.c:1172
-msgid "Sample rate:"
-msgstr "Rată eșantionare:"
-
-#: ../grecord/src/gsr-window.c:1178
-msgid "Bit rate:"
-msgstr "Rată biți:"
-
-#: ../grecord/src/gsr-window.c:1242
-msgid ""
-"A sound recorder for MATE\n"
-" mate-multimedia@gnome.org"
-msgstr ""
-"O aplicație de înregistrat sunete pentru MATE\n"
-" mate-multimedia@gnome.org"
-
-#: ../grecord/src/gsr-window.c:1513
-#| msgid "Playing..."
-msgid "Playing…"
-msgstr "Se redă…"
-
-#: ../grecord/src/gsr-window.c:1645
-msgid "MateConf audio output"
-msgstr "Ieșire audio MateConf"
-
-#: ../grecord/src/gsr-window.c:1654 ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "Redare"
-
-#: ../grecord/src/gsr-window.c:1733
-#| msgid "Recording"
-msgid "Recording…"
-msgstr "Se înregistrează…"
-
-#: ../grecord/src/gsr-window.c:1823
-msgid "MateConf audio recording"
-msgstr "Înregistrare audio MateConf"
-
-#: ../grecord/src/gsr-window.c:1832
-#| msgid ""
-#| "Your audio capture settings are invalid. Please correct them with the "
-#| "\"Sound Preferences\" under the System-Preferences menu."
-msgid ""
-"Your audio capture settings are invalid. Please correct them with the "
-"\"Sound Preferences\" under the System Preferences menu."
-msgstr ""
-"Configurările dumneavoastră pentru capturi audio nu sunt valide. "
-"Corectați-le utilizând „Preferințe sunet” din meniul Sistem - Preferințe."
-
-#: ../grecord/src/gsr-window.c:2004
-msgid "file output"
-msgstr "fișier de ieșire"
-
-#: ../grecord/src/gsr-window.c:2022
-msgid "level"
-msgstr "nivel"
-
-#: ../grecord/src/gsr-window.c:2046
-#, c-format
-msgid "Could not parse the '%s' audio profile. "
-msgstr "Nu s-a putut analiza profilul audio „%s”. "
-
-#: ../grecord/src/gsr-window.c:2063
-#, c-format
-msgid "Could not capture using the '%s' audio profile. "
-msgstr "Nu s-a putut realiza captura folosind profilul audio „%s”. "
-
-#: ../grecord/src/gsr-window.c:2072
-#, c-format
-msgid "Could not write to a file using the '%s' audio profile. "
-msgstr "Nu s-a putut scrie în fișier folosind profilul audio „%s”. "
-
-#. File menu.
-#: ../grecord/src/gsr-window.c:2126
-msgid "_File"
-msgstr "_Fișier"
-
-#: ../grecord/src/gsr-window.c:2128
-msgid "Create a new sample"
-msgstr "Creează un nou eșantion"
-
-#: ../grecord/src/gsr-window.c:2130
-msgid "Open a file"
-msgstr "Deschide un fișier"
-
-#: ../grecord/src/gsr-window.c:2132
-msgid "Save the current file"
-msgstr "Salvează fișierul curent"
-
-#: ../grecord/src/gsr-window.c:2134
-msgid "Save the current file with a different name"
-msgstr "Salvează fișierul curent sub un alt nume"
-
-#: ../grecord/src/gsr-window.c:2135
-msgid "Open Volu_me Control"
-msgstr "Deschide control volu_m"
-
-#: ../grecord/src/gsr-window.c:2136
-msgid "Open the audio mixer"
-msgstr "Deschide mixerul audio"
-
-#: ../grecord/src/gsr-window.c:2138
-msgid "Show information about the current file"
-msgstr "Arată informații despre fișierul curent"
-
-#: ../grecord/src/gsr-window.c:2140
-msgid "Close the current file"
-msgstr "Închide fișierul curent"
-
-#: ../grecord/src/gsr-window.c:2142
-msgid "Quit the program"
-msgstr "Închide aplicația"
-
-#. Control menu
-#: ../grecord/src/gsr-window.c:2145
-msgid "_Control"
-msgstr "_Control"
-
-#: ../grecord/src/gsr-window.c:2147
-msgid "Record sound"
-msgstr "Înregistrează sunet"
-
-#: ../grecord/src/gsr-window.c:2149
-msgid "Play sound"
-msgstr "Redă sunet"
-
-#: ../grecord/src/gsr-window.c:2151
-msgid "Stop sound"
-msgstr "Oprește sunet"
-
-#. Help menu
-#: ../grecord/src/gsr-window.c:2154
-msgid "_Help"
-msgstr "_Ajutor"
-
-#: ../grecord/src/gsr-window.c:2155
-msgid "Contents"
-msgstr "Conținut"
-
-#: ../grecord/src/gsr-window.c:2156
-msgid "Open the manual"
-msgstr "Deschide manualul"
-
-#: ../grecord/src/gsr-window.c:2158
-msgid "About this application"
-msgstr "Despre această aplicație"
-
-#: ../grecord/src/gsr-window.c:2280
-#| msgid "Could not load ui.xml. The program may be not properly installed"
-msgid "Could not load UI file. The program may not be properly installed."
-msgstr ""
-"Nu s-a putut încărca fișierul cu interfața cu utilizatorul. Probabil "
-"programul nu a fost instalat corect."
-
-#: ../grecord/src/gsr-window.c:2303
-msgid "Open"
-msgstr "Deschide"
-
-#: ../grecord/src/gsr-window.c:2305
-msgid "Save"
-msgstr "Salvează"
-
-#: ../grecord/src/gsr-window.c:2307
-msgid "Save As"
-msgstr "Salvează ca"
-
-#: ../grecord/src/gsr-window.c:2363
-msgid "Record from _input:"
-msgstr "Înregistrează de la _intrare:"
-
-#: ../grecord/src/gsr-window.c:2381
-msgid "_Record as:"
-msgstr "În_registrează ca:"
-
-#: ../grecord/src/gsr-window.c:2428
-msgid "<none>"
-msgstr "<nici unul>"
-
-#: ../grecord/src/gsr-window.c:2442
-msgid "Length:"
-msgstr "Lungime:"
-
-#: ../grecord/src/gsr-window.c:2480
-msgid "Level:"
-msgstr "Nivel:"
-
-#. Translators: this is the window title, %s is the currently open file's name or Untitled
-#: ../grecord/src/gsr-window.c:2575
-#, c-format
-#| msgid "%s - Sound Recorder"
-msgid "%s — Sound Recorder"
-msgstr "%s — Înregistrare sunet"
-
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
 msgstr "Înălțimea ferestrei"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
-#| msgid "Height of the Window to be displayed"
 msgid "Height of the window to be displayed."
 msgstr "Înălțimea ferestrei afișate."
 
@@ -752,7 +306,6 @@ msgid "Width of the Window"
 msgstr "Lățimea ferestrei"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
-#| msgid "Width of the Window to be displayed"
 msgid "Width of the window to be displayed."
 msgstr "Lățimea ferestrei afișate."
 
@@ -768,6 +321,10 @@ msgstr "Control volum %d necunoscut"
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
 msgstr "Niciun modul GStreamer pentru control volum și/sau dispozitive găsite."
+
+#: ../gst-mixer/src/misc.c:62
+msgid "Playback"
+msgstr "Redare"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
@@ -798,7 +355,6 @@ msgstr "%s:"
 #. mute button
 #: ../gst-mixer/src/track.c:339
 #, c-format
-#| msgid "Mute/unmute %s"
 msgid "Mute/Unmute %s"
 msgstr "Mut/nemut %s"
 
@@ -913,10 +469,7 @@ msgstr "O aplicație MATE/GStreamer pentru controlul volumului"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr ""
-"Mugurel Tudor <mugurelu@mate.ro>\n"
-"Adi Roiban <adi@roiban.ro>\n"
-"Lucian Adrian Grijincu <lucian.grijincu@gmail.com>"
+msgstr "Mugurel Tudor <mugurelu@mate.ro>\nAdi Roiban <adi@roiban.ro>\nLucian Adrian Grijincu <lucian.grijincu@gmail.com>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -949,6 +502,10 @@ msgstr "Nesuportat"
 msgid "Default"
 msgstr "Implicit"
 
+#: ../gstreamer-properties/gstreamer-properties.c:301
+msgid "Unknown"
+msgstr "Necunoscut"
+
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
 msgstr "Eroare la instanțierea fereastrei principale"
@@ -957,38 +514,38 @@ msgstr "Eroare la instanțierea fereastrei principale"
 msgid "Failed to load UI file; please check your installation."
 msgstr "Eroare la încărcarea fișierului de interfață; verificați instalarea."
 
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:1
-msgid "Configure defaults for GStreamer applications"
-msgstr "Configurări implicite pentru aplicațiile GStreamer"
-
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:2
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
+#: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
 msgstr "Selector sisteme multimedia"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Audio"
-msgstr "Audio"
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
+msgid "Configure defaults for GStreamer applications"
+msgstr "Configurări implicite pentru aplicațiile GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Click Ok to finish."
-msgstr "Apăsați pe Ok pentru a termina."
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "D_evice:"
-msgstr "Dispoziti_v:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "Default Input"
-msgstr "Intrare implicită"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "Default Output"
 msgstr "Ieșire implicită"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+#: ../gstreamer-properties/gstreamer-properties.ui.h:3
+msgid "_Plugin:"
+msgstr "_Modul:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
 msgstr "_Bandă de ansamblare:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:5
+msgid "_Test"
+msgstr "_Test"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+msgid "_Device:"
+msgstr "_Dispozitiv:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+msgid "Default Input"
+msgstr "Intrare implicită"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -1003,29 +560,28 @@ msgid "Te_st"
 msgstr "Te_st"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "Testing Pipeline"
-msgstr "Se testează banda de ansamblare"
+msgid "D_evice:"
+msgstr "Dispoziti_v:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
-#| msgid "Testing..."
-msgid "Testing…"
-msgstr "Se testează…"
+msgid "Audio"
+msgstr "Audio"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
 msgstr "Video"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "_Device:"
-msgstr "_Dispozitiv:"
+msgid "Testing Pipeline"
+msgstr "Se testează banda de ansamblare"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "_Plugin:"
-msgstr "_Modul:"
+msgid "Testing…"
+msgstr "Se testează…"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "_Test"
-msgstr "_Test"
+msgid "Click Ok to finish."
+msgstr "Apăsați pe Ok pentru a termina."
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
@@ -1034,30 +590,25 @@ msgstr "Autodetectare"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
-#| msgid "ALSA - Advanced Linux Sound Architecture"
 msgid "ALSA — Advanced Linux Sound Architecture"
 msgstr "ALSA — Advanced Linux Sound Architecture"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
-#| msgid "Artsd - ART Sound Daemon"
 msgid "Artsd — ART Sound Daemon"
 msgstr "Artsd — Server sunet ART"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
-#| msgid "ESD - Enlightenment Sound Daemon"
 msgid "ESD — Enlightenment Sound Daemon"
 msgstr "ESD — Enlightenment Sound Daemon"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
-#| msgid "OSS - Open Sound System"
 msgid "OSS — Open Sound System"
 msgstr "OSS — Open Sound System"
 
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
-#| msgid "OSS - Open Sound System"
 msgid "OSS - Open Sound System Version 4"
 msgstr "OSS - Open Sound System Versiunea 4"
 
@@ -1068,7 +619,6 @@ msgstr "PulseAudio - Server sunet"
 
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
-#| msgid "Audio"
 msgid "Sun Audio"
 msgstr "Sun Audio"
 
@@ -1088,7 +638,6 @@ msgid "OpenGL"
 msgstr "OpenGL"
 
 #: ../gstreamer-properties/pipeline-constants.c:110
-#| msgid "SDL - Simple DirectMedia Layer"
 msgid "SDL — Simple DirectMedia Layer"
 msgstr "SDL — Simple DirectMedia Layer"
 
@@ -1135,7 +684,7 @@ msgstr "Video pentru Linux 2 (v4l2)"
 msgid "Failed to construct test pipeline for '%s'"
 msgstr "Nu s-a putut construi conexiunea de test pentru „%s”"
 
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:529
+#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "A intervenit o eroare la afișarea ajutorului: %s"
@@ -1163,9 +712,7 @@ msgstr "A intervenit o eroare la obținerea listei de profile gm_audio. (%s)\n"
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr ""
-"A intervenit o eroare la subscrierea pentru notificarea schimbărilor listei "
-"de profile audio. (%s)\n"
+msgstr "A intervenit o eroare la subscrierea pentru notificarea schimbărilor listei de profile audio. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
@@ -1177,7 +724,7 @@ msgid "_Edit"
 msgstr "_Editare"
 
 #. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:456
+#: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
@@ -1185,29 +732,29 @@ msgstr[0] "Ștergeți acest profil?\n"
 msgstr[1] "Ștergeți aceste %d profile?\n"
 msgstr[2] "Ștergeți aceste %d de profile?\n"
 
-#: ../profiles/audio-profiles-edit.c:475
+#: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
 msgstr "Ștergeți profilul „%s”?"
 
-#: ../profiles/audio-profiles-edit.c:497
+#: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
 msgstr "Ștergere profil"
 
-#: ../profiles/audio-profiles-edit.c:590
+#: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
 msgstr "Editare profile audio MATE"
 
-#: ../profiles/audio-profiles-edit.c:641
+#: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
 msgstr "_Profile:"
 
-#: ../profiles/audio-profiles-edit.c:825
+#: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
 msgstr "Aveți deja un profil numit „%s”"
 
-#: ../profiles/audio-profiles-edit.c:850
+#: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
 msgstr "Eroare MATECONF (FIXME): %s\n"
@@ -1215,21 +762,16 @@ msgstr "Eroare MATECONF (FIXME): %s\n"
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed "
-"incorrectly, so the dialog can't be displayed."
-msgstr ""
-"Fișierul „%s” lipsește. Acest lucru indică faptul că aplicația este "
-"instalată incorect, și ca atare dialogul nu poate fi afișat."
+"The file \"%s\" is missing. This indicates that the application is installed"
+" incorrectly, so the dialog can't be displayed."
+msgstr "Fișierul „%s” lipsește. Acest lucru indică faptul că aplicația este instalată incorect, și ca atare dialogul nu poate fi afișat."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"%s\n"
-"Porniți „%s --help” pentru a vizualiza lista completă a opțiunilor din linia "
-"de comandă.\n"
+msgstr "%s\nPorniți „%s --help” pentru a vizualiza lista completă a opțiunilor din linia de comandă.\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -1265,171 +807,137 @@ msgid "_Create"
 msgstr "_Creează"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "A description for the audio profile"
-msgstr "O descriere pentru profilul audio"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr ""
-"O descriere pentru profil, conținând mai multe informații și descriind când "
-"să fie folosit acest profil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid ""
-"A filename extension to be used when storing files encoded with this profile."
-msgstr ""
-"O extensie de fișier ce va fi folosită la stocarea fișierelor codate cu "
-"acest profil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "O conexiune parțială GStreamer ce va fi folosit pentru acest profil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A short name for the audio profile"
-msgstr "Un nume scurt pentru profilul audio"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr ""
-"Un nume scurt pentru profilul audio, ce va fi folosit în selecții și va "
-"identifica în mod unic profilul."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "CD Quality, AAC"
-msgstr "Calitate CD, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "CD Quality, Lossless"
-msgstr "Calitate CD, fara pierderi"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "CD Quality, Lossy"
-msgstr "Calitate CD, cu pierderi"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid "CD Quality, MP2"
-msgstr "Calitate CD, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "CD Quality, MP3"
-msgstr "Calitate CD, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
-"Listă a profilelor de înregistrare audio. Lista conține șiruri de caractere "
-"descriind subdosare relative la /system/gstreamer/@GST_MAJORMINOR@/audio/"
-"profiles."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "List of profiles"
 msgstr "Listă a profilelor"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
+msgid ""
+"List of audio recording profiles. The list contains strings naming "
+"subdirectories relative to "
+"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "Listă a profilelor de înregistrare audio. Lista conține șiruri de caractere descriind subdosare relative la /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
+msgid "A short name for the audio profile"
+msgstr "Un nume scurt pentru profilul audio"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
+msgid ""
+"A short name for the audio profile, to be used in selections and uniquely "
+"identifying the profile."
+msgstr "Un nume scurt pentru profilul audio, ce va fi folosit în selecții și va identifica în mod unic profilul."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
+msgid "A description for the audio profile"
+msgstr "O descriere pentru profilul audio"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+msgid ""
+"A description of the profile, containing more information and describing "
+"when to use this profile."
+msgstr "O descriere pentru profil, conținând mai multe informații și descriind când să fie folosit acest profil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
+msgid "The partial GStreamer pipeline used"
+msgstr "Conexiunea parțială GStreamer folosit"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
+msgid "A partial GStreamer pipeline to use for this profile."
+msgstr "O conexiune parțială GStreamer ce va fi folosit pentru acest profil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
 msgstr "Extensia de fișier implicită pentru acest profil"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
+msgid ""
+"A filename extension to be used when storing files encoded with this "
+"profile."
+msgstr "O extensie de fișier ce va fi folosită la stocarea fișierelor codate cu acest profil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
+msgid "Whether this profile is to be used"
+msgstr "Dacă acest profil să fie folosit"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
+msgid "Whether to use and display this profile."
+msgstr "Dacă acest profil să fie folosit și afișat."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
+msgid "CD Quality, Lossy"
+msgstr "Calitate CD, cu pierderi"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+msgid ""
+"Used for converting to CD-quality audio, but with a lossy compression codec."
+" Use this for CD extraction and radio recordings."
+msgstr "Folosit la conversia audio de calitate CD, dar cu un codec cu pierderi la compresie. Folosiți-l pentru extragerea melodiilor de pe CD și înregistrări radio."
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "The partial GStreamer pipeline used"
-msgstr "Conexiunea parțială GStreamer folosit"
+msgid "CD Quality, Lossless"
+msgstr "Calitate CD, fara pierderi"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr ""
-"Folosit la conversia audio de calitate CD, dar cu un codec fără pierderi la "
-"compresie. Folosiți-l în cazul în care doriți să editați mai târziu fișierul "
-"sau să îl scrieți pe un CD."
+msgstr "Folosit la conversia audio de calitate CD, dar cu un codec fără pierderi la compresie. Folosiți-l în cazul în care doriți să editați mai târziu fișierul sau să îl scrieți pe un CD."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec. "
-"Use this for CD extraction and radio recordings."
-msgstr ""
-"Folosit la conversia audio de calitate CD, dar cu un codec cu pierderi la "
-"compresie. Folosiți-l pentru extragerea melodiilor de pe CD și înregistrări "
-"radio."
+msgid "Voice, Lossless"
+msgstr "Voce, fara pierderi"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"Folosit pentru convertirea la calitate audio CD, dar cu codecul cu pierderi "
-"AAC. Folosiți asta doar pentru a copia către dispozitivele care suportă doar "
-"codecul AAC. Rețineți faptul că utilizarea aceastui codec ar putea fi "
-"ilegală în țara dumneavoastră, contactați avocatul dumneavoastră pentru mai "
-"multe sfaturi."
+"Used for converting to lossless voice-quality audio. Use this for recording "
+"and editing speech."
+msgstr "Folosit la conversia audio de calitate voce fără pierderi. Folosiți-l pentru înregistrarea și editarea vocii."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
+msgid "Voice, Lossy"
+msgstr "Voce, cu pierderi"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+msgid ""
+"Used for converting to lossy voice-quality audio. Use this for recording "
+"speech that doesn't need to be edited."
+msgstr "Folosit la conversia audio de calitate voce cu pierderi. Folosiți-l pentru înregistrarea vocii când editarea nu este necesară."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
+msgid "CD Quality, MP2"
+msgstr "Calitate CD, MP2"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"Folosit pentru convertirea la calitate audio CD, dar cu codecul cu pierderi "
-"MP2. Folosiți asta doar pentru a copia către dispozitivele care suportă doar "
-"codecul MP2. Rețineți faptul că utilizarea aceastui codec ar putea fi "
-"ilegală în țara dumneavoastră, contactați avocatul dumneavoastră pentru mai "
-"multe sfaturi."
+msgstr "Folosit pentru convertirea la calitate audio CD, dar cu codecul cu pierderi MP2. Folosiți asta doar pentru a copia către dispozitivele care suportă doar codecul MP2. Rețineți faptul că utilizarea aceastui codec ar putea fi ilegală în țara dumneavoastră, contactați avocatul dumneavoastră pentru mai multe sfaturi."
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
+msgid "CD Quality, MP3"
+msgstr "Calitate CD, MP3"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"Folosit pentru convertirea la calitate audio CD, dar cu codecul cu pierderi "
-"MP3. Folosiți asta doar pentru a copia către dispozitivele care suportă doar "
-"codecul MP3. Rețineți faptul că utilizarea aceastui codec ar putea fi "
-"ilegală în țara dumneavoastră, contactați avocatul dumneavoastră pentru mai "
-"multe sfaturi."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr ""
-"Folosit la conversia audio de calitate voce fără pierderi. Folosiți-l pentru "
-"înregistrarea și editarea vocii."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr ""
-"Folosit la conversia audio de calitate voce cu pierderi. Folosiți-l pentru "
-"înregistrarea vocii când editarea nu este necesară."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "Voice, Lossless"
-msgstr "Voce, fara pierderi"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid "Voice, Lossy"
-msgstr "Voce, cu pierderi"
+msgstr "Folosit pentru convertirea la calitate audio CD, dar cu codecul cu pierderi MP3. Folosiți asta doar pentru a copia către dispozitivele care suportă doar codecul MP3. Rețineți faptul că utilizarea aceastui codec ar putea fi ilegală în țara dumneavoastră, contactați avocatul dumneavoastră pentru mai multe sfaturi."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-#| msgid "Whether or not this profile is to be used"
-msgid "Whether this profile is to be used"
-msgstr "Dacă acest profil să fie folosit"
+msgid "CD Quality, AAC"
+msgstr "Calitate CD, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-#| msgid "Whether or not to use and display this profile."
-msgid "Whether to use and display this profile."
-msgstr "Dacă acest profil să fie folosit și afișat."
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
+"this for preparing files for copying to devices that only support the AAC "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "Folosit pentru convertirea la calitate audio CD, dar cu codecul cu pierderi AAC. Folosiți asta doar pentru a copia către dispozitivele care suportă doar codecul AAC. Rețineți faptul că utilizarea aceastui codec ar putea fi ilegală în țara dumneavoastră, contactați avocatul dumneavoastră pentru mai multe sfaturi."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -1571,7 +1079,6 @@ msgid "Sound files"
 msgstr "Fișiere sunet"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
-#| msgid "Custom"
 msgid "Custom…"
 msgstr "Personalizat…"
 
@@ -1583,32 +1090,30 @@ msgstr "Temă sunet:"
 msgid "Enable window and button sounds"
 msgstr "Activare sunete fereastră și butoane"
 
-#. Translators: This is the name of an audio file that sounds like the bark of a dog.
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "Lătrat"
 
-#. Translators: This is the name of an audio file that sounds like a water drip.
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "Sursur"
 
-#. Translators: This is the name of an audio file that sounds like tapping glass.
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "Sticlă"
 
-#. Translators: This is the name of an audio file that sounds sort of like a submarine sonar ping.
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "Sonar"
-
-#~ msgid "Recording..."
-#~ msgstr "Înregistrare..."
-
-#~ msgid "Custom..."
-#~ msgstr "Personalizat..."

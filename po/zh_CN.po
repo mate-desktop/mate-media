@@ -1,45 +1,48 @@
-# Simplified Chinese translation of mate-media
-# Copyright (C) 2002, 2003, 2004, 2007, 2009, 2010 Free Software Foundation, Inc.
-# Dillion Chen <dillon.chen@turbolinux.com.cn>, 1999
-# Replaced by He Qiangqiang <carton@linux.net.cn>, 2002
-# Sun G11n <mate_int_l10n@ireland.sun.com>, 2002
-# Funda Wang <fundawang@linux.net.cn>, 2003,2004.
-# Yang Zhang <zyangmath@gmail.com>, 2007.
-# Deng Xiyue <manphiz@gmail.com>, 2009.
-# Hinker Liu <hinkerliu@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Aron Xu <happyaron.xu@gmail.com>, 2010.
-#
+# Deng Xiyue <manphiz@gmail.com>, 2009.
+# Dillion Chen <dillon.chen@turbolinux.com.cn>, 1999.
+# Funda Wang <fundawang@linux.net.cn>, 2003, 2004.
+# Hinker Liu <hinkerliu@gmail.com>, 2009.
+# Replaced by He Qiangqiang <carton@linux.net.cn>, 2002.
+# Sun G11n <mate_int_l10n@ireland.sun.com>, 2002.
+# Yang Zhang <zyangmath@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-09 14:31+0800\n"
-"PO-Revision-Date: 2010-08-09 14:31+0800\n"
-"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
-"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 14:50+0200\n"
+"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-msgid "Show desktop volume control"
-msgstr "显示桌面音量控制"
-
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
 msgstr "音量控制"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-msgid "Change sound volume and sound events"
-msgstr "更改音量以及将声音与事件关联"
+#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+msgid "Show desktop volume control"
+msgstr "显示桌面音量控制"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "声音"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "更改音量以及将声音与事件关联"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -68,7 +71,7 @@ msgid " — MATE Volume Control"
 msgstr " - MATE 音量控制"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1918
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
 msgstr "输出"
 
@@ -77,7 +80,7 @@ msgid "Sound Output Volume"
 msgstr "输出音量："
 
 #: ../mate-volume-control/src/gvc-applet.c:281
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1832
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
 msgstr "输入"
 
@@ -127,23 +130,23 @@ msgstr "淡出(_F)："
 msgid "_Subwoofer:"
 msgstr "低音炮(_S)："
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:588
-#: ../mate-volume-control/src/gvc-channel-bar.c:597
+#: ../mate-volume-control/src/gvc-channel-bar.c:602
+#: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:592
+#: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "非放大"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:854
+#: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
 msgstr "静音"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1576
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
 msgstr "配置文件(_P)："
 
@@ -185,7 +188,7 @@ msgid "Peak detect"
 msgstr "峰值检测"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1664
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
 msgstr "名称"
@@ -199,61 +202,60 @@ msgstr "设备"
 msgid "Speaker Testing for %s"
 msgstr "%s 话筒设置"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1577
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
 msgstr "测试话筒"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1738
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
 msgstr "输出音量(_O)："
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1769
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
 msgstr "声音效果"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1776
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
 msgstr "报警音量(_A)："
 
-#  源于“朋克”
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1789
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
 msgstr "硬件"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1794
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
 msgstr "选择要配置的设备(_H)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1821
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1950
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
 msgstr "所选设备的设置："
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1839
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
 msgstr "输入音量(_I)："
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1862
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
 msgstr "输入等级："
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1888
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
 msgstr "选择声音输入设备(_H)："
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1923
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
 msgstr "选择声音输出设备(_H)："
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
 msgstr "应用程序"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
 msgstr "目前没有应用程序在播放或录制音频。"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2089
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
 #: ../sound-theme/gvc-sound-theme-chooser.c:751
 #: ../sound-theme/gvc-sound-theme-chooser.c:763
@@ -275,431 +277,22 @@ msgstr "测试"
 msgid "Subwoofer"
 msgstr "低音炮"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "启动音量首选项失败：%s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:255
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
 msgstr "静音(_M)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:264
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
 msgstr "声音首选项(_S)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:448
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
 msgstr "已静音"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:1
-msgid "Record sound clips"
-msgstr "录制声音剪辑"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:2
-#: ../grecord/src/gsr-window.c:1238
-msgid "Sound Recorder"
-msgstr "录音机"
-
-#. Translator comment: default trackname is 'untitled', which
-#. * has as effect that the user cannot save to this file. The
-#. * 'save' action will open the save-as dialog instead to give
-#. * a proper filename. See mate-record.c:94.
-#: ../grecord/src/mate-recorder.c:142 ../grecord/src/gsr-window.c:1741
-#: ../grecord/src/gsr-window.c:2690
-msgid "Untitled"
-msgstr "无标题"
-
-#: ../grecord/src/mate-recorder.c:144 ../grecord/src/gsr-window.c:1743
-#, c-format
-msgid "Untitled-%d"
-msgstr "无标题%d"
-
-#: ../grecord/src/gsr-window.c:193
-#, c-format
-msgid ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plugin from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-msgstr ""
-"无法创建 GStreamer %1$s 元素，\n"
-"请安装“%3$s”模块中的“%2$s”插件。\n"
-"您可以运行 gst-inspect-0.10 %4$s 来验证安装是否正确，\n"
-"然后再重新启动 mate-sound-recorder。"
-
-#: ../grecord/src/gsr-window.c:209
-msgid ""
-"Please verify its settings.\n"
-"You may be missing the necessary plugins."
-msgstr ""
-"请验证其设置。\n"
-"您可能缺少必要的插件。"
-
-#: ../grecord/src/gsr-window.c:294
-#, c-format
-msgid "%ld minute"
-msgid_plural "%ld minutes"
-msgstr[0] "%ld 分"
-
-#: ../grecord/src/gsr-window.c:295
-#, c-format
-msgid "%ld hour"
-msgid_plural "%ld hours"
-msgstr[0] "%ld 小时"
-
-#: ../grecord/src/gsr-window.c:296
-#, c-format
-msgid "%ld second"
-msgid_plural "%ld seconds"
-msgstr[0] "%ld 秒"
-
-#. Translators: the format is "X hours, X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:303
-#, c-format
-msgid "%s, %s and %s"
-msgstr "%s %s %s"
-
-#. Translators: the format is "X hours and X minutes"
-#. Translators: the format is "X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:309 ../grecord/src/gsr-window.c:317
-#: ../grecord/src/gsr-window.c:328
-#, c-format
-msgid "%s and %s"
-msgstr "%s %s"
-
-#: ../grecord/src/gsr-window.c:371
-msgid "Open a File"
-msgstr "打开文件"
-
-#: ../grecord/src/gsr-window.c:448
-#, c-format
-msgid ""
-"Unable to load file:\n"
-"%s"
-msgstr ""
-"无法装入文件：\n"
-"%s"
-
-#: ../grecord/src/gsr-window.c:594 ../grecord/src/gsr-window.c:1540
-#: ../grecord/src/gsr-window.c:1800 ../grecord/src/gsr-window.c:2501
-msgid "Ready"
-msgstr "就绪"
-
-#. Add replace button
-#: ../grecord/src/gsr-window.c:647
-msgid "_Replace"
-msgstr "替换(_R)"
-
-#: ../grecord/src/gsr-window.c:664
-#, c-format
-msgid ""
-"A file named \"%s\" already exists. \n"
-"Do you want to replace it with the one you are saving?"
-msgstr ""
-"名为“%s”的文件已经存在。\n"
-"您是否想要将其替换为您正在保存的文件？"
-
-#: ../grecord/src/gsr-window.c:712
-#, c-format
-msgid "Could not save the file \"%s\""
-msgstr "无法保存文件“%s”"
-
-#: ../grecord/src/gsr-window.c:732
-msgid "Save file as"
-msgstr "文件另存为"
-
-#: ../grecord/src/gsr-window.c:826
-#, c-format
-msgid "%s is not installed in the path."
-msgstr "%s 没有安装到路径中"
-
-#: ../grecord/src/gsr-window.c:835
-#, c-format
-msgid "There was an error starting %s: %s"
-msgstr "启动 %s 时出错：%s"
-
-#: ../grecord/src/gsr-window.c:864
-msgid "Save recording before closing?"
-msgstr "在关闭前将保存录音吗？"
-
-#: ../grecord/src/gsr-window.c:865
-msgid "Save recording?"
-msgstr "保存录音吗？"
-
-#: ../grecord/src/gsr-window.c:869
-msgid "Close _without Saving"
-msgstr "关闭而不保存(_W)"
-
-#: ../grecord/src/gsr-window.c:870
-msgid "Continue _without Saving"
-msgstr "继续而不保存(_W)"
-
-#: ../grecord/src/gsr-window.c:880
-msgid "Question"
-msgstr "问题"
-
-#: ../grecord/src/gsr-window.c:987
-#, c-format
-msgid "%s (Has not been saved)"
-msgstr "%s (尚未被保存)"
-
-#: ../grecord/src/gsr-window.c:1003
-#, c-format
-msgid "%s (%llu byte)"
-msgid_plural "%s (%llu bytes)"
-msgstr[0] "%s (%llu 字节)"
-
-#: ../grecord/src/gsr-window.c:1007
-msgid "Unknown size"
-msgstr "未知大小"
-
-#. Attempts to get length ran out.
-#: ../grecord/src/gsr-window.c:1016 ../grecord/src/gsr-window.c:1026
-#: ../grecord/src/gsr-window.c:1042 ../grecord/src/gsr-window.c:1051
-#: ../grecord/src/gsr-window.c:1408
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "未知"
-
-#: ../grecord/src/gsr-window.c:1028
-#, c-format
-msgid "%.1f kHz"
-msgstr "%.1f kHz"
-
-#: ../grecord/src/gsr-window.c:1036
-#, c-format
-msgid "%.0f kb/s"
-msgstr "%.0f kb/s"
-
-#: ../grecord/src/gsr-window.c:1039
-#, c-format
-msgid "%.0f kb/s (Estimated)"
-msgstr "%.0f kb/s(估计)"
-
-#: ../grecord/src/gsr-window.c:1054
-msgid "1 (mono)"
-msgstr "1 (单声道)"
-
-#: ../grecord/src/gsr-window.c:1057
-msgid "2 (stereo)"
-msgstr "2 (立体声)"
-
-#: ../grecord/src/gsr-window.c:1084
-#, c-format
-msgid "%s Information"
-msgstr "%s 信息"
-
-#: ../grecord/src/gsr-window.c:1108 ../grecord/src/gsr-window.c:2413
-msgid "File Information"
-msgstr "文件信息"
-
-#: ../grecord/src/gsr-window.c:1123
-msgid "Folder:"
-msgstr "目录："
-
-#: ../grecord/src/gsr-window.c:1129 ../grecord/src/gsr-window.c:2420
-msgid "Filename:"
-msgstr "文件名："
-
-#: ../grecord/src/gsr-window.c:1135
-msgid "File size:"
-msgstr "文件大小："
-
-#: ../grecord/src/gsr-window.c:1144
-msgid "Audio Information"
-msgstr "音频信息"
-
-#: ../grecord/src/gsr-window.c:1159
-msgid "File duration:"
-msgstr "文件时长："
-
-#: ../grecord/src/gsr-window.c:1165
-msgid "Number of channels:"
-msgstr "声道数："
-
-#: ../grecord/src/gsr-window.c:1171
-msgid "Sample rate:"
-msgstr "采样率："
-
-#: ../grecord/src/gsr-window.c:1177
-msgid "Bit rate:"
-msgstr "位速率："
-
-#: ../grecord/src/gsr-window.c:1241
-msgid ""
-"A sound recorder for MATE\n"
-" mate-multimedia@gnome.org"
-msgstr ""
-"MATE 的录音机程序\n"
-" mate-multimedia@gnome.org"
-
-#: ../grecord/src/gsr-window.c:1512
-msgid "Playing…"
-msgstr "正在播放..."
-
-#: ../grecord/src/gsr-window.c:1644
-msgid "MateConf audio output"
-msgstr "MateConf 音频输出"
-
-#: ../grecord/src/gsr-window.c:1653 ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "回放"
-
-#: ../grecord/src/gsr-window.c:1732
-msgid "Recording…"
-msgstr "正在录音..."
-
-#: ../grecord/src/gsr-window.c:1822
-msgid "MateConf audio recording"
-msgstr "MateConf 音频录制"
-
-#: ../grecord/src/gsr-window.c:1831
-msgid ""
-"Your audio capture settings are invalid. Please correct them with the "
-"\"Sound Preferences\" under the System Preferences menu."
-msgstr "您的音频抓取设置无效。请在系统首选项菜单中的“声音首选项”中予以纠正。"
-
-#: ../grecord/src/gsr-window.c:2003
-msgid "file output"
-msgstr "文件输出"
-
-#: ../grecord/src/gsr-window.c:2021
-msgid "level"
-msgstr "级别"
-
-#: ../grecord/src/gsr-window.c:2045
-#, c-format
-msgid "Could not parse the '%s' audio profile. "
-msgstr "无法分析“%s”音频配置文件。"
-
-#: ../grecord/src/gsr-window.c:2062
-#, c-format
-msgid "Could not capture using the '%s' audio profile. "
-msgstr "无法使用“%s”音频配置文件抓取。"
-
-#: ../grecord/src/gsr-window.c:2071
-#, c-format
-msgid "Could not write to a file using the '%s' audio profile. "
-msgstr "无法使用“%s”音频配置文件写入文件。"
-
-#. File menu.
-#: ../grecord/src/gsr-window.c:2125
-msgid "_File"
-msgstr "文件(_F)"
-
-#: ../grecord/src/gsr-window.c:2127
-msgid "Create a new sample"
-msgstr "创建新采样"
-
-#: ../grecord/src/gsr-window.c:2129
-msgid "Open a file"
-msgstr "打开文件"
-
-#: ../grecord/src/gsr-window.c:2131
-msgid "Save the current file"
-msgstr "保存当前的文件"
-
-#: ../grecord/src/gsr-window.c:2133
-msgid "Save the current file with a different name"
-msgstr "用不同的文件名保存当前的文件"
-
-#: ../grecord/src/gsr-window.c:2134
-msgid "Open Volu_me Control"
-msgstr "打开音量控制(_M)"
-
-#: ../grecord/src/gsr-window.c:2135
-msgid "Open the audio mixer"
-msgstr "打开音频混音器"
-
-#: ../grecord/src/gsr-window.c:2137
-msgid "Show information about the current file"
-msgstr "显示关于当前文件的信息"
-
-#: ../grecord/src/gsr-window.c:2139
-msgid "Close the current file"
-msgstr "关闭当前的文件"
-
-#: ../grecord/src/gsr-window.c:2141
-msgid "Quit the program"
-msgstr "退出程序"
-
-#. Control menu
-#: ../grecord/src/gsr-window.c:2144
-msgid "_Control"
-msgstr "控制(_C)"
-
-#: ../grecord/src/gsr-window.c:2146
-msgid "Record sound"
-msgstr "录制声音"
-
-#: ../grecord/src/gsr-window.c:2148
-msgid "Play sound"
-msgstr "播放声音"
-
-#: ../grecord/src/gsr-window.c:2150
-msgid "Stop sound"
-msgstr "停止声音"
-
-#. Help menu
-#: ../grecord/src/gsr-window.c:2153
-msgid "_Help"
-msgstr "帮助(_H)"
-
-#: ../grecord/src/gsr-window.c:2154
-msgid "Contents"
-msgstr "目录"
-
-#: ../grecord/src/gsr-window.c:2155
-msgid "Open the manual"
-msgstr "打开手册"
-
-#: ../grecord/src/gsr-window.c:2157
-msgid "About this application"
-msgstr "关于此应用程序"
-
-#: ../grecord/src/gsr-window.c:2279
-msgid "Could not load UI file. The program may not be properly installed."
-msgstr "无法装入 UI文件，程序可能未正确安装。"
-
-#: ../grecord/src/gsr-window.c:2302
-msgid "Open"
-msgstr "打开"
-
-#: ../grecord/src/gsr-window.c:2304
-msgid "Save"
-msgstr "保存"
-
-#: ../grecord/src/gsr-window.c:2306
-msgid "Save As"
-msgstr "另存为"
-
-#: ../grecord/src/gsr-window.c:2362
-msgid "Record from _input:"
-msgstr "从输入录制(_I)："
-
-#: ../grecord/src/gsr-window.c:2380
-msgid "_Record as:"
-msgstr "录制为(_R)："
-
-#: ../grecord/src/gsr-window.c:2427
-msgid "<none>"
-msgstr "<无>"
-
-#: ../grecord/src/gsr-window.c:2441
-msgid "Length:"
-msgstr "长度："
-
-#: ../grecord/src/gsr-window.c:2479
-msgid "Level:"
-msgstr "级别："
-
-#. Translators: this is the window title, %s is the currently open file's name or Untitled
-#: ../grecord/src/gsr-window.c:2574
-#, c-format
-msgid "%s — Sound Recorder"
-msgstr "%s — 录音机"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
@@ -729,6 +322,10 @@ msgstr "未知音量控制 %d"
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
 msgstr "没有找到音量控制插件和/或设备。"
+
+#: ../gst-mixer/src/misc.c:62
+msgid "Playback"
+msgstr "回放"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
@@ -906,6 +503,10 @@ msgstr "不支持"
 msgid "Default"
 msgstr "默认"
 
+#: ../gstreamer-properties/gstreamer-properties.c:301
+msgid "Unknown"
+msgstr "未知"
+
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
 msgstr "初始化主窗口失败"
@@ -914,38 +515,38 @@ msgstr "初始化主窗口失败"
 msgid "Failed to load UI file; please check your installation."
 msgstr "装入 UI 文件失败；请检查您的安装。"
 
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:1
-msgid "Configure defaults for GStreamer applications"
-msgstr "配置 GStreamer 应用程序的默认值"
-
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:2
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
+#: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
 msgstr "多媒体系统选择器"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Audio"
-msgstr "音频"
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
+msgid "Configure defaults for GStreamer applications"
+msgstr "配置 GStreamer 应用程序的默认值"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Click Ok to finish."
-msgstr "点击确定以结束。"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "D_evice:"
-msgstr "设备(_E)："
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "Default Input"
-msgstr "默认输入"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "Default Output"
 msgstr "默认输出"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+#: ../gstreamer-properties/gstreamer-properties.ui.h:3
+msgid "_Plugin:"
+msgstr "插件(_P)："
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
 msgstr "流水线(_I)："
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:5
+msgid "_Test"
+msgstr "测试(_T)"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+msgid "_Device:"
+msgstr "设备(_D)："
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+msgid "Default Input"
+msgstr "默认输入"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -960,28 +561,28 @@ msgid "Te_st"
 msgstr "测试(_S)"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "Testing Pipeline"
-msgstr "测试流水线"
+msgid "D_evice:"
+msgstr "设备(_E)："
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Testing…"
-msgstr "正在测试..."
+msgid "Audio"
+msgstr "音频"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
 msgstr "视频"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "_Device:"
-msgstr "设备(_D)："
+msgid "Testing Pipeline"
+msgstr "测试流水线"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "_Plugin:"
-msgstr "插件(_P)："
+msgid "Testing…"
+msgstr "正在测试..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "_Test"
-msgstr "测试(_T)"
+msgid "Click Ok to finish."
+msgstr "点击确定以结束。"
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
@@ -1022,7 +623,6 @@ msgstr "PulseAudio 声音服务器"
 msgid "Sun Audio"
 msgstr "Sun 音频"
 
-# SUN NEW TRANSLATION
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
 #: ../gstreamer-properties/pipeline-constants.c:144
@@ -1085,7 +685,7 @@ msgstr "Video for Linux 2 (v4l2)"
 msgid "Failed to construct test pipeline for '%s'"
 msgstr "为“%s”创建测试流水线失败"
 
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:529
+#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "显示帮助时出错：%s"
@@ -1125,35 +725,35 @@ msgid "_Edit"
 msgstr "编辑(_E)"
 
 #. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:456
+#: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
 msgstr[0] "删除这%d个配置文件吗？\n"
 
-#: ../profiles/audio-profiles-edit.c:475
+#: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
 msgstr "删除配置文件“%s”吗？"
 
-#: ../profiles/audio-profiles-edit.c:497
+#: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
 msgstr "删除配置文件"
 
-#: ../profiles/audio-profiles-edit.c:590
+#: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
 msgstr "编辑 MATE 音频配置文件"
 
-#: ../profiles/audio-profiles-edit.c:639
+#: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
 msgstr "配置文件(_P)："
 
-#: ../profiles/audio-profiles-edit.c:823
+#: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
 msgstr "您已经有名为“%s”的配置文件了"
 
-#: ../profiles/audio-profiles-edit.c:848
+#: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
 msgstr "MateConf 错误(待修正)：%s\n"
@@ -1161,8 +761,8 @@ msgstr "MateConf 错误(待修正)：%s\n"
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed "
-"incorrectly, so the dialog can't be displayed."
+"The file \"%s\" is missing. This indicates that the application is installed"
+" incorrectly, so the dialog can't be displayed."
 msgstr "缺少文件“%s”。这表明应用程序安装不正确，所以无法显示对话框。"
 
 #: ../profiles/mate-audio-profiles-properties.c:54
@@ -1170,9 +770,7 @@ msgstr "缺少文件“%s”。这表明应用程序安装不正确，所以无�
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"%s\n"
-"运行“%s --help”可查看可用的命令行选项的完整列表。\n"
+msgstr "%s\n运行“%s --help”可查看可用的命令行选项的完整列表。\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -1203,156 +801,142 @@ msgstr "配置文件名(_P)："
 msgid "New Profile"
 msgstr "新建配置文件"
 
-# SUN NEW TRANSLATION
 #: ../profiles/mate-audio-profile-new.ui.h:2
 msgid "_Create"
 msgstr "创建(_C)"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "A description for the audio profile"
-msgstr "音频配置文件的描述"
+msgid "List of profiles"
+msgstr "配置文件列表"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:2
 msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr "配置文件描述，其中包含了更多的信息并描述了何时使用此配置文件。"
+"List of audio recording profiles. The list contains strings naming "
+"subdirectories relative to "
+"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "列出音频录制配置文件。此列表包含的字符串会作为相对 /system/gstreamer/@GST_MAJORMINOR@/audio/profiles 起名之用。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid ""
-"A filename extension to be used when storing files encoded with this profile."
-msgstr "对用此配置文件编码的文件进行排序时要使用的文件扩展名。"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "此配置文件要使用的部分 GStreamer 流水线。"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A short name for the audio profile"
 msgstr "音频配置文件的短名称"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
 msgstr "音频配置文件的短名称，要在选择区中使用并唯一表示配置文件。"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
+msgid "A description for the audio profile"
+msgstr "音频配置文件的描述"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+msgid ""
+"A description of the profile, containing more information and describing "
+"when to use this profile."
+msgstr "配置文件描述，其中包含了更多的信息并描述了何时使用此配置文件。"
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "CD Quality, AAC"
-msgstr "CD 音质，AAC"
+msgid "The partial GStreamer pipeline used"
+msgstr "所用的部分 GStreamer 流水线"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "CD Quality, Lossless"
-msgstr "CD 音质，无损"
+msgid "A partial GStreamer pipeline to use for this profile."
+msgstr "此配置文件要使用的部分 GStreamer 流水线。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "CD Quality, Lossy"
-msgstr "CD 音质，有损"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid "CD Quality, MP2"
-msgstr "CD 音质，MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "CD Quality, MP3"
-msgstr "CD 音质，MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
-"列出音频录制配置文件。此列表包含的字符串会作为相对 /system/gstreamer/"
-"@GST_MAJORMINOR@/audio/profiles 起名之用。"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
-msgid "List of profiles"
-msgstr "配置文件列表"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
 msgid "The default file extension for this profile"
 msgstr "此配置文件的默认文件扩展名"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
+msgid ""
+"A filename extension to be used when storing files encoded with this "
+"profile."
+msgstr "对用此配置文件编码的文件进行排序时要使用的文件扩展名。"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
+msgid "Whether this profile is to be used"
+msgstr "是否要使用此配置文件"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
+msgid "Whether to use and display this profile."
+msgstr "是否要使用并显示此配置文件。"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
+msgid "CD Quality, Lossy"
+msgstr "CD 音质，有损"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+msgid ""
+"Used for converting to CD-quality audio, but with a lossy compression codec."
+" Use this for CD extraction and radio recordings."
+msgstr "用于转换为 CD 音质的音频，但使用有损压缩编码方式。进行 CD 提取或广播录音时请使用此方式。"
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "The partial GStreamer pipeline used"
-msgstr "所用的部分 GStreamer 流水线"
+msgid "CD Quality, Lossless"
+msgstr "CD 音质，无损"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr ""
-"用于转换为 CD 音质的音频，但是用无损压缩编码方式。如果您稍后想要编辑文件，或"
-"者将其刻录到 CD，请使用此方式。"
+msgstr "用于转换为 CD 音质的音频，但是用无损压缩编码方式。如果您稍后想要编辑文件，或者将其刻录到 CD，请使用此方式。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec. "
-"Use this for CD extraction and radio recordings."
-msgstr ""
-"用于转换为 CD 音质的音频，但使用有损压缩编码方式。进行 CD 提取或广播录音时请"
-"使用此方式。"
+msgid "Voice, Lossless"
+msgstr "语音，无损"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"用于转换为 CD 音质的音频，但使用有损 AAC 编码方式。制作需要复制到仅支持 AAC "
-"编码方式的设备的文件时使用。注意使用此格式可能在您所在的司法制度下是违法的；"
-"请联系您的律师以获得建议。"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:19
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
-"this for preparing files for copying to devices that only support the MP2 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"用于转换为 CD 音质的音频，但使用有损 MP2 编码方式。制作需要复制到仅支持 MP2 "
-"编码方式的设备的文件时使用。注意使用此格式可能在您所在的司法制度下是违法的；"
-"请联系您的律师以获得建议。"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
-"this for preparing files for copying to devices that only support the MP3 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"用于转换为 CD 音质的音频，但使用有损 MP3 编码方式。制作需要复制到仅支持 MP3 "
-"编码方式的设备的文件时使用。注意使用此格式可能在您所在的司法制度下是违法的；"
-"请联系您的律师以获得建议。"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
 msgstr "用于转换为无损的语音质量的音频。录制和编辑语音时请使用此方式。"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:19
+msgid "Voice, Lossy"
+msgstr "语音，有损"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
 msgstr "用于转换为有损语音质量的音频。录制无需编辑的语音时请使用此方式。"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
+msgid "CD Quality, MP2"
+msgstr "CD 音质，MP2"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
+"this for preparing files for copying to devices that only support the MP2 "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "用于转换为 CD 音质的音频，但使用有损 MP2 编码方式。制作需要复制到仅支持 MP2 编码方式的设备的文件时使用。注意使用此格式可能在您所在的司法制度下是违法的；请联系您的律师以获得建议。"
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "Voice, Lossless"
-msgstr "语音，无损"
+msgid "CD Quality, MP3"
+msgstr "CD 音质，MP3"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid "Voice, Lossy"
-msgstr "语音，有损"
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
+"this for preparing files for copying to devices that only support the MP3 "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "用于转换为 CD 音质的音频，但使用有损 MP3 编码方式。制作需要复制到仅支持 MP3 编码方式的设备的文件时使用。注意使用此格式可能在您所在的司法制度下是违法的；请联系您的律师以获得建议。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "Whether this profile is to be used"
-msgstr "是否要使用此配置文件"
+msgid "CD Quality, AAC"
+msgstr "CD 音质，AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid "Whether to use and display this profile."
-msgstr "是否要使用并显示此配置文件。"
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
+"this for preparing files for copying to devices that only support the AAC "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "用于转换为 CD 音质的音频，但使用有损 AAC 编码方式。制作需要复制到仅支持 AAC 编码方式的设备的文件时使用。注意使用此格式可能在您所在的司法制度下是违法的；请联系您的律师以获得建议。"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -1459,7 +1043,6 @@ msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
 msgstr "长时间活动结束(下载、CD 刻录等)"
 
-# SUN NEW TRANSLATION
 #. Alerts?
 #: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
@@ -1494,7 +1077,6 @@ msgstr "选择声音文件"
 msgid "Sound files"
 msgstr "声音文件"
 
-# SUN NEW TRANSLATION
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"
 msgstr "自定义..."
@@ -1507,100 +1089,30 @@ msgstr "声音主题："
 msgid "Enable window and button sounds"
 msgstr "启用窗体与按钮声音"
 
-#. Translators: This is the name of an audio file that sounds like the bark of a dog.
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "犬吠"
 
-#. Translators: This is the name of an audio file that sounds like a water drip.
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "雨滴"
 
-#. Translators: This is the name of an audio file that sounds like tapping glass.
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "玻璃"
 
-#. Translators: This is the name of an audio file that sounds sort of like a submarine sonar ping.
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "声纳"
-
-#~ msgid "Recording..."
-#~ msgstr "正在录音..."
-
-# SUN NEW TRANSLATION
-#~ msgid "Custom..."
-#~ msgstr "自定义..."
-
-#~ msgid "Address of the server to contact for CD queries"
-#~ msgstr "进行 CD 查询的服务器的地址"
-
-#~ msgid "Information to send to server"
-#~ msgstr "发送到服务器的信息"
-
-#~ msgid "Port"
-#~ msgstr "端口"
-
-#~ msgid "Server name"
-#~ msgstr "服务器名称"
-
-#~ msgid "Server type"
-#~ msgstr "服务器类型"
-
-#~ msgid "The hostname that will be sent with all queries"
-#~ msgstr "将用于进行所有查询的主机名"
-
-#~ msgid "The port that the server is running the database on"
-#~ msgstr "访问服务器运行的数据库的端口"
-
-#~ msgid ""
-#~ "The type of the server to contact for CD queries. Possible values are 0 "
-#~ "(FreeDB round robin server), 1 (other freedb server) and 2 (other server)."
-#~ msgstr ""
-#~ "CD 查询所用的服务器类型。可供选择的值中，0 代表 FreeDB round robin 服务"
-#~ "器，1 代表其它 freedb 服务器，2 代表其它类型的服务器。"
-
-#~ msgid "The username"
-#~ msgstr "用户名"
-
-#~ msgid "The username that will be sent with all queries"
-#~ msgstr "进行所有查询时将要用到的用户名"
-
-#~ msgid ""
-#~ "This key specifies which user information will be sent to the server to "
-#~ "contact for CD queries. Possible values are 0 (no information), 1 (real "
-#~ "information) and 3 (other information)."
-#~ msgstr ""
-#~ "此处指定了将要发送给服务器进行 CD 查询的用户信息。可供选择的值中，0 代表不"
-#~ "发送信息，1 代表真实信息，3 代表其它信息。"
-
-#~ msgid "Your hostname"
-#~ msgstr "您的主机名"
-
-#~ msgid ""
-#~ "There was an error displaying help: \n"
-#~ "%s"
-#~ msgstr ""
-#~ "显示帮助时出错：\n"
-#~ "%s"
-
-#~ msgid "Sen_d no information"
-#~ msgstr "不发送信息(_D)"
-
-#~ msgid "Send real _information"
-#~ msgstr "发送真实信息(_I)"
-
-#~ msgid "Send _other information:"
-#~ msgstr "发送其它信息(_O)："
-
-#~ msgid "Hostna_me:"
-#~ msgstr "主机名(_M)："
-
-#~ msgid "Login Information"
-#~ msgstr "登录信息"

@@ -1,46 +1,45 @@
-# Lithuanian translation of mate-media
-# Copyright © 2000-2010 Free Software Foundation, Inc.
-# Gediminas Paulauskas <menesis@chatsubo.lt>, 2000-2003.
-# Žygimantas Beručka <zygis@gnome.org>, 2003-2006, 2009, 2010.
-# Justina Klingaitė <justina.klingaite@gmail.com>, 2005.
-# Gintautas Miliauskas <gintas@akl.lt>, 2007.
-# Rimas Kudelis <rq@akl.lt>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Aurimas Černius <aurisc4@gmail.com>, 2010.
+# Gintautas Miliauskas <gintas@akl.lt>, 2007.
+# Justina Klingaitė <justina.klingaite@gmail.com>, 2005.
+# Rimas Kudelis <rq@akl.lt>, 2009.
+# Žygimantas Beručka <zygis@gnome.org>, 2003-2006, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: lt\n"
-"Report-Msgid-Bugs-To: http://bugzilla.mate.org/enter_bug.cgi?product=mate-"
-"media&component=general\n"
-"POT-Creation-Date: 2010-09-17 21:25+0000\n"
-"PO-Revision-Date: 2010-09-18 22:40+0300\n"
-"Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
-"Language-Team: Lithuanian <mate-lt@lists.akl.lt>\n"
-"Language: lt\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 14:50+0200\n"
+"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"Language-Team: Lithuanian (http://www.transifex.com/projects/p/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: UTF-8\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Virtaal 0.6.1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-msgid "Show desktop volume control"
-msgstr "Rodyti darbo aplinkos garsumo valdiklį"
-
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
 msgstr "Garso valdymas"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-msgid "Change sound volume and sound events"
-msgstr "Keisti garsumą ir susieti garsus su įvykiais"
+#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+msgid "Show desktop volume control"
+msgstr "Rodyti darbo aplinkos garsumo valdiklį"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "Garsas"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "Keisti garsumą ir susieti garsus su įvykiais"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -69,7 +68,7 @@ msgid " — MATE Volume Control"
 msgstr " — MATE garsumo valdymas"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1918
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
 msgstr "Išvestis"
 
@@ -78,7 +77,7 @@ msgid "Sound Output Volume"
 msgstr "Išvesties garsumas"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1832
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
 msgstr "Įvestis"
 
@@ -144,7 +143,7 @@ msgid "Mute"
 msgstr "Nutildyti"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1576
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
 msgstr "_Profilis:"
 
@@ -190,7 +189,7 @@ msgid "Peak detect"
 msgstr "Maksimalaus garsumo aptikimas"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1664
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
 msgstr "Vardas"
@@ -204,60 +203,60 @@ msgstr "Įrenginys"
 msgid "Speaker Testing for %s"
 msgstr "%s garsiakalbių tikrinimas"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1577
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
 msgstr "Tikrinti garsiakalbius"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1738
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
 msgstr "Išvesties _garsumas: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1769
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
 msgstr "Garso efektai"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1776
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
 msgstr "Įspėjimo _garsumas: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1789
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
 msgstr "Įrenginiai"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1794
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
 msgstr "Pasi_rinkite derintiną įrenginį:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1821
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1950
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
 msgstr "Pasirinkto įrenginio nustatymai:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1839
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
 msgstr "Į_vesties garsumas: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1862
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
 msgstr "Įvesties lygis:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1888
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
 msgstr "Pasi_rinkite garso įvesties įrenginį:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1923
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
 msgstr "Pasi_rinkite garso išvesties įrenginį:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
 msgstr "Programos"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
 msgstr "Šiuo metu jokia programa negroja ir neįrašinėja garso."
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2089
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
 #: ../sound-theme/gvc-sound-theme-chooser.c:751
 #: ../sound-theme/gvc-sound-theme-chooser.c:763
@@ -279,444 +278,22 @@ msgstr "Tikrinti"
 msgid "Subwoofer"
 msgstr "Žemų dažnių garsiakalbis"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Nepavyko atverti garso nustatymų: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:255
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
 msgstr "_Nutildyti"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:264
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
 msgstr "_Garso nustatymai"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:448
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
 msgstr "Nutildyta"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:1
-msgid "Record sound clips"
-msgstr "Rašyti garso įrašus"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:2
-#: ../grecord/src/gsr-window.c:1238
-msgid "Sound Recorder"
-msgstr "Garso įrašymo programa"
-
-#. Translator comment: default trackname is 'untitled', which
-#. * has as effect that the user cannot save to this file. The
-#. * 'save' action will open the save-as dialog instead to give
-#. * a proper filename. See mate-record.c:94.
-#: ../grecord/src/mate-recorder.c:142 ../grecord/src/gsr-window.c:1741
-#: ../grecord/src/gsr-window.c:2690
-msgid "Untitled"
-msgstr "Nepavadinta"
-
-#: ../grecord/src/mate-recorder.c:144 ../grecord/src/gsr-window.c:1743
-#, c-format
-msgid "Untitled-%d"
-msgstr "Nepavadinta-%d"
-
-#: ../grecord/src/gsr-window.c:193
-#, c-format
-msgid ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plugin from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-msgstr ""
-"Nepavyko sukurti GStreamer elemento %s.\n"
-"Įdiekite įskiepį „%s“ iš modulio „%s“.\n"
-"Patikrinkite, ar įdiegta korektiškai, paleidę\n"
-"    gst-inspect-0.10 %s\n"
-"ir tada perleiskite mate-sound-recorder."
-
-#: ../grecord/src/gsr-window.c:209
-msgid ""
-"Please verify its settings.\n"
-"You may be missing the necessary plugins."
-msgstr ""
-"Patikrinkite jo nustatymus.\n"
-"Galbūt neturite reikalingų įskiepių."
-
-#: ../grecord/src/gsr-window.c:294
-#, c-format
-msgid "%ld minute"
-msgid_plural "%ld minutes"
-msgstr[0] "%ld minutė"
-msgstr[1] "%ld minutės"
-msgstr[2] "%ld minučių"
-
-#: ../grecord/src/gsr-window.c:295
-#, c-format
-msgid "%ld hour"
-msgid_plural "%ld hours"
-msgstr[0] "%ld valanda"
-msgstr[1] "%ld valandos"
-msgstr[2] "%ld valandų"
-
-#: ../grecord/src/gsr-window.c:296
-#, c-format
-msgid "%ld second"
-msgid_plural "%ld seconds"
-msgstr[0] "%ld sekundė"
-msgstr[1] "%ld sekundės"
-msgstr[2] "%ld sekundžių"
-
-#. Translators: the format is "X hours, X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:303
-#, c-format
-msgid "%s, %s and %s"
-msgstr "%s, %s ir %s"
-
-#. Translators: the format is "X hours and X minutes"
-#. Translators: the format is "X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:309 ../grecord/src/gsr-window.c:317
-#: ../grecord/src/gsr-window.c:328
-#, c-format
-msgid "%s and %s"
-msgstr "%s ir %s"
-
-#: ../grecord/src/gsr-window.c:371
-msgid "Open a File"
-msgstr "Atverti failą"
-
-#: ../grecord/src/gsr-window.c:448
-#, c-format
-msgid ""
-"Unable to load file:\n"
-"%s"
-msgstr ""
-"Nepavyko įkelti failo:\n"
-"%s"
-
-#: ../grecord/src/gsr-window.c:594 ../grecord/src/gsr-window.c:1540
-#: ../grecord/src/gsr-window.c:1800 ../grecord/src/gsr-window.c:2501
-msgid "Ready"
-msgstr "Paruošta"
-
-#. Add replace button
-#: ../grecord/src/gsr-window.c:647
-msgid "_Replace"
-msgstr "_Pakeisti"
-
-#: ../grecord/src/gsr-window.c:664
-#, c-format
-msgid ""
-"A file named \"%s\" already exists. \n"
-"Do you want to replace it with the one you are saving?"
-msgstr ""
-"Failas pavadinimu „%s“ jau egzistuoja.\n"
-"Ar norite jį perrašyti?"
-
-#: ../grecord/src/gsr-window.c:712
-#, c-format
-msgid "Could not save the file \"%s\""
-msgstr "Nepavyko įrašyti failo „%s“"
-
-#: ../grecord/src/gsr-window.c:732
-msgid "Save file as"
-msgstr "Įrašyti failą kaip"
-
-#: ../grecord/src/gsr-window.c:826
-#, c-format
-msgid "%s is not installed in the path."
-msgstr "%s nėra įdiegtas kelyje."
-
-#: ../grecord/src/gsr-window.c:835
-#, c-format
-msgid "There was an error starting %s: %s"
-msgstr "Paleidžiant %s įvyko klaida: %s"
-
-#: ../grecord/src/gsr-window.c:864
-msgid "Save recording before closing?"
-msgstr "Ar išsaugoti įrašą prieš užveriant?"
-
-#: ../grecord/src/gsr-window.c:865
-msgid "Save recording?"
-msgstr "Ar išsaugoti įrašą?"
-
-#: ../grecord/src/gsr-window.c:869
-msgid "Close _without Saving"
-msgstr "Užverti _nesaugant"
-
-#: ../grecord/src/gsr-window.c:870
-msgid "Continue _without Saving"
-msgstr "Tęsti _nesaugant"
-
-#: ../grecord/src/gsr-window.c:880
-msgid "Question"
-msgstr "Klausimas"
-
-#: ../grecord/src/gsr-window.c:987
-#, c-format
-msgid "%s (Has not been saved)"
-msgstr "%s (neišsaugotas)"
-
-#: ../grecord/src/gsr-window.c:1003
-#, c-format
-msgid "%s (%llu byte)"
-msgid_plural "%s (%llu bytes)"
-msgstr[0] "%s (%llu baitas)"
-msgstr[1] "%s (%llu baitai)"
-msgstr[2] "%s (%llu baitų)"
-
-#: ../grecord/src/gsr-window.c:1007
-msgid "Unknown size"
-msgstr "Nežinomas dydis"
-
-#. Attempts to get length ran out.
-#: ../grecord/src/gsr-window.c:1016 ../grecord/src/gsr-window.c:1026
-#: ../grecord/src/gsr-window.c:1042 ../grecord/src/gsr-window.c:1051
-#: ../grecord/src/gsr-window.c:1408
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "Nežinomas"
-
-#: ../grecord/src/gsr-window.c:1028
-#, c-format
-msgid "%.1f kHz"
-msgstr "%.1f kHz"
-
-#: ../grecord/src/gsr-window.c:1036
-#, c-format
-msgid "%.0f kb/s"
-msgstr "%.0f kb/s"
-
-#: ../grecord/src/gsr-window.c:1039
-#, c-format
-msgid "%.0f kb/s (Estimated)"
-msgstr "%.0f kb/s (apytiksliai)"
-
-#: ../grecord/src/gsr-window.c:1054
-msgid "1 (mono)"
-msgstr "1 (mono)"
-
-#: ../grecord/src/gsr-window.c:1057
-msgid "2 (stereo)"
-msgstr "2 (stereo)"
-
-#: ../grecord/src/gsr-window.c:1084
-#, c-format
-msgid "%s Information"
-msgstr "%s informacija"
-
-#: ../grecord/src/gsr-window.c:1108 ../grecord/src/gsr-window.c:2413
-msgid "File Information"
-msgstr "Failo informacija"
-
-#: ../grecord/src/gsr-window.c:1123
-msgid "Folder:"
-msgstr "Aplankas:"
-
-#: ../grecord/src/gsr-window.c:1129 ../grecord/src/gsr-window.c:2420
-msgid "Filename:"
-msgstr "Failo vardas:"
-
-#: ../grecord/src/gsr-window.c:1135
-msgid "File size:"
-msgstr "Failo dydis:"
-
-#: ../grecord/src/gsr-window.c:1144
-msgid "Audio Information"
-msgstr "Garso informacija"
-
-#: ../grecord/src/gsr-window.c:1159
-msgid "File duration:"
-msgstr "Failo trukmė:"
-
-#: ../grecord/src/gsr-window.c:1165
-msgid "Number of channels:"
-msgstr "Kanalų kiekis:"
-
-#: ../grecord/src/gsr-window.c:1171
-msgid "Sample rate:"
-msgstr "Semplo dažnis:"
-
-#: ../grecord/src/gsr-window.c:1177
-msgid "Bit rate:"
-msgstr "Bitų dažnis:"
-
-#: ../grecord/src/gsr-window.c:1241
-msgid ""
-"A sound recorder for MATE\n"
-" mate-multimedia@gnome.org"
-msgstr ""
-"MATE garso įrašymo programa\n"
-" mate-multimedia@gnome.org"
-
-#: ../grecord/src/gsr-window.c:1512
-msgid "Playing…"
-msgstr "Atkuriama…"
-
-#: ../grecord/src/gsr-window.c:1644
-msgid "MateConf audio output"
-msgstr "MateConf garso išvestis"
-
-#: ../grecord/src/gsr-window.c:1653 ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "Grojimas"
-
-#: ../grecord/src/gsr-window.c:1732
-msgid "Recording…"
-msgstr "Įrašoma…"
-
-#: ../grecord/src/gsr-window.c:1822
-msgid "MateConf audio recording"
-msgstr "MateConf garso įrašymas"
-
-#: ../grecord/src/gsr-window.c:1831
-msgid ""
-"Your audio capture settings are invalid. Please correct them with the "
-"\"Sound Preferences\" under the System Preferences menu."
-msgstr ""
-"Jūsų garso įrašymo nustatymai netinkami. Pataisykite juos „Garso "
-"nustatymuose\", kuriuos galite rasti meniu Sistema → Nustatymai."
-
-#: ../grecord/src/gsr-window.c:2003
-msgid "file output"
-msgstr "failo išvestis"
-
-#: ../grecord/src/gsr-window.c:2021
-msgid "level"
-msgstr "lygmuo"
-
-#: ../grecord/src/gsr-window.c:2045
-#, c-format
-msgid "Could not parse the '%s' audio profile. "
-msgstr "Nepavyko apdoroti „%s“ garso profilio. "
-
-#: ../grecord/src/gsr-window.c:2062
-#, c-format
-msgid "Could not capture using the '%s' audio profile. "
-msgstr "Nepavyko įrašyti naudojant „%s“ garso profilį. "
-
-#: ../grecord/src/gsr-window.c:2071
-#, c-format
-msgid "Could not write to a file using the '%s' audio profile. "
-msgstr "Nepavyko įrašyti į failą naudojant „%s“ garso profilį. "
-
-#. File menu.
-#: ../grecord/src/gsr-window.c:2125
-msgid "_File"
-msgstr "_Failas"
-
-#: ../grecord/src/gsr-window.c:2127
-msgid "Create a new sample"
-msgstr "Sukurti naują garso elementą"
-
-#: ../grecord/src/gsr-window.c:2129
-msgid "Open a file"
-msgstr "Atverti failą"
-
-#: ../grecord/src/gsr-window.c:2131
-msgid "Save the current file"
-msgstr "Įrašyti esamą failą"
-
-#: ../grecord/src/gsr-window.c:2133
-msgid "Save the current file with a different name"
-msgstr "Įrašyti esamą failą kitu vardu"
-
-#: ../grecord/src/gsr-window.c:2134
-msgid "Open Volu_me Control"
-msgstr "Atverti garsu_mo valdymą"
-
-#: ../grecord/src/gsr-window.c:2135
-msgid "Open the audio mixer"
-msgstr "Atverti garso maišiklį"
-
-#: ../grecord/src/gsr-window.c:2137
-msgid "Show information about the current file"
-msgstr "Rodyti esamo failo informaciją"
-
-#: ../grecord/src/gsr-window.c:2139
-msgid "Close the current file"
-msgstr "Užverti esamą failą"
-
-#: ../grecord/src/gsr-window.c:2141
-msgid "Quit the program"
-msgstr "Užverti programą"
-
-#. Control menu
-#: ../grecord/src/gsr-window.c:2144
-msgid "_Control"
-msgstr "_Valdymas"
-
-#: ../grecord/src/gsr-window.c:2146
-msgid "Record sound"
-msgstr "Įrašyti garsą"
-
-#: ../grecord/src/gsr-window.c:2148
-msgid "Play sound"
-msgstr "Atkurti garsą"
-
-#: ../grecord/src/gsr-window.c:2150
-msgid "Stop sound"
-msgstr "Stabdyti garsą"
-
-#. Help menu
-#: ../grecord/src/gsr-window.c:2153
-msgid "_Help"
-msgstr "_Žinynas"
-
-#: ../grecord/src/gsr-window.c:2154
-msgid "Contents"
-msgstr "Turinys"
-
-#: ../grecord/src/gsr-window.c:2155
-msgid "Open the manual"
-msgstr "Atverti žinyną"
-
-#: ../grecord/src/gsr-window.c:2157
-msgid "About this application"
-msgstr "Apie šią programą"
-
-#: ../grecord/src/gsr-window.c:2279
-msgid "Could not load UI file. The program may not be properly installed."
-msgstr ""
-"Nepavyko įkelti grafinės sąsajos failo. Gali būti, kad programa tinkamai "
-"neįdiegta."
-
-#: ../grecord/src/gsr-window.c:2302
-msgid "Open"
-msgstr "Atverti"
-
-#: ../grecord/src/gsr-window.c:2304
-msgid "Save"
-msgstr "Išsaugoti"
-
-#: ../grecord/src/gsr-window.c:2306
-msgid "Save As"
-msgstr "Išsaugoti kaip"
-
-#: ../grecord/src/gsr-window.c:2362
-msgid "Record from _input:"
-msgstr "Įrašyti iš į_vesties:"
-
-#: ../grecord/src/gsr-window.c:2380
-msgid "_Record as:"
-msgstr "Įrašyti _kaip:"
-
-#: ../grecord/src/gsr-window.c:2427
-msgid "<none>"
-msgstr "<nėra>"
-
-#: ../grecord/src/gsr-window.c:2441
-msgid "Length:"
-msgstr "Trukmė:"
-
-#: ../grecord/src/gsr-window.c:2479
-msgid "Level:"
-msgstr "Lygmuo:"
-
-#. Translators: this is the window title, %s is the currently open file's name or Untitled
-#: ../grecord/src/gsr-window.c:2574
-#, c-format
-msgid "%s — Sound Recorder"
-msgstr "%s — Garso įrašymo programa"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
@@ -746,6 +323,10 @@ msgstr "Nežinomas garso valdymo elementas %d"
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
 msgstr "Garso valdymo GStreamer įskiepių ir / arba įrenginių nerasta."
+
+#: ../gst-mixer/src/misc.c:62
+msgid "Playback"
+msgstr "Grojimas"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
@@ -890,11 +471,7 @@ msgstr "MATE / GStreamer sistema paremta garso valdymo programa"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr ""
-"Paskutinieji vertėjai:\n"
-"Justina Klingaitė <justina.klingaite@gmail.com>,\n"
-"Žygimantas Beručka <zygis@gnome.org>\n"
-"Gediminas Paulauskas <menesis@chatsubo.lt>"
+msgstr "Paskutinieji vertėjai:\nJustina Klingaitė <justina.klingaite@gmail.com>,\nŽygimantas Beručka <zygis@gnome.org>\nGediminas Paulauskas <menesis@chatsubo.lt>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -927,48 +504,50 @@ msgstr "Nepalaikomas"
 msgid "Default"
 msgstr "Numatytasis"
 
+#: ../gstreamer-properties/gstreamer-properties.c:301
+msgid "Unknown"
+msgstr "Nežinomas"
+
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
 msgstr "Nepavyko parodyti pagrindinio lango"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr ""
-"Nepavyko įkelti naudotojo sąsajos failo. Patinkrite, ar programa gerai "
-"įdiegta."
+msgstr "Nepavyko įkelti naudotojo sąsajos failo. Patinkrite, ar programa gerai įdiegta."
 
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:1
-msgid "Configure defaults for GStreamer applications"
-msgstr "Keisti numatytuosius GStreamer programų nustatymus"
-
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:2
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
+#: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
 msgstr "Multimedijos sistemų konfigūravimas"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Audio"
-msgstr "Garsas"
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
+msgid "Configure defaults for GStreamer applications"
+msgstr "Keisti numatytuosius GStreamer programų nustatymus"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Click Ok to finish."
-msgstr "Norėdami baigti, spustelėkite „Gerai“."
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "D_evice:"
-msgstr "Į_renginys:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "Default Input"
-msgstr "Numatytoji įvestis"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "Default Output"
 msgstr "Numatytoji išvestis"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+#: ../gstreamer-properties/gstreamer-properties.ui.h:3
+msgid "_Plugin:"
+msgstr "Į_skiepis:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
 msgstr "_Konvejeris:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:5
+msgid "_Test"
+msgstr "_Tikrinti"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+msgid "_Device:"
+msgstr "Į_renginys:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+msgid "Default Input"
+msgstr "Numatytoji įvestis"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -983,28 +562,28 @@ msgid "Te_st"
 msgstr "_Tikrinti"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "Testing Pipeline"
-msgstr "Tikrinamas konvejeris"
+msgid "D_evice:"
+msgstr "Į_renginys:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Testing…"
-msgstr "Tikrinama…"
+msgid "Audio"
+msgstr "Garsas"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
 msgstr "Vaizdas"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "_Device:"
-msgstr "Į_renginys:"
+msgid "Testing Pipeline"
+msgstr "Tikrinamas konvejeris"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "_Plugin:"
-msgstr "Į_skiepis:"
+msgid "Testing…"
+msgstr "Tikrinama…"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "_Test"
-msgstr "_Tikrinti"
+msgid "Click Ok to finish."
+msgstr "Norėdami baigti, spustelėkite „Gerai“."
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
@@ -1107,7 +686,7 @@ msgstr "Video for Linux 2 (v4l2)"
 msgid "Failed to construct test pipeline for '%s'"
 msgstr "Nepavyko „%s“ sukurti bandomojo konvejerio"
 
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:529
+#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Rodant žinyną įvyko klaida: %s"
@@ -1135,9 +714,7 @@ msgstr "Gaunant gm_audio profilių sąrašą įvyko klaida. (%s)\n"
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr ""
-"Įvyko klaida registruojantis prie garso profilių sąrašo pakeitimų "
-"perspėjimų. (%s)\n"
+msgstr "Įvyko klaida registruojantis prie garso profilių sąrašo pakeitimų perspėjimų. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
@@ -1149,7 +726,7 @@ msgid "_Edit"
 msgstr "_Taisyti"
 
 #. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:456
+#: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
@@ -1157,29 +734,29 @@ msgstr[0] "Pašalinti šį %d profilį?\n"
 msgstr[1] "Pašalinti šiuos %d profilius?\n"
 msgstr[2] "Pašalinti šiuos %d prafilių?\n"
 
-#: ../profiles/audio-profiles-edit.c:475
+#: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
 msgstr "Ištrinti profilį „%s“?"
 
-#: ../profiles/audio-profiles-edit.c:497
+#: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
 msgstr "Trinti profilį"
 
-#: ../profiles/audio-profiles-edit.c:590
+#: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
 msgstr "Taisyti MATE garso profilius"
 
-#: ../profiles/audio-profiles-edit.c:639
+#: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
 msgstr "_Profiliai:"
 
-#: ../profiles/audio-profiles-edit.c:823
+#: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
 msgstr "Jau yra profilis pavadinimu „%s“"
 
-#: ../profiles/audio-profiles-edit.c:848
+#: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
 msgstr "MateConf klaida (FIXME): %s\n"
@@ -1187,21 +764,16 @@ msgstr "MateConf klaida (FIXME): %s\n"
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed "
-"incorrectly, so the dialog can't be displayed."
-msgstr ""
-"Trūksta failo „%s“. Tai rodo, kad programa yra įdiegta netinkamai, taigi "
-"dialogas negali būti parodytas."
+"The file \"%s\" is missing. This indicates that the application is installed"
+" incorrectly, so the dialog can't be displayed."
+msgstr "Trūksta failo „%s“. Tai rodo, kad programa yra įdiegta netinkamai, taigi dialogas negali būti parodytas."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"%s\n"
-"Paleiskite „%s --help“, jei norite susipažinti su visais galimais komandinės "
-"eilutės parametrais.\n"
+msgstr "%s\nPaleiskite „%s --help“, jei norite susipažinti su visais galimais komandinės eilutės parametrais.\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -1237,162 +809,137 @@ msgid "_Create"
 msgstr "_Kurti"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "A description for the audio profile"
-msgstr "Garso profilio aprašymas"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr ""
-"Profilio aprašymas, kuriame yra daugiau informacijos ir aprašymas kada "
-"naudoti šį profilį."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid ""
-"A filename extension to be used when storing files encoded with this profile."
-msgstr ""
-"Failo plėtinys, naudojamas, kai saugomi failai koduoti pagal šį profilį."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "Dalinis GStreamer konvejeris skirtas naudoti su šiuo profiliu."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A short name for the audio profile"
-msgstr "Trumpas garso profilio vardas"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr ""
-"Trumpas garso profilio vardas, naudojamas parinkimui ir profilio įvardijimui."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "CD Quality, AAC"
-msgstr "CD kokybės, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "CD Quality, Lossless"
-msgstr "CD kokybės, nenuostolingas"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "CD Quality, Lossy"
-msgstr "CD kokybės, nuostolingas"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid "CD Quality, MP2"
-msgstr "CD kokybės, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "CD Quality, MP3"
-msgstr "CD kokybės, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
-"Garso įrašymo profilių sąrašas. Šiame sąraše yra eilutės, nurodančios "
-"poaplankius, santykinius /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "List of profiles"
 msgstr "Profilių sąrašas"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
+msgid ""
+"List of audio recording profiles. The list contains strings naming "
+"subdirectories relative to "
+"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "Garso įrašymo profilių sąrašas. Šiame sąraše yra eilutės, nurodančios poaplankius, santykinius /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
+msgid "A short name for the audio profile"
+msgstr "Trumpas garso profilio vardas"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
+msgid ""
+"A short name for the audio profile, to be used in selections and uniquely "
+"identifying the profile."
+msgstr "Trumpas garso profilio vardas, naudojamas parinkimui ir profilio įvardijimui."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
+msgid "A description for the audio profile"
+msgstr "Garso profilio aprašymas"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+msgid ""
+"A description of the profile, containing more information and describing "
+"when to use this profile."
+msgstr "Profilio aprašymas, kuriame yra daugiau informacijos ir aprašymas kada naudoti šį profilį."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
+msgid "The partial GStreamer pipeline used"
+msgstr "Dalinis naudotas GStreamer konvejeris"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
+msgid "A partial GStreamer pipeline to use for this profile."
+msgstr "Dalinis GStreamer konvejeris skirtas naudoti su šiuo profiliu."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
 msgstr "Numatytasis šio profilio failų plėtinys"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
+msgid ""
+"A filename extension to be used when storing files encoded with this "
+"profile."
+msgstr "Failo plėtinys, naudojamas, kai saugomi failai koduoti pagal šį profilį."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
+msgid "Whether this profile is to be used"
+msgstr "Ar naudotinas šis profilis"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
+msgid "Whether to use and display this profile."
+msgstr "Ar rodyti ir naudoti šį profilį."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
+msgid "CD Quality, Lossy"
+msgstr "CD kokybės, nuostolingas"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+msgid ""
+"Used for converting to CD-quality audio, but with a lossy compression codec."
+" Use this for CD extraction and radio recordings."
+msgstr "Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu glaudinimo kodeku. Naudokite šį profilį garso rašymui iš CD ir radijo įrašams."
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "The partial GStreamer pipeline used"
-msgstr "Dalinis naudotas GStreamer konvejeris"
+msgid "CD Quality, Lossless"
+msgstr "CD kokybės, nenuostolingas"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr ""
-"Naudojama konvertuojant CD kokybės garsą, tačiau su nenuostolingu "
-"glaudinimu. Naudokit šį profilį, jei vėliau norėsite taisyti šį failą arba "
-"norėsite įrašyti jį į CD."
+msgstr "Naudojama konvertuojant CD kokybės garsą, tačiau su nenuostolingu glaudinimu. Naudokit šį profilį, jei vėliau norėsite taisyti šį failą arba norėsite įrašyti jį į CD."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec. "
-"Use this for CD extraction and radio recordings."
-msgstr ""
-"Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu glaudinimo "
-"kodeku. Naudokite šį profilį garso rašymui iš CD ir radijo įrašams."
+msgid "Voice, Lossless"
+msgstr "Balsas, nenuostolingas"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu AAC kodeku. "
-"Naudokite šį profilį failų, kuriuos kopijuosite į įrenginius, palaikančius "
-"tik AAC kodeką, paruošimui. Atminkite, kad naudoti šį formatą jūsų teisės "
-"sistemoje gali būti nelegalu; pasitarkite su savo teisininku."
+"Used for converting to lossless voice-quality audio. Use this for recording "
+"and editing speech."
+msgstr "Naudojama konvertuojant į nenuostolingą balso kokybės garsą. Naudokite šį profilį kalbos įrašymui ir taisymui."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
+msgid "Voice, Lossy"
+msgstr "Balsas, nuostolingas"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+msgid ""
+"Used for converting to lossy voice-quality audio. Use this for recording "
+"speech that doesn't need to be edited."
+msgstr "Naudojama konvertuojant į nuostolingą balso kokybės garsą. Naudokite šį profilį kalbos, kurios nereiks taisyti, įrašymui."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
+msgid "CD Quality, MP2"
+msgstr "CD kokybės, MP2"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu MP2 kodeku. "
-"Naudokite šį profilį failų, kuriuos kopijuosite į įrenginius, palaikančius "
-"tik MP2 kodeką, paruošimui. Atminkite, kad naudoti šį formatą jūsų teisės "
-"sistemoje gali būti nelegalu; pasitarkite su savo teisininku."
+msgstr "Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu MP2 kodeku. Naudokite šį profilį failų, kuriuos kopijuosite į įrenginius, palaikančius tik MP2 kodeką, paruošimui. Atminkite, kad naudoti šį formatą jūsų teisės sistemoje gali būti nelegalu; pasitarkite su savo teisininku."
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
+msgid "CD Quality, MP3"
+msgstr "CD kokybės, MP3"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu MP3 kodeku. "
-"Naudokite šį profilį failų, kuriuos kopijuosite į įrenginius, palaikančius "
-"tik MP3 kodeką, paruošimui. Atminkite, kad naudoti šį formatą jūsų teisės "
-"sistemoje gali būti nelegalu; pasitarkite su savo teisininku."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr ""
-"Naudojama konvertuojant į nenuostolingą balso kokybės garsą. Naudokite šį "
-"profilį kalbos įrašymui ir taisymui."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr ""
-"Naudojama konvertuojant į nuostolingą balso kokybės garsą. Naudokite šį "
-"profilį kalbos, kurios nereiks taisyti, įrašymui."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "Voice, Lossless"
-msgstr "Balsas, nenuostolingas"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid "Voice, Lossy"
-msgstr "Balsas, nuostolingas"
+msgstr "Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu MP3 kodeku. Naudokite šį profilį failų, kuriuos kopijuosite į įrenginius, palaikančius tik MP3 kodeką, paruošimui. Atminkite, kad naudoti šį formatą jūsų teisės sistemoje gali būti nelegalu; pasitarkite su savo teisininku."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "Whether this profile is to be used"
-msgstr "Ar naudotinas šis profilis"
+msgid "CD Quality, AAC"
+msgstr "CD kokybės, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid "Whether to use and display this profile."
-msgstr "Ar rodyti ir naudoti šį profilį."
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
+"this for preparing files for copying to devices that only support the AAC "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "Naudojama konvertuojant CD kokybės garsą, tačiau su nuostolingu AAC kodeku. Naudokite šį profilį failų, kuriuos kopijuosite į įrenginius, palaikančius tik AAC kodeką, paruošimui. Atminkite, kad naudoti šį formatą jūsų teisės sistemoje gali būti nelegalu; pasitarkite su savo teisininku."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -1545,32 +1092,30 @@ msgstr "Garsų tema:"
 msgid "Enable window and button sounds"
 msgstr "Įjungti langų ir mygtukų garsus"
 
-#. Translators: This is the name of an audio file that sounds like the bark of a dog.
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "Lojimas"
 
-#. Translators: This is the name of an audio file that sounds like a water drip.
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "Lašėjimas"
 
-#. Translators: This is the name of an audio file that sounds like tapping glass.
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "Stiklas"
 
-#. Translators: This is the name of an audio file that sounds sort of like a submarine sonar ping.
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "Sonaras"
-
-#~ msgid "Recording..."
-#~ msgstr "Įrašoma..."
-
-#~ msgid "Custom..."
-#~ msgstr "Pasirinktinis..."

@@ -1,55 +1,49 @@
-# translation of mate-media.master.po to Galician
-# Galician translation of mate-media.
-# Copyright (C) 1999 Sergio Rua <srua@iname.com>
-# Copyright (C) 2000-2001 Jesús Bravo Álvarez <jba@pobox.com>
-#
-# Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
-# colaborar connosco, podes atopar máis información en http://www.trasno.net
-#
-# Jesús Bravo Álvarez <jba@pobox.com>, 2000-2001.
-# Sergio Rua <srua@iname.com>, 1999.
-# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
-# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007, 2008.
-# Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
-# Suso Baleato <suso.baleato@xunta.es>, 2009.
-# Fran Diéguez <fran.dieguez@glug.es>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Antón Méixome <meixome@mancomun.org>, 2009.
-# Fran Diéguez <frandieguez@ubuntu.com>, 2010.
+# Fran Diéguez <fran.dieguez@glug.es>, 2009.
 # Fran Dieguez <frandieguez@ubuntu.com>, 2010.
-#
+# Fran Diéguez <frandieguez@ubuntu.com>, 2010.
+# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007, 2008.
+# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
+# Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
+# Sergio Rua <srua@iname.com>, 1999.
+# Suso Baleato <suso.baleato@xunta.es>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media.master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-05 15:55+0200\n"
-"PO-Revision-Date: 2010-08-05 15:51+0200\n"
-"Last-Translator: Fran Dieguez <frandieguez@ubuntu.com>\n"
-"Language-Team: Galician <mate-gl-list@gnome.org>\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"POT-Creation-Date: 2012-07-12 14:50+0200\n"
+"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/MATE/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-msgid "Show desktop volume control"
-msgstr "Mostrar o control de volume do escritorio"
-
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
 msgstr "Control de volume"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-msgid "Change sound volume and sound events"
-msgstr "Modificar o volume do son e asociar sons a eventos"
+#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+msgid "Show desktop volume control"
+msgstr "Mostrar o control de volume do escritorio"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "Son"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "Modificar o volume do son e asociar sons a eventos"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -78,7 +72,7 @@ msgid " — MATE Volume Control"
 msgstr " — Control de volume do MATE"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1918
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
 msgstr "Saída"
 
@@ -87,7 +81,7 @@ msgid "Sound Output Volume"
 msgstr "Volume do son de saída"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1832
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
 msgstr "Entrada"
 
@@ -137,23 +131,23 @@ msgstr "_Esvaecer:"
 msgid "_Subwoofer:"
 msgstr "_Subwoofer:"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:588
-#: ../mate-volume-control/src/gvc-channel-bar.c:597
+#: ../mate-volume-control/src/gvc-channel-bar.c:602
+#: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:592
+#: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Sen amplificación"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:854
+#: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
 msgstr "Sen son"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1576
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
 msgstr "_Perfil:"
 
@@ -197,7 +191,7 @@ msgid "Peak detect"
 msgstr "Detección de picos"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1664
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
 msgstr "Nome"
@@ -211,61 +205,60 @@ msgstr "Dispositivo"
 msgid "Speaker Testing for %s"
 msgstr "Proba de altofalantes para %s"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1577
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
 msgstr "Probar altofalantes"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1738
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
 msgstr "V_olume de saída: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1769
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
 msgstr "Efectos de son"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1776
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
 msgstr "Volume de _alerta: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1789
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1794
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
 msgstr "E_scolla un dispositivo para configurar:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1821
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1950
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
 msgstr "Configuracións para o dispositivo seleccionado:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1839
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
 msgstr "Volume de _entrada: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1862
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
 msgstr "Nivel de entrada:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1888
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
 msgstr "E_scolla un dispositivo para o son de entrada:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1923
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
 msgstr "E_scolla un dispositivo para o son de saída:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
 msgstr "Aplicativos"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr ""
-"Neste momento non hai ningún aplicativo reproducindo ou gravando audio."
+msgstr "Neste momento non hai ningún aplicativo reproducindo ou gravando audio."
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2089
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
 #: ../sound-theme/gvc-sound-theme-chooser.c:751
 #: ../sound-theme/gvc-sound-theme-chooser.c:763
@@ -287,440 +280,22 @@ msgstr "Probar"
 msgid "Subwoofer"
 msgstr "Subwoofer"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Produciuse un fallo ao iniciar as Preferencias de son: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:255
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
 msgstr "S_en son"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:264
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
 msgstr "Preferencias de _son"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:448
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
 msgstr "Sen son"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:1
-msgid "Record sound clips"
-msgstr "Gravar clips de son"
-
-#: ../grecord/mate-sound-recorder.desktop.in.in.h:2
-#: ../grecord/src/gsr-window.c:1238
-msgid "Sound Recorder"
-msgstr "Gravadora de son"
-
-#. Translator comment: default trackname is 'untitled', which
-#. * has as effect that the user cannot save to this file. The
-#. * 'save' action will open the save-as dialog instead to give
-#. * a proper filename. See mate-record.c:94.
-#: ../grecord/src/mate-recorder.c:142 ../grecord/src/gsr-window.c:1741
-#: ../grecord/src/gsr-window.c:2690
-msgid "Untitled"
-msgstr "Sen título"
-
-#: ../grecord/src/mate-recorder.c:144 ../grecord/src/gsr-window.c:1743
-#, c-format
-msgid "Untitled-%d"
-msgstr "Sen título-%d"
-
-#: ../grecord/src/gsr-window.c:193
-#, c-format
-msgid ""
-"Could not create the GStreamer %s element.\n"
-"Please install the '%s' plugin from the '%s' module.\n"
-"Verify that the installation is correct by running\n"
-"    gst-inspect-0.10 %s\n"
-"and then restart mate-sound-recorder."
-msgstr ""
-"Non foi posíbel crear o elemento GStreamer %s.\n"
-"Instale o engadido «%s» do módulo «%s».\n"
-"Verifique que a instalación é correcta executando\n"
-"    gst-inspect-0.10 %s\n"
-"e reinicie despois o mate-sound-recorder."
-
-#: ../grecord/src/gsr-window.c:209
-msgid ""
-"Please verify its settings.\n"
-"You may be missing the necessary plugins."
-msgstr ""
-"Comprobe as súas configuracións.\n"
-"Pode ser que lle falten os engadidos necesarios."
-
-#: ../grecord/src/gsr-window.c:294
-#, c-format
-msgid "%ld minute"
-msgid_plural "%ld minutes"
-msgstr[0] "%ld minuto"
-msgstr[1] "%ld minutos"
-
-#: ../grecord/src/gsr-window.c:295
-#, c-format
-msgid "%ld hour"
-msgid_plural "%ld hours"
-msgstr[0] "%ld hora"
-msgstr[1] "%ld horas"
-
-#: ../grecord/src/gsr-window.c:296
-#, c-format
-msgid "%ld second"
-msgid_plural "%ld seconds"
-msgstr[0] "%ld segundo"
-msgstr[1] "%ld segundos"
-
-#. Translators: the format is "X hours, X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:303
-#, c-format
-msgid "%s, %s and %s"
-msgstr "%s, %s e %s"
-
-#. Translators: the format is "X hours and X minutes"
-#. Translators: the format is "X minutes and X seconds"
-#: ../grecord/src/gsr-window.c:309 ../grecord/src/gsr-window.c:317
-#: ../grecord/src/gsr-window.c:328
-#, c-format
-msgid "%s and %s"
-msgstr "%s e %s"
-
-#: ../grecord/src/gsr-window.c:371
-msgid "Open a File"
-msgstr "Abrir un ficheiro"
-
-#: ../grecord/src/gsr-window.c:448
-#, c-format
-msgid ""
-"Unable to load file:\n"
-"%s"
-msgstr ""
-"Non foi posíbel cargar o ficheiro:\n"
-"%s"
-
-#: ../grecord/src/gsr-window.c:594 ../grecord/src/gsr-window.c:1540
-#: ../grecord/src/gsr-window.c:1800 ../grecord/src/gsr-window.c:2501
-msgid "Ready"
-msgstr "Preparado"
-
-#. Add replace button
-#: ../grecord/src/gsr-window.c:647
-msgid "_Replace"
-msgstr "_Substituír"
-
-#: ../grecord/src/gsr-window.c:664
-#, c-format
-msgid ""
-"A file named \"%s\" already exists. \n"
-"Do you want to replace it with the one you are saving?"
-msgstr ""
-"Xa existe un ficheiro co nome \"%s\".\n"
-"Quere substituílo polo que está a gardar agora?"
-
-#: ../grecord/src/gsr-window.c:712
-#, c-format
-msgid "Could not save the file \"%s\""
-msgstr "Non foi posíbel gardar o ficheiro \"%s\""
-
-#: ../grecord/src/gsr-window.c:732
-msgid "Save file as"
-msgstr "Gardar ficheiro como"
-
-#: ../grecord/src/gsr-window.c:826
-#, c-format
-msgid "%s is not installed in the path."
-msgstr "%s non está instalado no camiño."
-
-#: ../grecord/src/gsr-window.c:835
-#, c-format
-msgid "There was an error starting %s: %s"
-msgstr "Produciuse un erro ao iniciar %s: %s"
-
-#: ../grecord/src/gsr-window.c:864
-msgid "Save recording before closing?"
-msgstr "Gardar a gravación antes de cerrar?"
-
-#: ../grecord/src/gsr-window.c:865
-msgid "Save recording?"
-msgstr "Gardar a gravación?"
-
-#: ../grecord/src/gsr-window.c:869
-msgid "Close _without Saving"
-msgstr "Pechar _sen gardar"
-
-#: ../grecord/src/gsr-window.c:870
-msgid "Continue _without Saving"
-msgstr "Pechar _sen gardar"
-
-#: ../grecord/src/gsr-window.c:880
-msgid "Question"
-msgstr "Pregunta"
-
-#: ../grecord/src/gsr-window.c:987
-#, c-format
-msgid "%s (Has not been saved)"
-msgstr "%s (Non foi gardado)"
-
-#: ../grecord/src/gsr-window.c:1003
-#, c-format
-msgid "%s (%llu byte)"
-msgid_plural "%s (%llu bytes)"
-msgstr[0] "%s (%llu byte)"
-msgstr[1] "%s (%llu bytes)"
-
-#: ../grecord/src/gsr-window.c:1007
-msgid "Unknown size"
-msgstr "Tamaño descoñecido"
-
-#. Attempts to get length ran out.
-#: ../grecord/src/gsr-window.c:1016 ../grecord/src/gsr-window.c:1026
-#: ../grecord/src/gsr-window.c:1042 ../grecord/src/gsr-window.c:1051
-#: ../grecord/src/gsr-window.c:1408
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "Descoñecido"
-
-#: ../grecord/src/gsr-window.c:1028
-#, c-format
-msgid "%.1f kHz"
-msgstr "%.1f kHz"
-
-#: ../grecord/src/gsr-window.c:1036
-#, c-format
-msgid "%.0f kb/s"
-msgstr "%.0f KB/s"
-
-#: ../grecord/src/gsr-window.c:1039
-#, c-format
-msgid "%.0f kb/s (Estimated)"
-msgstr "%.0f KB/s (Estimado)"
-
-#: ../grecord/src/gsr-window.c:1054
-msgid "1 (mono)"
-msgstr "1 (mono)"
-
-#: ../grecord/src/gsr-window.c:1057
-msgid "2 (stereo)"
-msgstr "2 (estéreo)"
-
-#: ../grecord/src/gsr-window.c:1084
-#, c-format
-msgid "%s Information"
-msgstr "Información de %s"
-
-#: ../grecord/src/gsr-window.c:1108 ../grecord/src/gsr-window.c:2413
-msgid "File Information"
-msgstr "Información de ficheiro"
-
-#: ../grecord/src/gsr-window.c:1123
-msgid "Folder:"
-msgstr "Cartafol:"
-
-#: ../grecord/src/gsr-window.c:1129 ../grecord/src/gsr-window.c:2420
-msgid "Filename:"
-msgstr "Nome do ficheiro:"
-
-#: ../grecord/src/gsr-window.c:1135
-msgid "File size:"
-msgstr "Tamaño do ficheiro:"
-
-#: ../grecord/src/gsr-window.c:1144
-msgid "Audio Information"
-msgstr "Información de audio"
-
-#: ../grecord/src/gsr-window.c:1159
-msgid "File duration:"
-msgstr "Duración do ficheiro:"
-
-#: ../grecord/src/gsr-window.c:1165
-msgid "Number of channels:"
-msgstr "Número de canles:"
-
-#: ../grecord/src/gsr-window.c:1171
-msgid "Sample rate:"
-msgstr "Taxa de mostra:"
-
-#: ../grecord/src/gsr-window.c:1177
-msgid "Bit rate:"
-msgstr "Taxa de bits:"
-
-#: ../grecord/src/gsr-window.c:1241
-msgid ""
-"A sound recorder for MATE\n"
-" mate-multimedia@gnome.org"
-msgstr ""
-"Unha gravadora de son para MATE\n"
-" mate-multimedia@gnome.org"
-
-#: ../grecord/src/gsr-window.c:1512
-msgid "Playing…"
-msgstr "Reproducindo..."
-
-#: ../grecord/src/gsr-window.c:1644
-msgid "MateConf audio output"
-msgstr "Saída de audio do MateConf"
-
-#: ../grecord/src/gsr-window.c:1653 ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "Reprodución"
-
-#: ../grecord/src/gsr-window.c:1732
-msgid "Recording…"
-msgstr "Gravando"
-
-#: ../grecord/src/gsr-window.c:1822
-msgid "MateConf audio recording"
-msgstr "Gravación de audio do MateConf"
-
-#: ../grecord/src/gsr-window.c:1831
-msgid ""
-"Your audio capture settings are invalid. Please correct them with the "
-"\"Sound Preferences\" under the System Preferences menu."
-msgstr ""
-"As súas configuracións de captura de audio son incorrectas. Corríxaas coas "
-"\"Preferencias de son\" no menú Preferencias do sistema."
-
-#: ../grecord/src/gsr-window.c:2003
-msgid "file output"
-msgstr "ficheiro de saída"
-
-#: ../grecord/src/gsr-window.c:2021
-msgid "level"
-msgstr "nivel"
-
-#: ../grecord/src/gsr-window.c:2045
-#, c-format
-msgid "Could not parse the '%s' audio profile. "
-msgstr "Non foi posíbel analizar o perfil de audio «%s». "
-
-#: ../grecord/src/gsr-window.c:2062
-#, c-format
-msgid "Could not capture using the '%s' audio profile. "
-msgstr "Non foi posíbel capturar usando o perfil de audio «%s». "
-
-#: ../grecord/src/gsr-window.c:2071
-#, c-format
-msgid "Could not write to a file using the '%s' audio profile. "
-msgstr "Non foi posíbel escribir nun ficheiro usando o perfil de audio «%s». "
-
-#. File menu.
-#: ../grecord/src/gsr-window.c:2125
-msgid "_File"
-msgstr "_Ficheiro"
-
-#: ../grecord/src/gsr-window.c:2127
-msgid "Create a new sample"
-msgstr "Crear unha mostra nova"
-
-#: ../grecord/src/gsr-window.c:2129
-msgid "Open a file"
-msgstr "Abrir un ficheiro"
-
-#: ../grecord/src/gsr-window.c:2131
-msgid "Save the current file"
-msgstr "Gardar o ficheiro actual"
-
-#: ../grecord/src/gsr-window.c:2133
-msgid "Save the current file with a different name"
-msgstr "Gardar o ficheiro actual cun nome diferente"
-
-#: ../grecord/src/gsr-window.c:2134
-msgid "Open Volu_me Control"
-msgstr "Abrir o control de volu_me"
-
-#: ../grecord/src/gsr-window.c:2135
-msgid "Open the audio mixer"
-msgstr "Abrir o mesturador de audio"
-
-#: ../grecord/src/gsr-window.c:2137
-msgid "Show information about the current file"
-msgstr "Mostrar información sobre o ficheiro actual"
-
-#: ../grecord/src/gsr-window.c:2139
-msgid "Close the current file"
-msgstr "Pechar o ficheiro actual"
-
-#: ../grecord/src/gsr-window.c:2141
-msgid "Quit the program"
-msgstr "Saír do programa"
-
-#. Control menu
-#: ../grecord/src/gsr-window.c:2144
-msgid "_Control"
-msgstr "_Control"
-
-#: ../grecord/src/gsr-window.c:2146
-msgid "Record sound"
-msgstr "Gravar son"
-
-#: ../grecord/src/gsr-window.c:2148
-msgid "Play sound"
-msgstr "Reproducir son"
-
-#: ../grecord/src/gsr-window.c:2150
-msgid "Stop sound"
-msgstr "Deter son"
-
-#. Help menu
-#: ../grecord/src/gsr-window.c:2153
-msgid "_Help"
-msgstr "_Axuda"
-
-#: ../grecord/src/gsr-window.c:2154
-msgid "Contents"
-msgstr "Contidos"
-
-#: ../grecord/src/gsr-window.c:2155
-msgid "Open the manual"
-msgstr "Abrir o manual"
-
-#: ../grecord/src/gsr-window.c:2157
-msgid "About this application"
-msgstr "Sobre este aplicativo"
-
-#: ../grecord/src/gsr-window.c:2279
-msgid "Could not load UI file. The program may not be properly installed."
-msgstr ""
-"Non foi posíbel cargar ui.xml. Pode ser que o programa non estea instalado "
-"correctamente"
-
-#: ../grecord/src/gsr-window.c:2302
-msgid "Open"
-msgstr "Abrir"
-
-#: ../grecord/src/gsr-window.c:2304
-msgid "Save"
-msgstr "Gardar"
-
-#: ../grecord/src/gsr-window.c:2306
-msgid "Save As"
-msgstr "Gardar como"
-
-#: ../grecord/src/gsr-window.c:2362
-msgid "Record from _input:"
-msgstr "Gravar desde a _entrada:"
-
-#: ../grecord/src/gsr-window.c:2380
-msgid "_Record as:"
-msgstr "G_ravar como:"
-
-#: ../grecord/src/gsr-window.c:2427
-msgid "<none>"
-msgstr "<ningún>"
-
-#: ../grecord/src/gsr-window.c:2441
-msgid "Length:"
-msgstr "Duración:"
-
-#: ../grecord/src/gsr-window.c:2479
-msgid "Level:"
-msgstr "Nivel:"
-
-#. Translators: this is the window title, %s is the currently open file's name or Untitled
-#: ../grecord/src/gsr-window.c:2574
-#, c-format
-msgid "%s — Sound Recorder"
-msgstr "%s - Gravadora de son"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
@@ -749,8 +324,11 @@ msgstr "Control de volume descoñecido %d"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr ""
-"Non se encontraron engadidos ou dispositivos de control de volume GStreamer."
+msgstr "Non se encontraron engadidos ou dispositivos de control de volume GStreamer."
+
+#: ../gst-mixer/src/misc.c:62
+msgid "Playback"
+msgstr "Reprodución"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
@@ -895,10 +473,7 @@ msgstr "Un aplicativo de control de volume baseada no MATE/GStreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr ""
-"Fran Diéguez <frandieguez@ubuntu.com>, 2010;\n"
-"Suso Baleato <suso.baleato@xunta.es>, 2009; \n"
-"Antón Méixome <meixome@mancomun.org> 2009. "
+msgstr "Fran Diéguez <frandieguez@ubuntu.com>, 2010;\nSuso Baleato <suso.baleato@xunta.es>, 2009; \nAntón Méixome <meixome@mancomun.org> 2009. "
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -931,48 +506,50 @@ msgstr "Non compatíbel"
 msgid "Default"
 msgstr "Predefinido"
 
+#: ../gstreamer-properties/gstreamer-properties.c:301
+msgid "Unknown"
+msgstr "Descoñecido"
+
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
 msgstr "Produciuse un fallo ao instanciar a xanela principal"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr ""
-"Produciuse un fallo ao cargar o ficheiro UI; comprobe a súa instalación."
+msgstr "Produciuse un fallo ao cargar o ficheiro UI; comprobe a súa instalación."
 
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:1
-msgid "Configure defaults for GStreamer applications"
-msgstr ""
-"Configurar as configuracións predefinidas para os aplicativos GStreamer"
-
-#: ../gstreamer-properties/gstreamer-properties.desktop.in.in.h:2
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
+#: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
 msgstr "Selector de sistemas multimedia"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Audio"
-msgstr "Audio"
+#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
+msgid "Configure defaults for GStreamer applications"
+msgstr "Configurar as configuracións predefinidas para os aplicativos GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Click Ok to finish."
-msgstr "Prema Aceptar para rematar."
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "D_evice:"
-msgstr "D_ispositivo:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "Default Input"
-msgstr "Entrada predefinida"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "Default Output"
 msgstr "Saída predefinida"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+#: ../gstreamer-properties/gstreamer-properties.ui.h:3
+msgid "_Plugin:"
+msgstr "_Engadido:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
 msgstr "P_ipeline:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:5
+msgid "_Test"
+msgstr "_Probar"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:6
+msgid "_Device:"
+msgstr "_Dispositivo:"
+
+#: ../gstreamer-properties/gstreamer-properties.ui.h:7
+msgid "Default Input"
+msgstr "Entrada predefinida"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -987,28 +564,28 @@ msgid "Te_st"
 msgstr "Pr_oba"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "Testing Pipeline"
-msgstr "Probando o Pipeline"
+msgid "D_evice:"
+msgstr "D_ispositivo:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Testing…"
-msgstr "Probando..."
+msgid "Audio"
+msgstr "Audio"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
 msgstr "Vídeo"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "_Device:"
-msgstr "_Dispositivo:"
+msgid "Testing Pipeline"
+msgstr "Probando o Pipeline"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "_Plugin:"
-msgstr "_Engadido:"
+msgid "Testing…"
+msgstr "Probando..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "_Test"
-msgstr "_Probar"
+msgid "Click Ok to finish."
+msgstr "Prema Aceptar para rematar."
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
@@ -1109,10 +686,9 @@ msgstr "Vídeo para Linux 2 (v4l2)"
 #: ../gstreamer-properties/pipeline-tests.c:176
 #, c-format
 msgid "Failed to construct test pipeline for '%s'"
-msgstr ""
-"Produciuse un fallo ao construír a canalización secuencial de proba para «%s»"
+msgstr "Produciuse un fallo ao construír a canalización secuencial de proba para «%s»"
 
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:529
+#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Produciuse un erro ao mostrar a axuda: %s"
@@ -1140,9 +716,7 @@ msgstr "Produciuse un erro ao obter a lista de perfís de gm_audio. (%s)\n"
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr ""
-"Produciuse un erro ao subscribir a notificación de cambios na lista de "
-"perfís de audio. (%s)\n"
+msgstr "Produciuse un erro ao subscribir a notificación de cambios na lista de perfís de audio. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
@@ -1153,38 +727,37 @@ msgstr "Produciuse un erro ao esquecer o camiño de perfís %s. (%s)\n"
 msgid "_Edit"
 msgstr "_Editar"
 
-# (pofilter) variables: (u'translation contains variables not in original: %d',)
 #. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:456
+#: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
 msgstr[0] "Quere eliminar este perfil?\n"
 msgstr[1] "Quere eliminar estes %d perfís?\n"
 
-#: ../profiles/audio-profiles-edit.c:475
+#: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
 msgstr "Quere eliminar o perfil \"%s\"?"
 
-#: ../profiles/audio-profiles-edit.c:497
+#: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
 msgstr "Eliminar o perfil"
 
-#: ../profiles/audio-profiles-edit.c:590
+#: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
 msgstr "Editar os perfís do MATE Audio"
 
-#: ../profiles/audio-profiles-edit.c:639
+#: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
 msgstr "_Perfís:"
 
-#: ../profiles/audio-profiles-edit.c:823
+#: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
 msgstr "Xa existe un perfil denominado \"%s\""
 
-#: ../profiles/audio-profiles-edit.c:848
+#: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
 msgstr "Erro do MateConf (CORRÍXEME): %s\n"
@@ -1192,21 +765,16 @@ msgstr "Erro do MateConf (CORRÍXEME): %s\n"
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed "
-"incorrectly, so the dialog can't be displayed."
-msgstr ""
-"Falta o ficheiro \"%s\". Isto indica que o aplicativo non está instalado "
-"correctamente polo que non é posíbel mostrar o diálogo."
+"The file \"%s\" is missing. This indicates that the application is installed"
+" incorrectly, so the dialog can't be displayed."
+msgstr "Falta o ficheiro \"%s\". Isto indica que o aplicativo non está instalado correctamente polo que non é posíbel mostrar o diálogo."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"%s\n"
-"Execute '%s --help' para ver unha lista completa das opcións por liña de "
-"ordes.\n"
+msgstr "%s\nExecute '%s --help' para ver unha lista completa das opcións por liña de ordes.\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -1242,168 +810,137 @@ msgid "_Create"
 msgstr "_Crear"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "A description for the audio profile"
-msgstr "Unha descrición para o perfil de audio"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr ""
-"Unha descrición do perfil que contén máis información e describe cando se "
-"utiliza este perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid ""
-"A filename extension to be used when storing files encoded with this profile."
-msgstr ""
-"Unha extensión do ficheiro que se usará ao almacenar os ficheiros "
-"codificados con este perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr ""
-"Unha canalización secuencial parcial do GStreamer que se usará con este "
-"perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A short name for the audio profile"
-msgstr "Un nome abreviado para o perfil de audio"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr ""
-"Un nome abreviado para o perfil de audio que se usará en seleccións e que "
-"identifica univocamente o perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "CD Quality, AAC"
-msgstr "Calidade de CD, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "CD Quality, Lossless"
-msgstr "Calidade de CD, sen perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "CD Quality, Lossy"
-msgstr "Calidade de CD, con perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid "CD Quality, MP2"
-msgstr "Calidade de CD, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "CD Quality, MP3"
-msgstr "Calidade de CD, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
-"Lista de perfís de gravación de audio. A lista contén cadeas que designan "
-"subdirectorios relativos a /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "List of profiles"
 msgstr "Lista de perfís"
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
+msgid ""
+"List of audio recording profiles. The list contains strings naming "
+"subdirectories relative to "
+"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "Lista de perfís de gravación de audio. A lista contén cadeas que designan subdirectorios relativos a /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
+msgid "A short name for the audio profile"
+msgstr "Un nome abreviado para o perfil de audio"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
+msgid ""
+"A short name for the audio profile, to be used in selections and uniquely "
+"identifying the profile."
+msgstr "Un nome abreviado para o perfil de audio que se usará en seleccións e que identifica univocamente o perfil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
+msgid "A description for the audio profile"
+msgstr "Unha descrición para o perfil de audio"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
+msgid ""
+"A description of the profile, containing more information and describing "
+"when to use this profile."
+msgstr "Unha descrición do perfil que contén máis información e describe cando se utiliza este perfil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
+msgid "The partial GStreamer pipeline used"
+msgstr "A canalización secuencial parcial do GStreamer utilizada"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
+msgid "A partial GStreamer pipeline to use for this profile."
+msgstr "Unha canalización secuencial parcial do GStreamer que se usará con este perfil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
 msgstr "A extensión de ficheiro predefinida para este perfil"
 
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
+msgid ""
+"A filename extension to be used when storing files encoded with this "
+"profile."
+msgstr "Unha extensión do ficheiro que se usará ao almacenar os ficheiros codificados con este perfil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
+msgid "Whether this profile is to be used"
+msgstr "Indica se se vai usar ou non este perfil"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
+msgid "Whether to use and display this profile."
+msgstr "Indica se se mostra e usa ou non este perfil."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
+msgid "CD Quality, Lossy"
+msgstr "Calidade de CD, con perda"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
+msgid ""
+"Used for converting to CD-quality audio, but with a lossy compression codec."
+" Use this for CD extraction and radio recordings."
+msgstr "Úsase para converter en audio con calidade de CD, mais cun códec de compresión con perda. Úseo para a extracción de CD e gravacións de radio."
+
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "The partial GStreamer pipeline used"
-msgstr "A canalización secuencial parcial do GStreamer utilizada"
+msgid "CD Quality, Lossless"
+msgstr "Calidade de CD, sen perda"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr ""
-"Úsase para converter en audio con calidade de CD, mais cun códec de "
-"compresión sen perda. Úseo se máis tarde quere editar o ficheiro ou gravalo "
-"nun CD."
+msgstr "Úsase para converter en audio con calidade de CD, mais cun códec de compresión sen perda. Úseo se máis tarde quere editar o ficheiro ou gravalo nun CD."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec. "
-"Use this for CD extraction and radio recordings."
-msgstr ""
-"Úsase para converter en audio con calidade de CD, mais cun códec de "
-"compresión con perda. Úseo para a extracción de CD e gravacións de radio."
+msgid "Voice, Lossless"
+msgstr "Voz, sen perda"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr ""
-"Úsase para converter a calidade de CD de audio, mais cun códec de "
-"comprensión ACC con perda. Utilice isto para preparar os ficheiros para "
-"copialos a dispositivos que só soportan o códec de comprensión AAC. Teña en "
-"conta que usar este formato pode ser ilegal na súa xurisdición; contacte co "
-"seu avogado para pedirlle asesoramento."
+"Used for converting to lossless voice-quality audio. Use this for recording "
+"and editing speech."
+msgstr "Úsase para converter en audio con calidade de voz sen perda. Úseo para gravar e editar voz."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
+msgid "Voice, Lossy"
+msgstr "Voz, con perda"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+msgid ""
+"Used for converting to lossy voice-quality audio. Use this for recording "
+"speech that doesn't need to be edited."
+msgstr "Úsase para converter en audio con calidade de voz e con perda. Úseo para gravar voz que non se precisa editar."
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
+msgid "CD Quality, MP2"
+msgstr "Calidade de CD, MP2"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"Emprégase para converter en audio de calidade de CD, mais co códec con "
-"perdas MP2. Utilice isto ao preparar ficheiros para copialos en dispositivos "
-"que só soporten o códec MP2. Teña en conta que usar este formato pode ser "
-"ilegal na súa xurisdición. Aconséllese co seu avogado."
+msgstr "Emprégase para converter en audio de calidade de CD, mais co códec con perdas MP2. Utilice isto ao preparar ficheiros para copialos en dispositivos que só soporten o códec MP2. Teña en conta que usar este formato pode ser ilegal na súa xurisdición. Aconséllese co seu avogado."
 
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
+msgid "CD Quality, MP3"
+msgstr "Calidade de CD, MP3"
+
+#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
 "Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
-"Úsase para converter a calidade de CD de audio, mais cun códec de "
-"comprensión MP3 con perda. Utilice isto para preparar os ficheiros para "
-"copialos a dispositivos que só soportan o códec de comprensión MP3. Teña en "
-"conta que usar este formato pode ser ilegal na súa xurisdición; contacte co "
-"seu avogado para pedirlle asesoramento."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr ""
-"Úsase para converter en audio con calidade de voz sen perda. Úseo para "
-"gravar e editar voz."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr ""
-"Úsase para converter en audio con calidade de voz e con perda. Úseo para "
-"gravar voz que non se precisa editar."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "Voice, Lossless"
-msgstr "Voz, sen perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid "Voice, Lossy"
-msgstr "Voz, con perda"
+msgstr "Úsase para converter a calidade de CD de audio, mais cun códec de comprensión MP3 con perda. Utilice isto para preparar os ficheiros para copialos a dispositivos que só soportan o códec de comprensión MP3. Teña en conta que usar este formato pode ser ilegal na súa xurisdición; contacte co seu avogado para pedirlle asesoramento."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "Whether this profile is to be used"
-msgstr "Indica se se vai usar ou non este perfil"
+msgid "CD Quality, AAC"
+msgstr "Calidade de CD, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid "Whether to use and display this profile."
-msgstr "Indica se se mostra e usa ou non este perfil."
+msgid ""
+"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
+"this for preparing files for copying to devices that only support the AAC "
+"codec. Note that using this format may be illegal in your jurisdiction; "
+"contact your lawyer for advice."
+msgstr "Úsase para converter a calidade de CD de audio, mais cun códec de comprensión ACC con perda. Utilice isto para preparar os ficheiros para copialos a dispositivos que só soportan o códec de comprensión AAC. Teña en conta que usar este formato pode ser ilegal na súa xurisdición; contacte co seu avogado para pedirlle asesoramento."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -1556,35 +1093,30 @@ msgstr "Tema de son:"
 msgid "Enable window and button sounds"
 msgstr "Activar os sons de xanela e botóns"
 
-#. Translators: This is the name of an audio file that sounds like the bark of a dog.
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "Ladrido"
 
-#. Translators: This is the name of an audio file that sounds like a water drip.
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "Goteo"
 
-#. Translators: This is the name of an audio file that sounds like tapping glass.
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "Cristal"
 
-#. Translators: This is the name of an audio file that sounds sort of like a submarine sonar ping.
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "Sónar"
-
-#~ msgid "Recording..."
-#~ msgstr "Gravando..."
-
-#~ msgid "Custom..."
-#~ msgstr "Personalizar..."
-
-#~ msgid "MATE Volume Control"
-#~ msgstr "Control de volume do Mate"
