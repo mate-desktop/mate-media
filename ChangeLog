@@ -1,3 +1,295 @@
+commit 9eb3fc566c065f138a8b50a5acd5525750d9597c
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jul 12 14:54:07 2012 +0200
+
+    sync translations with transifex
+
+ po/af.po                | 1782 ++++------------------
+ po/ar.po                | 1763 ++--------------------
+ po/as.po                | 2250 +++++-----------------------
+ po/ast.po               | 1168 ++++++---------
+ po/az.po                | 2817 +++++++++--------------------------
+ po/be.po                | 2738 +++++++++-------------------------
+ po/bg.po                |  828 +++--------
+ po/bn.po                | 2096 ++++----------------------
+ po/bn_IN.po             | 1068 ++++---------
+ po/br.po                | 1695 ++++++---------------
+ po/bs.po                | 2827 +++++++++--------------------------
+ po/ca.po                | 3074 +++++---------------------------------
+ po/ca@valencia.po       | 3076 +++++---------------------------------
+ po/cs.po                |  774 ++--------
+ po/cy.po                | 3805 +++++++++++------------------------------------
+ po/da.po                | 1901 +++--------------------
+ po/de.po                | 1220 +++------------
+ po/dz.po                | 2876 +++++++++--------------------------
+ po/el.po                | 1015 +++----------
+ po/en_CA.po             | 2733 ++++++++++------------------------
+ po/en_GB.po             | 2029 +++----------------------
+ po/es.po                | 2088 +++-----------------------
+ po/et.po                |  885 +++++------
+ po/eu.po                | 1046 ++++---------
+ po/fa.po                | 2738 +++++++++-------------------------
+ po/fi.po                | 2085 ++++----------------------
+ po/fr.po                |  842 +++--------
+ po/ga.po                | 1067 +++++--------
+ po/gl.po                |  850 +++--------
+ po/gnome-copyrights.txt | 1161 +++++++++++++++
+ po/gu.po                | 1166 +++++----------
+ po/he.po                | 1761 ++--------------------
+ po/hi.po                | 1208 +++++----------
+ po/hr.po                | 2608 ++++++++------------------------
+ po/hu.po                |  844 +++--------
+ po/id.po                |  797 +++-------
+ po/it.po                |  836 +++--------
+ po/ja.po                | 1825 +++--------------------
+ po/ka.po                | 2639 +++++++++-----------------------
+ po/kn.po                | 1074 ++++---------
+ po/ko.po                | 1743 ++--------------------
+ po/ku.po                | 2673 +++++++++------------------------
+ po/lt.po                |  821 +++-------
+ po/lv.po                | 2107 ++++----------------------
+ po/mai.po               | 2576 ++++++--------------------------
+ po/mg.po                | 2748 ++++++++++------------------------
+ po/mk.po                | 2624 ++++++++------------------------
+ po/ml.po                | 1063 ++++---------
+ po/mn.po                | 2734 ++++++++++------------------------
+ po/mr.po                | 1036 ++++---------
+ po/ms.po                | 2801 +++++++++-------------------------
+ po/nb.po                |  801 +++-------
+ po/nds.po               | 1064 +++++--------
+ po/ne.po                | 2695 +++++++++------------------------
+ po/nl.po                | 1653 ++------------------
+ po/nn.po                | 2131 +++++---------------------
+ po/oc.po                | 2413 ++++++++----------------------
+ po/or.po                | 1077 ++++----------
+ po/pa.po                | 1831 +++--------------------
+ po/pl.po                |  811 +++-------
+ po/pt.po                | 2334 ++++-------------------------
+ po/pt_BR.po             | 2132 +++-----------------------
+ po/ro.po                |  809 ++--------
+ po/ru.po                |  770 +++-------
+ po/si.po                | 2488 ++++++++-----------------------
+ po/sk.po                | 2722 +++++++++------------------------
+ po/sl.po                |  789 +++-------
+ po/sq.po                | 2596 ++++++++------------------------
+ po/sr.po                | 1893 +++--------------------
+ po/sr@latin.po          | 1893 +++--------------------
+ po/sv.po                | 1739 +++-------------------
+ po/ta.po                | 1042 ++++---------
+ po/te.po                | 1055 ++++---------
+ po/th.po                | 2733 ++++------------------------------
+ po/tr.po                | 2216 ++++++---------------------
+ po/ug.po                |  750 ++--------
+ po/uk.po                | 1064 ++++---------
+ po/vi.po                | 2940 +++++++++---------------------------
+ po/wa.po                | 2686 +++++++++------------------------
+ po/xh.po                | 2810 +++++++++-------------------------
+ po/zh_CN.po             |  858 +++--------
+ po/zh_HK.po             |  839 +++--------
+ po/zh_TW.po             |  858 +++--------
+ 83 files changed, 32260 insertions(+), 116213 deletions(-)
+
+commit e92d69fcb7989cbc729eac4d75ae793ba7003d5f
+Merge: f5a1741 b834c76
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Jun 1 12:08:35 2012 -0700
+
+    Merge pull request #7 from NiceandGently/master
+    
+    remove grecord in potfiles.in
+
+commit b834c76829362efb7059fd87b083268b1be3f59b
+Author: chat-to-me@raveit.de <Nice&Gently>
+Date:   Fri Jun 1 17:47:28 2012 +0200
+
+    fix rpmbuild error
+
+ po/POTFILES.in   |    4 ----
+ po/POTFILES.skip |    2 --
+ 2 files changed, 6 deletions(-)
+
+commit f5a174164b55ee8acb69f92b569f7197db663b28
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Thu May 31 15:53:39 2012 -0400
+
+    Fixed https://github.com/mate-desktop/mate-media/issues/3
+
+ mate-volume-control/src/gvc-channel-bar.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f583b2be23ed009e1e72ebe0ee53c1990f733f9e
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed May 30 00:23:11 2012 +0200
+
+    gstreamer is not deprecated in MATE
+
+ configure.ac |    4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 29c6431271aac10191aff426b5b3d0e69a118d16
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed May 30 00:22:40 2012 +0200
+
+    re-add another missing gstreamer part in configure.ac removed with grecord
+
+ configure.ac |    2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 3cba0b7999e712914cc92ce0090111845800ce8b
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed May 30 00:19:42 2012 +0200
+
+    re-add missing gstreamer part in configure.ac removed with grecord
+
+ configure.ac |   13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit d17a6f86ae9d9a30a155de7cc2ef138484501c37
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Mon May 28 17:54:36 2012 -0400
+
+    Removed ubuntu folder.
+
+ distro/ubuntu/build    |   44 --------------------------------------------
+ distro/ubuntu/postinst |    8 --------
+ distro/ubuntu/postrm   |    8 --------
+ distro/ubuntu/preinst  |    6 ------
+ distro/ubuntu/prerm    |    9 ---------
+ 5 files changed, 75 deletions(-)
+
+commit 817e619a525f15cee29af3bcbba186562116cf9e
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue May 22 22:50:26 2012 +0200
+
+    mate-sound-recorder removed
+
+ COPYING.grecord                                    |  481 ----
+ Makefile.am                                        |    6 -
+ configure.ac                                       |   58 +-
+ grecord/AUTHORS                                    |    3 -
+ grecord/ChangeLog.pre-2-26                         | 1820 -------------
+ grecord/INSTALL                                    |  182 --
+ grecord/Makefile.am                                |   31 -
+ grecord/README                                     |   18 -
+ grecord/doc/C/figures/grecord_window.png           |  Bin 16794 -> 0 bytes
+ grecord/doc/C/legal.xml                            |   76 -
+ grecord/doc/C/mate-sound-recorder.xml              |  259 --
+ grecord/doc/ChangeLog                              |  150 --
+ grecord/doc/Makefile.am                            |    9 -
+ grecord/doc/ca/ca.po                               |  499 ----
+ grecord/doc/ca/figures/grecord_window.png          |  Bin 30773 -> 0 bytes
+ grecord/doc/cs/cs.po                               |  316 ---
+ grecord/doc/cs/figures/grecord_window.png          |  Bin 34532 -> 0 bytes
+ grecord/doc/da/da.po                               |  500 ----
+ grecord/doc/de/de.po                               |  500 ----
+ grecord/doc/de/figures/grecord_window.png          |  Bin 18674 -> 0 bytes
+ grecord/doc/el/el.po                               |  498 ----
+ grecord/doc/el/figures/grecord_window.png          |  Bin 42091 -> 0 bytes
+ grecord/doc/en_GB/en_GB.po                         |  494 ----
+ grecord/doc/es/es.po                               |  498 ----
+ grecord/doc/es/figures/grecord_window.png          |  Bin 31557 -> 0 bytes
+ grecord/doc/fr/figures/grecord_window.png          |  Bin 32478 -> 0 bytes
+ grecord/doc/fr/fr.po                               |  507 ----
+ grecord/doc/it/figures/grecord_window.png          |  Bin 29037 -> 0 bytes
+ grecord/doc/it/it.po                               |  501 ----
+ grecord/doc/mate-sound-recorder.omf.in             |   30 -
+ grecord/doc/oc/oc.po                               |  407 ---
+ grecord/doc/ru/ru.po                               |  479 ----
+ grecord/doc/sv/figures/grecord_window.png          |  Bin 29200 -> 0 bytes
+ grecord/doc/sv/sv.po                               |  307 ---
+ grecord/doc/uk/figures/grecord_window.png          |  Bin 16794 -> 0 bytes
+ grecord/doc/uk/uk.po                               | 1568 -----------
+ grecord/doc/zh_CN/zh_CN.po                         |  454 ----
+ grecord/icons/16x16/Makefile.am                    |    6 -
+ grecord/icons/16x16/mate-sound-recorder.png        |  Bin 846 -> 0 bytes
+ grecord/icons/22x22/Makefile.am                    |    6 -
+ grecord/icons/22x22/mate-sound-recorder.png        |  Bin 1264 -> 0 bytes
+ grecord/icons/24x24/Makefile.am                    |    6 -
+ grecord/icons/24x24/mate-sound-recorder.png        |  Bin 1282 -> 0 bytes
+ grecord/icons/32x32/Makefile.am                    |    6 -
+ grecord/icons/32x32/mate-sound-recorder.png        |  Bin 2329 -> 0 bytes
+ grecord/icons/48x48/Makefile.am                    |    6 -
+ grecord/icons/48x48/mate-sound-recorder.png        |  Bin 4117 -> 0 bytes
+ grecord/icons/AUTHORS                              |    1 -
+ grecord/icons/Makefile.am                          |   18 -
+ grecord/icons/SOURCE/mate-sound-recorder-16x16.svg |  572 ----
+ grecord/icons/SOURCE/mate-sound-recorder-22x22.svg |  668 -----
+ grecord/icons/SOURCE/mate-sound-recorder-32x32.svg | 1034 --------
+ grecord/icons/SOURCE/mate-sound-recorder-48x48.svg | 1457 -----------
+ grecord/icons/scalable/Makefile.am                 |    6 -
+ grecord/icons/scalable/mate-sound-recorder.svg     | 1346 ----------
+ grecord/mate-sound-recorder.desktop.in.in          |   14 -
+ grecord/mate-sound-recorder.schemas.in.in          |  176 --
+ grecord/src/Makefile.am                            |   30 -
+ grecord/src/gsr-window.c                           | 2759 --------------------
+ grecord/src/gsr-window.h                           |   61 -
+ grecord/src/mate-recorder.c                        |  232 --
+ grecord/src/ui.xml                                 |   41 -
+ 62 files changed, 1 insertion(+), 19095 deletions(-)
+
+commit d74cc264be8af7eee2bb7ed475256812628e045d
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Apr 23 15:34:32 2012 +0200
+
+    add "PulseAudio" label to pulse volume control
+
+ configure.ac |   18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+commit a0188a0b19d4b0c80958e17fcbbb8092fd0e01e2
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sun Mar 25 19:06:13 2012 -0400
+
+    Preparing for 1.2.1 release
+
+ configure.ac |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 86726c46b94381a778650692204cfb24afad75c2
+Merge: 33adbdb ffcce6b
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Sat Mar 17 10:42:48 2012 -0700
+
+    Merge pull request #1 from benpicco/master
+    
+    sync with upstream
+
+commit ffcce6bd73558758cd6dc8fe2a1f3791cf48e947
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Tue Sep 28 19:43:08 2010 +0000
+
+    Fix typo. Fixes https://bugzilla.gnome.org/show_bug.cgi?id=630567
+
+ profiles/help/C/mate-audio-profiles.xml |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 33adbdb44f8eb0381203870b617874bbb4d3f674
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Mar 14 10:38:56 2012 +0100
+
+    fixed POTFILES.in
+
+ po/POTFILES.in |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit da0590457daa81ff531aa487865559fac9ea640b
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Mar 14 10:27:06 2012 +0100
+
+    update info for 1.2 release
+
+ AUTHORS            |   12 +-
+ ChangeLog          |  579 ++++++
+ ChangeLog.pre-2-26 | 5447 ----------------------------------------------------
+ MAINTAINERS        |   15 -
+ Makefile.am        |    2 -
+ Makefile.in        |  858 ---------
+ README             |    9 +-
+ autogen.sh         |    6 +-
+ config.h.in~       |  140 --
+ configure.ac       |    4 +-
+ 10 files changed, 595 insertions(+), 6477 deletions(-)
+
 commit 57c1a40e06c98636c496536945bb551964df1516
 Author: Steve Zesch <stevezesch2@gmail.com>
 Date:   Tue Jan 10 14:09:54 2012 -0500
@@ -76,7 +368,7 @@ Date:   Mon Dec 12 15:34:53 2011 +0100
  profiles/help/Makefile.in                          |  995 --
  sound-theme/Makefile.in                            |  757 -
  sound-theme/sounds/Makefile.in                     |  524 -
- 51 files changed, 0 insertions(+), 52271 deletions(-)
+ 51 files changed, 52271 deletions(-)
 
 commit 4ee2559eaaf2a94ac26c265517e9604a72729360
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -576,4 +868,4 @@ Date:   Sun Dec 11 13:11:15 2011 +0100
  sound-theme/sounds/glass.ogg                       |  Bin 0 -> 18999 bytes
  sound-theme/sounds/mate-sounds-default.xml.in.in   |   27 +
  sound-theme/sounds/sonar.ogg                       |  Bin 0 -> 20011 bytes
- 492 files changed, 368562 insertions(+), 0 deletions(-)
+ 492 files changed, 368562 insertions(+)
