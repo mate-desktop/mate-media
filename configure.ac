@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT([mate-media],
-        [1.4.0],
+        [1.5.0],
         [http://www.mate-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
@@ -59,7 +59,7 @@ AC_MSG_NOTICE([Using $GM_ERROR_CFLAGS as error checking CFLAGS])
 
 GLIB_REQUIRED_VERSION=2.18.2
 GTK_REQUIRED_VERSION=2.18.0
-MATECONF_REQUIRED_VERSION=1.1.0
+GIO_REQUIRED_VERSION=2.25.0
 PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
 
@@ -70,8 +70,7 @@ dnl=======================================================================
 PKG_CHECK_MODULES(SOUND_THEME,
         gobject-2.0 >= $GLIB_REQUIRED_VERSION
         gtk+-2.0 >= $GTK_REQUIRED_VERSION
-        gio-2.0
-        mateconf-2.0 >= $MATECONF_REQUIRED_VERSION
+        gio-2.0 >= $GIO_REQUIRED_VERSION
         libcanberra-gtk >= $CANBERRA_REQUIRED_VERSION
         libxml-2.0,
         have_soundtheme=yes,
@@ -112,8 +111,7 @@ if test "x$enable_pulseaudio" != "xno"; then
     PKG_CHECK_MODULES(VOLUME_CONTROL,
             gobject-2.0 >= $GLIB_REQUIRED_VERSION
             gtk+-2.0 >= $GTK_REQUIRED_VERSION
-            gio-2.0
-            mateconf-2.0 >= $MATECONF_REQUIRED_VERSION
+            gio-2.0 >= $GIO_REQUIRED_VERSION
             libcanberra-gtk >= $CANBERRA_REQUIRED_VERSION
             unique-1.0
             libxml-2.0
@@ -137,42 +135,6 @@ AC_SUBST(PULSEAUDIO_CFLAGS)
 AC_SUBST(PULSEAUDIO_LIBS)
 
 dnl=======================================================================
-dnl profiles
-dnl=======================================================================
-
-have_profiles=no
-
-AC_ARG_ENABLE([profiles],
-  AS_HELP_STRING([--enable-profiles], [enable mate media profiles]),
-  ,enable_profiles=yes)
-
-if test "x$enable_profiles" = "xyes"; then
-  PKG_CHECK_MODULES(GMP, [
-    gtk+-2.0 >= $GTK_REQUIRED_VERSION
-    gstreamer-0.10
-    mateconf-2.0
-    gio-2.0],
-    have_profiles=yes)
-fi
-AC_SUBST(GMP_CFLAGS)
-AC_SUBST(GMP_LIBS)
-AM_CONDITIONAL(HAVE_GMP, [test x$have_profiles = xyes])
-
-dnl Profiles glade ui: needed to edit .ui files with glade3
-have_gladeui=no
-
-PKG_CHECK_MODULES(GLADEUI, [gladeui-1.0], have_gladeui=yes, have_gladeui=no)
-AC_SUBST(GLADEUI_CFLAGS)
-AC_SUBST(GLADEUI_LIBS)
-AM_CONDITIONAL(HAVE_GLADEUI, [test x$have_gladeui = xyes])
-
-GLADEUI_CATALOG_DIR="`$PKG_CONFIG --variable=catalogdir gladeui-1.0`"
-AC_SUBST(GLADEUI_CATALOG_DIR)
-
-GLADEUI_MODULE_DIR="`$PKG_CONFIG --variable=moduledir gladeui-1.0`"
-AC_SUBST(GLADEUI_MODULE_DIR)
-
-dnl=======================================================================
 dnl Check for GStreamer deps
 dnl=======================================================================
 
@@ -191,8 +153,7 @@ PKG_CHECK_MODULES(GSR, [
   gstreamer-$GST_MAJORMINOR >= $GST_REQ
   gstreamer-plugins-base-$GST_MAJORMINOR >= $GST_REQ
   gtk+-2.0 >= 2.6.0
-  gio-2.0
-  mateconf-2.0],
+  gio-2.0 >= $GIO_REQUIRED_VERSION],
   have_gst=yes,
   [
     AC_MSG_RESULT(no)
@@ -204,8 +165,7 @@ AC_SUBST(GSR_CFLAGS)
 AC_SUBST(GSR_LIBS)
 AM_CONDITIONAL(HAVE_GSTREAMER, [test x$have_gst = xyes])
 
-AC_PATH_PROG(MATECONFTOOL, mateconftool-2)
-AM_MATECONF_SOURCE_2
+GLIB_GSETTINGS
 
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
@@ -222,41 +182,6 @@ MATE_DOC_INIT
 
 AM_PROG_LIBTOOL
 AM_PROG_CC_C_O
-
-dnl=======================================================================
-dnl gstreamer-properties
-dnl=======================================================================
-
-have_gstprops=no
-
-AC_ARG_ENABLE([gstprops],
-  AS_HELP_STRING([--enable-gstprops], [enable gstreamer properties]),
-  ,enable_gstprops=yes)
-
-if test "x$have_gst" = "xyes" && test "x$enable_gstprops" = "xyes";
-then
-  PKG_CHECK_MODULES(GSTPROPS, [
-    glib-2.0
-    gtk+-2.0 >= $GTK_REQUIRED_VERSION
-    mateconf-2.0
-    gstreamer-$GST_MAJORMINOR
-    gstreamer-plugins-base-$GST_MAJORMINOR >= $GST_PLUGINS_BASE_REQ
-    libxml-2.0],
-    have_gstprops=yes)
-
-  GSTPROPS_LIBS="$GSTPROPS_LIBS -lgstinterfaces-$GST_MAJORMINOR"
-
-  MATECC_DESKTOP_DIR=${datadir}/control-center-2.0/capplets
-  AS_AC_EXPAND(MATECC_DESKTOP_DIR, $MATECC_DESKTOP_DIR)
-  AC_DEFINE_UNQUOTED(MATECC_DESKTOP_DIR, "$MATECC_DESKTOP_DIR",
-                     [Install path for Mate control-center integration])
-  AC_SUBST(MATECC_DESKTOP_DIR)
-  AC_SUBST(PROGRAMS_GSTPROPS)
-fi
-
-AC_SUBST(GSTPROPS_CFLAGS)
-AC_SUBST(GSTPROPS_LIBS)
-AM_CONDITIONAL(HAVE_GSTPROPS, [test x$have_gstprops = xyes])
 
 dnl=======================================================================
 dnl gst-mixer
@@ -276,7 +201,7 @@ if test "x$have_gst" = "xyes" && test "x$enable_gstmix" = "xyes";
 then
   PKG_CHECK_MODULES(GSTMIXER, [
     gtk+-2.0
-    mateconf-2.0
+    gio-2.0 >= $GIO_REQUIRED_VERSION
     gstreamer-$GST_MAJORMINOR
     gstreamer-plugins-base-$GST_MAJORMINOR
   ],
@@ -375,8 +300,6 @@ mate-volume-control/data/icons/scalable/Makefile
 mate-volume-control/data/icons/scalable/devices/Makefile
 mate-volume-control/data/icons/scalable/status/Makefile
 mate-volume-control/src/Makefile
-gstreamer-properties/Makefile
-gstreamer-properties/help/Makefile
 gst-mixer/Makefile
 gst-mixer/icons/Makefile
 gst-mixer/icons/16x16/Makefile
@@ -385,13 +308,7 @@ gst-mixer/icons/16x16/status/Makefile
 gst-mixer/src/Makefile
 gst-mixer/pixmaps/Makefile
 gst-mixer/doc/Makefile
-profiles/Makefile
-profiles/mate-audio-profiles.schemas.in
-profiles/mate-media-profiles.pc
-profiles/glade/Makefile
-profiles/help/Makefile
 gst-mixer/mate-volume-control.desktop.in
-gstreamer-properties/mate-gstreamer-properties.desktop.in
 ])
 
 AC_OUTPUT
@@ -408,8 +325,6 @@ echo "
         CFLAGS:                      ${CFLAGS}
 
         PulseAudio Volume Control    $have_pulseaudio
-        GStreamer properties:        $have_gstprops
-        GStreamer profiles:          $have_profiles (GladeUI: $have_gladeui)
         GStreamer mixer:             $have_gstmixer
 
 "
