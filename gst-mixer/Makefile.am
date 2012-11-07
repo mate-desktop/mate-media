@@ -2,27 +2,28 @@ Desktopdir = $(datadir)/applications
 SUBDIRS = doc icons pixmaps src
 
 @INTLTOOL_DESKTOP_RULE@
-@INTLTOOL_SCHEMAS_RULE@
-
 Desktop_in_files = mate-volume-control.desktop.in.in
 Desktop_DATA = $(Desktop_in_files:.desktop.in.in=.desktop)
-schemadir=$(MATECONF_SCHEMA_FILE_DIR)
-schema_DATA=mate-volume-control.schemas
 
-install-schemas:
-	 MATECONF_CONFIG_SOURCE=$(MATECONF_SCHEMA_CONFIG_SOURCE) $(MATECONFTOOL) --makefile-install-rule $(schema_DATA) || true
+@INTLTOOL_XML_NOMERGE_RULE@
+gsettings_SCHEMAS = \
+	org.mate.volume-control.gschema.xml
+@GSETTINGS_RULES@
 
-if MATECONF_SCHEMAS_INSTALL
-install-data-local: install-schemas
-else
-install-data-local:
-endif
+%.gschema.xml.in: %.gschema.xml.in.in Makefile
+	$(AM_V_GEN) $(SED) -e 's^\@GETTEXT_PACKAGE\@^$(GETTEXT_PACKAGE)^g' < $< > $@
 
-EXTRA_DIST = $(Desktop_in_files) \
-	mate-volume-control.schemas.in 
+EXTRA_DIST = \
+	$(Desktop_in_files) \
+	$(gsettings_schemas_in_in) 
 
+CLEANFILES = \
+	$(Desktop_DATA) \
+	$(gsettings_SCHEMAS_in) \
+	$(gsettings_SCHEMAS) \
+	*.gschema.valid
 
-CLEANFILES = $(Desktop_DATA) $(schema_DATA)
-DISTCLEANFILES = $(Desktop_in_files:.desktop.in.in=.desktop.in)
+DISTCLEANFILES = \
+	$(Desktop_in_files:.desktop.in.in=.desktop.in)
 
 -include $(top_srcdir)/git.mk

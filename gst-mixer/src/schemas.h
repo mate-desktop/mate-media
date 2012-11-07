@@ -1,7 +1,7 @@
 /* MATE Volume Control
- * Copyright (C) 2003-2004 Ronald Bultje <rbultje@ronald.bitfreak.net>
+ * Copyright (C) 2012 Stefano Karapetsas <stefano@karapetsas.com>
  *
- * keys.h: MateConf key macros
+ * schemas.h: GSettings schemas and keys
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,21 +19,21 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef __GVC_KEYS_H__
-#define __GVC_KEYS_H__
+#ifndef __GVC_SCHEMAS_H__
+#define __GVC_SCHEMAS_H__
 
 G_BEGIN_DECLS
 
-#define MATE_VOLUME_CONTROL_KEY_DIR \
-  "/apps/mate-volume-control"
-#define MATE_VOLUME_CONTROL_KEY(key) \
-  MATE_VOLUME_CONTROL_KEY_DIR "/" key
+#define MATE_VOLUME_CONTROL_SCHEMA "org.mate.volume-control"
+#define MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT "active-element"
+#define MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS "shown-elements"
+#define MATE_VOLUME_CONTROL_KEY_WINDOW_WIDTH "window-width"
+#define MATE_VOLUME_CONTROL_KEY_WINDOW_HEIGHT "window-height"
 
-#define MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT \
-  MATE_VOLUME_CONTROL_KEY ("active-element")
-#define PREF_UI_WINDOW_WIDTH   MATE_VOLUME_CONTROL_KEY ("ui/window_width")
-#define PREF_UI_WINDOW_HEIGHT  MATE_VOLUME_CONTROL_KEY ("ui/window_height")
+gboolean schemas_is_str_in_strv (GSettings *settings, const gchar *key, const gchar *value);
+gboolean schemas_gsettings_append_strv (GSettings *settings, const gchar *key, const gchar *value);
+gboolean schemas_gsettings_remove_all_from_strv (GSettings *settings, const gchar *key, const gchar *value);
 
 G_END_DECLS
 
-#endif /* __GVC_KEYS_H__ */
+#endif /* __GVC_SCHEMAS_H__ */

@@ -26,11 +26,11 @@
 #include <string.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <mateconf/mateconf-client.h>
+#include <gio/gio.h>
 
 #include "element.h"
 #include "preferences.h"
-#include "keys.h"
+#include "schemas.h"
 #include "track.h"
 #include "misc.h"
 
@@ -51,19 +51,18 @@ static void	mate_volume_control_preferences_dispose (GObject *object);
 static void	mate_volume_control_preferences_response (GtkDialog *dialog,
 							   gint       response_id);
 
-static void	set_mateconf_track_active	(MateConfClient *client, GstMixer *mixer, 
+static void	set_gsettings_track_active	(GSettings *settings, GstMixer *mixer, 
 					 GstMixerTrack *track, gboolean active);
 
 
 static void	cb_toggle		(GtkCellRendererToggle *cell,
 					 gchar                 *path_str,
-					 gpointer               data);
+					 MateVolumeControlPreferences *prefs);
 static void	cb_activated		(GtkTreeView *view, GtkTreePath *path,
 					 GtkTreeViewColumn *col, gpointer userdata);
-static void	cb_mateconf		(MateConfClient     *client,
-					 guint            connection_id,
-					 MateConfEntry      *entry,
-					 gpointer         userdata);
+static void	cb_gsettings		(GSettings     *settings,
+					 gchar           *key,
+					 MateVolumeControlPreferences *prefs);
 
 
 static void
@@ -99,8 +98,7 @@ mate_volume_control_preferences_init (MateVolumeControlPreferences *prefs)
   GtkTreeViewColumn *col;
   GtkCellRenderer *render;
 
-  prefs->client = NULL;
-  prefs->client_cnxn = 0;
+  prefs->settings = NULL;
   prefs->mixer = NULL;
 
   /* make window look cute */
@@ -181,8 +179,7 @@ mate_volume_control_preferences_init (MateVolumeControlPreferences *prefs)
 }
 
 GtkWidget *
-mate_volume_control_preferences_new (GstElement  *element,
-				      MateConfClient *client)
+mate_volume_control_preferences_new (GstElement  *element)
 {
   MateVolumeControlPreferences *prefs;
 
@@ -190,14 +187,13 @@ mate_volume_control_preferences_new (GstElement  *element,
 
   /* element */
   prefs = g_object_new (MATE_VOLUME_CONTROL_TYPE_PREFERENCES, NULL);
-  prefs->client = g_object_ref (G_OBJECT (client));
+  prefs->settings = g_settings_new (MATE_VOLUME_CONTROL_SCHEMA);
 
   mate_volume_control_preferences_change (prefs, element);
 
-  /* mateconf */
-  prefs->client_cnxn = mateconf_client_notify_add (prefs->client, 
-						MATE_VOLUME_CONTROL_KEY_DIR,
-						cb_mateconf, prefs, NULL, NULL);
+  /* gsettings */
+  g_signal_connect (prefs->settings, "changed::" MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS,
+                    G_CALLBACK (cb_gsettings), prefs);
 
   return GTK_WIDGET (prefs);
 }
@@ -209,10 +205,9 @@ mate_volume_control_preferences_dispose (GObject *object)
 
   prefs = MATE_VOLUME_CONTROL_PREFERENCES (object);
 
-  if (prefs->client) {
-    mateconf_client_notify_remove (prefs->client, prefs->client_cnxn);
-    g_object_unref (G_OBJECT (prefs->client));
-    prefs->client = NULL;
+  if (prefs->settings) {
+    g_object_unref (G_OBJECT (prefs->settings));
+    prefs->settings = NULL;
   }
 
   if (prefs->mixer) {
@@ -241,11 +236,11 @@ mate_volume_control_preferences_response (GtkDialog *dialog,
 }
 
 /*
- * Hide non-alphanumeric characters, for saving in mateconf.
+ * Hide non-alphanumeric characters, for saving in gsettings.
  */
 
 gchar *
-get_mateconf_key (GstMixer *mixer, GstMixerTrack *track)
+get_gsettings_name (GstMixer *mixer, GstMixerTrack *track)
 {
   const gchar *dev;
   gchar *res;
@@ -262,9 +257,8 @@ get_mateconf_key (GstMixer *mixer, GstMixerTrack *track)
     label = g_strdup ("");
   }
 
-  pos = strlen (MATE_VOLUME_CONTROL_KEY_DIR) + 1;
-  res = g_new (gchar, pos + strlen (dev) + 1 + strlen (label) + 1);
-  strcpy (res, MATE_VOLUME_CONTROL_KEY_DIR "/");
+  pos = 0;
+  res = g_new (gchar, strlen (dev) + 1 + strlen (label) + 1);
 
   for (i = 0; dev[i] != '\0'; i++) {
     if (g_ascii_isalnum (dev[i]))
@@ -313,15 +307,7 @@ mate_volume_control_preferences_change (MateVolumeControlPreferences *prefs,
   for (item = gst_mixer_list_tracks (mixer);
        item != NULL; item = item->next) {
     GstMixerTrack *track = item->data;
-    gchar *key = get_mateconf_key (mixer, track);
-    MateConfValue *value;
-    gboolean active = mate_volume_control_element_whitelist (mixer, track);
-
-    if ((value = mateconf_client_get (prefs->client, key, NULL)) != NULL &&
-        value->type == MATECONF_VALUE_BOOL) {
-      active = mateconf_value_get_bool (value);
-    }
-    g_free (key);
+    gboolean active = mate_volume_control_element_is_to_show (prefs->settings, mixer, track);
 
     pgnum = get_page_num (mixer, track);
     gtk_list_store_append (store, &iter);
@@ -340,48 +326,48 @@ mate_volume_control_preferences_change (MateVolumeControlPreferences *prefs,
  */
 
 static void
-set_mateconf_track_active(MateConfClient *client, GstMixer *mixer, 
+set_gsettings_track_active(GSettings *settings, GstMixer *mixer, 
 		       GstMixerTrack *track, gboolean active)
 {
-  gchar *key;
+  gchar *name;
 
-  key = get_mateconf_key (mixer, track);
-  mateconf_client_set_bool (client, key, active, NULL);
-  g_free (key);
+  name = get_gsettings_name (mixer, track);
+
+  if (active == TRUE)
+  {
+      if (schemas_is_str_in_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name) == FALSE)
+      {
+        schemas_gsettings_append_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name);
+      }
+  }
+  else
+  {
+    schemas_gsettings_remove_all_from_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name);
+  }
+
+  g_free (name);
+
 }
 
 static void	
-cb_mateconf(MateConfClient *client, guint connection_id, 
-	 MateConfEntry *entry, gpointer userdata)
+cb_gsettings(GSettings *settings, gchar *key, MateVolumeControlPreferences *prefs)
 {
-  MateVolumeControlPreferences *prefs;
-  MateConfValue *value;
   GtkTreeIter iter;
   GtkTreeModel *model;
-  gchar *keybase;
   gboolean active, valid;
   GstMixerTrack *track;
 
-  prefs = MATE_VOLUME_CONTROL_PREFERENCES (userdata);
   model = gtk_tree_view_get_model (GTK_TREE_VIEW(prefs->treeview));
-  keybase = get_mateconf_key (prefs->mixer, NULL);
 
-  if (g_str_equal (mateconf_entry_get_key (entry), keybase) &&
-      (value = mateconf_entry_get_value (entry)) != NULL &&
-      (value->type == MATECONF_VALUE_BOOL)) {
-    active = mateconf_value_get_bool (value); 
-    valid = gtk_tree_model_get_iter_first(model, &iter);
+  valid = gtk_tree_model_get_iter_first(model, &iter);
 
-    while (valid == TRUE) {
-      gtk_tree_model_get (model, &iter,
-			  COL_TRACK, &track,
-			  -1);
-      if (g_str_equal (track->label, mateconf_entry_get_key (entry) + strlen (keybase))) {
-	gtk_list_store_set( GTK_LIST_STORE(model), &iter, COL_ACTIVE, active, -1);
-	break ;
-      }
-      valid = gtk_tree_model_iter_next(model, &iter);
-    }
+  while (valid == TRUE) {
+    gtk_tree_model_get (model, &iter,
+                        COL_TRACK, &track,
+                        -1);
+    active = mate_volume_control_element_is_to_show (settings, prefs->mixer, track);
+    gtk_list_store_set( GTK_LIST_STORE(model), &iter, COL_ACTIVE, active, -1);
+    valid = gtk_tree_model_iter_next(model, &iter);
   }
 }
 
@@ -393,35 +379,42 @@ cb_activated(GtkTreeView *view, GtkTreePath *path,
   GtkTreeModel *model;
   GtkTreeIter iter;
   gboolean active;
+  gboolean is_whitelist;
   GstMixerTrack *track;
   MateVolumeControlPreferences *prefs;
 
   prefs = MATE_VOLUME_CONTROL_PREFERENCES (userdata);
   model = gtk_tree_view_get_model(view);
 
+  mate_volume_control_element_whitelist (prefs->mixer, NULL);
   if (gtk_tree_model_get_iter(model, &iter, path)) {
     gtk_tree_model_get(model, &iter, 
 		       COL_ACTIVE, &active, 
 		       COL_TRACK, &track,
 		       -1);
 
-    active = !active;
+    is_whitelist = mate_volume_control_element_whitelist (prefs->mixer, track);
+  
+    if (is_whitelist == FALSE)
+    {
+      active = !active;
 
-    gtk_list_store_set( GTK_LIST_STORE(model), &iter, COL_ACTIVE, active, -1);
-    set_mateconf_track_active(prefs->client, prefs->mixer, track, active);
+      gtk_list_store_set( GTK_LIST_STORE(model), &iter, COL_ACTIVE, active, -1);
+      set_gsettings_track_active(prefs->settings, prefs->mixer, track, active);
+    }
   }
 }
 
 static void
 cb_toggle (GtkCellRendererToggle *cell,
 	   gchar                 *path_str,
-	   gpointer               data)
+	   MateVolumeControlPreferences *prefs)
 {
-  MateVolumeControlPreferences *prefs = data;
   GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW (prefs->treeview));
   GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
   GtkTreeIter iter;
   gboolean active;
+  gboolean is_whitelist;
   GstMixerTrack *track;
 
   gtk_tree_model_get_iter (model, &iter, path);
@@ -430,12 +423,17 @@ cb_toggle (GtkCellRendererToggle *cell,
 		      COL_TRACK, &track,
 		      -1);
 
-  active = !active;
+  mate_volume_control_element_whitelist (prefs->mixer, NULL);
+  is_whitelist = mate_volume_control_element_whitelist (prefs->mixer, track);
+  
+  if (is_whitelist == FALSE)
+  {
+    active = !active;
 
-  gtk_list_store_set (GTK_LIST_STORE (model), &iter,
-		      COL_ACTIVE, active,
-		      -1);
+    gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+                        COL_ACTIVE, active,
+                        -1);
+    set_gsettings_track_active(prefs->settings, prefs->mixer, track, active);
+  }
   gtk_tree_path_free (path);
-
-  set_mateconf_track_active(prefs->client, prefs->mixer, track, active);
 }

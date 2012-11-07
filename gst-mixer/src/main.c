@@ -27,10 +27,11 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+#include <gio/gio.h>
 #include <gst/gst.h>
 #include <gst/audio/mixerutils.h>
 
-#include "keys.h"
+#include "schemas.h"
 #include "window.h"
 
 static gchar* page = NULL;
@@ -120,13 +121,14 @@ static void
 cb_check_resize (GtkContainer    *container,
       		  gpointer         user_data)
 {
-  MateConfClient *client;
+  GSettings *settings;
   gint width, height;
 
-  client = mateconf_client_get_default();
+  settings = g_settings_new (MATE_VOLUME_CONTROL_SCHEMA);
   gtk_window_get_size (GTK_WINDOW (container), &width, &height);
-  mateconf_client_set_int (client, PREF_UI_WINDOW_WIDTH, width, NULL);
-  mateconf_client_set_int (client, PREF_UI_WINDOW_HEIGHT, height, NULL);
+  g_settings_set_int (settings, MATE_VOLUME_CONTROL_KEY_WINDOW_WIDTH, width);
+  g_settings_set_int (settings, MATE_VOLUME_CONTROL_KEY_WINDOW_HEIGHT, height);
+  g_object_unref (settings);
 }
 
 gint

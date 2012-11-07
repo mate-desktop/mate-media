@@ -25,10 +25,10 @@
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <mateconf/mateconf-client.h>
+#include <gio/gio.h>
 #include <gdk/gdkkeysyms.h>
 
-#include "keys.h"
+#include "schemas.h"
 #include "preferences.h"
 #include "window.h"
 
@@ -64,7 +64,7 @@ cb_change (GtkComboBox *widget,
   device_name = gtk_combo_box_get_active_text (widget);
   g_return_if_fail (device_name != NULL);
 
-  mateconf_client_set_string (win->client, MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT, device_name, NULL);
+  g_settings_set_string (win->settings, MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT, device_name);
 
   g_free (device_name);
 }
@@ -89,8 +89,7 @@ cb_preferences (GtkAction *action,
 {
 
   if (!win->prefs) {
-    win->prefs = mate_volume_control_preferences_new (GST_ELEMENT (win->el->mixer),
-						       win->client);
+    win->prefs = mate_volume_control_preferences_new (GST_ELEMENT (win->el->mixer));
     g_signal_connect (win->prefs, "destroy", G_CALLBACK (cb_preferences_destroy), win);
     gtk_widget_show (win->prefs);
   } else {
@@ -180,18 +179,12 @@ window_change_mixer_element (MateVolumeControlWindow *win,
 }
 
 static void
-cb_mateconf (MateConfClient *client,
-	  guint        connection_id,
-	  MateConfEntry  *entry,
+cb_gsettings_active_element (GSettings *settings,
+	  gchar *key,
 	  gpointer     data)
 {
-  g_return_if_fail (mateconf_entry_get_key (entry) != NULL);
-
-  if (g_str_equal (mateconf_entry_get_key (entry),
-		   MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT)) {
     window_change_mixer_element (MATE_VOLUME_CONTROL_WINDOW (data),
-				 mateconf_value_get_string (mateconf_entry_get_value (entry)));
-  }
+				 g_settings_get_string (settings, key));
 }
 
 /*
@@ -237,9 +230,9 @@ mate_volume_control_window_dispose (GObject *object)
     win->elements = NULL;
   }
 
-  if (win->client) {
-    g_object_unref (win->client);
-    win->client = NULL;
+  if (win->settings) {
+    g_object_unref (win->settings);
+    win->settings = NULL;
   }
 
   G_OBJECT_CLASS (mate_volume_control_window_parent_class)->dispose (object);
@@ -262,7 +255,7 @@ mate_volume_control_window_init (MateVolumeControlWindow *win)
 
   win->elements = NULL;
   win->el = NULL;
-  win->client = mateconf_client_get_default ();
+  win->settings = g_settings_new (MATE_VOLUME_CONTROL_SCHEMA);
   win->prefs = NULL;
   win->use_default_mixer = FALSE;
 
@@ -270,10 +263,10 @@ mate_volume_control_window_init (MateVolumeControlWindow *win)
   gtk_window_set_title (GTK_WINDOW (win), _("Volume Control"));
 
   /* To set the window according to previous geometry */
-  width = mateconf_client_get_int (win->client, PREF_UI_WINDOW_WIDTH, NULL);
+  width = g_settings_get_int (win->settings, MATE_VOLUME_CONTROL_KEY_WINDOW_WIDTH);
   if (width < 250)
     width = 250;
-  height = mateconf_client_get_int (win->client, PREF_UI_WINDOW_HEIGHT, NULL);
+  height = g_settings_get_int (win->settings, MATE_VOLUME_CONTROL_KEY_WINDOW_HEIGHT);
   if (height < 100)
     height = -1;
   gtk_window_set_default_size (GTK_WINDOW (win), width, height);
@@ -314,9 +307,8 @@ mate_volume_control_window_new (GList *elements)
 			   g_cclosure_new_swap (G_CALLBACK (cb_show_about), win, NULL));
 
   /* get active element, if any (otherwise we use the default) */
-  active_el_str = mateconf_client_get_string (win->client,
-					   MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT,
-					   NULL);
+  active_el_str = g_settings_get_string (win->settings,
+					   MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT);
   if (active_el_str != NULL && *active_el_str != '\0') {
     for (count = 0, item = elements; item != NULL; item = item->next, count++) {
       cur_el_str = g_object_get_data (item->data, "mate-volume-control-name");
@@ -334,11 +326,10 @@ mate_volume_control_window_new (GList *elements)
       active_element = elements->data;
       /* If there's a default but it doesn't match what we have available,
        * reset the default */
-      mateconf_client_set_string (win->client,
+      g_settings_set_string (win->settings,
       			       MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT,
       			       g_object_get_data (G_OBJECT (active_element),
-      			       			  "mate-volume-control-name"),
-      			       NULL);
+      			       			  "mate-volume-control-name"));
     }
     /* default element to first */
     if (!active_element)
@@ -365,11 +356,9 @@ mate_volume_control_window_new (GList *elements)
   g_signal_connect (combo_box, "changed", G_CALLBACK (cb_change), win);
 
 
-  /* mateconf */
-  mateconf_client_add_dir (win->client, MATE_VOLUME_CONTROL_KEY_DIR,
-			MATECONF_CLIENT_PRELOAD_RECURSIVE, NULL);
-  mateconf_client_notify_add (win->client, MATE_VOLUME_CONTROL_KEY_DIR,
-			   cb_mateconf, win, NULL, NULL);
+  /* gsettings */
+  g_signal_connect (win->settings, "changed::" MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT,
+			   G_CALLBACK (cb_gsettings_active_element), win);
 
   win->use_default_mixer = (active_el_str == NULL);
 
@@ -383,7 +372,7 @@ mate_volume_control_window_new (GList *elements)
   gtk_box_pack_start (GTK_BOX (hbox), combo_box, TRUE, TRUE, 0);
 
   /* add content for this element */
-  el = mate_volume_control_element_new (win->client);
+  el = mate_volume_control_element_new ();
   win->el = MATE_VOLUME_CONTROL_ELEMENT (el);
 
   /* create the buttons box */

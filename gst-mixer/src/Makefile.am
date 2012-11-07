@@ -22,12 +22,13 @@ mate_volume_control_SOURCES = \
 	track.c \
 	volume.c \
 	window.c \
-	misc.c
+	misc.c \
+	schemas.c
 
 noinst_HEADERS = \
 	button.h \
 	element.h \
-	keys.h \
+	schemas.h \
 	preferences.h \
 	track.h \
 	volume.h \

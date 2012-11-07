@@ -24,7 +24,6 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <mateconf/mateconf-client.h>
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 

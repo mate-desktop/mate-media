@@ -23,7 +23,7 @@
 #define __GVC_WINDOW_H__
 
 #include <glib.h>
-#include <mateconf/mateconf-client.h>
+#include <gio/gio.h>
 #include <gst/gst.h>
 
 #include "element.h"
@@ -49,8 +49,8 @@ typedef struct {
   /* element list */
   GList *elements;
 
-  /* mateconf client */
-  MateConfClient *client;
+  /* gsettings */
+  GSettings *settings;
 
   /* contents */
   MateVolumeControlElement *el;

@@ -28,7 +28,7 @@
 #include <gtk/gtk.h>
 
 #include "element.h"
-#include "keys.h"
+#include "schemas.h"
 #include "preferences.h"
 #include "track.h"
 #include "misc.h"
@@ -42,11 +42,9 @@ static void	mate_volume_control_element_class_init	(MateVolumeControlElementClas
 static void	mate_volume_control_element_init	(MateVolumeControlElement *el);
 static void	mate_volume_control_element_dispose	(GObject *object);
 
-static void	cb_mateconf			(MateConfClient     *client,
-						 guint            connection_id,
-						 MateConfEntry      *entry,
-						 gpointer         data);
-
+static void	cb_gsettings			(GSettings     *settings,
+						 gchar           *key,
+						 MateVolumeControlElement *el);
 
 static void
 mate_volume_control_element_class_init (MateVolumeControlElementClass *klass)
@@ -59,23 +57,21 @@ mate_volume_control_element_class_init (MateVolumeControlElementClass *klass)
 static void
 mate_volume_control_element_init (MateVolumeControlElement *el)
 {
-  el->client = NULL;
+  el->settings = NULL;
   el->mixer = NULL;
 }
 
 GtkWidget *
-mate_volume_control_element_new (MateConfClient  *client)
+mate_volume_control_element_new ()
 {
   MateVolumeControlElement *el;
 
   /* element */
   el = g_object_new (MATE_VOLUME_CONTROL_TYPE_ELEMENT, NULL);
-  el->client = g_object_ref (G_OBJECT (client));
+  el->settings = g_settings_new (MATE_VOLUME_CONTROL_SCHEMA);
 
-  mateconf_client_add_dir (el->client, MATE_VOLUME_CONTROL_KEY_DIR,
-			MATECONF_CLIENT_PRELOAD_RECURSIVE, NULL);
-  mateconf_client_notify_add (el->client, MATE_VOLUME_CONTROL_KEY_DIR,
-			   cb_mateconf, el, NULL, NULL);
+  g_signal_connect (el->settings, "changed::" MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS,
+                    G_CALLBACK (cb_gsettings), el);
 
   return GTK_WIDGET (el);
 }
@@ -85,9 +81,9 @@ mate_volume_control_element_dispose (GObject *object)
 {
   MateVolumeControlElement *el = MATE_VOLUME_CONTROL_ELEMENT (object);
 
-  if (el->client) {
-    g_object_unref (G_OBJECT (el->client));
-    el->client = NULL;
+  if (el->settings) {
+    g_object_unref (G_OBJECT (el->settings));
+    el->settings = NULL;
   }
 
   if (el->mixer) {
@@ -177,6 +173,37 @@ mate_volume_control_element_whitelist (GstMixer *mixer,
   }
 
   return found;
+}
+
+/*
+ * Check if the element is to show
+ */
+
+gboolean
+mate_volume_control_element_is_to_show (GSettings *settings,
+                                        GstMixer *mixer,
+                                        GstMixerTrack *track)
+{
+    gboolean is_whitelist = FALSE;
+    gboolean is_to_show = FALSE;
+    gchar *name;
+
+    mate_volume_control_element_whitelist (mixer, NULL);
+    is_whitelist = mate_volume_control_element_whitelist (mixer, track);
+
+    if (is_whitelist == TRUE)
+    {
+        return TRUE;
+    }
+    else
+    {
+        name = get_gsettings_name (mixer, track);
+        /* if element is not in whitelist, user can be set it to show */
+        if (schemas_is_str_in_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name))
+            is_to_show = TRUE;
+        g_free (name);
+        return is_to_show;
+    }
 }
 
 /*
@@ -333,8 +360,7 @@ mate_volume_control_element_change (MateVolumeControlElement *el,
        item != NULL; item = item->next) {
     GstMixerTrack *track = item->data;
     MateVolumeControlTrack *trkw;
-    gchar *key;
-    const MateConfValue *value;
+
     gboolean active;
 
     i = get_page_num (el->mixer, track);
@@ -353,13 +379,7 @@ mate_volume_control_element_change (MateVolumeControlElement *el,
     }
 
     /* visible? */
-    active = mate_volume_control_element_whitelist (mixer, track);
-    key = get_mateconf_key (el->mixer, track);
-    if ((value = mateconf_client_get (el->client, key, NULL)) != NULL &&
-        value->type == MATECONF_VALUE_BOOL) {
-      active = mateconf_value_get_bool (value);
-    }
-    g_free (key);
+    active = mate_volume_control_element_is_to_show (el->settings, mixer, track);
 
     /* Show left separator if we're not the first track */
     if (active && content[i].use && content[i].old_sep) {
@@ -523,73 +543,56 @@ mate_volume_control_element_change (MateVolumeControlElement *el,
 }
 
 /*
- * MateConf callback.
+ * GSettings callback.
  */
 
 static void
-cb_mateconf (MateConfClient *client,
-	  guint        connection_id,
-	  MateConfEntry  *entry,
-	  gpointer     data)
+cb_gsettings (GSettings *settings,
+	  gchar       *key,
+	  MateVolumeControlElement *el)
 {
-  MateVolumeControlElement *el = MATE_VOLUME_CONTROL_ELEMENT (data);
-  gchar *keybase = get_mateconf_key (el->mixer, NULL);
-
-  if (!strncmp (mateconf_entry_get_key (entry),
-		keybase, strlen (keybase))) {
     const GList *item;
 
-    for (item = gst_mixer_list_tracks (el->mixer);
-	 item != NULL; item = item->next) {
-      GstMixerTrack *track = item->data;
-      MateVolumeControlTrack *trkw =
-	g_object_get_data (G_OBJECT (track), "mate-volume-control-trkw");
-      gchar *key = get_mateconf_key (el->mixer, track);
+    for (item = gst_mixer_list_tracks (el->mixer); item != NULL; item = item->next)
+    {
+        GstMixerTrack *track = item->data;
+        MateVolumeControlTrack *trkw =
+            g_object_get_data (G_OBJECT (track), "mate-volume-control-trkw");
 
-      g_return_if_fail (mateconf_entry_get_key (entry) != NULL);
-      g_return_if_fail (key != NULL);
+        gboolean active = mate_volume_control_element_is_to_show (el->settings, el->mixer, track);
 
-      if (g_str_equal (mateconf_entry_get_key (entry), key)) {
-        MateConfValue *value = mateconf_entry_get_value (entry);
+        if (active != trkw->visible) {
+            gboolean first[4] = { TRUE, TRUE, TRUE, TRUE };
+            gint n, page = get_page_num (el->mixer, track);
 
-        if (value->type == MATECONF_VALUE_BOOL) {
-          gboolean active = mateconf_value_get_bool (value),
-		   first[4] = { TRUE, TRUE, TRUE, TRUE };
-          gint n, page = get_page_num (el->mixer, track);
+            mate_volume_control_track_show (trkw, active);
 
-          mate_volume_control_track_show (trkw, active);
+            /* separators */
+            for (item = gst_mixer_list_tracks (el->mixer); item != NULL; item = item->next)
+            {
+                GstMixerTrack *track = item->data;
+                MateVolumeControlTrack *trkw =
+                g_object_get_data (G_OBJECT (track), "mate-volume-control-trkw");
 
-          /* separators */
-          for (item = gst_mixer_list_tracks (el->mixer);
-	       item != NULL; item = item->next) {
-            GstMixerTrack *track = item->data;
-            MateVolumeControlTrack *trkw =
-	      g_object_get_data (G_OBJECT (track), "mate-volume-control-trkw");
-
-            n = get_page_num (el->mixer, track);
-            if (trkw->visible && !first[n]) {
-              if (trkw->left_separator) {
-                if (n < 2 && track->num_channels == 0) {
-                   gtk_widget_hide (trkw->left_separator);
+                n = get_page_num (el->mixer, track);
+                if (trkw->visible && !first[n]) {
+                    if (trkw->left_separator) {
+                        if (n < 2 && track->num_channels == 0) {
+                            gtk_widget_hide (trkw->left_separator);
+                        } else {
+                           gtk_widget_show (trkw->left_separator);
+                        }
+                    }
                 } else {
-                   gtk_widget_show (trkw->left_separator);
+                    if (trkw->left_separator)
+                        gtk_widget_hide (trkw->left_separator);
                 }
-              }
-            } else {
-              if (trkw->left_separator)
-                gtk_widget_hide (trkw->left_separator);
+
+                if (trkw->visible && first[n])
+                    first[n] = FALSE;
             }
-
-            if (trkw->visible && first[n])
-              first[n] = FALSE;
-          }
-          update_tab_visibility (el, page, page);
-          break;
+            update_tab_visibility (el, page, page);
+            break;
         }
-      }
-
-      g_free (key);
     }
-  }
-  g_free (keybase);
 }

@@ -24,7 +24,7 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <mateconf/mateconf-client.h>
+#include <gio/gio.h>
 #include <gst/interfaces/mixer.h>
 
 G_BEGIN_DECLS
@@ -48,8 +48,8 @@ typedef struct _MateVolumeControlElement {
   /* current element that we're working on */
   GstMixer *mixer;
 
-  /* mateconf client inherited from our parent */
-  MateConfClient *client;
+  /* gsettings */
+  GSettings *settings;
 } MateVolumeControlElement;
 
 typedef struct _MateVolumeControlElementClass {
@@ -57,12 +57,14 @@ typedef struct _MateVolumeControlElementClass {
 } MateVolumeControlElementClass;
 
 GType		mate_volume_control_element_get_type	(void);
-GtkWidget *	mate_volume_control_element_new	(MateConfClient  *client);
+GtkWidget *	mate_volume_control_element_new	();
 void		mate_volume_control_element_change	(MateVolumeControlElement *el,
-							 GstElement  *element);
-gboolean	mate_volume_control_element_whitelist	(GstMixer *mixer,
-							 GstMixerTrack *track);
-
+                                                 GstElement  *element);
+gboolean	mate_volume_control_element_whitelist (GstMixer *mixer,
+                                                   GstMixerTrack *track);
+gboolean	mate_volume_control_element_is_to_show (GSettings *settings,
+                                                    GstMixer *mixer,
+                                                    GstMixerTrack *track);
 G_END_DECLS
 
 #endif /* __GVC_ELEMENT_H__ */
