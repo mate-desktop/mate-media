@@ -2,10 +2,6 @@ NULL =
 
 SUBDIRS = po
 
-if HAVE_GMP
-SUBDIRS += profiles
-endif
-
 if HAVE_SOUND_THEME
 SUBDIRS += sound-theme
 endif
@@ -18,10 +14,6 @@ if HAVE_GSTMIXER
 SUBDIRS += gst-mixer
 endif
 
-if HAVE_GSTPROPS
-SUBDIRS += gstreamer-properties
-endif
-
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
 	--enable-more-warnings  \
@@ -29,10 +21,8 @@ DISTCHECK_CONFIGURE_FLAGS = \
 
 DIST_SUBDIRS = \
 	po 			\
-	profiles		\
 	mate-volume-control	\
 	gst-mixer		\
-	gstreamer-properties	\
 	sound-theme		\
 	$(NULL)
 
@@ -43,8 +33,7 @@ EXTRA_DIST = \
 	COPYING			\
 	COPYING-DOCS		\
 	COPYING.gst-mixer	\
-	COPYING.profiles	\
-        build-aux/git-version-gen \
+	build-aux/git-version-gen \
 	build-aux/mate-doc-utils.make	\
 	m4/as-compiler-flag.m4	\
 	m4/as-version.m4	\
