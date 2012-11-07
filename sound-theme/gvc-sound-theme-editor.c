@@ -27,10 +27,9 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
+#include <gio/gio.h>
 #include <gtk/gtk.h>
 #include <canberra-gtk.h>
-
-#include <mateconf/mateconf-client.h>
 
 #include "gvc-sound-theme-editor.h"
 #include "sound-theme-file-utils.h"
@@ -43,9 +42,8 @@ struct GvcSoundThemeEditorPrivate
         GtkWidget *theme_box;
         GtkWidget *selection_box;
         GtkWidget *click_feedback_button;
-        MateConfClient *client;
-        guint sounds_dir_id;
-        guint marco_dir_id;
+        GSettings *sound_settings;
+        GSettings *marco_settings;
 };
 
 static void     gvc_sound_theme_editor_class_init (GvcSoundThemeEditorClass *klass);
@@ -101,12 +99,12 @@ static struct {
         { -1, -1, NULL, { NULL } }
 };
 
-#define KEY_SOUNDS_DIR             "/desktop/mate/sound"
-#define EVENT_SOUNDS_KEY           KEY_SOUNDS_DIR "/event_sounds"
-#define INPUT_SOUNDS_KEY           KEY_SOUNDS_DIR "/input_feedback_sounds"
-#define SOUND_THEME_KEY            KEY_SOUNDS_DIR "/theme_name"
-#define KEY_MARCO_DIR           "/apps/marco/general"
-#define AUDIO_BELL_KEY             KEY_MARCO_DIR "/audible_bell"
+#define KEY_SOUNDS_SCHEMA          "org.mate.sound"
+#define EVENT_SOUNDS_KEY           "event-sounds"
+#define INPUT_SOUNDS_KEY           "input-feedback-sounds"
+#define SOUND_THEME_KEY            "theme-name"
+#define KEY_MARCO_SCHEMA           "org.mate.Marco.general"
+#define AUDIO_BELL_KEY             "audible-bell"
 
 #define CUSTOM_THEME_NAME       "__custom"
 #define NO_SOUNDS_THEME_NAME    "__no_sounds"
@@ -291,8 +289,6 @@ static void
 set_theme_name (GvcSoundThemeEditor *editor,
                 const char           *name)
 {
-        MateConfClient *client;
-
         g_debug ("setting theme %s", name ? name : "(null)");
 
         /* If the name is empty, use "freedesktop" */
@@ -300,7 +296,7 @@ set_theme_name (GvcSoundThemeEditor *editor,
                 name = "freedesktop";
         }
 
-        mateconf_client_set_string (editor->priv->client, SOUND_THEME_KEY, theme_name, NULL);
+        g_settings_set_string (editor->priv->sound_settings, SOUND_THEME_KEY, theme_name);
 }
 
 /* Functions to toggle whether the audible bell sound is editable */
@@ -437,20 +433,17 @@ update_theme (GvcSoundThemeEditor *editor)
         char        *theme_name;
         gboolean     events_enabled;
         gboolean     bell_enabled;
-        MateConfClient *client;
         gboolean     feedback_enabled;
 
-        client = editor->priv->client;
-
-        bell_enabled = mateconf_client_get_bool (client, AUDIO_BELL_KEY, NULL);
+        bell_enabled = g_settings_get_boolean (editor->priv->marco_settings, AUDIO_BELL_KEY);
         set_audible_bell_enabled (editor, bell_enabled);
 
-        feedback_enabled = mateconf_client_get_bool (client, INPUT_SOUNDS_KEY, NULL);
+        feedback_enabled = g_settings_get_boolean (editor->priv->sound_settings, INPUT_SOUNDS_KEY);
         set_input_feedback_enabled (editor, feedback_enabled);
 
-        events_enabled = mateconf_client_get_bool (client, EVENT_SOUNDS_KEY, NULL);
+        events_enabled = g_settings_get_boolean (editor->priv->sound_settings, EVENT_SOUNDS_KEY);
         if (events_enabled) {
-                theme_name = mateconf_client_get_string (client, SOUND_THEME_KEY, NULL);
+                theme_name = g_settings_get_string (editor->priv->sound_settings, SOUND_THEME_KEY);
         } else {
                 theme_name = g_strdup (NO_SOUNDS_THEME_NAME);
         }
@@ -1212,33 +1205,18 @@ static void
 on_click_feedback_toggled (GtkToggleButton      *button,
                            GvcSoundThemeEditor *editor)
 {
-        MateConfClient *client;
         gboolean     enabled;
 
         enabled = gtk_toggle_button_get_active (button);
 
-        client = mateconf_client_get_default ();
-        mateconf_client_set_bool (client, INPUT_SOUNDS_KEY, enabled, NULL);
-        g_object_unref (client);
+        g_settings_set_boolean (editor->priv->sound_settings, INPUT_SOUNDS_KEY, enabled);
 }
 
 static void
-on_key_changed (MateConfClient          *client,
-                guint                 cnxn_id,
-                MateConfEntry           *entry,
+on_key_changed (GSettings           *settings,
+                gchar               *key,
                 GvcSoundThemeEditor *editor)
 {
-        const char *key;
-        MateConfValue *value;
-
-        key = mateconf_entry_get_key (entry);
-
-        if (! g_str_has_prefix (key, KEY_SOUNDS_DIR)
-            && ! g_str_has_prefix (key, KEY_MARCO_DIR)) {
-                return;
-        }
-
-        value = mateconf_entry_get_value (entry);
         if (strcmp (key, EVENT_SOUNDS_KEY) == 0) {
                 update_theme (editor);
         } else if (strcmp (key, SOUND_THEME_KEY) == 0) {
@@ -1305,7 +1283,8 @@ gvc_sound_theme_editor_init (GvcSoundThemeEditor *editor)
         gtk_box_pack_start (GTK_BOX (editor->priv->theme_box), editor->priv->combo_box, FALSE, FALSE, 0);
 
 
-        editor->priv->client = mateconf_client_get_default ();
+        editor->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
+        editor->priv->marco_settings = g_settings_new (KEY_MARCO_SCHEMA);
 
         editor->priv->selection_box = box = gtk_vbox_new (FALSE, 0);
         gtk_box_pack_start (GTK_BOX (editor), box, TRUE, TRUE, 0);
@@ -1329,7 +1308,7 @@ gvc_sound_theme_editor_init (GvcSoundThemeEditor *editor)
 
         editor->priv->click_feedback_button = gtk_check_button_new_with_mnemonic (_("Enable window and button sounds"));
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (editor->priv->click_feedback_button),
-                                      mateconf_client_get_bool (editor->priv->client, INPUT_SOUNDS_KEY, NULL));
+                                      g_settings_get_boolean (editor->priv->sound_settings, INPUT_SOUNDS_KEY));
         gtk_box_pack_start (GTK_BOX (box),
                             editor->priv->click_feedback_button,
                             FALSE, FALSE, 0);
@@ -1338,21 +1317,14 @@ gvc_sound_theme_editor_init (GvcSoundThemeEditor *editor)
                           G_CALLBACK (on_click_feedback_toggled),
                           editor);
 
-
-        mateconf_client_add_dir (editor->priv->client, KEY_SOUNDS_DIR,
-                              MATECONF_CLIENT_PRELOAD_ONELEVEL,
-                              NULL);
-        editor->priv->sounds_dir_id = mateconf_client_notify_add (editor->priv->client,
-                                                               KEY_SOUNDS_DIR,
-							       (MateConfClientNotifyFunc)on_key_changed,
-							       editor, NULL, NULL);
-        mateconf_client_add_dir (editor->priv->client, KEY_MARCO_DIR,
-                              MATECONF_CLIENT_PRELOAD_ONELEVEL,
-                              NULL);
-        editor->priv->marco_dir_id = mateconf_client_notify_add (editor->priv->client,
-								 KEY_MARCO_DIR,
-								 (MateConfClientNotifyFunc)on_key_changed,
-								 editor, NULL, NULL);
+        g_signal_connect (editor->priv->sound_settings,
+                          "changed",
+                          G_CALLBACK (on_key_changed),
+                          editor);
+        g_signal_connect (editor->priv->marco_settings,
+                          "changed::" AUDIO_BELL_KEY,
+                          G_CALLBACK (on_key_changed),
+                          editor);
 
         /* FIXME: should accept drag and drop themes.  should also
            add an "Add Theme..." item to the theme combobox */
@@ -1369,18 +1341,10 @@ gvc_sound_theme_editor_finalize (GObject *object)
         sound_theme_editor = GVC_SOUND_THEME_EDITOR (object);
 
 	if (sound_theme_editor->priv != NULL) {
-		if (sound_theme_editor->priv->sounds_dir_id > 0) {
-			mateconf_client_notify_remove (sound_theme_editor->priv->client,
-						    sound_theme_editor->priv->sounds_dir_id);
-			sound_theme_editor->priv->sounds_dir_id = 0;
-		}
-		if (sound_theme_editor->priv->marco_dir_id > 0) {
-			mateconf_client_notify_remove (sound_theme_editor->priv->client,
-						    sound_theme_editor->priv->marco_dir_id);
-			sound_theme_editor->priv->marco_dir_id = 0;
-		}
-		g_object_unref (sound_theme_editor->priv->client);
-		sound_theme_editor->priv->client = NULL;
+		g_object_unref (sound_theme_editor->priv->sound_settings);
+		sound_theme_editor->priv->sound_settings = NULL;
+		g_object_unref (sound_theme_editor->priv->marco_settings);
+		sound_theme_editor->priv->marco_settings = NULL;
 	}
 
         G_OBJECT_CLASS (gvc_sound_theme_editor_parent_class)->finalize (object);
