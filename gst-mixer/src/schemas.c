@@ -67,10 +67,8 @@ schemas_gsettings_append_strv (GSettings *settings, const gchar *key, const gcha
     new[size - 2] = g_strdup (value);
     new[size - 1] = NULL;
 
-    g_settings_delay (settings);
     retval = g_settings_set_strv (settings, key,
                                   (const gchar **) new);
-    g_settings_apply (settings);
 
     g_strfreev (new);
 
@@ -84,6 +82,7 @@ schemas_gsettings_remove_all_from_strv (GSettings *settings, const gchar *key, c
     GArray    *array;
     gchar    **old;
     gint       i;
+    gboolean   changed = FALSE;
     gboolean   retval;
 
     old = g_settings_get_strv (settings, key);
@@ -92,12 +91,15 @@ schemas_gsettings_remove_all_from_strv (GSettings *settings, const gchar *key, c
     for (i = 0; old[i] != NULL; i++) {
         if (g_strcmp0 (old[i], value) != 0)
             array = g_array_append_val (array, old[i]);
+        else
+            changed = TRUE;
     }
 
-    g_settings_delay (settings);
-    retval = g_settings_set_strv (settings, key,
-                                  (const gchar **) array->data);
-    g_settings_apply (settings);
+    if (changed)
+        retval = g_settings_set_strv (settings, key,
+                                      (const gchar **) array->data);
+    else
+        retval = TRUE;
 
     g_strfreev (old);
     g_array_free (array, TRUE);

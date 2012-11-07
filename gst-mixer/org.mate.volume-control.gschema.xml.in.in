@@ -20,5 +20,10 @@
       <_summary>Shown elements in volume control</_summary>
       <_description>Set the elements to show in volume control</_description>
     </key>
+    <key name="hidden-elements" type="as">
+      <default>[]</default>
+      <_summary>Hidden elements in volume control</_summary>
+      <_description>Set the elements in whitelist to hide in volume control</_description>
+    </key>
   </schema>
 </schemalist>

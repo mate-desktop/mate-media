@@ -52,7 +52,7 @@ static void	mate_volume_control_preferences_response (GtkDialog *dialog,
 							   gint       response_id);
 
 static void	set_gsettings_track_active	(GSettings *settings, GstMixer *mixer, 
-					 GstMixerTrack *track, gboolean active);
+					 GstMixerTrack *track, gboolean active, gboolean is_whitelist);
 
 
 static void	cb_toggle		(GtkCellRendererToggle *cell,
@@ -327,7 +327,7 @@ mate_volume_control_preferences_change (MateVolumeControlPreferences *prefs,
 
 static void
 set_gsettings_track_active(GSettings *settings, GstMixer *mixer, 
-		       GstMixerTrack *track, gboolean active)
+		       GstMixerTrack *track, gboolean active, gboolean is_whitelist)
 {
   gchar *name;
 
@@ -335,14 +335,31 @@ set_gsettings_track_active(GSettings *settings, GstMixer *mixer,
 
   if (active == TRUE)
   {
+    if (is_whitelist == TRUE)
+    {
+        schemas_gsettings_remove_all_from_strv (settings, MATE_VOLUME_CONTROL_KEY_HIDDEN_ELEMENTS, name);
+    }
+    else
+    {
       if (schemas_is_str_in_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name) == FALSE)
       {
         schemas_gsettings_append_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name);
       }
+    }
   }
   else
   {
-    schemas_gsettings_remove_all_from_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name);
+    if (is_whitelist == TRUE)
+    {
+      if (schemas_is_str_in_strv (settings, MATE_VOLUME_CONTROL_KEY_HIDDEN_ELEMENTS, name) == FALSE)
+      {
+        schemas_gsettings_append_strv (settings, MATE_VOLUME_CONTROL_KEY_HIDDEN_ELEMENTS, name);
+      }
+    }
+    else
+    {
+      schemas_gsettings_remove_all_from_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name);
+    }
   }
 
   g_free (name);
@@ -395,13 +412,10 @@ cb_activated(GtkTreeView *view, GtkTreePath *path,
 
     is_whitelist = mate_volume_control_element_whitelist (prefs->mixer, track);
   
-    if (is_whitelist == FALSE)
-    {
-      active = !active;
+    active = !active;
 
-      gtk_list_store_set( GTK_LIST_STORE(model), &iter, COL_ACTIVE, active, -1);
-      set_gsettings_track_active(prefs->settings, prefs->mixer, track, active);
-    }
+    gtk_list_store_set( GTK_LIST_STORE(model), &iter, COL_ACTIVE, active, -1);
+    set_gsettings_track_active(prefs->settings, prefs->mixer, track, active, is_whitelist);
   }
 }
 
@@ -426,14 +440,12 @@ cb_toggle (GtkCellRendererToggle *cell,
   mate_volume_control_element_whitelist (prefs->mixer, NULL);
   is_whitelist = mate_volume_control_element_whitelist (prefs->mixer, track);
   
-  if (is_whitelist == FALSE)
-  {
-    active = !active;
+  active = !active;
 
-    gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+  gtk_list_store_set (GTK_LIST_STORE (model), &iter,
                         COL_ACTIVE, active,
                         -1);
-    set_gsettings_track_active(prefs->settings, prefs->mixer, track, active);
-  }
+  set_gsettings_track_active(prefs->settings, prefs->mixer, track, active, is_whitelist);
+
   gtk_tree_path_free (path);
 }

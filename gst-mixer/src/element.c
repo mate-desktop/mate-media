@@ -72,6 +72,8 @@ mate_volume_control_element_new ()
 
   g_signal_connect (el->settings, "changed::" MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS,
                     G_CALLBACK (cb_gsettings), el);
+  g_signal_connect (el->settings, "changed::" MATE_VOLUME_CONTROL_KEY_HIDDEN_ELEMENTS,
+                    G_CALLBACK (cb_gsettings), el);
 
   return GTK_WIDGET (el);
 }
@@ -190,20 +192,22 @@ mate_volume_control_element_is_to_show (GSettings *settings,
 
     mate_volume_control_element_whitelist (mixer, NULL);
     is_whitelist = mate_volume_control_element_whitelist (mixer, track);
+    name = get_gsettings_name (mixer, track);
 
     if (is_whitelist == TRUE)
     {
-        return TRUE;
+        /* if element is in whitelis, user can set it hidden */
+        if (schemas_is_str_in_strv (settings, MATE_VOLUME_CONTROL_KEY_HIDDEN_ELEMENTS, name) == FALSE)
+            is_to_show = TRUE;
     }
     else
     {
-        name = get_gsettings_name (mixer, track);
-        /* if element is not in whitelist, user can be set it to show */
+        /* if element is not in whitelist, user can set it to show */
         if (schemas_is_str_in_strv (settings, MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS, name))
             is_to_show = TRUE;
-        g_free (name);
-        return is_to_show;
     }
+    g_free (name);
+    return is_to_show;
 }
 
 /*

@@ -27,6 +27,7 @@ G_BEGIN_DECLS
 #define MATE_VOLUME_CONTROL_SCHEMA "org.mate.volume-control"
 #define MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT "active-element"
 #define MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS "shown-elements"
+#define MATE_VOLUME_CONTROL_KEY_HIDDEN_ELEMENTS "hidden-elements"
 #define MATE_VOLUME_CONTROL_KEY_WINDOW_WIDTH "window-width"
 #define MATE_VOLUME_CONTROL_KEY_WINDOW_HEIGHT "window-height"
 
