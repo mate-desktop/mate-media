@@ -222,6 +222,33 @@ AC_SUBST(GSTMIXER_CFLAGS)
 AC_SUBST(GSTMIXER_LIBS)
 AM_CONDITIONAL(HAVE_GSTMIXER, [test x$have_gstmixer = xyes])
 
+dnl=======================================================================
+dnl gst-mixer-applet
+dnl=======================================================================
+have_gstmixer_applet=no
+if test "x$have_gstmixer" = "xyes"; then
+    AC_ARG_ENABLE([gst-mixer-applet],
+        AC_HELP_STRING([--enable-gst-mixer-applet], [Enable the gstreamer-based mixer applet.]),
+        enable_mixerapplet=$enableval,
+        enable_mixerapplet=no)
+    if test "x$enable_mixerapplet" != "xno"; then
+        have_gstmixer_applet=yes
+        MIXER_APPLET_DEPS="gstreamer-$GST_MAJORMINOR >= $GST_REQ
+                           gstreamer-interfaces-$GST_MAJORMINOR >= $GST_REQ
+                           gstreamer-audio-$GST_MAJORMINOR >= $GST_REQ
+                           mate-desktop-2.0 >= 1.5.0
+                           ibmatepanelapplet-4.0 >= 1.5.0"
+        PKG_CHECK_MODULES(MIXER, $GST10_PKGS, have_gst_mixer_applet_deps=yes, have_gst_mixer_applet_deps=no)
+        if test "x$have_gst_mixer_applet_deps" = "xno"; then
+            have_gstmixer_applet=no
+            enable_mixerapplet=no
+            AC_MSG_ERROR([Mixer applet explicitly requested but a compatible gstreamer version was not found])
+        fi
+    fi
+    AC_SUBST(MIXERAPPLET_CFLAGS)
+    AC_SUBST(MIXERAPPLET_LIBS)
+fi
+AM_CONDITIONAL(HAVE_GSTMIXER_APPLET, test "x$have_gstmixer_applet" = "xyes")
 
 dnl ---------------------------------------------------------------------------
 dnl - Finish
@@ -309,6 +336,8 @@ gst-mixer/src/Makefile
 gst-mixer/pixmaps/Makefile
 gst-mixer/doc/Makefile
 gst-mixer/mate-volume-control.desktop.in
+gst-mixer-applet/Makefile
+gst-mixer-applet/docs/Makefile
 ])
 
 AC_OUTPUT
@@ -325,6 +354,8 @@ echo "
         CFLAGS:                      ${CFLAGS}
 
         PulseAudio Volume Control    $have_pulseaudio
+
         GStreamer mixer:             $have_gstmixer
+        GStreamer mixer applet:      $have_gstmixer_applet
 
 "

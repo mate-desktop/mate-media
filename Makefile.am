@@ -14,6 +14,10 @@ if HAVE_GSTMIXER
 SUBDIRS += gst-mixer
 endif
 
+if HAVE_GSTMIXER_APPLET
+SUBDIRS += gst-mixer-applet
+endif
+
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
 	--enable-more-warnings  \
@@ -23,6 +27,7 @@ DIST_SUBDIRS = \
 	po 			\
 	mate-volume-control	\
 	gst-mixer		\
+	gst-mixer-applet	\
 	sound-theme		\
 	$(NULL)
 
