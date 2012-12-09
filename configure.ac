@@ -237,7 +237,7 @@ if test "x$have_gstmixer" = "xyes"; then
                            gstreamer-interfaces-$GST_MAJORMINOR >= $GST_REQ
                            gstreamer-audio-$GST_MAJORMINOR >= $GST_REQ
                            mate-desktop-2.0 >= 1.5.0
-                           ibmatepanelapplet-4.0 >= 1.5.0"
+                           libmatepanelapplet-4.0 >= 1.5.0"
         PKG_CHECK_MODULES(MIXER, $GST10_PKGS, have_gst_mixer_applet_deps=yes, have_gst_mixer_applet_deps=no)
         if test "x$have_gst_mixer_applet_deps" = "xno"; then
             have_gstmixer_applet=no
