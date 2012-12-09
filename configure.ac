@@ -233,12 +233,12 @@ if test "x$have_gstmixer" = "xyes"; then
         enable_mixerapplet=no)
     if test "x$enable_mixerapplet" != "xno"; then
         have_gstmixer_applet=yes
-        MIXER_APPLET_DEPS="gstreamer-$GST_MAJORMINOR >= $GST_REQ
+        MIXERAPPLET_DEPS="gstreamer-$GST_MAJORMINOR >= $GST_REQ
                            gstreamer-interfaces-$GST_MAJORMINOR >= $GST_REQ
                            gstreamer-audio-$GST_MAJORMINOR >= $GST_REQ
                            mate-desktop-2.0 >= 1.5.0
                            libmatepanelapplet-4.0 >= 1.5.0"
-        PKG_CHECK_MODULES(MIXER, $GST10_PKGS, have_gst_mixer_applet_deps=yes, have_gst_mixer_applet_deps=no)
+        PKG_CHECK_MODULES(MIXERAPPLET, $MIXERAPPLET_DEPS, have_gst_mixer_applet_deps=yes, have_gst_mixer_applet_deps=no)
         if test "x$have_gst_mixer_applet_deps" = "xno"; then
             have_gstmixer_applet=no
             enable_mixerapplet=no

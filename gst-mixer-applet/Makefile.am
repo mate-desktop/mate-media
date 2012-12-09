@@ -1,6 +1,7 @@
 SUBDIRS = docs
 
 AM_CPPFLAGS = -I. -I$(srcdir) 			\
+	-DMATELOCALEDIR=\""$(datadir)/locale"\"	\
 	-DMIXER_MENU_UI_DIR=\""$(uidir)"\"	\
 	$(MIXERAPPLET_CFLAGS)				\
 	$(MATE_APPLETS4_CFLAGS)		\
