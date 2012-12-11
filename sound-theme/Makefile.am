@@ -20,7 +20,7 @@ libsoundtheme_la_SOURCES = \
 	$(NULL)
 
 libsoundtheme_la_LIBADD = $(SOUND_THEME_LIBS)
-libsoundtheme_la_LDFLAGS = -no-undefined
+libsoundtheme_la_LDFLAGS = -lm
 
 BUILT_SOURCES =				\
 	$(NULL)
