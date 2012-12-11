@@ -37,7 +37,8 @@ noinst_HEADERS = \
 
 mate_volume_control_LDFLAGS = \
 	$(GVC_ST_LIBS) \
-	$(GSTMIXER_LIBS)
+	$(GSTMIXER_LIBS) \
+	-lm
 
 
 -include $(top_srcdir)/git.mk
