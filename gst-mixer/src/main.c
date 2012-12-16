@@ -144,7 +144,9 @@ main (gint   argc,
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+#if !GLIB_CHECK_VERSION (2, 32, 0)
   g_thread_init (NULL);
+#endif
   ctx = g_option_context_new ("mate-volume-control");
   g_option_context_add_main_entries(ctx, entries, GETTEXT_PACKAGE);
   g_option_context_add_group (ctx, gst_init_get_option_group ());
