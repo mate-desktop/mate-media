@@ -13,8 +13,12 @@ gsettings_SCHEMAS = \
 %.gschema.xml.in: %.gschema.xml.in.in Makefile
 	$(AM_V_GEN) $(SED) -e 's^\@GETTEXT_PACKAGE\@^$(GETTEXT_PACKAGE)^g' < $< > $@
 
+convertdir = $(datadir)/MateConf/gsettings
+convert_DATA = mate-volume-control.convert
+
 EXTRA_DIST = \
 	$(Desktop_in_files) \
+	$(convert_DATA) \
 	$(gsettings_schemas_in_in) 
 
 CLEANFILES = \
