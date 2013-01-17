@@ -17,7 +17,7 @@ if type -p stow > /dev/null && test -d /usr/local/stow ; then
    ac_default_prefix="/usr/local/stow/${PACKAGE}-${VERSION}"
 fi
 
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 IT_PROG_INTLTOOL([0.35.0])
