@@ -1,5 +1,6 @@
 [Desktop Entry]
-_Name=Volume Control
+_Name=Mate Volume Control
+_GenericName=Volume Control
 _Comment=Change sound volume and sound events
 Exec=mate-volume-control
 Icon=multimedia-volume-control
