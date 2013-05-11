@@ -827,7 +827,9 @@ mate_volume_applet_button (GtkWidget      *widget,
             break;
         }
         break;
-      case 2: /* move */
+      case 2: /* mute */
+        mate_volume_applet_toggle_mute (applet);
+        return TRUE;
       case 3: /* menu */
         if (applet->pop) {
           mate_volume_applet_popdown_dock (applet);
