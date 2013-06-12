@@ -10,14 +10,6 @@ if HAVE_PULSEAUDIO
 SUBDIRS += mate-volume-control
 endif
 
-if HAVE_GSTMIXER
-SUBDIRS += gst-mixer
-endif
-
-if HAVE_GSTMIXER_APPLET
-SUBDIRS += gst-mixer-applet
-endif
-
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
 	--enable-more-warnings  \
@@ -26,8 +18,6 @@ DISTCHECK_CONFIGURE_FLAGS = \
 DIST_SUBDIRS = \
 	po 			\
 	mate-volume-control	\
-	gst-mixer		\
-	gst-mixer-applet	\
 	sound-theme		\
 	$(NULL)
 
@@ -37,7 +27,6 @@ EXTRA_DIST = \
 	configure		\
 	COPYING			\
 	COPYING-DOCS		\
-	COPYING.gst-mixer	\
 	build-aux/git-version-gen \
 	build-aux/mate-doc-utils.make	\
 	m4/as-compiler-flag.m4	\
