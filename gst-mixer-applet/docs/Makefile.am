@@ -1,11 +1,10 @@
-include $(top_srcdir)/build-aux/mate-doc-utils.make
-dist-hook: doc-dist-hook
+@YELP_HELP_RULES@
 
-DOC_MODULE = mate-mixer_applet2
-DOC_ENTITIES = legal.xml
+HELP_ID = mate-mixer_applet2
+HELP_FILES = index.docbook legal.xml
 
-DOC_FIGURES = figures/volumecontrol_applet.png
+HELP_MEDIA = figures/volumecontrol_applet.png
 
-DOC_LINGUAS = ca cs da de el en_GB es eu fi fr hu it ko oc pa pt_BR ru sv uk zh_CN
+HELP_LINGUAS = ca cs da de el en_GB es eu fi fr hu it ko oc pa pt_BR ru sv uk zh_CN
 
 -include $(top_srcdir)/git.mk

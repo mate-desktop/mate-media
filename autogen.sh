@@ -21,4 +21,9 @@ which mate-autogen || {
     exit 1
 }
 
+which yelp-build || {
+    echo "You need to install yelp-tools" 
+    exit 1
+}
+
 . mate-autogen "$@"
