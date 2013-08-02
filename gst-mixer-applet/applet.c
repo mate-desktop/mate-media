@@ -1404,7 +1404,7 @@ cb_verb (GtkAction   *action,
     GError *error = NULL;
 
     gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (applet)),
-		  "ghelp:mixer_applet2",
+		  "help:mixer_applet2",
 		  gtk_get_current_event_time (),
 		  &error);
 

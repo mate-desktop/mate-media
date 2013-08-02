@@ -107,7 +107,7 @@ cb_help (GtkAction *action,
 
   screen = gtk_window_get_screen (GTK_WINDOW (win));
 
-  if (gtk_show_uri (screen, "ghelp:mate-volume-control", GDK_CURRENT_TIME,
+  if (gtk_show_uri (screen, "help:mate-volume-control", GDK_CURRENT_TIME,
   				&error) == FALSE) {
   	dialog = gtk_message_dialog_new (GTK_WINDOW (win), GTK_DIALOG_DESTROY_WITH_PARENT,
                                      GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", error->message);
