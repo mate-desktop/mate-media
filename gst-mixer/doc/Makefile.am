@@ -1,4 +1,4 @@
-@YELP_HELP_RULES
+@YELP_HELP_RULES@
 
 HELP_ID = mate-volume-control
 HELP_FILES = index.docbook legal.xml
