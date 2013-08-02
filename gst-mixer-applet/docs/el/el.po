@@ -57,13 +57,13 @@ msgid "MATE Documentation Project"
 msgstr "Έργο Τεκμηρίωσης MATE"
 
 #: C/mixer_applet2.xml:2(para)
-msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any later version published by the Free Software Foundation with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl\">link</ulink> or in the file COPYING-DOCS distributed with this manual."
+msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any later version published by the Free Software Foundation with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or in the file COPYING-DOCS distributed with this manual."
 msgstr ""
 "Δίνεται άδεια για αντιγραφή, διανομή και/ή τροποποίηση του εγγράφου υπό τους "
 "όρους της Ελεύθερης Άδειας Τεκμηρίωσης GNU (GFDL), Έκδοση 1.1 ή "
 "μεταγενέστερη εκδιδόμενη από το Ίδρυμα Ελεύθερου Λογισμικού χωρίς Σταθερά "
 "Εδάφια, χωρίς Εξώφυλλα Κειμένου, και χωρίς Οπισθόφυλλα Κειμένου. Μπορείτε να "
-"βρείτε ένα αντίγραφο της GFDL σε αυτόν τον <ulink type=\"help\" url=\"ghelp:"
+"βρείτε ένα αντίγραφο της GFDL σε αυτόν τον <ulink type=\"help\" url=\"help:"
 "fdl\">σύνδεσμο</ulink> ή στο αρχείο COPYING-DOCS που διανεμήθηκε με αυτόν "
 "τον οδηγό."
 
@@ -227,8 +227,8 @@ msgid "Feedback"
 msgstr "Ανάδραση"
 
 #: C/mixer_applet2.xml:172(para)
-msgid "To report a bug or make a suggestion regarding the Volume Control applet or this manual, follow the directions in the <ulink url=\"ghelp:mate-feedback\" type=\"help\">MATE Feedback Page</ulink>."
-msgstr "Για αναφορά ενός σφάλματος ή μίας πρότασης που αφορά τη μικροεφαρμογή ελέγχου έντασης ήχου ή το παρόν εγχειρίδιο, ακολουθήστε τις κατευθύνσεις στη<ulink url=\"ghelp:mate-feedback\" type=\"help\"> σελίδα ανάδρασης MATE</ulink>."
+msgid "To report a bug or make a suggestion regarding the Volume Control applet or this manual, follow the directions in the <ulink url=\"help:mate-feedback\" type=\"help\">MATE Feedback Page</ulink>."
+msgstr "Για αναφορά ενός σφάλματος ή μίας πρότασης που αφορά τη μικροεφαρμογή ελέγχου έντασης ήχου ή το παρόν εγχειρίδιο, ακολουθήστε τις κατευθύνσεις στη<ulink url=\"help:mate-feedback\" type=\"help\"> σελίδα ανάδρασης MATE</ulink>."
 
 #: C/mixer_applet2.xml:177(primary)
 msgid "Volume Control"
