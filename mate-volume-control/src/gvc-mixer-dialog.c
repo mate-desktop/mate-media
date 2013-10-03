@@ -64,6 +64,7 @@ struct GvcMixerDialogPrivate
         GtkWidget       *input_box;
         GtkWidget       *output_box;
         GtkWidget       *applications_box;
+        GtkWidget       *applications_scrolled_window;
         GtkWidget       *no_apps_label;
         GtkWidget       *output_treeview;
         GtkWidget       *output_settings_box;
@@ -1960,11 +1961,18 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_container_add (GTK_CONTAINER (box), self->priv->output_settings_box);
 
         /* Applications */
+        self->priv->applications_scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (self->priv->applications_scrolled_window),
+                                        GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_scrolled_window),
+                                             GTK_SHADOW_IN);
         self->priv->applications_box = gtk_vbox_new (FALSE, 12);
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
+        gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (self->priv->applications_scrolled_window),
+                                               self->priv->applications_box);
         label = gtk_label_new (_("Applications"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
-                                  self->priv->applications_box,
+                                  self->priv->applications_scrolled_window,
                                   label);
         self->priv->no_apps_label = gtk_label_new (_("No application is currently playing or recording audio."));
         gtk_box_pack_start (GTK_BOX (self->priv->applications_box),
