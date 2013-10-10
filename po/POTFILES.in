@@ -14,7 +14,7 @@ mate-volume-control/src/gvc-mixer-dialog.c
 mate-volume-control/src/gvc-speaker-test.c
 mate-volume-control/src/gvc-stream-status-icon.c
 gst-mixer/mate-volume-control.desktop.in.in
-gst-mixer/mate-volume-control.schemas.in
+gst-mixer/org.mate.volume-control.gschema.xml.in.in
 gst-mixer/src/element.c
 gst-mixer/src/main.c
 gst-mixer/src/misc.c
@@ -22,6 +22,11 @@ gst-mixer/src/preferences.c
 gst-mixer/src/track.c
 gst-mixer/src/volume.c
 gst-mixer/src/window.c
+gst-mixer-applet/applet.c
+gst-mixer-applet/dock.c
+gst-mixer-applet/load.c
+gst-mixer-applet/org.mate.panel.applet.mixer.gschema.xml.in.in
+gst-mixer-applet/preferences.c
 sound-theme/gvc-sound-theme-chooser.c
 sound-theme/gvc-sound-theme-editor.c
 sound-theme/sound-theme-file-utils.c
