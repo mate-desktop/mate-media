@@ -58,10 +58,32 @@ fi
 AC_MSG_NOTICE([Using $GM_ERROR_CFLAGS as error checking CFLAGS])
 
 GLIB_REQUIRED_VERSION=2.18.2
-GTK_REQUIRED_VERSION=2.18.0
 GIO_REQUIRED_VERSION=2.25.0
 PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
+
+dnl=======================================================================
+dnl Support multiple GTK versions
+dnl=======================================================================
+
+AC_MSG_CHECKING([which gtk+ version to compile against])
+AC_ARG_WITH([gtk],
+  [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
+  [case "$with_gtk" in
+     2.0|3.0) ;;
+     *) AC_MSG_ERROR([invalid gtk version specified]) ;;
+   esac],
+  [with_gtk=2.0])
+AC_MSG_RESULT([$with_gtk])
+
+case "$with_gtk" in
+  2.0) GTK_API_VERSION=2.0
+       GTK_REQUIRED_VERSION=2.18.0
+       ;;
+  3.0) GTK_API_VERSION=3.0
+       GTK_REQUIRED_VERSION=3.0.0
+       ;;
+esac
 
 dnl=======================================================================
 dnl Check for libcanberra
@@ -69,7 +91,7 @@ dnl=======================================================================
 
 PKG_CHECK_MODULES(SOUND_THEME,
         gobject-2.0 >= $GLIB_REQUIRED_VERSION
-        gtk+-2.0 >= $GTK_REQUIRED_VERSION
+        gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
         gio-2.0 >= $GIO_REQUIRED_VERSION
         libcanberra-gtk >= $CANBERRA_REQUIRED_VERSION
         libxml-2.0,
@@ -87,9 +109,6 @@ AC_SUBST(SOUNDTHEME_LIBS)
 dnl=======================================================================
 dnl Check for the new volume control modules
 dnl=======================================================================
-
-dnl The new mate-volume-control needs a newer GTK+
-GTK_REQUIRED_VERSION=2.15.1
 
 AC_ARG_ENABLE([pulseaudio],
               AS_HELP_STRING([--enable-pulseaudio],
@@ -110,7 +129,7 @@ if test "x$enable_pulseaudio" != "xno"; then
   if test "x$have_pulseaudio" = "xyes" ; then
     PKG_CHECK_MODULES(VOLUME_CONTROL,
             gobject-2.0 >= $GLIB_REQUIRED_VERSION
-            gtk+-2.0 >= $GTK_REQUIRED_VERSION
+            gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
             gio-2.0 >= $GIO_REQUIRED_VERSION
             libcanberra-gtk >= $CANBERRA_REQUIRED_VERSION
             unique-1.0
@@ -152,7 +171,7 @@ have_gst=no
 PKG_CHECK_MODULES(GSR, [
   gstreamer-$GST_MAJORMINOR >= $GST_REQ
   gstreamer-plugins-base-$GST_MAJORMINOR >= $GST_REQ
-  gtk+-2.0 >= 2.6.0
+  gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
   gio-2.0 >= $GIO_REQUIRED_VERSION],
   have_gst=yes,
   [
@@ -200,7 +219,7 @@ fi
 if test "x$have_gst" = "xyes" && test "x$enable_gstmix" = "xyes";
 then
   PKG_CHECK_MODULES(GSTMIXER, [
-    gtk+-2.0
+    gtk+-$GTK_API_VERSION
     gio-2.0 >= $GIO_REQUIRED_VERSION
     gstreamer-$GST_MAJORMINOR
     gstreamer-plugins-base-$GST_MAJORMINOR
