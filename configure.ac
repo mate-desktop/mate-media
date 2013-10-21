@@ -6,7 +6,7 @@ AC_INIT([mate-media],
 
 AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2 -Wall -Wno-portability tar-pax foreign])
+AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz -Wall -Wno-portability tar-pax foreign])
 
 AM_MAINTAINER_MODE
 
