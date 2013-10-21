@@ -43,9 +43,6 @@ AC_TYPE_SIZE_T
 AC_PROG_GCC_TRADITIONAL
 AC_FUNC_MMAP
 
-# CFLAGS
-MATE_COMPILE_WARNINGS(maximum)
-
 GLIB_REQUIRED_VERSION=2.18.2
 GTK_REQUIRED_VERSION=2.18.0
 GIO_REQUIRED_VERSION=2.25.0
@@ -248,6 +245,20 @@ m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 MATE_MAINTAINER_MODE_DEFINES
 MATE_COMPILE_WARNINGS([maximum])
 MATE_CXX_WARNINGS
+
+AC_ARG_ENABLE(deprecated,
+        [AS_HELP_STRING([--enable-deprecated],
+                [warn about deprecated usages [default=no]])],,
+         [enable_deprecated=no])
+
+if test "x$enable_deprecated" = "xyes"; then
+   DISABLE_DEPRECATED="\
+   -DMATE_DISABLE_DEPRECATED \
+   -DGDK_PIXBUF_DISABLE_DEPRECATED \
+   -DGTK_DISABLE_DEPRECATED \
+   -DGDK_DISABLE_DEPRECATED"
+     AC_SUBST(DISABLE_DEPRECATED)
+fi
 
 # Turn on the additional warnings last, so warnings don't affect other tests.
 AC_ARG_ENABLE(more-warnings,
