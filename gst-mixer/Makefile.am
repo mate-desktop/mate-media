@@ -19,7 +19,7 @@ convert_DATA = mate-volume-control.convert
 EXTRA_DIST = \
 	$(Desktop_in_files) \
 	$(convert_DATA) \
-	$(gsettings_schemas_in_in) 
+	$(gsettings_SCHEMAS).in.in
 
 CLEANFILES = \
 	$(Desktop_DATA) \
