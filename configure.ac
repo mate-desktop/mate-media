@@ -8,8 +8,6 @@ AC_CONFIG_AUX_DIR([build-aux])
 
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2 -Wall -Wno-portability tar-pax foreign])
 
-AS_VERSION
-
 AM_MAINTAINER_MODE
 
 if type -p stow > /dev/null && test -d /usr/local/stow ; then
@@ -48,7 +46,6 @@ AC_FUNC_MMAP
 # CFLAGS
 MATE_COMPILE_WARNINGS
 
-# AS_NANO(GM_RELEASE="yes", GM_RELEASE="no")
 AS_COMPILER_FLAG(-Wall, GM_ERROR_CFLAGS="-Wall")
 
 if test "x$GM_RELEASE" = "xno"
