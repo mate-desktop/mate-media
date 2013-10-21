@@ -40,8 +40,6 @@ EXTRA_DIST = \
 	COPYING.gst-mixer	\
 	build-aux/git-version-gen \
 	build-aux/mate-doc-utils.make	\
-	m4/as-compiler-flag.m4	\
-	m4/as-version.m4	\
 	$(INTLTOOL_BUILT:=.in)	\
 	$(NULL)
 
@@ -50,7 +48,7 @@ DISTCLEANFILES = \
 	po/.intltool-merge-cache	\
 	$(NULL)
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 # see build-aux/git-version-get for details
 BUILT_SOURCES = $(top_srcdir)/.version
