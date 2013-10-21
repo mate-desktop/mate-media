@@ -62,7 +62,7 @@ EXTRA_DIST = 							\
 	org.mate.applets.MixerApplet.mate-panel-applet.in.in	\
 	$(service_in_files)					\
 	$(ui_DATA) 						\
-	$(gsettings_SCHEMAS_in_in)
+	$(gsettings_SCHEMAS).in.in
 
 CLEANFILES = $(applet_DATA) $(applet_DATA).in $(service_DATA) $(gsettings_SCHEMAS_in)  $(gsettings_SCHEMAS) *.gschema.valid
 

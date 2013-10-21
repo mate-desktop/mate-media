@@ -6,9 +6,7 @@ AC_INIT([mate-media],
 
 AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2 -Wall -Wno-portability tar-pax foreign])
-
-AS_VERSION
+AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz -Wall -Wno-portability tar-pax foreign])
 
 AM_MAINTAINER_MODE
 
@@ -46,16 +44,7 @@ AC_PROG_GCC_TRADITIONAL
 AC_FUNC_MMAP
 
 # CFLAGS
-MATE_COMPILE_WARNINGS
-
-# AS_NANO(GM_RELEASE="yes", GM_RELEASE="no")
-AS_COMPILER_FLAG(-Wall, GM_ERROR_CFLAGS="-Wall")
-
-if test "x$GM_RELEASE" = "xno"
-then
-  AS_COMPILER_FLAG(-Werror, GM_ERROR_CFLAGS="$GM_ERROR_CFLAGS -Werror")
-fi
-AC_MSG_NOTICE([Using $GM_ERROR_CFLAGS as error checking CFLAGS])
+MATE_COMPILE_WARNINGS(maximum)
 
 GLIB_REQUIRED_VERSION=2.18.2
 GIO_REQUIRED_VERSION=2.25.0
