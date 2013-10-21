@@ -39,7 +39,6 @@ EXTRA_DIST = \
 	COPYING-DOCS		\
 	COPYING.gst-mixer	\
 	build-aux/git-version-gen \
-	build-aux/mate-doc-utils.make	\
 	m4/as-compiler-flag.m4	\
 	m4/as-version.m4	\
 	$(INTLTOOL_BUILT:=.in)	\
