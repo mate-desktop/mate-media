@@ -21,7 +21,8 @@ endif
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
 	--enable-more-warnings  \
-	--enable-compile-warnings=maximum
+	--enable-compile-warnings=maximum \
+	--enable-deprecated 
 
 DIST_SUBDIRS = \
 	po 			\
