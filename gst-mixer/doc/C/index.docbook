@@ -127,7 +127,7 @@
         <revnumber>&appname; Manual V&manrevision;</revnumber>
         <date>&date;</date>
         <revdescription>
-          <para role="author">Sun MATE Documentation Team</para>
+          <para role="author">Sun GNOME Documentation Team</para>
           <para role="publisher">MATE Documentation Project</para>
         </revdescription>
       </revision>
