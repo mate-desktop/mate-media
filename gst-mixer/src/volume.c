@@ -40,12 +40,26 @@ static void	mate_volume_control_volume_class_init	(MateVolumeControlVolumeClass 
 static void	mate_volume_control_volume_init	(MateVolumeControlVolume *el);
 static void	mate_volume_control_volume_dispose	(GObject   *object);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void mate_volume_control_volume_get_preferred_width (GtkWidget *widget,
+							 gint *minimum_width,
+							 gint *natural_width);
+static void mate_volume_control_volume_get_preferred_height (GtkWidget *widget,
+							 gint *minimum_height,
+							 gint *natural_height);
+#else
 static void	mate_volume_control_volume_size_req	(GtkWidget *widget,
 							 GtkRequisition *req);
+#endif
 static void	mate_volume_control_volume_size_alloc	(GtkWidget *widget,
 							 GtkAllocation *alloc);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static gboolean	mate_volume_control_volume_draw	(GtkWidget *widget,
+							 cairo_t *cr);
+#else
 static gboolean	mate_volume_control_volume_expose	(GtkWidget *widget,
 							 GdkEventExpose *expose);
+#endif
 
 static void	cb_volume_changed			(GtkAdjustment *adj,
 							 gpointer   data);
@@ -63,8 +77,14 @@ mate_volume_control_volume_class_init (MateVolumeControlVolumeClass *klass)
 
   gobject_class->dispose = mate_volume_control_volume_dispose;
   gtkwidget_class->size_allocate = mate_volume_control_volume_size_alloc;
+#if GTK_CHECK_VERSION (3, 0, 0)
+  gtkwidget_class->get_preferred_width = mate_volume_control_volume_get_preferred_width;
+  gtkwidget_class->get_preferred_height = mate_volume_control_volume_get_preferred_height;
+  gtkwidget_class->draw = mate_volume_control_volume_draw;
+#else
   gtkwidget_class->size_request = mate_volume_control_volume_size_req;
   gtkwidget_class->expose_event = mate_volume_control_volume_expose;
+#endif
 }
 
 static void
@@ -91,7 +111,11 @@ get_scale (MateVolumeControlVolume *vol,
 	   gint volume)
 {
   GtkWidget *slider;
+#if GTK_CHECK_VERSION (3, 0, 0)
+  GtkAdjustment *adj;
+#else
   GtkObject *adj;
+#endif
   AtkObject *accessible;
   gchar *accessible_name;
 
@@ -101,7 +125,11 @@ get_scale (MateVolumeControlVolume *vol,
 		(vol->track->max_volume - vol->track->min_volume) / 10.0, 0.0);
   g_signal_connect (adj, "value_changed",
 		    G_CALLBACK (cb_volume_changed), vol);
+#if GTK_CHECK_VERSION (3, 0, 0)
+  slider = gtk_vscale_new (adj);
+#else
   slider = gtk_vscale_new (GTK_ADJUSTMENT (adj));
+#endif
   gtk_scale_set_draw_value (GTK_SCALE (slider), FALSE);
   gtk_range_set_inverted (GTK_RANGE (slider), TRUE);
 
@@ -283,9 +311,14 @@ mate_volume_control_volume_size_req (GtkWidget *widget,
   GtkRequisition but_req, scale_req;
 
   /* request size of kids */
+#if GTK_CHECK_VERSION (3, 0, 0)
+  gtk_widget_get_preferred_size (vol->button, &but_req, NULL);
+  gtk_widget_get_preferred_size (vol->scales->data, &scale_req, NULL);
+#else
   GTK_WIDGET_GET_CLASS (vol->button)->size_request (vol->button, &but_req);
   GTK_WIDGET_GET_CLASS (vol->scales->data)->size_request (vol->scales->data,
 							  &scale_req);
+#endif
   if (scale_req.height < 100)
     scale_req.height = 100;
 
@@ -294,6 +327,28 @@ mate_volume_control_volume_size_req (GtkWidget *widget,
       vol->padding * (vol->track->num_channels - 1);
   req->height = scale_req.height + but_req.height /*+ vol->padding*/;
 }
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+mate_volume_control_volume_get_preferred_width (GtkWidget *widget,
+					gint *minimum_width,
+					gint *natural_width)
+{
+  GtkRequisition req;
+  mate_volume_control_volume_size_req (widget, &req);
+  *minimum_width = *natural_width = req.width;
+}
+
+static void
+mate_volume_control_volume_get_preferred_height (GtkWidget *widget,
+					gint *minimum_height,
+					gint *natural_height)
+{
+  GtkRequisition req;
+  mate_volume_control_volume_size_req (widget, &req);
+  *minimum_height = *natural_height = req.height;
+}
+#endif
 
 static void
 mate_volume_control_volume_size_alloc (GtkWidget *widget,
@@ -315,9 +370,14 @@ mate_volume_control_volume_size_alloc (GtkWidget *widget,
     return;
 
   /* request size of kids */
+#if GTK_CHECK_VERSION (3, 0, 0)
+  gtk_widget_get_preferred_size (vol->button, &but_req, NULL);
+  gtk_widget_get_preferred_size (vol->scales->data, &scale_req, NULL);
+#else
   GTK_WIDGET_GET_CLASS (vol->button)->size_request (vol->button, &but_req);
   GTK_WIDGET_GET_CLASS (vol->scales->data)->size_request (vol->scales->data,
 							  &scale_req);
+#endif
 
   /* calculate */
   x_offset = (alloc->width - ((vol->track->num_channels * scale_req.width) +
@@ -349,17 +409,24 @@ mate_volume_control_volume_size_alloc (GtkWidget *widget,
 }
 
 static gboolean
+#if GTK_CHECK_VERSION (3, 0, 0)
+mate_volume_control_volume_draw (GtkWidget *widget,
+				    cairo_t *cr)
+#else
 mate_volume_control_volume_expose (GtkWidget *widget,
 				    GdkEventExpose *expose)
+#endif
 {
   GtkAllocation allocation;
   MateVolumeControlVolume *vol = MATE_VOLUME_CONTROL_VOLUME (widget);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
   /* clear background */
   gtk_widget_get_allocation (widget, &allocation);
   gdk_window_clear_area (gtk_widget_get_window (widget), 0, 0,
 			 allocation.width,
 			 allocation.height);
+#endif
 
   if (vol->track->num_channels > 1) {
     gint x_offset, y_offset, height, width;
@@ -369,9 +436,14 @@ mate_volume_control_volume_expose (GtkWidget *widget,
     GtkStateType state;
 
     /* request size of kids */
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_get_preferred_size (vol->button, &but_req, NULL);
+    gtk_widget_get_preferred_size (vol->scales->data, &scale_req, NULL);
+#else
     GTK_WIDGET_GET_CLASS (vol->button)->size_request (vol->button, &but_req);
     GTK_WIDGET_GET_CLASS (vol->scales->data)->size_request (vol->scales->data,
 							    &scale_req);
+#endif
 
     /* calculate */
     gtk_widget_get_allocation (widget, &allocation);
@@ -390,23 +462,50 @@ mate_volume_control_volume_expose (GtkWidget *widget,
 
     points[0].x = points[1].x = x_offset + 3;
     points[2].x = points[0].x + width - 6;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    cairo_move_to (cr, points[0].x, points[0].x);
+    cairo_line_to (cr, points[1].x, points[1].x);
+    cairo_move_to (cr, points[1].x, points[1].x);
+    cairo_line_to (cr, points[2].x, points[2].x);
+    cairo_move_to (cr, points[0].x, points[0].x);
+#else
     gtk_paint_polygon (style, gtk_widget_get_window (widget),
 		       state,
 		       GTK_SHADOW_ETCHED_IN,
 		       &expose->area, widget, "hseparator",
 		       points, 3, FALSE);
+#endif
 
     points[0].x = points[1].x = allocation.width - x_offset - 3;
     points[2].x = points[0].x - width + 6;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    cairo_move_to (cr, points[0].x, points[0].x);
+    cairo_line_to (cr, points[1].x, points[1].x);
+    cairo_move_to (cr, points[1].x, points[1].x);
+    cairo_line_to (cr, points[2].x, points[2].x);
+    cairo_move_to (cr, points[0].x, points[0].x);
+#else
     gtk_paint_polygon (style, gtk_widget_get_window (widget),
 		       state,
 		       GTK_SHADOW_ETCHED_IN,
 		       &expose->area, widget, "hseparator",
 		       points, 3, FALSE);
+#endif
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+   cairo_set_antialias (cr, CAIRO_ANTIALIAS_NONE);
+   cairo_set_line_width (cr, 1.0);
+   cairo_set_source_rgb (cr, 0, 0, 0);
+   cairo_stroke (cr);
+#endif
   }
 
   /* take care of redrawing the kids */
+#if GTK_CHECK_VERSION (3, 0, 0)
+  return GTK_WIDGET_CLASS (mate_volume_control_volume_parent_class)->draw (widget, cr);
+#else
   return GTK_WIDGET_CLASS (mate_volume_control_volume_parent_class)->expose_event (widget, expose);
+#endif
 }
 
 /*

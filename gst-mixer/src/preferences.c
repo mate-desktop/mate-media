@@ -103,7 +103,9 @@ mate_volume_control_preferences_init (MateVolumeControlPreferences *prefs)
 
   /* make window look cute */
   gtk_window_set_title (GTK_WINDOW (prefs), _("Volume Control Preferences"));
+#if !GTK_CHECK_VERSION (3, 0, 0)
   gtk_dialog_set_has_separator (GTK_DIALOG (prefs), FALSE);
+#endif
   gtk_container_set_border_width (GTK_CONTAINER (prefs), 5);
   gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (prefs))), 2);
   gtk_dialog_add_buttons (GTK_DIALOG (prefs),

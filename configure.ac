@@ -66,7 +66,7 @@ AC_MSG_RESULT([$with_gtk])
 
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
-       GTK_REQUIRED_VERSION=2.18.0
+       GTK_REQUIRED_VERSION=2.24.0
        CANBERRA_API_VERSION=
        UNIQUE_API_VERSION=1.0
        ;;
