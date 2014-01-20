@@ -47,6 +47,8 @@ GLIB_REQUIRED_VERSION=2.18.2
 GIO_REQUIRED_VERSION=2.25.0
 PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
+MATE_DESKTOP_REQUIRED_VERSION=1.7.3
+MATE_PANEL_REQUIRED_VERSION=1.7.0
 
 dnl=======================================================================
 dnl Support multiple GTK versions
@@ -65,9 +67,13 @@ AC_MSG_RESULT([$with_gtk])
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GTK_REQUIRED_VERSION=2.18.0
+       CANBERRA_API_VERSION=
+       UNIQUE_API_VERSION=1.0
        ;;
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED_VERSION=3.0.0
+       CANBERRA_API_VERSION=3
+       UNIQUE_API_VERSION=3.0
        ;;
 esac
 
@@ -79,7 +85,7 @@ PKG_CHECK_MODULES(SOUND_THEME,
         gobject-2.0 >= $GLIB_REQUIRED_VERSION
         gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
         gio-2.0 >= $GIO_REQUIRED_VERSION
-        libcanberra-gtk >= $CANBERRA_REQUIRED_VERSION
+        libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
         libxml-2.0,
         have_soundtheme=yes,
         have_soundtheme=no)
@@ -117,9 +123,10 @@ if test "x$enable_pulseaudio" != "xno"; then
             gobject-2.0 >= $GLIB_REQUIRED_VERSION
             gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
             gio-2.0 >= $GIO_REQUIRED_VERSION
-            libcanberra-gtk >= $CANBERRA_REQUIRED_VERSION
-            unique-1.0
+            libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
+            unique-$UNIQUE_API_VERSION
             libxml-2.0
+            mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
     )
 
     AC_SUBST(VOLUME_CONTROL_CFLAGS)
@@ -241,8 +248,8 @@ if test "x$have_gstmixer" = "xyes"; then
         MIXERAPPLET_DEPS="gstreamer-$GST_MAJORMINOR >= $GST_REQ
                            gstreamer-interfaces-$GST_MAJORMINOR >= $GST_REQ
                            gstreamer-audio-$GST_MAJORMINOR >= $GST_REQ
-                           mate-desktop-2.0 >= 1.5.0
-                           libmatepanelapplet-4.0 >= 1.5.0"
+                           mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+                           libmatepanelapplet-4.0 >= $MATE_PANEL_REQUIRED_VERSION"
         PKG_CHECK_MODULES(MIXERAPPLET, $MIXERAPPLET_DEPS, have_gst_mixer_applet_deps=yes, have_gst_mixer_applet_deps=no)
         if test "x$have_gst_mixer_applet_deps" = "xno"; then
             have_gstmixer_applet=no
@@ -372,7 +379,9 @@ echo "
         Compiler:                    ${CC}
         CFLAGS:                      ${CFLAGS}
 
-        PulseAudio Volume Control    $have_pulseaudio
+        GTK+ API version:            ${GTK_API_VERSION}
+
+        PulseAudio Volume Control:   $have_pulseaudio
 
         GStreamer mixer:             $have_gstmixer
         GStreamer mixer applet:      $have_gstmixer_applet
