@@ -29,12 +29,21 @@
 #include <math.h>
 #include <string.h>
 
-#include <glib-object.h>
-#include <gdk/gdkkeysyms.h>
-
 #include <gtk/gtk.h>
 
+#include <glib-object.h>
+#include <gdk/gdkkeysyms.h>
+#if GTK_CHECK_VERSION (3, 0, 0)
+#include <gdk/gdkkeysyms-compat.h>
+#endif
+
 #include <gio/gio.h>
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
+#define gdk_spawn_command_line_on_screen mate_gdk_spawn_command_line_on_screen
+#endif
 
 #include "applet.h"
 #include "keys.h"
@@ -69,10 +78,12 @@ gboolean	mate_volume_applet_key		(GtkWidget *widget,
 static gdouble  mate_volume_applet_get_volume  (GstMixer *mixer,
 						 GstMixerTrack *track);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void	mate_volume_applet_background	(MatePanelApplet *mate_panel_applet,
 						 MatePanelAppletBackgroundType type,
 						 GdkColor  *colour,
 						 GdkPixmap *pixmap);
+#endif
 static void	mate_volume_applet_orientation	(MatePanelApplet *applet,
 						 MatePanelAppletOrient orient);
 
@@ -155,7 +166,9 @@ mate_volume_applet_class_init (MateVolumeAppletClass *klass)
   gtkwidget_class->scroll_event = mate_volume_applet_scroll;
   gtkwidget_class->size_allocate = mate_volume_applet_size_allocate;
   matepanelapplet_class->change_orient = mate_volume_applet_orientation;
+#if !GTK_CHECK_VERSION (3, 0, 0)
   matepanelapplet_class->change_background = mate_volume_applet_background;
+#endif
 
   /* FIXME:
    * - style-set.
@@ -209,6 +222,9 @@ mate_volume_applet_init (MateVolumeApplet *applet)
 		    applet);
 
   /* other stuff */
+#if GTK_CHECK_VERSION (3, 0, 0)
+  mate_panel_applet_set_background_widget (MATE_PANEL_APPLET (applet), GTK_WIDGET (applet));
+#endif
   mate_panel_applet_set_flags (MATE_PANEL_APPLET (applet),
 			  MATE_PANEL_APPLET_EXPAND_MINOR);
 
@@ -375,7 +391,11 @@ gboolean
 mate_volume_applet_setup (MateVolumeApplet *applet,
 			   GList *elements)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+  GtkAdjustment *adj;
+#else
   GtkObject *adj;
+#endif
   static const GtkActionEntry actions[] = {
     { "RunMixer", NULL, N_("_Open Volume Control"),
       NULL, NULL,
@@ -416,8 +436,11 @@ mate_volume_applet_setup (MateVolumeApplet *applet,
   if (res) {
     first_track = g_list_first (applet->tracks)->data;
 
-    applet->adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (50, 0, 100,
-							     4, 10, 0));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    applet->adjustment = gtk_adjustment_new (50, 0, 100, 4, 10, 0);
+#else
+    applet->adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (50, 0, 100, 4, 10, 0));
+#endif
     /* We want a reference from the applet as well as from the dock it
      * will be attached to. */
     g_object_ref_sink (applet->adjustment);
@@ -651,7 +674,11 @@ mate_volume_applet_popdown_dock (MateVolumeApplet *applet)
     return;
 
   /* hide */
+#if GTK_CHECK_VERSION (3, 0, 0)
+  gtk_widget_hide (GTK_WIDGET (applet->dock));
+#else
   gtk_widget_hide_all (GTK_WIDGET (applet->dock));
+#endif
 
   /* set menu item as active */
   gtk_widget_set_state (GTK_WIDGET (applet), GTK_STATE_NORMAL);
@@ -985,6 +1012,7 @@ void mate_volume_applet_size_allocate (GtkWidget     *widget,
   mate_volume_applet_refresh (applet, TRUE, -1, -1);
 }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 mate_volume_applet_background (MatePanelApplet *_applet,
 				MatePanelAppletBackgroundType type,
@@ -1018,6 +1046,7 @@ mate_volume_applet_background (MatePanelApplet *_applet,
       break;
   }
 }
+#endif
 
 /*
  * This needs to be here because not all tracks have the same volume range,

@@ -88,7 +88,9 @@ mate_volume_applet_preferences_init (MateVolumeAppletPreferences *prefs)
 
   /* make window look cute */
   gtk_window_set_title (GTK_WINDOW (prefs), _("Volume Control Preferences"));
+#if !GTK_CHECK_VERSION (3, 0, 0)
   gtk_dialog_set_has_separator (GTK_DIALOG (prefs), FALSE);
+#endif
   gtk_container_set_border_width (GTK_CONTAINER (prefs), 5);
   gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG(prefs))), 2);
   gtk_dialog_add_buttons (GTK_DIALOG (prefs),
@@ -106,7 +108,7 @@ mate_volume_applet_preferences_init (MateVolumeAppletPreferences *prefs)
   gtk_widget_show (label);
 
   /* optionmenu */
-  prefs->optionmenu = gtk_combo_box_new_text ();
+  prefs->optionmenu = gtk_combo_box_text_new ();
   cells = gtk_cell_layout_get_cells (GTK_CELL_LAYOUT (prefs->optionmenu));
   g_object_set (G_OBJECT (cells->data), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
   g_list_free (cells);
@@ -170,7 +172,7 @@ mate_volume_applet_preferences_new (MateVolumeApplet *applet,
   for ( ; elements != NULL; elements = elements->next) {
     gchar *name = g_object_get_data (G_OBJECT (elements->data),
 				     "mate-volume-applet-name");
-    gtk_combo_box_append_text (GTK_COMBO_BOX (prefs->optionmenu), name);
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (prefs->optionmenu), name);
   }
 
   mate_volume_applet_preferences_change (prefs, mixer, tracks);
