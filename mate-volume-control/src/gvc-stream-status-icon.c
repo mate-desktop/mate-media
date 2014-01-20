@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <math.h>
 
 #include <glib.h>
 #include <glib/gi18n.h>
@@ -36,6 +37,12 @@
 #include "gvc-mixer-stream.h"
 #include "gvc-channel-bar.h"
 #include "gvc-stream-status-icon.h"
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
+#define gdk_spawn_command_line_on_screen mate_gdk_spawn_command_line_on_screen
+#endif
 
 #define GVC_STREAM_STATUS_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_STATUS_ICON, GvcStreamStatusIconPrivate))
 
@@ -137,7 +144,11 @@ popup_dock (GvcStreamStatusIcon *icon,
 
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), 
                                (GtkCallback) gtk_widget_show_all, NULL);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
+#else
         gtk_widget_size_request (icon->priv->dock, &dock_req);
+#endif
 
         if (orientation == GTK_ORIENTATION_VERTICAL) {
                 if (area.x + area.width + dock_req.width <= monitor.x + monitor.width) {

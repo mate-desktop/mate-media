@@ -46,13 +46,21 @@ typedef struct GvcBalanceBarPrivate GvcBalanceBarPrivate;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBox                parent;
+#else
         GtkHBox               parent;
+#endif
         GvcBalanceBarPrivate *priv;
 } GvcBalanceBar;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBoxClass           parent_class;
+#else
         GtkHBoxClass          parent_class;
+#endif
 } GvcBalanceBarClass;
 
 GType               gvc_balance_bar_get_type            (void);

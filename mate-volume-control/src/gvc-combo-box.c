@@ -74,7 +74,11 @@ static void     gvc_combo_box_class_init (GvcComboBoxClass *klass);
 static void     gvc_combo_box_init       (GvcComboBox      *combo_box);
 static void     gvc_combo_box_finalize   (GObject            *object);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
+#else
 G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_HBOX)
+#endif
 
 void
 gvc_combo_box_set_size_group (GvcComboBox *combo_box,

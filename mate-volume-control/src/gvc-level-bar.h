@@ -37,13 +37,21 @@ typedef struct GvcLevelBarPrivate GvcLevelBarPrivate;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBox              parent;
+#else
         GtkHBox             parent;
+#endif
         GvcLevelBarPrivate *priv;
 } GvcLevelBar;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBoxClass         parent_class;
+#else
         GtkHBoxClass        parent_class;
+#endif
 } GvcLevelBarClass;
 
 typedef enum

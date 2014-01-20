@@ -23,11 +23,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <math.h>
 
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
+#if GTK_CHECK_VERSION (3, 0, 0)
+#include <gdk/gdkkeysyms-compat.h>
+#endif
 
 #include "gvc-channel-bar.h"
 #include "gvc-balance-bar.h"
@@ -2099,7 +2103,9 @@ gvc_mixer_dialog_new (GvcMixerControl *control)
         dialog = g_object_new (GVC_TYPE_MIXER_DIALOG,
                                "icon-name", "multimedia-volume-control",
                                "title", _("Sound Preferences"),
+#if !GTK_CHECK_VERSION (3, 0, 0)
                                "has-separator", FALSE,
+#endif
                                "mixer-control", control,
                                NULL);
         return GVC_MIXER_DIALOG (dialog);

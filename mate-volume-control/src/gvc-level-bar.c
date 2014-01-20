@@ -86,7 +86,11 @@ static void     gvc_level_bar_class_init (GvcLevelBarClass *klass);
 static void     gvc_level_bar_init       (GvcLevelBar      *level_bar);
 static void     gvc_level_bar_finalize   (GObject            *object);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (GvcLevelBar, gvc_level_bar, GTK_TYPE_BOX)
+#else
 G_DEFINE_TYPE (GvcLevelBar, gvc_level_bar, GTK_TYPE_HBOX)
+#endif
 
 #define check_rectangle(rectangle1, rectangle2)                          \
         {                                                                \
@@ -457,6 +461,30 @@ gvc_level_bar_size_request (GtkWidget      *widget,
 }
 
 static void
+gvc_level_bar_get_preferred_width (GtkWidget *widget,
+                                   gint      *minimum,
+                                   gint      *natural)
+{
+        GtkRequisition requisition;
+
+        gvc_level_bar_size_request (widget, &requisition);
+
+        *minimum = *natural = requisition.width;
+}
+
+static void
+gvc_level_bar_get_preferred_height (GtkWidget *widget,
+                                    gint      *minimum,
+                                    gint      *natural)
+{
+        GtkRequisition requisition;
+
+        gvc_level_bar_size_request (widget, &requisition);
+
+        *minimum = *natural = requisition.height;
+}
+
+static void
 gvc_level_bar_size_allocate (GtkWidget     *widget,
                              GtkAllocation *allocation)
 {
@@ -542,29 +570,40 @@ curved_rectangle (cairo_t *cr,
 }
 
 static int
+#if GTK_CHECK_VERSION (3, 0, 0)
+gvc_level_bar_draw (GtkWidget      *widget,
+                    cairo_t        *cr)
+#else
 gvc_level_bar_expose (GtkWidget      *widget,
                       GdkEventExpose *event)
+#endif
 {
         GvcLevelBar     *bar;
+#if !GTK_CHECK_VERSION (3, 0, 0)
         cairo_t         *cr;
         GtkAllocation   allocation;
+#endif
 
         g_return_val_if_fail (GVC_IS_LEVEL_BAR (widget), FALSE);
+#if !GTK_CHECK_VERSION (3, 0, 0)
         g_return_val_if_fail (event != NULL, FALSE);
 
         /* event queue compression */
         if (event->count > 0) {
                 return FALSE;
         }
+#endif
 
         bar = GVC_LEVEL_BAR (widget);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
         cr = gdk_cairo_create (gtk_widget_get_window (widget));
 
         gtk_widget_get_allocation (widget, &allocation);
         cairo_translate (cr,
                          allocation.x,
                          allocation.y);
+#endif
 
         if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
                 int i;
@@ -637,7 +676,9 @@ gvc_level_bar_expose (GtkWidget      *widget,
                         cairo_stroke (cr);
                 }
         }
+#if !GTK_CHECK_VERSION (3, 0, 0)
         cairo_destroy (cr);
+#endif
 
         return FALSE;
 }
@@ -653,8 +694,14 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
         object_class->set_property = gvc_level_bar_set_property;
         object_class->get_property = gvc_level_bar_get_property;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        widget_class->draw = gvc_level_bar_draw;
+        widget_class->get_preferred_width = gvc_level_bar_get_preferred_width;
+        widget_class->get_preferred_height = gvc_level_bar_get_preferred_height;
+#else
         widget_class->expose_event = gvc_level_bar_expose;
         widget_class->size_request = gvc_level_bar_size_request;
+#endif
         widget_class->size_allocate = gvc_level_bar_size_allocate;
 
         g_object_class_install_property (object_class,

@@ -74,7 +74,11 @@ static gboolean on_scale_scroll_event         (GtkWidget      *widget,
 static void on_adjustment_value_changed       (GtkAdjustment *adjustment,
                                                GvcBalanceBar *bar);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_BOX)
+#else
 G_DEFINE_TYPE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_HBOX)
+#endif
 
 static GtkWidget *
 _scale_box_new (GvcBalanceBar *bar)
@@ -139,7 +143,9 @@ _scale_box_new (GvcBalanceBar *bar)
         bar->priv->end_box = ebox = gtk_hbox_new (FALSE, 6);
         gtk_box_pack_start (GTK_BOX (box), ebox, FALSE, FALSE, 0);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
         gtk_range_set_update_policy (GTK_RANGE (priv->scale), GTK_UPDATE_CONTINUOUS);
+#endif
         ca_gtk_widget_disable_sounds (bar->priv->scale, FALSE);
         gtk_widget_add_events (bar->priv->scale, GDK_SCROLL_MASK);
 

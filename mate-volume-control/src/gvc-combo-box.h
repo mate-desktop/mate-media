@@ -36,13 +36,21 @@ typedef struct GvcComboBoxPrivate GvcComboBoxPrivate;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBox                parent;
+#else
         GtkHBox               parent;
+#endif
         GvcComboBoxPrivate *priv;
 } GvcComboBox;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBoxClass             parent_class;
+#else
         GtkHBoxClass            parent_class;
+#endif
         void (* changed)        (GvcComboBox *combobox, const char *name);
         void (* button_clicked) (GvcComboBox *combobox);
 } GvcComboBoxClass;

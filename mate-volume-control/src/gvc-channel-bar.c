@@ -97,7 +97,11 @@ static gboolean on_scale_scroll_event         (GtkWidget      *widget,
                                                GdkEventScroll *event,
                                                GvcChannelBar  *bar);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_BOX)
+#else
 G_DEFINE_TYPE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_HBOX)
+#endif
 
 static GtkWidget *
 _scale_box_new (GvcChannelBar *bar)
@@ -157,7 +161,9 @@ _scale_box_new (GvcChannelBar *bar)
                 gtk_box_pack_start (GTK_BOX (ebox), priv->mute_box, FALSE, FALSE, 0);
         }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
         gtk_range_set_update_policy (GTK_RANGE (priv->scale), GTK_UPDATE_CONTINUOUS);
+#endif
         ca_gtk_widget_disable_sounds (bar->priv->scale, FALSE);
         gtk_widget_add_events (bar->priv->scale, GDK_SCROLL_MASK);
 
