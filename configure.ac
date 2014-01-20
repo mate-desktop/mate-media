@@ -278,11 +278,7 @@ AC_ARG_ENABLE(deprecated,
          [enable_deprecated=no])
 
 if test "x$enable_deprecated" = "xyes"; then
-   DISABLE_DEPRECATED="\
-   -DMATE_DISABLE_DEPRECATED \
-   -DGDK_PIXBUF_DISABLE_DEPRECATED \
-   -DGTK_DISABLE_DEPRECATED \
-   -DGDK_DISABLE_DEPRECATED"
+   DISABLE_DEPRECATED=""
      AC_SUBST(DISABLE_DEPRECATED)
 fi
 
