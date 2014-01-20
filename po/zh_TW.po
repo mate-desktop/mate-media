@@ -3,21 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2008.
-# Fernando <bv1al@journalist.com.tw>, 1999.
+# Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2008
+# Fernando <bv1al@journalist.com.tw>, 1999
+# Wei-Lun Chao <bluebat@member.fsf.org>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2013-04-10 16:27+0000\n"
+"Last-Translator: Wei-Lun Chao <bluebat@member.fsf.org>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -142,7 +143,7 @@ msgstr "靜音"
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
-msgstr "設定組合(_P):"
+msgstr "側寫檔(_P):"
 
 #. translators:
 #. * The device has been disabled
@@ -158,7 +159,7 @@ msgstr "已停用"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
+msgstr[0] "%u 輸出"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -166,7 +167,7 @@ msgstr[0] ""
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
+msgstr[0] "%u 輸入"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
@@ -464,7 +465,7 @@ msgstr "一個以 MATE/GStreamer 為基礎的音量控制程式"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "如對翻譯有任何意見，請送一封電子郵件給\n以下地址，MATE 翻譯團隊會盡快回覆您：\nzh-l10n@lists.linux.org.tw\n\nWoodman Tuen <wmtuen@gmail.com>, 2004-07\nAbel Cheung <abel@oaka.org>, 2001-2003.\nFernando <bv1al@journalist.com.tw>, 1999."
+msgstr "趙惟倫 <bluebat@member.fsf.org>, 2012\nWoodman Tuen <wmtuen@gmail.com>, 2004-07\nAbel Cheung <abel@oaka.org>, 2001-2003.\nFernando <bv1al@journalist.com.tw>, 1999."
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -590,12 +591,12 @@ msgstr "ALSA — 先進 Linux 音效架構"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
-msgstr "Artsd — ART 音效伺服程式"
+msgstr "Artsd — ART 音效守護程式"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
 msgid "ESD — Enlightenment Sound Daemon"
-msgstr "ESD — Enlightenment 音效伺服程式"
+msgstr "ESD — Enlightenment 音效守護程式"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
@@ -687,7 +688,7 @@ msgstr "顯示說明文件時出現錯誤：%s"
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "編輯設定組合“%s”"
+msgstr "編輯側寫檔“%s”"
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
@@ -700,19 +701,19 @@ msgstr "<沒有描述>"
 #: ../profiles/audio-profile.c:208
 #, c-format
 msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "讀取 gm_audio 設定組合的清單時發生錯誤。(%s)\n"
+msgstr "讀取 gm_audio 側寫檔的清單時發生錯誤。(%s)\n"
 
 #: ../profiles/audio-profile.c:709
 #, c-format
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "訂閱音效設定組合清單已改變的通知時發生錯誤。(%s)\n"
+msgstr "訂閱音效側寫檔清單已改變的通知時發生錯誤。(%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
 msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "捨棄設定組合路徑 %s 時發生錯誤。(%s)\n"
+msgstr "捨棄側寫檔路徑 %s 時發生錯誤。(%s)\n"
 
 #: ../profiles/audio-profiles-edit.c:78
 msgid "_Edit"
@@ -723,29 +724,29 @@ msgstr "編輯(_E)"
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
-msgstr[0] ""
+msgstr[0] "刪除這 %d 個側寫檔？\n"
 
 #: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
-msgstr "刪除設定組合“%s”?"
+msgstr "刪除側寫檔“%s”?"
 
 #: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
-msgstr "刪除設定組合"
+msgstr "刪除側寫檔"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "編輯 MATE 音效設定組合"
+msgstr "編輯 MATE 音效側寫檔"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
-msgstr "設定組合(_P):"
+msgstr "側寫檔(_P):"
 
 #: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
-msgstr "您已經有一個設定組合稱為“%s”"
+msgstr "您已經有一個側寫檔稱為“%s”"
 
 #: ../profiles/audio-profiles-edit.c:846
 #, c-format
@@ -768,11 +769,11 @@ msgstr "%s\n執行「%s --help」可列出命令列中可用的完整選項。\n
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
-msgstr "編輯音效設定組合"
+msgstr "編輯音效側寫檔"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
-msgstr "設定組合描述(_D):"
+msgstr "側寫檔描述(_D):"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:3
 msgid "_Active?"
@@ -789,11 +790,11 @@ msgstr "_GStreamer 管線："
 #: ../profiles/mate-audio-profile-edit.ui.h:6
 #: ../profiles/mate-audio-profile-new.ui.h:3
 msgid "_Profile name:"
-msgstr "設定組合名稱(_P):"
+msgstr "側寫檔名稱(_P):"
 
 #: ../profiles/mate-audio-profile-new.ui.h:1
 msgid "New Profile"
-msgstr "新增設定組合"
+msgstr "新增側寫檔"
 
 #: ../profiles/mate-audio-profile-new.ui.h:2
 msgid "_Create"
@@ -801,60 +802,60 @@ msgstr "新增(_C)"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
 msgid "List of profiles"
-msgstr "設定組合清單"
+msgstr "側寫檔清單"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:2
 msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "錄音設定組合的清單。這清單列出了與 /system/gstreamer/@GST_MAJORMINOR@/audio/profiles 相關的子目錄的名稱。"
+msgstr "錄音側寫檔的清單。這清單列出了與 /system/gstreamer/@GST_MAJORMINOR@/audio/profiles 相關的子目錄的名稱。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
-msgstr "音效設定組合的簡稱"
+msgstr "音效側寫檔的簡稱"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "音效設定組合的簡稱，在選取及確認該設定組合時使用。"
+msgstr "音效側寫檔的簡稱，在選取及確認該側寫檔時使用。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "設定組合的描述"
+msgstr "側寫檔的描述"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
 "A description of the profile, containing more information and describing "
 "when to use this profile."
-msgstr "設定組合的描述。包含更多在甚麼時候使用這設定組合的資料與描述。"
+msgstr "側寫檔的描述。包含更多在甚麼時候使用這側寫檔的資料與描述。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
 msgid "The partial GStreamer pipeline used"
-msgstr "所使用的部份 GStreamer 管線"
+msgstr "所使用的部分 GStreamer 管線"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
 msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "這設定組合所使用的部份 GStreamer 管線。"
+msgstr "這側寫檔所使用的部分 GStreamer 管線。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
-msgstr "這設定組合的預設延伸檔名"
+msgstr "這側寫檔的預設延伸檔名"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:10
 msgid ""
 "A filename extension to be used when storing files encoded with this "
 "profile."
-msgstr "使用此設定組合來進行編碼時，儲存檔案所使用的延伸檔名。"
+msgstr "使用此側寫檔來進行編碼時，儲存檔案所使用的延伸檔名。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:11
 msgid "Whether this profile is to be used"
-msgstr "是否使用這個設定組合"
+msgstr "是否使用這個側寫檔"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:12
 msgid "Whether to use and display this profile."
-msgstr "是否使用及顯示這個設定組合。"
+msgstr "是否使用及顯示這個側寫檔。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
@@ -864,7 +865,7 @@ msgstr "CD 品質，破壞性"
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr "用作轉換 CD 品質的音效，但使用失真的編碼器。適用於音樂光碟擷取或錄下電台廣播。"
+msgstr "用作轉換 CD 品質的音效，但使用失真的編碼器。適用於音樂光碟擷取或錄下電臺廣播。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"

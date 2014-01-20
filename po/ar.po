@@ -3,27 +3,28 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
-# Anas Afif Emad <anas.e87@gmail.com, 2008.
-# Arafat Medini <lumina@silverpen.de>, 2002, 2003.
-# Djihed Afifi <djihed@gmail.com>, 2006.
-# Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
-# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008, 2009, 2010.
-# <lumina@silverpen.de>, 2003.
-# Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002.
+# Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004
+# Anas Afif Emad <anas.e87@gmail.com, 2008
+# Arafat Medini <lumina@silverpen.de>, 2002-2003
+# Djihed Afifi <djihed@gmail.com>, 2006
+# Isam Bayazidi <bayazidi@arabeyes.org>, 2002
+# Khaled Hosny <khaledhosny@eglug.org>, 2006-2010
+# <lumina@silverpen.de>, 2003
+# moceap <moceap@hotmail.com>, 2013
+# Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-10-05 15:03+0000\n"
+"Last-Translator: mauron\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/MATE/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -56,7 +57,7 @@ msgstr "إصدارة هذا التطبيق"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr " — بريمج التحكم في شدة الصوت"
+msgstr " — بريمج متّة للتحكم في شدة الصوت"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
@@ -68,7 +69,7 @@ msgstr "صفحة البدء"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr " — تحكم جنوم في شدة الصوت"
+msgstr " — تحكم متّة في شدة الصوت"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
@@ -331,7 +332,7 @@ msgstr "متحكم مجهول شدة الصوت %Id"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "لم يوجد إضافات متحكم شدة الصوت GStreamer و/أو أجهزة."
+msgstr "لم يوجد إضافات متحكم شدة الصوت جستريمر و/أو أجهزة."
 
 #: ../gst-mixer/src/misc.c:62
 msgid "Playback"
@@ -417,7 +418,7 @@ msgstr "المقطوعة %s: أقفل القنوات مع بعضها"
 
 #: ../gst-mixer/src/volume.c:201
 msgid "mono"
-msgstr "1 (مونو)"
+msgstr "أحادي"
 
 #: ../gst-mixer/src/volume.c:203
 msgid "left"
@@ -476,11 +477,11 @@ msgstr "شدة الصوت ل %s في قناة %s"
 
 #: ../gst-mixer/src/window.c:133
 msgid "A MATE/GStreamer-based volume control application"
-msgstr "تطبيق لشدة الصوت معتمد على جنوم/جستريمر"
+msgstr "تطبيق التحكم بشدة الصوت معتمد على متّة/جستريمر"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "فريق عربآيز للترجمة http://www.arabeyes.org :\nجهاد عفيفي\t<djihed@gmail.com>\nخالد حسني\t<khaledhosny@eglug.org>\nأنس عفيف عماد\t<anas.e87@gmail.com>"
+msgstr "فريق عيون العرب للترجمة http://www.arabeyes.org :\nجهاد عفيفي\t<djihed@gmail.com>\nخالد حسني\t<khaledhosny@eglug.org>\nأنس عفيف عماد\t<anas.e87@gmail.com>\nمصعب الزعبي\t<moceap@hotmail.com>\nمراجعة و إتمام بواسطة عيون العرب http://arabeyes.org و مجتمع لينكس العربي http://linuxac.org عام 1434 بإشراف مصعب الزعبي moceap@hotmail.com"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -757,7 +758,7 @@ msgstr "احذف الطور"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "حرّر أطوار صوت جنوم"
+msgstr "حرّر أطوار صوت متّة"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"

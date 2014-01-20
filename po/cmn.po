@@ -3,126 +3,127 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# ard1t <ardit.dani@gmail.com>, 2014
-# Laurent Dhima  <laurenti@alblinux.net>, 2003-2006, 2008
+# Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2008
+# Fernando <bv1al@journalist.com.tw>, 1999
+# Wei-Lun Chao <bluebat@member.fsf.org>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2014-01-16 15:10+0000\n"
-"Last-Translator: ard1t <ardit.dani@gmail.com>\n"
-"Language-Team: Albanian (http://www.transifex.com/projects/p/MATE/language/sq/)\n"
+"PO-Revision-Date: 2013-11-21 07:06+0000\n"
+"Last-Translator: Wei-Lun Chao <bluebat@member.fsf.org>\n"
+"Language-Team: Chinese (Mandarin) (http://www.transifex.com/projects/p/MATE/language/cmn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sq\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: cmn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
-msgstr "Kontrolli i volumit"
+msgstr "音量控制"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr ""
+msgstr "顯示桌面音量控制"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr "Zëri"
+msgstr "聲音"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "改變音效的音量和音效事件"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
 msgid "Enable debugging code"
-msgstr "Aktivo kodin e debug"
+msgstr "啟用除錯碼"
 
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr "Versioni i këtij programi"
+msgstr "這個程式的版本"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr "— MATE Kontrolli i Volumit Applet"
+msgstr " — MATE 音量控制面板程式"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
-msgstr ""
+msgstr "正在等候音效系統回應"
 
 #: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
 msgid "Startup page"
-msgstr "Faqja e nisjes"
+msgstr "啟始頁面"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr "— MATEKontrolli i Volumit"
+msgstr " — MATE 音量控制"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
-msgstr ""
+msgstr "輸出"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "音效輸出音量"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
-msgstr ""
+msgstr "輸入"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
-msgstr ""
+msgstr "麥克風音量"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
-msgstr "Majtas"
+msgstr "左"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
-msgstr "Djathtas"
+msgstr "右"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "後"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "前"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
-msgstr "Minimum"
+msgstr "最小值"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
-msgstr "Maksimum"
+msgstr "最大值"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
-msgstr "_Balanca:"
+msgstr "平衡(_B):"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
-msgstr ""
+msgstr "淡化(_F):"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:300
 msgid "_Subwoofer:"
-msgstr ""
+msgstr "重低音(_S):"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:602
 #: ../mate-volume-control/src/gvc-channel-bar.c:611
@@ -133,16 +134,16 @@ msgstr "100%"
 #: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
-msgstr ""
+msgstr "未經放大"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
-msgstr ""
+msgstr "靜音"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
-msgstr "_Profilet:"
+msgstr "側寫檔(_P):"
 
 #. translators:
 #. * The device has been disabled
@@ -150,7 +151,7 @@ msgstr "_Profilet:"
 #: ../sound-theme/gvc-sound-theme-editor.c:895
 #: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
-msgstr "Çaktivizuar"
+msgstr "已停用"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -158,8 +159,7 @@ msgstr "Çaktivizuar"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u 輸出"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -167,89 +167,88 @@ msgstr[1] ""
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u 輸入"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
-msgstr "Zëri i Sistemit"
+msgstr "系統音效"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:309
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:604
 msgid "Co_nnector:"
-msgstr ""
+msgstr "連接器(_N):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:517
 msgid "Peak detect"
-msgstr ""
+msgstr "峰值檢測"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
-msgstr "Emri"
+msgstr "名稱"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
-msgstr "Dispozitivi"
+msgstr "裝置"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "Ttestimi Bokseve për %s"
+msgstr "%s 的喇叭測試"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
-msgstr "Testo Bokset"
+msgstr "測試喇叭"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
-msgstr ""
+msgstr "輸出音量(_O):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
-msgstr "Efektet Zanore"
+msgstr "聲音效果"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
-msgstr ""
+msgstr "警示音量(_A):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
-msgstr ""
+msgstr "硬體"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
-msgstr ""
+msgstr "選擇要設定的裝置(_H):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
-msgstr "Konfigurime për dispozitivët e përzgjedhur:"
+msgstr "已選取裝置的設定值："
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
-msgstr ""
+msgstr "輸入音量(_I):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
-msgstr ""
+msgstr "輸入等級:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
-msgstr ""
+msgstr "選擇聲音輸入的裝置(_H):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
-msgstr ""
+msgstr "選擇聲音輸出的裝置(_H):"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr ""
+msgstr "應用程式"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr ""
+msgstr "沒有應用程式目前正在播放或錄製音效。"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -258,91 +257,91 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:560
 #: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
-msgstr "Preferencat Zanore"
+msgstr "音效偏好設定"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 msgid "Stop"
-msgstr "Ndalo"
+msgstr "停止"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
 msgid "Test"
-msgstr "Test"
+msgstr "測試"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
 msgid "Subwoofer"
-msgstr ""
+msgstr "重低音"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr ""
+msgstr "啟動音效偏好設定失敗：%s"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
-msgstr "_Heshtur"
+msgstr "靜音(_M)"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "音效偏好設定(_S)"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
-msgstr "Heshtur"
+msgstr "靜音"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
-msgstr "Lartësia e dritares"
+msgstr "視窗高度"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
 msgid "Height of the window to be displayed."
-msgstr ""
+msgstr "顯示的視窗的高度。"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
-msgstr "Gjerësia e Dritares"
+msgstr "視窗寬度"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
 msgid "Width of the window to be displayed."
-msgstr ""
+msgstr "顯示的視窗的寬度。"
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
-msgstr ""
+msgstr "音效主題"
 
 #: ../gst-mixer/src/main.c:82
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Kontroll i panjohur volumi %d"
+msgstr "不明的音量控制 %d"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "Nuk u gjetën plugins dhe/apo dispozitivët GStreamer të kontrollit të volumit."
+msgstr "找不到音量控制 GStreamer 外掛程式或裝置。"
 
 #: ../gst-mixer/src/misc.c:62
 msgid "Playback"
-msgstr "Playback"
+msgstr "播放"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
-msgstr "Regjistrimi"
+msgstr "錄音中"
 
 #: ../gst-mixer/src/misc.c:66
 msgid "Switches"
-msgstr "Ndryshues"
+msgstr "開關"
 
 #: ../gst-mixer/src/misc.c:68
 msgid "Options"
-msgstr "Opsione"
+msgstr "選項"
 
 #. make window look cute
 #: ../gst-mixer/src/preferences.c:107
 msgid "Volume Control Preferences"
-msgstr "Preferimet e kontrollit të volumit"
+msgstr "音量控制偏好設定"
 
 #: ../gst-mixer/src/preferences.c:120
 msgid "_Select mixers to be visible:"
-msgstr ""
+msgstr "選擇要顯示的混音器(_S):"
 
 #: ../gst-mixer/src/track.c:295
 #, c-format
@@ -353,85 +352,85 @@ msgstr "%s:"
 #: ../gst-mixer/src/track.c:339
 #, c-format
 msgid "Mute/Unmute %s"
-msgstr "Heshtur/Me'zë %s"
+msgstr "靜音/解除靜音 %s"
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
 msgid "Track %s: mute"
-msgstr "Track %s: pa zë"
+msgstr "歌曲 %s：靜音"
 
 #. only the record button here
 #: ../gst-mixer/src/track.c:433
 #, c-format
 msgid "Toggle audio recording from %s"
-msgstr "Shkëmben regjistrimin audio nga %s"
+msgstr "切換從 %s 錄音"
 
 #: ../gst-mixer/src/track.c:449
 #, c-format
 msgid "Track %s: audio recording"
-msgstr "Track %s: regjistrim audio"
+msgstr "歌由 %s：錄音"
 
 #: ../gst-mixer/src/track.c:562
 #, c-format
 msgid "%s Option Selection"
-msgstr "Zgjedhja e opsionit %s"
+msgstr "%s 選項"
 
 #: ../gst-mixer/src/volume.c:112
 #, c-format
 msgid "Track %s"
-msgstr "Track %s"
+msgstr "聲道 %s"
 
 #: ../gst-mixer/src/volume.c:115
 #, c-format
 msgid "Channel %d of track %s"
-msgstr "Kanali %d i track %s"
+msgstr "%2$s 聲道的第 %1$d 個頻道"
 
 #: ../gst-mixer/src/volume.c:118
 #, c-format
 msgid "Track %s, channel %d"
-msgstr "Track %s, kanali %d"
+msgstr "聲道 %s，頻道 %d"
 
 #: ../gst-mixer/src/volume.c:138
 #, c-format
 msgid "Lock channels for %s together"
-msgstr "Blloko së bashku kanalet për %s"
+msgstr "將 %s 的頻道鎖定"
 
 #: ../gst-mixer/src/volume.c:156
 #, c-format
 msgid "Track %s: lock channels together"
-msgstr "Track %s: blloko së bashku kanalet"
+msgstr "聲道 %s：將頻道鎖定"
 
 #: ../gst-mixer/src/volume.c:201
 msgid "mono"
-msgstr "mono"
+msgstr "單聲道"
 
 #: ../gst-mixer/src/volume.c:203
 msgid "left"
-msgstr "majtas"
+msgstr "左"
 
 #: ../gst-mixer/src/volume.c:203
 msgid "right"
-msgstr "djathtas"
+msgstr "右"
 
 #: ../gst-mixer/src/volume.c:206
 msgid "front left"
-msgstr "ballore majtas"
+msgstr "前左"
 
 #: ../gst-mixer/src/volume.c:207
 msgid "front right"
-msgstr "ballore djathtas"
+msgstr "前右"
 
 #: ../gst-mixer/src/volume.c:208
 msgid "rear left"
-msgstr "mbrapa majtas"
+msgstr "後左"
 
 #: ../gst-mixer/src/volume.c:209
 msgid "rear right"
-msgstr "mbrapa djathtas"
+msgstr "後右"
 
 #: ../gst-mixer/src/volume.c:210
 msgid "front center"
-msgstr "ballor qendror"
+msgstr "前中"
 
 #. Translators: This is the name of a surround sound channel. It
 #. * stands for "Low-Frequency Effects". If you're not sure that
@@ -443,181 +442,181 @@ msgstr "LFE"
 
 #: ../gst-mixer/src/volume.c:216
 msgid "side left"
-msgstr "anësor majtas"
+msgstr "左邊"
 
 #: ../gst-mixer/src/volume.c:217
 msgid "side right"
-msgstr "anësor djathtas"
+msgstr "右邊"
 
 #: ../gst-mixer/src/volume.c:218
 msgid "unknown"
-msgstr "panjohur"
+msgstr "不明"
 
 #. Here, we can actually tell people that this
 #. * is a slider that will change channel X.
 #: ../gst-mixer/src/volume.c:224
 #, c-format
 msgid "Volume of %s channel on %s"
-msgstr "Volumi i kanalit %s në %s"
+msgstr "在 %2$s 上 %1$s 頻道的音量"
 
 #: ../gst-mixer/src/window.c:133
 msgid "A MATE/GStreamer-based volume control application"
-msgstr "Një aplikativ për kontrollin e volumit i bazuar në MATE/GStreamer"
+msgstr "一個以 MATE/GStreamer 為基礎的音量控制程式"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "Laurent Dhima <laurenti@alblinux.net>"
+msgstr "趙惟倫 <bluebat@member.fsf.org>, 2012, 2013\nWoodman Tuen <wmtuen@gmail.com>, 2004-07\nAbel Cheung <abel@oaka.org>, 2001-2003.\nFernando <bv1al@journalist.com.tw>, 1999."
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
 #, c-format
 msgid "Volume Control: %s"
-msgstr "Kontrolli i Volumit: %s"
+msgstr "音量控制：%s"
 
 #: ../gst-mixer/src/window.c:378
 msgid "_Device: "
-msgstr "_Dispozitivi: "
+msgstr "裝置(_V):"
 
 #. set tooltips
 #: ../gst-mixer/src/window.c:417
 msgid "Control volume on a different device"
-msgstr "Kontrollo volumin në një dispozitiv tjetër"
+msgstr "在不同裝置上控制音量"
 
 #: ../gstreamer-properties/gstreamer-properties.c:204
 msgid "None"
-msgstr "Asnjë"
+msgstr "沒有"
 
 #. Element does not support setting devices
 #: ../gstreamer-properties/gstreamer-properties.c:246
 msgid "Unsupported"
-msgstr "Nuk suportohet"
+msgstr "不支援"
 
 #: ../gstreamer-properties/gstreamer-properties.c:268
 #: ../sound-theme/gvc-sound-theme-chooser.c:850
 #: ../sound-theme/gvc-sound-theme-editor.c:891
 #: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
-msgstr "Paracaktuar"
+msgstr "預設值"
 
 #: ../gstreamer-properties/gstreamer-properties.c:301
 msgid "Unknown"
-msgstr "Nuk njihet"
+msgstr "不明"
 
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
-msgstr "Gabim gjatë krijimit të dritares kryesore"
+msgstr "開啟主視窗出現錯誤"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr ""
+msgstr "無法載入 UI 檔案；請檢查安裝是否正確。"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
-msgstr "Zgjedhësi i sistemeve multimedialë"
+msgstr "多媒體系統選擇器"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
 msgid "Configure defaults for GStreamer applications"
-msgstr "Sjellja e paracaktuar për aplikativët GStreamer"
+msgstr "修改 GStreamer 應用程式的預設設定"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr ""
+msgstr "預設輸出"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
-msgstr "_Plugin:"
+msgstr "外掛程式(_P):"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
-msgstr "P_ipeline:"
+msgstr "管線(_I):"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "_Test"
-msgstr "_Prova"
+msgstr "測試(_T)"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:6
 msgid "_Device:"
-msgstr "_Dispozitivi:"
+msgstr "裝置(_D):"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr ""
+msgstr "預設輸入"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
-msgstr "P_lugin:"
+msgstr "外掛程式(_L):"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:9
 msgid "Pipeli_ne:"
-msgstr "Pipeli_ne:"
+msgstr "管線(_N):"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:10
 msgid "Te_st"
-msgstr "Pro_vë"
+msgstr "測試(_S)"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
 msgid "D_evice:"
-msgstr "D_ispozitivi:"
+msgstr "裝置(_E):"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
 msgid "Audio"
-msgstr "Zëri"
+msgstr "音訊"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
-msgstr "Video"
+msgstr "視訊"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
 msgid "Testing Pipeline"
-msgstr "Verifikimi i pipeline"
+msgstr "正在測試管線"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr "Testim..."
+msgstr "正在測試…"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
-msgstr "Kliko «OK» për të mbaruar."
+msgstr "請按確定來結束。"
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
 msgid "Autodetect"
-msgstr "Zbulim automatik"
+msgstr "自動偵測"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
 msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "ALSA — 先進 Linux 音效架構"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
-msgstr ""
+msgstr "Artsd — ART 音效守護程式"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
 msgid "ESD — Enlightenment Sound Daemon"
-msgstr ""
+msgstr "ESD — Enlightenment 音效守護程式"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
 msgid "OSS — Open Sound System"
-msgstr ""
+msgstr "OSS — 開放音效系統"
 
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
 msgid "OSS - Open Sound System Version 4"
-msgstr ""
+msgstr "OSS — 開放音效系統第 4 版"
 
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
-msgstr "PulseAudio Sound Server"
+msgstr "PulseAudio 聲音伺服器"
 
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
 msgid "Sun Audio"
-msgstr ""
+msgstr "Sun 音效"
 
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
@@ -628,7 +627,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:759
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Personalizuar"
+msgstr "自訂"
 
 #: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
@@ -636,29 +635,29 @@ msgstr "OpenGL"
 
 #: ../gstreamer-properties/pipeline-constants.c:110
 msgid "SDL — Simple DirectMedia Layer"
-msgstr ""
+msgstr "SDL — 簡易直接媒體層"
 
 #: ../gstreamer-properties/pipeline-constants.c:112
 msgid "X Window System (No Xv)"
-msgstr "X Window System (pa Xv)"
+msgstr "X 視窗系統（非 Xv）"
 
 #: ../gstreamer-properties/pipeline-constants.c:114
 msgid "X Window System (X11/XShm/Xv)"
-msgstr "X Window System (X11/XShm/Xv)"
+msgstr "X 視窗系統 (X11/XShm/Xv)"
 
 #. Note: using triangle instead of sine for test sound so we
 #. * can test the vorbis encoder as well (otherwise it'd compress too well)
 #: ../gstreamer-properties/pipeline-constants.c:140
 msgid "Test Sound"
-msgstr "Test sonor"
+msgstr "音效測試"
 
 #: ../gstreamer-properties/pipeline-constants.c:142
 msgid "Silence"
-msgstr "Pa zë"
+msgstr "無聲"
 
 #: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr "MJPEG (p.sh. dispozitiv Zoran v4l)"
+msgstr "MJPEG（如 Zoran v4l 裝置）"
 
 #: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
@@ -666,7 +665,7 @@ msgstr "QCAM"
 
 #: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
-msgstr "Prova e hyrjes"
+msgstr "輸入測試"
 
 #: ../gstreamer-properties/pipeline-constants.c:155
 msgid "Video for Linux (v4l)"
@@ -679,229 +678,228 @@ msgstr "Video for Linux 2 (v4l2)"
 #: ../gstreamer-properties/pipeline-tests.c:176
 #, c-format
 msgid "Failed to construct test pipeline for '%s'"
-msgstr "Gabim gjatë ndërtimit të pipeline së test për '%s'"
+msgstr "無法產生「%s」的管線測試"
 
 #: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
-msgstr "U verifikua një gabim gjatë shfaqjes së ndihmës: %s"
+msgstr "顯示說明文件時出現錯誤：%s"
 
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "Duke ndryshuar profilin \"%s\""
+msgstr "編輯側寫檔“%s”"
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
-msgstr "<pa emër>"
+msgstr "<沒有名稱>"
 
 #: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
 msgid "<no description>"
-msgstr "<asnjë përshkrim>"
+msgstr "<沒有描述>"
 
 #: ../profiles/audio-profile.c:208
 #, c-format
 msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "Gabim gjatë marrjes së listës me profilet gm_audio. (%s)\n"
+msgstr "讀取 gm_audio 側寫檔的列表時發生錯誤。(%s)\n"
 
 #: ../profiles/audio-profile.c:709
 #, c-format
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Gabim gjatë regjistrimit të ndryshimeve të listës së profilit audio. (%s)\n"
+msgstr "訂閱音效側寫檔列表已改變的通知時發生錯誤。(%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
 msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Gabim gjatë fshirjes nga kujtesa të pozicionit të profilit %s. (%s)\n"
+msgstr "捨棄側寫檔路徑 %s 時發生錯誤。(%s)\n"
 
 #: ../profiles/audio-profiles-edit.c:78
 msgid "_Edit"
-msgstr "_Ndrysho"
+msgstr "編輯(_E)"
 
 #. the first argument will never be used since we only run for count > 1
 #: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
-msgstr[0] "Eleminoj këtë profil?\n"
-msgstr[1] "Eleminoj këto %d profile?\n"
+msgstr[0] "刪除這 %d 個側寫檔？\n"
 
 #: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
-msgstr "Eleminoj profilin \"%s\"?"
+msgstr "刪除側寫檔“%s”？"
 
 #: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
-msgstr "Elemino profilin"
+msgstr "刪除側寫檔"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "Ndrysho profilet audio të MATE"
+msgstr "編輯 MATE 音效側寫檔"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
-msgstr "_Profilet:"
+msgstr "側寫檔(_P):"
 
 #: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
-msgstr "Një profil me emrin \"%s\" ekziston"
+msgstr "您已經有一個側寫檔稱為“%s”"
 
 #: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
-msgstr "Gabim MateConf (FIXME): %s\n"
+msgstr "MateConf 錯誤(FIXME):%s\n"
 
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "File \"%s\" mungon. Kjo do të thotë që programi nuk është instaluar si duhet, prandaj dritarja e dialogut nuk mund të hapet."
+msgstr "檔案“%s”不存在。這表示該應用程式沒有正確地安裝。所以對話盒不能顯示。"
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
+msgstr "%s\n執行「%s --help」可列出命令列中可用的完整選項。\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
-msgstr "Ndrysho profilin audio"
+msgstr "編輯音效側寫檔"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
-msgstr "Pë_rshkrimi i profilit:"
+msgstr "側寫檔描述(_D):"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:3
 msgid "_Active?"
-msgstr "_Aktivoj?"
+msgstr "啟用(_A)"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:4
 msgid "_File extension:"
-msgstr "Mbrapashtesa e _file:"
+msgstr "檔案延伸(_F):"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:5
 msgid "_GStreamer pipeline:"
-msgstr "Pipeline _GStreamer:"
+msgstr "_GStreamer 管線："
 
 #: ../profiles/mate-audio-profile-edit.ui.h:6
 #: ../profiles/mate-audio-profile-new.ui.h:3
 msgid "_Profile name:"
-msgstr "Emri i _Profilit:"
+msgstr "側寫檔名稱(_P):"
 
 #: ../profiles/mate-audio-profile-new.ui.h:1
 msgid "New Profile"
-msgstr "Profil i ri"
+msgstr "新增側寫檔"
 
 #: ../profiles/mate-audio-profile-new.ui.h:2
 msgid "_Create"
-msgstr "_Krijo"
+msgstr "新增(_C)"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
 msgid "List of profiles"
-msgstr "Lista e profileve"
+msgstr "側寫檔列表"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:2
 msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Lista e profileve të regjistrimit audio. Lista përmban emrat e nën-directories relative me /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "錄音側寫檔的列表。這列表列出了與 /system/gstreamer/@GST_MAJORMINOR@/audio/profiles 相關的子目錄的名稱。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
-msgstr "Një emër i shkurtër për profilin audio"
+msgstr "音效側寫檔的簡稱"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "Një emër i shkurtër për profilin audio, për tu përdorur gjatë zgjedhjeve dhe që identifikon në menyrë të qartë profilin."
+msgstr "音效側寫檔的簡稱，在選取及確認該側寫檔時使用。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "Një përshkrim për profilin audio"
+msgstr "側寫檔的描述"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
 "A description of the profile, containing more information and describing "
 "when to use this profile."
-msgstr "Një përshkrim i profilit, përmban informacione më të hollësishme dhe përshkruan kur duhet përdorur ky profil."
+msgstr "側寫檔的描述。包含更多在甚麼時候使用這側寫檔的資料與描述。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
 msgid "The partial GStreamer pipeline used"
-msgstr "Pipeline GStreamer e pjesëshme e përdorur"
+msgstr "所使用的部分 GStreamer 管線"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
 msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "Një pipeline GStreamer e pjesëshme e përdorur për këtë profil."
+msgstr "這側寫檔所使用的部分 GStreamer 管線。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
-msgstr "Mbrapashtesa e prezgjedhur e file për këtë profil"
+msgstr "這側寫檔的預設延伸檔名"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:10
 msgid ""
 "A filename extension to be used when storing files encoded with this "
 "profile."
-msgstr "Një mbrapashtesë e emrit të file që duhet përdorur kur ruhen files e koduar me këtë profil."
+msgstr "使用此側寫檔來進行編碼時，儲存檔案所使用的延伸檔名。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:11
 msgid "Whether this profile is to be used"
-msgstr ""
+msgstr "是否使用這個側寫檔"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:12
 msgid "Whether to use and display this profile."
-msgstr ""
+msgstr "是否使用及顯示這個側寫檔。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
-msgstr "Kualitet CD, me humbje"
+msgstr "CD 品質，破壞性"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:14
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr "Përdoret për të konvertuar në një kualitet audio për CD, por me një codec kompresimi me humbje. Përdorni këtë për nxjerrje nga CD dhe regjistrime nga radio."
+msgstr "用作轉換 CD 品質的音效，但使用失真的編碼器。適用於音樂光碟擷取或錄下電臺廣播。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"
-msgstr "Kualitet CD, pak humbje"
+msgstr "CD 品質，非破壞性"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Përdoret për të konvertuar në një kualitet audio për CD, por me një codec kompresimi për pak humbje. Përdorni këtë nëse më vonë dëshironi të ndryshoni këtë file apo t'a shkruani në CD."
+msgstr "用作轉換 CD 品質的音效，但使用不失真的編碼器。適用於日後編輯該檔案或將檔案燒錄至光碟。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
-msgstr "Zë, pak humbje"
+msgstr "語音，不失真"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
-msgstr "Përdoret për konvertim në kualitet audio e folur. Përdore për regjistrime të dhe ndryshime të të folurit."
+msgstr "用作轉換為沒有失真語音品質的音效。適用於需要編輯的演講錄音。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
-msgstr "Zë, kualitet i ulët"
+msgstr "語音，失真"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:20
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
-msgstr "Përdoret për konvertim në kualitet të ulët audio e folur. Përdore për regjistrime të të folurit që nuk ka nevojë për përpunime."
+msgstr "用作轉換為具失真語音品質的音效。適用於無需編輯的演講錄音。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid "CD Quality, MP2"
-msgstr ""
+msgstr "CD 音質，MP2"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
@@ -909,11 +907,11 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
+msgstr "用來轉換 CD 品質的音效，但使用破壞性的 MP2 編碼解碼器。適用於準備拷貝檔案到僅支援 MP2 編碼解碼器的裝置。注意！使用此格式在您處於的司法管轄領域內可能是違法的；請聯絡律師詢問意見。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
-msgstr "Kualitet CD, MP3"
+msgstr "CD 品質，MP3"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
@@ -921,11 +919,11 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Përdoret për të konvertuar në kualitet CD audio, por me codec MP3 me humbje. Këshilluar për përgatitjen e file për tu kopjuar në dispozitivë që suportojnë vetëm codec MP3. Përdorimi i këtij formati mund të jetë ilegal në shtetin tuaj, pyesni avokatin tuaj për informacione më të hollësishme."
+msgstr "用作轉換 CD 品質的音效，但使用失真的 MP3 編碼解碼器。適用於替支援 MP3 編碼解碼器的裝置準備要拷貝至的檔案。注意！使用此格式在您處於的司法管轄領域內可能是違法的，請聯絡律師詢問意見。"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
-msgstr "Kualitet CD, AAC"
+msgstr "CD 品質，AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
 msgid ""
@@ -933,16 +931,16 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Përdoret për të konvertuar në kualitet CD audio, por me codec AAC me humbje. Këshilluar për përgatitjen e file për tu kopjuar në dispozitivë që suportojnë vetëm codec AAC. Përdorimi i këtij formati mund të jetë ilegal në shtetin tuaj, pyesni avokatin tuaj për informacione më të hollësishme."
+msgstr "用作轉換 CD 品質的音效，但使用失真的 AAC 編碼解碼器。適用於替支援 AAC 編碼解碼器的裝置準備要拷貝至的檔案。注意！使用此格式在您處於的司法管轄領域內可能是違法的，請聯絡律師詢問意見。"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
 msgid "No sounds"
-msgstr "Ska zë"
+msgstr "不使用音效"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:444
 msgid "Built-in"
-msgstr ""
+msgstr "內建"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:742
 #: ../sound-theme/gvc-sound-theme-chooser.c:753
@@ -950,166 +948,166 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:562
 #: ../sound-theme/gvc-sound-theme-editor.c:951
 msgid "Testing event sound"
-msgstr ""
+msgstr "測試事件音效"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:851
 msgid "From theme"
-msgstr ""
+msgstr "從主題"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:881
 msgid "Type"
-msgstr "Lloji"
+msgstr "類型"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
-msgstr ""
+msgstr "音效主題(_T):"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
-msgstr ""
+msgstr "選擇警示音效(_H):"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
-msgstr ""
+msgstr "啟用視窗與按鈕音效(_W)"
 
 #. Bell
 #: ../sound-theme/gvc-sound-theme-editor.c:79
 msgctxt "Sound event"
 msgid "Alert sound"
-msgstr ""
+msgstr "警示音效"
 
 #. Windows and buttons
 #: ../sound-theme/gvc-sound-theme-editor.c:81
 msgctxt "Sound event"
 msgid "Windows and Buttons"
-msgstr ""
+msgstr "視窗與按鈕"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:82
 msgctxt "Sound event"
 msgid "Button clicked"
-msgstr ""
+msgstr "按下按鈕"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:83
 msgctxt "Sound event"
 msgid "Toggle button clicked"
-msgstr ""
+msgstr "按下切換按鈕"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:84
 msgctxt "Sound event"
 msgid "Window maximized"
-msgstr ""
+msgstr "視窗最大化"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:85
 msgctxt "Sound event"
 msgid "Window unmaximized"
-msgstr ""
+msgstr "視窗取消最大化"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:86
 msgctxt "Sound event"
 msgid "Window minimised"
-msgstr ""
+msgstr "視窗最小化"
 
 #. Desktop
 #: ../sound-theme/gvc-sound-theme-editor.c:88
 msgctxt "Sound event"
 msgid "Desktop"
-msgstr "Hapësira e punës"
+msgstr "桌面"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:89
 msgctxt "Sound event"
 msgid "Login"
-msgstr "Hyr"
+msgstr "登入"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:90
 msgctxt "Sound event"
 msgid "Logout"
-msgstr "Dil"
+msgstr "登出"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:91
 msgctxt "Sound event"
 msgid "New e-mail"
-msgstr "e-mail i'ri"
+msgstr "新郵件通知"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
-msgstr "Zbraz koshin"
+msgstr "清理回收筒"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
-msgstr ""
+msgstr "長時間動作已完成（下載、燒錄 CD 等等）"
 
 #. Alerts?
 #: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
 msgid "Alerts"
-msgstr ""
+msgstr "警示"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
 msgid "Information or question"
-msgstr "Informacione ose pyejtje"
+msgstr "資訊或問題"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:97
 msgctxt "Sound event"
 msgid "Warning"
-msgstr "Paralajmërim"
+msgstr "警告"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:98
 msgctxt "Sound event"
 msgid "Error"
-msgstr "Gabim"
+msgstr "錯誤"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:99
 msgctxt "Sound event"
 msgid "Battery warning"
-msgstr "Paralajmërim baterie"
+msgstr "電池警告"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
-msgstr ""
+msgstr "選擇音效檔案"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
-msgstr ""
+msgstr "音效檔案"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"
-msgstr ""
+msgstr "自訂…"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1302
 msgid "Sound Theme:"
-msgstr ""
+msgstr "音效主題:"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
-msgstr ""
+msgstr "啟用視窗與按鈕音效"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
-msgstr ""
+msgstr "汪汪"
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
-msgstr ""
+msgstr "水滴聲"
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
-msgstr ""
+msgstr "敲玻璃"
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
-msgstr ""
+msgstr "聲納"

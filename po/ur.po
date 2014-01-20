@@ -3,126 +3,124 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# ard1t <ardit.dani@gmail.com>, 2014
-# Laurent Dhima  <laurenti@alblinux.net>, 2003-2006, 2008
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2014-01-16 15:10+0000\n"
-"Last-Translator: ard1t <ardit.dani@gmail.com>\n"
-"Language-Team: Albanian (http://www.transifex.com/projects/p/MATE/language/sq/)\n"
+"PO-Revision-Date: 2013-06-03 11:29+0000\n"
+"Last-Translator: mauron\n"
+"Language-Team: Urdu (http://www.transifex.com/projects/p/MATE/language/ur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sq\n"
+"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
-msgstr "Kontrolli i volumit"
+msgstr "آواز کنٹرول"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr ""
+msgstr "ڈیسک ٹاپ کا آواز کنٹرول دکھائیں"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr "Zëri"
+msgstr "آواز"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "آواز اور اس کی کیفیتیں بدلیں"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
 msgid "Enable debugging code"
-msgstr "Aktivo kodin e debug"
+msgstr "ڈی بگنگ کوڈ فعال کریں"
 
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr "Versioni i këtij programi"
+msgstr "اس اطلاقیے کا نُسخہ"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr "— MATE Kontrolli i Volumit Applet"
+msgstr " — میٹ آواز کنٹرول ایپلیٹ"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
-msgstr ""
+msgstr "آواز کے نظام سے جواب کا انتظار کیا جارہا ہے"
 
 #: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
 msgid "Startup page"
-msgstr "Faqja e nisjes"
+msgstr "صفحہ آغاز"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr "— MATEKontrolli i Volumit"
+msgstr " — میٹ آواز کنٹرول"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
-msgstr ""
+msgstr "ماخارج"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "ماخارج آواز حُجم"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
-msgstr ""
+msgstr "ماداخل"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
-msgstr ""
+msgstr "مائکروفون کی آواز"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
-msgstr "Majtas"
+msgstr "بائیں"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
-msgstr "Djathtas"
+msgstr "دائیں"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "پُشت"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "سامنا"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
-msgstr "Minimum"
+msgstr "کم سے کم"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
-msgstr "Maksimum"
+msgstr "زیادہ سے زیادہ"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
-msgstr "_Balanca:"
+msgstr "_توازن:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
-msgstr ""
+msgstr "_دھندلاہٹ:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:300
 msgid "_Subwoofer:"
-msgstr ""
+msgstr "_سب ووفر:"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:602
 #: ../mate-volume-control/src/gvc-channel-bar.c:611
@@ -137,12 +135,12 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
-msgstr ""
+msgstr "خاموش"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
-msgstr "_Profilet:"
+msgstr "_پروفائل:"
 
 #. translators:
 #. * The device has been disabled
@@ -150,7 +148,7 @@ msgstr "_Profilet:"
 #: ../sound-theme/gvc-sound-theme-editor.c:895
 #: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
-msgstr "Çaktivizuar"
+msgstr "معطل"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -158,8 +156,8 @@ msgstr "Çaktivizuar"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u ماخارج"
+msgstr[1] "%u ماخارج"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -167,89 +165,89 @@ msgstr[1] ""
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u ماداخل"
+msgstr[1] "%u ماداخل"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
-msgstr "Zëri i Sistemit"
+msgstr "نظام کی آوازیں"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:309
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:604
 msgid "Co_nnector:"
-msgstr ""
+msgstr "_رابط:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:517
 msgid "Peak detect"
-msgstr ""
+msgstr "چوٹی دریافت"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
-msgstr "Emri"
+msgstr "نام"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
-msgstr "Dispozitivi"
+msgstr "آلہ"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "Ttestimi Bokseve për %s"
+msgstr "سپیکر جانچ برائے %s"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
-msgstr "Testo Bokset"
+msgstr "سپیکر جانچیں"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
-msgstr ""
+msgstr "_ماخارج آواز:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
-msgstr "Efektet Zanore"
+msgstr "آواز کے اثرات"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
-msgstr ""
+msgstr "_انتباہ کی آواز:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
-msgstr ""
+msgstr "ہارڈویئر"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
-msgstr ""
+msgstr "تشکیل کے لیے ألہ منت_خب کریں:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
-msgstr "Konfigurime për dispozitivët e përzgjedhur:"
+msgstr "منتخب کردہ آلے کی ترتیبات:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
-msgstr ""
+msgstr "_ماداخل آواز:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
-msgstr ""
+msgstr "ماداخل سطح:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
-msgstr ""
+msgstr "آواز کے ماداخل کے لیے ألہ _منتخب کریں:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
-msgstr ""
+msgstr "آواز کے ماخارج کے لیے ألہ م_نتخب کریں:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr ""
+msgstr "اطلاقیے"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr ""
+msgstr "اس وقت کوئی اطلاقیہ آواز کو چلا یا ریکارڈ نہیں کر رہا."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -258,91 +256,91 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:560
 #: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
-msgstr "Preferencat Zanore"
+msgstr "آواز کی ترجیحات"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 msgid "Stop"
-msgstr "Ndalo"
+msgstr "روکیں"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
 msgid "Test"
-msgstr "Test"
+msgstr "جانچیں"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
 msgid "Subwoofer"
-msgstr ""
+msgstr "سب ووفر"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr ""
+msgstr "آواز کی ترجیحات چلانے میں ناکامی: %s"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
-msgstr "_Heshtur"
+msgstr "_خاموش کریں"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "_آواز کی ترجیحات"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
-msgstr "Heshtur"
+msgstr "خاموش کردہ"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
-msgstr "Lartësia e dritares"
+msgstr "دریچے کی اونچائی"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
 msgid "Height of the window to be displayed."
-msgstr ""
+msgstr "دکھائے جانے والے دریچے کی اونچائی"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
-msgstr "Gjerësia e Dritares"
+msgstr "دریچے کی چوڑائی"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
 msgid "Width of the window to be displayed."
-msgstr ""
+msgstr "دکھائے جانے والے دریچے کی چوڑائی"
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
-msgstr ""
+msgstr "آواز کی تھیم"
 
 #: ../gst-mixer/src/main.c:82
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Kontroll i panjohur volumi %d"
+msgstr "نامعلوم آواز کنٹرول %d"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "Nuk u gjetën plugins dhe/apo dispozitivët GStreamer të kontrollit të volumit."
+msgstr "کوئی آواز کنٹرول جی سٹریمر GStreamer دخیلے اور/یا آلے نہیں پائے گئے."
 
 #: ../gst-mixer/src/misc.c:62
 msgid "Playback"
-msgstr "Playback"
+msgstr "واپس چلائیں"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
-msgstr "Regjistrimi"
+msgstr "ریکارڈنگ"
 
 #: ../gst-mixer/src/misc.c:66
 msgid "Switches"
-msgstr "Ndryshues"
+msgstr "سوئچز"
 
 #: ../gst-mixer/src/misc.c:68
 msgid "Options"
-msgstr "Opsione"
+msgstr "اختیارات"
 
 #. make window look cute
 #: ../gst-mixer/src/preferences.c:107
 msgid "Volume Control Preferences"
-msgstr "Preferimet e kontrollit të volumit"
+msgstr "آواز کنٹرول کی ترجیحات"
 
 #: ../gst-mixer/src/preferences.c:120
 msgid "_Select mixers to be visible:"
-msgstr ""
+msgstr "رویت پذیر ہونے کے لیے مکسر _منتخب کریں:"
 
 #: ../gst-mixer/src/track.c:295
 #, c-format
@@ -353,85 +351,85 @@ msgstr "%s:"
 #: ../gst-mixer/src/track.c:339
 #, c-format
 msgid "Mute/Unmute %s"
-msgstr "Heshtur/Me'zë %s"
+msgstr "خاموش/غیر خاموش کریں %s"
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
 msgid "Track %s: mute"
-msgstr "Track %s: pa zë"
+msgstr "ٹریک %s: خاموش"
 
 #. only the record button here
 #: ../gst-mixer/src/track.c:433
 #, c-format
 msgid "Toggle audio recording from %s"
-msgstr "Shkëmben regjistrimin audio nga %s"
+msgstr "%s سے صوتی ریکارڈنگ الٹ کریں"
 
 #: ../gst-mixer/src/track.c:449
 #, c-format
 msgid "Track %s: audio recording"
-msgstr "Track %s: regjistrim audio"
+msgstr "ٹریک %s: صوتی ریکارڈنگ"
 
 #: ../gst-mixer/src/track.c:562
 #, c-format
 msgid "%s Option Selection"
-msgstr "Zgjedhja e opsionit %s"
+msgstr "%s اختیار کا انتخاب"
 
 #: ../gst-mixer/src/volume.c:112
 #, c-format
 msgid "Track %s"
-msgstr "Track %s"
+msgstr "ٹریک %s"
 
 #: ../gst-mixer/src/volume.c:115
 #, c-format
 msgid "Channel %d of track %s"
-msgstr "Kanali %d i track %s"
+msgstr "چینل %d برائے ٹریک %s"
 
 #: ../gst-mixer/src/volume.c:118
 #, c-format
 msgid "Track %s, channel %d"
-msgstr "Track %s, kanali %d"
+msgstr "ٹریک %s, چینل %d"
 
 #: ../gst-mixer/src/volume.c:138
 #, c-format
 msgid "Lock channels for %s together"
-msgstr "Blloko së bashku kanalet për %s"
+msgstr ""
 
 #: ../gst-mixer/src/volume.c:156
 #, c-format
 msgid "Track %s: lock channels together"
-msgstr "Track %s: blloko së bashku kanalet"
+msgstr ""
 
 #: ../gst-mixer/src/volume.c:201
 msgid "mono"
-msgstr "mono"
+msgstr "مونو"
 
 #: ../gst-mixer/src/volume.c:203
 msgid "left"
-msgstr "majtas"
+msgstr "بائیں"
 
 #: ../gst-mixer/src/volume.c:203
 msgid "right"
-msgstr "djathtas"
+msgstr "دائیں"
 
 #: ../gst-mixer/src/volume.c:206
 msgid "front left"
-msgstr "ballore majtas"
+msgstr "بایاں سامنا"
 
 #: ../gst-mixer/src/volume.c:207
 msgid "front right"
-msgstr "ballore djathtas"
+msgstr "دایاں سامنا"
 
 #: ../gst-mixer/src/volume.c:208
 msgid "rear left"
-msgstr "mbrapa majtas"
+msgstr "پُشت بائیں"
 
 #: ../gst-mixer/src/volume.c:209
 msgid "rear right"
-msgstr "mbrapa djathtas"
+msgstr "پُشت دائیں"
 
 #: ../gst-mixer/src/volume.c:210
 msgid "front center"
-msgstr "ballor qendror"
+msgstr "سامنا درمیان"
 
 #. Translators: This is the name of a surround sound channel. It
 #. * stands for "Low-Frequency Effects". If you're not sure that
@@ -439,185 +437,185 @@ msgstr "ballor qendror"
 #. * language, leave it unchanged.
 #: ../gst-mixer/src/volume.c:215
 msgid "LFE"
-msgstr "LFE"
+msgstr ""
 
 #: ../gst-mixer/src/volume.c:216
 msgid "side left"
-msgstr "anësor majtas"
+msgstr "بائیں طرف"
 
 #: ../gst-mixer/src/volume.c:217
 msgid "side right"
-msgstr "anësor djathtas"
+msgstr "دائیں طرف"
 
 #: ../gst-mixer/src/volume.c:218
 msgid "unknown"
-msgstr "panjohur"
+msgstr "نامعلوم"
 
 #. Here, we can actually tell people that this
 #. * is a slider that will change channel X.
 #: ../gst-mixer/src/volume.c:224
 #, c-format
 msgid "Volume of %s channel on %s"
-msgstr "Volumi i kanalit %s në %s"
+msgstr "آواز برائے %s چینل بر %s"
 
 #: ../gst-mixer/src/window.c:133
 msgid "A MATE/GStreamer-based volume control application"
-msgstr "Një aplikativ për kontrollin e volumit i bazuar në MATE/GStreamer"
+msgstr "میٹ/جی-سٹریمر-مبنی آواز کنٹرول اطلاقیہ"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "Laurent Dhima <laurenti@alblinux.net>"
+msgstr "محمد علی مکی\nmakki@hacari.org\nاردو کوڈر لینکس فورم\nhttp://www.urducoder.com\nمکی کا بلاگ\nhttp://makki.urducoder.com"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
 #, c-format
 msgid "Volume Control: %s"
-msgstr "Kontrolli i Volumit: %s"
+msgstr "آواز کنٹرول: %s"
 
 #: ../gst-mixer/src/window.c:378
 msgid "_Device: "
-msgstr "_Dispozitivi: "
+msgstr "_آلہ:"
 
 #. set tooltips
 #: ../gst-mixer/src/window.c:417
 msgid "Control volume on a different device"
-msgstr "Kontrollo volumin në një dispozitiv tjetër"
+msgstr "مختلف آلوں پر آواز کنٹرول کریں"
 
 #: ../gstreamer-properties/gstreamer-properties.c:204
 msgid "None"
-msgstr "Asnjë"
+msgstr "کچھ نہیں"
 
 #. Element does not support setting devices
 #: ../gstreamer-properties/gstreamer-properties.c:246
 msgid "Unsupported"
-msgstr "Nuk suportohet"
+msgstr "غیر معاونت شُدہ"
 
 #: ../gstreamer-properties/gstreamer-properties.c:268
 #: ../sound-theme/gvc-sound-theme-chooser.c:850
 #: ../sound-theme/gvc-sound-theme-editor.c:891
 #: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
-msgstr "Paracaktuar"
+msgstr "طے شُدہ"
 
 #: ../gstreamer-properties/gstreamer-properties.c:301
 msgid "Unknown"
-msgstr "Nuk njihet"
+msgstr "نامعلوم"
 
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
-msgstr "Gabim gjatë krijimit të dritares kryesore"
+msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr ""
+msgstr "مواجہ فائل لادنے میں ناکامی; ازراہِ کرم اپنی تنصیب کی جانچ کریں."
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
-msgstr "Zgjedhësi i sistemeve multimedialë"
+msgstr "ملٹی میڈیا نظام منتخب کار"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
 msgid "Configure defaults for GStreamer applications"
-msgstr "Sjellja e paracaktuar për aplikativët GStreamer"
+msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr ""
+msgstr "طے شُدہ ماخارج"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
-msgstr "_Plugin:"
+msgstr "_دخیلہ:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
-msgstr "P_ipeline:"
+msgstr "_پائپ لائن:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "_Test"
-msgstr "_Prova"
+msgstr "_جانچیں"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:6
 msgid "_Device:"
-msgstr "_Dispozitivi:"
+msgstr "_آلہ:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr ""
+msgstr "طے شُدہ ماداخل"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
-msgstr "P_lugin:"
+msgstr "_دخیلہ:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:9
 msgid "Pipeli_ne:"
-msgstr "Pipeli_ne:"
+msgstr "پا_ئپ لائن:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:10
 msgid "Te_st"
-msgstr "Pro_vë"
+msgstr "_جانچیں"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
 msgid "D_evice:"
-msgstr "D_ispozitivi:"
+msgstr "_آلہ:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
 msgid "Audio"
-msgstr "Zëri"
+msgstr "صوتی"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
-msgstr "Video"
+msgstr "ویڈیو"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
 msgid "Testing Pipeline"
-msgstr "Verifikimi i pipeline"
+msgstr "جانچ کی پائپ لائن"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr "Testim..."
+msgstr "جانچ کی جارہی ہے..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
-msgstr "Kliko «OK» për të mbaruar."
+msgstr "ختم کرنے کے لیے ٹھیک ہے پر کلک کریں."
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
 msgid "Autodetect"
-msgstr "Zbulim automatik"
+msgstr "خودکار دریافت"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
 msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "السا — اعلی لینکس آواز ڈھانچہ"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
-msgstr ""
+msgstr "Artsd — ART آواز ڈیمن"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
 msgid "ESD — Enlightenment Sound Daemon"
-msgstr ""
+msgstr "ESD — انلائٹمنٹ آواز ڈیمن"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
 msgid "OSS — Open Sound System"
-msgstr ""
+msgstr "OSS — کھلا آواز نظام"
 
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
 msgid "OSS - Open Sound System Version 4"
-msgstr ""
+msgstr "OSS — کھلا آواز نظام نسخہ 4"
 
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
-msgstr "PulseAudio Sound Server"
+msgstr "پلس آڈیو آواز سرور"
 
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
 msgid "Sun Audio"
-msgstr ""
+msgstr "سن آڈیو"
 
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
@@ -628,139 +626,139 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:759
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Personalizuar"
+msgstr "مخصوص"
 
 #: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
-msgstr "OpenGL"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:110
 msgid "SDL — Simple DirectMedia Layer"
-msgstr ""
+msgstr "SDL — سادہ ڈائریکٹ میڈیا پرت"
 
 #: ../gstreamer-properties/pipeline-constants.c:112
 msgid "X Window System (No Xv)"
-msgstr "X Window System (pa Xv)"
+msgstr "X دریچہ نظام (بغیر Xv)"
 
 #: ../gstreamer-properties/pipeline-constants.c:114
 msgid "X Window System (X11/XShm/Xv)"
-msgstr "X Window System (X11/XShm/Xv)"
+msgstr "X دریچہ نظام (X11/XShm/Xv)"
 
 #. Note: using triangle instead of sine for test sound so we
 #. * can test the vorbis encoder as well (otherwise it'd compress too well)
 #: ../gstreamer-properties/pipeline-constants.c:140
 msgid "Test Sound"
-msgstr "Test sonor"
+msgstr "آواز جانچیں"
 
 #: ../gstreamer-properties/pipeline-constants.c:142
 msgid "Silence"
-msgstr "Pa zë"
+msgstr "سکوت"
 
 #: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr "MJPEG (p.sh. dispozitiv Zoran v4l)"
+msgstr "MJPEG (مثلاً Zoran v4l آلہ)"
 
 #: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
-msgstr "QCAM"
+msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
-msgstr "Prova e hyrjes"
+msgstr "ماداخل جانچیں"
 
 #: ../gstreamer-properties/pipeline-constants.c:155
 msgid "Video for Linux (v4l)"
-msgstr "Video for Linux (v4l)"
+msgstr "آواز برائے لینکس (v4l)"
 
 #: ../gstreamer-properties/pipeline-constants.c:157
 msgid "Video for Linux 2 (v4l2)"
-msgstr "Video for Linux 2 (v4l2)"
+msgstr "آواز برائے لینکس 2 (v4l2)"
 
 #: ../gstreamer-properties/pipeline-tests.c:176
 #, c-format
 msgid "Failed to construct test pipeline for '%s'"
-msgstr "Gabim gjatë ndërtimit të pipeline së test për '%s'"
+msgstr ""
 
 #: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
-msgstr "U verifikua një gabim gjatë shfaqjes së ndihmës: %s"
+msgstr ""
 
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "Duke ndryshuar profilin \"%s\""
+msgstr "پروفائل کی تدوین \"%s\""
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
-msgstr "<pa emër>"
+msgstr "<بغیر نام>"
 
 #: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
 msgid "<no description>"
-msgstr "<asnjë përshkrim>"
+msgstr "<کوئی تفصیل نہیں>"
 
 #: ../profiles/audio-profile.c:208
 #, c-format
 msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "Gabim gjatë marrjes së listës me profilet gm_audio. (%s)\n"
+msgstr ""
 
 #: ../profiles/audio-profile.c:709
 #, c-format
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Gabim gjatë regjistrimit të ndryshimeve të listës së profilit audio. (%s)\n"
+msgstr ""
 
 #: ../profiles/audio-profile.c:912
 #, c-format
 msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Gabim gjatë fshirjes nga kujtesa të pozicionit të profilit %s. (%s)\n"
+msgstr ""
 
 #: ../profiles/audio-profiles-edit.c:78
 msgid "_Edit"
-msgstr "_Ndrysho"
+msgstr "_تدوین"
 
 #. the first argument will never be used since we only run for count > 1
 #: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
-msgstr[0] "Eleminoj këtë profil?\n"
-msgstr[1] "Eleminoj këto %d profile?\n"
+msgstr[0] "کیا یہ پروفائل حذف کردی جائے؟\n"
+msgstr[1] "کیا یہ %d پروفائلیں حذف کردی جائیں؟\n"
 
 #: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
-msgstr "Eleminoj profilin \"%s\"?"
+msgstr "کیا پروفائل \"%s\" حذف کردی جائے؟"
 
 #: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
-msgstr "Elemino profilin"
+msgstr "پروفائل حذف کریں"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "Ndrysho profilet audio të MATE"
+msgstr "میٹ کی صوتی پروفائلیں مدون کریں"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
-msgstr "_Profilet:"
+msgstr "_پروفائلیں:"
 
 #: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
-msgstr "Një profil me emrin \"%s\" ekziston"
+msgstr "آپ پہلے ہی ایک پروفائل بنام \"%s\" رکھتے ہیں"
 
 #: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
-msgstr "Gabim MateConf (FIXME): %s\n"
+msgstr "MateConf غلطی (FIXME): %s\n"
 
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "File \"%s\" mungon. Kjo do të thotë që programi nuk është instaluar si duhet, prandaj dritarja e dialogut nuk mund të hapet."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
@@ -771,137 +769,137 @@ msgstr ""
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
-msgstr "Ndrysho profilin audio"
+msgstr "صوتی پروفائل مدون کریں"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
-msgstr "Pë_rshkrimi i profilit:"
+msgstr "پروفائل کی _تفصیل:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:3
 msgid "_Active?"
-msgstr "_Aktivoj?"
+msgstr "_فعال کریں؟"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:4
 msgid "_File extension:"
-msgstr "Mbrapashtesa e _file:"
+msgstr "فا_ئل کا لاحقہ:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:5
 msgid "_GStreamer pipeline:"
-msgstr "Pipeline _GStreamer:"
+msgstr "_جی سٹریمر پائپ لائن:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:6
 #: ../profiles/mate-audio-profile-new.ui.h:3
 msgid "_Profile name:"
-msgstr "Emri i _Profilit:"
+msgstr "_پروفائل کا نام:"
 
 #: ../profiles/mate-audio-profile-new.ui.h:1
 msgid "New Profile"
-msgstr "Profil i ri"
+msgstr "نئی پروفائل"
 
 #: ../profiles/mate-audio-profile-new.ui.h:2
 msgid "_Create"
-msgstr "_Krijo"
+msgstr "_بنائیں"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
 msgid "List of profiles"
-msgstr "Lista e profileve"
+msgstr "پروفائلوں کی فہرست"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:2
 msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Lista e profileve të regjistrimit audio. Lista përmban emrat e nën-directories relative me /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
-msgstr "Një emër i shkurtër për profilin audio"
+msgstr "صوتی پروفائل کا مختصر نام"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "Një emër i shkurtër për profilin audio, për tu përdorur gjatë zgjedhjeve dhe që identifikon në menyrë të qartë profilin."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "Një përshkrim për profilin audio"
+msgstr "صوتی پروفائل کی تفصیل"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
 "A description of the profile, containing more information and describing "
 "when to use this profile."
-msgstr "Një përshkrim i profilit, përmban informacione më të hollësishme dhe përshkruan kur duhet përdorur ky profil."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
 msgid "The partial GStreamer pipeline used"
-msgstr "Pipeline GStreamer e pjesëshme e përdorur"
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
 msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "Një pipeline GStreamer e pjesëshme e përdorur për këtë profil."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
-msgstr "Mbrapashtesa e prezgjedhur e file për këtë profil"
+msgstr "اس پروفائل کے لیے طے شُدہ فائل لاحقہ"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:10
 msgid ""
 "A filename extension to be used when storing files encoded with this "
 "profile."
-msgstr "Një mbrapashtesë e emrit të file që duhet përdorur kur ruhen files e koduar me këtë profil."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:11
 msgid "Whether this profile is to be used"
-msgstr ""
+msgstr "کیا یہ پروفائل استعمال ہوگی"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:12
 msgid "Whether to use and display this profile."
-msgstr ""
+msgstr "کیا یہ پروفائل استعمال اور دکھائی جائے گی"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
-msgstr "Kualitet CD, me humbje"
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:14
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr "Përdoret për të konvertuar në një kualitet audio për CD, por me një codec kompresimi me humbje. Përdorni këtë për nxjerrje nga CD dhe regjistrime nga radio."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"
-msgstr "Kualitet CD, pak humbje"
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Përdoret për të konvertuar në një kualitet audio për CD, por me një codec kompresimi për pak humbje. Përdorni këtë nëse më vonë dëshironi të ndryshoni këtë file apo t'a shkruani në CD."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
-msgstr "Zë, pak humbje"
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
-msgstr "Përdoret për konvertim në kualitet audio e folur. Përdore për regjistrime të dhe ndryshime të të folurit."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
-msgstr "Zë, kualitet i ulët"
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:20
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
-msgstr "Përdoret për konvertim në kualitet të ulët audio e folur. Përdore për regjistrime të të folurit që nuk ka nevojë për përpunime."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid "CD Quality, MP2"
-msgstr ""
+msgstr "سی ڈی معیار, MP2"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
@@ -913,7 +911,7 @@ msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
-msgstr "Kualitet CD, MP3"
+msgstr "سی ڈی معیار, MP3"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
@@ -921,11 +919,11 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Përdoret për të konvertuar në kualitet CD audio, por me codec MP3 me humbje. Këshilluar për përgatitjen e file për tu kopjuar në dispozitivë që suportojnë vetëm codec MP3. Përdorimi i këtij formati mund të jetë ilegal në shtetin tuaj, pyesni avokatin tuaj për informacione më të hollësishme."
+msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
-msgstr "Kualitet CD, AAC"
+msgstr "سی ڈی معیار, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
 msgid ""
@@ -933,16 +931,16 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Përdoret për të konvertuar në kualitet CD audio, por me codec AAC me humbje. Këshilluar për përgatitjen e file për tu kopjuar në dispozitivë që suportojnë vetëm codec AAC. Përdorimi i këtij formati mund të jetë ilegal në shtetin tuaj, pyesni avokatin tuaj për informacione më të hollësishme."
+msgstr ""
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
 msgid "No sounds"
-msgstr "Ska zë"
+msgstr "کوئی آوازیں نہیں"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:444
 msgid "Built-in"
-msgstr ""
+msgstr "درساختہ"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:742
 #: ../sound-theme/gvc-sound-theme-chooser.c:753
@@ -950,166 +948,166 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:562
 #: ../sound-theme/gvc-sound-theme-editor.c:951
 msgid "Testing event sound"
-msgstr ""
+msgstr "واقعات کی آوازیں جانچیں"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:851
 msgid "From theme"
-msgstr ""
+msgstr "تھیم سے"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:881
 msgid "Type"
-msgstr "Lloji"
+msgstr "نوعیت"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
-msgstr ""
+msgstr "آواز کی _تھیم:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
-msgstr ""
+msgstr "انتباہ کی آواز _منتخب کریں:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
-msgstr ""
+msgstr "_دریچہ اور بٹن کی آوازیں فعال کریں"
 
 #. Bell
 #: ../sound-theme/gvc-sound-theme-editor.c:79
 msgctxt "Sound event"
 msgid "Alert sound"
-msgstr ""
+msgstr "انتباہ کی آواز"
 
 #. Windows and buttons
 #: ../sound-theme/gvc-sound-theme-editor.c:81
 msgctxt "Sound event"
 msgid "Windows and Buttons"
-msgstr ""
+msgstr "دریچے اور بٹن"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:82
 msgctxt "Sound event"
 msgid "Button clicked"
-msgstr ""
+msgstr "بٹن کلک"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:83
 msgctxt "Sound event"
 msgid "Toggle button clicked"
-msgstr ""
+msgstr "بٹن کلک الٹیں"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:84
 msgctxt "Sound event"
 msgid "Window maximized"
-msgstr ""
+msgstr "دریچہ بڑا کرنا"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:85
 msgctxt "Sound event"
 msgid "Window unmaximized"
-msgstr ""
+msgstr "دریچہ چھوٹا کرنا"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:86
 msgctxt "Sound event"
 msgid "Window minimised"
-msgstr ""
+msgstr "دریچہ جھکانا"
 
 #. Desktop
 #: ../sound-theme/gvc-sound-theme-editor.c:88
 msgctxt "Sound event"
 msgid "Desktop"
-msgstr "Hapësira e punës"
+msgstr "ڈیسک ٹاپ"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:89
 msgctxt "Sound event"
 msgid "Login"
-msgstr "Hyr"
+msgstr "لاگ ان"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:90
 msgctxt "Sound event"
 msgid "Logout"
-msgstr "Dil"
+msgstr "لاگ آؤٹ"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:91
 msgctxt "Sound event"
 msgid "New e-mail"
-msgstr "e-mail i'ri"
+msgstr "نئی ای میل"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
-msgstr "Zbraz koshin"
+msgstr "ردی خالی کرنا"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
-msgstr ""
+msgstr "طویل فعل کی تکمیل (ڈاؤنلوڈ، سی ڈی تیاری وغیرہ)"
 
 #. Alerts?
 #: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
 msgid "Alerts"
-msgstr ""
+msgstr "انتباہ"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
 msgid "Information or question"
-msgstr "Informacione ose pyejtje"
+msgstr "معلومات یا سوال"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:97
 msgctxt "Sound event"
 msgid "Warning"
-msgstr "Paralajmërim"
+msgstr "انتباہ"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:98
 msgctxt "Sound event"
 msgid "Error"
-msgstr "Gabim"
+msgstr "غلطی"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:99
 msgctxt "Sound event"
 msgid "Battery warning"
-msgstr "Paralajmërim baterie"
+msgstr "بیٹری انتباہ"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
-msgstr ""
+msgstr "آواز فائل منتخب کریں"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
-msgstr ""
+msgstr "آواز کی فائلیں"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"
-msgstr ""
+msgstr "مخصوص..."
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1302
 msgid "Sound Theme:"
-msgstr ""
+msgstr "آواز کی تھیم:"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
-msgstr ""
+msgstr "دریچہ اور بٹن کی آوازیں فعال کریں"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
-msgstr ""
+msgstr "بارک"
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
-msgstr ""
+msgstr "ڈرپ"
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
-msgstr ""
+msgstr "گلاس"
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
-msgstr ""
+msgstr "سونار"

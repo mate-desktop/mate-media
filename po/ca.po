@@ -3,25 +3,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Antoni Lacasta i Sulla <als@tinet.org>, 2002.
-# Joan Duran <jodufi@gmail.com>, 2009, 2010.
-# Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004, 2005, 2006, 2007.
-# Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
-# Pere Orga <gotrunks@gmail.com>, 2012.
-# Softcatalà <info@softcatala.org>, 2000.
+# Antoni Lacasta i Sulla <als@tinet.org>, 2002
+# jodufi <jodufi@gmail.com>, 2009, 2010
+# Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004, 2005, 2006, 2007
+# Josep Puigdemont <josep.puigdemont@gmail.com>, 2007
+# Pere O. <gotrunks@gmail.com>, 2012-2013
+# Softcatalà <info@softcatala.org>, 2000
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-05-26 16:41+0000\n"
+"Last-Translator: Pere O. <gotrunks@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/MATE/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -470,7 +470,7 @@ msgstr "Una aplicació de control del volum basada en MATE/GStreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "Softcatalà <tradmate@softcatala.org>\nAntoni Lacasta i Sulla <als@tinet.org>\nJordi Mallach <jordi@sindominio.net>\nJosep Puigdemont <josep.puigdemont@gmail.com>\nJoan Duran <jodufi@gmail.com>"
+msgstr "Softcatalà <tradmate@softcatala.org>\nAntoni Lacasta i Sulla <als@tinet.org>\nJordi Mallach <jordi@sindominio.net>\nJosep Puigdemont <josep.puigdemont@gmail.com>\nJoan Duran <jodufi@gmail.com>\nPere Orga <pere@orga.cat>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173

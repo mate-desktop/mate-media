@@ -3,29 +3,30 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# André Gondim <andregondim@ubuntu.com>, 2009, 2010.
-# Djavan Fagundes <djavan@comum.org>, 2008.
-# Fabrício Godoy <skarllot@gmail.com>, 2008.
-# Guilherme de S. Pastore <gpastore@gnome.org>, 2006.
-# Gustavo Maciel Dias Vieira <gustavo@sagui.org>, 2001.
-# Henrique P Machado <zehrique@gmail.com>, 2009.
-# Jonh Wendell <jwendell@gnome.org>, 2009.
-# Leonardo Ferreira Fontenelle <leonardof@gnome.org>, 2006, 2008, 2009.
-# Licio Fernando Nascimento da Fonseca <liciofernando@gmail.com>, 2006.
-# Og Maciel <ogmaciel@ubuntu.com>, 2007.
+# André Gondim <andregondim@ubuntu.com>, 2009, 2010
+# Djavan Fagundes <djavan@comum.org>, 2008
+# Fabrício Godoy <skarllot@gmail.com>, 2008
+# Guilherme de S. Pastore <gpastore@gnome.org>, 2006
+# Gustavo Maciel Dias Vieira <gustavo@sagui.org>, 2001
+# Henrique P. Machado <zehrique@gmail.com>, 2009
+# Jonh Wendell <jwendell@gnome.org>, 2009
+# leonardof <leonardof@gnome.org>, 2006, 2008, 2009
+# Licio Fernando Nascimento da Fonseca <liciofernando@gmail.com>, 2006
+# Pygmalion, 2014
+# Og Maciel <ogmaciel@ubuntu.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-01-14 01:02+0000\n"
+"Last-Translator: Pygmalion\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/MATE/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -58,7 +59,7 @@ msgstr "Versão deste aplicativo"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr " — Miniaplicativo de controle de volume"
+msgstr " — Miniaplicativo de controle de volume do MATE"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
@@ -70,7 +71,7 @@ msgstr "Página de início"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr " - Controle de volume do MATE"
+msgstr " — Controle de volume do MATE"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
@@ -167,7 +168,7 @@ msgstr "Desabilitado"
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] "%u saída"
-msgstr[1] "%u saídas"
+msgstr[1] "%u Saídas"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -176,7 +177,7 @@ msgstr[1] "%u saídas"
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u entrada"
-msgstr[1] "%u entradas"
+msgstr[1] "%u Entradas"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
@@ -204,11 +205,11 @@ msgstr "Dispositivo"
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "Testando auto-falantes para %s"
+msgstr "Testando alto-falantes para %s"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
-msgstr "Testar auto-falantes"
+msgstr "Testar alto-falantes"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
@@ -304,7 +305,7 @@ msgstr "Altura da janela"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
 msgid "Height of the window to be displayed."
-msgstr "A altura da janela a ser exibida"
+msgstr "A altura da janela a ser exibida."
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
@@ -312,7 +313,7 @@ msgstr "Largura da janela"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
 msgid "Width of the window to be displayed."
-msgstr "A largura da janela a ser exibida"
+msgstr "Largura da janela a ser exibida."
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
@@ -361,7 +362,7 @@ msgstr "%s:"
 #: ../gst-mixer/src/track.c:339
 #, c-format
 msgid "Mute/Unmute %s"
-msgstr "%s sem/com som"
+msgstr "%s Sem/Com som"
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
@@ -435,7 +436,7 @@ msgstr "traseira esquerda"
 
 #: ../gst-mixer/src/volume.c:209
 msgid "rear right"
-msgstr "traseira esquerda"
+msgstr "traseira direita"
 
 #: ../gst-mixer/src/volume.c:210
 msgid "front center"
@@ -517,7 +518,7 @@ msgstr "Falha ao criar a janela principal"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr "Falha ao carregar o arquivo de interface com o usuário. Por favor, verifique sua instalação."
+msgstr "Falha ao carregar o arquivo de interface com o usuário; Por favor, verifique sua instalação."
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
@@ -591,31 +592,31 @@ msgstr "Clique Ok para terminar."
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
 msgid "Autodetect"
-msgstr "Auto-detectar"
+msgstr "Autodetectar"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
 msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr "ALSA - Advanced Linux Sound Architecture"
+msgstr "ALSA — Advanced Linux Sound Architecture"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
-msgstr "Artsd - ART sound daemon"
+msgstr "Artsd — ART Sound Daemon"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
 msgid "ESD — Enlightenment Sound Daemon"
-msgstr "ESD - Enlightenment Sound Daemon"
+msgstr "ESD — Enlightenment Sound Daemon"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
 msgid "OSS — Open Sound System"
-msgstr "OSS - Open Sound System"
+msgstr "OSS — Open Sound System"
 
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
 msgid "OSS - Open Sound System Version 4"
-msgstr "OSS - Open Sound System Version 4"
+msgstr "OSS — Open Sound System Version 4"
 
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
@@ -644,11 +645,11 @@ msgstr "OpenGL"
 
 #: ../gstreamer-properties/pipeline-constants.c:110
 msgid "SDL — Simple DirectMedia Layer"
-msgstr "SDL - Simple DirectMedia Layer"
+msgstr "SDL —  Simple DirectMedia Layer"
 
 #: ../gstreamer-properties/pipeline-constants.c:112
 msgid "X Window System (No Xv)"
-msgstr "X Window System (sem Xv)"
+msgstr "X Window System (Sem Xv)"
 
 #: ../gstreamer-properties/pipeline-constants.c:114
 msgid "X Window System (X11/XShm/Xv)"
@@ -666,7 +667,7 @@ msgstr "Silêncio"
 
 #: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr "MJPEG (ex: dispositivo v4l Zoran)"
+msgstr "MJPEG (Ex: dispositivo v4l Zoran)"
 
 #: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
@@ -747,7 +748,7 @@ msgstr "Excluir perfil"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "Editar perfis do MATE áudio"
+msgstr "Editar perfis de áudio do MATE"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"

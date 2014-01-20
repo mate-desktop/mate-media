@@ -3,28 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Antón Méixome <meixome@mancomun.org>, 2009.
-# Fran Diéguez <fran.dieguez@glug.es>, 2009.
-# Fran Dieguez <frandieguez@ubuntu.com>, 2010.
-# Fran Diéguez <frandieguez@ubuntu.com>, 2010.
-# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007, 2008.
-# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
-# Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
-# Sergio Rua <srua@iname.com>, 1999.
-# Suso Baleato <suso.baleato@xunta.es>, 2009.
+# Antón Méixome <meixome@mancomun.org>, 2009
+# Fran Diéguez <fran.dieguez@glug.es>, 2009
+# Fran Diéguez <frandieguez@ubuntu.com>, 2010
+# Fran Diéguez <frandieguez@ubuntu.com>, 2010
+# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007-2008
+# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005-2006
+# Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009
+# mbouzada <mbouzada@gmail.com>, 2013
+# Sergio Rua <srua@iname.com>, 1999
+# Suso Baleato <suso.baleato@xunta.es>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-04-05 09:08+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/MATE/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -34,7 +35,7 @@ msgstr "Control de volume"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr "Mostrar o control de volume do escritorio"
+msgstr "Amosar o control de volume do escritorio"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
@@ -57,11 +58,11 @@ msgstr "Versión deste aplicativo"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr " — Miniaplicativo de control de volume de MATE"
+msgstr " — Miniaplicativo de control de volume do MATE"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
-msgstr "Esperando a que o sistema de son responda"
+msgstr "Agardando a que o sistema de son responda"
 
 #: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
 msgid "Startup page"
@@ -219,7 +220,7 @@ msgstr "Efectos de son"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
-msgstr "Volume de _alerta: "
+msgstr "Volume da _alerta: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
@@ -256,7 +257,7 @@ msgstr "Aplicativos"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr "Neste momento non hai ningún aplicativo reproducindo ou gravando audio."
+msgstr "Neste momento non hai ningún aplicativo reproducindo ou gravando son."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -303,7 +304,7 @@ msgstr "Altura da xanela"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
 msgid "Height of the window to be displayed."
-msgstr "Altura da xanela que se vai mostrar"
+msgstr "Altura da xanela que se vai amosar"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
@@ -311,7 +312,7 @@ msgstr "Largura da xanela"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
 msgid "Width of the window to be displayed."
-msgstr "Largura da xanela que se vai mostrar"
+msgstr "Largura da xanela que se vai amosar"
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
@@ -324,7 +325,7 @@ msgstr "Control de volume descoñecido %d"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "Non se encontraron engadidos ou dispositivos de control de volume GStreamer."
+msgstr "Non se atoparon engadidos ou dispositivos de control de volume GStreamer."
 
 #: ../gst-mixer/src/misc.c:62
 msgid "Playback"
@@ -371,12 +372,12 @@ msgstr "Pista %s: sen son"
 #: ../gst-mixer/src/track.c:433
 #, c-format
 msgid "Toggle audio recording from %s"
-msgstr "Alterna a gravación de audio desde %s"
+msgstr "Alterna a gravación de son desde %s"
 
 #: ../gst-mixer/src/track.c:449
 #, c-format
 msgid "Track %s: audio recording"
-msgstr "Pista %s: gravación de audio"
+msgstr "Pista %s: gravación de son"
 
 #: ../gst-mixer/src/track.c:562
 #, c-format
@@ -473,7 +474,7 @@ msgstr "Un aplicativo de control de volume baseada no MATE/GStreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "Fran Diéguez <frandieguez@ubuntu.com>, 2010;\nSuso Baleato <suso.baleato@xunta.es>, 2009; \nAntón Méixome <meixome@mancomun.org> 2009. "
+msgstr "Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013;\nProxecto Trasno <proxecto@trasno.net>, 2013;\nFran Diéguez <frandieguez@ubuntu.com>, 2010;\nSuso Baleato <suso.baleato@xunta.es>, 2009; \nAntón Méixome <meixome@mancomun.org> 2009. "
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -504,7 +505,7 @@ msgstr "Non compatíbel"
 #: ../sound-theme/gvc-sound-theme-editor.c:891
 #: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
-msgstr "Predefinido"
+msgstr "Predeterminado"
 
 #: ../gstreamer-properties/gstreamer-properties.c:301
 msgid "Unknown"
@@ -525,11 +526,11 @@ msgstr "Selector de sistemas multimedia"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
 msgid "Configure defaults for GStreamer applications"
-msgstr "Configurar as configuracións predefinidas para os aplicativos GStreamer"
+msgstr "Configurar as opcións predeterminadas para os aplicativos GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr "Saída predefinida"
+msgstr "Saída predeterminada"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
@@ -537,7 +538,7 @@ msgstr "_Engadido:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
-msgstr "P_ipeline:"
+msgstr "_Canalización:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "_Test"
@@ -549,15 +550,15 @@ msgstr "_Dispositivo:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr "Entrada predefinida"
+msgstr "Entrada predeterminada"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
-msgstr "_Engadido:"
+msgstr "E_ngadido:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:9
 msgid "Pipeli_ne:"
-msgstr "Pipeli_ne:"
+msgstr "Canali_zación:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:10
 msgid "Te_st"
@@ -569,7 +570,7 @@ msgstr "D_ispositivo:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
 msgid "Audio"
-msgstr "Audio"
+msgstr "Son"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
@@ -577,7 +578,7 @@ msgstr "Vídeo"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
 msgid "Testing Pipeline"
-msgstr "Probando o Pipeline"
+msgstr "Probando a canalización"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
@@ -595,16 +596,16 @@ msgstr "Detectar automaticamente"
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
 msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr "ALSA - Arquitectura de son avanzada de Linux"
+msgstr "ALSA - Arquitectura de Son Avanzada de Linux"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
-msgstr "Artsd - Daemon de son ART"
+msgstr "Artsd - Servizo de son ART"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
 msgid "ESD — Enlightenment Sound Daemon"
-msgstr "ESD - Daemon de son de Enlightenment"
+msgstr "ESD - Servizo de son de Enlightenment"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
@@ -614,7 +615,7 @@ msgstr "OSS - Sistema de son aberto"
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
 msgid "OSS - Open Sound System Version 4"
-msgstr "OSS - Sistema de son aberto"
+msgstr "OSS - Sistema de son aberto Versión 4"
 
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
@@ -624,7 +625,7 @@ msgstr "Servidor de son PulseAudio"
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
 msgid "Sun Audio"
-msgstr "Audio"
+msgstr "Son de Sun"
 
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
@@ -691,12 +692,12 @@ msgstr "Produciuse un fallo ao construír a canalización secuencial de proba pa
 #: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
-msgstr "Produciuse un erro ao mostrar a axuda: %s"
+msgstr "Produciuse un erro ao amosar a axuda: %s"
 
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "Editando o perfil \"%s\""
+msgstr "Editando o perfil «%s»"
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
@@ -716,12 +717,12 @@ msgstr "Produciuse un erro ao obter a lista de perfís de gm_audio. (%s)\n"
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Produciuse un erro ao subscribir a notificación de cambios na lista de perfís de audio. (%s)\n"
+msgstr "Produciuse un erro ao subscribir a notificación de cambios na lista de perfís de son. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
 msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Produciuse un erro ao esquecer o camiño de perfís %s. (%s)\n"
+msgstr "Produciuse un erro ao esquecer a ruta aos perfís %s. (%s)\n"
 
 #: ../profiles/audio-profiles-edit.c:78
 msgid "_Edit"
@@ -738,7 +739,7 @@ msgstr[1] "Quere eliminar estes %d perfís?\n"
 #: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
-msgstr "Quere eliminar o perfil \"%s\"?"
+msgstr "Quere eliminar o perfil «%s»?"
 
 #: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
@@ -755,30 +756,30 @@ msgstr "_Perfís:"
 #: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
-msgstr "Xa existe un perfil denominado \"%s\""
+msgstr "Xa existe un perfil denominado «%s»"
 
 #: ../profiles/audio-profiles-edit.c:846
 #, c-format
 msgid "MateConf Error (FIXME): %s\n"
-msgstr "Erro do MateConf (CORRÍXEME): %s\n"
+msgstr "Produciuse un erro do MateConf (CORRÍXAO): %s\n"
 
 #: ../profiles/gmp-util.c:61
 #, c-format
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "Falta o ficheiro \"%s\". Isto indica que o aplicativo non está instalado correctamente polo que non é posíbel mostrar o diálogo."
+msgstr "Falta o ficheiro «%s». Isto indica que o aplicativo non está instalado correctamente polo que non é posíbel amosar o diálogo."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\nExecute '%s --help' para ver unha lista completa das opcións por liña de ordes.\n"
+msgstr "%s\nExecute «%s --help» para ver unha lista completa das opcións por liña de ordes.\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
-msgstr "Editar o perfil de audio"
+msgstr "Editar o perfil de son"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
@@ -818,21 +819,21 @@ msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Lista de perfís de gravación de audio. A lista contén cadeas que designan subdirectorios relativos a /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "Lista de perfís de gravación de son. A lista contén cadeas que designan subdirectorios relativos a /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
-msgstr "Un nome abreviado para o perfil de audio"
+msgstr "Un nome abreviado para o perfil de son"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "Un nome abreviado para o perfil de audio que se usará en seleccións e que identifica univocamente o perfil."
+msgstr "Un nome abreviado para o perfil de son que se usará en seleccións e que identifica univocamente o perfil."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "Unha descrición para o perfil de audio"
+msgstr "Unha descrición para o perfil de son"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
@@ -850,7 +851,7 @@ msgstr "Unha canalización secuencial parcial do GStreamer que se usará con est
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
-msgstr "A extensión de ficheiro predefinida para este perfil"
+msgstr "A extensión de ficheiro predeterminada para este perfil"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:10
 msgid ""
@@ -864,7 +865,7 @@ msgstr "Indica se se vai usar ou non este perfil"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:12
 msgid "Whether to use and display this profile."
-msgstr "Indica se se mostra e usa ou non este perfil."
+msgstr "Indica se se amosa e usa ou non este perfil."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
@@ -874,7 +875,7 @@ msgstr "Calidade de CD, con perda"
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr "Úsase para converter en audio con calidade de CD, mais cun códec de compresión con perda. Úseo para a extracción de CD e gravacións de radio."
+msgstr "Úsase para converter en son con calidade de CD, mais cun códec de compresión con perda. Úseo para a extracción de CD e gravacións de radio."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"
@@ -884,7 +885,7 @@ msgstr "Calidade de CD, sen perda"
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Úsase para converter en audio con calidade de CD, mais cun códec de compresión sen perda. Úseo se máis tarde quere editar o ficheiro ou gravalo nun CD."
+msgstr "Úsase para converter en son con calidade de CD, mais cun códec de compresión sen perda. Úseo se máis tarde quere editar o ficheiro ou gravalo nun CD."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
@@ -894,7 +895,7 @@ msgstr "Voz, sen perda"
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
-msgstr "Úsase para converter en audio con calidade de voz sen perda. Úseo para gravar e editar voz."
+msgstr "Úsase para converter en son con calidade de voz sen perda. Úseo para gravar e editar voz."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
@@ -904,7 +905,7 @@ msgstr "Voz, con perda"
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
-msgstr "Úsase para converter en audio con calidade de voz e con perda. Úseo para gravar voz que non se precisa editar."
+msgstr "Úsase para converter en son con calidade de voz e con perda. Úseo para gravar voz que non se precisa editar."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid "CD Quality, MP2"
@@ -916,7 +917,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Emprégase para converter en audio de calidade de CD, mais co códec con perdas MP2. Utilice isto ao preparar ficheiros para copialos en dispositivos que só soporten o códec MP2. Teña en conta que usar este formato pode ser ilegal na súa xurisdición. Aconséllese co seu avogado."
+msgstr "Emprégase para converter en son de calidade de CD, mais co códec con perdas MP2. Utilice isto ao preparar ficheiros para copialos en dispositivos que só soporten o códec MP2. Teña en conta que usar este formato pode ser ilegal na súa xurisdición. Aconséllese co seu avogado."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
@@ -928,7 +929,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Úsase para converter a calidade de CD de audio, mais cun códec de comprensión MP3 con perda. Utilice isto para preparar os ficheiros para copialos a dispositivos que só soportan o códec de comprensión MP3. Teña en conta que usar este formato pode ser ilegal na súa xurisdición; contacte co seu avogado para pedirlle asesoramento."
+msgstr "Úsase para converter a calidade de CD de son, mais cun códec de comprensión MP3 con perda. Utilice isto para preparar os ficheiros para copialos a dispositivos que só soportan o códec de comprensión MP3. Teña en conta que usar este formato pode ser ilegal na súa xurisdición; contacte co seu avogado para pedirlle asesoramento."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
@@ -940,7 +941,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Úsase para converter a calidade de CD de audio, mais cun códec de comprensión ACC con perda. Utilice isto para preparar os ficheiros para copialos a dispositivos que só soportan o códec de comprensión AAC. Teña en conta que usar este formato pode ser ilegal na súa xurisdición; contacte co seu avogado para pedirlle asesoramento."
+msgstr "Úsase para converter a calidade de CD de son, mais cun códec de comprensión ACC con perda. Utilice isto para preparar os ficheiros para copialos a dispositivos que só soportan o códec de comprensión AAC. Teña en conta que usar este formato pode ser ilegal na súa xurisdición; contacte co seu avogado para pedirlle asesoramento."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -957,7 +958,7 @@ msgstr "Incorporado"
 #: ../sound-theme/gvc-sound-theme-editor.c:562
 #: ../sound-theme/gvc-sound-theme-editor.c:951
 msgid "Testing event sound"
-msgstr "Probando o son de evento"
+msgstr "Probando o son da acción"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:851
 msgid "From theme"

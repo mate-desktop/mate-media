@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ivica  Kolić <ikoli@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-12-08 09:05+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -29,12 +30,12 @@ msgstr ""
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr ""
+msgstr "Zvuk"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "Promjeni glasnoću i zvučne događaje"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -44,11 +45,11 @@ msgstr ""
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr ""
+msgstr "Verzija ovog programa"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr ""
+msgstr "— MATE program za kontrolu glasnoće"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
@@ -65,40 +66,40 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
-msgstr ""
+msgstr "Izlaz"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Glasnoća izlaznog zvuka"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
-msgstr ""
+msgstr "Ulaz"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Glasnoća mikrofona"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
-msgstr ""
+msgstr "Lijevo"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
-msgstr ""
+msgstr "Desno"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "Stražnji"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "Prednji"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
@@ -112,7 +113,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
-msgstr ""
+msgstr "_Ravnoteža:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
@@ -126,7 +127,7 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
@@ -140,7 +141,7 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
-msgstr ""
+msgstr "_Profil:"
 
 #. translators:
 #. * The device has been disabled
@@ -148,7 +149,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:895
 #: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
-msgstr ""
+msgstr "Onemogućeno"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -172,7 +173,7 @@ msgstr[2] ""
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
-msgstr ""
+msgstr "Zvukovi sustava"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:309
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:604
@@ -187,7 +188,7 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
@@ -204,11 +205,11 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
-msgstr ""
+msgstr "_Glasnoća izlaza:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
-msgstr ""
+msgstr "Zvučni efekti"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
@@ -229,7 +230,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
-msgstr ""
+msgstr "_Glasnoća ulaza:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
@@ -245,7 +246,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr ""
+msgstr "Programi"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
@@ -258,7 +259,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:560
 #: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
-msgstr ""
+msgstr "Osobitosti zvuka"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 msgid "Stop"
@@ -267,7 +268,7 @@ msgstr "Zaustavi"
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
 msgid "Subwoofer"
@@ -284,7 +285,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "_Osobitosti zvuka"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
@@ -308,7 +309,7 @@ msgstr ""
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
-msgstr ""
+msgstr "Zvučna tema"
 
 #: ../gst-mixer/src/main.c:82
 #, c-format
@@ -325,7 +326,7 @@ msgstr "Reprodukcija"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
-msgstr ""
+msgstr "Snimanje"
 
 #: ../gst-mixer/src/misc.c:66
 msgid "Switches"
@@ -476,7 +477,7 @@ msgstr "Kontrola glasnoće: %s"
 
 #: ../gst-mixer/src/window.c:378
 msgid "_Device: "
-msgstr ""
+msgstr "_Uređaj:"
 
 #. set tooltips
 #: ../gst-mixer/src/window.c:417
@@ -485,19 +486,19 @@ msgstr "Upravljaj glasnoćom na drugom uređaju"
 
 #: ../gstreamer-properties/gstreamer-properties.c:204
 msgid "None"
-msgstr ""
+msgstr "Nijedan"
 
 #. Element does not support setting devices
 #: ../gstreamer-properties/gstreamer-properties.c:246
 msgid "Unsupported"
-msgstr ""
+msgstr "Nepodržano"
 
 #: ../gstreamer-properties/gstreamer-properties.c:268
 #: ../sound-theme/gvc-sound-theme-chooser.c:850
 #: ../sound-theme/gvc-sound-theme-editor.c:891
 #: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
-msgstr ""
+msgstr "Uobičajeno"
 
 #: ../gstreamer-properties/gstreamer-properties.c:301
 msgid "Unknown"
@@ -526,7 +527,7 @@ msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
-msgstr ""
+msgstr "_Priključak:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
@@ -546,7 +547,7 @@ msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
-msgstr ""
+msgstr "P_riključak:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:9
 msgid "Pipeli_ne:"
@@ -558,7 +559,7 @@ msgstr "_Test"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
 msgid "D_evice:"
-msgstr ""
+msgstr "U_ređaj:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
 msgid "Audio"
@@ -574,7 +575,7 @@ msgstr "Isprobavanje cjevovoda"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr ""
+msgstr "Testiram..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
@@ -617,7 +618,7 @@ msgstr ""
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
 msgid "Sun Audio"
-msgstr ""
+msgstr "Sun Audio"
 
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
@@ -632,7 +633,7 @@ msgstr "Prilagođeno"
 
 #: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #: ../gstreamer-properties/pipeline-constants.c:110
 msgid "SDL — Simple DirectMedia Layer"
@@ -654,7 +655,7 @@ msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:142
 msgid "Silence"
-msgstr ""
+msgstr "Tišina"
 
 #: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
@@ -662,7 +663,7 @@ msgstr ""
 
 #: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
-msgstr ""
+msgstr "QCAM"
 
 #: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
@@ -776,7 +777,7 @@ msgstr "Uredi profil zvuka"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
-msgstr ""
+msgstr "Opis _profila:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:3
 msgid "_Active?"
@@ -959,11 +960,11 @@ msgstr ""
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:881
 msgid "Type"
-msgstr ""
+msgstr "Vrsta"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
-msgstr ""
+msgstr "Zvučna _tema:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
@@ -1014,17 +1015,17 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:88
 msgctxt "Sound event"
 msgid "Desktop"
-msgstr ""
+msgstr "Radna površina"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:89
 msgctxt "Sound event"
 msgid "Login"
-msgstr ""
+msgstr "Prijava"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:90
 msgctxt "Sound event"
 msgid "Logout"
-msgstr ""
+msgstr "Odjava"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:91
 msgctxt "Sound event"
@@ -1034,7 +1035,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
-msgstr ""
+msgstr "Isprazni smeće"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
@@ -1050,30 +1051,30 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
 msgid "Information or question"
-msgstr ""
+msgstr "Informacija ili pitanje"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:97
 msgctxt "Sound event"
 msgid "Warning"
-msgstr ""
+msgstr "Upozorenje"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:98
 msgctxt "Sound event"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:99
 msgctxt "Sound event"
 msgid "Battery warning"
-msgstr ""
+msgstr "Upozorenje baterije"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
-msgstr ""
+msgstr "Odaberi zvučnu datoteku"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
-msgstr ""
+msgstr "Zvučne datoteke"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"

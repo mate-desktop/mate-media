@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hasbullah Bin Pit (sebol) <sebol@ikhlas.com>, 2001, 2002, 2003.
+# abuyop <abuyop@gmail.com>, 2013
+# Hasbullah Bin Pit (sebol) <sebol@ikhlas.com>, 2001, 2002, 2003
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-08-12 08:04+0000\n"
+"Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Malay (http://www.transifex.com/projects/p/MATE/language/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -26,122 +27,122 @@ msgstr "Kawalan Volum"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr ""
+msgstr "Tunjuk kawalan volum desktop"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr ""
+msgstr "Bunyi"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "Ubah volum bunyi dan peristiwa bunyi"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
 msgid "Enable debugging code"
-msgstr ""
+msgstr "Benarkan kod pengnyahpepijatan"
 
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr ""
+msgstr "Versi aplikasi ini"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr ""
+msgstr "— Aplet Kawalan Volum MATE"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
-msgstr ""
+msgstr "Menunggu sistem bunyi memberi respons"
 
 #: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
 msgid "Startup page"
-msgstr ""
+msgstr "Halaman permulaan"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr "— Kawalan Volum MATE"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
-msgstr ""
+msgstr "Output"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Volum Output Bunyi"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
-msgstr ""
+msgstr "Input"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Volum Mikrofon"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
-msgstr ""
+msgstr "Kiri"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
-msgstr ""
+msgstr "Kanan"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "Belakang"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "Hadapan"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimum"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
-msgstr ""
+msgstr "_Imbangan:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
-msgstr ""
+msgstr "_Resap:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:300
 msgid "_Subwoofer:"
-msgstr ""
+msgstr "_Subwufer:"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:602
 #: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
-msgstr ""
+msgstr "Tidak dikuatkan"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
-msgstr ""
+msgstr "Senyap"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
-msgstr ""
+msgstr "_Profil:"
 
 #. translators:
 #. * The device has been disabled
@@ -149,7 +150,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:895
 #: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
-msgstr ""
+msgstr "Dilumpuhkan"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -157,7 +158,7 @@ msgstr ""
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
+msgstr[0] "%u Output"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -165,88 +166,88 @@ msgstr[0] ""
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
+msgstr[0] "%u Input"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
-msgstr ""
+msgstr "Bunyi Sistem"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:309
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:604
 msgid "Co_nnector:"
-msgstr ""
+msgstr "Pe_nyambung:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:517
 msgid "Peak detect"
-msgstr ""
+msgstr "Puncak dikesan"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
-msgstr ""
+msgstr "Peranti"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr ""
+msgstr "Pengujian Pembesar Suara untuk %s"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
-msgstr ""
+msgstr "Uji Pembesar Suara"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
-msgstr ""
+msgstr "Volum _output:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
-msgstr ""
+msgstr "Kesan Bunyi"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
-msgstr ""
+msgstr "Volum _amaran:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
-msgstr ""
+msgstr "Perkakasan"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
-msgstr ""
+msgstr "P_ilih peranti untuk dikonfigur:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
-msgstr ""
+msgstr "Tetapan untuk peranti terpilih:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
-msgstr ""
+msgstr "Volum _input:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
-msgstr ""
+msgstr "Aras input:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
-msgstr ""
+msgstr "P_ilih peranti untuk input bunyi:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
-msgstr ""
+msgstr "P_ilih peranti untuk output bunyi:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr ""
+msgstr "Aplikasi"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr ""
+msgstr "Tiada aplikasi kini dimainkan atau merakam audio."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -255,7 +256,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:560
 #: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
-msgstr ""
+msgstr "Keutamaan Bunyi"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 msgid "Stop"
@@ -264,73 +265,73 @@ msgstr "Henti"
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
 msgid "Test"
-msgstr ""
+msgstr "Uji"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
 msgid "Subwoofer"
-msgstr ""
+msgstr "Subwufer"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr ""
+msgstr "Gagal memulakan Keutamaan Bunyi: %s"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
-msgstr ""
+msgstr "Sen_yap"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "Keutamaan _Bunyi"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
-msgstr ""
+msgstr "Disenyapkan"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
-msgstr ""
+msgstr "Tinggi Tetingkap"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
 msgid "Height of the window to be displayed."
-msgstr ""
+msgstr "Tinggi tetingkap untuk dipaparkan."
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
-msgstr ""
+msgstr "Lebar Tetingkap"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
 msgid "Width of the window to be displayed."
-msgstr ""
+msgstr "Lebar tetingkap untuk dipaparkan."
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
-msgstr ""
+msgstr "Tema Bunyi"
 
 #: ../gst-mixer/src/main.c:82
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Kawalan Volum Tak Diketahui %d"
+msgstr "Kawalan Volum %d Tidak Diketahui"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr ""
+msgstr "Tiada pemalam dan peranti kawalan volum GStreamer ditemui."
 
 #: ../gst-mixer/src/misc.c:62
 msgid "Playback"
-msgstr ""
+msgstr "Main Balik"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
-msgstr ""
+msgstr "Rakaman"
 
 #: ../gst-mixer/src/misc.c:66
 msgid "Switches"
-msgstr ""
+msgstr "Suis"
 
 #: ../gst-mixer/src/misc.c:68
 msgid "Options"
-msgstr "Opsyen"
+msgstr "Pilihan"
 
 #. make window look cute
 #: ../gst-mixer/src/preferences.c:107
@@ -339,7 +340,7 @@ msgstr "Keutamaan Kawalan Volum"
 
 #: ../gst-mixer/src/preferences.c:120
 msgid "_Select mixers to be visible:"
-msgstr ""
+msgstr "_Pilih pengadun untuk ditampakkan:"
 
 #: ../gst-mixer/src/track.c:295
 #, c-format
@@ -350,28 +351,28 @@ msgstr "%s:"
 #: ../gst-mixer/src/track.c:339
 #, c-format
 msgid "Mute/Unmute %s"
-msgstr ""
+msgstr "Senyap/Suarakan %s"
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
 msgid "Track %s: mute"
-msgstr "Trek %s:mute"
+msgstr "Trek %s: senyap"
 
 #. only the record button here
 #: ../gst-mixer/src/track.c:433
 #, c-format
 msgid "Toggle audio recording from %s"
-msgstr ""
+msgstr "Togol rakaman audio dari %s"
 
 #: ../gst-mixer/src/track.c:449
 #, c-format
 msgid "Track %s: audio recording"
-msgstr ""
+msgstr "Trek %s: rakaman audio"
 
 #: ../gst-mixer/src/track.c:562
 #, c-format
 msgid "%s Option Selection"
-msgstr "Pemilihan Opsyen %s"
+msgstr "Pemilihan Pilihan %s"
 
 #: ../gst-mixer/src/volume.c:112
 #, c-format
@@ -391,12 +392,12 @@ msgstr "Trek %s saluran %d"
 #: ../gst-mixer/src/volume.c:138
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Kunci saluran untuk %s bersama-sama"
 
 #: ../gst-mixer/src/volume.c:156
 #, c-format
 msgid "Track %s: lock channels together"
-msgstr ""
+msgstr "Trek %s: kunci saluran bersama-sama"
 
 #: ../gst-mixer/src/volume.c:201
 msgid "mono"
@@ -412,11 +413,11 @@ msgstr "kanan"
 
 #: ../gst-mixer/src/volume.c:206
 msgid "front left"
-msgstr "depan kiri"
+msgstr "hadapan kiri"
 
 #: ../gst-mixer/src/volume.c:207
 msgid "front right"
-msgstr "depan kanan"
+msgstr "hadapan kanan"
 
 #: ../gst-mixer/src/volume.c:208
 msgid "rear left"
@@ -428,7 +429,7 @@ msgstr "belakang kanan"
 
 #: ../gst-mixer/src/volume.c:210
 msgid "front center"
-msgstr "depan tengah"
+msgstr "hadapan tengah"
 
 #. Translators: This is the name of a surround sound channel. It
 #. * stands for "Low-Frequency Effects". If you're not sure that
@@ -440,30 +441,30 @@ msgstr "LFE"
 
 #: ../gst-mixer/src/volume.c:216
 msgid "side left"
-msgstr ""
+msgstr "sisi kiri"
 
 #: ../gst-mixer/src/volume.c:217
 msgid "side right"
-msgstr ""
+msgstr "sisi kanan"
 
 #: ../gst-mixer/src/volume.c:218
 msgid "unknown"
-msgstr "entah"
+msgstr "tidak diketahui"
 
 #. Here, we can actually tell people that this
 #. * is a slider that will change channel X.
 #: ../gst-mixer/src/volume.c:224
 #, c-format
 msgid "Volume of %s channel on %s"
-msgstr "Volum bagu %s saluran pada %s"
+msgstr "Volum bagi %s saluran pada %s"
 
 #: ../gst-mixer/src/window.c:133
 msgid "A MATE/GStreamer-based volume control application"
-msgstr "Aplikasi kawalan volum berasaskan MATE/Gstreamer"
+msgstr "Aplikasi kawalan volum berasaskan-MATE/Gstreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr ""
+msgstr "abuyop <abuyop@gmail.com>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -473,7 +474,7 @@ msgstr "Kawalan Volum: %s"
 
 #: ../gst-mixer/src/window.c:378
 msgid "_Device: "
-msgstr ""
+msgstr "P_eranti:"
 
 #. set tooltips
 #: ../gst-mixer/src/window.c:417
@@ -482,31 +483,31 @@ msgstr "Kawalan volum pada peranti lain"
 
 #: ../gstreamer-properties/gstreamer-properties.c:204
 msgid "None"
-msgstr ""
+msgstr "Tiada"
 
 #. Element does not support setting devices
 #: ../gstreamer-properties/gstreamer-properties.c:246
 msgid "Unsupported"
-msgstr ""
+msgstr "Tidak Disokong"
 
 #: ../gstreamer-properties/gstreamer-properties.c:268
 #: ../sound-theme/gvc-sound-theme-chooser.c:850
 #: ../sound-theme/gvc-sound-theme-editor.c:891
 #: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
-msgstr ""
+msgstr "Lalai"
 
 #: ../gstreamer-properties/gstreamer-properties.c:301
 msgid "Unknown"
-msgstr "Entah"
+msgstr "Tidak Diketahui"
 
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
-msgstr "Gagal menginstans tetingkap utama"
+msgstr "Gagal menyegerakan tetingkap utama"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr ""
+msgstr "Gagal memuatkan fail UI; sila semak pemasangan anda."
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
@@ -515,19 +516,19 @@ msgstr "Pemilih Sistem Multimedia"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
 msgid "Configure defaults for GStreamer applications"
-msgstr "Konfigurasi default bagi aplikasi GStreamer"
+msgstr "Konfigur lalai bagi aplikasi GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr ""
+msgstr "Output Lalai"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
-msgstr ""
+msgstr "_Pemalam:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
-msgstr ""
+msgstr "Talian Pa_ip:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:5
 msgid "_Test"
@@ -535,27 +536,27 @@ msgstr "_Uji"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:6
 msgid "_Device:"
-msgstr ""
+msgstr "_Peranti:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr ""
+msgstr "Input Lalai"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
-msgstr ""
+msgstr "Pema_lam:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:9
 msgid "Pipeli_ne:"
-msgstr ""
+msgstr "Tal_ian Paip:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:10
 msgid "Te_st"
-msgstr "_Uji"
+msgstr "U_ji"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:11
 msgid "D_evice:"
-msgstr ""
+msgstr "P_eranti:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
 msgid "Audio"
@@ -567,11 +568,11 @@ msgstr "Video"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:14
 msgid "Testing Pipeline"
-msgstr "Menguji Barispaip"
+msgstr "Menguji Talian Paip"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr ""
+msgstr "Menguji..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
@@ -580,41 +581,41 @@ msgstr "Klik Ok untuk selesai."
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
 msgid "Autodetect"
-msgstr ""
+msgstr "Kesan-sendiri"
 
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
 msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "ALSA — Advanced Linux Sound Architecture"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
-msgstr ""
+msgstr "Artsd — ART Sound Daemon"
 
 #: ../gstreamer-properties/pipeline-constants.c:71
 #: ../gstreamer-properties/pipeline-constants.c:123
 msgid "ESD — Enlightenment Sound Daemon"
-msgstr ""
+msgstr "ESD — Enlightenment Sound Daemon"
 
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
 msgid "OSS — Open Sound System"
-msgstr ""
+msgstr "OSS — Open Sound System"
 
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
 msgid "OSS - Open Sound System Version 4"
-msgstr ""
+msgstr "OSS - Open Sound System Versi 4"
 
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
-msgstr ""
+msgstr "Pelayan Bunyi PulseAudio"
 
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
 msgid "Sun Audio"
-msgstr ""
+msgstr "Sun Audio"
 
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
@@ -625,72 +626,72 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:759
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Tersendiri"
+msgstr "Suai"
 
 #: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #: ../gstreamer-properties/pipeline-constants.c:110
 msgid "SDL — Simple DirectMedia Layer"
-msgstr ""
+msgstr "SDL "
 
 #: ../gstreamer-properties/pipeline-constants.c:112
 msgid "X Window System (No Xv)"
-msgstr ""
+msgstr "Sistem X Window (Tanpa Xv)"
 
 #: ../gstreamer-properties/pipeline-constants.c:114
 msgid "X Window System (X11/XShm/Xv)"
-msgstr ""
+msgstr "Sistem X Window (X11/XShm/Xv)"
 
 #. Note: using triangle instead of sine for test sound so we
 #. * can test the vorbis encoder as well (otherwise it'd compress too well)
 #: ../gstreamer-properties/pipeline-constants.c:140
 msgid "Test Sound"
-msgstr ""
+msgstr "Uji Bunyi"
 
 #: ../gstreamer-properties/pipeline-constants.c:142
 msgid "Silence"
-msgstr ""
+msgstr "Senyap"
 
 #: ../gstreamer-properties/pipeline-constants.c:149
 msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr ""
+msgstr "MJPEG (cth. peranti Zoran v4l)"
 
 #: ../gstreamer-properties/pipeline-constants.c:151
 msgid "QCAM"
-msgstr ""
+msgstr "QCAM"
 
 #: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
-msgstr ""
+msgstr "Uji Input"
 
 #: ../gstreamer-properties/pipeline-constants.c:155
 msgid "Video for Linux (v4l)"
-msgstr ""
+msgstr "Video for Linux (v4l)"
 
 #: ../gstreamer-properties/pipeline-constants.c:157
 msgid "Video for Linux 2 (v4l2)"
-msgstr ""
+msgstr "Video for Linux 2 (v4l2)"
 
 #: ../gstreamer-properties/pipeline-tests.c:176
 #, c-format
 msgid "Failed to construct test pipeline for '%s'"
-msgstr "Gagal mengadakan ujian barispaip bagi '%s'"
+msgstr "Gagal membina talian paip ujian bagi '%s'"
 
 #: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
 msgid "There was an error displaying help: %s"
-msgstr "Terdapat rakat memapar bantuan: %s"
+msgstr "Terdapat ralat memapar bantuan: %s"
 
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "Mengedit profi \"%s\""
+msgstr "Menyunting profil \"%s\""
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
-msgstr ""
+msgstr "<tanpa nama>"
 
 #: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
 msgid "<no description>"
@@ -706,23 +707,23 @@ msgstr "Terdapat ralat memperolehi senarai profil gm_audio: (%s)\n"
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Terdapat ralat melanggan ke pemakluman bagi perubahan senarai profil audio. (%s)\n"
+msgstr "Terdapat ralat melanggan ke pemberitahuan bagi perubahan senarai profil audio. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
 msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Terdapat ralat melupakan laluan profil  %s: (%s)\n"
+msgstr "Terdapat ralat melupakan laluan profil %s: (%s)\n"
 
 #: ../profiles/audio-profiles-edit.c:78
 msgid "_Edit"
-msgstr "_Edit"
+msgstr "_Sunting"
 
 #. the first argument will never be used since we only run for count > 1
 #: ../profiles/audio-profiles-edit.c:452
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
-msgstr[0] ""
+msgstr[0] "Padam %d profil ini?⏎\n"
 
 #: ../profiles/audio-profiles-edit.c:471
 #, c-format
@@ -735,7 +736,7 @@ msgstr "Padam Profil"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr ""
+msgstr "Sunting Profil Audio MATE"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
@@ -756,14 +757,14 @@ msgstr "Ralat MateConf (FIXME): %s\n"
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "Fail \"%s\" hilang. Ini menunjukkan aplikasi tidak dipasang dengan betul, menyebabkan dialog tak dapat dipaparkan."
+msgstr "Fail \"%s\" hilang. Ini menunjukkan aplikasi tidak dipasang dengan betul, menyebabkan dialog tidak dapat dipaparkan."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
+msgstr "%s⏎\nJalankan '%s --help' untuk lihat senarai penuh pilihan baris perintah yang tersedia.⏎\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -771,7 +772,7 @@ msgstr "Edit Profil Audio"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
-msgstr ""
+msgstr "_Keterangan profil:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:3
 msgid "_Active?"
@@ -779,11 +780,11 @@ msgstr "_Aktif?"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:4
 msgid "_File extension:"
-msgstr ""
+msgstr "Sambungan _fail:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:5
 msgid "_GStreamer pipeline:"
-msgstr ""
+msgstr "Talian paip _GStreamer:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:6
 #: ../profiles/mate-audio-profile-new.ui.h:3
@@ -807,7 +808,7 @@ msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr ""
+msgstr "Senarai profil rakaman audio. Senarai ini mengandungi subdirektori penamaan rentetan  relatif pada /system/gstreamer//@GST_MAJORMINOR@/audio/profiles."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
@@ -821,7 +822,7 @@ msgstr "Nama pendek bagi profil audio, untuk digunakan pada pemilihan dan unik m
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "Huraian bagi profil audio"
+msgstr "Keterangan bagi profil audio"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
@@ -831,73 +832,73 @@ msgstr "Keterangan bagi profil, mengandungi lebih maklumat dan menerangkan bila 
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
 msgid "The partial GStreamer pipeline used"
-msgstr "Sebahagian barispaip GStreamer digunakan"
+msgstr "Talian paip GStreamer separa digunakan"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
 msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "Sebahagian barispaip GStreamer untuk digunakan bagi profil ini."
+msgstr "Talian paip GStreamer separa untuk digunakan bagi profil ini."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
-msgstr "Sambungan fail default bagi profil ini"
+msgstr "Sambungan fail lalai bagi profil ini"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:10
 msgid ""
 "A filename extension to be used when storing files encoded with this "
 "profile."
-msgstr "Sambungan namafail untuk digunakan bila menyimpan fail yang dienkod dengan profil ini."
+msgstr "Sambungan nama fail untuk digunakan bila menyimpan fail yang dienkod dengan profil ini."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:11
 msgid "Whether this profile is to be used"
-msgstr ""
+msgstr "Sama ada profil ini akan digunakan"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:12
 msgid "Whether to use and display this profile."
-msgstr ""
+msgstr "Sama ada hendak guna dan papar profil ini."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
-msgstr ""
+msgstr "Kualiti CD, Hilang"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:14
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-CD, tetapi dengan kodeks pemampatan hilang. Guna pengekstrakan CD dan rakaman radio."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"
-msgstr ""
+msgstr "Kualiti CD, Tak Hilang"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-CD, tetapi dengan kodeks pemampatan tak hilang. Guna ini jika anda mahu sunting fail atau rakam ia ke CD."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
-msgstr ""
+msgstr "Suara, Tak Hilang"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-suara tak hilang. Guna ini untuk rakaman dan suntingan pertuturan."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
-msgstr ""
+msgstr "Suara, Hilang"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:20
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-suara hilang. Guna ini untuk merakam pertuturan yang tidak perlu disunting."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid "CD Quality, MP2"
-msgstr ""
+msgstr "Kualiti CD, MP2"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:22
 msgid ""
@@ -905,11 +906,11 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-CD, tetapi dengan kodeks MP2 hilang. Guna menyediakan fail untuk menyalin ke peranti yang hanya menyokong kodeks MP2. Perhatian menggunakan format ini mungkin tidak dibenarkan dalam negara anda; hubungi peguam anda untuk dapatkan nasihat."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
-msgstr ""
+msgstr "Kualiti CD, MP3"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
@@ -917,11 +918,11 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-CD, tetapi dengan kodeks MP3 hilang. Guna menyediakan fail untuk menyalin ke peranti yang hanya menyokong kodeks MP3. Perhatian menggunakan format ini mungkin tidak dibenarkan dalam negara anda; hubungi peguam anda untuk dapatkan nasihat."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
-msgstr ""
+msgstr "Kualiti CD, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
 msgid ""
@@ -929,16 +930,16 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr ""
+msgstr "Digunakan untuk menukar audio kualiti-CD, tetapi dengan kodeks AAC hilang. Guna menyediakan fail untuk menyalin ke peranti yang hanya menyokong kodeks AAC. Perhatian menggunakan format ini mungkin tidak dibenarkan dalam negara anda; hubungi peguam anda untuk dapatkan nasihat."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
 msgid "No sounds"
-msgstr ""
+msgstr "Tiada bunyi"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:444
 msgid "Built-in"
-msgstr ""
+msgstr "Terbina-dalam"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:742
 #: ../sound-theme/gvc-sound-theme-chooser.c:753
@@ -946,166 +947,166 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:562
 #: ../sound-theme/gvc-sound-theme-editor.c:951
 msgid "Testing event sound"
-msgstr ""
+msgstr "Menguji bunyi peristiwa"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:851
 msgid "From theme"
-msgstr ""
+msgstr "Dari tema"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:881
 msgid "Type"
-msgstr ""
+msgstr "Jenis"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
-msgstr ""
+msgstr "_Tema bunyi:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
-msgstr ""
+msgstr "P_ilih bunyi amaran:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
-msgstr ""
+msgstr "Benarkan bunyi tetingkap dan _butang"
 
 #. Bell
 #: ../sound-theme/gvc-sound-theme-editor.c:79
 msgctxt "Sound event"
 msgid "Alert sound"
-msgstr ""
+msgstr "Bunyi amaran"
 
 #. Windows and buttons
 #: ../sound-theme/gvc-sound-theme-editor.c:81
 msgctxt "Sound event"
 msgid "Windows and Buttons"
-msgstr ""
+msgstr "Tetingkap dan Butang"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:82
 msgctxt "Sound event"
 msgid "Button clicked"
-msgstr ""
+msgstr "Butang diklik"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:83
 msgctxt "Sound event"
 msgid "Toggle button clicked"
-msgstr ""
+msgstr "Togol butang diklik"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:84
 msgctxt "Sound event"
 msgid "Window maximized"
-msgstr ""
+msgstr "Tetingkap dimaksimum"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:85
 msgctxt "Sound event"
 msgid "Window unmaximized"
-msgstr ""
+msgstr "Tetingkap dinyahmaksimum"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:86
 msgctxt "Sound event"
 msgid "Window minimised"
-msgstr ""
+msgstr "Tetingkap diminimum"
 
 #. Desktop
 #: ../sound-theme/gvc-sound-theme-editor.c:88
 msgctxt "Sound event"
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:89
 msgctxt "Sound event"
 msgid "Login"
-msgstr ""
+msgstr "Daftar Masuk"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:90
 msgctxt "Sound event"
 msgid "Logout"
-msgstr ""
+msgstr "Daftar Keluar"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:91
 msgctxt "Sound event"
 msgid "New e-mail"
-msgstr ""
+msgstr "E-mel baru"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
-msgstr ""
+msgstr "Kosongkan tong sampah"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
-msgstr ""
+msgstr "Tindakan lama selesai (muat turun, merakam CD, dll.)"
 
 #. Alerts?
 #: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
 msgid "Alerts"
-msgstr ""
+msgstr "Amaran"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
 msgid "Information or question"
-msgstr ""
+msgstr "Maklumat atau soalan"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:97
 msgctxt "Sound event"
 msgid "Warning"
-msgstr ""
+msgstr "Amaran"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:98
 msgctxt "Sound event"
 msgid "Error"
-msgstr ""
+msgstr "Ralat"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:99
 msgctxt "Sound event"
 msgid "Battery warning"
-msgstr ""
+msgstr "Amaran bateri"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
-msgstr ""
+msgstr "Pilih Fail Bunyi"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
-msgstr ""
+msgstr "Fail bunyi"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"
-msgstr ""
+msgstr "Suai..."
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1302
 msgid "Sound Theme:"
-msgstr ""
+msgstr "Tema Bunyi:"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
-msgstr ""
+msgstr "Benarkan bunyi tetingkap dan butang"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
-msgstr ""
+msgstr "Nyalak"
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
-msgstr ""
+msgstr "Titisan"
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
-msgstr ""
+msgstr "Kaca"
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
-msgstr ""
+msgstr "Sonar"
