@@ -217,6 +217,22 @@ on_status_icon_activate (GtkStatusIcon       *status_icon,
         popup_dock (icon, GDK_CURRENT_TIME);
 }
 
+static gboolean
+on_status_icon_button_press (GtkStatusIcon       *status_icon,
+                             GdkEventButton      *event,
+                             GvcStreamStatusIcon *icon)
+{
+        /* middle click acts as mute/unmute */
+        if (event->button == 2) {
+                gboolean is_muted;
+                is_muted = gvc_mixer_stream_get_is_muted (icon->priv->mixer_stream);
+                gvc_mixer_stream_set_is_muted (icon->priv->mixer_stream, !is_muted);
+                gvc_mixer_stream_change_is_muted (icon->priv->mixer_stream, !is_muted);
+                return TRUE;
+        }
+        return FALSE;
+}
+
 static void
 on_menu_mute_toggled (GtkMenuItem         *item,
                       GvcStreamStatusIcon *icon)
@@ -789,6 +805,10 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         g_signal_connect (icon,
                           "activate",
                           G_CALLBACK (on_status_icon_activate),
+                          icon);
+        g_signal_connect (icon,
+                          "button-press-event",
+                          G_CALLBACK (on_status_icon_button_press),
                           icon);
         g_signal_connect (icon,
                           "popup-menu",
