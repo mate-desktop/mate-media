@@ -9,13 +9,14 @@
 # Stanislav Visnovsky <visnovsky@kde.org>, 2003
 # Stanislav Višňovský <visnovsky@nenya.ms.mff.cuni.cz>, 2002
 # Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2000-2002,2003, 2004
+# tibbi <tibbbi2@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2013-05-14 00:04+0000\n"
-"Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>\n"
+"PO-Revision-Date: 2014-02-12 20:25+0000\n"
+"Last-Translator: tibbi <tibbbi2@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +51,7 @@ msgstr "Povoliť ladiaci kód"
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr "Verzia tohto programu"
+msgstr "Verzia tejto aplikácie"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
@@ -66,7 +67,7 @@ msgstr "Spúšťacia stránka"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr " — MATE "
+msgstr " — Ovládanie hlasitosti MATE"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
@@ -141,7 +142,7 @@ msgstr "Nezosilnené"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
-msgstr "Ztlmiť"
+msgstr "Stlmiť"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
@@ -154,7 +155,7 @@ msgstr "_Profil:"
 #: ../sound-theme/gvc-sound-theme-editor.c:895
 #: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
-msgstr "Zakázané"
+msgstr "Vypnuté"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -214,7 +215,7 @@ msgstr "_Výstupná hlasitosť: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
-msgstr "Zvukové efekte"
+msgstr "Zvukové efekty"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
@@ -222,16 +223,16 @@ msgstr "Hl_asitosť upozornení: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
-msgstr "Hardware"
+msgstr "Hardvér"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
-msgstr "Zariadenie nastavíte je_ho vybratím:"
+msgstr "Zariadenie nastavíte je_ho vybraním:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
-msgstr "Nastavenie vybratého zariadenia:"
+msgstr "Nastavenie vybraného zariadenia:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
@@ -239,7 +240,7 @@ msgstr "Vstupná hlas_itosť: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
-msgstr "Výstupná úroveň:"
+msgstr "Vstupná úroveň:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
@@ -251,11 +252,11 @@ msgstr "V_yberte zariadenie zvukového výstupu:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr "Programy"
+msgstr "Aplikácie"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr "Žiadny program momentálne neprehráva alebo nezaznamenáva zvuk."
+msgstr "Žiadna aplikácia momentálne neprehráva alebo nezaznamenáva zvuk."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -364,7 +365,7 @@ msgstr "Stlmiť / zrušiť stlmenie %s"
 #: ../gst-mixer/src/track.c:356
 #, c-format
 msgid "Track %s: mute"
-msgstr "Stopa %s: umlčaná"
+msgstr "Stopa %s: stlmená"
 
 #. only the record button here
 #: ../gst-mixer/src/track.c:433
@@ -449,11 +450,11 @@ msgstr "LFE"
 
 #: ../gst-mixer/src/volume.c:216
 msgid "side left"
-msgstr "stranový ľavý"
+msgstr "bočný ľavý"
 
 #: ../gst-mixer/src/volume.c:217
 msgid "side right"
-msgstr "stranový pravý"
+msgstr "bočný pravý"
 
 #: ../gst-mixer/src/volume.c:218
 msgid "unknown"
@@ -472,7 +473,7 @@ msgstr "Aplikácia ovládania hlasitosti založená na MATE/GStreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "Marcel Telka <marcel@telka.sk>\nPeter Tuhársky <tuharsky@misbb.sk>\nJán Ďanovský <dagsoftware@yahoo.com>"
+msgstr "Marcel Telka <marcel@telka.sk>\nPeter Tuhársky <tuharsky@misbb.sk>\nJán Ďanovský <dagsoftware@yahoo.com>\nTibor Kaputa <tibbbi2@gmail.com>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
@@ -515,7 +516,7 @@ msgstr "Chyba pri vytváraní hlavného okna"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr "Zlyhalo načítať súbor UI; skontrolujte prosím inštaláciu."
+msgstr "Zlyhalo načítanie súboru UI; prosím skontrolujte inštaláciu."
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
@@ -528,11 +529,11 @@ msgstr "Nastaviť predvolené hodnoty pre aplikácie GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr "Východzí výstup"
+msgstr "Predvolený výstup"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
-msgstr "_Zísuvný modul:"
+msgstr "_Zásuvný modul:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
@@ -548,7 +549,7 @@ msgstr "_Zariadenie:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr "Východzí vstup"
+msgstr "Predvolený vstup"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -580,7 +581,7 @@ msgstr "Testujem rúru"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr "Testuje sa..."
+msgstr "Testuje sa…"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
@@ -695,7 +696,7 @@ msgstr "Nastala chyba pri zobrazovaní pomocníka: %s"
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "Upravujem profil \"%s\""
+msgstr "Upravujem profil „%s“"
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
@@ -715,7 +716,7 @@ msgstr "Nastala chyba pri získavaní zoznamu profilov gm_audio. (%s)\n"
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Nastala chyba pri prihlásení upozornení na zmeny zoznamu zvukových profilov. (%s)\n"
+msgstr "Nastala chyba pri odbere upozornení na zmeny zoznamu zvukových profilov. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
@@ -731,14 +732,14 @@ msgstr "_Upraviť"
 #, c-format
 msgid "Delete this profile?\n"
 msgid_plural "Delete these %d profiles?\n"
-msgstr[0] "Odstrániť týchto %d profilov?\n"
-msgstr[1] "Odstrániť tento profil?\n"
-msgstr[2] "Odstrániť tieto %d profily?\n"
+msgstr[0] "Odstrániť tento profil?\n"
+msgstr[1] "Odstrániť tieto %d profily?\n"
+msgstr[2] "Odstrániť týchto %d profilov?\n"
 
 #: ../profiles/audio-profiles-edit.c:471
 #, c-format
 msgid "Delete profile \"%s\"?"
-msgstr "Odstrániť profil \"%s\"?"
+msgstr "Odstrániť profil „%s“?"
 
 #: ../profiles/audio-profiles-edit.c:493
 msgid "Delete Profile"
@@ -755,7 +756,7 @@ msgstr "_Profily:"
 #: ../profiles/audio-profiles-edit.c:821
 #, c-format
 msgid "You already have a profile called \"%s\""
-msgstr "Už máte profil \"%s\""
+msgstr "Už máte profil nazvaný „%s“"
 
 #: ../profiles/audio-profiles-edit.c:846
 #, c-format
@@ -767,14 +768,14 @@ msgstr "Chyba MateConf (FIXME): %s\n"
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "Súbor \"%s\" chýba. Toto znamená, že aplikácia bola nainštalovaná nesprávne, takže dialóg nie je možné zobraziť."
+msgstr "Súbor „%s“ chýba. To znamená, že aplikácia bola nainštalovaná nesprávne, dialóg sa nedá zobraziť."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s \nSpustením \"%s --help\" zobrazíte úplný zoznam možností príkazového riadka.\n"
+msgstr "%s \nSpustením „“%s --help“ zobrazíte úplný zoznam možností príkazového riadka.\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
@@ -799,7 +800,7 @@ msgstr "Rúra _GStreamer:"
 #: ../profiles/mate-audio-profile-edit.ui.h:6
 #: ../profiles/mate-audio-profile-new.ui.h:3
 msgid "_Profile name:"
-msgstr "_Meno profilu:"
+msgstr "_Názov profilu:"
 
 #: ../profiles/mate-audio-profile-new.ui.h:1
 msgid "New Profile"
@@ -822,13 +823,13 @@ msgstr "Zoznam profilov pre nahrávanie zvuku. Obsahuje mená podadresárov rela
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
-msgstr "Krátke meno pre zvukový profil"
+msgstr "Krátky názov pre zvukový profil"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "Krátke meno pre zvukový profil, používané vo výberoch a jednoznačne určujúce profil."
+msgstr "Krátky názov pre zvukový profil, používaný vo výberoch a jednoznačne určujúci profil."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
@@ -842,7 +843,7 @@ msgstr "Popis profilu obsahujúci podrobnejšie informácie o tomto profile."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
 msgid "The partial GStreamer pipeline used"
-msgstr "Použitý čiastočnú rúru GStreamer"
+msgstr "Použitá čiastočná rúra GStreamer"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
 msgid "A partial GStreamer pipeline to use for this profile."
@@ -888,7 +889,7 @@ msgstr "Používa sa pre konvertovanie do zvuku CD kvality, ale pomocou kodeku s
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
-msgstr "Hlas, bezstratové"
+msgstr "Hlas, bezstratový"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
@@ -898,7 +899,7 @@ msgstr "Používa sa pre konvertovanie do bezstratového zvuku hlasovej kvality.
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
-msgstr "Hlas, stratové"
+msgstr "Hlas, stratový"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:20
 msgid ""
@@ -916,7 +917,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Používa se na konverziu so zvukovou kvalitou CD, ale so stratovým kodekom MP2. Vhodné ako príprava súborov na kopírovanie na zariadenie podporujúce iba kodek MP2. Uvedomte so prosím, že použitie tohoto formátu môže byť ilegálne. Kontaktuje v tejto záležitosti právneho poradcu."
+msgstr "Používa se na konverziu so zvukovou kvalitou CD, ale so stratovým kodekom MP2. Vhodné ako príprava súborov na kopírovanie na zariadenie podporujúce iba kodek MP2. Uvedomte si, že použitie tohoto formátu môže byť ilegálne. Kontaktuje v tejto záležitosti právneho poradcu."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
@@ -928,7 +929,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Používa sa na konverziu zvuku v CD kvalite, ale so stratovým kodekom MP3. Je to použiteľné len na prípravu súborov pre zariadenia, ktoré podporujú iba kodek MP3. Upozornenie: používanie tohto formátu môže byť v niektorých krajinách dokonca protizákonné; opýtajte sa svojho právnika."
+msgstr "Používa sa na konverziu zvuku v CD kvalite, ale so stratovým kodekom MP3. Je to použiteľné len na prípravu súborov pre zariadenia, ktoré podporujú iba kodek MP3. Upozornenie: používanie tohto formátu môže byť v niektorých krajinách protizákonné; opýtajte sa svojho právnika."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
@@ -940,7 +941,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Používa sa na konverziu zvuku v CD kvalite, ale so stratovým kodekom AAC. Je to použiteľné len na prípravu súborov pre zariadenia, ktoré podporujú iba kodek AAC. Upozornenie: používanie tohto formátu môže byť v niektorých krajinách dokonca protizákonné; opýtajte sa svojho právnika."
+msgstr "Používa sa na konverziu zvuku v CD kvalite, ale so stratovým kodekom AAC. Je to použiteľné len na prípravu súborov pre zariadenia, ktoré podporujú iba kodek AAC. Upozornenie: používanie tohto formátu môže byť v niektorých krajinách protizákonné; opýtajte sa svojho právnika."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -977,7 +978,7 @@ msgstr "V_yberte zvuk upozornení:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
-msgstr "P_ovoliť zvuky okien a tlačítok"
+msgstr "P_ovoliť zvuky okien a tlačidiel"
 
 #. Bell
 #: ../sound-theme/gvc-sound-theme-editor.c:79
@@ -989,17 +990,17 @@ msgstr "Zvuk upozornení"
 #: ../sound-theme/gvc-sound-theme-editor.c:81
 msgctxt "Sound event"
 msgid "Windows and Buttons"
-msgstr "Okna a tlačítka"
+msgstr "Okna a tlačidlá"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:82
 msgctxt "Sound event"
 msgid "Button clicked"
-msgstr "Kliknutie na tlačítko"
+msgstr "Kliknutie na tlačidlo"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:83
 msgctxt "Sound event"
 msgid "Toggle button clicked"
-msgstr "Kliknutie na prepínacie tlačítko"
+msgstr "Kliknutie na prepínacie tlačidlo"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:84
 msgctxt "Sound event"
@@ -1040,18 +1041,18 @@ msgstr "Nový e-mail"
 #: ../sound-theme/gvc-sound-theme-editor.c:92
 msgctxt "Sound event"
 msgid "Empty trash"
-msgstr "Vyprázdnenie koša"
+msgstr "Vyprázdnenie Koša"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:93
 msgctxt "Sound event"
 msgid "Long action completed (download, CD burning, etc.)"
-msgstr "Dlhotrvajúca činnosť dokončená (sťahovanie, napaľovanie CD, atď.)"
+msgstr "Dlhotrvajúca operácia dokončená (sťahovanie, napaľovanie CD, atď.)"
 
 #. Alerts?
 #: ../sound-theme/gvc-sound-theme-editor.c:95
 msgctxt "Sound event"
 msgid "Alerts"
-msgstr "Upozornenie"
+msgstr "Upozornenia"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:96
 msgctxt "Sound event"
@@ -1091,7 +1092,7 @@ msgstr "Téma zvuku:"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
-msgstr "Povoliť zvuky okien a tlačítok"
+msgstr "Povoliť zvuky okien a tlačidiel"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.

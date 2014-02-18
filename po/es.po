@@ -3,24 +3,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004, 2005, 2006.
-# Jesús Bravo Álvarez <jba@pobox.com>, 2000.
-# Jorge González <jorgegonz@svn.mate.org>, 2008, 2009, 2010.
-# Lucas Vieites Fariña <lucas@asixinformatica.com>, 2005, 2006, 2007.
-# Yelitza Louze <ylouze@redhat.com>, 2003.
+# Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014
+# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004, 2005, 2006
+# Jesús Bravo Álvarez <jba@pobox.com>, 2000
+# Jorge González <jorgegonz@svn.mate.org>, 2008, 2009, 2010
+# Lucas Vieites Fariña <lucas@asixinformatica.com>, 2005, 2006, 2007
+# Yelitza Louze <ylouze@redhat.com>, 2003
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.com/projects/p/MATE/language/es/)\n"
+"PO-Revision-Date: 2014-02-16 17:37+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -770,7 +771,7 @@ msgstr "Falta el archivo «%s». Esto indica que la aplicación no está instala
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\nEjecute «%s --help» para ver una lista completa de todas las opciones disponibles de la línea de comandos.\n"
+msgstr "%s\nEjecute «%s --help» para ver una lista completa de todas las órdenes disponibles.\n"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
