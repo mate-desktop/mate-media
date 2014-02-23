@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nguyễn Thái Ngọc Duy <pclouds@gmx.net>, 2002.
+# truongap <truongap.ars@gmail.com>, 2014
+# Nguyễn Thái Ngọc Duy <pclouds@gmx.net>, 2002
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2014-02-19 19:04+0000\n"
+"Last-Translator: truongap <truongap.ars@gmail.com>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/MATE/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -35,7 +36,7 @@ msgstr "Âm thanh"
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "Thay đổi âm lượng và âm thanh của sự kiện"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -61,7 +62,7 @@ msgstr "Trang đầu tiên"
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr "__ Điều khiển âm lượng Mate"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
@@ -70,7 +71,7 @@ msgstr "Kết xuất"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Âm lượng đầu ra"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
@@ -79,7 +80,7 @@ msgstr "Vào"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Âm lượng thiết bị thu âm"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
@@ -94,22 +95,22 @@ msgstr "Phải"
 #: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "Sau"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "Trước"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
-msgstr ""
+msgstr "Tối thiểu"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
-msgstr ""
+msgstr "Tối đa"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
@@ -127,7 +128,7 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
@@ -157,7 +158,7 @@ msgstr "Bị tắt"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
+msgstr[0] "%u đầu ra"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -165,7 +166,7 @@ msgstr[0] ""
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
+msgstr[0] "%u đầu vào"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
@@ -193,11 +194,11 @@ msgstr "Thiết bị"
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr ""
+msgstr "Thử loa cho %s"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
-msgstr ""
+msgstr "Thử loa"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
@@ -213,7 +214,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
-msgstr ""
+msgstr "Phần cứng"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
@@ -264,7 +265,7 @@ msgstr "Dừng"
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
 msgid "Test"
-msgstr ""
+msgstr "Thử"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
 msgid "Subwoofer"
@@ -293,7 +294,7 @@ msgstr "Độ cao của cửa sổ"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:2
 msgid "Height of the window to be displayed."
-msgstr ""
+msgstr "Độ cao của cửa sổ để hiển thị"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:3
 msgid "Width of the Window"
@@ -301,11 +302,11 @@ msgstr "Độ rộng của cửa sổ"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:4
 msgid "Width of the window to be displayed."
-msgstr ""
+msgstr "Độ rộng của cửa sổ để hiển thị"
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
-msgstr ""
+msgstr "Sắc thái Âm thanh"
 
 #: ../gst-mixer/src/main.c:82
 #, c-format
@@ -350,7 +351,7 @@ msgstr "%s:"
 #: ../gst-mixer/src/track.c:339
 #, c-format
 msgid "Mute/Unmute %s"
-msgstr ""
+msgstr "Câm/Bật %s"
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
@@ -506,7 +507,7 @@ msgstr "Lỗi tạo cửa sổ chính"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
-msgstr ""
+msgstr "Nạp tệp UI thất bại; hãy kiểm tra quá trình cài đặt."
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
@@ -519,7 +520,7 @@ msgstr "Cấu hình mặc định cho các ứng dụng GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr ""
+msgstr "Đầu ra mặc định"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
@@ -539,7 +540,7 @@ msgstr "Thiết _bị"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr ""
+msgstr "Đầu vào mặc đinh"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -571,7 +572,7 @@ msgstr "Đang kiểm tra đường ống"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr ""
+msgstr "Đang thử..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
@@ -585,7 +586,7 @@ msgstr "Tự dò tìm"
 #: ../gstreamer-properties/pipeline-constants.c:54
 #: ../gstreamer-properties/pipeline-constants.c:121
 msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "ALSA __ Kiến trúc âm thanh Linux nâng cao"
 
 #: ../gstreamer-properties/pipeline-constants.c:69
 msgid "Artsd — ART Sound Daemon"
@@ -599,12 +600,12 @@ msgstr ""
 #: ../gstreamer-properties/pipeline-constants.c:77
 #: ../gstreamer-properties/pipeline-constants.c:130
 msgid "OSS — Open Sound System"
-msgstr ""
+msgstr "OSS __ Hệ thống âm thanh mở"
 
 #: ../gstreamer-properties/pipeline-constants.c:79
 #: ../gstreamer-properties/pipeline-constants.c:132
 msgid "OSS - Open Sound System Version 4"
-msgstr ""
+msgstr "OSS __ Hệ thống âm thanh mở phiên bản 4"
 
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
@@ -849,11 +850,11 @@ msgstr "Phần mở rộng tập tin để sử dụng khi lưu tập tin đã m
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:11
 msgid "Whether this profile is to be used"
-msgstr ""
+msgstr "Cấu hình này có được sử dụng hay không"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:12
 msgid "Whether to use and display this profile."
-msgstr ""
+msgstr "Có sử dụng và hiển thị cấu hình này hay không."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
@@ -1072,7 +1073,7 @@ msgstr "Tập tin âm thanh"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"
-msgstr ""
+msgstr "Tùy biến..."
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1302
 msgid "Sound Theme:"

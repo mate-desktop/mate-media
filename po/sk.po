@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ján Ďanovský <dagsoftware@yahoo.com>, 2013
+# Ján Ďanovský <dagsoftware@yahoo.com>, 2013-2014
 # Marcel Telka <marcel@telka.sk>, 2005
 # Peter Tuharsky <tuharsky@misbb.sk>, 2007
 # Stanislav Visnovsky <visnovsky@kde.org>, 2003
@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2014-02-12 20:25+0000\n"
-"Last-Translator: tibbi <tibbbi2@gmail.com>\n"
+"PO-Revision-Date: 2014-02-20 23:23+0000\n"
+"Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "Povoliť ladiaci kód"
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr "Verzia tejto aplikácie"
+msgstr "Verzia tohto programu"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
@@ -252,11 +252,11 @@ msgstr "V_yberte zariadenie zvukového výstupu:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr "Aplikácie"
+msgstr "Programy"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr "Žiadna aplikácia momentálne neprehráva alebo nezaznamenáva zvuk."
+msgstr "Žiadny program momentálne neprehráva alebo nenahráva zvuk."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -469,7 +469,7 @@ msgstr "Hlasitosť kanála %s na %s"
 
 #: ../gst-mixer/src/window.c:133
 msgid "A MATE/GStreamer-based volume control application"
-msgstr "Aplikácia ovládania hlasitosti založená na MATE/GStreamer"
+msgstr "Program na ovládanie hlasitosti založený na MATE/GStreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
@@ -525,7 +525,7 @@ msgstr "Výber systému multimédií"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
 msgid "Configure defaults for GStreamer applications"
-msgstr "Nastaviť predvolené hodnoty pre aplikácie GStreamer"
+msgstr "Nastaviť predvolené hodnoty pre programy GStreamer-u"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
@@ -768,7 +768,7 @@ msgstr "Chyba MateConf (FIXME): %s\n"
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "Súbor „%s“ chýba. To znamená, že aplikácia bola nainštalovaná nesprávne, dialóg sa nedá zobraziť."
+msgstr "Súbor „%s“ chýba. To znamená, že program bol nainštalovaný nesprávne, takže dialóg sa nedá zobraziť."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
@@ -819,7 +819,7 @@ msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Zoznam profilov pre nahrávanie zvuku. Obsahuje mená podadresárov relatívnych k /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "Zoznam profilov pre nahrávanie zvuku. Obsahuje názvy podpriečinkov relatívnych k /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
