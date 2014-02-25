@@ -1,6 +1,6 @@
 NULL =
 
-SUBDIRS = po
+SUBDIRS = po man
 
 if HAVE_SOUND_THEME
 SUBDIRS += sound-theme
@@ -26,6 +26,7 @@ DISTCHECK_CONFIGURE_FLAGS = \
 
 DIST_SUBDIRS = \
 	po 			\
+	man			\
 	mate-volume-control	\
 	gst-mixer		\
 	gst-mixer-applet	\

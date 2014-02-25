@@ -330,6 +330,7 @@ AC_SUBST(LDFLAGS)
 
 AC_CONFIG_FILES([
 Makefile
+man/Makefile
 po/Makefile.in
 sound-theme/Makefile
 sound-theme/sounds/Makefile
