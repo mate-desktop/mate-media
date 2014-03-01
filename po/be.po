@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ales Nyakhaychyk <nab@mail.by>, 2004.
-# Ihar Hrachyshka <boox.svaboda2006@gmail.com>, 2006.
-# Vital Khilko <dojlid@mova.org>, 2003.
+# Alex Nehaichik <nab@mail.by>, 2004
+# Ihar Hrachyshka <boox.svaboda2006@gmail.com>, 2006
+# Vital Khilko <dojlid@mova.org>, 2003,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2014-02-28 11:57+0000\n"
+"Last-Translator: meequz <meequz@gmail.com>\n"
+"Language-Team: Belarusian (http://www.transifex.com/projects/p/MATE/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
 #: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
 msgid "Volume Control"
-msgstr "Кіраваньне гукам"
+msgstr "Кіраванне гукам"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr ""
+msgstr "Гук"
 
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
@@ -47,11 +47,11 @@ msgstr ""
 #: ../mate-volume-control/src/applet-main.c:50
 #: ../mate-volume-control/src/dialog-main.c:156
 msgid "Version of this application"
-msgstr ""
+msgstr "Версія гэтай праграмы"
 
 #: ../mate-volume-control/src/applet-main.c:62
 msgid " — MATE Volume Control Applet"
-msgstr ""
+msgstr " — Аплет кіравання гукам MATE"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
@@ -63,55 +63,55 @@ msgstr ""
 
 #: ../mate-volume-control/src/dialog-main.c:168
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr " — Кіраўнік гуку асяроддзя MATE"
 
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
-msgstr ""
+msgstr "Выхад"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Узровень выходнага гуку"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
-msgstr ""
+msgstr "Уваход"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Узровень мікрафона"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:109
 msgctxt "balance"
 msgid "Left"
-msgstr ""
+msgstr "Левы"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:110
 msgctxt "balance"
 msgid "Right"
-msgstr ""
+msgstr "Правы"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:113
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "Задні"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:114
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "Пярэдні"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:117
 msgctxt "balance"
 msgid "Minimum"
-msgstr ""
+msgstr "Мінімум"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:118
 msgctxt "balance"
 msgid "Maximum"
-msgstr ""
+msgstr "Максімум"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
@@ -129,7 +129,7 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-channel-bar.c:611
 msgctxt "volume"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
@@ -138,12 +138,12 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
-msgstr ""
+msgstr "Сцішыць"
 
 #: ../mate-volume-control/src/gvc-combo-box.c:166
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
 msgid "_Profile:"
-msgstr ""
+msgstr "_Профіль:"
 
 #. translators:
 #. * The device has been disabled
@@ -151,7 +151,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:895
 #: ../sound-theme/gvc-sound-theme-editor.c:991
 msgid "Disabled"
-msgstr ""
+msgstr "Адключаны"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -177,7 +177,7 @@ msgstr[3] ""
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
-msgstr ""
+msgstr "Сістэмныя гукі"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:309
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:604
@@ -192,11 +192,11 @@ msgstr ""
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
 #: ../sound-theme/gvc-sound-theme-chooser.c:874
 msgid "Name"
-msgstr ""
+msgstr "Назва"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
 msgid "Device"
-msgstr ""
+msgstr "Прылада"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
 #, c-format
@@ -205,7 +205,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
 msgid "Test Speakers"
-msgstr ""
+msgstr "Праверыць калонкі"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
@@ -213,7 +213,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
-msgstr ""
+msgstr "Гукавыя эфекты"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
@@ -221,7 +221,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
-msgstr ""
+msgstr "Апаратура"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
@@ -272,7 +272,7 @@ msgstr "Спыніць"
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 #: ../mate-volume-control/src/gvc-speaker-test.c:332
 msgid "Test"
-msgstr ""
+msgstr "Праверка"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:228
 msgid "Subwoofer"
@@ -293,7 +293,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
-msgstr ""
+msgstr "Сцішаны"
 
 #: ../gst-mixer/mate-volume-control.schemas.in.h:1
 msgid "Height of the Window"
@@ -313,20 +313,20 @@ msgstr ""
 
 #: ../gst-mixer/src/element.c:495
 msgid "Sound Theme"
-msgstr ""
+msgstr "Гукавая тэма"
 
 #: ../gst-mixer/src/main.c:82
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Невядомы кіравальнік гукам %d"
+msgstr "Невядомы кіраўнік гукам %d"
 
 #: ../gst-mixer/src/main.c:159
 msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "Ня знойдзены ўтулкі кіраваньня гукам GStreamer і/ці прылады"
+msgstr "Не знойдзены GStreamer-ўбудовы кіравання гукам і/ці прылады"
 
 #: ../gst-mixer/src/misc.c:62
 msgid "Playback"
-msgstr "Прайграваньне"
+msgstr "Прайграванне"
 
 #: ../gst-mixer/src/misc.c:64
 msgid "Recording"
@@ -338,12 +338,12 @@ msgstr "Пераключальнікі"
 
 #: ../gst-mixer/src/misc.c:68
 msgid "Options"
-msgstr "Парамэтры"
+msgstr "Параметры"
 
 #. make window look cute
 #: ../gst-mixer/src/preferences.c:107
 msgid "Volume Control Preferences"
-msgstr "Перавагі кіраваньня гукам MATE"
+msgstr "Настáўленні кіравання гукам MATE"
 
 #: ../gst-mixer/src/preferences.c:120
 msgid "_Select mixers to be visible:"
@@ -358,7 +358,7 @@ msgstr "%s:"
 #: ../gst-mixer/src/track.c:339
 #, c-format
 msgid "Mute/Unmute %s"
-msgstr ""
+msgstr "Сцішыць/Уключыць %s"
 
 #: ../gst-mixer/src/track.c:356
 #, c-format
@@ -379,7 +379,7 @@ msgstr "Запіс %s: запіс гуку"
 #: ../gst-mixer/src/track.c:562
 #, c-format
 msgid "%s Option Selection"
-msgstr "%s Выбар парамэтраў"
+msgstr "%s Выбар параметраў"
 
 #: ../gst-mixer/src/volume.c:112
 #, c-format
@@ -463,25 +463,25 @@ msgstr "невядомы"
 #: ../gst-mixer/src/volume.c:224
 #, c-format
 msgid "Volume of %s channel on %s"
-msgstr "Гучнасьць канала %s на %s"
+msgstr "Гучнасць канала %s на %s"
 
 #: ../gst-mixer/src/window.c:133
 msgid "A MATE/GStreamer-based volume control application"
-msgstr "Кіравальнік гукам, заснаваны на MATE/GStreamer"
+msgstr "Кіраўнік гуку MATE, заснаваны на GStreamer"
 
 #: ../gst-mixer/src/window.c:136
 msgid "translator-credits"
-msgstr "Belarusian Language Linux Team\nWeb: http://www.mova.linux.by\nE-mail: <i18n@mova.org>"
+msgstr "Belarusian Language Linux Team\nWeb: http://www.mova.linux.by\nE-mail: <i18n@mova.org>\nІншыя:\nМіхась Варанцоў <meequz@gmail.com>"
 
 #. change window title
 #: ../gst-mixer/src/window.c:173
 #, c-format
 msgid "Volume Control: %s"
-msgstr "Кіраваньне гукам: %s"
+msgstr "Кіраванне гукам: %s"
 
 #: ../gst-mixer/src/window.c:378
 msgid "_Device: "
-msgstr ""
+msgstr "_Прылада:"
 
 #. set tooltips
 #: ../gst-mixer/src/window.c:417
@@ -502,7 +502,7 @@ msgstr "Не падтрымліваецца"
 #: ../sound-theme/gvc-sound-theme-editor.c:891
 #: ../sound-theme/gvc-sound-theme-editor.c:995
 msgid "Default"
-msgstr "Прадвызаначаны"
+msgstr "Стандартны"
 
 #: ../gstreamer-properties/gstreamer-properties.c:301
 msgid "Unknown"
@@ -510,7 +510,7 @@ msgstr "Невядома"
 
 #: ../gstreamer-properties/gstreamer-properties.c:625
 msgid "Failure instantiating main window"
-msgstr "Памылка стварэньня асноўнага вакна"
+msgstr "Памылка стварэння асноўнага вакна"
 
 #: ../gstreamer-properties/gstreamer-properties.c:678
 msgid "Failed to load UI file; please check your installation."
@@ -519,11 +519,11 @@ msgstr ""
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
 #: ../gstreamer-properties/gstreamer-properties.ui.h:1
 msgid "Multimedia Systems Selector"
-msgstr "Вылучальнік мультымэдыйных сыстэмаў"
+msgstr "Вылучальнік мультымедыйных сістэмаў"
 
 #: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
 msgid "Configure defaults for GStreamer applications"
-msgstr "Наладзіць прадвызначаныя значэньні для дастасаваньняў GStreamer"
+msgstr "Наставіць стандартныя значэнні для праграм GStreamer"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
@@ -531,7 +531,7 @@ msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
-msgstr "П_лагін:"
+msgstr "У_будова:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:4
 msgid "P_ipeline:"
@@ -551,7 +551,7 @@ msgstr ""
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
-msgstr "_Плагін:"
+msgstr "_Убудова:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:9
 msgid "Pipeli_ne:"
@@ -579,11 +579,11 @@ msgstr "Праверка трубаправода"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:15
 msgid "Testing…"
-msgstr ""
+msgstr "Праверка..."
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:16
 msgid "Click Ok to finish."
-msgstr "Націсьніце \"Добра\", каб скончыць."
+msgstr "Націсніце \"Добра\", каб скончыць."
 
 #: ../gstreamer-properties/pipeline-constants.c:52
 #: ../gstreamer-properties/pipeline-constants.c:90
@@ -617,7 +617,7 @@ msgstr ""
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
-msgstr "PulseAudio Sound Server"
+msgstr "Гукавы сервер PulseAudio"
 
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
@@ -637,7 +637,7 @@ msgstr "Адмысловы"
 
 #: ../gstreamer-properties/pipeline-constants.c:108
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #: ../gstreamer-properties/pipeline-constants.c:110
 msgid "SDL — Simple DirectMedia Layer"
@@ -684,7 +684,7 @@ msgstr "Video for Linux 2 (v4l2)"
 #: ../gstreamer-properties/pipeline-tests.c:176
 #, c-format
 msgid "Failed to construct test pipeline for '%s'"
-msgstr "Памылка стварэньня тэставага трубаправода для '%s'"
+msgstr "Памылка стварэння тэставага трубаправода для '%s'"
 
 #: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
 #, c-format
@@ -694,7 +694,7 @@ msgstr "Памылка паказу даведкі: %s"
 #: ../profiles/audio-profile-edit.c:341
 #, c-format
 msgid "Editing profile \"%s\""
-msgstr "Зьмяненьне профіля \"%s\""
+msgstr "Змяненне профіля \"%s\""
 
 #: ../profiles/audio-profile.c:92
 msgid "<no name>"
@@ -702,28 +702,28 @@ msgstr "<бяз назвы>"
 
 #: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
 msgid "<no description>"
-msgstr "<без апісаньня>"
+msgstr "<без апісання>"
 
 #: ../profiles/audio-profile.c:208
 #, c-format
 msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "Памылка атрыманьня сьпіса профіляў gm_audio. (%s)\n"
+msgstr "Памылка атрымання спіса профіляў gm_audio. (%s)\n"
 
 #: ../profiles/audio-profile.c:709
 #, c-format
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Памылка падпіскі на нагадваньне пра зьмены сьпіса аўдыёпрофіляў. (%s)\n"
+msgstr "Памылка падпіскі на абвяшчэнні пра змены спіса аўдыёпрофіляў. (%s)\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
 msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Памылка забыцьця тэчкі профіля %s. (%s)\n"
+msgstr "Памылка забыцця каталогу профіля %s. (%s)\n"
 
 #: ../profiles/audio-profiles-edit.c:78
 msgid "_Edit"
-msgstr "_Зьмяніць"
+msgstr "_Змяніць"
 
 #. the first argument will never be used since we only run for count > 1
 #: ../profiles/audio-profiles-edit.c:452
@@ -746,7 +746,7 @@ msgstr "Выдаліць профіль"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "Зьмяніць профілі MATE Audio"
+msgstr "Змяніць профілі MATE Audio"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
@@ -767,7 +767,7 @@ msgstr "Памылка MateConf (трэба выправіць): %s\n"
 msgid ""
 "The file \"%s\" is missing. This indicates that the application is installed"
 " incorrectly, so the dialog can't be displayed."
-msgstr "Прапушчаны файл \"%s\". Гэта сьведчыць пра тое, што дастасаваньне ўсталявана няправільна; дыялёг ня можа быць паказаны."
+msgstr "Прапушчаны файл \"%s\". Гэта сведчыць пра тое, што праграма ўсталявана няправільна; акенца не можа быць паказаны."
 
 #: ../profiles/mate-audio-profiles-properties.c:54
 #, c-format
@@ -778,19 +778,19 @@ msgstr ""
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
-msgstr "Зьмяніць аўдыёпрофіль"
+msgstr "Змяніць аўдыёпрофіль"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
-msgstr "Апіс_аньне профіля:"
+msgstr "Апіс_анне профіля:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:3
 msgid "_Active?"
-msgstr "_Задзейнічаны?"
+msgstr "_Актыўны?"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:4
 msgid "_File extension:"
-msgstr "Па_шырэньне файла:"
+msgstr "Па_шырэнне файла:"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:5
 msgid "_GStreamer pipeline:"
@@ -811,14 +811,14 @@ msgstr "_Стварыць"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:1
 msgid "List of profiles"
-msgstr "Сьпіс профіляў"
+msgstr "Спіс профіляў"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:2
 msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Сьпіс профіляў гуказапісу. Сьпіс зьмяшчае радкі з назвамі падтэчак адносна /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
+msgstr "Спіс профіляў гуказапісу. Спіс змяшчае радкі з назвамі падкаталогаў адносна /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
@@ -828,17 +828,17 @@ msgstr "Кароткая назва аўдыёпрофіля"
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "Кароткая назва для аўдыёпрофіля, выкарыстоўваецца ў вылучэньнях для непаўторнага ідэнтыфікаваньня профіля)."
+msgstr "Кароткая назва для аўдыёпрофіля, выкарыстоўваецца ў вылучэннях для непаўторнага ідэнтыфікавання профіля."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "Апісаньне аўдыёпрофіля"
+msgstr "Апісанне аўдыёпрофіля"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
 "A description of the profile, containing more information and describing "
 "when to use this profile."
-msgstr "Апісаньне аўдыёпрофіля, утрымлівае зьвесткі пра прызначэньне і выкарыстаньне профіля."
+msgstr "Апісанне аўдыёпрофіля, утрымлівае звесткі пра прызначэнне і выкарыстанне профіля."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:7
 msgid "The partial GStreamer pipeline used"
@@ -846,17 +846,17 @@ msgstr "Выкарыстоўваецца частковы трубаправод
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:8
 msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "Частковы GStreamer трубаправод для выкарыстаньня гэтым профілем."
+msgstr "Частковы GStreamer-трубаправод для выкарыстання гэтым профілем."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:9
 msgid "The default file extension for this profile"
-msgstr "Прадывызначанае пашырэньне файлаў для гэтага профіля"
+msgstr "Стандартнае пашырэнне файлаў для гэтага профіля"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:10
 msgid ""
 "A filename extension to be used when storing files encoded with this "
 "profile."
-msgstr "Пашырэньне файлаў, якое выкарыстоўваецца пры кадаваньні гэтым профілем."
+msgstr "Пашырэнне файлаў, якое выкарыстоўваецца пры кадаванні гэтым профілем."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:11
 msgid "Whether this profile is to be used"
@@ -868,43 +868,43 @@ msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:13
 msgid "CD Quality, Lossy"
-msgstr "Якасьць CD, з памяншэньнем якасьці"
+msgstr "Якасць CD, з памяншэннем якасці"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:14
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr "Выкарыстоўваецца для пераўтварэньня ў аўдыёфайлы якасьці CD, але з дапамогай кодэка, які памяншае якасьць. Выкарыстоўвайце яго для капіяваньня з CD і радыёзапісаў."
+msgstr "Выкарыстоўваецца для пераўтварэння ў аўдыёфайлы якасці CD, але з дапамогай кодэка, які памяншае якасць. Выкарыстоўвайце яго для капіявання з CD і радыёзапісаў."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"
-msgstr "Якасьць CD, без памяншэньня якасьці"
+msgstr "Якасць CD, без памяншэння якасці"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:16
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Выкарыстоўваецца для пераўтварэньня ў аўдыёфайлы якасьці CD, але з дапамогай кодэка, які не памяншае якасьць. Выкарыстоўвайце яго, калі пазьней вы хочаце зьмяніць файл ці запісаць яго на CD."
+msgstr "Выкарыстоўваецца для пераўтварэння ў аўдыёфайлы якасці CD, але з дапамогай кодэка, які не памяншае якасць. Выкарыстоўвайце яго, калі пазней вы хочаце змяніць файл ці запісаць яго на CD."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
-msgstr "Голас, без памяншэньня якасьці"
+msgstr "Голас, без памяншэння якасці"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:18
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
-msgstr "Выкарыстоўваецца для пераўтварэньня ў аўдыёзапісы голасу без памяншэньня якасьці. Выкарыстоўвайце яго для запісу і зьмены голасу."
+msgstr "Выкарыстоўваецца для пераўтварэння ў аўдыёзапісы голасу без памяншэння якасці. Выкарыстоўвайце яго для запісу і змены голасу."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
-msgstr "Голас, з памяншэньнем якасьці"
+msgstr "Голас, з памяншэннем якасці"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:20
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
-msgstr "Выкарыстоўваецца для пераўтварэньня ў аўдыёзапісы голасу з памяншэньнем якасьці. Выкарыстоўвайце яго для запісу голасу, які ня трэба потым зьмяняць."
+msgstr "Выкарыстоўваецца для пераўтварэння ў аўдыёзапісы голасу з памяншэннем якасці. Выкарыстоўвайце яго для запісу голасу, які не трэба потым змяняць."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid "CD Quality, MP2"
@@ -920,7 +920,7 @@ msgstr ""
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
-msgstr "Якасьць CD, MP3"
+msgstr "Якасць CD, MP3"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:24
 msgid ""
@@ -928,11 +928,11 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Для пераўтварэньня ў гук CD-якасьці, але з згубным кодэкам MP3. Выкарыстоўвайце толькі для падрыхтоўкі файлаў для капіяваньня на прылады, якія падтрымліваюць толькі кодэк MP3. Увага: выкарыстаньне гэтага кодэка можа быць нелегальным у Вашай краіне; зьвярніцеся да юрыста для высьвятленьня сытуацыі."
+msgstr "Для пераўтварэння ў гук CD-якасці, але са стратным кодэкам MP3. Выкарыстоўвайце толькі для падрыхтоўкі файлаў для капіявання на прылады, якія падтрымліваюць толькі кодэк MP3. Увага: выкарыстанне гэтага кодэка можа быць нелегальным у вашай краіне; звярніцеся да юрыста для высвятлення сітуацыі."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
-msgstr "Якасьць CD, AAC"
+msgstr "Якасць CD, AAC"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:26
 msgid ""
@@ -940,7 +940,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Для пераўтварэньня ў гук CD-якасьці, але з згубным кодэкам AAC. Выкарыстоўвайце толькі для падрыхтоўкі файлаў для капіяваньня на прылады, якія падтрымліваюць толькі кодэк AAC. Увага: выкарыстаньне гэтага кодэка можа быць нелегальным у Вашай краіне; зьвярніцеся да юрыста для высьвятленьня сытуацыі."
+msgstr "Для пераўтварэння ў гук CD-якасці, але са стратным кодэкам AAC. Выкарыстоўвайце толькі для падрыхтоўкі файлаў для капіявання на прылады, якія падтрымліваюць толькі кодэк AAC. Увага: выкарыстанне гэтага кодэка можа быць нелегальным у вашай краіне; звярніцеся да юрыста для высвятлення сітуацыі."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
