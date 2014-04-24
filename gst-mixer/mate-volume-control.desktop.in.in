@@ -9,6 +9,7 @@ X-Info=Mate Mixer
 Terminal=false
 Type=Application
 Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+Keywords=MATE;volume;control;mixer;settings;sound;events;
 X-MATE-DocPath=gst-mixer/mate-volume-control.xml
 X-MATE-Bugzilla-Bugzilla=MATE
 X-MATE-Bugzilla-Product=mate-media

@@ -6,6 +6,7 @@ Exec=mate-volume-control-applet
 Terminal=false
 Type=Application
 Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+Keywords=MATE;volume;control;mixer;settings;sound;
 NoDisplay=true
 OnlyShowIn=MATE;
 X-MATE-Bugzilla-Bugzilla=MATE
