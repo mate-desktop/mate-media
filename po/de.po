@@ -3,24 +3,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009.
-# Hendrik Richter <hendrikr@gnome.org>, 2004, 2005, 2006, 2008, 2009.
-# Karl Eichwalder <ke@suse.de>, 1999, 2000.
-# Mario Blättermann <mariobl@gnome.org>, 2010.
-# Matthias Warkus <mawa@iname.com>, 1999.
+# Christian <Christian.Kirbach@googlemail.com>, 2009
+# Hendrik Richter <hendrikr@gnome.org>, 2004, 2005, 2006, 2008, 2009
+# Karl Eichwalder <ke@suse.de>, 1999, 2000
+# Mario Blättermann <mariobl@gnome.org>, 2010
+# Matthias Warkus <mawa@iname.com>, 1999
+# to_ba, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-04-27 16:03+0000\n"
+"Last-Translator: to_ba\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MATE/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
@@ -39,7 +40,7 @@ msgstr "Klang"
 #: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
 #: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr "Lautstärke ändern und Ereignissen Klänge zuweisen"
+msgstr "Lautstärke und Ereignissenklänge ändern"
 
 #: ../mate-volume-control/src/applet-main.c:49
 #: ../mate-volume-control/src/dialog-main.c:155
@@ -57,7 +58,7 @@ msgstr " — MATE-Lautstärkeregler-Applet"
 
 #: ../mate-volume-control/src/dialog-main.c:124
 msgid "Waiting for sound system to respond"
-msgstr "Es wird auf Antwort des Audiosystems gewartet"
+msgstr "Es wird auf eine Antwort des Klangsystems gewartet"
 
 #: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
 msgid "Startup page"
@@ -70,16 +71,16 @@ msgstr " — MATE-Lautstärkeregler"
 #: ../mate-volume-control/src/gvc-applet.c:275
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
 msgid "Output"
-msgstr "Ausgabe"
+msgstr "Ausgang"
 
 #: ../mate-volume-control/src/gvc-applet.c:277
 msgid "Sound Output Volume"
-msgstr "Wiedergabelautstärke"
+msgstr "Ausgangslautstärke"
 
 #: ../mate-volume-control/src/gvc-applet.c:281
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
 msgid "Input"
-msgstr "Eingabe"
+msgstr "Eingang"
 
 #: ../mate-volume-control/src/gvc-applet.c:283
 msgid "Microphone Volume"
@@ -161,8 +162,8 @@ msgstr "Deaktiviert"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Ausgabe"
-msgstr[1] "%u Ausgaben"
+msgstr[0] "%u Ausgang"
+msgstr[1] "%u Ausgänge"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -170,8 +171,8 @@ msgstr[1] "%u Ausgaben"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Eingabe"
-msgstr[1] "%u Eingaben"
+msgstr[0] "%u Eingang"
+msgstr[1] "%u Eingänge"
 
 #: ../mate-volume-control/src/gvc-mixer-control.c:1320
 msgid "System Sounds"
@@ -207,7 +208,7 @@ msgstr "Lautsprechertest"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
-msgstr "_Wiedergabelautstärke: "
+msgstr "_Ausgangslautstärke: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
@@ -232,19 +233,19 @@ msgstr "Einstellungen für das gewählte Gerät:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
-msgstr "_Aufnahmelautstärke: "
+msgstr "_Eingangslautstärke: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
-msgstr "Aufnahmeniveau:"
+msgstr "Eingangsniveau:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
-msgstr "Wä_hlen Sie ein Gerät zur Toneingabe:"
+msgstr "_Ein Gerät für den Toneingang auswählen:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
-msgstr "Wä_hlen Sie ein Gerät zur Tonausgabe:"
+msgstr "_Ein Gerät für den Tonausgang auswählen:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
@@ -252,7 +253,7 @@ msgstr "Anwendungen"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr "Derzeit wird von keiner Audio-Anwendung aufgenommen oder wiedergegeben."
+msgstr "Derzeit wird von keiner Tonanwendung aufgenommen oder wiedergegeben."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -261,7 +262,7 @@ msgstr "Derzeit wird von keiner Audio-Anwendung aufgenommen oder wiedergegeben."
 #: ../sound-theme/gvc-sound-theme-editor.c:560
 #: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
-msgstr "Audio-Einstellungen"
+msgstr "Klangeinstellungen"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 msgid "Stop"
@@ -279,7 +280,7 @@ msgstr "Subwoofer"
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:236
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "Starten der Audio-Einstellungen schlug fehl: %s"
+msgstr "Das Starten der Klangeinstellungen schlug fehl: %s"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:259
 msgid "_Mute"
@@ -287,7 +288,7 @@ msgstr "_Stumm"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
-msgstr "_Audio-Einstellungen"
+msgstr "_Klangeinstellungen"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
@@ -367,12 +368,12 @@ msgstr "Tonspur %s: stumm"
 #: ../gst-mixer/src/track.c:433
 #, c-format
 msgid "Toggle audio recording from %s"
-msgstr "Audio von %s aufnehmen"
+msgstr "Tonaufnahme von %s umschalten"
 
 #: ../gst-mixer/src/track.c:449
 #, c-format
 msgid "Track %s: audio recording"
-msgstr "Tonspur %s: Audioaufnahme"
+msgstr "Tonspur %s: Tonaufnahme"
 
 #: ../gst-mixer/src/track.c:562
 #, c-format
@@ -525,7 +526,7 @@ msgstr "Die Vorgaben für GStreamer-Anwendungen festlegen"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:2
 msgid "Default Output"
-msgstr "Vorgabe-Ausgabe"
+msgstr "Vorgabeausgang"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:3
 msgid "_Plugin:"
@@ -545,7 +546,7 @@ msgstr "_Gerät:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:7
 msgid "Default Input"
-msgstr "Vorgabe-Eingabe"
+msgstr "Vorgabeeingang"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:8
 msgid "P_lugin:"
@@ -565,7 +566,7 @@ msgstr "_Gerät:"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:12
 msgid "Audio"
-msgstr "Audio"
+msgstr "Ton"
 
 #: ../gstreamer-properties/gstreamer-properties.ui.h:13
 msgid "Video"
@@ -615,12 +616,12 @@ msgstr "OSS — Open Sound System Version 4"
 #: ../gstreamer-properties/pipeline-constants.c:81
 #: ../gstreamer-properties/pipeline-constants.c:136
 msgid "PulseAudio Sound Server"
-msgstr "PulseAudio-Soundserver"
+msgstr "PulseAudio-Klangserver"
 
 #: ../gstreamer-properties/pipeline-constants.c:83
 #: ../gstreamer-properties/pipeline-constants.c:134
 msgid "Sun Audio"
-msgstr "Sun Audio"
+msgstr "Sun-Ton"
 
 #: ../gstreamer-properties/pipeline-constants.c:85
 #: ../gstreamer-properties/pipeline-constants.c:116
@@ -669,7 +670,7 @@ msgstr "QCAM"
 
 #: ../gstreamer-properties/pipeline-constants.c:153
 msgid "Test Input"
-msgstr "Testeingabe"
+msgstr "Testeingang"
 
 #: ../gstreamer-properties/pipeline-constants.c:155
 msgid "Video for Linux (v4l)"
@@ -712,7 +713,7 @@ msgstr "Beim Abrufen der gm_audio-Profilliste ist ein Fehler aufgetreten. (%s)\n
 msgid ""
 "There was an error subscribing to notification of audio profile list "
 "changes. (%s)\n"
-msgstr "Beim Registrieren einer Benachrichtung bei Änderungen an der Liste der Audio-Profile ist ein Fehler aufgetreten (%s).\n"
+msgstr "Beim Registrieren einer Benachrichtigung, bei Änderungen an der Liste der Tonprofile, ist ein Fehler aufgetreten (%s).\n"
 
 #: ../profiles/audio-profile.c:912
 #, c-format
@@ -742,7 +743,7 @@ msgstr "Profil löschen"
 
 #: ../profiles/audio-profiles-edit.c:586
 msgid "Edit MATE Audio Profiles"
-msgstr "MATE-Audio-Profile bearbeiten"
+msgstr "MATE-Tonprofile bearbeiten"
 
 #: ../profiles/audio-profiles-edit.c:637
 msgid "_Profiles:"
@@ -774,7 +775,7 @@ msgstr "%s\nFühren Sie »%s --help« aus, um die Liste aller verfügbaren Befeh
 
 #: ../profiles/mate-audio-profile-edit.ui.h:1
 msgid "Edit Audio Profile"
-msgstr "Audio-Profil bearbeiten"
+msgstr "Tonprofile bearbeiten"
 
 #: ../profiles/mate-audio-profile-edit.ui.h:2
 msgid "Profile _description:"
@@ -814,21 +815,21 @@ msgid ""
 "List of audio recording profiles. The list contains strings naming "
 "subdirectories relative to "
 "/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Eine Liste der Audio-Aufnahmeprofile. Die Liste enthält Zeichenketten, die Unterverzeichnisse relativ zu »/system/gstreamer/@GST_MAJORMINOR@/audio/profiles« angeben."
+msgstr "Eine Liste der Tonaufnahmeprofile. Die Liste enthält Zeichenketten, die Unterverzeichnisse relativ zu »/system/gstreamer/@GST_MAJORMINOR@/audio/profiles« angeben."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:3
 msgid "A short name for the audio profile"
-msgstr "Ein Kurzname für das Audio-Profil"
+msgstr "Ein Kurzname für das Tonprofil"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:4
 msgid ""
 "A short name for the audio profile, to be used in selections and uniquely "
 "identifying the profile."
-msgstr "Ein kurzer Name für das Audio-Profil, der zum Auswählen verwendet wird und das Profil eindeutig identifiziert."
+msgstr "Ein kurzer Name für das Tonprofil, der zum Auswählen verwendet wird und das Profil eindeutig identifiziert."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:5
 msgid "A description for the audio profile"
-msgstr "Eine Beschreibung des Audio-Profils"
+msgstr "Eine Beschreibung des Tonprofils"
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:6
 msgid ""
@@ -870,7 +871,7 @@ msgstr "CD-Qualität, verlustbehaftet"
 msgid ""
 "Used for converting to CD-quality audio, but with a lossy compression codec."
 " Use this for CD extraction and radio recordings."
-msgstr "Wird zum Konvertieren von Audio-Daten in CD-Qualität verwendet, allerdings mit einem erlustbehafteten Kompressions-Codec. Verwenden Sie dies für das Rippen von CDs und Radio-Aufnahmen."
+msgstr "Wird zum Konvertieren von Tondaten in CD-Qualität verwendet, allerdings mit einem verlustbehafteten Kompressions-Codec. Verwenden Sie dies für das Rippen von CDs und Radio-Aufnahmen."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:15
 msgid "CD Quality, Lossless"
@@ -880,7 +881,7 @@ msgstr "CD-Qualität, verlustfrei"
 msgid ""
 "Used for converting to CD-quality audio, but with a lossless compression "
 "codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Wird zum Konvertieren von Audio-Daten in CD-Qualität verwendet, und zwar mit einem verlustbehafteten Kompressions-Codec. Verwenden Sie dies, falls Sie die Datei später bearbeiten oder auf CD brennen wollen."
+msgstr "Wird zum Konvertieren von Tondaten in CD-Qualität verwendet, und zwar mit einem verlustbehafteten Kompressions-Codec. Verwenden Sie dies, falls Sie die Datei später bearbeiten oder auf CD brennen wollen."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:17
 msgid "Voice, Lossless"
@@ -890,7 +891,7 @@ msgstr "Sprache, verlustfrei"
 msgid ""
 "Used for converting to lossless voice-quality audio. Use this for recording "
 "and editing speech."
-msgstr "Wird zum verlustfreien Konvertieren von Audio-Daten in Sprachqualität verwendet. Verwenden Sie dies für Sprachaufnahmen, die Sie bearbeiten möchten."
+msgstr "Wird zum verlustfreien Konvertieren von Tondaten in Sprachqualität verwendet. Verwenden Sie dies für Sprachaufnahmen, die Sie bearbeiten möchten."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:19
 msgid "Voice, Lossy"
@@ -900,7 +901,7 @@ msgstr "Sprache, verlustbehaftet"
 msgid ""
 "Used for converting to lossy voice-quality audio. Use this for recording "
 "speech that doesn't need to be edited."
-msgstr "Wird zum verlustbehafteten Konvertieren von Audio-Daten in Sprachqualität verwendet. Verwenden Sie dies für Sprachaufnahmen, die Sie nicht bearbeiten möchten."
+msgstr "Wird zum verlustbehafteten Konvertieren von Tondaten in Sprachqualität verwendet. Verwenden Sie dies für Sprachaufnahmen, die Sie nicht bearbeiten möchten."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:21
 msgid "CD Quality, MP2"
@@ -912,7 +913,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP2 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Wird zum Konvertieren von Audio-Daten in CD-Qualität, allerdings mit dem verlustbehafteten MP2-Codec, verwendet. Beachten Sie, dass die Benutzung dieses Formats unter Umständen in Ihrem Land illegal ist. Fragen Sie Ihren Rechtsanwalt für weitere Beratung."
+msgstr "Wird zum Konvertieren von Tondaten in CD-Qualität, allerdings mit dem verlustbehafteten MP2-Codec, verwendet. Beachten Sie, dass die Benutzung dieses Formats unter Umständen in Ihrem Land illegal ist. Fragen Sie Ihren Rechtsanwalt für weitere Beratung."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:23
 msgid "CD Quality, MP3"
@@ -924,7 +925,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the MP3 "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Wird zum Konvertieren von Audio-Daten in CD-Qualität, allerdings mit dem verlustbehafteten MP3-Codec, verwendet. Beachten Sie, dass die Benutzung dieses Formats unter Umständen in Ihrem Land illegal ist. Fragen Sie Ihren Rechtsanwalt für weitere Beratung."
+msgstr "Wird zum Konvertieren von Tondaten in CD-Qualität, allerdings mit dem verlustbehafteten MP3-Codec, verwendet. Beachten Sie, dass die Benutzung dieses Formats unter Umständen in Ihrem Land illegal ist. Fragen Sie Ihren Rechtsanwalt für eine weitere Beratung."
 
 #: ../profiles/mate-audio-profiles.schemas.in.in.h:25
 msgid "CD Quality, AAC"
@@ -936,7 +937,7 @@ msgid ""
 "this for preparing files for copying to devices that only support the AAC "
 "codec. Note that using this format may be illegal in your jurisdiction; "
 "contact your lawyer for advice."
-msgstr "Wird zum Konvertieren von Audio-Daten in den verlustbehafteten AAC-Codec verwendet. Benutzen Sie dies für Dateien, die für ein Gerät kopiert werden das nur AAC kodierte Dateien unterstützt. Beachten Sie, dass die Benutzung dieses Formats unter Umständen in Ihrem Land illegal ist. Fragen Sie Ihren Rechtsanwalt für weitere Beratung."
+msgstr "Wird zum Konvertieren von Tondaten in den verlustbehafteten AAC-Codec verwendet. Benutzen Sie dies für Dateien, die für ein Gerät kopiert werden das nur AAC kodierte Dateien unterstützt. Beachten Sie, dass die Benutzung dieses Formats unter Umständen in Ihrem Land illegal ist. Fragen Sie Ihren Rechtsanwalt für eine weitere Beratung."
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
@@ -965,11 +966,11 @@ msgstr "Art"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
-msgstr "Klang_thema:"
+msgstr "_Klangthema:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
-msgstr "_Wählen Sie einen Warnklang:"
+msgstr "_Einen Warnklang auswählen:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
@@ -1071,11 +1072,11 @@ msgstr "Akkuwarnung"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:592
 msgid "Select Sound File"
-msgstr "Wählen Sie eine Audiodatei"
+msgstr "Eine Klangdatei auswählen"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:603
 msgid "Sound files"
-msgstr "Audiodateien"
+msgstr "Klangdateien"
 
 #: ../sound-theme/gvc-sound-theme-editor.c:899
 msgid "Custom…"

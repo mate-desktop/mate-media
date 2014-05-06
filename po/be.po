@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Alex Nehaichik <nab@mail.by>, 2004
+# Alex Nehaichik <nab@mail.by>, 2004
 # Ihar Hrachyshka <boox.svaboda2006@gmail.com>, 2006
 # Vital Khilko <dojlid@mova.org>, 2003,2014
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2014-02-28 11:57+0000\n"
+"PO-Revision-Date: 2014-03-14 06:58+0000\n"
 "Last-Translator: meequz <meequz@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/MATE/language/be/)\n"
 "MIME-Version: 1.0\n"
@@ -115,7 +116,7 @@ msgstr "Максімум"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:294
 msgid "_Balance:"
-msgstr ""
+msgstr "_Баланс:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:297
 msgid "_Fade:"
@@ -134,7 +135,7 @@ msgstr "100%"
 #: ../mate-volume-control/src/gvc-channel-bar.c:606
 msgctxt "volume"
 msgid "Unamplified"
-msgstr ""
+msgstr "Няўзмоцнены"
 
 #: ../mate-volume-control/src/gvc-channel-bar.c:868
 msgid "Mute"
@@ -209,7 +210,7 @@ msgstr "Праверыць калонкі"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
 msgid "_Output volume: "
-msgstr ""
+msgstr "_Выходная гучнасць:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
 msgid "Sound Effects"
@@ -217,7 +218,7 @@ msgstr "Гукавыя эфекты"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
 msgid "_Alert volume: "
-msgstr ""
+msgstr "_Гучнасць паведамлення:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
 msgid "Hardware"
@@ -225,36 +226,36 @@ msgstr "Апаратура"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
 msgid "C_hoose a device to configure:"
-msgstr ""
+msgstr "В_ылучыце прыладу для настáўлення:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
 msgid "Settings for the selected device:"
-msgstr ""
+msgstr "Настáўленні вылучанай прылады:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
 msgid "_Input volume: "
-msgstr ""
+msgstr "_Уваходная гучнасць: "
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
 msgid "Input level:"
-msgstr ""
+msgstr "Уваходны ўзровень:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
 msgid "C_hoose a device for sound input:"
-msgstr ""
+msgstr "Ад_значце прыладу для ўваходнага гуку:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
 msgid "C_hoose a device for sound output:"
-msgstr ""
+msgstr "Ад_значце прыладу для выходнага гуку:"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
 msgid "Applications"
-msgstr ""
+msgstr "Праграмы"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
 msgid "No application is currently playing or recording audio."
-msgstr ""
+msgstr "Ніводная праграма цяпер не грае і не піша гук."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
 #: ../sound-theme/gvc-sound-theme-chooser.c:739
@@ -263,7 +264,7 @@ msgstr ""
 #: ../sound-theme/gvc-sound-theme-editor.c:560
 #: ../sound-theme/gvc-sound-theme-editor.c:949
 msgid "Sound Preferences"
-msgstr ""
+msgstr "Настáўленні гуку"
 
 #: ../mate-volume-control/src/gvc-speaker-test.c:220
 msgid "Stop"
@@ -289,7 +290,7 @@ msgstr ""
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:268
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "_Настáўленні гуку"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:452
 msgid "Muted"
@@ -945,11 +946,11 @@ msgstr "Для пераўтварэння ў гук CD-якасці, але са
 #: ../sound-theme/gvc-sound-theme-chooser.c:322
 #: ../sound-theme/gvc-sound-theme-editor.c:522
 msgid "No sounds"
-msgstr ""
+msgstr "Бязгучна"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:444
 msgid "Built-in"
-msgstr ""
+msgstr "Убудаваны"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:742
 #: ../sound-theme/gvc-sound-theme-chooser.c:753
@@ -969,15 +970,15 @@ msgstr ""
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1085
 msgid "Sound _theme:"
-msgstr ""
+msgstr "Гукавая _тэма:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1093
 msgid "C_hoose an alert sound:"
-msgstr ""
+msgstr "А_бярыце гук паведамленняў:"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:1124
 msgid "Enable _window and button sounds"
-msgstr ""
+msgstr "Уключыць гукі _вокнаў і кнопак"
 
 #. Bell
 #: ../sound-theme/gvc-sound-theme-editor.c:79
@@ -1091,7 +1092,7 @@ msgstr ""
 
 #: ../sound-theme/gvc-sound-theme-editor.c:1330
 msgid "Enable window and button sounds"
-msgstr ""
+msgstr "Уключыць гукі вокнаў і кнопак"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
