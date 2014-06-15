@@ -10,26 +10,16 @@ if HAVE_PULSEAUDIO
 SUBDIRS += mate-volume-control
 endif
 
-if HAVE_GSTMIXER
-SUBDIRS += gst-mixer
-endif
-
-if HAVE_GSTMIXER_APPLET
-SUBDIRS += gst-mixer-applet
-endif
-
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
 	--enable-more-warnings  \
 	--enable-compile-warnings=maximum \
-	--enable-deprecated 
+	--enable-deprecated
 
 DIST_SUBDIRS = \
 	po 			\
 	man			\
 	mate-volume-control	\
-	gst-mixer		\
-	gst-mixer-applet	\
 	sound-theme		\
 	$(NULL)
 
@@ -40,7 +30,6 @@ EXTRA_DIST = \
 	ChangeLog		\
 	COPYING			\
 	COPYING-DOCS		\
-	COPYING.gst-mixer	\
 	build-aux/git-version-gen \
 	$(INTLTOOL_BUILT:=.in)	\
 	$(NULL)

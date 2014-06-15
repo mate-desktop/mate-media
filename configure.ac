@@ -131,11 +131,11 @@ if test "x$enable_pulseaudio" != "xno"; then
 
     AC_SUBST(VOLUME_CONTROL_CFLAGS)
     AC_SUBST(VOLUME_CONTROL_LIBS)
-    
+
     if $PKG_CONFIG --atleast-version 2.26 glib-2.0; then
         VOLUME_CONTROL_CFLAGS="$VOLUME_CONTROL_CFLAGS -DG_CONST_RETURN=const"
     fi
-    
+
     AC_DEFINE(HAVE_PULSEAUDIO, [], [Define if we have pulseaudio])
   fi
 else
@@ -146,36 +146,7 @@ AC_SUBST(HAVE_PULSEAUDIO)
 AC_SUBST(PULSEAUDIO_CFLAGS)
 AC_SUBST(PULSEAUDIO_LIBS)
 
-dnl=======================================================================
-dnl Check for GStreamer deps
-dnl=======================================================================
 
-GST_REQ=0.10.23
-GST_PLUGINS_BASE_REQ=0.10.23
-GST_MAJORMINOR=0.10
-
-dnl make available to Makefile.am
-AC_SUBST(GST_MAJORMINOR)
-AC_DEFINE_UNQUOTED(GST_MAJORMINOR_QUOTED, "$GST_MAJORMINOR",
-  [major/minor of GStreamer as a string constant])
-
-have_gst=no
-
-PKG_CHECK_MODULES(GSR, [
-  gstreamer-$GST_MAJORMINOR >= $GST_REQ
-  gstreamer-plugins-base-$GST_MAJORMINOR >= $GST_REQ
-  gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
-  gio-2.0 >= $GIO_REQUIRED_VERSION],
-  have_gst=yes,
-  [
-    AC_MSG_RESULT(no)
-    AC_MSG_WARN($GSR_PKG_ERRORS)
-    PROGRAMS_GRECORD_ERROR="$GSR_PKG_ERRORS"
-  ])
-
-AC_SUBST(GSR_CFLAGS)
-AC_SUBST(GSR_LIBS)
-AM_CONDITIONAL(HAVE_GSTREAMER, [test x$have_gst = xyes])
 
 GLIB_GSETTINGS
 
@@ -194,73 +165,6 @@ YELP_HELP_INIT
 
 AM_PROG_LIBTOOL
 AM_PROG_CC_C_O
-
-dnl=======================================================================
-dnl gst-mixer
-dnl=======================================================================
-
-have_gstmixer=no
-
-AC_ARG_ENABLE([gstmix],
-  AS_HELP_STRING([--enable-gstmix], [enable gstreamer mixer]),
-  ,enable_gstmix=auto)
-
-if test "x$enable_gstmix" = "xauto" && test "x$have_pulseaudio" = "xno"; then
-  enable_gstmix=yes
-fi
-
-if test "x$have_gst" = "xyes" && test "x$enable_gstmix" = "xyes";
-then
-  PKG_CHECK_MODULES(GSTMIXER, [
-    gtk+-$GTK_API_VERSION
-    gio-2.0 >= $GIO_REQUIRED_VERSION
-    gstreamer-$GST_MAJORMINOR
-    gstreamer-plugins-base-$GST_MAJORMINOR
-  ],
-  [
-    OLD_CPPFLAGS=$CPPFLAGS
-    CPPFLAGS="$CPPFLAGS $GSTMIXER_CFLAGS"
-
-    AC_CHECK_HEADER(gst/audio/mixerutils.h,
-      [AC_CHECK_HEADER(gst/interfaces/mixer.h,
-        [AC_CHECK_HEADER(gst/interfaces/propertyprobe.h, have_gstmixer=yes)])])
-
-    CPPFLAGS=$OLD_CPPFLAGS
-    GSTMIXER_LIBS="$GSTMIXER_LIBS -lgstinterfaces-$GST_MAJORMINOR -lgstaudio-$GST_MAJORMINOR"
-  ])
-fi
-
-AC_SUBST(GSTMIXER_CFLAGS)
-AC_SUBST(GSTMIXER_LIBS)
-AM_CONDITIONAL(HAVE_GSTMIXER, [test x$have_gstmixer = xyes])
-
-dnl=======================================================================
-dnl gst-mixer-applet
-dnl=======================================================================
-have_gstmixer_applet=no
-if test "x$have_gstmixer" = "xyes"; then
-    AC_ARG_ENABLE([gst-mixer-applet],
-        AC_HELP_STRING([--enable-gst-mixer-applet], [Enable the gstreamer-based mixer applet.]),
-        enable_mixerapplet=$enableval,
-        enable_mixerapplet=no)
-    if test "x$enable_mixerapplet" != "xno"; then
-        have_gstmixer_applet=yes
-        MIXERAPPLET_DEPS="gstreamer-$GST_MAJORMINOR >= $GST_REQ
-                           gstreamer-interfaces-$GST_MAJORMINOR >= $GST_REQ
-                           gstreamer-audio-$GST_MAJORMINOR >= $GST_REQ
-                           mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                           libmatepanelapplet-4.0 >= $MATE_PANEL_REQUIRED_VERSION"
-        PKG_CHECK_MODULES(MIXERAPPLET, $MIXERAPPLET_DEPS, have_gst_mixer_applet_deps=yes, have_gst_mixer_applet_deps=no)
-        if test "x$have_gst_mixer_applet_deps" = "xno"; then
-            have_gstmixer_applet=no
-            enable_mixerapplet=no
-            AC_MSG_ERROR([Mixer applet explicitly requested but a compatible gstreamer version was not found])
-        fi
-    fi
-    AC_SUBST(MIXERAPPLET_CFLAGS)
-    AC_SUBST(MIXERAPPLET_LIBS)
-fi
-AM_CONDITIONAL(HAVE_GSTMIXER_APPLET, test "x$have_gstmixer_applet" = "xyes")
 
 dnl ---------------------------------------------------------------------------
 dnl - Finish
@@ -350,17 +254,6 @@ mate-volume-control/data/icons/scalable/Makefile
 mate-volume-control/data/icons/scalable/devices/Makefile
 mate-volume-control/data/icons/scalable/status/Makefile
 mate-volume-control/src/Makefile
-gst-mixer/Makefile
-gst-mixer/icons/Makefile
-gst-mixer/icons/16x16/Makefile
-gst-mixer/icons/16x16/devices/Makefile
-gst-mixer/icons/16x16/status/Makefile
-gst-mixer/src/Makefile
-gst-mixer/pixmaps/Makefile
-gst-mixer/doc/Makefile
-gst-mixer/mate-volume-control.desktop.in
-gst-mixer-applet/Makefile
-gst-mixer-applet/docs/Makefile
 ])
 
 AC_OUTPUT
@@ -375,12 +268,5 @@ echo "
         Source code location:        ${srcdir}
         Compiler:                    ${CC}
         CFLAGS:                      ${CFLAGS}
-
         GTK+ API version:            ${GTK_API_VERSION}
-
-        PulseAudio Volume Control:   $have_pulseaudio
-
-        GStreamer mixer:             $have_gstmixer
-        GStreamer mixer applet:      $have_gstmixer_applet
-
 "
