@@ -20,83 +20,68 @@
 
 #include "config.h"
 
-#include <libintl.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <errno.h>
-
 #include <glib/gi18n.h>
 #include <glib.h>
 #include <gtk/gtk.h>
+
+#include <libintl.h>
 #include <unique/uniqueapp.h>
+#include <libmatemixer/matemixer.h>
 
 #include "gvc-applet.h"
-#include "gvc-log.h"
-
-#define GVCA_DBUS_NAME "org.mate.VolumeControlApplet"
 
 static gboolean show_version = FALSE;
-static gboolean debug = FALSE;
 
 int
 main (int argc, char **argv)
 {
-        GError             *error;
-        GvcApplet          *applet;
-        UniqueApp          *app = NULL;
-        static GOptionEntry entries[] = {
-                { "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable debugging code"), NULL },
-                { "version", 0, 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
-                { NULL, 0, 0, 0, NULL, NULL, NULL }
+        GError       *error = NULL;
+        GvcApplet    *applet;
+        UniqueApp    *app = NULL;
+        GOptionEntry entries[] = {
+                { "version", 'v', 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
+                { NULL }
         };
 
         bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         textdomain (GETTEXT_PACKAGE);
 
-        gvc_log_init ();
-
-        error = NULL;
         gtk_init_with_args (&argc, &argv,
                             (char *) _(" — MATE Volume Control Applet"),
                             entries, GETTEXT_PACKAGE,
                             &error);
-
         if (error != NULL) {
                 g_warning ("%s", error->message);
-                exit (1);
+                return 1;
         }
-
         if (show_version) {
-                g_print ("%s %s\n", argv [0], VERSION);
-                exit (1);
+                g_print ("%s %s\n", argv[0], VERSION);
+                return 0;
         }
 
-        gvc_log_set_debug (debug);
+        app = unique_app_new (GVC_APPLET_DBUS_NAME, NULL);
 
-        if (debug == FALSE) {
-                app = unique_app_new (GVCA_DBUS_NAME, NULL);
-                if (unique_app_is_running (app)) {
-                        g_warning ("Applet is already running, exiting");
-                        return 0;
-                }
+        if (unique_app_is_running (app)) {
+                g_warning ("Applet is already running, exiting");
+                return 0;
+        }
+        if (!mate_mixer_init ()) {
+                g_warning ("libmatemixer initialization failed, exiting");
+                return 1;
         }
 
         gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
                                            ICON_DATA_DIR);
 
         applet = gvc_applet_new ();
-        gvc_applet_start (applet);
 
+        gvc_applet_start (applet);
         gtk_main ();
 
-        if (applet != NULL) {
-                g_object_unref (applet);
-        }
-        if (app != NULL) {
-                g_object_unref (app);
-        }
+        g_object_unref (applet);
+        g_object_unref (app);
+        mate_mixer_deinit ();
 
         return 0;
 }

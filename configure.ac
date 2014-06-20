@@ -127,6 +127,7 @@ if test "x$enable_pulseaudio" != "xno"; then
             unique-$UNIQUE_API_VERSION
             libxml-2.0
             mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+            libmatemixer
     )
 
     AC_SUBST(VOLUME_CONTROL_CFLAGS)

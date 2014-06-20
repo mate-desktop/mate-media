@@ -18,28 +18,25 @@
  *
  */
 
-#include "config.h"
+// XXX there are some bugs unrelated to the port, let's see if I can fix them:
+// - clicking in the slider makes it disappear
+// - drag all the way down to mute, then start dragging up and the change won't
+//   be reflected until i stop dragging
+// - disable the slider if the volume is not changable
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
+#include "config.h"
 
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+#include <libmatemixer/matemixer.h>
 
 #include "gvc-applet.h"
-#include "gvc-mixer-control.h"
 #include "gvc-stream-status-icon.h"
 
 #define GVC_APPLET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_APPLET, GvcAppletPrivate))
 
-#define SCALE_SIZE 128
-
-static const char *output_icon_names[] = {
+static const gchar *icon_names_output[] = {
         "audio-volume-muted",
         "audio-volume-low",
         "audio-volume-medium",
@@ -47,7 +44,7 @@ static const char *output_icon_names[] = {
         NULL
 };
 
-static const char *input_icon_names[] = {
+static const gchar *icon_names_input[] = {
         "audio-input-microphone-muted",
         "audio-input-microphone-low",
         "audio-input-microphone-medium",
@@ -55,60 +52,78 @@ static const char *input_icon_names[] = {
         NULL
 };
 
-struct GvcAppletPrivate
+struct _GvcAppletPrivate
 {
-        GvcStreamStatusIcon *input_status_icon;
-        GvcStreamStatusIcon *output_status_icon;
-        GvcMixerControl     *control;
+        GvcStreamStatusIcon *icon_input;
+        GvcStreamStatusIcon *icon_output;
+        gboolean             running;
+        MateMixerControl    *control;
 };
 
-static void     gvc_applet_class_init (GvcAppletClass *klass);
-static void     gvc_applet_init       (GvcApplet      *applet);
-static void     gvc_applet_finalize   (GObject        *object);
+static void gvc_applet_class_init (GvcAppletClass *klass);
+static void gvc_applet_init       (GvcApplet      *applet);
 
 G_DEFINE_TYPE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
 
 static void
-maybe_show_status_icons (GvcApplet *applet)
+update_icon_input (GvcApplet *applet)
 {
-        gboolean        show;
-        GvcMixerStream *stream;
-        GSList         *source_outputs, *l;
+        MateMixerStream *stream;
+        gboolean         show = FALSE;
 
-        show = TRUE;
-        stream = gvc_mixer_control_get_default_sink (applet->priv->control);
-        if (stream == NULL) {
-                show = FALSE;
-        }
-        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->output_status_icon), show);
+        /* Enable the input icon in case there is an input stream present and there
+         * is a non-mixer application using the input */
+        stream = mate_mixer_control_get_default_input_stream (applet->priv->control);
+        if (stream != NULL) {
+                const gchar *app;
+                const GList *inputs =
+                        mate_mixer_control_list_streams (applet->priv->control);
 
+                while (inputs) {
+                        MateMixerStream *input = MATE_MIXER_STREAM (inputs->data);
+                        MateMixerStreamFlags flags = mate_mixer_stream_get_flags (input);
 
-        show = FALSE;
-        stream = gvc_mixer_control_get_default_source (applet->priv->control);
-        source_outputs = gvc_mixer_control_get_source_outputs (applet->priv->control);
-        if (stream != NULL && source_outputs != NULL) {
-                /* Check that we're not trying to add the peak detector
-                 * as an application doing recording */
-                for (l = source_outputs ; l ; l = l->next) {
-                        GvcMixerStream *s = l->data;
-                        const char *id;
+                        if (flags & MATE_MIXER_STREAM_INPUT &&
+                            flags & MATE_MIXER_STREAM_APPLICATION) {
+                                MateMixerClientStream *client =
+                                        MATE_MIXER_CLIENT_STREAM (input);
 
-                        id = gvc_mixer_stream_get_application_id (s);
-                        if (id == NULL) {
-                                show = TRUE;
-                                break;
+                                app = mate_mixer_client_stream_get_app_id (client);
+                                if (app == NULL) {
+                                        /* A recording application which has no
+                                         * identifier set */
+                                        show = TRUE;
+                                        break;
+                                }
+
+                                if (!g_str_equal (app, "org.mate.VolumeControl") &&
+                                    !g_str_equal (app, "org.gnome.VolumeControl") &&
+                                    !g_str_equal (app, "org.PulseAudio.pavucontrol")) {
+                                        show = TRUE;
+                                        break;
+                                }
                         }
-
-                        if (!g_str_equal (id, "org.mate.VolumeControl") &&
-                            !g_str_equal (id, "org.PulseAudio.pavucontrol")) {
-                                show = TRUE;
-                                break;
-                        }
+                        inputs = inputs->next;
                 }
         }
-        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->input_status_icon), show);
 
-        g_slist_free (source_outputs);
+        gvc_stream_status_icon_set_mixer_stream (applet->priv->icon_input, stream);
+
+        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input), show);
+}
+
+static void
+update_icon_output (GvcApplet *applet)
+{
+        MateMixerStream *stream;
+
+        stream = mate_mixer_control_get_default_output_stream (applet->priv->control);
+
+        gvc_stream_status_icon_set_mixer_stream (applet->priv->icon_output, stream);
+
+        /* Enable the output icon in case there is an output stream present */
+        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
+                                     (stream != NULL) ? TRUE : FALSE);
 }
 
 void
@@ -116,7 +131,83 @@ gvc_applet_start (GvcApplet *applet)
 {
         g_return_if_fail (GVC_IS_APPLET (applet));
 
-        maybe_show_status_icons (applet);
+        if (G_UNLIKELY (applet->priv->running))
+                return;
+
+        if (mate_mixer_control_open (applet->priv->control) == FALSE) {
+                /* Normally this should never happen, in the worst case we
+                 * should end up with the Null module */
+                g_warning ("Failed to connect to a sound system");
+
+                gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
+                                             FALSE);
+                gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input),
+                                             FALSE);
+        }
+
+        applet->priv->running = TRUE;
+}
+
+static void
+on_control_state_notify (MateMixerControl *control,
+                         GParamSpec       *pspec,
+                         GvcApplet        *applet)
+{
+        MateMixerState state = mate_mixer_control_get_state (control);
+
+        if (state == MATE_MIXER_STATE_FAILED)
+                g_warning ("Failed to connect to a sound system");
+
+        /* Each status change may affect the visibility of the icons */
+        update_icon_output (applet);
+        update_icon_input (applet);
+}
+
+static void
+on_control_default_input_notify (MateMixerControl *control,
+                                 GParamSpec       *pspec,
+                                 GvcApplet        *applet)
+{
+        update_icon_input (applet);
+}
+
+static void
+on_control_default_output_notify (MateMixerControl *control,
+                                  GParamSpec       *pspec,
+                                  GvcApplet        *applet)
+{
+        update_icon_output (applet);
+}
+
+static void
+on_control_stream_added (MateMixerControl *control,
+                         const gchar      *name,
+                         GvcApplet        *applet)
+{
+        MateMixerStream      *stream;
+        MateMixerStreamFlags  flags;
+
+        stream = mate_mixer_control_get_stream (control, name);
+        if (G_UNLIKELY (stream == NULL))
+                return;
+
+        flags = mate_mixer_stream_get_flags (stream);
+
+        /* Newly added input application stream may cause the input status
+         * icon to change visibility */
+        if (flags & MATE_MIXER_STREAM_INPUT &&
+            flags & MATE_MIXER_STREAM_APPLICATION)
+                update_icon_input (applet);
+}
+
+static void
+on_control_stream_removed (MateMixerControl *control,
+                           const gchar      *name,
+                           GvcApplet        *applet)
+{
+        /* The removed stream could be an application input, which may cause
+         * the input status icon to disappear */
+        update_icon_input (applet);
 }
 
 static void
@@ -124,142 +215,19 @@ gvc_applet_dispose (GObject *object)
 {
         GvcApplet *applet = GVC_APPLET (object);
 
-        if (applet->priv->control != NULL) {
-                g_object_unref (applet->priv->control);
-                applet->priv->control = NULL;
-        }
+        g_clear_object (&applet->priv->control);
+        g_clear_object (&applet->priv->icon_input);
+        g_clear_object (&applet->priv->icon_output);
 
         G_OBJECT_CLASS (gvc_applet_parent_class)->dispose (object);
 }
 
 static void
-update_default_source (GvcApplet *applet)
-{
-        GvcMixerStream *stream;
-
-        stream = gvc_mixer_control_get_default_source (applet->priv->control);
-        if (stream != NULL) {
-                gvc_stream_status_icon_set_mixer_stream (applet->priv->input_status_icon,
-                                                         stream);
-                maybe_show_status_icons(applet);
-        } else {
-                g_debug ("Unable to get default source, or no source available");
-        }
-}
-
-static void
-update_default_sink (GvcApplet *applet)
-{
-        GvcMixerStream *stream;
-
-        stream = gvc_mixer_control_get_default_sink (applet->priv->control);
-        if (stream != NULL) {
-                gvc_stream_status_icon_set_mixer_stream (applet->priv->output_status_icon,
-                                                         stream);
-                maybe_show_status_icons(applet);
-        } else {
-                g_warning ("Unable to get default sink");
-        }
-}
-
-static void
-on_control_ready (GvcMixerControl *control,
-                  GvcApplet       *applet)
-{
-        update_default_sink (applet);
-        update_default_source (applet);
-}
-
-static void
-on_control_connecting (GvcMixerControl *control,
-                       GvcApplet       *applet)
-{
-        g_debug ("Connecting..");
-}
-
-static void
-on_control_default_sink_changed (GvcMixerControl *control,
-                                 guint            id,
-                                 GvcApplet       *applet)
-{
-        update_default_sink (applet);
-}
-
-static void
-on_control_default_source_changed (GvcMixerControl *control,
-                                   guint            id,
-                                   GvcApplet       *applet)
-{
-        update_default_source (applet);
-}
-
-static void
-on_control_stream_removed (GvcMixerControl *control,
-                           guint            id,
-                           GvcApplet       *applet)
-{
-        maybe_show_status_icons (applet);
-}
-
-static void
-on_control_stream_added (GvcMixerControl *control,
-                         guint            id,
-                         GvcApplet       *applet)
-{
-        maybe_show_status_icons (applet);
-}
-
-static GObject *
-gvc_applet_constructor (GType                  type,
-                        guint                  n_construct_properties,
-                        GObjectConstructParam *construct_params)
-{
-        GObject   *object;
-        GvcApplet *self;
-
-        object = G_OBJECT_CLASS (gvc_applet_parent_class)->constructor (type, n_construct_properties, construct_params);
-
-        self = GVC_APPLET (object);
-
-        self->priv->control = gvc_mixer_control_new ("MATE Volume Control Applet");
-        g_signal_connect (self->priv->control,
-                          "ready",
-                          G_CALLBACK (on_control_ready),
-                          self);
-        g_signal_connect (self->priv->control,
-                          "connecting",
-                          G_CALLBACK (on_control_connecting),
-                          self);
-        g_signal_connect (self->priv->control,
-                          "default-sink-changed",
-                          G_CALLBACK (on_control_default_sink_changed),
-                          self);
-        g_signal_connect (self->priv->control,
-                          "default-source-changed",
-                          G_CALLBACK (on_control_default_source_changed),
-                          self);
-        g_signal_connect (self->priv->control,
-                          "stream-added",
-                          G_CALLBACK (on_control_stream_added),
-                          self);
-        g_signal_connect (self->priv->control,
-                          "stream-removed",
-                          G_CALLBACK (on_control_stream_removed),
-                          self);
-
-        gvc_mixer_control_open (self->priv->control);
-
-        return object;
-}
-
-static void
 gvc_applet_class_init (GvcAppletClass *klass)
 {
-        GObjectClass   *object_class = G_OBJECT_CLASS (klass);
+        GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = gvc_applet_finalize;
         object_class->dispose = gvc_applet_dispose;
-        object_class->constructor = gvc_applet_constructor;
 
         g_type_class_add_private (klass, sizeof (GvcAppletPrivate));
 }
@@ -269,42 +237,50 @@ gvc_applet_init (GvcApplet *applet)
 {
         applet->priv = GVC_APPLET_GET_PRIVATE (applet);
 
-        applet->priv->output_status_icon = gvc_stream_status_icon_new (NULL,
-                                                                       output_icon_names);
-        gvc_stream_status_icon_set_display_name (applet->priv->output_status_icon,
-                                                 _("Output"));
-        gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->output_status_icon),
-                                   _("Sound Output Volume"));
-        applet->priv->input_status_icon = gvc_stream_status_icon_new (NULL,
-                                                                      input_icon_names);
-        gvc_stream_status_icon_set_display_name (applet->priv->input_status_icon,
-                                                 _("Input"));
-        gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->input_status_icon),
+        applet->priv->icon_input  = gvc_stream_status_icon_new (NULL, icon_names_input);
+        applet->priv->icon_output = gvc_stream_status_icon_new (NULL, icon_names_output);
+
+        gvc_stream_status_icon_set_display_name (applet->priv->icon_input,  _("Input"));
+        gvc_stream_status_icon_set_display_name (applet->priv->icon_output, _("Output"));
+
+        gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->icon_input),
                                    _("Microphone Volume"));
-}
+        gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->icon_output),
+                                   _("Sound Output Volume"));
 
-static void
-gvc_applet_finalize (GObject *object)
-{
-        GvcApplet *applet;
+        applet->priv->control = mate_mixer_control_new ();
 
-        g_return_if_fail (object != NULL);
-        g_return_if_fail (GVC_IS_APPLET (object));
+        mate_mixer_control_set_app_name (applet->priv->control,
+                                         _("MATE Volume Control Applet"));
 
-        applet = GVC_APPLET (object);
+        mate_mixer_control_set_app_id (applet->priv->control, GVC_APPLET_DBUS_NAME);
+        mate_mixer_control_set_app_version (applet->priv->control, VERSION);
+        mate_mixer_control_set_app_icon (applet->priv->control, "multimedia-volume-control");
 
-        g_return_if_fail (applet->priv != NULL);
-
-
-        G_OBJECT_CLASS (gvc_applet_parent_class)->finalize (object);
+        g_signal_connect (applet->priv->control,
+                          "notify::state",
+                          G_CALLBACK (on_control_state_notify),
+                          applet);
+        g_signal_connect (applet->priv->control,
+                          "notify::default-input",
+                          G_CALLBACK (on_control_default_input_notify),
+                          applet);
+        g_signal_connect (applet->priv->control,
+                          "notify::default-output",
+                          G_CALLBACK (on_control_default_output_notify),
+                          applet);
+        g_signal_connect (applet->priv->control,
+                          "stream-added",
+                          G_CALLBACK (on_control_stream_added),
+                          applet);
+        g_signal_connect (applet->priv->control,
+                          "stream-removed",
+                          G_CALLBACK (on_control_stream_removed),
+                          applet);
 }
 
 GvcApplet *
 gvc_applet_new (void)
 {
-        GObject *applet;
-
-        applet = g_object_new (GVC_TYPE_APPLET, NULL);
-
-        return GVC_APPLET (applet);
+        return g_object_new (GVC_TYPE_APPLET, NULL);
 }

@@ -20,25 +20,19 @@
 
 #include "config.h"
 
-#include <libintl.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <errno.h>
-
 #include <glib/gi18n.h>
 #include <glib.h>
 #include <gtk/gtk.h>
+
+#include <libintl.h>
 #include <unique/uniqueapp.h>
+#include <libmatemixer/matemixer.h>
 
 #include "gvc-mixer-dialog.h"
-#include "gvc-log.h"
 
-#define GVCA_DBUS_NAME "org.mate.VolumeControl"
 #define DIALOG_POPUP_TIMEOUT 3
 
 static gboolean show_version = FALSE;
-static gboolean debug = FALSE;
 static gchar* page = NULL;
 
 static guint popup_id = 0;
@@ -147,43 +141,37 @@ on_control_connecting (GvcMixerControl *control,
 int
 main (int argc, char **argv)
 {
-        GError             *error;
-        GvcMixerControl    *control;
-        UniqueApp          *app;
-        static GOptionEntry entries[] = {
-                { "page", 'p', 0, G_OPTION_ARG_STRING, &page, N_("Startup page"), "effects|hardware|input|output|applications" },
-                { "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable debugging code"), NULL },
-                { "version", 0, 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
-                { NULL, 0, 0, 0, NULL, NULL, NULL }
+        GError          *error = NULL;
+        GvcMixerControl *control;
+        UniqueApp       *app;
+        GOptionEntry     entries[] = {
+                { "page",    'p', 0, G_OPTION_ARG_STRING, &page, N_("Startup page"), "effects|hardware|input|output|applications" },
+                { "version", 'v', 0, G_OPTION_ARG_NONE,   &show_version, N_("Version of this application"), NULL },
+                { NULL }
         };
 
         bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         textdomain (GETTEXT_PACKAGE);
 
-	gvc_log_init ();
-
-        error = NULL;
         gtk_init_with_args (&argc, &argv,
                             (char *) _(" — MATE Volume Control"),
                             entries, GETTEXT_PACKAGE,
                             &error);
         if (error != NULL) {
                 g_warning ("%s", error->message);
-                exit (1);
+                return 1;
         }
-
         if (show_version) {
-                g_print ("%s %s\n", argv [0], VERSION);
-                exit (1);
+                g_print ("%s %s\n", argv[0], VERSION);
+                return 0;
         }
 
-	gvc_log_set_debug (debug);
+        app = unique_app_new (GVC_DIALOG_DBUS_NAME, NULL);
 
-        app = unique_app_new (GVCA_DBUS_NAME, NULL);
         if (unique_app_is_running (app)) {
                 unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
-                exit (0);
+                return 0;
         }
 
         gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
@@ -199,13 +187,11 @@ main (int argc, char **argv)
                           "ready",
                           G_CALLBACK (on_control_ready),
                           app);
-        gvc_mixer_control_open (control);
 
+        gvc_mixer_control_open (control);
         gtk_main ();
 
-        if (control != NULL) {
-                g_object_unref (control);
-        }
+        g_object_unref (control);
 
         return 0;
 }
