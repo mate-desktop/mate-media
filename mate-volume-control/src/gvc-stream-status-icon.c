@@ -30,19 +30,13 @@
 #include "gvc-channel-bar.h"
 #include "gvc-stream-status-icon.h"
 
-// XXX the gdk_spawn_command_line_on_screen causes compiler warnings, remove the GTK3
-// check and instead use GdkAppLaunchContext and GAppInfo which should work with
-// both GDKs
-
+// XXX remove the #if and just use mate_gdk_spawn_command_line_on_screen after
+// https://github.com/mate-desktop/mate-desktop/pull/120
 #if GTK_CHECK_VERSION (3, 0, 0)
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
 #define gdk_spawn_command_line_on_screen mate_gdk_spawn_command_line_on_screen
 #endif
-
-// XXX this file uses PA_DECIBEL_MININFTY, figure out how to handle it through the
-// library and change it
-#include <pulse/pulseaudio.h>
 
 #define GVC_STREAM_STATUS_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_STATUS_ICON, GvcStreamStatusIconPrivate))
 
@@ -426,7 +420,7 @@ static void
 update_icon (GvcStreamStatusIcon *icon)
 {
         gint64               volume;
-        gdouble              volume_db = 0;
+        gdouble              decibel = 0;
         gint64               normal_volume;
         gboolean             is_muted;
         guint                n;
@@ -444,7 +438,7 @@ update_icon (GvcStreamStatusIcon *icon)
         flags = mate_mixer_stream_get_flags (icon->priv->mixer_stream);
 
         if (flags & MATE_MIXER_STREAM_HAS_DECIBEL_VOLUME) {
-                volume_db = mate_mixer_stream_get_volume_db (icon->priv->mixer_stream);
+                decibel = mate_mixer_stream_get_decibel (icon->priv->mixer_stream);
                 can_decibel = TRUE;
         }
 
@@ -477,12 +471,12 @@ update_icon (GvcStreamStatusIcon *icon)
                                           icon->priv->display_name,
                                           _("Muted"),
                                           mate_mixer_stream_get_description (icon->priv->mixer_stream));
-        } else if (can_decibel && (volume_db > PA_DECIBEL_MININFTY)) {
+        } else if (can_decibel && (decibel > -MATE_MIXER_INFINITY)) {
                 markup = g_strdup_printf (
                                           "<b>%s: %.0f%%</b>\n<small>%0.2f dB\n%s</small>",
                                           icon->priv->display_name,
                                           100 * (float) volume / normal_volume,
-                                          volume_db,
+                                          decibel,
                                           mate_mixer_stream_get_description (icon->priv->mixer_stream));
         } else if (can_decibel) {
                 markup = g_strdup_printf (
