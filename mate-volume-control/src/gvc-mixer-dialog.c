@@ -53,6 +53,7 @@
 struct GvcMixerDialogPrivate
 {
         GvcMixerControl *mixer_control;
+        MateMixerControl *control;
         GHashTable      *bars;
         GtkWidget       *notebook;
         GtkWidget       *output_bar;
@@ -1071,7 +1072,7 @@ add_stream (GvcMixerDialog *dialog,
                 } else {
                         char **tokens, *escaped;
 
-                        tokens = g_strsplit (name, "_", -1); 
+                        tokens = g_strsplit (name, "_", -1);
                         escaped = g_strjoinv ("__", tokens);
                         g_strfreev (tokens);
                         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (bar), escaped);
@@ -1511,8 +1512,11 @@ on_test_speakers_clicked (GvcComboBox *widget,
         GvcMixerDialog      *dialog = GVC_MIXER_DIALOG (user_data);
         GvcMixerCard        *card;
         GvcMixerCardProfile *profile;
+        MateMixerDevice     *device;
         GtkWidget           *d, *speaker_test, *container;
         char                *title;
+
+        device = mate_mixer_control_list_devices (dialog->priv->control)->data;
 
         card = g_object_get_data (G_OBJECT (widget), "card");
         if (card == NULL) {
@@ -1534,8 +1538,8 @@ on_test_speakers_clicked (GvcComboBox *widget,
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
                                          NULL);
         g_free (title);
-        speaker_test = gvc_speaker_test_new (dialog->priv->mixer_control,
-                                             card);
+        speaker_test = gvc_speaker_test_new (dialog->priv->control, device);
+
         gtk_widget_show (speaker_test);
         container = gtk_dialog_get_content_area (GTK_DIALOG (d));
         gtk_container_add (GTK_CONTAINER (container), speaker_test);
@@ -2080,6 +2084,10 @@ gvc_mixer_dialog_init (GvcMixerDialog *dialog)
         dialog->priv->bars = g_hash_table_new (NULL, NULL);
         dialog->priv->size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
         dialog->priv->apps_size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
+
+        dialog->priv->control = mate_mixer_control_new ();
+
+        mate_mixer_control_open (dialog->priv->control);
 }
 
 static void

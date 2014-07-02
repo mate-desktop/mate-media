@@ -21,9 +21,9 @@
 #ifndef __GVC_SPEAKER_TEST_H
 #define __GVC_SPEAKER_TEST_H
 
+#include <glib.h>
 #include <glib-object.h>
-#include <gvc-mixer-card.h>
-#include <gvc-mixer-control.h>
+#include <libmatemixer/matemixer.h>
 
 G_BEGIN_DECLS
 
@@ -34,23 +34,25 @@ G_BEGIN_DECLS
 #define GVC_IS_SPEAKER_TEST_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), GVC_TYPE_SPEAKER_TEST))
 #define GVC_SPEAKER_TEST_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), GVC_TYPE_SPEAKER_TEST, GvcSpeakerTestClass))
 
-typedef struct GvcSpeakerTestPrivate GvcSpeakerTestPrivate;
+typedef struct _GvcSpeakerTest         GvcSpeakerTest;
+typedef struct _GvcSpeakerTestClass    GvcSpeakerTestClass;
+typedef struct _GvcSpeakerTestPrivate  GvcSpeakerTestPrivate;
 
-typedef struct
+struct _GvcSpeakerTest
 {
         GtkNotebook               parent;
-        GvcSpeakerTestPrivate *priv;
-} GvcSpeakerTest;
+        GvcSpeakerTestPrivate    *priv;
+};
 
-typedef struct
+struct _GvcSpeakerTestClass
 {
-        GtkNotebookClass        parent_class;
-} GvcSpeakerTestClass;
+        GtkNotebookClass          parent_class;
+};
 
-GType               gvc_speaker_test_get_type            (void);
+GType               gvc_speaker_test_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_speaker_test_new                 (GvcMixerControl *control,
-                                                          GvcMixerCard *card);
+GtkWidget *         gvc_speaker_test_new                 (MateMixerControl *control,
+                                                          MateMixerDevice  *device);
 
 G_END_DECLS
 

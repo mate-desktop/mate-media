@@ -40,16 +40,13 @@ static GtkWidget *dialog = NULL;
 static GtkWidget *warning_dialog = NULL;
 
 static void
-on_dialog_response (GtkDialog *dialog,
-                    guint      response_id,
-                    gpointer   data)
+on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
 {
         gtk_main_quit ();
 }
 
 static void
-on_dialog_close (GtkDialog *dialog,
-                 gpointer   data)
+on_dialog_close (GtkDialog *dialog, gpointer data)
 {
         gtk_main_quit ();
 }
@@ -67,8 +64,7 @@ message_received_cb (UniqueApp         *app,
 }
 
 static void
-on_control_ready (GvcMixerControl *control,
-                  UniqueApp       *app)
+on_control_ready (GvcMixerControl *control, UniqueApp *app)
 {
 	if (popup_id != 0) {
 		g_source_remove (popup_id);
@@ -92,7 +88,7 @@ on_control_ready (GvcMixerControl *control,
                           G_CALLBACK (on_dialog_close),
                           NULL);
 
-        gvc_mixer_dialog_set_page(GVC_MIXER_DIALOG (dialog), page);
+        gvc_mixer_dialog_set_page (GVC_MIXER_DIALOG (dialog), page);
 
         g_signal_connect (app, "message-received",
                           G_CALLBACK (message_received_cb), dialog);
@@ -112,10 +108,11 @@ static gboolean
 dialog_popup_timeout (gpointer data)
 {
 	warning_dialog = gtk_message_dialog_new (GTK_WINDOW(dialog),
-						 0,
-						 GTK_MESSAGE_INFO,
-						 GTK_BUTTONS_CANCEL,
-						 _("Waiting for sound system to respond"));
+	                                         0,
+	                                         GTK_MESSAGE_INFO,
+	                                         GTK_BUTTONS_CANCEL,
+	                                         _("Waiting for sound system to respond"));
+
 	g_signal_connect (warning_dialog, "response",
 			  G_CALLBACK (warning_dialog_answered), NULL);
 	g_signal_connect (warning_dialog, "close",
@@ -173,12 +170,18 @@ main (int argc, char **argv)
                 unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
                 return 0;
         }
+        if (!mate_mixer_init ()) {
+                g_warning ("libmatemixer initialization failed, exiting");
+                return 1;
+        }
 
         gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
                                            ICON_DATA_DIR);
+
         gtk_window_set_default_icon_name ("multimedia-volume-control");
 
         control = gvc_mixer_control_new ("MATE Volume Control Dialog");
+
         g_signal_connect (control,
                           "connecting",
                           G_CALLBACK (on_control_connecting),
@@ -189,6 +192,7 @@ main (int argc, char **argv)
                           app);
 
         gvc_mixer_control_open (control);
+
         gtk_main ();
 
         g_object_unref (control);
