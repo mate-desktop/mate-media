@@ -38,7 +38,7 @@ main (int argc, char **argv)
         GError       *error = NULL;
         GvcApplet    *applet;
         UniqueApp    *app = NULL;
-        GOptionEntry entries[] = {
+        GOptionEntry  entries[] = {
                 { "version", 'v', 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
                 { NULL }
         };
@@ -81,6 +81,7 @@ main (int argc, char **argv)
 
         g_object_unref (applet);
         g_object_unref (app);
+
         mate_mixer_deinit ();
 
         return 0;

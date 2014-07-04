@@ -27,16 +27,12 @@
 #include <gdk/gdkkeysyms-compat.h>
 #include <libmatemixer/matemixer.h>
 
+#define MATE_DESKTOP_USE_UNSTABLE_API
+
+#include <libmate-desktop/mate-desktop-utils.h>
+
 #include "gvc-channel-bar.h"
 #include "gvc-stream-status-icon.h"
-
-// XXX remove the #if and just use mate_gdk_spawn_command_line_on_screen after
-// https://github.com/mate-desktop/mate-desktop/pull/120
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-desktop-utils.h>
-#define gdk_spawn_command_line_on_screen mate_gdk_spawn_command_line_on_screen
-#endif
 
 #define GVC_STREAM_STATUS_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_STATUS_ICON, GvcStreamStatusIconPrivate))
 
@@ -230,13 +226,14 @@ static void
 on_menu_activate_open_volume_control (GtkMenuItem *item,
                                       GvcStreamStatusIcon   *icon)
 {
-        GError *error;
+        GError *error = NULL;
 
-        error = NULL;
-        gdk_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
-                                          "mate-volume-control",
-                                          &error);
-
+        // XXX update to libmate-desktop 1.9.1 and uncomment this
+        /*
+        mate_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
+                                           "mate-volume-control",
+                                           &error);
+                                           */
         if (error != NULL) {
                 GtkWidget *dialog;
 

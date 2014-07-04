@@ -20,47 +20,48 @@
 
 #include "config.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+
 #include <canberra-gtk.h>
+#include <libmatemixer/matemixer.h>
 
 #include "gvc-balance-bar.h"
 
 #define SCALE_SIZE 128
-#define ADJUSTMENT_MAX_NORMAL 65536.0 /* PA_VOLUME_NORM */
+#define ADJUSTMENT_MAX_NORMAL 65536.0 /* PA_VOLUME_NORM */ // XXX
 
 #define GVC_BALANCE_BAR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_BALANCE_BAR, GvcBalanceBarPrivate))
 
-struct GvcBalanceBarPrivate
+struct _GvcBalanceBarPrivate
 {
-        GvcChannelMap *channel_map;
-        GvcBalanceType btype;
-        GtkWidget     *scale_box;
-        GtkWidget     *start_box;
-        GtkWidget     *end_box;
-        GtkWidget     *label;
-        GtkWidget     *scale;
-        GtkAdjustment *adjustment;
-        GtkSizeGroup  *size_group;
-        gboolean       symmetric;
-        gboolean       click_lock;
+        MateMixerStream *stream;
+        GvcBalanceType   btype;
+        GtkWidget       *scale_box;
+        GtkWidget       *start_box;
+        GtkWidget       *end_box;
+        GtkWidget       *label;
+        GtkWidget       *scale;
+        GtkAdjustment   *adjustment;
+        GtkSizeGroup    *size_group;
+        gboolean         symmetric;
+        gboolean         click_lock;
 };
 
 enum
 {
         PROP_0,
-        PROP_CHANNEL_MAP,
+        PROP_STREAM,
         PROP_BALANCE_TYPE,
+        N_PROPERTIES
 };
+
+static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
 static void     gvc_balance_bar_class_init (GvcBalanceBarClass *klass);
 static void     gvc_balance_bar_init       (GvcBalanceBar      *balance_bar);
-static void     gvc_balance_bar_finalize   (GObject            *object);
+static void     gvc_balance_bar_dispose    (GObject            *object);
 
 static gboolean on_scale_button_press_event   (GtkWidget      *widget,
                                                GdkEventButton *event,
@@ -143,9 +144,6 @@ _scale_box_new (GvcBalanceBar *bar)
         bar->priv->end_box = ebox = gtk_hbox_new (FALSE, 6);
         gtk_box_pack_start (GTK_BOX (box), ebox, FALSE, FALSE, 0);
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-        gtk_range_set_update_policy (GTK_RANGE (priv->scale), GTK_UPDATE_CONTINUOUS);
-#endif
         ca_gtk_widget_disable_sounds (bar->priv->scale, FALSE);
         gtk_widget_add_events (bar->priv->scale, GDK_SCROLL_MASK);
 
@@ -209,64 +207,83 @@ btype_to_string (guint btype)
 }
 
 static void
-update_level_from_map (GvcBalanceBar *bar,
-                       GvcChannelMap *map)
+update_balance_value (GvcBalanceBar *bar)
 {
-        const gdouble *volumes;
-        gdouble val;
+        gdouble value = 0;
 
-        g_debug ("Volume changed (for %s bar)", btype_to_string (bar->priv->btype));
-
-        volumes = gvc_channel_map_get_volume (map);
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                val = volumes[BALANCE];
+                value = mate_mixer_stream_get_balance (bar->priv->stream);
                 break;
         case BALANCE_TYPE_FR:
-                val = volumes[FADE];
+                value = mate_mixer_stream_get_fade (bar->priv->stream);
                 break;
         case BALANCE_TYPE_LFE:
-                val = volumes[LFE];
+                value = mate_mixer_stream_get_position_volume (bar->priv->stream,
+                                                               MATE_MIXER_CHANNEL_LFE);
                 break;
         default:
                 g_assert_not_reached ();
         }
 
-        gtk_adjustment_set_value (bar->priv->adjustment, val);
+        g_debug ("%s value changed to %.1f", btype_to_string (bar->priv->btype), value);
+
+        gtk_adjustment_set_value (bar->priv->adjustment, value);
 }
 
 static void
-on_channel_map_volume_changed (GvcChannelMap  *map,
-                               gboolean        set,
-                               GvcBalanceBar  *bar)
+on_balance_value_changed (MateMixerStream *stream,
+                          GParamSpec      *pspec,
+                          GvcBalanceBar   *bar)
 {
-        update_level_from_map (bar, map);
+        update_balance_value (bar);
 }
 
 static void
-gvc_balance_bar_set_channel_map (GvcBalanceBar *bar,
-                                 GvcChannelMap *map)
+gvc_balance_bar_set_stream (GvcBalanceBar *bar, MateMixerStream *stream)
 {
         g_return_if_fail (GVC_BALANCE_BAR (bar));
+        g_return_if_fail (MATE_MIXER_IS_STREAM (stream));
 
-        if (bar->priv->channel_map != NULL) {
-                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->channel_map),
-                                                      on_channel_map_volume_changed, bar);
-                g_object_unref (bar->priv->channel_map);
+        if (bar->priv->stream != NULL) {
+                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->stream),
+                                                      on_balance_value_changed,
+                                                      bar);
+                g_object_unref (bar->priv->stream);
         }
-        bar->priv->channel_map = g_object_ref (map);
 
-        update_level_from_map (bar, map);
+        bar->priv->stream = g_object_ref (stream);
 
-        g_signal_connect (G_OBJECT (map), "volume-changed",
-                          G_CALLBACK (on_channel_map_volume_changed), bar);
+        switch (bar->priv->btype) {
+        case BALANCE_TYPE_RL:
+                g_signal_connect (G_OBJECT (stream),
+                                  "notify::balance",
+                                  G_CALLBACK (on_balance_value_changed),
+                                  bar);
+                break;
+        case BALANCE_TYPE_FR:
+                g_signal_connect (G_OBJECT (stream),
+                                  "notify::fade",
+                                  G_CALLBACK (on_balance_value_changed),
+                                  bar);
+                break;
+        case BALANCE_TYPE_LFE:
+                g_signal_connect (G_OBJECT (stream),
+                                  "notify::volume",
+                                  G_CALLBACK (on_balance_value_changed),
+                                  bar);
+                break;
+        default:
+                g_assert_not_reached ();
+        }
 
-        g_object_notify (G_OBJECT (bar), "channel-map");
+        update_balance_value (bar);
+
+        g_object_notify (G_OBJECT (bar), "stream");
 }
 
 static void
-gvc_balance_bar_set_balance_type (GvcBalanceBar *bar,
-                                  GvcBalanceType btype)
+gvc_balance_bar_set_balance_type (GvcBalanceBar *bar, GvcBalanceType btype)
 {
         GtkWidget *frame;
 
@@ -337,8 +354,8 @@ gvc_balance_bar_set_property (GObject       *object,
         GvcBalanceBar *self = GVC_BALANCE_BAR (object);
 
         switch (prop_id) {
-        case PROP_CHANNEL_MAP:
-                gvc_balance_bar_set_channel_map (self, g_value_get_object (value));
+        case PROP_STREAM:
+                gvc_balance_bar_set_stream (self, g_value_get_object (value));
                 break;
         case PROP_BALANCE_TYPE:
                 gvc_balance_bar_set_balance_type (self, g_value_get_int (value));
@@ -358,8 +375,8 @@ gvc_balance_bar_get_property (GObject     *object,
         GvcBalanceBar *self = GVC_BALANCE_BAR (object);
 
         switch (prop_id) {
-        case PROP_CHANNEL_MAP:
-                g_value_set_object (value, self->priv->channel_map);
+        case PROP_STREAM:
+                g_value_set_object (value, self->priv->stream);
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -367,38 +384,32 @@ gvc_balance_bar_get_property (GObject     *object,
         }
 }
 
-static GObject *
-gvc_balance_bar_constructor (GType                  type,
-                             guint                  n_construct_properties,
-                             GObjectConstructParam *construct_params)
-{
-        return G_OBJECT_CLASS (gvc_balance_bar_parent_class)->constructor (type, n_construct_properties, construct_params);
-}
-
 static void
 gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
 {
-        GObjectClass   *object_class = G_OBJECT_CLASS (klass);
+        GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->constructor = gvc_balance_bar_constructor;
-        object_class->finalize = gvc_balance_bar_finalize;
+        object_class->dispose = gvc_balance_bar_dispose;
         object_class->set_property = gvc_balance_bar_set_property;
         object_class->get_property = gvc_balance_bar_get_property;
 
-        g_object_class_install_property (object_class,
-                                         PROP_CHANNEL_MAP,
-                                         g_param_spec_object ("channel-map",
-                                                              "channel map",
-                                                              "The channel map",
-                                                              GVC_TYPE_CHANNEL_MAP,
-                                                              G_PARAM_READWRITE));
-        g_object_class_install_property (object_class,
-                                         PROP_BALANCE_TYPE,
-                                         g_param_spec_int ("balance-type",
-                                                           "balance type",
-                                                           "Whether the balance is right-left or front-rear",
-                                                           BALANCE_TYPE_RL, NUM_BALANCE_TYPES - 1, BALANCE_TYPE_RL,
-                                                           G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY));
+        properties[PROP_STREAM] =
+                g_param_spec_object ("stream",
+                                     "Stream",
+                                     "Libmatemixer stream",
+                                     MATE_MIXER_TYPE_STREAM,
+                                     G_PARAM_READWRITE);
+
+        properties[PROP_BALANCE_TYPE] =
+                g_param_spec_int ("balance-type",
+                                  "balance type",
+                                  "Whether the balance is right-left or front-rear",
+                                  BALANCE_TYPE_RL,
+                                  NUM_BALANCE_TYPES - 1,
+                                  BALANCE_TYPE_RL,
+                                  G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+
+        g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 
         g_type_class_add_private (klass, sizeof (GvcBalanceBarPrivate));
 }
@@ -409,8 +420,8 @@ on_scale_button_press_event (GtkWidget      *widget,
                              GdkEventButton *event,
                              GvcBalanceBar  *bar)
 {
+        // XXX this is unused
         bar->priv->click_lock = TRUE;
-
         return FALSE;
 }
 
@@ -419,8 +430,8 @@ on_scale_button_release_event (GtkWidget      *widget,
                                GdkEventButton *event,
                                GvcBalanceBar  *bar)
 {
+        // XXX this is unused
         bar->priv->click_lock = FALSE;
-
         return FALSE;
 }
 
@@ -458,61 +469,36 @@ on_scale_scroll_event (GtkWidget      *widget,
                                 value = value - 0.01;
                 }
         }
-        gtk_adjustment_set_value (bar->priv->adjustment, value);
 
+        gtk_adjustment_set_value (bar->priv->adjustment, value);
         return TRUE;
 }
 
-/* FIXME remove when we depend on a newer PA */
-static pa_cvolume *
-gvc_pa_cvolume_set_position (pa_cvolume *cv, const pa_channel_map *map, pa_channel_position_t t, pa_volume_t v) {
-        unsigned c;
-        gboolean good = FALSE;
-
-        g_assert(cv);
-        g_assert(map);
-
-        g_return_val_if_fail(pa_cvolume_compatible_with_channel_map(cv, map), NULL);
-        g_return_val_if_fail(t < PA_CHANNEL_POSITION_MAX, NULL);
-
-        for (c = 0; c < map->channels; c++)
-                if (map->map[c] == t) {
-                        cv->values[c] = v;
-                        good = TRUE;
-                }
-
-        return good ? cv : NULL;
-}
-
 static void
-on_adjustment_value_changed (GtkAdjustment *adjustment,
-                             GvcBalanceBar *bar)
+on_adjustment_value_changed (GtkAdjustment *adjustment, GvcBalanceBar *bar)
 {
-        gdouble                val;
-        pa_cvolume             cv;
-        const pa_channel_map  *pa_map;
+        gdouble value;
 
-        if (bar->priv->channel_map == NULL)
+        if (bar->priv->stream == NULL)
                 return;
 
-        cv = *gvc_channel_map_get_cvolume (bar->priv->channel_map);
-        val = gtk_adjustment_get_value (adjustment);
-
-        pa_map = gvc_channel_map_get_pa_channel_map (bar->priv->channel_map);
+        value = gtk_adjustment_get_value (adjustment);
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                pa_cvolume_set_balance (&cv, pa_map, val);
+                mate_mixer_stream_set_balance (bar->priv->stream, value);
                 break;
         case BALANCE_TYPE_FR:
-                pa_cvolume_set_fade (&cv, pa_map, val);
+                mate_mixer_stream_set_fade (bar->priv->stream, value);
                 break;
         case BALANCE_TYPE_LFE:
-                gvc_pa_cvolume_set_position (&cv, pa_map, PA_CHANNEL_POSITION_LFE, val);
+                mate_mixer_stream_set_position_volume (bar->priv->stream,
+                                                       MATE_MIXER_CHANNEL_LFE,
+                                                       value);
                 break;
+        default:
+                g_assert_not_reached ();
         }
-
-        gvc_channel_map_volume_changed (bar->priv->channel_map, &cv, TRUE);
 }
 
 static void
@@ -522,33 +508,27 @@ gvc_balance_bar_init (GvcBalanceBar *bar)
 }
 
 static void
-gvc_balance_bar_finalize (GObject *object)
+gvc_balance_bar_dispose (GObject *object)
 {
         GvcBalanceBar *bar;
 
-        g_return_if_fail (object != NULL);
-        g_return_if_fail (GVC_IS_BALANCE_BAR (object));
-
         bar = GVC_BALANCE_BAR (object);
 
-        g_return_if_fail (bar->priv != NULL);
-
-        if (bar->priv->channel_map != NULL) {
-                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->channel_map),
-                                                      on_channel_map_volume_changed, bar);
-                g_object_unref (bar->priv->channel_map);
+        if (bar->priv->stream != NULL) {
+                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->stream),
+                                                      on_balance_value_changed,
+                                                      bar);
+                g_clear_object (&bar->priv->stream);
         }
 
-        G_OBJECT_CLASS (gvc_balance_bar_parent_class)->finalize (object);
+        G_OBJECT_CLASS (gvc_balance_bar_parent_class)->dispose (object);
 }
 
 GtkWidget *
-gvc_balance_bar_new (const GvcChannelMap *channel_map, GvcBalanceType btype)
+gvc_balance_bar_new (MateMixerStream *stream, GvcBalanceType btype)
 {
-        GObject *bar;
-        bar = g_object_new (GVC_TYPE_BALANCE_BAR,
-                            "channel-map", channel_map,
+        return g_object_new (GVC_TYPE_BALANCE_BAR,
                             "balance-type", btype,
+                            "stream", stream,
                             NULL);
-        return GTK_WIDGET (bar);
 }

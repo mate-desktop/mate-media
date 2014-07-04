@@ -21,6 +21,7 @@
 #ifndef __GVC_CHANNEL_BAR_H
 #define __GVC_CHANNEL_BAR_H
 
+#include <glib.h>
 #include <glib-object.h>
 
 G_BEGIN_DECLS

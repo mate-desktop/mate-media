@@ -39,6 +39,8 @@ libmatevolumecontrol_la_SOURCES =		\
 	gvc-mixer-control.c			\
 	gvc-channel-bar.h			\
 	gvc-channel-bar.c			\
+    mvc-helpers.c               \
+    mvc-helpers.h               \
 	$(NULL)
 
 mate_volume_control_applet_LDADD =		\

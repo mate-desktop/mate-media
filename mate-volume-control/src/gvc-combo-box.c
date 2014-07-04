@@ -20,18 +20,14 @@
 
 #include "config.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+
 #include <canberra-gtk.h>
+#include <libmatemixer/matemixer.h>
 
 #include "gvc-combo-box.h"
-#include "gvc-mixer-stream.h"
-#include "gvc-mixer-card.h"
 
 #define GVC_COMBO_BOX_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_COMBO_BOX, GvcComboBoxPrivate))
 
@@ -156,7 +152,7 @@ gvc_combo_box_get_property (GObject     *object,
 static void
 gvc_combo_box_class_init (GvcComboBoxClass *klass)
 {
-        GObjectClass   *object_class = G_OBJECT_CLASS (klass);
+        GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
         object_class->finalize = gvc_combo_box_finalize;
         object_class->set_property = gvc_combo_box_set_property;
@@ -213,21 +209,20 @@ gvc_combo_box_set_profiles (GvcComboBox *combo_box,
         g_return_if_fail (combo_box->priv->set_called == FALSE);
 
         for (l = profiles; l != NULL; l = l->next) {
-                GvcMixerCardProfile *p = l->data;
+                MateMixerDeviceProfile *p = MATE_MIXER_DEVICE_PROFILE (l->data);
 
                 gtk_list_store_insert_with_values (GTK_LIST_STORE (combo_box->priv->model),
                                                    NULL,
                                                    G_MAXINT,
-                                                   COL_NAME, p->profile,
-                                                   COL_HUMAN_NAME, p->human_profile,
+                                                   COL_NAME, mate_mixer_device_profile_get_name (p),
+                                                   COL_HUMAN_NAME, mate_mixer_device_profile_get_description (p),
                                                    -1);
         }
         combo_box->priv->set_called = TRUE;
 }
 
 void
-gvc_combo_box_set_ports (GvcComboBox *combo_box,
-                         const GList       *ports)
+gvc_combo_box_set_ports (GvcComboBox *combo_box, const GList *ports)
 {
         const GList *l;
 
@@ -235,13 +230,13 @@ gvc_combo_box_set_ports (GvcComboBox *combo_box,
         g_return_if_fail (combo_box->priv->set_called == FALSE);
 
         for (l = ports; l != NULL; l = l->next) {
-                GvcMixerStreamPort *p = l->data;
+                MateMixerPort *p = MATE_MIXER_PORT (l->data);
 
                 gtk_list_store_insert_with_values (GTK_LIST_STORE (combo_box->priv->model),
                                                    NULL,
                                                    G_MAXINT,
-                                                   COL_NAME, p->port,
-                                                   COL_HUMAN_NAME, p->human_port,
+                                                   COL_NAME, mate_mixer_port_get_name (p),
+                                                   COL_HUMAN_NAME, mate_mixer_port_get_description (p),
                                                    -1);
         }
         combo_box->priv->set_called = TRUE;
@@ -304,7 +299,6 @@ gvc_combo_box_init (GvcComboBox *combo_box)
         GtkWidget            *sbox;
         GtkWidget            *ebox;
         GtkCellRenderer      *renderer;
-
 
         combo_box->priv = GVC_COMBO_BOX_GET_PRIVATE (combo_box);
 
@@ -389,10 +383,7 @@ gvc_combo_box_finalize (GObject *object)
 GtkWidget *
 gvc_combo_box_new (const char *label)
 {
-        GObject *combo_box;
-        combo_box = g_object_new (GVC_TYPE_COMBO_BOX,
-                                  "label", label,
-                                  NULL);
-        return GTK_WIDGET (combo_box);
+        return g_object_new (GVC_TYPE_COMBO_BOX,
+                             "label", label,
+                             NULL);
 }
-

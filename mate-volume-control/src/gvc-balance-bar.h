@@ -21,9 +21,11 @@
 #ifndef __GVC_BALANCE_BAR_H
 #define __GVC_BALANCE_BAR_H
 
+#include <glib.h>
 #include <glib-object.h>
+#include <gtk/gtk.h>
 
-#include "gvc-channel-map.h"
+#include <libmatemixer/matemixer.h>
 
 G_BEGIN_DECLS
 
@@ -42,9 +44,11 @@ typedef enum {
 
 #define NUM_BALANCE_TYPES BALANCE_TYPE_LFE + 1
 
-typedef struct GvcBalanceBarPrivate GvcBalanceBarPrivate;
+typedef struct _GvcBalanceBar         GvcBalanceBar;
+typedef struct _GvcBalanceBarClass    GvcBalanceBarClass;
+typedef struct _GvcBalanceBarPrivate  GvcBalanceBarPrivate;
 
-typedef struct
+struct _GvcBalanceBar
 {
 #if GTK_CHECK_VERSION (3, 0, 0)
         GtkBox                parent;
@@ -52,25 +56,25 @@ typedef struct
         GtkHBox               parent;
 #endif
         GvcBalanceBarPrivate *priv;
-} GvcBalanceBar;
+};
 
-typedef struct
+struct _GvcBalanceBarClass
 {
 #if GTK_CHECK_VERSION (3, 0, 0)
         GtkBoxClass           parent_class;
 #else
         GtkHBoxClass          parent_class;
 #endif
-} GvcBalanceBarClass;
+};
 
 GType               gvc_balance_bar_get_type            (void);
 
-GtkWidget *         gvc_balance_bar_new                 (const GvcChannelMap *map,
-                                                         GvcBalanceType btype);
+GtkWidget *         gvc_balance_bar_new                 (MateMixerStream *stream,
+                                                         GvcBalanceType   btype);
 
-void                gvc_balance_bar_set_size_group      (GvcBalanceBar *bar,
-                                                         GtkSizeGroup  *group,
-                                                         gboolean       symmetric);
+void                gvc_balance_bar_set_size_group      (GvcBalanceBar   *bar,
+                                                         GtkSizeGroup    *group,
+                                                         gboolean         symmetric);
 
 G_END_DECLS
 

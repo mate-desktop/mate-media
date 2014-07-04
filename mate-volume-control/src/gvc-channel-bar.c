@@ -20,15 +20,10 @@
 
 #include "config.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-#include <pulse/pulseaudio.h>
-
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+
 #include <canberra-gtk.h>
 
 #include "gvc-channel-bar.h"
@@ -634,8 +629,7 @@ gvc_channel_bar_set_is_amplified (GvcChannelBar *bar, gboolean amplified)
 }
 
 void
-gvc_channel_bar_set_base_volume (GvcChannelBar *bar,
-                                 pa_volume_t    base_volume)
+gvc_channel_bar_set_base_volume (GvcChannelBar *bar, guint base_volume)
 {
         g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
 
@@ -929,8 +923,5 @@ gvc_channel_bar_finalize (GObject *object)
 GtkWidget *
 gvc_channel_bar_new (void)
 {
-        GObject *bar;
-        bar = g_object_new (GVC_TYPE_CHANNEL_BAR,
-                            NULL);
-        return GTK_WIDGET (bar);
+        return g_object_new (GVC_TYPE_CHANNEL_BAR, NULL);
 }

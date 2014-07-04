@@ -21,7 +21,10 @@
 #ifndef __GVC_MIXER_DIALOG_H
 #define __GVC_MIXER_DIALOG_H
 
+#include <glib.h>
 #include <glib-object.h>
+#include <libmatemixer/matemixer.h>
+
 #include "gvc-mixer-control.h"
 
 G_BEGIN_DECLS
@@ -35,23 +38,27 @@ G_BEGIN_DECLS
 #define GVC_IS_MIXER_DIALOG_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), GVC_TYPE_MIXER_DIALOG))
 #define GVC_MIXER_DIALOG_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), GVC_TYPE_MIXER_DIALOG, GvcMixerDialogClass))
 
-typedef struct GvcMixerDialogPrivate GvcMixerDialogPrivate;
+typedef struct _GvcMixerDialog         GvcMixerDialog;
+typedef struct _GvcMixerDialogClass    GvcMixerDialogClass;
+typedef struct _GvcMixerDialogPrivate  GvcMixerDialogPrivate;
 
-typedef struct
+struct _GvcMixerDialog
 {
         GtkDialog              parent;
         GvcMixerDialogPrivate *priv;
-} GvcMixerDialog;
+};
 
-typedef struct
+struct _GvcMixerDialogClass
 {
         GtkDialogClass         parent_class;
-} GvcMixerDialogClass;
+};
 
-GType               gvc_mixer_dialog_get_type            (void);
+GType               gvc_mixer_dialog_get_type            (void) G_GNUC_CONST;
 
-GvcMixerDialog *    gvc_mixer_dialog_new                 (GvcMixerControl *control);
-gboolean            gvc_mixer_dialog_set_page            (GvcMixerDialog *dialog, const gchar* page);
+GvcMixerDialog *    gvc_mixer_dialog_new                 (MateMixerControl *control);
+
+gboolean            gvc_mixer_dialog_set_page            (GvcMixerDialog   *dialog,
+                                                          const gchar      *page);
 
 G_END_DECLS
 
