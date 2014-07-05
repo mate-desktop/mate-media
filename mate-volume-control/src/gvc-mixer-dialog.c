@@ -76,6 +76,7 @@ struct _GvcMixerDialogPrivate
 };
 
 enum {
+        ICON_COLUMN,
         NAME_COLUMN,
         DESCRIPTION_COLUMN,
         DEVICE_COLUMN,
@@ -405,26 +406,6 @@ update_input_peak (GvcMixerDialog *dialog, gdouble v)
         } else {
                 gtk_adjustment_set_value (adj, 0.0);
         }
-}
-
-static void
-on_monitor_suspended_callback (pa_stream *s,
-                               void      *userdata)
-{
-        // XXX
-        /*
-        GvcMixerDialog *dialog;
-
-        dialog = userdata;
-
-        if (pa_stream_is_suspended (s)) {
-                g_debug ("Stream suspended");
-                update_input_meter (dialog,
-                                    pa_stream_get_device_index (s),
-                                    PA_INVALID_INDEX,
-                                    -1);
-        }
-        */
 }
 
 static void
@@ -860,10 +841,11 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
         }
 
         if (client == NULL) {
-                GtkTreeModel    *model;
+                GtkTreeModel    *model = NULL;
                 GtkTreeIter      iter;
                 MateMixerStream *input;
                 MateMixerStream *output;
+                const gchar     *speakers = NULL;
                 GtkAdjustment   *adj;
 
                 input  = mate_mixer_control_get_default_input_stream (dialog->priv->control);
@@ -883,18 +865,6 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 
                         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
 
-                        gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-                        gtk_list_store_set (GTK_LIST_STORE (model),
-                                            &iter,
-                                            NAME_COLUMN, mate_mixer_stream_get_name (stream),
-                                            DESCRIPTION_COLUMN, mate_mixer_stream_get_description (stream),
-                                            DEVICE_COLUMN, "",
-                                            ACTIVE_COLUMN, is_default,
-                                            -1);
-                        g_signal_connect (stream,
-                                          "notify::description",
-                                          G_CALLBACK (on_stream_description_notify),
-                                          dialog);
                 } else if (flags & MATE_MIXER_STREAM_OUTPUT) {
                         if (stream == output) {
                                 bar = dialog->priv->output_bar;
@@ -911,16 +881,41 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                         }
 
                         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+                        speakers = mvc_channel_map_to_pretty_string (stream);
+                }
+
+                if (model != NULL) {
+                        MateMixerDevice *device;
+                        const gchar     *name,
+                                        *description;
+                        const gchar     *device_name = NULL;
+                        const gchar     *icon = NULL;
+
+                        device = mate_mixer_stream_get_device (stream);
+                        if (G_LIKELY (device != NULL)) {
+                                device_name = mate_mixer_device_get_description (device);
+                                if (device_name == NULL)
+                                        device_name = mate_mixer_device_get_name (device);
+
+                                icon = mate_mixer_device_get_icon (device);
+                        }
+
+                        if (icon == NULL)
+                                icon = "audio-card";
+
+                        name = mate_mixer_stream_get_name (stream);
+                        description = mate_mixer_stream_get_description (stream);
 
                         gtk_list_store_append (GTK_LIST_STORE (model), &iter);
                         gtk_list_store_set (GTK_LIST_STORE (model),
                                             &iter,
-                                            NAME_COLUMN, mate_mixer_stream_get_name (stream),
-                                            DESCRIPTION_COLUMN, mate_mixer_stream_get_description (stream),
-                                            DEVICE_COLUMN, "",
+                                            NAME_COLUMN, name,
+                                            DESCRIPTION_COLUMN, description,
+                                            DEVICE_COLUMN, device_name,
                                             ACTIVE_COLUMN, is_default,
-                                            SPEAKERS_COLUMN, mvc_channel_map_to_pretty_string (stream),
+                                            SPEAKERS_COLUMN, speakers,
                                             -1);
+
                         g_signal_connect (stream,
                                           "notify::description",
                                           G_CALLBACK (on_stream_description_notify),
@@ -1062,9 +1057,9 @@ remove_stream (GvcMixerDialog *dialog, const gchar *name)
 }
 
 static void
-on_control_stream_removed (GvcMixerControl *control,
-                           const gchar     *name,
-                           GvcMixerDialog  *dialog)
+on_control_stream_removed (MateMixerControl *control,
+                           const gchar      *name,
+                           GvcMixerDialog   *dialog)
 {
         remove_stream (dialog, name);
 }
@@ -1209,9 +1204,9 @@ remove_card (GvcMixerDialog  *dialog, const gchar *name)
 }
 
 static void
-on_control_device_removed (GvcMixerControl *control,
-                           const gchar     *name,
-                           GvcMixerDialog  *dialog)
+on_control_device_removed (MateMixerControl *control,
+                           const gchar      *name,
+                           GvcMixerDialog   *dialog)
 {
         remove_card (dialog, name);
 }
@@ -1344,6 +1339,7 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
         gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
 
         store = gtk_list_store_new (NUM_COLUMNS,
+                                    G_TYPE_ICON,
                                     G_TYPE_STRING,
                                     G_TYPE_STRING,
                                     G_TYPE_STRING,
@@ -1415,7 +1411,9 @@ on_test_speakers_clicked (GvcComboBox *widget, gpointer user_data)
                 return;
         }
 
-        title = g_strdup_printf (_("Speaker Testing for %s"), mate_mixer_device_get_name (device));
+        title = g_strdup_printf (_("Speaker Testing for %s"),
+                                 mate_mixer_device_get_description (device));
+
         d = gtk_dialog_new_with_buttons (title,
                                          GTK_WINDOW (dialog),
                                          GTK_DIALOG_MODAL |

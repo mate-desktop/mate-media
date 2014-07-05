@@ -25,8 +25,6 @@
 #include <glib-object.h>
 #include <libmatemixer/matemixer.h>
 
-#include "gvc-mixer-control.h"
-
 G_BEGIN_DECLS
 
 #define GVC_DIALOG_DBUS_NAME          "org.mate.VolumeControl"

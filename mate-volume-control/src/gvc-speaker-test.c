@@ -493,7 +493,7 @@ update_channel_map (GvcSpeakerTest *test)
 static void
 gvc_speaker_test_init (GvcSpeakerTest *test)
 {
-        GtkWidget *face;
+        GtkWidget *icon;
 
         test->priv = GVC_SPEAKER_TEST_GET_PRIVATE (test);
 
@@ -521,16 +521,15 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
 
         create_channel_controls (test);
 
-        /* FIXME: what is the purpose of the smiley face? */
-        face = gtk_image_new_from_icon_name ("face-smile", GTK_ICON_SIZE_DIALOG);
+        icon = gtk_image_new_from_icon_name ("computer", GTK_ICON_SIZE_DIALOG);
 
-        gtk_table_attach (GTK_TABLE (test), face,
+        gtk_table_attach (GTK_TABLE (test), icon,
                           2, 3, 1, 2,
                           GTK_EXPAND,
                           GTK_EXPAND,
                           0, 0);
 
-        gtk_widget_show (face);
+        gtk_widget_show (icon);
 }
 
 static void

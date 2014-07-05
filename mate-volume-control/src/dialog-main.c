@@ -30,7 +30,7 @@
 
 #include "gvc-mixer-dialog.h"
 
-#define DIALOG_POPUP_TIMEOUT 1
+#define DIALOG_POPUP_TIMEOUT 3
 
 static guint       popup_id = 0;
 static gboolean    show_version = FALSE;

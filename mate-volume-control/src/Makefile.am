@@ -19,24 +19,6 @@ AM_CPPFLAGS =					\
 
 noinst_LTLIBRARIES = libmatevolumecontrol.la
 libmatevolumecontrol_la_SOURCES =		\
-	gvc-mixer-card.h			\
-	gvc-mixer-card.c			\
-	gvc-mixer-stream.h			\
-	gvc-mixer-stream.c			\
-	gvc-channel-map.h			\
-	gvc-channel-map.c			\
-	gvc-mixer-sink.h			\
-	gvc-mixer-sink.c			\
-	gvc-mixer-source.h			\
-	gvc-mixer-source.c			\
-	gvc-mixer-sink-input.h			\
-	gvc-mixer-sink-input.c			\
-	gvc-mixer-source-output.h		\
-	gvc-mixer-source-output.c		\
-	gvc-mixer-event-role.h			\
-	gvc-mixer-event-role.c			\
-	gvc-mixer-control.h			\
-	gvc-mixer-control.c			\
 	gvc-channel-bar.h			\
 	gvc-channel-bar.c			\
     mvc-helpers.c               \
