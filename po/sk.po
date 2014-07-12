@@ -9,13 +9,13 @@
 # Stanislav Visnovsky <visnovsky@kde.org>, 2003
 # Stanislav Višňovský <visnovsky@nenya.ms.mff.cuni.cz>, 2002
 # Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2000-2002,2003, 2004
-# tibbi <tibbbi2@gmail.com>, 2014
+# Tibor Kaputa <tibbbi2@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2014-02-20 23:23+0000\n"
+"PO-Revision-Date: 2014-05-14 18:09+0000\n"
 "Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -345,7 +345,7 @@ msgstr "Možnosti"
 #. make window look cute
 #: ../gst-mixer/src/preferences.c:107
 msgid "Volume Control Preferences"
-msgstr "Predvoľby pre Ovládanie hlasitosti"
+msgstr "Nastavenia ovládania hlasitosti"
 
 #: ../gst-mixer/src/preferences.c:120
 msgid "_Select mixers to be visible:"
