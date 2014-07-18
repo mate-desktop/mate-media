@@ -31,6 +31,12 @@ const gchar *mvc_channel_position_to_string        (MateMixerChannelPosition pos
 const gchar *mvc_channel_position_to_pretty_string (MateMixerChannelPosition position);
 const gchar *mvc_channel_map_to_pretty_string      (MateMixerStream         *stream);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+void         mvc_color_shade                       (GdkRGBA                 *a,
+                                                    GdkRGBA                 *b,
+                                                    gdouble                  k);
+#endif
+
 G_END_DECLS
 
 #endif /* __MVC_HELPERS_H */

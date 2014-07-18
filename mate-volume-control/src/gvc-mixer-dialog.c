@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 William Jon McCann
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,11 +23,11 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
+#include <glib-object.h>
+#include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
-#if GTK_CHECK_VERSION (3, 0, 0)
-#include <gdk/gdkkeysyms-compat.h>
-#endif
+#include <libmatemixer/matemixer.h>
 
 #include "gvc-channel-bar.h"
 #include "gvc-balance-bar.h"
@@ -57,9 +58,10 @@ struct _GvcMixerDialogPrivate
         GtkWidget        *input_box;
         GtkWidget        *output_box;
         GtkWidget        *applications_box;
-        GtkWidget        *applications_scrolled_window;
+        GtkWidget        *applications_window;
         GtkWidget        *no_apps_label;
         GtkWidget        *output_treeview;
+        GtkWidget        *output_settings_frame;
         GtkWidget        *output_settings_box;
         GtkWidget        *output_balance_bar;
         GtkWidget        *output_fade_bar;
@@ -70,7 +72,6 @@ struct _GvcMixerDialogPrivate
         GtkWidget        *input_settings_box;
         GtkWidget        *sound_theme_chooser;
         GtkSizeGroup     *size_group;
-        GtkSizeGroup     *apps_size_group;
         gdouble           last_input_peak;
         guint             num_apps;
 };
@@ -79,7 +80,6 @@ enum {
         ICON_COLUMN,
         NAME_COLUMN,
         DESCRIPTION_COLUMN,
-        DEVICE_COLUMN,
         ACTIVE_COLUMN,
         SPEAKERS_COLUMN,
         NUM_COLUMNS
@@ -91,904 +91,35 @@ enum {
         HW_DESCRIPTION_COLUMN,
         HW_STATUS_COLUMN,
         HW_PROFILE_COLUMN,
-        HW_PROFILE_HUMAN_COLUMN,
-        HW_SENSITIVE_COLUMN,
         HW_NUM_COLUMNS
 };
 
 enum {
-        PAGE_EVENTS,
+        PAGE_EFFECTS,
         PAGE_HARDWARE,
         PAGE_INPUT,
         PAGE_OUTPUT,
         PAGE_APPLICATIONS
 };
 
-enum
-{
+enum {
         PROP_0,
-        PROP_MIXER_CONTROL
+        PROP_CONTROL
 };
 
-static void     gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass);
-static void     gvc_mixer_dialog_init       (GvcMixerDialog      *mixer_dialog);
-static void     gvc_mixer_dialog_finalize   (GObject             *object);
+static const guint tab_accel_keys[] = {
+        GDK_KEY_1, GDK_KEY_2, GDK_KEY_3, GDK_KEY_4, GDK_KEY_5
+};
 
-static void     bar_set_stream              (GvcMixerDialog      *dialog,
-                                             GtkWidget           *bar,
-                                             MateMixerStream     *stream);
+static void gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass);
+static void gvc_mixer_dialog_init       (GvcMixerDialog      *dialog);
+static void gvc_mixer_dialog_finalize   (GObject             *object);
 
-static void     on_adjustment_value_changed (GtkAdjustment  *adjustment,
-                                             GvcMixerDialog *dialog);
+static void bar_set_stream              (GvcMixerDialog      *dialog,
+                                         GtkWidget           *bar,
+                                         MateMixerStream     *stream);
 
 G_DEFINE_TYPE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
-
-static void
-update_default_input (GvcMixerDialog *dialog)
-{
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-        gboolean      ret;
-
-        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
-        ret = gtk_tree_model_get_iter_first (model, &iter);
-        if (ret == FALSE) {
-                g_debug ("No default input selected or available");
-                return;
-        }
-        do {
-                gboolean        toggled;
-                gboolean        is_default = FALSE;
-                MateMixerStream *stream;
-                gchar *name;
-
-                gtk_tree_model_get (model, &iter,
-                                    NAME_COLUMN, &name,
-                                    ACTIVE_COLUMN, &toggled,
-                                    -1);
-
-                stream = mate_mixer_control_get_stream (dialog->priv->control, name);
-                if (stream == NULL) {
-                        g_warning ("Unable to find stream for id: %s", name);
-                        g_free (name);
-                        continue;
-                }
-
-                if (stream == mate_mixer_control_get_default_input_stream (dialog->priv->control))
-                        is_default = TRUE;
-
-                gtk_list_store_set (GTK_LIST_STORE (model),
-                                    &iter,
-                                    ACTIVE_COLUMN, is_default,
-                                    -1);
-
-                g_free (name);
-        } while (gtk_tree_model_iter_next (model, &iter));
-}
-
-static void
-update_description (GvcMixerDialog *dialog,
-                    guint column,
-                    const gchar *value,
-                    MateMixerStream *stream)
-{
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-        MateMixerStreamFlags flags;
-        const gchar *name;
-
-        flags = mate_mixer_stream_get_flags (stream);
-
-        if (flags & MATE_MIXER_STREAM_INPUT)
-                model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
-        else if (flags & MATE_MIXER_STREAM_OUTPUT)
-                model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
-        else
-                g_assert_not_reached ();
-
-        gtk_tree_model_get_iter_first (model, &iter);
-
-        name = mate_mixer_stream_get_name (stream);
-        do {
-                const gchar *current_name;
-
-                gtk_tree_model_get (model, &iter, NAME_COLUMN, &current_name, -1);
-                if (!g_strcmp0 (name, current_name))
-                        continue;
-
-                gtk_list_store_set (GTK_LIST_STORE (model),
-                                    &iter,
-                                    column, value,
-                                    -1);
-                break;
-        } while (gtk_tree_model_iter_next (model, &iter));
-}
-
-static void
-port_selection_changed (GvcComboBox    *combo,
-                        const gchar    *port,
-                        GvcMixerDialog *dialog)
-{
-        MateMixerStream *stream;
-
-        stream = g_object_get_data (G_OBJECT (combo), "stream");
-        if (stream == NULL) {
-                g_warning ("Could not find stream for port combo box");
-                return;
-        }
-
-        mate_mixer_stream_set_active_port (stream, port);
-}
-
-static void
-update_output_settings (GvcMixerDialog *dialog)
-{
-        MateMixerStream      *stream;
-        MateMixerStreamFlags  flags;
-        const GList          *ports;
-
-        g_debug ("Updating output settings");
-        if (dialog->priv->output_balance_bar != NULL) {
-                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
-                                      dialog->priv->output_balance_bar);
-                dialog->priv->output_balance_bar = NULL;
-        }
-        if (dialog->priv->output_fade_bar != NULL) {
-                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
-                                      dialog->priv->output_fade_bar);
-                dialog->priv->output_fade_bar = NULL;
-        }
-        if (dialog->priv->output_lfe_bar != NULL) {
-                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
-                                      dialog->priv->output_lfe_bar);
-                dialog->priv->output_lfe_bar = NULL;
-        }
-        if (dialog->priv->output_port_combo != NULL) {
-                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
-                                      dialog->priv->output_port_combo);
-                dialog->priv->output_port_combo = NULL;
-        }
-
-        stream = mate_mixer_control_get_default_output_stream (dialog->priv->control);
-        if (stream == NULL) {
-                g_warning ("Default sink stream not found");
-                return;
-        }
-
-        flags = mate_mixer_stream_get_flags (stream);
-
-        gvc_channel_bar_set_base_volume (GVC_CHANNEL_BAR (dialog->priv->output_bar),
-                                         mate_mixer_stream_get_base_volume (stream));
-        gvc_channel_bar_set_is_amplified (GVC_CHANNEL_BAR (dialog->priv->output_bar),
-                                          flags & MATE_MIXER_STREAM_HAS_DECIBEL_VOLUME);
-
-        dialog->priv->output_balance_bar = gvc_balance_bar_new (stream, BALANCE_TYPE_RL);
-        if (dialog->priv->size_group != NULL) {
-                gvc_balance_bar_set_size_group (GVC_BALANCE_BAR (dialog->priv->output_balance_bar),
-                                                dialog->priv->size_group,
-                                                TRUE);
-        }
-        gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
-                            dialog->priv->output_balance_bar,
-                            FALSE, FALSE, 6);
-        gtk_widget_show (dialog->priv->output_balance_bar);
-
-        if (flags & MATE_MIXER_STREAM_CAN_FADE) {
-                dialog->priv->output_fade_bar = gvc_balance_bar_new (stream, BALANCE_TYPE_FR);
-                if (dialog->priv->size_group != NULL) {
-                        gvc_balance_bar_set_size_group (GVC_BALANCE_BAR (dialog->priv->output_fade_bar),
-                                                        dialog->priv->size_group,
-                                                        TRUE);
-                }
-                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
-                                    dialog->priv->output_fade_bar,
-                                    FALSE, FALSE, 6);
-                gtk_widget_show (dialog->priv->output_fade_bar);
-        }
-
-        if (mate_mixer_stream_has_position (stream, MATE_MIXER_CHANNEL_LFE)) {
-                dialog->priv->output_lfe_bar = gvc_balance_bar_new (stream, BALANCE_TYPE_LFE);
-                if (dialog->priv->size_group != NULL) {
-                        gvc_balance_bar_set_size_group (GVC_BALANCE_BAR (dialog->priv->output_lfe_bar),
-                                                        dialog->priv->size_group,
-                                                        TRUE);
-                }
-                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
-                                    dialog->priv->output_lfe_bar,
-                                    FALSE, FALSE, 6);
-                gtk_widget_show (dialog->priv->output_lfe_bar);
-        }
-
-        ports = mate_mixer_stream_list_ports (stream);
-        if (ports != NULL) {
-                MateMixerPort *port;
-
-                port = mate_mixer_stream_get_active_port (stream);
-
-                dialog->priv->output_port_combo = gvc_combo_box_new (_("Co_nnector:"));
-                gvc_combo_box_set_ports (GVC_COMBO_BOX (dialog->priv->output_port_combo),
-                                         ports);
-
-                gvc_combo_box_set_active (GVC_COMBO_BOX (dialog->priv->output_port_combo),
-                                          mate_mixer_port_get_name (port));
-
-                g_object_set_data (G_OBJECT (dialog->priv->output_port_combo), "stream", stream);
-                g_signal_connect (G_OBJECT (dialog->priv->output_port_combo), "changed",
-                                  G_CALLBACK (port_selection_changed), dialog);
-
-                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
-                                    dialog->priv->output_port_combo,
-                                    TRUE, FALSE, 6);
-
-                gvc_combo_box_set_size_group (GVC_COMBO_BOX (dialog->priv->output_port_combo), dialog->priv->size_group, FALSE);
-
-                gtk_widget_show (dialog->priv->output_port_combo);
-        }
-
-        /* FIXME: We could make this into a "No settings" label instead */
-        gtk_widget_set_sensitive (dialog->priv->output_balance_bar, flags & MATE_MIXER_STREAM_CAN_BALANCE);
-}
-
-static void
-update_default_output (GvcMixerDialog *dialog)
-{
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-
-        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
-        gtk_tree_model_get_iter_first (model, &iter);
-        do {
-                gboolean        toggled;
-                gboolean        is_default = FALSE;
-                gchar *name;
-                MateMixerStream *stream;
-
-                gtk_tree_model_get (model, &iter,
-                                    NAME_COLUMN, &name,
-                                    ACTIVE_COLUMN, &toggled,
-                                    -1);
-
-                stream = mate_mixer_control_get_stream (dialog->priv->control, name);
-                if (stream == NULL) {
-                        g_warning ("Unable to find stream for id: %s", name);
-                        g_free (name);
-                        continue;
-                }
-
-                if (stream == mate_mixer_control_get_default_output_stream (dialog->priv->control))
-                        is_default = TRUE;
-
-                gtk_list_store_set (GTK_LIST_STORE (model),
-                                    &iter,
-                                    ACTIVE_COLUMN, is_default,
-                                    -1);
-                g_free (name);
-        } while (gtk_tree_model_iter_next (model, &iter));
-}
-
-static void
-on_control_default_output_notify (MateMixerControl *control,
-                                  GParamSpec       *pspec,
-                                  GvcMixerDialog   *dialog)
-{
-        MateMixerStream *stream;
-
-        g_debug ("Default output stream has changed");
-
-        stream = mate_mixer_control_get_default_output_stream (control);
-
-        bar_set_stream (dialog, dialog->priv->output_bar, stream);
-
-        update_output_settings (dialog);
-
-        update_default_output (dialog);
-}
-
-
-#define DECAY_STEP .15
-
-static void
-update_input_peak (GvcMixerDialog *dialog, gdouble v)
-{
-        GtkAdjustment *adj;
-
-        if (dialog->priv->last_input_peak >= DECAY_STEP) {
-                if (v < dialog->priv->last_input_peak - DECAY_STEP) {
-                        v = dialog->priv->last_input_peak - DECAY_STEP;
-                }
-        }
-
-        dialog->priv->last_input_peak = v;
-
-        adj = gvc_level_bar_get_peak_adjustment (GVC_LEVEL_BAR (dialog->priv->input_level_bar));
-        if (v >= 0) {
-                gtk_adjustment_set_value (adj, v);
-        } else {
-                gtk_adjustment_set_value (adj, 0.0);
-        }
-}
-
-static void
-on_stream_monitor_value (MateMixerStream *stream,
-                         gdouble          value,
-                         GvcMixerDialog  *dialog)
-{
-        g_debug ("Monitor %.2f", value);
-        update_input_peak (dialog, value);
-}
-
-static void
-update_input_settings (GvcMixerDialog *dialog)
-{
-        MateMixerStream *stream;
-        MateMixerStreamFlags flags;
-        const GList    *ports;
-
-        g_debug ("Updating input settings");
-
-        if (dialog->priv->input_port_combo != NULL) {
-                gtk_container_remove (GTK_CONTAINER (dialog->priv->input_settings_box),
-                                      dialog->priv->input_port_combo);
-                dialog->priv->input_port_combo = NULL;
-        }
-
-        stream = mate_mixer_control_get_default_input_stream (dialog->priv->control);
-        if (stream == NULL) {
-                g_debug ("Default source stream not found");
-                return;
-        }
-
-        mate_mixer_stream_monitor_set_name (stream, _("Peak detect"));
-
-        g_signal_connect (G_OBJECT (stream),
-                          "monitor-value",
-                          G_CALLBACK (on_stream_monitor_value),
-                          dialog);
-
-        flags = mate_mixer_stream_get_flags (stream);
-
-        gvc_channel_bar_set_base_volume (GVC_CHANNEL_BAR (dialog->priv->input_bar),
-                                         mate_mixer_stream_get_base_volume (stream));
-
-        // XXX probably wrong
-        gvc_channel_bar_set_is_amplified (GVC_CHANNEL_BAR (dialog->priv->input_bar),
-                                          flags & MATE_MIXER_STREAM_HAS_DECIBEL_VOLUME);
-
-        ports = mate_mixer_stream_list_ports (stream);
-        if (ports != NULL) {
-                MateMixerPort *port;
-
-                port = mate_mixer_stream_get_active_port (stream);
-
-                dialog->priv->input_port_combo = gvc_combo_box_new (_("Co_nnector:"));
-                gvc_combo_box_set_ports (GVC_COMBO_BOX (dialog->priv->input_port_combo),
-                                         ports);
-                gvc_combo_box_set_active (GVC_COMBO_BOX (dialog->priv->input_port_combo),
-                                          mate_mixer_port_get_name (port));
-
-                g_object_set_data (G_OBJECT (dialog->priv->input_port_combo),
-                                   "stream",
-                                   stream);
-
-                g_signal_connect (G_OBJECT (dialog->priv->input_port_combo),
-                                  "changed",
-                                  G_CALLBACK (port_selection_changed),
-                                  dialog);
-
-                gvc_combo_box_set_size_group (GVC_COMBO_BOX (dialog->priv->input_port_combo),
-                                              dialog->priv->size_group,
-                                              FALSE);
-
-                gtk_box_pack_start (GTK_BOX (dialog->priv->input_settings_box),
-                                    dialog->priv->input_port_combo,
-                                    TRUE, TRUE, 0);
-
-                gtk_widget_show (dialog->priv->input_port_combo);
-        }
-}
-
-static void
-on_control_default_input_notify (MateMixerControl *control,
-                                 GParamSpec       *pspec,
-                                 GvcMixerDialog   *dialog)
-{
-        MateMixerStream *stream;
-        MateMixerStream *current;
-        GtkAdjustment *adj;
-
-        stream = mate_mixer_control_get_default_input_stream (control);
-
-        current = g_object_get_data (G_OBJECT (dialog->priv->input_bar), "gvc-mixer-dialog-stream");
-        if (current != NULL)
-                g_signal_handlers_disconnect_by_func (G_OBJECT (current),
-                                                      on_stream_monitor_value,
-                                                      dialog);
-
-        if (gtk_notebook_get_current_page (GTK_NOTEBOOK (dialog->priv->notebook)) == PAGE_INPUT) {
-                if (current != NULL)
-                        mate_mixer_stream_monitor_stop (current);
-                if (stream != NULL)
-                        mate_mixer_stream_monitor_start (stream);
-        }
-
-        // g_debug ("GvcMixerDialog: default source changed: %u", id);
-
-        // XXX is the default input reffed/unreffed anywhere?
-
-        /* Disconnect the adj, otherwise it might change if is_amplified changes */
-        adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (dialog->priv->input_bar)));
-
-        g_signal_handlers_disconnect_by_func (adj,
-                                              on_adjustment_value_changed,
-                                              dialog);
-
-        bar_set_stream (dialog, dialog->priv->input_bar, stream);
-        update_input_settings (dialog);
-
-        g_signal_connect (adj,
-                          "value-changed",
-                          G_CALLBACK (on_adjustment_value_changed),
-                          dialog);
-
-        update_default_input (dialog);
-}
-
-static void
-on_adjustment_value_changed (GtkAdjustment  *adjustment,
-                             GvcMixerDialog *dialog)
-{
-        MateMixerStream *stream;
-
-        stream = g_object_get_data (G_OBJECT (adjustment), "gvc-mixer-dialog-stream");
-        if (stream != NULL) {
-                GObject *bar;
-                gdouble volume, rounded;
-                char *name;
-
-                volume = gtk_adjustment_get_value (adjustment);
-                rounded = round (volume);
-
-                bar = g_object_get_data (G_OBJECT (adjustment), "gvc-mixer-dialog-bar");
-                g_object_get (bar, "name", &name, NULL);
-                g_debug ("Setting stream volume %lf (rounded: %lf) for bar '%s'", volume, rounded, name);
-                g_free (name);
-
-                /* FIXME would need to do that in the balance bar really... */
-                /* Make sure we do not unmute muted streams, there's a button for that */
-                if (volume == 0.0)
-                        mate_mixer_stream_set_mute (stream, TRUE);
-
-                mate_mixer_stream_set_volume (stream, rounded);
-        }
-}
-
-static void
-on_bar_is_muted_notify (GObject        *object,
-                        GParamSpec     *pspec,
-                        GvcMixerDialog *dialog)
-{
-        gboolean        is_muted;
-        MateMixerStream *stream;
-
-        is_muted = gvc_channel_bar_get_is_muted (GVC_CHANNEL_BAR (object));
-
-        stream = g_object_get_data (object, "gvc-mixer-dialog-stream");
-        if (stream != NULL) {
-                mate_mixer_stream_set_mute (stream, is_muted);
-        } else {
-                char *name;
-                g_object_get (object, "name", &name, NULL);
-                g_warning ("Unable to find stream for bar '%s'", name);
-                g_free (name);
-        }
-}
-
-static GtkWidget *
-lookup_bar_for_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
-{
-        return g_hash_table_lookup (dialog->priv->bars, mate_mixer_stream_get_name (stream));
-}
-
-static GtkWidget *
-lookup_combo_box_for_stream (GvcMixerDialog *dialog,
-                             MateMixerStream *stream)
-{
-        MateMixerStream *combo_stream;
-        const gchar *name;
-
-        name = mate_mixer_stream_get_name (stream);
-
-        if (dialog->priv->output_port_combo != NULL) {
-                combo_stream = g_object_get_data (G_OBJECT (dialog->priv->output_port_combo),
-                                                  "stream");
-                if (combo_stream != NULL) {
-                        if (!g_strcmp0 (name, mate_mixer_stream_get_name (combo_stream)))
-                                return dialog->priv->output_port_combo;
-                }
-        }
-
-        if (dialog->priv->input_port_combo != NULL) {
-                combo_stream = g_object_get_data (G_OBJECT (dialog->priv->input_port_combo),
-                                                  "stream");
-                if (combo_stream != NULL) {
-                        if (!g_strcmp0 (name, mate_mixer_stream_get_name (combo_stream)))
-                                return dialog->priv->input_port_combo;
-                }
-        }
-
-        return NULL;
-}
-
-static void
-on_stream_description_notify (MateMixerStream *stream,
-                              GParamSpec     *pspec,
-                              GvcMixerDialog *dialog)
-{
-        update_description (dialog, NAME_COLUMN,
-                            mate_mixer_stream_get_description (stream),
-                            stream);
-}
-
-static void
-on_stream_port_notify (GObject        *object,
-                       GParamSpec     *pspec,
-                       GvcMixerDialog *dialog)
-{
-        GvcComboBox   *combo;
-        MateMixerPort *port;
-
-        combo = GVC_COMBO_BOX (lookup_combo_box_for_stream (dialog, MATE_MIXER_STREAM (object)));
-        if (combo == NULL)
-                return;
-
-        g_signal_handlers_block_by_func (G_OBJECT (combo),
-                                         port_selection_changed,
-                                         dialog);
-
-        g_object_get (object, "active-port", &port, NULL);
-        // XXX is this correct?
-        if (port) {
-                gvc_combo_box_set_active (GVC_COMBO_BOX (combo),
-                                          mate_mixer_port_get_name (port));
-        }
-
-        g_signal_handlers_unblock_by_func (G_OBJECT (combo),
-                                           port_selection_changed,
-                                           dialog);
-}
-
-static void
-on_stream_volume_notify (GObject        *object,
-                         GParamSpec     *pspec,
-                         GvcMixerDialog *dialog)
-{
-        MateMixerStream *stream;
-        GtkWidget      *bar;
-        GtkAdjustment  *adj;
-
-        stream = MATE_MIXER_STREAM (object);
-
-        bar = lookup_bar_for_stream (dialog, stream);
-
-        if (bar == NULL) {
-                g_warning ("Unable to find bar for stream %s in on_stream_volume_notify()",
-                           mate_mixer_stream_get_name (stream));
-                return;
-        }
-
-        adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
-
-        g_signal_handlers_block_by_func (adj,
-                                         on_adjustment_value_changed,
-                                         dialog);
-
-        gtk_adjustment_set_value (adj,
-                                  mate_mixer_stream_get_volume (stream));
-
-        g_signal_handlers_unblock_by_func (adj,
-                                           on_adjustment_value_changed,
-                                           dialog);
-}
-
-static void
-on_stream_mute_notify (GObject        *object,
-                       GParamSpec     *pspec,
-                       GvcMixerDialog *dialog)
-{
-        MateMixerStream *stream;
-        GtkWidget      *bar;
-        gboolean        is_muted;
-
-        stream = MATE_MIXER_STREAM (object);
-        bar = lookup_bar_for_stream (dialog, stream);
-
-        if (bar == NULL) {
-                g_warning ("Unable to find bar for stream %s in on_stream_is_muted_notify()",
-                           mate_mixer_stream_get_name (stream));
-                return;
-        }
-
-        is_muted = mate_mixer_stream_get_mute (stream);
-        gvc_channel_bar_set_is_muted (GVC_CHANNEL_BAR (bar), is_muted);
-
-        if (stream == mate_mixer_control_get_default_output_stream (dialog->priv->control)) {
-                gtk_widget_set_sensitive (dialog->priv->applications_box,
-                                          !is_muted);
-        }
-
-}
-
-static void
-save_bar_for_stream (GvcMixerDialog  *dialog,
-                     MateMixerStream *stream,
-                     GtkWidget       *bar)
-{
-        g_hash_table_insert (dialog->priv->bars,
-                             (gpointer) mate_mixer_stream_get_name (stream),
-                             bar);
-}
-
-static GtkWidget *
-create_bar (GvcMixerDialog *dialog,
-            GtkSizeGroup   *size_group,
-            gboolean        symmetric)
-{
-        GtkWidget *bar;
-
-        bar = gvc_channel_bar_new ();
-        gtk_widget_set_sensitive (bar, FALSE);
-        if (size_group != NULL) {
-                gvc_channel_bar_set_size_group (GVC_CHANNEL_BAR (bar),
-                                                size_group,
-                                                symmetric);
-        }
-        gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (bar),
-                                         GTK_ORIENTATION_HORIZONTAL);
-        gvc_channel_bar_set_show_mute (GVC_CHANNEL_BAR (bar),
-                                       TRUE);
-        g_signal_connect (bar,
-                          "notify::is-muted",
-                          G_CALLBACK (on_bar_is_muted_notify),
-                          dialog);
-        return bar;
-}
-
-static void
-bar_set_stream (GvcMixerDialog *dialog, GtkWidget *bar, MateMixerStream *stream)
-{
-        GtkAdjustment   *adj;
-        MateMixerStream *old_stream;
-
-        old_stream = g_object_get_data (G_OBJECT (bar), "gvc-mixer-dialog-stream");
-        if (old_stream != NULL) {
-                char *name;
-
-                g_object_get (bar, "name", &name, NULL);
-                g_debug ("Disconnecting old stream '%s' from bar '%s'",
-                         mate_mixer_stream_get_name (old_stream), name);
-                g_free (name);
-
-                g_signal_handlers_disconnect_by_func (old_stream, on_stream_mute_notify, dialog);
-                g_signal_handlers_disconnect_by_func (old_stream, on_stream_volume_notify, dialog);
-                g_signal_handlers_disconnect_by_func (old_stream, on_stream_port_notify, dialog);
-
-                g_hash_table_remove (dialog->priv->bars, name);
-        }
-
-        gtk_widget_set_sensitive (bar, (stream != NULL));
-
-        adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
-
-        // XXX already done in notify
-        g_signal_handlers_disconnect_by_func (adj, on_adjustment_value_changed, dialog);
-
-        g_object_set_data (G_OBJECT (bar), "gvc-mixer-dialog-stream", stream);
-        g_object_set_data (G_OBJECT (adj), "gvc-mixer-dialog-stream", stream);
-        g_object_set_data (G_OBJECT (adj), "gvc-mixer-dialog-bar", bar);
-
-        if (stream != NULL) {
-                gboolean is_muted;
-
-                is_muted = mate_mixer_stream_get_mute (stream);
-                gvc_channel_bar_set_is_muted (GVC_CHANNEL_BAR (bar), is_muted);
-
-                save_bar_for_stream (dialog, stream, bar);
-
-                gtk_adjustment_set_value (adj, mate_mixer_stream_get_volume (stream));
-
-                g_signal_connect (stream,
-                                  "notify::mute",
-                                  G_CALLBACK (on_stream_mute_notify),
-                                  dialog);
-                g_signal_connect (stream,
-                                  "notify::volume",
-                                  G_CALLBACK (on_stream_volume_notify),
-                                  dialog);
-                g_signal_connect (stream,
-                                  "notify::active-port",
-                                  G_CALLBACK (on_stream_port_notify),
-                                  dialog);
-                g_signal_connect (adj,
-                                  "value-changed",
-                                  G_CALLBACK (on_adjustment_value_changed),
-                                  dialog);
-        }
-}
-
-static void
-add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
-{
-        GtkWidget             *bar = NULL;
-        gboolean               is_default = FALSE;
-        MateMixerClientStream *client = NULL;
-        MateMixerStreamFlags   flags;
-
-        flags = mate_mixer_stream_get_flags (stream);
-
-        if (flags & MATE_MIXER_STREAM_EVENT)
-                return;
-        if (flags & MATE_MIXER_STREAM_APPLICATION) {
-                const gchar *app_id;
-
-                client = MATE_MIXER_CLIENT_STREAM (stream);
-                app_id = mate_mixer_client_stream_get_app_id (client);
-
-                /* These applications are not displayed on the Applications tab */
-                if (!g_strcmp0 (app_id, "org.mate.VolumeControl") ||
-                    !g_strcmp0 (app_id, "org.gnome.VolumeControl") ||
-                    !g_strcmp0 (app_id, "org.PulseAudio.pavucontrol"))
-                        return;
-        }
-
-        if (client == NULL) {
-                GtkTreeModel    *model = NULL;
-                GtkTreeIter      iter;
-                MateMixerStream *input;
-                MateMixerStream *output;
-                const gchar     *speakers = NULL;
-                GtkAdjustment   *adj;
-
-                input  = mate_mixer_control_get_default_input_stream (dialog->priv->control);
-                output = mate_mixer_control_get_default_output_stream (dialog->priv->control);
-
-                if (flags & MATE_MIXER_STREAM_INPUT) {
-                        if (stream == input) {
-                                bar = dialog->priv->input_bar;
-                                adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
-
-                                g_signal_handlers_disconnect_by_func (G_OBJECT (adj),
-                                                                      on_adjustment_value_changed,
-                                                                      dialog);
-                                update_input_settings (dialog);
-                                is_default = TRUE;
-                        }
-
-                        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
-
-                } else if (flags & MATE_MIXER_STREAM_OUTPUT) {
-                        if (stream == output) {
-                                bar = dialog->priv->output_bar;
-                                adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
-
-                                gtk_widget_set_sensitive (dialog->priv->applications_box,
-                                                          mate_mixer_stream_get_mute (stream) == FALSE);
-
-                                g_signal_handlers_disconnect_by_func (G_OBJECT (adj),
-                                                                      on_adjustment_value_changed,
-                                                                      dialog);
-                                update_output_settings (dialog);
-                                is_default = TRUE;
-                        }
-
-                        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
-                        speakers = mvc_channel_map_to_pretty_string (stream);
-                }
-
-                if (model != NULL) {
-                        MateMixerDevice *device;
-                        const gchar     *name,
-                                        *description;
-                        const gchar     *device_name = NULL;
-                        const gchar     *icon = NULL;
-
-                        device = mate_mixer_stream_get_device (stream);
-                        if (G_LIKELY (device != NULL)) {
-                                device_name = mate_mixer_device_get_description (device);
-                                if (device_name == NULL)
-                                        device_name = mate_mixer_device_get_name (device);
-
-                                icon = mate_mixer_device_get_icon (device);
-                        }
-
-                        if (icon == NULL)
-                                icon = "audio-card";
-
-                        name = mate_mixer_stream_get_name (stream);
-                        description = mate_mixer_stream_get_description (stream);
-
-                        gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-                        gtk_list_store_set (GTK_LIST_STORE (model),
-                                            &iter,
-                                            NAME_COLUMN, name,
-                                            DESCRIPTION_COLUMN, description,
-                                            DEVICE_COLUMN, device_name,
-                                            ACTIVE_COLUMN, is_default,
-                                            SPEAKERS_COLUMN, speakers,
-                                            -1);
-
-                        g_signal_connect (stream,
-                                          "notify::description",
-                                          G_CALLBACK (on_stream_description_notify),
-                                          dialog);
-                }
-        } else {
-                const gchar *name;
-                const gchar *icon;
-
-                bar = create_bar (dialog, dialog->priv->apps_size_group, FALSE);
-
-                // FIXME:
-                // 1) We should ideally provide application name on the first line and
-                //    description on a second line in italics
-                // 2) We should watch for name changes as it may include for example
-                //    the name of the current song
-                name = mate_mixer_client_stream_get_app_name (client);
-                if (name == NULL)
-                        name = mate_mixer_stream_get_description (stream);
-                if (name == NULL)
-                        name = mate_mixer_stream_get_name (stream);
-
-                if (name == NULL || strchr (name, '_') == NULL) {
-                        gvc_channel_bar_set_name (GVC_CHANNEL_BAR (bar), name);
-                } else {
-                        char **tokens, *escaped;
-
-                        // XXX why is this here?
-                        tokens = g_strsplit (name, "_", -1);
-                        escaped = g_strjoinv ("__", tokens);
-                        g_strfreev (tokens);
-                        gvc_channel_bar_set_name (GVC_CHANNEL_BAR (bar), escaped);
-                        g_free (escaped);
-                }
-
-                icon = mate_mixer_client_stream_get_app_icon (client);
-                if (icon == NULL) {
-                        /* If there is no name of the application icon, set a default */
-                        icon = "applications-multimedia";
-                }
-
-                gvc_channel_bar_set_icon_name (GVC_CHANNEL_BAR (bar), icon);
-
-                gtk_box_pack_start (GTK_BOX (dialog->priv->applications_box), bar, FALSE, FALSE, 12);
-                gtk_widget_hide (dialog->priv->no_apps_label);
-
-                dialog->priv->num_apps++;
-        }
-
-        if (bar != NULL) {
-                bar_set_stream (dialog, bar, stream);
-                gtk_widget_show (bar);
-        }
-}
-
-static void
-on_control_stream_added (MateMixerControl *control,
-                         const gchar      *name,
-                         GvcMixerDialog   *dialog)
-{
-        MateMixerStream *stream;
-        GtkWidget       *bar;
-
-        bar = g_hash_table_lookup (dialog->priv->bars, name);
-        if (bar != NULL) {
-                g_debug ("Ignoring already known stream %s", name);
-                return;
-        }
-
-        stream = mate_mixer_control_get_stream (control, name);
-        if (G_LIKELY (stream != NULL))
-                add_stream (dialog, stream);
-}
 
 static gboolean
 find_tree_item_by_name (GtkTreeModel *model,
@@ -1016,44 +147,845 @@ find_tree_item_by_name (GtkTreeModel *model,
 }
 
 static void
-remove_stream (GvcMixerDialog *dialog, const gchar *name)
+update_default_item (GvcMixerDialog  *dialog,
+                     GtkTreeModel    *model,
+                     MateMixerStream *stream)
 {
-        GtkWidget    *bar;
-        gboolean      found;
-        GtkTreeIter   iter;
-        GtkTreeModel *model;
+        GtkTreeIter  iter;
+        const gchar *name = NULL;
 
-        /* remove bars for applications and reset fixed bars */
-        bar = g_hash_table_lookup (dialog->priv->bars, name);
-        if (bar == dialog->priv->output_bar
-            || bar == dialog->priv->input_bar
-            || bar == dialog->priv->effects_bar) { // XXX effects bad? verify this!
-                char *bar_name;
-                g_object_get (bar, "name", &bar_name, NULL);
-                g_debug ("Removing stream for bar '%s'", bar_name);
-                g_free (bar_name);
-                bar_set_stream (dialog, bar, NULL);
-        } else if (bar != NULL) {
-                g_hash_table_remove (dialog->priv->bars, name);
-                gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (bar)),
-                                      bar);
-                dialog->priv->num_apps--;
-                if (dialog->priv->num_apps == 0) {
-                        gtk_widget_show (dialog->priv->no_apps_label);
+        if (gtk_tree_model_get_iter_first (model, &iter) == FALSE)
+                return;
+
+        /* The supplied stream is the default, or the selected item. Traverse
+         * the item list and mark each item as being selected or not. Also do not
+         * presume some known stream is selected and allow NULL here. */
+        if (stream != NULL)
+                name = mate_mixer_stream_get_name (stream);
+
+        do {
+                gchar *n;
+
+                gtk_tree_model_get (model, &iter,
+                                    NAME_COLUMN, &n,
+                                    -1);
+                gtk_list_store_set (GTK_LIST_STORE (model),
+                                    &iter,
+                                    ACTIVE_COLUMN, !g_strcmp0 (name, n),
+                                    -1);
+                g_free (n);
+        } while (gtk_tree_model_iter_next (model, &iter));
+}
+
+static void
+on_combo_box_port_changed (GvcComboBox    *combo,
+                           const gchar    *name,
+                           GvcMixerDialog *dialog)
+{
+        MateMixerStream *stream;
+        MateMixerPort   *port = NULL;
+        GList           *ports;
+
+        stream = g_object_get_data (G_OBJECT (combo), "stream");
+        if (G_UNLIKELY (stream == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        ports = (GList *) mate_mixer_stream_list_ports (stream);
+        while (ports) {
+                port = MATE_MIXER_PORT (ports->data);
+
+                if (!g_strcmp0 (mate_mixer_port_get_name (port), name))
+                        break;
+
+                port  = NULL;
+                ports = ports->next;
+        }
+
+        if (G_UNLIKELY (port == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        g_debug ("Stream port changed to %s for stream %s",
+                 name,
+                 mate_mixer_stream_get_name (stream));
+
+        mate_mixer_stream_set_active_port (stream, port);
+}
+
+static void
+on_combo_box_profile_changed (GvcComboBox    *combo,
+                              const gchar    *name,
+                              GvcMixerDialog *dialog)
+{
+        MateMixerDevice        *device;
+        MateMixerDeviceProfile *profile = NULL;
+        GList                  *profiles;
+
+        device = g_object_get_data (G_OBJECT (combo), "device");
+        if (G_UNLIKELY (device == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        profiles = (GList *) mate_mixer_device_list_profiles (device);
+        while (profiles) {
+                profile = MATE_MIXER_DEVICE_PROFILE (profiles->data);
+
+                if (!g_strcmp0 (mate_mixer_device_profile_get_name (profile), name))
+                        break;
+
+                profile  = NULL;
+                profiles = profiles->next;
+        }
+
+        if (G_UNLIKELY (profile == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        g_debug ("Device profile changed to %s for device %s",
+                 name,
+                 mate_mixer_device_get_name (device));
+
+        mate_mixer_device_set_active_profile (device, profile);
+}
+
+static GtkWidget *
+create_port_combo_box (GvcMixerDialog  *dialog,
+                       MateMixerStream *stream,
+                       const gchar     *name,
+                       const GList     *items,
+                       const gchar     *active)
+{
+        GtkWidget *combobox;
+
+        combobox = gvc_combo_box_new (name);
+
+        gvc_combo_box_set_ports (GVC_COMBO_BOX (combobox), items);
+        gvc_combo_box_set_active (GVC_COMBO_BOX (combobox), active);
+
+        gvc_combo_box_set_size_group (GVC_COMBO_BOX (combobox),
+                                      dialog->priv->size_group,
+                                      FALSE);
+
+        g_object_set_data_full (G_OBJECT (combobox),
+                                "stream",
+                                g_object_ref (stream),
+                                g_object_unref);
+
+        g_signal_connect (G_OBJECT (combobox),
+                          "changed",
+                          G_CALLBACK (on_combo_box_port_changed),
+                          dialog);
+
+        return combobox;
+}
+
+static void
+update_output_settings (GvcMixerDialog *dialog)
+{
+        MateMixerStream      *stream;
+        MateMixerStreamFlags  flags;
+        const GList          *ports;
+        gboolean              has_settings = FALSE;
+
+        g_debug ("Updating output settings");
+
+        if (dialog->priv->output_balance_bar != NULL) {
+                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                                      dialog->priv->output_balance_bar);
+
+                dialog->priv->output_balance_bar = NULL;
+        }
+        if (dialog->priv->output_fade_bar != NULL) {
+                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                                      dialog->priv->output_fade_bar);
+
+                dialog->priv->output_fade_bar = NULL;
+        }
+        if (dialog->priv->output_lfe_bar != NULL) {
+                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                                      dialog->priv->output_lfe_bar);
+
+                dialog->priv->output_lfe_bar = NULL;
+        }
+        if (dialog->priv->output_port_combo != NULL) {
+                gtk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                                      dialog->priv->output_port_combo);
+
+                dialog->priv->output_port_combo = NULL;
+        }
+
+        stream = mate_mixer_control_get_default_output_stream (dialog->priv->control);
+        if (stream == NULL) {
+                g_debug ("There is no default output stream - output settings disabled");
+                gtk_widget_hide (dialog->priv->output_settings_frame);
+                return;
+        }
+
+        flags = mate_mixer_stream_get_flags (stream);
+
+        /* Enable balance bar if stream feature is available */
+        if (flags & MATE_MIXER_STREAM_CAN_BALANCE) {
+                dialog->priv->output_balance_bar =
+                        gvc_balance_bar_new (stream, BALANCE_TYPE_RL);
+
+                gvc_balance_bar_set_size_group (GVC_BALANCE_BAR (dialog->priv->output_balance_bar),
+                                                dialog->priv->size_group,
+                                                TRUE);
+
+                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                                    dialog->priv->output_balance_bar,
+                                    FALSE, FALSE, 6);
+
+                gtk_widget_show (dialog->priv->output_balance_bar);
+                has_settings = TRUE;
+        }
+
+        /* Enable fade bar if stream feature is available */
+        if (flags & MATE_MIXER_STREAM_CAN_FADE) {
+                dialog->priv->output_fade_bar =
+                        gvc_balance_bar_new (stream, BALANCE_TYPE_FR);
+
+                gvc_balance_bar_set_size_group (GVC_BALANCE_BAR (dialog->priv->output_fade_bar),
+                                                dialog->priv->size_group,
+                                                TRUE);
+
+                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                                    dialog->priv->output_fade_bar,
+                                    FALSE, FALSE, 6);
+
+                gtk_widget_show (dialog->priv->output_fade_bar);
+                has_settings = TRUE;
+        }
+
+        /* Enable subwoofer volume bar if subwoofer is available */
+        if (mate_mixer_stream_has_channel_position (stream, MATE_MIXER_CHANNEL_LFE)) {
+                dialog->priv->output_lfe_bar =
+                        gvc_balance_bar_new (stream, BALANCE_TYPE_LFE);
+
+                gvc_balance_bar_set_size_group (GVC_BALANCE_BAR (dialog->priv->output_lfe_bar),
+                                                dialog->priv->size_group,
+                                                TRUE);
+
+                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                                    dialog->priv->output_lfe_bar,
+                                    FALSE, FALSE, 6);
+
+                gtk_widget_show (dialog->priv->output_lfe_bar);
+                has_settings = TRUE;
+        }
+
+        ports = mate_mixer_stream_list_ports (stream);
+        if (ports != NULL) {
+                MateMixerPort *port;
+
+                port = mate_mixer_stream_get_active_port (stream);
+                if (G_UNLIKELY (port == NULL)) {
+                        /* Select the first port if none is selected at the moment */
+                        port = MATE_MIXER_PORT (ports->data);
+                        mate_mixer_stream_set_active_port (stream, port);
+                }
+
+                dialog->priv->output_port_combo =
+                        create_port_combo_box (dialog,
+                                               stream,
+                                               _("Co_nnector:"),
+                                               ports,
+                                               mate_mixer_port_get_name (port));
+
+                gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                                    dialog->priv->output_port_combo,
+                                    TRUE, FALSE, 6);
+
+                gtk_widget_show (dialog->priv->output_port_combo);
+                has_settings = TRUE;
+        }
+
+        if (has_settings == TRUE)
+                gtk_widget_show (dialog->priv->output_settings_frame);
+        else
+                gtk_widget_hide (dialog->priv->output_settings_frame);
+}
+
+static void
+on_control_default_output_notify (MateMixerControl *control,
+                                  GParamSpec       *pspec,
+                                  GvcMixerDialog   *dialog)
+{
+        GtkTreeModel    *model;
+        MateMixerStream *stream;
+
+        stream = mate_mixer_control_get_default_output_stream (control);
+        if (stream != NULL) {
+                GList *streams;
+
+                streams = (GList *) mate_mixer_control_list_cached_streams (dialog->priv->control);
+
+                /* Move all cached stream to the newly selected default stream */
+                while (streams) {
+                        MateMixerStream       *parent;
+                        MateMixerClientStream *client = MATE_MIXER_CLIENT_STREAM (streams->data);
+
+                        parent = mate_mixer_client_stream_get_parent (client);
+
+                        if (parent != stream) {
+                                MateMixerStreamFlags flags;
+
+                                flags = mate_mixer_stream_get_flags (MATE_MIXER_STREAM (client));
+
+                                if (flags & MATE_MIXER_STREAM_OUTPUT)
+                                        mate_mixer_client_stream_set_parent (client, stream);
+                        }
+                        streams = streams->next;
                 }
         }
 
-        /* remove from any models */
+        bar_set_stream (dialog, dialog->priv->output_bar, stream);
+
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
-        found = find_tree_item_by_name (GTK_TREE_MODEL (model), name, NAME_COLUMN, &iter);
-        if (found) {
-                gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+        update_default_item (dialog, model, stream);
+
+        update_output_settings (dialog);
+}
+
+#define DECAY_STEP .15
+
+static void
+on_stream_monitor_value (MateMixerStream *stream,
+                         gdouble          value,
+                         GvcMixerDialog  *dialog)
+{
+        GtkAdjustment *adj;
+
+        if (dialog->priv->last_input_peak >= DECAY_STEP) {
+                if (value < dialog->priv->last_input_peak - DECAY_STEP) {
+                        value = dialog->priv->last_input_peak - DECAY_STEP;
+                }
         }
+
+        dialog->priv->last_input_peak = value;
+
+        adj = gvc_level_bar_get_peak_adjustment (GVC_LEVEL_BAR (dialog->priv->input_level_bar));
+        if (value >= 0)
+                gtk_adjustment_set_value (adj, value);
+        else
+                gtk_adjustment_set_value (adj, 0.0);
+}
+
+static void
+update_input_settings (GvcMixerDialog *dialog)
+{
+        MateMixerStream     *stream;
+        MateMixerStreamFlags flags;
+        const GList         *ports;
+
+        g_debug ("Updating input settings");
+
+        if (dialog->priv->input_port_combo != NULL) {
+                gtk_container_remove (GTK_CONTAINER (dialog->priv->input_settings_box),
+                                      dialog->priv->input_port_combo);
+
+                dialog->priv->input_port_combo = NULL;
+        }
+
+        stream = mate_mixer_control_get_default_input_stream (dialog->priv->control);
+        if (stream == NULL) {
+                g_debug ("There is no default input stream");
+                return;
+        }
+
+        flags = mate_mixer_stream_get_flags (stream);
+
+        /* Enable level bar only if supported by the stream */
+        if (flags & MATE_MIXER_STREAM_HAS_MONITOR) {
+                mate_mixer_stream_monitor_set_name (stream, _("Peak detect"));
+
+                g_signal_connect (G_OBJECT (stream),
+                                  "monitor-value",
+                                  G_CALLBACK (on_stream_monitor_value),
+                                  dialog);
+        }
+
+        ports = mate_mixer_stream_list_ports (stream);
+        if (ports != NULL) {
+                MateMixerPort *port;
+
+                port = mate_mixer_stream_get_active_port (stream);
+                if (G_UNLIKELY (port == NULL)) {
+                        /* Select the first port if none is selected at the moment */
+                        port = MATE_MIXER_PORT (ports->data);
+                        mate_mixer_stream_set_active_port (stream, port);
+                }
+
+                dialog->priv->input_port_combo =
+                        create_port_combo_box (dialog,
+                                               stream,
+                                               _("Co_nnector:"),
+                                               ports,
+                                               mate_mixer_port_get_name (port));
+
+                gtk_box_pack_start (GTK_BOX (dialog->priv->input_settings_box),
+                                    dialog->priv->input_port_combo,
+                                    TRUE, TRUE, 0);
+
+                gtk_widget_show (dialog->priv->input_port_combo);
+        }
+}
+
+static void
+on_control_default_input_notify (MateMixerControl *control,
+                                 GParamSpec       *pspec,
+                                 GvcMixerDialog   *dialog)
+{
+        GtkTreeModel    *model;
+        MateMixerStream *stream;
+        MateMixerStream *current;
+
+        g_debug ("Default input stream has changed");
+
+        current = gvc_channel_bar_get_stream (GVC_CHANNEL_BAR (dialog->priv->input_bar));
+        if (current != NULL) {
+                /* Make sure to disable monitoring of the removed stream */
+                g_signal_handlers_disconnect_by_func (G_OBJECT (current),
+                                                      G_CALLBACK (on_stream_monitor_value),
+                                                      dialog);
+
+                mate_mixer_stream_monitor_stop (current);
+        }
+
+        stream = mate_mixer_control_get_default_input_stream (control);
+        if (stream != NULL) {
+                GList *streams;
+                guint  page = gtk_notebook_get_current_page (GTK_NOTEBOOK (dialog->priv->notebook));
+
+                streams = (GList *) mate_mixer_control_list_cached_streams (dialog->priv->control);
+
+                /* Move all cached stream to the newly selected default stream */
+                while (streams) {
+                        MateMixerStream       *parent;
+                        MateMixerClientStream *client = MATE_MIXER_CLIENT_STREAM (streams->data);
+
+                        parent = mate_mixer_client_stream_get_parent (client);
+
+                        if (parent != stream) {
+                                MateMixerStreamFlags flags;
+
+                                flags = mate_mixer_stream_get_flags (MATE_MIXER_STREAM (client));
+
+                                if (flags & MATE_MIXER_STREAM_INPUT)
+                                        mate_mixer_client_stream_set_parent (client, stream);
+                        }
+                        streams = streams->next;
+                }
+
+                if (page == PAGE_INPUT)
+                        mate_mixer_stream_monitor_start (stream);
+        }
+
+        bar_set_stream (dialog, dialog->priv->input_bar, stream);
+
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
-        found = find_tree_item_by_name (GTK_TREE_MODEL (model), name, NAME_COLUMN, &iter);
-        if (found) {
-                gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+        update_default_item (dialog, model, stream);
+
+        update_input_settings (dialog);
+}
+
+static GvcComboBox *
+find_combo_box_by_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
+{
+        MateMixerStream *combo_stream;
+
+        if (dialog->priv->output_port_combo != NULL) {
+                combo_stream = g_object_get_data (G_OBJECT (dialog->priv->output_port_combo),
+                                                  "stream");
+                if (combo_stream == stream)
+                        return GVC_COMBO_BOX (dialog->priv->output_port_combo);
         }
+
+        if (dialog->priv->input_port_combo != NULL) {
+                combo_stream = g_object_get_data (G_OBJECT (dialog->priv->input_port_combo),
+                                                  "stream");
+                if (combo_stream == stream)
+                        return GVC_COMBO_BOX (dialog->priv->input_port_combo);
+        }
+        return NULL;
+}
+
+static void
+on_stream_description_notify (MateMixerStream *stream,
+                              GParamSpec      *pspec,
+                              GvcMixerDialog  *dialog)
+{
+        GtkTreeModel        *model;
+        GtkTreeIter          iter;
+        MateMixerStreamFlags flags;
+
+        flags = mate_mixer_stream_get_flags (stream);
+
+        if (flags & MATE_MIXER_STREAM_INPUT)
+                model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+        else
+                model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+
+        if (find_tree_item_by_name (model,
+                                    mate_mixer_stream_get_name (stream),
+                                    NAME_COLUMN,
+                                    &iter) == TRUE) {
+                const gchar *description;
+
+                description = mate_mixer_stream_get_description (stream);
+                gtk_list_store_set (GTK_LIST_STORE (model),
+                                    &iter,
+                                    DESCRIPTION_COLUMN, description,
+                                    -1);
+        }
+}
+
+static void
+on_stream_port_notify (MateMixerStream *stream,
+                       GParamSpec      *pspec,
+                       GvcMixerDialog  *dialog)
+{
+        GvcComboBox   *combobox;
+        MateMixerPort *port;
+
+        combobox = find_combo_box_by_stream (dialog, stream);
+        if (G_UNLIKELY (combobox == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        g_debug ("Stream %s port has changed",
+                 mate_mixer_stream_get_name (stream));
+
+        g_signal_handlers_block_by_func (G_OBJECT (combobox),
+                                         on_combo_box_port_changed,
+                                         dialog);
+
+        port = mate_mixer_stream_get_active_port (stream);
+        if (G_LIKELY (port != NULL)) {
+                const gchar *name = mate_mixer_port_get_name (port);
+
+                g_debug ("The current port is %s", name);
+
+                gvc_combo_box_set_active (GVC_COMBO_BOX (combobox), name);
+        }
+
+        g_signal_handlers_unblock_by_func (G_OBJECT (combobox),
+                                           on_combo_box_port_changed,
+                                           dialog);
+}
+
+static void
+on_stream_mute_notify (MateMixerStream *stream,
+                       GParamSpec      *pspec,
+                       GvcMixerDialog  *dialog)
+{
+        MateMixerStream *input;
+
+        input = mate_mixer_control_get_default_input_stream (dialog->priv->control);
+
+        /* Stop monitoring the input stream when it gets muted */
+        if (stream == input) {
+                if (mate_mixer_stream_get_mute (stream))
+                        mate_mixer_stream_monitor_stop (stream);
+                else
+                        mate_mixer_stream_monitor_start (stream);
+        }
+}
+
+static GtkWidget *
+create_bar (GvcMixerDialog *dialog, gboolean use_size_group, gboolean symmetric)
+{
+        GtkWidget *bar;
+
+        bar = gvc_channel_bar_new (NULL);
+
+        if (use_size_group == TRUE)
+                gvc_channel_bar_set_size_group (GVC_CHANNEL_BAR (bar),
+                                                dialog->priv->size_group,
+                                                symmetric);
+
+        g_object_set (G_OBJECT (bar),
+                      "orientation", GTK_ORIENTATION_HORIZONTAL,
+                      "show-mute",   TRUE,
+                      "show-icons",  TRUE,
+                      "show-marks",  TRUE,
+                      "extended",    TRUE, NULL);
+        return bar;
+}
+
+static void
+bar_set_stream (GvcMixerDialog  *dialog,
+                GtkWidget       *bar,
+                MateMixerStream *stream)
+{
+        MateMixerStream *previous;
+
+        previous = gvc_channel_bar_get_stream (GVC_CHANNEL_BAR (bar));
+        if (previous != NULL) {
+                const gchar *name = mate_mixer_stream_get_name (previous);
+
+                g_debug ("Disconnecting old stream %s", name);
+
+                g_signal_handlers_disconnect_by_func (previous,
+                                                      on_stream_mute_notify,
+                                                      dialog);
+                g_signal_handlers_disconnect_by_func (previous,
+                                                      on_stream_port_notify,
+                                                      dialog);
+
+                if (mate_mixer_stream_get_flags (previous) & MATE_MIXER_STREAM_INPUT)
+                        mate_mixer_stream_monitor_stop (previous);
+
+                g_hash_table_remove (dialog->priv->bars, name);
+        }
+
+        gvc_channel_bar_set_stream (GVC_CHANNEL_BAR (bar), stream);
+
+        if (stream != NULL) {
+                const gchar *name = mate_mixer_stream_get_name (stream);
+
+                g_debug ("Connecting new stream %s", name);
+
+                g_signal_connect (stream,
+                                  "notify::mute",
+                                  G_CALLBACK (on_stream_mute_notify),
+                                  dialog);
+                g_signal_connect (stream,
+                                  "notify::active-port",
+                                  G_CALLBACK (on_stream_port_notify),
+                                  dialog);
+
+                g_hash_table_insert (dialog->priv->bars, (gpointer) name, bar);
+        }
+
+        gtk_widget_set_sensitive (GTK_WIDGET (bar), (stream != NULL));
+}
+
+static void
+add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
+{
+        GtkWidget           *bar = NULL;
+        MateMixerStreamFlags flags;
+
+        flags = mate_mixer_stream_get_flags (stream);
+
+        if (MATE_MIXER_IS_CLIENT_STREAM (stream)) {
+                MateMixerClientStream     *client ;
+                MateMixerClientStreamFlags client_flags;
+                MateMixerClientStreamRole  client_role;
+                const gchar *name;
+                const gchar *icon;
+
+                client       = MATE_MIXER_CLIENT_STREAM (stream);
+                client_flags = mate_mixer_client_stream_get_flags (client);
+                client_role  = mate_mixer_client_stream_get_role (client);
+
+                /* We use a cached event stream for the effects volume slider,
+                 * because regular streams are only created when an event sound
+                 * is played and then immediately destroyed.
+                 * The cached event stream should exist all the time. */
+                if (client_flags & MATE_MIXER_CLIENT_STREAM_CACHED &&
+                    client_role == MATE_MIXER_CLIENT_STREAM_ROLE_EVENT) {
+                        g_debug ("Found cached event role stream %s",
+                                 mate_mixer_stream_get_name (stream));
+
+                        bar = dialog->priv->effects_bar;
+                }
+
+                /* Add stream to the applications page, but make sure the stream
+                 * qualifies for the inclusion */
+                if (client_flags & MATE_MIXER_CLIENT_STREAM_APPLICATION) {
+                        const gchar *app_id;
+
+                        /* Skip streams with roles we don't care about */
+                        if (client_role == MATE_MIXER_CLIENT_STREAM_ROLE_EVENT ||
+                            client_role == MATE_MIXER_CLIENT_STREAM_ROLE_TEST ||
+                            client_role == MATE_MIXER_CLIENT_STREAM_ROLE_ABSTRACT ||
+                            client_role == MATE_MIXER_CLIENT_STREAM_ROLE_FILTER)
+                                return;
+
+                        app_id = mate_mixer_client_stream_get_app_id (client);
+
+                        /* These applications may have associated streams because
+                         * they do peak level monitoring, skip these too */
+                        if (!g_strcmp0 (app_id, "org.mate.VolumeControl") ||
+                            !g_strcmp0 (app_id, "org.gnome.VolumeControl") ||
+                            !g_strcmp0 (app_id, "org.PulseAudio.pavucontrol"))
+                                return;
+
+                        name = mate_mixer_client_stream_get_app_name (client);
+                        if (name == NULL)
+                                name = mate_mixer_stream_get_description (stream);
+                        if (name == NULL)
+                                name = mate_mixer_stream_get_name (stream);
+                        if (G_UNLIKELY (name == NULL))
+                                return;
+
+                        bar = create_bar (dialog, FALSE, FALSE);
+
+                        g_object_set (G_OBJECT (bar),
+                                      "show-marks", FALSE,
+                                      "extended", FALSE,
+                                      NULL);
+
+                        /* By default channel bars use speaker icons, use microphone
+                         * icons instead for recording applications */
+                        if (flags & MATE_MIXER_STREAM_INPUT)
+                                g_object_set (G_OBJECT (bar),
+                                              "low-icon-name", "audio-input-microphone-low",
+                                              "high-icon-name", "audio-input-microphone-high",
+                                              NULL);
+
+                        icon = mate_mixer_client_stream_get_app_icon (client);
+                        if (icon == NULL) {
+                                if (flags & MATE_MIXER_STREAM_INPUT)
+                                        icon = "audio-input-microphone";
+                                else
+                                        icon = "applications-multimedia";
+                        }
+
+                        gvc_channel_bar_set_name (GVC_CHANNEL_BAR (bar), name);
+                        gvc_channel_bar_set_icon_name (GVC_CHANNEL_BAR (bar), icon);
+
+                        gtk_box_pack_start (GTK_BOX (dialog->priv->applications_box),
+                                            bar,
+                                            FALSE, FALSE, 12);
+
+                        gtk_widget_hide (dialog->priv->no_apps_label);
+                        dialog->priv->num_apps++;
+                }
+        } else {
+                GtkTreeModel    *model = NULL;
+                GtkTreeIter      iter;
+                MateMixerStream *input;
+                MateMixerStream *output;
+                const gchar     *speakers = NULL;
+                gboolean         is_default = FALSE;
+
+                input  = mate_mixer_control_get_default_input_stream (dialog->priv->control);
+                output = mate_mixer_control_get_default_output_stream (dialog->priv->control);
+
+                if (flags & MATE_MIXER_STREAM_INPUT) {
+                        if (stream == input) {
+                                bar = dialog->priv->input_bar;
+
+                                update_input_settings (dialog);
+                                is_default = TRUE;
+                        }
+
+                        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+                }
+                else if (flags & MATE_MIXER_STREAM_OUTPUT) {
+                        if (stream == output) {
+                                bar = dialog->priv->output_bar;
+
+                                update_output_settings (dialog);
+                                is_default = TRUE;
+                        }
+
+                        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+                        speakers = mvc_channel_map_to_pretty_string (stream);
+                }
+
+                if (model != NULL) {
+                        const gchar *name;
+                        const gchar *description;
+
+                        name = mate_mixer_stream_get_name (stream);
+                        description = mate_mixer_stream_get_description (stream);
+
+                        gtk_list_store_append (GTK_LIST_STORE (model), &iter);
+                        gtk_list_store_set (GTK_LIST_STORE (model),
+                                            &iter,
+                                            NAME_COLUMN, name,
+                                            DESCRIPTION_COLUMN, description,
+                                            ACTIVE_COLUMN, is_default,
+                                            SPEAKERS_COLUMN, speakers,
+                                            -1);
+
+                        g_signal_connect (stream,
+                                          "notify::description",
+                                          G_CALLBACK (on_stream_description_notify),
+                                          dialog);
+                }
+        }
+
+        if (bar != NULL) {
+                bar_set_stream (dialog, bar, stream);
+                gtk_widget_show (bar);
+        }
+}
+
+static void
+on_control_stream_added (MateMixerControl *control,
+                         const gchar      *name,
+                         GvcMixerDialog   *dialog)
+{
+        MateMixerStream *stream;
+        GtkWidget       *bar;
+
+        bar = g_hash_table_lookup (dialog->priv->bars, name);
+        if (G_UNLIKELY (bar != NULL))
+                return;
+
+        stream = mate_mixer_control_get_stream (control, name);
+        if (G_UNLIKELY (stream == NULL))
+                return;
+
+        add_stream (dialog, stream);
+}
+
+static void
+remove_stream (GvcMixerDialog *dialog, const gchar *name)
+{
+        GtkWidget    *bar;
+        GtkTreeIter   iter;
+        GtkTreeModel *model;
+
+        /* Remove bars for applications and reset fixed bars */
+        bar = g_hash_table_lookup (dialog->priv->bars, name);
+
+        if (bar == dialog->priv->input_bar || bar == dialog->priv->output_bar) {
+                g_debug ("Removing stream %s from bar %s",
+                         name,
+                         gvc_channel_bar_get_name (GVC_CHANNEL_BAR (bar)));
+
+                bar_set_stream (dialog, bar, NULL);
+        } else if (bar != NULL) {
+                g_debug ("Removing application stream %s", name);
+
+                g_hash_table_remove (dialog->priv->bars, name);
+                gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (bar)), bar);
+
+                if (G_UNLIKELY (dialog->priv->num_apps <= 0)) {
+                        g_warn_if_reached ();
+                        dialog->priv->num_apps = 1;
+                }
+
+                if (--dialog->priv->num_apps == 0)
+                        gtk_widget_show (dialog->priv->no_apps_label);
+        }
+
+        /* Remove from any models */
+        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+                                    name,
+                                    NAME_COLUMN,
+                                    &iter) == TRUE)
+                gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+
+        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+                                    name,
+                                    NAME_COLUMN,
+                                    &iter) == TRUE)
+                gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
 }
 
 static void
@@ -1064,8 +996,28 @@ on_control_stream_removed (MateMixerControl *control,
         remove_stream (dialog, name);
 }
 
+static void
+on_control_cached_stream_removed (MateMixerControl *control,
+                                  const gchar      *name,
+                                  GvcMixerDialog   *dialog)
+{
+        GtkWidget *bar;
+
+        bar = g_hash_table_lookup (dialog->priv->bars, name);
+
+        if (bar != NULL) {
+                /* We only use a cached stream in the effects bar */
+                if (G_UNLIKELY (bar != dialog->priv->effects_bar)) {
+                        g_warn_if_reached ();
+                        return;
+                }
+
+                bar_set_stream (dialog, bar, NULL);
+        }
+}
+
 static gchar *
-card_profile_status (MateMixerDeviceProfile *profile)
+device_profile_status (MateMixerDeviceProfile *profile)
 {
         guint  inputs;
         guint  outputs;
@@ -1099,7 +1051,7 @@ card_profile_status (MateMixerDeviceProfile *profile)
                                               inputs);
         }
 
-        if (inputs_str == NULL && outputs_str == NULL) {
+        if (inputs_str != NULL && outputs_str != NULL) {
                 gchar *ret = g_strdup_printf ("%s / %s",
                                               outputs_str,
                                               inputs_str);
@@ -1115,67 +1067,117 @@ card_profile_status (MateMixerDeviceProfile *profile)
 }
 
 static void
-add_device (GvcMixerDialog *dialog, MateMixerDevice *device)
+update_device_info (GvcMixerDialog *dialog, MateMixerDevice *device)
 {
-        GtkTreeModel        *model;
-        GtkTreeIter          iter;
-        GtkTreeSelection    *selection;
+        GtkTreeModel           *model = NULL;
+        GtkTreeIter             iter;
         MateMixerDeviceProfile *profile;
-        GIcon               *icon;
-        const gchar *name;
-        const gchar *profile_name;
-        gchar *profile_status;
+        const gchar            *description;
+        const gchar            *profile_description = NULL;
+        gchar                  *profile_status = NULL;
 
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
-        name = mate_mixer_device_get_name (device);
 
-        if (find_tree_item_by_name (GTK_TREE_MODEL (model), name, HW_NAME_COLUMN, &iter) == FALSE)
-                gtk_list_store_append (GTK_LIST_STORE (model), &iter);
+        if (find_tree_item_by_name (model,
+                                    mate_mixer_device_get_name (device),
+                                    HW_NAME_COLUMN,
+                                    &iter) == FALSE)
+                return;
+
+        description = mate_mixer_device_get_description (device);
 
         profile = mate_mixer_device_get_active_profile (device);
-        g_assert (profile != NULL);
-        icon = g_themed_icon_new_with_default_fallbacks (mate_mixer_device_get_icon (device));
-
-        //FIXME we need the status (default for a profile?) here
-
-        profile_name = mate_mixer_device_profile_get_name (profile);
-        profile_status = card_profile_status (profile);
+        if (profile != NULL) {
+                profile_description = mate_mixer_device_profile_get_description (profile);
+                profile_status = device_profile_status (profile);
+        }
 
         gtk_list_store_set (GTK_LIST_STORE (model),
                             &iter,
-                            HW_NAME_COLUMN, mate_mixer_device_get_name (device),
-                            HW_DESCRIPTION_COLUMN, mate_mixer_device_get_description (device),
-                            HW_ICON_COLUMN, icon,
-                            HW_PROFILE_COLUMN, profile_name,
-                            HW_PROFILE_HUMAN_COLUMN, mate_mixer_device_profile_get_description (profile),
+                            HW_DESCRIPTION_COLUMN, description,
+                            HW_PROFILE_COLUMN, profile_description,
                             HW_STATUS_COLUMN, profile_status,
-                            HW_SENSITIVE_COLUMN, g_strcmp0 (profile_name, "off") != 0,
+                            -1);
+
+        g_free (profile_status);
+}
+
+static void
+on_device_profile_notify (MateMixerDevice *device,
+                          GParamSpec      *pspec,
+                          GvcMixerDialog  *dialog)
+{
+        MateMixerDeviceProfile *profile;
+
+        g_debug ("Device profile has changed");
+
+        g_signal_handlers_block_by_func (G_OBJECT (dialog->priv->hw_profile_combo),
+                                         G_CALLBACK (on_combo_box_profile_changed),
+                                         dialog);
+
+        profile = mate_mixer_device_get_active_profile (device);
+        if (G_LIKELY (profile != NULL)) {
+                const gchar *name = mate_mixer_device_profile_get_name (profile);
+
+                g_debug ("The current profile is %s", name);
+
+                gvc_combo_box_set_active (GVC_COMBO_BOX (dialog->priv->hw_profile_combo),
+                                          name);
+        }
+
+        g_signal_handlers_unblock_by_func (G_OBJECT (dialog->priv->hw_profile_combo),
+                                           G_CALLBACK (on_combo_box_profile_changed),
+                                           dialog);
+
+        update_device_info (dialog, device);
+}
+
+static void
+add_device (GvcMixerDialog *dialog, MateMixerDevice *device)
+{
+        GtkTreeModel           *model;
+        GtkTreeIter             iter;
+        MateMixerDeviceProfile *profile;
+        GIcon                  *icon;
+        const gchar            *name;
+        const gchar            *description;
+        const gchar            *profile_description = NULL;
+        gchar                  *profile_status = NULL;
+
+        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
+
+        name = mate_mixer_device_get_name (device);
+        description = mate_mixer_device_get_description (device);
+
+        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+                                    name,
+                                    HW_NAME_COLUMN,
+                                    &iter) == FALSE)
+                gtk_list_store_append (GTK_LIST_STORE (model), &iter);
+
+        icon = g_themed_icon_new_with_default_fallbacks (mate_mixer_device_get_icon (device));
+
+        profile = mate_mixer_device_get_active_profile (device);
+        if (profile != NULL) {
+                profile_description = mate_mixer_device_profile_get_description (profile);
+                profile_status = device_profile_status (profile);
+        }
+
+        gtk_list_store_set (GTK_LIST_STORE (model),
+                            &iter,
+                            HW_NAME_COLUMN, name,
+                            HW_DESCRIPTION_COLUMN, description,
+                            HW_ICON_COLUMN, icon,
+                            HW_PROFILE_COLUMN, profile_description,
+                            HW_STATUS_COLUMN, profile_status,
                             -1);
 
         g_free (profile_status);
 
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (dialog->priv->hw_treeview));
-
-        if (gtk_tree_selection_get_selected (selection, NULL, NULL) == FALSE) {
-                /* Select the currently added item if nothing is selected now */
-                gtk_tree_selection_select_iter (selection, &iter);
-        } else if (dialog->priv->hw_profile_combo != NULL) {
-                MateMixerDevice *selected;
-
-                /* Set the current profile if it changed for the selected card */
-                selected = g_object_get_data (G_OBJECT (dialog->priv->hw_profile_combo), "device");
-
-                if (!g_strcmp0 (mate_mixer_device_get_name (device),
-                                mate_mixer_device_get_name (selected))) {
-                        gvc_combo_box_set_active (GVC_COMBO_BOX (dialog->priv->hw_profile_combo),
-                                                  profile_name);
-
-                        g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
-                                      "show-button",
-                                      mate_mixer_device_profile_get_num_output_streams (profile) >= 1,
-                                      NULL);
-                }
-        }
+        g_signal_connect (device,
+                          "notify::active-profile",
+                          G_CALLBACK (on_device_profile_notify),
+                          dialog);
 }
 
 static void
@@ -1184,23 +1186,10 @@ on_control_device_added (MateMixerControl *control, const gchar *name, GvcMixerD
         MateMixerDevice *device;
 
         device = mate_mixer_control_get_device (control, name);
-        if (device != NULL)
-                add_device (dialog, device);
-}
+        if (G_UNLIKELY (device == NULL))
+                return;
 
-static void
-remove_card (GvcMixerDialog  *dialog, const gchar *name)
-{
-        gboolean      found;
-        GtkTreeIter   iter;
-        GtkTreeModel *model;
-
-        /* remove from any models */
-        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
-        found = find_tree_item_by_name (GTK_TREE_MODEL (model), name, HW_NAME_COLUMN, &iter);
-        if (found) {
-                gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
-        }
+        add_device (dialog, device);
 }
 
 static void
@@ -1208,43 +1197,54 @@ on_control_device_removed (MateMixerControl *control,
                            const gchar      *name,
                            GvcMixerDialog   *dialog)
 {
-        remove_card (dialog, name);
+        GtkTreeIter   iter;
+        GtkTreeModel *model;
+
+        /* Remove from any models */
+        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
+
+        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+                                    name,
+                                    HW_NAME_COLUMN,
+                                    &iter) == TRUE)
+                gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
 }
 
 static void
-_gtk_label_make_bold (GtkLabel *label)
+make_label_bold (GtkLabel *label)
 {
         PangoFontDescription *font_desc;
 
         font_desc = pango_font_description_new ();
 
-        pango_font_description_set_weight (font_desc,
-                                           PANGO_WEIGHT_BOLD);
+        pango_font_description_set_weight (font_desc, PANGO_WEIGHT_BOLD);
 
         /* This will only affect the weight of the font, the rest is
          * from the current state of the widget, which comes from the
          * theme or user prefs, since the font desc only has the
-         * weight flag turned on.
-         */
+         * weight flag turned on. */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_widget_override_font (GTK_WIDGET (label), font_desc);
+#else
         gtk_widget_modify_font (GTK_WIDGET (label), font_desc);
-
+#endif
         pango_font_description_free (font_desc);
 }
 
 static void
 on_input_radio_toggled (GtkCellRendererToggle *renderer,
-                        char                  *path_str,
+                        gchar                 *path_str,
                         GvcMixerDialog        *dialog)
 {
         GtkTreeModel *model;
         GtkTreeIter   iter;
         GtkTreePath  *path;
-        gboolean      toggled;
-        gchar        *name;
+        gboolean      toggled = FALSE;
+        gchar        *name = NULL;
 
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+        path  = gtk_tree_path_new_from_string (path_str);
 
-        path = gtk_tree_path_new_from_string (path_str);
         gtk_tree_model_get_iter (model, &iter, path);
         gtk_tree_path_free (path);
 
@@ -1252,34 +1252,36 @@ on_input_radio_toggled (GtkCellRendererToggle *renderer,
                             NAME_COLUMN, &name,
                             ACTIVE_COLUMN, &toggled,
                             -1);
-
         if (toggled ^ 1) {
                 MateMixerStream *stream;
 
-                g_debug ("Default input selected: %s", name);
                 stream = mate_mixer_control_get_stream (dialog->priv->control, name);
+                if (G_UNLIKELY (stream == NULL)) {
+                        g_warn_if_reached ();
+                        g_free (name);
+                        return;
+                }
 
-                if (stream != NULL)
-                        mate_mixer_control_set_default_input_stream (dialog->priv->control,
-                                                                     stream);
+                g_debug ("Default input stream selection changed to %s", name);
+                mate_mixer_control_set_default_input_stream (dialog->priv->control, stream);
         }
         g_free (name);
 }
 
 static void
 on_output_radio_toggled (GtkCellRendererToggle *renderer,
-                         char                  *path_str,
+                         gchar                 *path_str,
                          GvcMixerDialog        *dialog)
 {
         GtkTreeModel *model;
         GtkTreeIter   iter;
         GtkTreePath  *path;
-        gboolean      toggled;
-        gchar        *name;
+        gboolean      toggled = FALSE;
+        gchar        *name = NULL;
 
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+        path  = gtk_tree_path_new_from_string (path_str);
 
-        path = gtk_tree_path_new_from_string (path_str);
         gtk_tree_model_get_iter (model, &iter, path);
         gtk_tree_path_free (path);
 
@@ -1287,44 +1289,74 @@ on_output_radio_toggled (GtkCellRendererToggle *renderer,
                             NAME_COLUMN, &name,
                             ACTIVE_COLUMN, &toggled,
                             -1);
-
         if (toggled ^ 1) {
                 MateMixerStream *stream;
 
-                g_debug ("Default output selected: %s", name);
                 stream = mate_mixer_control_get_stream (dialog->priv->control, name);
-                if (stream != NULL)
-                        mate_mixer_control_set_default_output_stream (dialog->priv->control,
-                                                                      stream);
+                if (G_UNLIKELY (stream == NULL)) {
+                        g_warn_if_reached ();
+                        g_free (name);
+                        return;
+                }
+
+                g_debug ("Default output stream selection changed to %s", name);
+                mate_mixer_control_set_default_output_stream (dialog->priv->control, stream);
         }
         g_free (name);
 }
 
 static void
-name_to_text (GtkTreeViewColumn *column,
-              GtkCellRenderer *cell,
-              GtkTreeModel *model,
-              GtkTreeIter *iter,
-              gpointer user_data)
+stream_name_to_text (GtkTreeViewColumn *column,
+                     GtkCellRenderer   *cell,
+                     GtkTreeModel      *model,
+                     GtkTreeIter       *iter,
+                     gpointer           user_data)
 {
-        char *description, *mapping;
+        gchar *description;
+        gchar *speakers;
 
         gtk_tree_model_get (model, iter,
                             DESCRIPTION_COLUMN, &description,
-                            SPEAKERS_COLUMN, &mapping,
+                            SPEAKERS_COLUMN, &speakers,
                             -1);
 
-        if (mapping == NULL) {
-                g_object_set (cell, "text", description, NULL);
-        } else {
-                gchar *str = g_strdup_printf ("%s\n<i>%s</i>", description, mapping);
+        if (speakers != NULL) {
+                gchar *str = g_strdup_printf ("%s\n<i>%s</i>",
+                                              description,
+                                              speakers);
 
                 g_object_set (cell, "markup", str, NULL);
                 g_free (str);
+                g_free (speakers);
+        } else {
+                g_object_set (cell, "text", description, NULL);
         }
 
         g_free (description);
-        g_free (mapping);
+}
+
+static gint
+compare_stream_treeview_items (GtkTreeModel *model,
+                               GtkTreeIter  *a,
+                               GtkTreeIter  *b,
+                               gpointer      user_data)
+{
+        gchar *desc_a = NULL;
+        gchar *desc_b = NULL;
+        gint   result;
+
+        gtk_tree_model_get (model, a,
+                            DESCRIPTION_COLUMN, &desc_a,
+                            -1);
+        gtk_tree_model_get (model, b,
+                            DESCRIPTION_COLUMN, &desc_b,
+                            -1);
+
+        result = g_ascii_strcasecmp (desc_a, desc_b);
+
+        g_free (desc_a);
+        g_free (desc_b);
+        return result;
 }
 
 static GtkWidget *
@@ -1342,7 +1374,6 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
                                     G_TYPE_ICON,
                                     G_TYPE_STRING,
                                     G_TYPE_STRING,
-                                    G_TYPE_STRING,
                                     G_TYPE_BOOLEAN,
                                     G_TYPE_STRING);
 
@@ -1356,9 +1387,10 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
                                                            renderer,
                                                            "active", ACTIVE_COLUMN,
                                                            NULL);
+
         gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
-        g_signal_connect (renderer,
+        g_signal_connect (G_OBJECT (renderer),
                           "toggled",
                           G_CALLBACK (on_toggled),
                           dialog);
@@ -1366,48 +1398,66 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
         gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview), -1,
                                                     _("Name"),
                                                     gtk_cell_renderer_text_new (),
-                                                    name_to_text, NULL, NULL);
+                                                    stream_name_to_text,
+                                                    NULL, NULL);
 
-#if 0
-        renderer = gtk_cell_renderer_text_new ();
-        column = gtk_tree_view_column_new_with_attributes (_("Device"),
-                                                           renderer,
-                                                           "text", DEVICE_COLUMN,
-                                                           NULL);
-        gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
-#endif
+        /* Keep the list of streams sorted by the name */
+        gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
+                                              DESCRIPTION_COLUMN,
+                                              GTK_SORT_ASCENDING);
+
+        gtk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (store),
+                                         DESCRIPTION_COLUMN,
+                                         compare_stream_treeview_items,
+                                         NULL, NULL);
         return treeview;
 }
 
-static void
-on_profile_changed (GvcComboBox *widget, const gchar *profile, gpointer user_data)
+static MateMixerStream *
+find_device_test_stream (GvcMixerDialog *dialog, MateMixerDevice *device)
 {
-        MateMixerDevice *device;
+        GList *streams;
 
-        device = g_object_get_data (G_OBJECT (widget), "device");
-        if (device == NULL) {
-                g_warning ("Could not find card for combobox");
-                return;
+        streams = (GList *) mate_mixer_control_list_streams (dialog->priv->control);
+        while (streams) {
+                MateMixerStream *stream;
+
+                stream = MATE_MIXER_STREAM (streams->data);
+
+                if (mate_mixer_stream_get_device (stream) == device &&
+                    mate_mixer_stream_get_num_channels (stream) >= 1) {
+                        MateMixerStreamFlags flags;
+
+                        flags = mate_mixer_stream_get_flags (stream);
+
+                        if ((flags & (MATE_MIXER_STREAM_OUTPUT |
+                                      MATE_MIXER_STREAM_CLIENT)) == MATE_MIXER_STREAM_OUTPUT)
+                                return stream;
+                }
+                streams = streams->next;
         }
-
-        g_debug ("Profile changed to %s for device %s",
-                 profile,
-                 mate_mixer_device_get_name (device));
-
-        mate_mixer_device_set_active_profile (device, profile);
+        return FALSE;
 }
 
 static void
-on_test_speakers_clicked (GvcComboBox *widget, gpointer user_data)
+on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
 {
-        GvcMixerDialog      *dialog = GVC_MIXER_DIALOG (user_data);
-        MateMixerDevice     *device;
-        GtkWidget           *d, *speaker_test, *container;
-        char                *title;
+        GtkWidget       *d,
+                        *test,
+                        *container;
+        gchar           *title;
+        MateMixerDevice *device;
+        MateMixerStream *stream;
 
         device = g_object_get_data (G_OBJECT (widget), "device");
-        if (device == NULL) {
-                g_warning ("Could not find card for combobox");
+        if (G_UNLIKELY (device == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        stream = find_device_test_stream (dialog, device);
+        if (G_UNLIKELY (stream == NULL)) {
+                g_warn_if_reached ();
                 return;
         }
 
@@ -1418,92 +1468,139 @@ on_test_speakers_clicked (GvcComboBox *widget, gpointer user_data)
                                          GTK_WINDOW (dialog),
                                          GTK_DIALOG_MODAL |
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
+                                         "gtk-close",
+                                         GTK_RESPONSE_CLOSE,
                                          NULL);
         g_free (title);
-        speaker_test = gvc_speaker_test_new (dialog->priv->control, device);
 
-        gtk_widget_show (speaker_test);
+        gtk_window_set_resizable (GTK_WINDOW (d), FALSE);
+
+        test = gvc_speaker_test_new (stream);
+        gtk_widget_show (test);
+
         container = gtk_dialog_get_content_area (GTK_DIALOG (d));
-        gtk_container_add (GTK_CONTAINER (container), speaker_test);
+        gtk_container_add (GTK_CONTAINER (container), test);
 
         gtk_dialog_run (GTK_DIALOG (d));
         gtk_widget_destroy (d);
 }
 
-static void
-on_card_selection_changed (GtkTreeSelection *selection,
-                           gpointer          user_data)
+static GtkWidget *
+create_profile_combo_box (GvcMixerDialog  *dialog,
+                          MateMixerDevice *device,
+                          const gchar     *name,
+                          const GList     *items,
+                          const gchar     *active)
 {
-        GvcMixerDialog      *dialog = GVC_MIXER_DIALOG (user_data);
-        GtkTreeModel        *model;
-        GtkTreeIter          iter;
-        const GList         *profiles;
-        gchar              *name;
-        MateMixerDevice *device;
-        MateMixerDeviceProfile *profile;
+        GtkWidget *combobox;
 
-        g_debug ("Card selection changed");
+        combobox = gvc_combo_box_new (name);
+
+        gvc_combo_box_set_profiles (GVC_COMBO_BOX (combobox), items);
+        gvc_combo_box_set_active (GVC_COMBO_BOX (combobox), active);
+
+        gvc_combo_box_set_size_group (GVC_COMBO_BOX (combobox),
+                                      dialog->priv->size_group,
+                                      FALSE);
+
+        g_object_set_data_full (G_OBJECT (combobox),
+                                "device",
+                                g_object_ref (device),
+                                g_object_unref);
+
+        g_signal_connect (G_OBJECT (combobox),
+                          "changed",
+                          G_CALLBACK (on_combo_box_profile_changed),
+                          dialog);
+
+        return combobox;
+}
+
+static void
+on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog)
+{
+        GtkTreeIter          iter;
+        gchar               *name;
+        MateMixerDevice     *device;
+        MateMixerBackendType backend;
+
+        g_debug ("Device selection changed");
 
         if (dialog->priv->hw_profile_combo != NULL) {
                 gtk_container_remove (GTK_CONTAINER (dialog->priv->hw_settings_box),
                                       dialog->priv->hw_profile_combo);
+
                 dialog->priv->hw_profile_combo = NULL;
         }
 
         if (gtk_tree_selection_get_selected (selection, NULL, &iter) == FALSE)
                 return;
 
-        model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
-        gtk_tree_model_get (model, &iter,
+        gtk_tree_model_get (gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview)),
+                            &iter,
                             HW_NAME_COLUMN, &name,
                             -1);
 
         device = mate_mixer_control_get_device (dialog->priv->control, name);
-        if (device == NULL) {
-                g_warning ("Unable to find card for id: %s", name);
+        if (G_UNLIKELY (device == NULL)) {
+                g_warn_if_reached ();
                 g_free (name);
                 return;
         }
         g_free (name);
 
-        profile  = mate_mixer_device_get_active_profile (device);
-        profiles = mate_mixer_device_list_profiles (device);
+        backend = mate_mixer_control_get_backend_type (dialog->priv->control);
 
-        dialog->priv->hw_profile_combo = gvc_combo_box_new (_("_Profile:"));
+        /* Speaker test is only possible on PulseAudio and profile changing is
+         * not supported on other backends by libmatemixer, so avoid displaying
+         * the combo box on other backends */
+        if (backend == MATE_MIXER_BACKEND_PULSEAUDIO) {
+                const GList     *profiles;
+                const gchar     *profile_name = NULL;
+                MateMixerStream *stream = NULL;
 
-        g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
-                      "button-label",
-                      _("Test Speakers"),
-                      NULL);
+                profiles = mate_mixer_device_list_profiles (device);
+                if (profiles != NULL) {
+                        MateMixerDeviceProfile *profile;
 
-        gvc_combo_box_set_profiles (GVC_COMBO_BOX (dialog->priv->hw_profile_combo),
-                                    profiles);
-        gvc_combo_box_set_active (GVC_COMBO_BOX (dialog->priv->hw_profile_combo),
-                                  mate_mixer_device_profile_get_name (profile));
+                        profile = mate_mixer_device_get_active_profile (device);
+                        if (G_UNLIKELY (profile == NULL)) {
+                                /* Select the first profile if none is selected */
+                                profile = MATE_MIXER_DEVICE_PROFILE (profiles->data);
+                                mate_mixer_device_set_active_profile (device, profile);
+                        }
 
-        gtk_box_pack_start (GTK_BOX (dialog->priv->hw_settings_box),
-                            dialog->priv->hw_profile_combo,
-                            TRUE, TRUE, 6);
+                        profile_name = mate_mixer_device_profile_get_name (profile);
+                }
 
-        g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
-                      "show-button",
-                      mate_mixer_device_profile_get_num_output_streams (profile) >= 1,
-                      NULL);
+                dialog->priv->hw_profile_combo =
+                        create_profile_combo_box (dialog,
+                                                  device,
+                                                  _("_Profile:"),
+                                                  profiles,
+                                                  profile_name);
 
-        gtk_widget_show (dialog->priv->hw_profile_combo);
+                gtk_box_pack_start (GTK_BOX (dialog->priv->hw_settings_box),
+                                    dialog->priv->hw_profile_combo,
+                                    TRUE, TRUE, 6);
 
-        g_object_set_data (G_OBJECT (dialog->priv->hw_profile_combo),
-                           "device",
-                           g_object_ref (device));
+                /* Enable the speaker test button if the selected device
+                 * is capable of sound output */
+                stream = find_device_test_stream (dialog, device);
+                if (stream != NULL) {
+                        g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
+                                      "show-button", TRUE,
+                                      "button-label", _("Test Speakers"),
+                                      NULL);
 
-        g_signal_connect (G_OBJECT (dialog->priv->hw_profile_combo),
-                          "changed",
-                          G_CALLBACK (on_profile_changed),
-                          dialog);
-        g_signal_connect (G_OBJECT (dialog->priv->hw_profile_combo),
-                          "button-clicked",
-                          G_CALLBACK (on_test_speakers_clicked),
-                          dialog);
+                        g_signal_connect (G_OBJECT (dialog->priv->hw_profile_combo),
+                                          "button-clicked",
+                                          G_CALLBACK (on_test_speakers_clicked),
+                                          dialog);
+                }
+
+                gtk_widget_show (dialog->priv->hw_profile_combo);
+        }
 }
 
 static void
@@ -1525,36 +1622,71 @@ on_notebook_switch_page (GtkNotebook    *notebook,
 }
 
 static void
-card_to_text (GtkTreeViewColumn *column,
-              GtkCellRenderer *cell,
-              GtkTreeModel *model,
-              GtkTreeIter *iter,
-              gpointer user_data)
+device_name_to_text (GtkTreeViewColumn *column,
+                     GtkCellRenderer   *cell,
+                     GtkTreeModel      *model,
+                     GtkTreeIter       *iter,
+                     gpointer           user_data)
 {
-        gchar *description, *status, *profile, *str;
-        gboolean sensitive;
+        gchar *description = NULL;
+        gchar *profile = NULL;
+        gchar *profile_status = NULL;
 
         gtk_tree_model_get (model, iter,
                             HW_DESCRIPTION_COLUMN, &description,
-                            HW_STATUS_COLUMN, &status,
-                            HW_PROFILE_HUMAN_COLUMN, &profile,
-                            HW_SENSITIVE_COLUMN, &sensitive,
+                            HW_PROFILE_COLUMN, &profile,
+                            HW_STATUS_COLUMN, &profile_status,
                             -1);
 
-        str = g_strdup_printf ("%s\n<i>%s</i>\n<i>%s</i>", description, status, profile);
-        g_object_set (cell,
-                      "markup", str,
-                      "sensitive", sensitive,
-                      NULL);
-        g_free (str);
+        if (profile != NULL) {
+                gchar *str;
+
+                if (G_LIKELY (profile_status != NULL))
+                        str = g_strdup_printf ("%s\n<i>%s</i>\n<i>%s</i>",
+                                               description,
+                                               profile_status,
+                                               profile);
+                else
+                        str = g_strdup_printf ("%s\n<i>%s</i>",
+                                               description,
+                                               profile);
+
+                g_object_set (cell, "markup", str, NULL);
+                g_free (str);
+                g_free (profile);
+                g_free (profile_status);
+        } else
+                g_object_set (cell, "text", description, NULL);
 
         g_free (description);
-        g_free (status);
-        g_free (profile);
+}
+
+static gint
+compare_device_treeview_items (GtkTreeModel *model,
+                               GtkTreeIter  *a,
+                               GtkTreeIter  *b,
+                               gpointer      user_data)
+{
+        gchar *desc_a = NULL;
+        gchar *desc_b = NULL;
+        gint   result;
+
+        gtk_tree_model_get (model, a,
+                            HW_DESCRIPTION_COLUMN, &desc_a,
+                            -1);
+        gtk_tree_model_get (model, b,
+                            HW_DESCRIPTION_COLUMN, &desc_b,
+                            -1);
+
+        result = g_ascii_strcasecmp (desc_a, desc_b);
+
+        g_free (desc_a);
+        g_free (desc_b);
+        return result;
 }
 
 static GtkWidget *
-create_cards_treeview (GvcMixerDialog *dialog, GCallback on_changed)
+create_device_treeview (GvcMixerDialog *dialog, GCallback on_changed)
 {
         GtkWidget         *treeview;
         GtkListStore      *store;
@@ -1576,36 +1708,40 @@ create_cards_treeview (GvcMixerDialog *dialog, GCallback on_changed)
                                     G_TYPE_STRING,
                                     G_TYPE_STRING,
                                     G_TYPE_STRING,
-                                    G_TYPE_STRING,
-                                    G_TYPE_STRING,
-                                    G_TYPE_BOOLEAN);
+                                    G_TYPE_STRING);
 
         gtk_tree_view_set_model (GTK_TREE_VIEW (treeview),
                                  GTK_TREE_MODEL (store));
 
         renderer = gtk_cell_renderer_pixbuf_new ();
-        g_object_set (G_OBJECT (renderer), "stock-size", GTK_ICON_SIZE_DIALOG, NULL);
+        g_object_set (G_OBJECT (renderer),
+                      "stock-size",
+                      GTK_ICON_SIZE_DIALOG,
+                      NULL);
 
         column = gtk_tree_view_column_new_with_attributes (NULL,
                                                            renderer,
                                                            "gicon", HW_ICON_COLUMN,
-                                                           "sensitive", HW_SENSITIVE_COLUMN,
                                                            NULL);
 
         gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
-
         gtk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview), -1,
                                                     _("Name"),
                                                     gtk_cell_renderer_text_new (),
-                                                    card_to_text,
+                                                    device_name_to_text,
                                                     NULL, NULL);
 
+        /* Keep the list of streams sorted by the name */
+        gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
+                                              HW_DESCRIPTION_COLUMN,
+                                              GTK_SORT_ASCENDING);
+
+        gtk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (store),
+                                         HW_DESCRIPTION_COLUMN,
+                                         compare_device_treeview_items,
+                                         NULL, NULL);
         return treeview;
 }
-
-static const guint tab_accel_keys[] = {
-        GDK_1, GDK_2, GDK_3, GDK_4, GDK_5
-};
 
 static void
 dialog_accel_cb (GtkAccelGroup    *accelgroup,
@@ -1641,17 +1777,19 @@ gvc_mixer_dialog_constructor (GType                  type,
         GtkWidget        *box;
         GtkWidget        *sbox;
         GtkWidget        *ebox;
-        GList            *list;
         GtkTreeSelection *selection;
         GtkAccelGroup    *accel_group;
         GClosure         *closure;
-        gint             i;
+        GtkTreeIter       iter;
+        gint              i;
+        GList            *list;
 
         object = G_OBJECT_CLASS (gvc_mixer_dialog_parent_class)->constructor (type,
                                                                               n_construct_properties,
                                                                               construct_params);
 
         self = GVC_MIXER_DIALOG (object);
+
         gtk_dialog_add_button (GTK_DIALOG (self), "gtk-close", GTK_RESPONSE_OK);
 
         main_vbox = gtk_dialog_get_content_area (GTK_DIALOG (self));
@@ -1659,17 +1797,25 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         gtk_container_set_border_width (GTK_CONTAINER (self), 6);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->output_stream_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+#else
         self->priv->output_stream_box = gtk_hbox_new (FALSE, 12);
+#endif
+
         alignment = gtk_alignment_new (0, 0, 1, 1);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 12, 0, 0, 0);
         gtk_container_add (GTK_CONTAINER (alignment), self->priv->output_stream_box);
         gtk_box_pack_start (GTK_BOX (main_vbox),
                             alignment,
                             FALSE, FALSE, 0);
-        self->priv->output_bar = create_bar (self, self->priv->size_group, TRUE);
+
+        self->priv->output_bar = create_bar (self, TRUE, TRUE);
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->output_bar),
                                   _("_Output volume: "));
+
         gtk_widget_set_sensitive (self->priv->output_bar, FALSE);
+
         gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
                             self->priv->output_bar, TRUE, TRUE, 12);
 
@@ -1678,6 +1824,11 @@ gvc_mixer_dialog_constructor (GType                  type,
                             self->priv->notebook,
                             TRUE, TRUE, 0);
 
+        g_signal_connect (G_OBJECT (self->priv->notebook),
+                          "switch-page",
+                          G_CALLBACK (on_notebook_switch_page),
+                          self);
+
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->notebook), 5);
 
         /* Set up accels (borrowed from Empathy) */
@@ -1685,9 +1836,9 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_window_add_accel_group (GTK_WINDOW (self), accel_group);
 
         for (i = 0; i < G_N_ELEMENTS (tab_accel_keys); i++) {
-                closure =  g_cclosure_new (G_CALLBACK (dialog_accel_cb),
-                                           self,
-                                           NULL);
+                closure = g_cclosure_new (G_CALLBACK (dialog_accel_cb),
+                                          self,
+                                          NULL);
                 gtk_accel_group_connect (accel_group,
                                          tab_accel_keys[i],
                                          GDK_MOD1_MASK,
@@ -1697,29 +1848,44 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         g_object_unref (accel_group);
 
-        /* Effects page */
+        /* Create notebook pages */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->sound_effects_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+#else
         self->priv->sound_effects_box = gtk_vbox_new (FALSE, 6);
+#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->sound_effects_box), 12);
+
         label = gtk_label_new (_("Sound Effects"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->sound_effects_box,
                                   label);
 
-        self->priv->effects_bar = create_bar (self, self->priv->size_group, TRUE);
-        gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->effects_bar),
-                                  _("_Alert volume: "));
-        gtk_widget_set_sensitive (self->priv->effects_bar, FALSE);
+        self->priv->effects_bar = create_bar (self, TRUE, TRUE);
         gtk_box_pack_start (GTK_BOX (self->priv->sound_effects_box),
                             self->priv->effects_bar, FALSE, FALSE, 0);
 
+        gvc_channel_bar_set_show_marks (GVC_CHANNEL_BAR (self->priv->effects_bar), FALSE);
+        gvc_channel_bar_set_extended (GVC_CHANNEL_BAR (self->priv->effects_bar), FALSE);
+
+        gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->effects_bar),
+                                  _("_Alert volume: "));
+
+        gtk_widget_set_sensitive (self->priv->effects_bar, FALSE);
+
         self->priv->sound_theme_chooser = gvc_sound_theme_chooser_new ();
+
         gtk_box_pack_start (GTK_BOX (self->priv->sound_effects_box),
                             self->priv->sound_theme_chooser,
                             TRUE, TRUE, 6);
 
-        /* Hardware page */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->hw_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+#else
         self->priv->hw_box = gtk_vbox_new (FALSE, 12);
+#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->hw_box), 12);
+
         label = gtk_label_new (_("Hardware"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->hw_box,
@@ -1727,7 +1893,7 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         box = gtk_frame_new (_("C_hoose a device to configure:"));
         label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        _gtk_label_make_bold (GTK_LABEL (label));
+        make_label_bold (GTK_LABEL (label));
         gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, TRUE, TRUE, 0);
@@ -1736,8 +1902,8 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_container_add (GTK_CONTAINER (box), alignment);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
 
-        self->priv->hw_treeview = create_cards_treeview (self,
-                                                         G_CALLBACK (on_card_selection_changed));
+        self->priv->hw_treeview = create_device_treeview (self,
+                                                         G_CALLBACK (on_device_selection_changed));
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->hw_treeview);
 
         box = gtk_scrolled_window_new (NULL, NULL);
@@ -1754,21 +1920,32 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         box = gtk_frame_new (_("Settings for the selected device:"));
         label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        _gtk_label_make_bold (GTK_LABEL (label));
+        make_label_bold (GTK_LABEL (label));
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, FALSE, TRUE, 12);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->hw_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+#else
         self->priv->hw_settings_box = gtk_vbox_new (FALSE, 12);
+#endif
+
         gtk_container_add (GTK_CONTAINER (box), self->priv->hw_settings_box);
 
-        /* Input page */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->input_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+#else
         self->priv->input_box = gtk_vbox_new (FALSE, 12);
+#endif
+
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->input_box), 12);
+
         label = gtk_label_new (_("Input"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->input_box,
                                   label);
 
-        self->priv->input_bar = create_bar (self, self->priv->size_group, TRUE);
+        self->priv->input_bar = create_bar (self, TRUE, TRUE);
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                   _("_Input volume: "));
         gvc_channel_bar_set_low_icon_name (GVC_CHANNEL_BAR (self->priv->input_bar),
@@ -1776,6 +1953,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         gvc_channel_bar_set_high_icon_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                             "audio-input-microphone-high");
         gtk_widget_set_sensitive (self->priv->input_bar, FALSE);
+
         alignment = gtk_alignment_new (0, 0, 1, 1);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
         gtk_container_add (GTK_CONTAINER (alignment), self->priv->input_bar);
@@ -1783,12 +1961,19 @@ gvc_mixer_dialog_constructor (GType                  type,
                             alignment,
                             FALSE, FALSE, 0);
 
-        box = gtk_hbox_new (FALSE, 6);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        sbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        ebox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+#else
+        box  = gtk_hbox_new (FALSE, 6);
+        sbox = gtk_hbox_new (FALSE, 6);
+        ebox = gtk_hbox_new (FALSE, 6);
+#endif
+
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
                             box,
                             FALSE, FALSE, 6);
-
-        sbox = gtk_hbox_new (FALSE, 6);
         gtk_box_pack_start (GTK_BOX (box),
                             sbox,
                             FALSE, FALSE, 0);
@@ -1808,20 +1993,23 @@ gvc_mixer_dialog_constructor (GType                  type,
                             self->priv->input_level_bar,
                             TRUE, TRUE, 6);
 
-        ebox = gtk_hbox_new (FALSE, 6);
         gtk_box_pack_start (GTK_BOX (box),
                             ebox,
                             FALSE, FALSE, 0);
         gtk_size_group_add_widget (self->priv->size_group, ebox);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->input_settings_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+#else
         self->priv->input_settings_box = gtk_hbox_new (FALSE, 6);
+#endif
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
                             self->priv->input_settings_box,
                             FALSE, FALSE, 0);
 
         box = gtk_frame_new (_("C_hoose a device for sound input:"));
         label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        _gtk_label_make_bold (GTK_LABEL (label));
+        make_label_bold (GTK_LABEL (label));
         gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->input_box), box, TRUE, TRUE, 0);
@@ -1830,8 +2018,9 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_container_add (GTK_CONTAINER (box), alignment);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
 
-        self->priv->input_treeview = create_stream_treeview (self,
-                                                             G_CALLBACK (on_input_radio_toggled));
+        self->priv->input_treeview =
+                create_stream_treeview (self, G_CALLBACK (on_input_radio_toggled));
+
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->input_treeview);
 
         box = gtk_scrolled_window_new (NULL, NULL);
@@ -1856,7 +2045,7 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         box = gtk_frame_new (_("C_hoose a device for sound output:"));
         label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        _gtk_label_make_bold (GTK_LABEL (label));
+        make_label_bold (GTK_LABEL (label));
         gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, TRUE, TRUE, 0);
@@ -1883,32 +2072,51 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         box = gtk_frame_new (_("Settings for the selected device:"));
         label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        _gtk_label_make_bold (GTK_LABEL (label));
+        make_label_bold (GTK_LABEL (label));
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, FALSE, FALSE, 12);
         self->priv->output_settings_box = gtk_vbox_new (FALSE, 0);
         gtk_container_add (GTK_CONTAINER (box), self->priv->output_settings_box);
 
+        self->priv->output_settings_frame = box;
+
         /* Applications */
-        self->priv->applications_scrolled_window = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (self->priv->applications_scrolled_window),
-                                        GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_scrolled_window),
+        self->priv->applications_window = gtk_scrolled_window_new (NULL, NULL);
+        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (self->priv->applications_window),
+                                        GTK_POLICY_NEVER,
+                                        GTK_POLICY_AUTOMATIC);
+
+        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_window),
                                              GTK_SHADOW_IN);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->applications_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+#else
         self->priv->applications_box = gtk_vbox_new (FALSE, 12);
+#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
-        gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (self->priv->applications_scrolled_window),
+
+#if GTK_CHECK_VERSION (3, 8, 0)
+        gtk_container_add (GTK_CONTAINER (self->priv->applications_window),
+                           self->priv->applications_box);
+#else
+        gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (self->priv->applications_window),
                                                self->priv->applications_box);
+#endif
+
         label = gtk_label_new (_("Applications"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
-                                  self->priv->applications_scrolled_window,
+                                  self->priv->applications_window,
                                   label);
+
         self->priv->no_apps_label = gtk_label_new (_("No application is currently playing or recording audio."));
         gtk_box_pack_start (GTK_BOX (self->priv->applications_box),
                             self->priv->no_apps_label,
                             TRUE, TRUE, 0);
 
         gtk_widget_show_all (main_vbox);
+
+        // XXX subscribe to cached stream stuff, in case event stream is not found
 
         list = (GList *) mate_mixer_control_list_streams (self->priv->control);
         while (list) {
@@ -1922,10 +2130,30 @@ gvc_mixer_dialog_constructor (GType                  type,
                 list = list->next;
         }
 
-        g_signal_connect (G_OBJECT (self->priv->notebook),
-                          "switch-page",
-                          G_CALLBACK (on_notebook_switch_page),
-                          self);
+        /* Find an event role stream */
+        list = (GList *) mate_mixer_control_list_cached_streams (self->priv->control);
+        while (list) {
+                MateMixerClientStreamRole role;
+
+                role = mate_mixer_client_stream_get_role (MATE_MIXER_CLIENT_STREAM (list->data));
+
+                if (role == MATE_MIXER_CLIENT_STREAM_ROLE_EVENT)
+                        add_stream (self, MATE_MIXER_STREAM (list->data));
+
+                list = list->next;
+        }
+
+        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
+
+        /* Select the first device in the list */
+        // XXX handle no devices
+        if (gtk_tree_selection_get_selected (selection, NULL, NULL) == FALSE) {
+                GtkTreeModel *model =
+                        gtk_tree_view_get_model (GTK_TREE_VIEW (self->priv->hw_treeview));
+
+                if (gtk_tree_model_get_iter_first (model, &iter))
+                        gtk_tree_selection_select_iter (selection, &iter);
+        }
 
         return object;
 }
@@ -1948,28 +2176,36 @@ gvc_mixer_dialog_set_control (GvcMixerDialog *dialog, MateMixerControl *control)
 
         dialog->priv->control = g_object_ref (control);
 
-        g_signal_connect (dialog->priv->control,
+        g_signal_connect (G_OBJECT (dialog->priv->control),
                           "stream-added",
                           G_CALLBACK (on_control_stream_added),
                           dialog);
-        g_signal_connect (dialog->priv->control,
+        g_signal_connect (G_OBJECT (dialog->priv->control),
+                          "cached-stream-added",
+                          G_CALLBACK (on_control_stream_added),
+                          dialog);
+        g_signal_connect (G_OBJECT (dialog->priv->control),
                           "stream-removed",
                           G_CALLBACK (on_control_stream_removed),
                           dialog);
-        g_signal_connect (dialog->priv->control,
+        g_signal_connect (G_OBJECT (dialog->priv->control),
+                          "cached-stream-removed",
+                          G_CALLBACK (on_control_cached_stream_removed),
+                          dialog);
+        g_signal_connect (G_OBJECT (dialog->priv->control),
                           "device-added",
                           G_CALLBACK (on_control_device_added),
                           dialog);
-        g_signal_connect (dialog->priv->control,
+        g_signal_connect (G_OBJECT (dialog->priv->control),
                           "device-removed",
                           G_CALLBACK (on_control_device_removed),
                           dialog);
 
-        g_signal_connect (dialog->priv->control,
+        g_signal_connect (G_OBJECT (dialog->priv->control),
                           "notify::default-output",
                           G_CALLBACK (on_control_default_output_notify),
                           dialog);
-        g_signal_connect (dialog->priv->control,
+        g_signal_connect (G_OBJECT (dialog->priv->control),
                           "notify::default-input",
                           G_CALLBACK (on_control_default_input_notify),
                           dialog);
@@ -1986,7 +2222,7 @@ gvc_mixer_dialog_set_property (GObject       *object,
         GvcMixerDialog *self = GVC_MIXER_DIALOG (object);
 
         switch (prop_id) {
-        case PROP_MIXER_CONTROL:
+        case PROP_CONTROL:
                 gvc_mixer_dialog_set_control (self, g_value_get_object (value));
                 break;
         default:
@@ -2004,7 +2240,7 @@ gvc_mixer_dialog_get_property (GObject     *object,
         GvcMixerDialog *self = GVC_MIXER_DIALOG (object);
 
         switch (prop_id) {
-        case PROP_MIXER_CONTROL:
+        case PROP_CONTROL:
                 g_value_set_object (value, gvc_mixer_dialog_get_control (self));
                 break;
         default:
@@ -2050,7 +2286,7 @@ gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass)
         object_class->get_property = gvc_mixer_dialog_get_property;
 
         g_object_class_install_property (object_class,
-                                         PROP_MIXER_CONTROL,
+                                         PROP_CONTROL,
                                          g_param_spec_object ("control",
                                                               "Control",
                                                               "MateMixer control",
@@ -2068,7 +2304,6 @@ gvc_mixer_dialog_init (GvcMixerDialog *dialog)
 
         dialog->priv->bars = g_hash_table_new (g_str_hash, g_str_equal);
         dialog->priv->size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
-        dialog->priv->apps_size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 }
 
 static void
@@ -2102,7 +2337,7 @@ gvc_mixer_dialog_set_page (GvcMixerDialog *self, const gchar *page)
 
         if (page != NULL) {
                 if (g_str_equal (page, "effects"))
-                        num = PAGE_EVENTS;
+                        num = PAGE_EFFECTS;
                 else if (g_str_equal (page, "hardware"))
                         num = PAGE_HARDWARE;
                 else if (g_str_equal (page, "input"))

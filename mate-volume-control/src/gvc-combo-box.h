@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2009 Red Hat, Inc.
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +22,9 @@
 #ifndef __GVC_COMBO_BOX_H
 #define __GVC_COMBO_BOX_H
 
+#include <glib.h>
 #include <glib-object.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
@@ -32,43 +35,46 @@ G_BEGIN_DECLS
 #define GVC_IS_COMBO_BOX_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), GVC_TYPE_COMBO_BOX))
 #define GVC_COMBO_BOX_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), GVC_TYPE_COMBO_BOX, GvcComboBoxClass))
 
-typedef struct GvcComboBoxPrivate GvcComboBoxPrivate;
+typedef struct _GvcComboBox         GvcComboBox;
+typedef struct _GvcComboBoxClass    GvcComboBoxClass;
+typedef struct _GvcComboBoxPrivate  GvcComboBoxPrivate;
 
-typedef struct
+struct _GvcComboBox
 {
 #if GTK_CHECK_VERSION (3, 0, 0)
-        GtkBox                parent;
+        GtkBox                  parent;
 #else
-        GtkHBox               parent;
+        GtkHBox                 parent;
 #endif
-        GvcComboBoxPrivate *priv;
-} GvcComboBox;
+        GvcComboBoxPrivate     *priv;
+};
 
-typedef struct
+struct _GvcComboBoxClass
 {
 #if GTK_CHECK_VERSION (3, 0, 0)
         GtkBoxClass             parent_class;
 #else
         GtkHBoxClass            parent_class;
 #endif
-        void (* changed)        (GvcComboBox *combobox, const char *name);
+        void (* changed)        (GvcComboBox *combobox,
+                                 const gchar *name);
         void (* button_clicked) (GvcComboBox *combobox);
-} GvcComboBoxClass;
+};
 
-GType               gvc_combo_box_get_type            (void);
+GType               gvc_combo_box_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_combo_box_new                 (const char   *label);
+GtkWidget *         gvc_combo_box_new                 (const gchar  *label);
 
-void                gvc_combo_box_set_size_group      (GvcComboBox  *combo_box,
+void                gvc_combo_box_set_size_group      (GvcComboBox  *combobox,
                                                        GtkSizeGroup *group,
                                                        gboolean      symmetric);
 
-void                gvc_combo_box_set_profiles        (GvcComboBox  *combo_box,
+void                gvc_combo_box_set_profiles        (GvcComboBox  *combobox,
                                                        const GList  *profiles);
-void                gvc_combo_box_set_ports           (GvcComboBox  *combo_box,
+void                gvc_combo_box_set_ports           (GvcComboBox  *combobox,
                                                        const GList  *ports);
-void                gvc_combo_box_set_active          (GvcComboBox  *combo_box,
-                                                       const char   *id);
+void                gvc_combo_box_set_active          (GvcComboBox  *combobox,
+                                                       const gchar  *id);
 
 G_END_DECLS
 

@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 William Jon McCann <william.jon.mccann@gmail.com>
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +22,7 @@
 #ifndef __GVC_LEVEL_BAR_H
 #define __GVC_LEVEL_BAR_H
 
+#include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
@@ -33,35 +35,28 @@ G_BEGIN_DECLS
 #define GVC_IS_LEVEL_BAR_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), GVC_TYPE_LEVEL_BAR))
 #define GVC_LEVEL_BAR_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), GVC_TYPE_LEVEL_BAR, GvcLevelBarClass))
 
-typedef struct GvcLevelBarPrivate GvcLevelBarPrivate;
+typedef struct _GvcLevelBar         GvcLevelBar;
+typedef struct _GvcLevelBarClass    GvcLevelBarClass;
+typedef struct _GvcLevelBarPrivate  GvcLevelBarPrivate;
 
-typedef struct
+struct _GvcLevelBar
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
-        GtkBox              parent;
-#else
-        GtkHBox             parent;
-#endif
-        GvcLevelBarPrivate *priv;
-} GvcLevelBar;
+        GtkWidget              parent;
+        GvcLevelBarPrivate    *priv;
+};
 
-typedef struct
+struct _GvcLevelBarClass
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
-        GtkBoxClass         parent_class;
-#else
-        GtkHBoxClass        parent_class;
-#endif
-} GvcLevelBarClass;
+        GtkWidgetClass         parent_class;
+};
 
 typedef enum
 {
     GVC_LEVEL_SCALE_LINEAR,
-    GVC_LEVEL_SCALE_LOG,
-    GVC_LEVEL_SCALE_LAST
+    GVC_LEVEL_SCALE_LOG
 } GvcLevelScale;
 
-GType               gvc_level_bar_get_type            (void);
+GType               gvc_level_bar_get_type            (void) G_GNUC_CONST;
 
 GtkWidget *         gvc_level_bar_new                 (void);
 void                gvc_level_bar_set_orientation     (GvcLevelBar   *bar,
@@ -71,12 +66,13 @@ GtkOrientation      gvc_level_bar_get_orientation     (GvcLevelBar   *bar);
 void                gvc_level_bar_set_peak_adjustment (GvcLevelBar   *bar,
                                                        GtkAdjustment *adjustment);
 GtkAdjustment *     gvc_level_bar_get_peak_adjustment (GvcLevelBar   *bar);
+
 void                gvc_level_bar_set_rms_adjustment  (GvcLevelBar   *bar,
                                                        GtkAdjustment *adjustment);
 GtkAdjustment *     gvc_level_bar_get_rms_adjustment  (GvcLevelBar   *bar);
+
 void                gvc_level_bar_set_scale           (GvcLevelBar   *bar,
                                                        GvcLevelScale  scale);
-
 
 G_END_DECLS
 

@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 Red Hat, Inc.
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,11 +21,11 @@
 
 #include "config.h"
 
-#include <libintl.h>
-#include <glib/gi18n.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
+#include <libintl.h>
 #include <unique/uniqueapp.h>
 #include <libmatemixer/matemixer.h>
 
@@ -42,10 +43,10 @@ static GtkWidget  *warning_dialog = NULL;
 static void
 on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
 {
-	gboolean destroy = GPOINTER_TO_INT (data);
+        gboolean destroy = GPOINTER_TO_INT (data);
 
-	if (destroy)
-		gtk_widget_destroy (GTK_WIDGET (dialog));
+        if (destroy)
+                gtk_widget_destroy (GTK_WIDGET (dialog));
 
         gtk_main_quit ();
 }
@@ -53,10 +54,10 @@ on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
 static void
 on_dialog_close (GtkDialog *dialog, gpointer data)
 {
-	gboolean destroy = GPOINTER_TO_INT (data);
+        gboolean destroy = GPOINTER_TO_INT (data);
 
-	if (destroy)
-		gtk_widget_destroy (GTK_WIDGET (dialog));
+        if (destroy)
+                gtk_widget_destroy (GTK_WIDGET (dialog));
 
         gtk_main_quit ();
 }
@@ -76,12 +77,12 @@ on_app_message_received (UniqueApp         *app,
 static void
 remove_warning_dialog (void)
 {
-	if (popup_id != 0) {
-		g_source_remove (popup_id);
-		popup_id = 0;
-	}
+        if (popup_id != 0) {
+                g_source_remove (popup_id);
+                popup_id = 0;
+        }
 
-	g_clear_pointer (&warning_dialog, gtk_widget_destroy);
+        g_clear_pointer (&warning_dialog, gtk_widget_destroy);
 }
 
 static void
@@ -93,25 +94,30 @@ control_ready (MateMixerControl *control, UniqueApp *app)
                 return;
 
         app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (control));
-        g_signal_connect (app_dialog,
+
+        g_signal_connect (G_OBJECT (app_dialog),
                           "response",
                           G_CALLBACK (on_dialog_response),
                           GINT_TO_POINTER (FALSE));
-        g_signal_connect (app_dialog,
+        g_signal_connect (G_OBJECT (app_dialog),
                           "close",
                           G_CALLBACK (on_dialog_close),
                           GINT_TO_POINTER (FALSE));
 
         gvc_mixer_dialog_set_page (GVC_MIXER_DIALOG (app_dialog), page);
 
-        g_signal_connect (app, "message-received",
-                          G_CALLBACK (on_app_message_received), app_dialog);
+        g_signal_connect (G_OBJECT (app),
+                          "message-received",
+                          G_CALLBACK (on_app_message_received),
+                          app_dialog);
 
         gtk_widget_show (app_dialog);
 }
 
 static void
-on_control_state_notify (MateMixerControl *control, UniqueApp *app)
+on_control_state_notify (MateMixerControl *control,
+                         GParamSpec       *pspec,
+                         UniqueApp        *app)
 {
         MateMixerState state = mate_mixer_control_get_state (control);
         gboolean       failed = FALSE;
@@ -194,6 +200,7 @@ main (int argc, char **argv)
                             (char *) _(" — MATE Volume Control"),
                             entries, GETTEXT_PACKAGE,
                             &error);
+
         if (error != NULL) {
                 g_warning ("%s", error->message);
                 return 1;
@@ -206,8 +213,8 @@ main (int argc, char **argv)
         app = unique_app_new (GVC_DIALOG_DBUS_NAME, NULL);
 
         if (unique_app_is_running (app)) {
-                unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
-                return 0;
+               unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
+               return 0;
         }
         if (!mate_mixer_init ()) {
                 g_warning ("libmatemixer initialization failed, exiting");
@@ -216,19 +223,20 @@ main (int argc, char **argv)
 
         control = mate_mixer_control_new ();
 
+        mate_mixer_control_set_backend_type (control, MATE_MIXER_BACKEND_NULL);
+
         mate_mixer_control_set_app_name (control, _("Volume Control"));
         mate_mixer_control_set_app_id (control, GVC_DIALOG_DBUS_NAME);
         mate_mixer_control_set_app_version (control, VERSION);
         mate_mixer_control_set_app_icon (control, "multimedia-volume-control");
 
-        g_signal_connect (control,
+        g_signal_connect (G_OBJECT (control),
                           "notify::state",
                           G_CALLBACK (on_control_state_notify),
                           app);
 
         mate_mixer_control_open (control);
 
-        /* */
         if (mate_mixer_control_get_state (control) == MATE_MIXER_STATE_CONNECTING)
 		popup_id = g_timeout_add_seconds (DIALOG_POPUP_TIMEOUT,
 		                                  dialog_popup_timeout,

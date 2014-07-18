@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2009 Bastien Nocera
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,20 +19,18 @@
  *
  */
 
-#include "config.h"
-
 #include <glib.h>
 #include <glib/gi18n.h>
+#include <glib-object.h>
 #include <gtk/gtk.h>
 
-#include <canberra-gtk.h>
 #include <libmatemixer/matemixer.h>
 
 #include "gvc-combo-box.h"
 
 #define GVC_COMBO_BOX_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_COMBO_BOX, GvcComboBoxPrivate))
 
-struct GvcComboBoxPrivate
+struct _GvcComboBoxPrivate
 {
         GtkWidget     *drop_box;
         GtkWidget     *start_box;
@@ -57,18 +56,21 @@ enum {
         LAST_SIGNAL
 };
 
+static guint signals[LAST_SIGNAL] = { 0, };
+
 enum {
         PROP_0,
         PROP_LABEL,
         PROP_SHOW_BUTTON,
-        PROP_BUTTON_LABEL
+        PROP_BUTTON_LABEL,
+        N_PROPERTIES
 };
 
-static guint signals [LAST_SIGNAL] = { 0, };
+static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void     gvc_combo_box_class_init (GvcComboBoxClass *klass);
-static void     gvc_combo_box_init       (GvcComboBox      *combo_box);
-static void     gvc_combo_box_finalize   (GObject            *object);
+static void gvc_combo_box_class_init (GvcComboBoxClass *klass);
+static void gvc_combo_box_init       (GvcComboBox      *combo);
+static void gvc_combo_box_dispose    (GObject          *object);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
@@ -77,25 +79,25 @@ G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_HBOX)
 #endif
 
 void
-gvc_combo_box_set_size_group (GvcComboBox *combo_box,
-                              GtkSizeGroup  *group,
-                              gboolean       symmetric)
+gvc_combo_box_set_size_group (GvcComboBox  *combobox,
+                              GtkSizeGroup *group,
+                              gboolean      symmetric)
 {
-        g_return_if_fail (GVC_IS_COMBO_BOX (combo_box));
+        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
+        g_return_if_fail (GTK_IS_SIZE_GROUP (group));
 
-        combo_box->priv->size_group = group;
-        combo_box->priv->symmetric = symmetric;
+        combobox->priv->size_group = group;
+        combobox->priv->symmetric = symmetric;
 
-        if (combo_box->priv->size_group != NULL) {
-                gtk_size_group_add_widget (combo_box->priv->size_group,
-                                           combo_box->priv->start_box);
+        if (combobox->priv->size_group != NULL) {
+                gtk_size_group_add_widget (combobox->priv->size_group,
+                                           combobox->priv->start_box);
 
-                if (combo_box->priv->symmetric) {
-                        gtk_size_group_add_widget (combo_box->priv->size_group,
-                                                   combo_box->priv->end_box);
-                }
+                if (combobox->priv->symmetric)
+                        gtk_size_group_add_widget (combobox->priv->size_group,
+                                                   combobox->priv->end_box);
         }
-        gtk_widget_queue_draw (GTK_WIDGET (combo_box));
+        gtk_widget_queue_draw (GTK_WIDGET (combobox));
 }
 
 static void
@@ -132,16 +134,13 @@ gvc_combo_box_get_property (GObject     *object,
 
         switch (prop_id) {
         case PROP_LABEL:
-                g_value_set_string (value,
-                                    gtk_label_get_text (GTK_LABEL (self->priv->label)));
+                g_value_set_string (value, gtk_label_get_text (GTK_LABEL (self->priv->label)));
                 break;
         case PROP_BUTTON_LABEL:
-                g_value_set_string (value,
-                                    gtk_button_get_label (GTK_BUTTON (self->priv->button)));
+                g_value_set_string (value, gtk_button_get_label (GTK_BUTTON (self->priv->button)));
                 break;
         case PROP_SHOW_BUTTON:
-                g_value_set_boolean (value,
-                                     gtk_widget_get_visible (self->priv->button));
+                g_value_set_boolean (value, gtk_widget_get_visible (self->priv->button));
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -154,32 +153,34 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = gvc_combo_box_finalize;
+        object_class->dispose = gvc_combo_box_dispose;
         object_class->set_property = gvc_combo_box_set_property;
         object_class->get_property = gvc_combo_box_get_property;
 
-        g_object_class_install_property (object_class,
-                                         PROP_LABEL,
-                                         g_param_spec_string ("label",
-                                                              "label",
-                                                              "The combo box label",
-                                                              _("_Profile:"),
-                                                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT));
-        g_object_class_install_property (object_class,
-                                         PROP_SHOW_BUTTON,
-                                         g_param_spec_boolean ("show-button",
-                                                              "show-button",
-                                                              "Whether to show the button",
-                                                              FALSE,
-                                                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT));
-        g_object_class_install_property (object_class,
-                                         PROP_BUTTON_LABEL,
-                                         g_param_spec_string ("button-label",
-                                                              "button-label",
-                                                              "The button's label",
-                                                              "APPLICATION BUG",
-                                                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT));
-        signals [CHANGED] =
+        properties[PROP_LABEL] =
+                g_param_spec_string ("label",
+                                     "label",
+                                     "The combo box label",
+                                     _("_Profile:"),
+                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+
+        properties[PROP_SHOW_BUTTON] =
+                g_param_spec_boolean ("show-button",
+                                      "show-button",
+                                      "Whether to show the button",
+                                      FALSE,
+                                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+
+        properties[PROP_BUTTON_LABEL] =
+                g_param_spec_string ("button-label",
+                                     "button-label",
+                                     "The button's label",
+                                     "",
+                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+
+        g_object_class_install_properties (object_class, N_PROPERTIES, properties);
+
+        signals[CHANGED] =
                 g_signal_new ("changed",
                               G_TYPE_FROM_CLASS (klass),
                               G_SIGNAL_RUN_LAST,
@@ -187,7 +188,8 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                               NULL, NULL,
                               g_cclosure_marshal_VOID__STRING,
                               G_TYPE_NONE, 1, G_TYPE_STRING);
-        signals [BUTTON_CLICKED] =
+
+        signals[BUTTON_CLICKED] =
                 g_signal_new ("button-clicked",
                               G_TYPE_FROM_CLASS (klass),
                               G_SIGNAL_RUN_LAST,
@@ -200,190 +202,219 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
 }
 
 void
-gvc_combo_box_set_profiles (GvcComboBox *combo_box,
-                            const GList       *profiles)
+gvc_combo_box_set_profiles (GvcComboBox *combobox, const GList *profiles)
 {
         const GList *l;
 
-        g_return_if_fail (GVC_IS_COMBO_BOX (combo_box));
-        g_return_if_fail (combo_box->priv->set_called == FALSE);
+        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
+        g_return_if_fail (combobox->priv->set_called == FALSE);
 
         for (l = profiles; l != NULL; l = l->next) {
                 MateMixerDeviceProfile *p = MATE_MIXER_DEVICE_PROFILE (l->data);
 
-                gtk_list_store_insert_with_values (GTK_LIST_STORE (combo_box->priv->model),
+                gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
                                                    NULL,
                                                    G_MAXINT,
-                                                   COL_NAME, mate_mixer_device_profile_get_name (p),
-                                                   COL_HUMAN_NAME, mate_mixer_device_profile_get_description (p),
+                                                   COL_NAME,
+                                                   mate_mixer_device_profile_get_name (p),
+                                                   COL_HUMAN_NAME,
+                                                   mate_mixer_device_profile_get_description (p),
                                                    -1);
         }
-        combo_box->priv->set_called = TRUE;
+        combobox->priv->set_called = TRUE;
 }
 
 void
-gvc_combo_box_set_ports (GvcComboBox *combo_box, const GList *ports)
+gvc_combo_box_set_ports (GvcComboBox *combobox, const GList *ports)
 {
         const GList *l;
 
-        g_return_if_fail (GVC_IS_COMBO_BOX (combo_box));
-        g_return_if_fail (combo_box->priv->set_called == FALSE);
+        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
+        g_return_if_fail (combobox->priv->set_called == FALSE);
 
         for (l = ports; l != NULL; l = l->next) {
                 MateMixerPort *p = MATE_MIXER_PORT (l->data);
 
-                gtk_list_store_insert_with_values (GTK_LIST_STORE (combo_box->priv->model),
+                gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
                                                    NULL,
                                                    G_MAXINT,
-                                                   COL_NAME, mate_mixer_port_get_name (p),
-                                                   COL_HUMAN_NAME, mate_mixer_port_get_description (p),
+                                                   COL_NAME,
+                                                   mate_mixer_port_get_name (p),
+                                                   COL_HUMAN_NAME,
+                                                   mate_mixer_port_get_description (p),
                                                    -1);
         }
-        combo_box->priv->set_called = TRUE;
+        combobox->priv->set_called = TRUE;
 }
 
 void
-gvc_combo_box_set_active (GvcComboBox *combo_box,
-                          const char  *id)
+gvc_combo_box_set_active (GvcComboBox *combobox, const gchar *id)
 {
         GtkTreeIter iter;
-        gboolean cont;
+        gboolean    cont;
 
-        cont = gtk_tree_model_get_iter_first (combo_box->priv->model, &iter);
+        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
+        g_return_if_fail (id != NULL);
+
+        cont = gtk_tree_model_get_iter_first (combobox->priv->model, &iter);
         while (cont != FALSE) {
-                char *name;
+                gchar *name;
 
-                gtk_tree_model_get (combo_box->priv->model, &iter,
+                gtk_tree_model_get (combobox->priv->model, &iter,
                                     COL_NAME, &name,
                                     -1);
                 if (g_strcmp0 (name, id) == 0) {
-                        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo_box->priv->combobox), &iter);
+                        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combobox->priv->combobox), &iter);
+                        g_free (name);
                         return;
                 }
-                gtk_tree_model_iter_next (combo_box->priv->model, &iter);
+                g_free (name);
+
+                gtk_tree_model_iter_next (combobox->priv->model, &iter);
         }
         g_warning ("Could not find id '%s' in combo box", id);
 }
 
 static void
-on_combo_box_changed (GtkComboBox *widget,
-                      GvcComboBox *combo_box)
+on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
 {
-        GtkTreeIter          iter;
-        char                *profile;
+        GtkTreeIter iter;
+        gchar      *profile;
 
         if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter) == FALSE) {
                 g_warning ("Could not find an active profile or port");
                 return;
         }
 
-        gtk_tree_model_get (combo_box->priv->model, &iter,
+        gtk_tree_model_get (combobox->priv->model, &iter,
                             COL_NAME, &profile,
                             -1);
-        g_signal_emit (combo_box, signals[CHANGED], 0, profile);
+
+        g_signal_emit (combobox, signals[CHANGED], 0, profile);
         g_free (profile);
 }
 
 static void
-on_combo_box_button_clicked (GtkButton   *button,
-                             GvcComboBox *combo_box)
+on_combo_box_button_clicked (GtkButton *button, GvcComboBox *combobox)
 {
-        g_signal_emit (combo_box, signals[BUTTON_CLICKED], 0);
+        g_signal_emit (combobox, signals[BUTTON_CLICKED], 0);
 }
 
 static void
-gvc_combo_box_init (GvcComboBox *combo_box)
+gvc_combo_box_init (GvcComboBox *combobox)
 {
-        GtkWidget *frame;
-        GtkWidget            *box;
-        GtkWidget            *sbox;
-        GtkWidget            *ebox;
-        GtkCellRenderer      *renderer;
+        GtkWidget       *frame;
+        GtkCellRenderer *renderer;
 
-        combo_box->priv = GVC_COMBO_BOX_GET_PRIVATE (combo_box);
+        combobox->priv = GVC_COMBO_BOX_GET_PRIVATE (combobox);
 
-        combo_box->priv->model = GTK_TREE_MODEL (gtk_list_store_new (NUM_COLS,
-                                                                     G_TYPE_STRING,
-                                                                     G_TYPE_STRING));
+        combobox->priv->model = GTK_TREE_MODEL (gtk_list_store_new (NUM_COLS,
+                                                                    G_TYPE_STRING,
+                                                                    G_TYPE_STRING));
+        combobox->priv->label = gtk_label_new (NULL);
 
-        combo_box->priv->label = gtk_label_new (NULL);
-        gtk_misc_set_alignment (GTK_MISC (combo_box->priv->label),
-                                0.0,
-                                0.5);
+        gtk_misc_set_alignment (GTK_MISC (combobox->priv->label), 0.0, 0.5);
 
-        /* frame */
+        /* Frame */
         frame = gtk_frame_new (NULL);
         gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
-        gtk_container_add (GTK_CONTAINER (combo_box), frame);
+        gtk_box_pack_start (GTK_BOX (combobox), frame, TRUE, TRUE, 0);
 
-        combo_box->priv->drop_box = box = gtk_hbox_new (FALSE, 6);
-        combo_box->priv->combobox = gtk_combo_box_new_with_model (combo_box->priv->model);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        combobox->priv->drop_box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        combobox->priv->start_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        combobox->priv->end_box   = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+#else
+        combobox->priv->drop_box  = gtk_hbox_new (FALSE, 6);
+        combobox->priv->start_box = gtk_hbox_new (FALSE, 6);
+        combobox->priv->end_box   = gtk_hbox_new (FALSE, 6);
+#endif
+        combobox->priv->combobox  = gtk_combo_box_new_with_model (combobox->priv->model);
+
         renderer = gtk_cell_renderer_text_new ();
-        gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo_box->priv->combobox),
-                                    renderer, FALSE);
-        gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (combo_box->priv->combobox),
+        gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combobox->priv->combobox),
+                                    renderer,
+                                    FALSE);
+        gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (combobox->priv->combobox),
                                        renderer,
-                                       "text", COL_HUMAN_NAME);
+                                       "text",
+                                       COL_HUMAN_NAME);
 
-/*       gtk_widget_set_size_request (combo_box->priv->combobox, 128, -1); */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        /* Make sure the combo box does not get too long on long profile names */
+        g_object_set (G_OBJECT (renderer),
+                      "ellipsize",
+                      PANGO_ELLIPSIZE_END,
+                      NULL);
 
-        combo_box->priv->start_box = sbox = gtk_hbox_new (FALSE, 6);
-        gtk_box_pack_start (GTK_BOX (box), sbox, FALSE, FALSE, 0);
+        gtk_combo_box_set_popup_fixed_width (GTK_COMBO_BOX (combobox->priv->combobox), FALSE);
+#endif
 
-        gtk_box_pack_start (GTK_BOX (sbox), combo_box->priv->label, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (combobox->priv->drop_box),
+                            combobox->priv->start_box,
+                            FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (combobox->priv->start_box),
+                            combobox->priv->label,
+                            FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (combobox->priv->drop_box),
+                            combobox->priv->combobox,
+                            TRUE, TRUE, 0);
 
-        gtk_box_pack_start (GTK_BOX (box), combo_box->priv->combobox, TRUE, TRUE, 0);
+        combobox->priv->button = gtk_button_new_with_label ("");
 
-        combo_box->priv->button = gtk_button_new_with_label ("APPLICATION BUG");
-        gtk_widget_set_no_show_all (combo_box->priv->button, TRUE);
-        gtk_box_pack_start (GTK_BOX (box), combo_box->priv->button, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (combobox->priv->drop_box),
+                            combobox->priv->button,
+                            FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (combobox->priv->drop_box),
+                            combobox->priv->end_box,
+                            FALSE, FALSE, 0);
 
+        gtk_widget_set_no_show_all (combobox->priv->button, TRUE);
 
-        combo_box->priv->end_box = ebox = gtk_hbox_new (FALSE, 6);
-        gtk_box_pack_start (GTK_BOX (box), ebox, FALSE, FALSE, 0);
+        if (combobox->priv->size_group != NULL) {
+                gtk_size_group_add_widget (combobox->priv->size_group,
+                                           combobox->priv->start_box);
 
-        if (combo_box->priv->size_group != NULL) {
-                gtk_size_group_add_widget (combo_box->priv->size_group, sbox);
-
-                if (combo_box->priv->symmetric) {
-                        gtk_size_group_add_widget (combo_box->priv->size_group, ebox);
-                }
+                if (combobox->priv->symmetric)
+                        gtk_size_group_add_widget (combobox->priv->size_group,
+                                                   combobox->priv->end_box);
         }
 
-        gtk_container_add (GTK_CONTAINER (frame), combo_box->priv->drop_box);
+        gtk_label_set_mnemonic_widget (GTK_LABEL (combobox->priv->label),
+                                       combobox->priv->combobox);
+
+        gtk_container_add (GTK_CONTAINER (frame), combobox->priv->drop_box);
         gtk_widget_show_all (frame);
 
-        gtk_label_set_mnemonic_widget (GTK_LABEL (combo_box->priv->label),
-                                       combo_box->priv->combobox);
-
-        g_signal_connect (G_OBJECT (combo_box->priv->combobox), "changed",
-                          G_CALLBACK (on_combo_box_changed), combo_box);
-        g_signal_connect (G_OBJECT (combo_box->priv->button), "clicked",
-                          G_CALLBACK (on_combo_box_button_clicked), combo_box);
+        g_signal_connect (G_OBJECT (combobox->priv->combobox),
+                          "changed",
+                          G_CALLBACK (on_combo_box_changed),
+                          combobox);
+        g_signal_connect (G_OBJECT (combobox->priv->button),
+                          "clicked",
+                          G_CALLBACK (on_combo_box_button_clicked),
+                          combobox);
 }
 
 static void
-gvc_combo_box_finalize (GObject *object)
+gvc_combo_box_dispose (GObject *object)
 {
-        GvcComboBox *combo_box;
+        GvcComboBox *combobox;
 
-        g_return_if_fail (object != NULL);
-        g_return_if_fail (GVC_IS_COMBO_BOX (object));
+        combobox = GVC_COMBO_BOX (object);
 
-        combo_box = GVC_COMBO_BOX (object);
+        g_clear_object (&combobox->priv->model);
 
-        g_return_if_fail (combo_box->priv != NULL);
-
-        g_object_unref (combo_box->priv->model);
-        combo_box->priv->model = NULL;
-
-        G_OBJECT_CLASS (gvc_combo_box_parent_class)->finalize (object);
+        G_OBJECT_CLASS (gvc_combo_box_parent_class)->dispose (object);
 }
 
 GtkWidget *
-gvc_combo_box_new (const char *label)
+gvc_combo_box_new (const gchar *label)
 {
         return g_object_new (GVC_TYPE_COMBO_BOX,
                              "label", label,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                             "orientation", GTK_ORIENTATION_HORIZONTAL,
+#endif
                              NULL);
 }

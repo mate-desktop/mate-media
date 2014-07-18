@@ -30,8 +30,7 @@ AC_PROG_MAKE_SET
 
 # Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([fcntl.h limits.h malloc.h strings.h sys/ioctl.h unistd.h])
-AC_CHECK_HEADERS([sys/sockio.h sys/param.h])
+AC_CHECK_HEADERS([string.h math.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -108,9 +107,8 @@ AC_ARG_ENABLE([pulseaudio],
               enable_pulseaudio=$enableval, enable_pulseaudio=auto)
 
 if test "x$enable_pulseaudio" != "xno"; then
-
   PKG_CHECK_MODULES(PULSEAUDIO,
-          libpulse >= $PA_REQUIRED_VERSION libpulse-mainloop-glib >= $PA_REQUIRED_VERSION,
+          libpulse >= $PA_REQUIRED_VERSION,
           have_pulseaudio=yes,
           have_pulseaudio=no)
 
@@ -126,7 +124,7 @@ if test "x$enable_pulseaudio" != "xno"; then
             libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
             unique-$UNIQUE_API_VERSION
             libxml-2.0
-            mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+dnl            mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
             libmatemixer
     )
 

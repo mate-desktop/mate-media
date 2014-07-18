@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 Red Hat, Inc.
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,13 +53,13 @@ struct _GvcStreamStatusIconClass
 GType                 gvc_stream_status_icon_get_type            (void) G_GNUC_CONST;
 
 GvcStreamStatusIcon * gvc_stream_status_icon_new                 (MateMixerStream     *stream,
-                                                                  const char         **icon_names);
+                                                                  const gchar        **icon_names);
 
 void                  gvc_stream_status_icon_set_icon_names      (GvcStreamStatusIcon *icon,
-                                                                  const char         **icon_names);
+                                                                  const gchar        **icon_names);
 void                  gvc_stream_status_icon_set_display_name    (GvcStreamStatusIcon *icon,
-                                                                  const char          *display_name);
-void                  gvc_stream_status_icon_set_mixer_stream    (GvcStreamStatusIcon *icon,
+                                                                  const gchar         *display_name);
+void                  gvc_stream_status_icon_set_stream          (GvcStreamStatusIcon *icon,
                                                                   MateMixerStream     *stream);
 
 G_END_DECLS

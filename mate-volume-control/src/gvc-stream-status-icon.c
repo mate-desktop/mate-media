@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 William Jon McCann
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +19,11 @@
  *
  */
 
-#include "config.h"
-
-#include <math.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <gdk/gdkkeysyms-compat.h>
+#include <gdk/gdkkeysyms.h>
+
 #include <libmatemixer/matemixer.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
@@ -38,22 +37,24 @@
 
 struct _GvcStreamStatusIconPrivate
 {
-        char           **icon_names;
+        gchar          **icon_names;
         GtkWidget       *dock;
         GtkWidget       *bar;
         guint            current_icon;
-        char            *display_name;
-        gboolean         thaw;
-        MateMixerStream *mixer_stream;
+        gchar           *display_name;
+        MateMixerStream *stream;
 };
 
 enum
 {
         PROP_0,
+        PROP_STREAM,
         PROP_DISPLAY_NAME,
-        PROP_MIXER_STREAM,
         PROP_ICON_NAMES,
+        N_PROPERTIES
 };
+
+static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
 static void gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass);
 static void gvc_stream_status_icon_init       (GvcStreamStatusIcon      *stream_status_icon);
@@ -61,55 +62,25 @@ static void gvc_stream_status_icon_finalize   (GObject                  *object)
 
 G_DEFINE_TYPE (GvcStreamStatusIcon, gvc_stream_status_icon, GTK_TYPE_STATUS_ICON)
 
-static void
-on_adjustment_value_changed (GtkAdjustment       *adjustment,
-                             GvcStreamStatusIcon *icon)
-{
-        if (icon->priv->thaw == FALSE)
-                mate_mixer_stream_set_volume (icon->priv->mixer_stream,
-                                              round (gtk_adjustment_get_value (adjustment)));
-}
-
-static void
-update_dock (GvcStreamStatusIcon *icon)
-{
-        GtkAdjustment *adj;
-
-        g_return_if_fail (icon);
-
-        adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (icon->priv->bar)));
-
-        icon->priv->thaw = TRUE;
-        gtk_adjustment_set_value (adj,
-                                  mate_mixer_stream_get_volume (icon->priv->mixer_stream));
-        gvc_channel_bar_set_is_muted (GVC_CHANNEL_BAR (icon->priv->bar),
-                                      mate_mixer_stream_get_mute (icon->priv->mixer_stream));
-        icon->priv->thaw = FALSE;
-}
-
 static gboolean
-popup_dock (GvcStreamStatusIcon *icon,
-            guint                time)
+popup_dock (GvcStreamStatusIcon *icon, guint time)
 {
         GdkRectangle   area;
         GtkOrientation orientation;
         GdkDisplay    *display;
         GdkScreen     *screen;
-        gboolean       res;
         int            x;
         int            y;
         int            monitor_num;
         GdkRectangle   monitor;
         GtkRequisition dock_req;
 
-        update_dock (icon);
-
         screen = gtk_status_icon_get_screen (GTK_STATUS_ICON (icon));
-        res = gtk_status_icon_get_geometry (GTK_STATUS_ICON (icon),
-                                            &screen,
-                                            &area,
-                                            &orientation);
-        if (! res) {
+
+        if (gtk_status_icon_get_geometry (GTK_STATUS_ICON (icon),
+                                          &screen,
+                                          &area,
+                                          &orientation) == FALSE) {
                 g_warning ("Unable to determine geometry of status icon");
                 return FALSE;
         }
@@ -131,68 +102,88 @@ popup_dock (GvcStreamStatusIcon *icon,
 #endif
 
         if (orientation == GTK_ORIENTATION_VERTICAL) {
-                if (area.x + area.width + dock_req.width <= monitor.x + monitor.width) {
+                if (area.x + area.width + dock_req.width <= monitor.x + monitor.width)
                         x = area.x + area.width;
-                } else {
+                else
                         x = area.x - dock_req.width;
-                }
-                if (area.y + dock_req.height <= monitor.y + monitor.height) {
+
+                if (area.y + dock_req.height <= monitor.y + monitor.height)
                         y = area.y;
-                } else {
+                else
                         y = monitor.y + monitor.height - dock_req.height;
-                }
         } else {
-                if (area.y + area.height + dock_req.height <= monitor.y + monitor.height) {
+                if (area.y + area.height + dock_req.height <= monitor.y + monitor.height)
                         y = area.y + area.height;
-                } else {
+                else
                         y = area.y - dock_req.height;
-                }
-                if (area.x + dock_req.width <= monitor.x + monitor.width) {
+
+                if (area.x + dock_req.width <= monitor.x + monitor.width)
                         x = area.x;
-                } else {
+                else
                         x = monitor.x + monitor.width - dock_req.width;
-                }
         }
 
         gtk_window_move (GTK_WINDOW (icon->priv->dock), x, y);
 
-        /* FIXME: without this, the popup window appears as a square
-         * after changing the orientation
-         */
+        /* Without this, the popup window appears as a square after changing
+         * the orientation */
         gtk_window_resize (GTK_WINDOW (icon->priv->dock), 1, 1);
 
         gtk_widget_show_all (icon->priv->dock);
 
-
-        /* grab focus */
+        /* Grab focus */
         gtk_grab_add (icon->priv->dock);
 
-        if (gdk_pointer_grab (gtk_widget_get_window (icon->priv->dock), TRUE,
-                              GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
-                              GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK, NULL, NULL,
-                              time)
-            != GDK_GRAB_SUCCESS) {
+        display = gtk_widget_get_display (icon->priv->dock);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        do {
+                GdkDeviceManager *manager = gdk_display_get_device_manager (display);
+
+                if (gdk_device_grab (gdk_device_manager_get_client_pointer (manager),
+                                     gtk_widget_get_window (icon->priv->dock),
+                                     GDK_OWNERSHIP_NONE,
+                                     TRUE,
+                                     GDK_BUTTON_PRESS_MASK |
+                                     GDK_BUTTON_RELEASE_MASK |
+                                     GDK_POINTER_MOTION_MASK |
+                                     GDK_SCROLL_MASK,
+                                     NULL,
+                                     time) != GDK_GRAB_SUCCESS) {
+                        gtk_grab_remove (icon->priv->dock);
+                        gtk_widget_hide (icon->priv->dock);
+                }
+        } while (0);
+#else
+        if (gdk_pointer_grab (gtk_widget_get_window (icon->priv->dock),
+                              TRUE,
+                              GDK_BUTTON_PRESS_MASK |
+                              GDK_BUTTON_RELEASE_MASK |
+                              GDK_POINTER_MOTION_MASK |
+                              GDK_SCROLL_MASK,
+                              NULL, NULL,
+                              time) != GDK_GRAB_SUCCESS) {
                 gtk_grab_remove (icon->priv->dock);
                 gtk_widget_hide (icon->priv->dock);
                 return FALSE;
         }
 
-        if (gdk_keyboard_grab (gtk_widget_get_window (icon->priv->dock), TRUE, time) != GDK_GRAB_SUCCESS) {
-                display = gtk_widget_get_display (icon->priv->dock);
+        if (gdk_keyboard_grab (gtk_widget_get_window (icon->priv->dock),
+                               TRUE,
+                               time) != GDK_GRAB_SUCCESS) {
                 gdk_display_pointer_ungrab (display, time);
                 gtk_grab_remove (icon->priv->dock);
                 gtk_widget_hide (icon->priv->dock);
                 return FALSE;
         }
-
+#endif
         gtk_widget_grab_focus (icon->priv->dock);
 
         return TRUE;
 }
 
 static void
-on_status_icon_activate (GtkStatusIcon       *status_icon,
-                         GvcStreamStatusIcon *icon)
+on_status_icon_activate (GtkStatusIcon *status_icon, GvcStreamStatusIcon *icon)
 {
         popup_dock (icon, GDK_CURRENT_TIME);
 }
@@ -202,38 +193,35 @@ on_status_icon_button_press (GtkStatusIcon       *status_icon,
                              GdkEventButton      *event,
                              GvcStreamStatusIcon *icon)
 {
-        /* middle click acts as mute/unmute */
+        /* Middle click acts as mute/unmute */
         if (event->button == 2) {
-                gboolean is_muted;
-                is_muted = mate_mixer_stream_get_mute (icon->priv->mixer_stream);
+                gboolean is_muted = mate_mixer_stream_get_mute (icon->priv->stream);
 
-                mate_mixer_stream_set_mute (icon->priv->mixer_stream, !is_muted);
+                mate_mixer_stream_set_mute (icon->priv->stream, !is_muted);
                 return TRUE;
         }
         return FALSE;
 }
 
 static void
-on_menu_mute_toggled (GtkMenuItem         *item,
-                      GvcStreamStatusIcon *icon)
+on_menu_mute_toggled (GtkMenuItem *item, GvcStreamStatusIcon *icon)
 {
         gboolean is_muted;
+
         is_muted = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (item));
-        gvc_channel_bar_set_is_muted (GVC_CHANNEL_BAR (icon->priv->bar), is_muted);
+
+        mate_mixer_stream_set_mute (icon->priv->stream, is_muted);
 }
 
 static void
-on_menu_activate_open_volume_control (GtkMenuItem *item,
-                                      GvcStreamStatusIcon   *icon)
+on_menu_activate_open_volume_control (GtkMenuItem         *item,
+                                      GvcStreamStatusIcon *icon)
 {
         GError *error = NULL;
 
-        // XXX update to libmate-desktop 1.9.1 and uncomment this
-        /*
         mate_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
                                            "mate-volume-control",
                                            &error);
-                                           */
         if (error != NULL) {
                 GtkWidget *dialog;
 
@@ -243,7 +231,7 @@ on_menu_activate_open_volume_control (GtkMenuItem *item,
                                                  GTK_BUTTONS_CLOSE,
                                                  _("Failed to start Sound Preferences: %s"),
                                                  error->message);
-                g_signal_connect (dialog,
+                g_signal_connect (G_OBJECT (dialog),
                                   "response",
                                   G_CALLBACK (gtk_widget_destroy),
                                   NULL);
@@ -260,27 +248,38 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
 {
         GtkWidget *menu;
         GtkWidget *item;
-        GtkWidget *image;
 
         menu = gtk_menu_new ();
-
         item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
+
         gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
-                                        mate_mixer_stream_get_mute (icon->priv->mixer_stream));
-        g_signal_connect (item,
+                                        mate_mixer_stream_get_mute (icon->priv->stream));
+        g_signal_connect (G_OBJECT (item),
                           "toggled",
                           G_CALLBACK (on_menu_mute_toggled),
                           icon);
+
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
+#if GTK_CHECK_VERSION (3, 10, 0)
+        item = gtk_menu_item_new_with_mnemonic (_("_Sound Preferences"));
+#else
         item = gtk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
-        image = gtk_image_new_from_icon_name ("multimedia-volume-control",
-                                              GTK_ICON_SIZE_MENU);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
-        g_signal_connect (item,
+
+        do {
+                GtkWidget *image;
+
+                image = gtk_image_new_from_icon_name ("multimedia-volume-control",
+                                                      GTK_ICON_SIZE_MENU);
+
+                gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
+        } while (0);
+#endif
+        g_signal_connect (G_OBJECT (item),
                           "activate",
                           G_CALLBACK (on_menu_activate_open_volume_control),
                           icon);
+
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
         gtk_widget_show_all (menu);
@@ -302,25 +301,28 @@ on_status_icon_scroll_event (GtkStatusIcon       *status_icon,
 }
 
 static void
-gvc_icon_release_grab (GvcStreamStatusIcon *icon,
-                         GdkEventButton    *event)
+gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 {
-        GdkDisplay     *display;
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gdk_device_ungrab (event->device, event->time);
+#else
+        GdkDisplay *display;
 
-        /* ungrab focus */
         display = gtk_widget_get_display (GTK_WIDGET (icon->priv->dock));
+
         gdk_display_keyboard_ungrab (display, event->time);
         gdk_display_pointer_ungrab (display, event->time);
+#endif
         gtk_grab_remove (icon->priv->dock);
 
-        /* hide again */
+        /* Hide again */
         gtk_widget_hide (icon->priv->dock);
 }
 
 static gboolean
-on_dock_button_press (GtkWidget      *widget,
-                      GdkEventButton *event,
-                      GvcStreamStatusIcon      *icon)
+on_dock_button_press (GtkWidget           *widget,
+                      GdkEventButton      *event,
+                      GvcStreamStatusIcon *icon)
 {
         if (event->type == GDK_BUTTON_PRESS) {
                 gvc_icon_release_grab (icon, event);
@@ -335,33 +337,34 @@ popdown_dock (GvcStreamStatusIcon *icon)
 {
         GdkDisplay *display;
 
-        /* ungrab focus */
         display = gtk_widget_get_display (icon->priv->dock);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GdkDeviceManager *manager = gdk_display_get_device_manager (display);
+
+        gdk_device_ungrab (gdk_device_manager_get_client_pointer (manager),
+                           GDK_CURRENT_TIME);
+#else
         gdk_display_keyboard_ungrab (display, GDK_CURRENT_TIME);
         gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
         gtk_grab_remove (icon->priv->dock);
-
-        /* hide again */
+#endif
+        /* Hide again */
         gtk_widget_hide (icon->priv->dock);
 }
 
-/* This is called when the grab is broken for
- * either the dock, or the scale itself */
+/* This is called when the grab is broken for either the dock, or the scale */
 static void
-gvc_icon_grab_notify (GvcStreamStatusIcon *icon,
-                      gboolean             was_grabbed)
+gvc_icon_grab_notify (GvcStreamStatusIcon *icon, gboolean was_grabbed)
 {
-        if (was_grabbed != FALSE) {
+        if (was_grabbed != FALSE)
                 return;
-        }
 
-        if (!gtk_widget_has_grab (icon->priv->dock)) {
+        if (gtk_widget_has_grab (icon->priv->dock) == FALSE)
                 return;
-        }
 
-        if (gtk_widget_is_ancestor (gtk_grab_get_current (), icon->priv->dock)) {
+        if (gtk_widget_is_ancestor (gtk_grab_get_current (), icon->priv->dock))
                 return;
-        }
 
         popdown_dock (icon);
 }
@@ -380,7 +383,6 @@ on_dock_grab_broken_event (GtkWidget           *widget,
                            GvcStreamStatusIcon *icon)
 {
         gvc_icon_grab_notify (icon, FALSE);
-
         return FALSE;
 }
 
@@ -389,17 +391,10 @@ on_dock_key_release (GtkWidget           *widget,
                      GdkEventKey         *event,
                      GvcStreamStatusIcon *icon)
 {
-        if (event->keyval == GDK_Escape) {
+        if (event->keyval == GDK_KEY_Escape) {
                 popdown_dock (icon);
                 return TRUE;
         }
-
-#if 0
-        if (!gtk_bindings_activate_event (GTK_OBJECT (widget), event)) {
-                /* The popup hasn't managed the event, pass onto the button */
-                gtk_bindings_activate_event (GTK_OBJECT (user_data), event);
-        }
-#endif
         return TRUE;
 }
 
@@ -416,171 +411,187 @@ on_dock_scroll_event (GtkWidget           *widget,
 static void
 update_icon (GvcStreamStatusIcon *icon)
 {
-        gint64               volume;
+        guint                volume = 0;
         gdouble              decibel = 0;
-        gint64               normal_volume;
-        gboolean             is_muted;
-        guint                n;
-        char                *markup;
-        gboolean             can_decibel = FALSE;
+        guint                normal = 0;
+        gboolean             muted = FALSE;
+        guint                n = 0;
+        gchar               *markup;
+        const gchar         *description;
         MateMixerStreamFlags flags;
 
-        if (icon->priv->mixer_stream == NULL) {
+        if (icon->priv->stream == NULL) {
+                /* Do not bother creating a tooltip for an unusable icon as it
+                 * has no practical use */
+                gtk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), FALSE);
                 return;
+        } else
+                gtk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), TRUE);
+
+        flags = mate_mixer_stream_get_flags (icon->priv->stream);
+
+        if (flags & MATE_MIXER_STREAM_HAS_MUTE)
+                muted = mate_mixer_stream_get_mute (icon->priv->stream);
+
+        if (flags & MATE_MIXER_STREAM_HAS_VOLUME) {
+                volume = mate_mixer_stream_get_volume (icon->priv->stream);
+                normal = mate_mixer_stream_get_normal_volume (icon->priv->stream);
+
+                /* Select an icon, they are expected to be sorted, the lowest index being
+                 * the mute icon and the rest being volume increments */
+                if (volume <= 0 || muted)
+                        n = 0;
+                else
+                        n = CLAMP (3 * volume / normal + 1, 1, 3);
         }
+        if (flags & MATE_MIXER_STREAM_HAS_DECIBEL_VOLUME)
+                decibel = mate_mixer_stream_get_decibel (icon->priv->stream);
 
-        volume = mate_mixer_stream_get_volume (icon->priv->mixer_stream);
-        is_muted = mate_mixer_stream_get_mute (icon->priv->mixer_stream);
-
-        flags = mate_mixer_stream_get_flags (icon->priv->mixer_stream);
-
-        if (flags & MATE_MIXER_STREAM_HAS_DECIBEL_VOLUME) {
-                decibel = mate_mixer_stream_get_decibel (icon->priv->mixer_stream);
-                can_decibel = TRUE;
-        }
-
-        normal_volume = mate_mixer_stream_get_normal_volume (icon->priv->mixer_stream);
-
-        /* select image */
-        if (volume <= 0 || is_muted) {
-                n = 0;
-        } else {
-                n = 3 * volume / normal_volume + 1;
-                if (n < 1) {
-                        n = 1;
-                } else if (n > 3) {
-                        n = 3;
-                }
-        }
-
-        /* apparently status icon will reset icon even if
-         * if doesn't change */
+        /* Apparently status icon will reset icon even if it doesn't change */
         if (icon->priv->current_icon != n) {
                 gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
-                                                    icon->priv->icon_names [n]);
+                                                    icon->priv->icon_names[n]);
                 icon->priv->current_icon = n;
         }
 
+        description = mate_mixer_stream_get_description (icon->priv->stream);
 
-        if (is_muted) {
-                markup = g_strdup_printf (
-                                          "<b>%s: %s</b>\n<small>%s</small>",
+        if (muted) {
+                markup = g_strdup_printf ("<b>%s: %s</b>\n<small>%s</small>",
                                           icon->priv->display_name,
                                           _("Muted"),
-                                          mate_mixer_stream_get_description (icon->priv->mixer_stream));
-        } else if (can_decibel && (decibel > -MATE_MIXER_INFINITY)) {
-                markup = g_strdup_printf (
-                                          "<b>%s: %.0f%%</b>\n<small>%0.2f dB\n%s</small>",
-                                          icon->priv->display_name,
-                                          100 * (float) volume / normal_volume,
-                                          decibel,
-                                          mate_mixer_stream_get_description (icon->priv->mixer_stream));
-        } else if (can_decibel) {
-                markup = g_strdup_printf (
-                                          "<b>%s: %.0f%%</b>\n<small>-&#8734; dB\n%s</small>",
-                                          icon->priv->display_name,
-                                          100 * (float) volume / normal_volume,
-                                          mate_mixer_stream_get_description (icon->priv->mixer_stream));
+                                          description);
+        } else if (flags & MATE_MIXER_STREAM_HAS_VOLUME) {
+                gdouble display_volume = 100 * volume / normal;
+
+                if (flags & MATE_MIXER_STREAM_HAS_DECIBEL_VOLUME) {
+                        if (decibel > -MATE_MIXER_INFINITY) {
+                                markup = g_strdup_printf ("<b>%s: %.0f%%</b>\n"
+                                                          "<small>%0.2f dB\n%s</small>",
+                                                          icon->priv->display_name,
+                                                          display_volume,
+                                                          decibel,
+                                                          description);
+                        } else {
+                                markup = g_strdup_printf ("<b>%s: %.0f%%</b>\n"
+                                                          "<small>-&#8734; dB\n%s</small>",
+                                                          icon->priv->display_name,
+                                                          display_volume,
+                                                          description);
+                        }
+                } else {
+                        markup = g_strdup_printf ("<b>%s: %.0f%%</b>\n<small>%s</small>",
+                                                  icon->priv->display_name,
+                                                  display_volume,
+                                                  description);
+                }
         } else {
-                markup = g_strdup_printf (
-                                          "<b>%s: %.0f%%</b>\n<small>%s</small>",
+                markup = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
                                           icon->priv->display_name,
-                                          100 * (float) volume / normal_volume,
-                                          mate_mixer_stream_get_description (icon->priv->mixer_stream));
+                                          description);
         }
+
         gtk_status_icon_set_tooltip_markup (GTK_STATUS_ICON (icon), markup);
+
         g_free (markup);
 }
 
 void
 gvc_stream_status_icon_set_icon_names (GvcStreamStatusIcon  *icon,
-                                       const char          **names)
+                                       const gchar         **names)
 {
         g_return_if_fail (GVC_IS_STREAM_STATUS_ICON (icon));
+        g_return_if_fail (names != NULL && *names != NULL);
+
+        if (G_UNLIKELY (g_strv_length ((gchar **) names) != 4)) {
+                g_warn_if_reached ();
+                return;
+        }
 
         g_strfreev (icon->priv->icon_names);
-        icon->priv->icon_names = g_strdupv ((char **)names);
+
+        icon->priv->icon_names = g_strdupv ((gchar **) names);
+
+        /* Set the first icon as the initial one, the icon may be immediately
+         * updated or not depending on whether a stream is available */
+        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon), names[0]);
         update_icon (icon);
-        g_object_notify (G_OBJECT (icon), "icon-names");
+
+        g_object_notify_by_pspec (G_OBJECT (icon), properties[PROP_ICON_NAMES]);
 }
 
 static void
-on_stream_volume_notify (GObject             *object,
+on_stream_volume_notify (MateMixerStream     *stream,
                          GParamSpec          *pspec,
                          GvcStreamStatusIcon *icon)
 {
         update_icon (icon);
-        update_dock (icon);
 }
 
 static void
-on_stream_mute_notify (GObject             *object,
+on_stream_mute_notify (MateMixerStream     *stream,
                        GParamSpec          *pspec,
                        GvcStreamStatusIcon *icon)
 {
         update_icon (icon);
-        update_dock (icon);
 }
 
 void
 gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon *icon,
-                                         const char          *name)
+                                         const gchar         *name)
 {
         g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
 
         g_free (icon->priv->display_name);
+
         icon->priv->display_name = g_strdup (name);
         update_icon (icon);
-        g_object_notify (G_OBJECT (icon), "display-name");
+
+        g_object_notify_by_pspec (G_OBJECT (icon), properties[PROP_DISPLAY_NAME]);
 }
 
 void
-gvc_stream_status_icon_set_mixer_stream (GvcStreamStatusIcon *icon,
-                                         MateMixerStream     *stream)
+gvc_stream_status_icon_set_stream (GvcStreamStatusIcon *icon,
+                                   MateMixerStream     *stream)
 {
         g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
 
-        if (stream != NULL) {
-                g_object_ref (stream);
-        }
+        if (icon->priv->stream == stream)
+                return;
 
-        if (icon->priv->mixer_stream != NULL) {
-                g_signal_handlers_disconnect_by_func (icon->priv->mixer_stream,
+        if (stream != NULL)
+                g_object_ref (stream);
+
+        if (icon->priv->stream != NULL) {
+                g_signal_handlers_disconnect_by_func (icon->priv->stream,
                                                       G_CALLBACK (on_stream_volume_notify),
                                                       icon);
-                g_signal_handlers_disconnect_by_func (icon->priv->mixer_stream,
+                g_signal_handlers_disconnect_by_func (icon->priv->stream,
                                                       G_CALLBACK (on_stream_mute_notify),
                                                       icon);
 
-                g_object_unref (icon->priv->mixer_stream);
+                g_object_unref (icon->priv->stream);
         }
 
-        icon->priv->mixer_stream = stream;
+        icon->priv->stream = stream;
 
-        if (icon->priv->mixer_stream != NULL) {
-                GtkAdjustment *adj;
-
-                g_object_ref (icon->priv->mixer_stream);
-
-                icon->priv->thaw = TRUE;
-                adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (icon->priv->bar)));
-                gtk_adjustment_set_value (adj,
-                                          mate_mixer_stream_get_volume (icon->priv->mixer_stream));
-                icon->priv->thaw = FALSE;
-
-                g_signal_connect (icon->priv->mixer_stream,
+        if (icon->priv->stream != NULL) {
+                g_signal_connect (icon->priv->stream,
                                   "notify::volume",
                                   G_CALLBACK (on_stream_volume_notify),
                                   icon);
-                g_signal_connect (icon->priv->mixer_stream,
+                g_signal_connect (icon->priv->stream,
                                   "notify::mute",
                                   G_CALLBACK (on_stream_mute_notify),
                                   icon);
+
+                // XXX when no stream set some default icon and "unset" dock
+                update_icon (icon);
         }
 
-        update_icon (icon);
+        gvc_channel_bar_set_stream (GVC_CHANNEL_BAR (icon->priv->bar), stream);
 
-        g_object_notify (G_OBJECT (icon), "mixer-stream");
+        g_object_notify_by_pspec (G_OBJECT (icon), properties[PROP_STREAM]);
 }
 
 static void
@@ -592,8 +603,8 @@ gvc_stream_status_icon_set_property (GObject       *object,
         GvcStreamStatusIcon *self = GVC_STREAM_STATUS_ICON (object);
 
         switch (prop_id) {
-        case PROP_MIXER_STREAM:
-                gvc_stream_status_icon_set_mixer_stream (self, g_value_get_object (value));
+        case PROP_STREAM:
+                gvc_stream_status_icon_set_stream (self, g_value_get_object (value));
                 break;
         case PROP_DISPLAY_NAME:
                 gvc_stream_status_icon_set_display_name (self, g_value_get_string (value));
@@ -614,102 +625,21 @@ gvc_stream_status_icon_get_property (GObject     *object,
                                      GParamSpec  *pspec)
 {
         GvcStreamStatusIcon *self = GVC_STREAM_STATUS_ICON (object);
-        GvcStreamStatusIconPrivate *priv = self->priv;
 
         switch (prop_id) {
-        case PROP_MIXER_STREAM:
-                g_value_set_object (value, priv->mixer_stream);
+        case PROP_STREAM:
+                g_value_set_object (value, self->priv->stream);
                 break;
         case PROP_DISPLAY_NAME:
-                g_value_set_string (value, priv->display_name);
+                g_value_set_string (value, self->priv->display_name);
                 break;
         case PROP_ICON_NAMES:
-                g_value_set_boxed (value, priv->icon_names);
+                g_value_set_boxed (value, self->priv->icon_names);
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
                 break;
         }
-}
-
-static void
-on_bar_is_muted_notify (GObject             *object,
-                        GParamSpec          *pspec,
-                        GvcStreamStatusIcon *icon)
-{
-        mate_mixer_stream_set_mute (icon->priv->mixer_stream,
-                                    gvc_channel_bar_get_is_muted (GVC_CHANNEL_BAR (object)));
-}
-
-static GObject *
-gvc_stream_status_icon_constructor (GType                  type,
-                                    guint                  n_construct_properties,
-                                    GObjectConstructParam *construct_params)
-{
-        GObject             *object;
-        GvcStreamStatusIcon *icon;
-        GtkWidget           *frame;
-        GtkWidget           *box;
-        GtkAdjustment       *adj;
-
-        object = G_OBJECT_CLASS (gvc_stream_status_icon_parent_class)->constructor (type, n_construct_properties, construct_params);
-
-        icon = GVC_STREAM_STATUS_ICON (object);
-
-        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
-                                            icon->priv->icon_names[0]);
-
-        /* window */
-        icon->priv->dock = gtk_window_new (GTK_WINDOW_POPUP);
-        gtk_widget_set_name (icon->priv->dock, "gvc-stream-status-icon-popup-window");
-        g_signal_connect (icon->priv->dock,
-                          "button-press-event",
-                          G_CALLBACK (on_dock_button_press),
-                          icon);
-        g_signal_connect (icon->priv->dock,
-                          "key-release-event",
-                          G_CALLBACK (on_dock_key_release),
-                          icon);
-        g_signal_connect (icon->priv->dock,
-                          "scroll-event",
-                          G_CALLBACK (on_dock_scroll_event),
-                          icon);
-        g_signal_connect (icon->priv->dock,
-                          "grab-notify",
-                          G_CALLBACK (on_dock_grab_notify),
-                          icon);
-        g_signal_connect (icon->priv->dock,
-                          "grab-broken-event",
-                          G_CALLBACK (on_dock_grab_broken_event),
-                          icon);
-
-        gtk_window_set_decorated (GTK_WINDOW (icon->priv->dock), FALSE);
-
-        frame = gtk_frame_new (NULL);
-        gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_OUT);
-        gtk_container_add (GTK_CONTAINER (icon->priv->dock), frame);
-
-        box = gtk_vbox_new (FALSE, 6);
-        gtk_container_set_border_width (GTK_CONTAINER (box), 2);
-        gtk_container_add (GTK_CONTAINER (frame), box);
-
-        icon->priv->bar = gvc_channel_bar_new ();
-        gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
-                                         GTK_ORIENTATION_VERTICAL);
-
-        gtk_box_pack_start (GTK_BOX (box), icon->priv->bar, TRUE, FALSE, 0);
-        g_signal_connect (icon->priv->bar,
-                          "notify::is-muted",
-                          G_CALLBACK (on_bar_is_muted_notify),
-                          icon);
-
-        adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (icon->priv->bar)));
-        g_signal_connect (adj,
-                          "value-changed",
-                          G_CALLBACK (on_adjustment_value_changed),
-                          icon);
-
-        return object;
 }
 
 static void
@@ -722,7 +652,7 @@ gvc_stream_status_icon_dispose (GObject *object)
                 icon->priv->dock = NULL;
         }
 
-        g_clear_object (&icon->priv->mixer_stream);
+        g_clear_object (&icon->priv->stream);
 
         G_OBJECT_CLASS (gvc_stream_status_icon_parent_class)->dispose (object);
 }
@@ -732,36 +662,33 @@ gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->constructor = gvc_stream_status_icon_constructor;
         object_class->finalize = gvc_stream_status_icon_finalize;
-        object_class->dispose = gvc_stream_status_icon_dispose;
+        object_class->dispose  = gvc_stream_status_icon_dispose;
         object_class->set_property = gvc_stream_status_icon_set_property;
         object_class->get_property = gvc_stream_status_icon_get_property;
 
-        g_object_class_install_property (object_class,
-                                         PROP_MIXER_STREAM,
-                                         g_param_spec_object ("mixer-stream",
-                                                              "mixer stream",
-                                                              "mixer stream",
-                                                              MATE_MIXER_TYPE_STREAM,
-                                                              G_PARAM_READWRITE |
-                                                              G_PARAM_CONSTRUCT));
-        g_object_class_install_property (object_class,
-                                         PROP_DISPLAY_NAME,
-                                         g_param_spec_string ("display-name",
-                                                              "Display Name",
-                                                              "Name to display for this stream",
-                                                              NULL,
-                                                              G_PARAM_READWRITE |
-                                                              G_PARAM_CONSTRUCT));
-        g_object_class_install_property (object_class,
-                                         PROP_ICON_NAMES,
-                                         g_param_spec_boxed ("icon-names",
-                                                             "Icon Names",
-                                                             "Name of icon to display for this stream",
-                                                              G_TYPE_STRV,
-                                                              G_PARAM_READWRITE |
-                                                              G_PARAM_CONSTRUCT));
+        properties[PROP_STREAM] =
+                g_param_spec_object ("stream",
+                                     "Stream",
+                                     "MateMixer stream",
+                                     MATE_MIXER_TYPE_STREAM,
+                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+
+        properties[PROP_DISPLAY_NAME] =
+                g_param_spec_string ("display-name",
+                                     "Display name",
+                                     "Name to display for this stream",
+                                     NULL,
+                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+
+        properties[PROP_ICON_NAMES] =
+                g_param_spec_boxed ("icon-names",
+                                    "Icon names",
+                                    "Name of icon to display for this stream",
+                                    G_TYPE_STRV,
+                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+
+        g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 
         g_type_class_add_private (klass, sizeof (GvcStreamStatusIconPrivate));
 }
@@ -769,43 +696,84 @@ gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
 static void
 on_status_icon_visible_notify (GvcStreamStatusIcon *icon)
 {
-        gboolean visible;
-
-        g_object_get (icon, "visible", &visible, NULL);
-        if (! visible) {
-                if (icon->priv->dock != NULL) {
-                        gtk_widget_hide (icon->priv->dock);
-                }
-        }
+        if (gtk_status_icon_get_visible (GTK_STATUS_ICON (icon)) == FALSE)
+                gtk_widget_hide (icon->priv->dock);
 }
 
 static void
 gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
 {
+        GtkWidget *frame;
+        GtkWidget *box;
+
         icon->priv = GVC_STREAM_STATUS_ICON_GET_PRIVATE (icon);
 
-        g_signal_connect (icon,
+        g_signal_connect (G_OBJECT (icon),
                           "activate",
                           G_CALLBACK (on_status_icon_activate),
                           icon);
-        g_signal_connect (icon,
+        g_signal_connect (G_OBJECT (icon),
                           "button-press-event",
                           G_CALLBACK (on_status_icon_button_press),
                           icon);
-        g_signal_connect (icon,
+        g_signal_connect (G_OBJECT (icon),
                           "popup-menu",
                           G_CALLBACK (on_status_icon_popup_menu),
                           icon);
-        g_signal_connect (icon,
+        g_signal_connect (G_OBJECT (icon),
                           "scroll-event",
                           G_CALLBACK (on_status_icon_scroll_event),
                           icon);
-        g_signal_connect (icon,
+        g_signal_connect (G_OBJECT (icon),
                           "notify::visible",
                           G_CALLBACK (on_status_icon_visible_notify),
                           NULL);
 
-        icon->priv->thaw = FALSE;
+        /* Create the dock window */
+        icon->priv->dock = gtk_window_new (GTK_WINDOW_POPUP);
+
+        gtk_window_set_decorated (GTK_WINDOW (icon->priv->dock), FALSE);
+
+        g_signal_connect (G_OBJECT (icon->priv->dock),
+                          "button-press-event",
+                          G_CALLBACK (on_dock_button_press),
+                          icon);
+        g_signal_connect (G_OBJECT (icon->priv->dock),
+                          "key-release-event",
+                          G_CALLBACK (on_dock_key_release),
+                          icon);
+        g_signal_connect (G_OBJECT (icon->priv->dock),
+                          "scroll-event",
+                          G_CALLBACK (on_dock_scroll_event),
+                          icon);
+        g_signal_connect (G_OBJECT (icon->priv->dock),
+                          "grab-notify",
+                          G_CALLBACK (on_dock_grab_notify),
+                          icon);
+        g_signal_connect (G_OBJECT (icon->priv->dock),
+                          "grab-broken-event",
+                          G_CALLBACK (on_dock_grab_broken_event),
+                          icon);
+
+        frame = gtk_frame_new (NULL);
+        gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_OUT);
+        gtk_container_add (GTK_CONTAINER (icon->priv->dock), frame);
+
+        icon->priv->bar = gvc_channel_bar_new (NULL);
+
+        gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
+                                         GTK_ORIENTATION_VERTICAL);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+#else
+        box = gtk_vbox_new (FALSE, 6);
+#endif
+
+        gtk_container_set_border_width (GTK_CONTAINER (box), 2);
+        gtk_container_add (GTK_CONTAINER (frame), box);
+
+        gtk_box_pack_start (GTK_BOX (box), icon->priv->bar, TRUE, FALSE, 0);
 }
 
 static void
@@ -822,10 +790,10 @@ gvc_stream_status_icon_finalize (GObject *object)
 
 GvcStreamStatusIcon *
 gvc_stream_status_icon_new (MateMixerStream *stream,
-                            const char     **icon_names)
+                            const gchar    **icon_names)
 {
         return g_object_new (GVC_TYPE_STREAM_STATUS_ICON,
-                             "mixer-stream", stream,
+                             "stream", stream,
                              "icon-names", icon_names,
                              NULL);
 }

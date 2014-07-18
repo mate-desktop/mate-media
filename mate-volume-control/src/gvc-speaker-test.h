@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2009 Red Hat, Inc.
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +24,8 @@
 
 #include <glib.h>
 #include <glib-object.h>
+#include <gtk/gtk.h>
+
 #include <libmatemixer/matemixer.h>
 
 G_BEGIN_DECLS
@@ -40,19 +43,28 @@ typedef struct _GvcSpeakerTestPrivate  GvcSpeakerTestPrivate;
 
 struct _GvcSpeakerTest
 {
-        GtkNotebook               parent;
+#if GTK_CHECK_VERSION (3, 4, 0)
+        GtkGrid                   parent;
+#else
+        GtkTable                  parent;
+#endif
         GvcSpeakerTestPrivate    *priv;
 };
 
 struct _GvcSpeakerTestClass
 {
-        GtkNotebookClass          parent_class;
+#if GTK_CHECK_VERSION (3, 4, 0)
+        GtkGridClass              parent_class;
+#else
+        GtkTableClass             parent_class;
+#endif
 };
 
 GType               gvc_speaker_test_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_speaker_test_new                 (MateMixerControl *control,
-                                                          MateMixerDevice  *device);
+GtkWidget *         gvc_speaker_test_new                 (MateMixerStream *stream);
+
+MateMixerStream *   gvc_speaker_test_get_stream          (GvcSpeakerTest  *test);
 
 G_END_DECLS
 

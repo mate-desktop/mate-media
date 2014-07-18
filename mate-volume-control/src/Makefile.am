@@ -9,7 +9,7 @@ AM_CPPFLAGS =					\
 	$(WARN_CFLAGS)				\
 	-I$(top_srcdir)/sound-theme		\
 	$(VOLUME_CONTROL_CFLAGS)		\
-	$(DISABLE_DEPRECATED)			\
+	$(xxDISABLE_DEPRECATED)			\
 	$(PULSEAUDIO_CFLAGS)			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	-DLIBEXECDIR=\"$(libexecdir)\"		\

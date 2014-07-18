@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 Red Hat, Inc.
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -67,7 +68,7 @@ struct _GvcBalanceBarClass
 #endif
 };
 
-GType               gvc_balance_bar_get_type            (void);
+GType               gvc_balance_bar_get_type            (void) G_GNUC_CONST;
 
 GtkWidget *         gvc_balance_bar_new                 (MateMixerStream *stream,
                                                          GvcBalanceType   btype);

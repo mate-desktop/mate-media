@@ -2,7 +2,13 @@
 Version 1.9.0
 =============
 
-- ...
+- Removed gst-mixer and gst-mixer-applet
+- mate-volume-control: Port from PulseAudio to libmatemixer
+- mate-volume-control: Allow selecting input and output connectors
+- mate-volume-control: Speaker test widget now contains a Close button
+- mate-volume-control: Device and stream lists are now sorted
+- mate-volume-control-applet: Do not show icons when on a vertical panel
+- mate-volume-control-applet: Allow clicking in the popup window
 
 =============
 Version 1.8.0

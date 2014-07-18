@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2008 Red Hat, Inc.
+ * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,8 +21,9 @@
 
 #include "config.h"
 
-#include <glib/gi18n.h>
 #include <glib.h>
+#include <glib/gi18n.h>
+#include <glib-object.h>
 #include <gtk/gtk.h>
 
 #include <libintl.h>
@@ -37,7 +39,7 @@ main (int argc, char **argv)
 {
         GError       *error = NULL;
         GvcApplet    *applet;
-        UniqueApp    *app = NULL;
+        UniqueApp    *app;
         GOptionEntry  entries[] = {
                 { "version", 'v', 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
                 { NULL }
@@ -51,6 +53,7 @@ main (int argc, char **argv)
                             (char *) _(" — MATE Volume Control Applet"),
                             entries, GETTEXT_PACKAGE,
                             &error);
+
         if (error != NULL) {
                 g_warning ("%s", error->message);
                 return 1;
