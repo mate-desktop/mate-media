@@ -45,7 +45,7 @@ on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
 {
         gboolean destroy = GPOINTER_TO_INT (data);
 
-        if (destroy)
+        if (destroy == TRUE)
                 gtk_widget_destroy (GTK_WIDGET (dialog));
 
         gtk_main_quit ();
@@ -56,7 +56,7 @@ on_dialog_close (GtkDialog *dialog, gpointer data)
 {
         gboolean destroy = GPOINTER_TO_INT (data);
 
-        if (destroy)
+        if (destroy == TRUE)
                 gtk_widget_destroy (GTK_WIDGET (dialog));
 
         gtk_main_quit ();
@@ -120,23 +120,15 @@ on_control_state_notify (MateMixerControl *control,
                          UniqueApp        *app)
 {
         MateMixerState state = mate_mixer_control_get_state (control);
-        gboolean       failed = FALSE;
 
         if (state == MATE_MIXER_STATE_READY) {
-		remove_warning_dialog ();
-
-		if (mate_mixer_control_get_backend_type (control) != MATE_MIXER_BACKEND_NULL)
-			control_ready (control, app);
-		else
-			failed = TRUE;
+                remove_warning_dialog ();
+                control_ready (control, app);
         }
         else if (state == MATE_MIXER_STATE_FAILED) {
-		remove_warning_dialog ();
-		failed = TRUE;
-        }
+                GtkWidget *dialog;
 
-        if (failed) {
-		GtkWidget *dialog;
+                remove_warning_dialog ();
 
 		dialog = gtk_message_dialog_new (GTK_WINDOW (app_dialog),
 		                                 0,
@@ -144,11 +136,11 @@ on_control_state_notify (MateMixerControl *control,
 		                                 GTK_BUTTONS_CLOSE,
 		                                 _("Sound system is not available"));
 
-		g_signal_connect (dialog,
+		g_signal_connect (G_OBJECT (dialog),
 		                  "response",
 		                  G_CALLBACK (on_dialog_response),
 		                  GINT_TO_POINTER (TRUE));
-		g_signal_connect (dialog,
+		g_signal_connect (G_OBJECT (dialog),
 		                  "close",
 		                  G_CALLBACK (on_dialog_close),
 		                  GINT_TO_POINTER (TRUE));
@@ -166,11 +158,11 @@ dialog_popup_timeout (gpointer data)
 	                                         GTK_BUTTONS_CANCEL,
 	                                         _("Waiting for sound system to respond"));
 
-	g_signal_connect (warning_dialog,
+	g_signal_connect (G_OBJECT (warning_dialog),
 	                  "response",
 			  G_CALLBACK (on_dialog_response),
 			  GINT_TO_POINTER (TRUE));
-	g_signal_connect (warning_dialog,
+	g_signal_connect (G_OBJECT (warning_dialog),
 	                  "close",
 			  G_CALLBACK (on_dialog_close),
 			  GINT_TO_POINTER (TRUE));
@@ -184,9 +176,11 @@ int
 main (int argc, char **argv)
 {
         GError           *error = NULL;
+        gchar            *backend = NULL;
         MateMixerControl *control;
         UniqueApp        *app;
         GOptionEntry      entries[] = {
+                { "backend", 'b', 0, G_OPTION_ARG_STRING, &backend, N_("Sound system backend"), "pulse|null" },
                 { "page",    'p', 0, G_OPTION_ARG_STRING, &page, N_("Startup page"), "effects|hardware|input|output|applications" },
                 { "version", 'v', 0, G_OPTION_ARG_NONE,   &show_version, N_("Version of this application"), NULL },
                 { NULL }
@@ -223,7 +217,23 @@ main (int argc, char **argv)
 
         control = mate_mixer_control_new ();
 
-        mate_mixer_control_set_backend_type (control, MATE_MIXER_BACKEND_NULL);
+        if (backend != NULL) {
+                if (strcmp (backend, "pulse") == 0)
+                        mate_mixer_control_set_backend_type (control, MATE_MIXER_BACKEND_PULSEAUDIO);
+                else if (strcmp (backend, "null") == 0)
+                        mate_mixer_control_set_backend_type (control, MATE_MIXER_BACKEND_NULL);
+                else {
+                        g_warning ("Invalid backend: %s", backend);
+                        g_object_unref (control);
+                        g_object_unref (app);
+                        g_free (backend);
+
+                        mate_mixer_deinit ();
+                        return 1;
+                }
+
+                g_free (backend);
+        }
 
         mate_mixer_control_set_app_name (control, _("Volume Control"));
         mate_mixer_control_set_app_id (control, GVC_DIALOG_DBUS_NAME);
@@ -237,10 +247,11 @@ main (int argc, char **argv)
 
         mate_mixer_control_open (control);
 
-        if (mate_mixer_control_get_state (control) == MATE_MIXER_STATE_CONNECTING)
+        if (mate_mixer_control_get_state (control) == MATE_MIXER_STATE_CONNECTING) {
 		popup_id = g_timeout_add_seconds (DIALOG_POPUP_TIMEOUT,
 		                                  dialog_popup_timeout,
 		                                  NULL);
+        }
 
         gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
                                            ICON_DATA_DIR);
