@@ -922,20 +922,93 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
         }
 }
 
+static MateMixerStream *
+find_device_test_stream (GvcMixerDialog *dialog, MateMixerDevice *device)
+{
+        GList *streams;
+
+        streams = (GList *) mate_mixer_control_list_streams (dialog->priv->control);
+        while (streams) {
+                MateMixerStream *stream;
+
+                stream = MATE_MIXER_STREAM (streams->data);
+
+                if (mate_mixer_stream_get_device (stream) == device &&
+                    mate_mixer_stream_get_num_channels (stream) >= 1) {
+                        MateMixerStreamFlags flags;
+
+                        flags = mate_mixer_stream_get_flags (stream);
+
+                        if ((flags & (MATE_MIXER_STREAM_OUTPUT |
+                                      MATE_MIXER_STREAM_CLIENT)) == MATE_MIXER_STREAM_OUTPUT)
+                                return stream;
+                }
+                streams = streams->next;
+        }
+        return FALSE;
+}
+
+static void
+update_device_test_visibility (GvcMixerDialog *dialog)
+{
+        MateMixerDevice *device;
+        MateMixerStream *stream;
+
+        device = g_object_get_data (G_OBJECT (dialog->priv->hw_profile_combo), "device");
+        if (G_UNLIKELY (device == NULL)) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        stream = find_device_test_stream (dialog, device);
+
+        g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
+                      "show-button", (stream != NULL),
+                      NULL);
+}
+
 static void
 on_control_stream_added (MateMixerControl *control,
                          const gchar      *name,
                          GvcMixerDialog   *dialog)
 {
-        MateMixerStream *stream;
-        GtkWidget       *bar;
-
-        bar = g_hash_table_lookup (dialog->priv->bars, name);
-        if (G_UNLIKELY (bar != NULL))
-                return;
+        MateMixerStream     *stream;
+        MateMixerStreamFlags flags;
+        GtkWidget           *bar;
 
         stream = mate_mixer_control_get_stream (control, name);
         if (G_UNLIKELY (stream == NULL))
+                return;
+
+        flags = mate_mixer_stream_get_flags (stream);
+
+        /* If the newly added stream belongs to the currently selected device and
+         * the test button is hidden, this stream may be the one to allow the
+         * sound test and therefore we may need to enable the button */
+        if (dialog->priv->hw_profile_combo != NULL &&
+            ((flags & (MATE_MIXER_STREAM_OUTPUT |
+                       MATE_MIXER_STREAM_CLIENT)) == MATE_MIXER_STREAM_OUTPUT)) {
+                MateMixerDevice *device1;
+                MateMixerDevice *device2;
+
+                device1 = mate_mixer_stream_get_device (stream);
+                device2 = g_object_get_data (G_OBJECT (dialog->priv->hw_profile_combo),
+                                             "device");
+
+                if (device1 == device2) {
+                        gboolean show_button;
+
+                        g_object_get (G_OBJECT (dialog->priv->hw_profile_combo),
+                                      "show-button", &show_button,
+                                      NULL);
+
+                        if (show_button == FALSE)
+                                update_device_test_visibility (dialog);
+                }
+        }
+
+        bar = g_hash_table_lookup (dialog->priv->bars, name);
+        if (G_UNLIKELY (bar != NULL))
                 return;
 
         add_stream (dialog, stream);
@@ -993,6 +1066,18 @@ on_control_stream_removed (MateMixerControl *control,
                            const gchar      *name,
                            GvcMixerDialog   *dialog)
 {
+
+        if (dialog->priv->hw_profile_combo != NULL) {
+                gboolean show_button;
+
+                g_object_get (G_OBJECT (dialog->priv->hw_profile_combo),
+                              "show-button", &show_button,
+                              NULL);
+
+                if (show_button == TRUE)
+                        update_device_test_visibility (dialog);
+        }
+
         remove_stream (dialog, name);
 }
 
@@ -1413,32 +1498,6 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
         return treeview;
 }
 
-static MateMixerStream *
-find_device_test_stream (GvcMixerDialog *dialog, MateMixerDevice *device)
-{
-        GList *streams;
-
-        streams = (GList *) mate_mixer_control_list_streams (dialog->priv->control);
-        while (streams) {
-                MateMixerStream *stream;
-
-                stream = MATE_MIXER_STREAM (streams->data);
-
-                if (mate_mixer_stream_get_device (stream) == device &&
-                    mate_mixer_stream_get_num_channels (stream) >= 1) {
-                        MateMixerStreamFlags flags;
-
-                        flags = mate_mixer_stream_get_flags (stream);
-
-                        if ((flags & (MATE_MIXER_STREAM_OUTPUT |
-                                      MATE_MIXER_STREAM_CLIENT)) == MATE_MIXER_STREAM_OUTPUT)
-                                return stream;
-                }
-                streams = streams->next;
-        }
-        return FALSE;
-}
-
 static void
 on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
 {
@@ -1503,6 +1562,10 @@ create_profile_combo_box (GvcMixerDialog  *dialog,
                                       dialog->priv->size_group,
                                       FALSE);
 
+        g_object_set (G_OBJECT (combobox),
+                      "button-label", _("Test Speakers"),
+                      NULL);
+
         g_object_set_data_full (G_OBJECT (combobox),
                                 "device",
                                 g_object_ref (device),
@@ -1511,6 +1574,11 @@ create_profile_combo_box (GvcMixerDialog  *dialog,
         g_signal_connect (G_OBJECT (combobox),
                           "changed",
                           G_CALLBACK (on_combo_box_profile_changed),
+                          dialog);
+
+        g_signal_connect (G_OBJECT (combobox),
+                          "button-clicked",
+                          G_CALLBACK (on_test_speakers_clicked),
                           dialog);
 
         return combobox;
@@ -1555,9 +1623,8 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
          * not supported on other backends by libmatemixer, so avoid displaying
          * the combo box on other backends */
         if (backend == MATE_MIXER_BACKEND_PULSEAUDIO) {
-                const GList     *profiles;
-                const gchar     *profile_name = NULL;
-                MateMixerStream *stream = NULL;
+                const GList *profiles;
+                const gchar *profile_name = NULL;
 
                 profiles = mate_mixer_device_list_profiles (device);
                 if (profiles != NULL) {
@@ -1586,18 +1653,7 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
 
                 /* Enable the speaker test button if the selected device
                  * is capable of sound output */
-                stream = find_device_test_stream (dialog, device);
-                if (stream != NULL) {
-                        g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
-                                      "show-button", TRUE,
-                                      "button-label", _("Test Speakers"),
-                                      NULL);
-
-                        g_signal_connect (G_OBJECT (dialog->priv->hw_profile_combo),
-                                          "button-clicked",
-                                          G_CALLBACK (on_test_speakers_clicked),
-                                          dialog);
-                }
+                update_device_test_visibility (dialog);
 
                 gtk_widget_show (dialog->priv->hw_profile_combo);
         }
