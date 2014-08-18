@@ -49,14 +49,14 @@ struct _GvcBalanceBarPrivate
         GtkAdjustment   *adjustment;
         GtkSizeGroup    *size_group;
         gboolean         symmetric;
-        MateMixerStream *stream;
+        MateMixerStreamControl *control;
         gint             lfe_channel;
 };
 
 enum
 {
         PROP_0,
-        PROP_STREAM,
+        PROP_CONTROL,
         PROP_BALANCE_TYPE,
         N_PROPERTIES
 };
@@ -217,16 +217,16 @@ update_balance_value (GvcBalanceBar *bar)
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                value = mate_mixer_stream_get_balance (bar->priv->stream);
+                value = mate_mixer_stream_control_get_balance (bar->priv->control);
                 g_debug ("Balance value changed to %.2f", value);
                 break;
         case BALANCE_TYPE_FR:
-                value = mate_mixer_stream_get_fade (bar->priv->stream);
+                value = mate_mixer_stream_control_get_fade (bar->priv->control);
                 g_debug ("Fade value changed to %.2f", value);
                 break;
         case BALANCE_TYPE_LFE:
-                value = mate_mixer_stream_get_channel_volume (bar->priv->stream,
-                                                              bar->priv->lfe_channel);
+                value = mate_mixer_stream_control_get_channel_volume (bar->priv->control,
+                                                                      bar->priv->lfe_channel);
 
                 g_debug ("Subwoofer volume changed to %.0f", value);
                 break;
@@ -244,14 +244,14 @@ on_balance_value_changed (MateMixerStream *stream,
 }
 
 static gint
-find_stream_lfe_channel (MateMixerStream *stream)
+find_stream_lfe_channel (MateMixerStreamControl *control)
 {
         guint i;
 
-        for (i = 0; i < mate_mixer_stream_get_num_channels (stream); i++) {
+        for (i = 0; i < mate_mixer_stream_control_get_num_channels (control); i++) {
                 MateMixerChannelPosition position;
 
-                position = mate_mixer_stream_get_channel_position (stream, i);
+                position = mate_mixer_stream_control_get_channel_position (control, i);
                 if (position == MATE_MIXER_CHANNEL_LFE)
                         return i;
         }
@@ -260,28 +260,26 @@ find_stream_lfe_channel (MateMixerStream *stream)
 }
 
 static void
-gvc_balance_bar_set_stream (GvcBalanceBar *bar, MateMixerStream *stream)
+gvc_balance_bar_set_control (GvcBalanceBar *bar, MateMixerStreamControl *control)
 {
         g_return_if_fail (GVC_BALANCE_BAR (bar));
-        g_return_if_fail (MATE_MIXER_IS_STREAM (stream));
+        g_return_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control));
 
-        if (bar->priv->stream != NULL) {
-                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->stream),
+        if (bar->priv->control != NULL) {
+                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->control),
                                                       on_balance_value_changed,
                                                       bar);
-                g_object_unref (bar->priv->stream);
+                g_object_unref (bar->priv->control);
         }
 
-        bar->priv->stream = g_object_ref (stream);
+        bar->priv->control = g_object_ref (control);
 
         if (bar->priv->btype == BALANCE_TYPE_LFE) {
-                gdouble minimum = 0.0;
-                gdouble maximum = 0.0;
+                gdouble minimum;
+                gdouble maximum;
 
-                if (mate_mixer_stream_get_flags (stream) & MATE_MIXER_STREAM_HAS_VOLUME) {
-                        minimum = mate_mixer_stream_get_min_volume (stream);
-                        maximum = mate_mixer_stream_get_normal_volume (stream);
-                }
+                minimum = mate_mixer_stream_control_get_min_volume (bar->priv->control);
+                maximum = mate_mixer_stream_control_get_normal_volume (bar->priv->control);
 
                 /* Configure the adjustment for the volume limits of the current
                  * stream.
@@ -296,7 +294,7 @@ gvc_balance_bar_set_stream (GvcBalanceBar *bar, MateMixerStream *stream)
                                           (maximum - minimum) / 10.0,
                                           0.0);
 
-                bar->priv->lfe_channel = find_stream_lfe_channel (stream);
+                bar->priv->lfe_channel = find_stream_lfe_channel (bar->priv->control);
 
                 if (G_LIKELY (bar->priv->lfe_channel > -1))
                         g_debug ("Found LFE channel at position %d", bar->priv->lfe_channel);
@@ -307,19 +305,19 @@ gvc_balance_bar_set_stream (GvcBalanceBar *bar, MateMixerStream *stream)
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                g_signal_connect (G_OBJECT (stream),
+                g_signal_connect (G_OBJECT (bar->priv->control),
                                   "notify::balance",
                                   G_CALLBACK (on_balance_value_changed),
                                   bar);
                 break;
         case BALANCE_TYPE_FR:
-                g_signal_connect (G_OBJECT (stream),
+                g_signal_connect (G_OBJECT (bar->priv->control),
                                   "notify::fade",
                                   G_CALLBACK (on_balance_value_changed),
                                   bar);
                 break;
         case BALANCE_TYPE_LFE:
-                g_signal_connect (G_OBJECT (stream),
+                g_signal_connect (G_OBJECT (bar->priv->control),
                                   "notify::volume",
                                   G_CALLBACK (on_balance_value_changed),
                                   bar);
@@ -329,7 +327,7 @@ gvc_balance_bar_set_stream (GvcBalanceBar *bar, MateMixerStream *stream)
         update_balance_value (bar);
         update_scale_marks (bar);
 
-        g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_STREAM]);
+        g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_CONTROL]);
 }
 
 static void
@@ -393,8 +391,8 @@ gvc_balance_bar_set_property (GObject       *object,
         GvcBalanceBar *self = GVC_BALANCE_BAR (object);
 
         switch (prop_id) {
-        case PROP_STREAM:
-                gvc_balance_bar_set_stream (self, g_value_get_object (value));
+        case PROP_CONTROL:
+                gvc_balance_bar_set_control (self, g_value_get_object (value));
                 break;
         case PROP_BALANCE_TYPE:
                 gvc_balance_bar_set_balance_type (self, g_value_get_int (value));
@@ -414,8 +412,8 @@ gvc_balance_bar_get_property (GObject     *object,
         GvcBalanceBar *self = GVC_BALANCE_BAR (object);
 
         switch (prop_id) {
-        case PROP_STREAM:
-                g_value_set_object (value, self->priv->stream);
+        case PROP_CONTROL:
+                g_value_set_object (value, self->priv->control);
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -432,12 +430,13 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
         object_class->set_property = gvc_balance_bar_set_property;
         object_class->get_property = gvc_balance_bar_get_property;
 
-        properties[PROP_STREAM] =
-                g_param_spec_object ("stream",
-                                     "Stream",
-                                     "Libmatemixer stream",
-                                     MATE_MIXER_TYPE_STREAM,
-                                     G_PARAM_READWRITE);
+        properties[PROP_CONTROL] =
+                g_param_spec_object ("control",
+                                     "Control",
+                                     "MateMixer stream control",
+                                     MATE_MIXER_TYPE_STREAM_CONTROL,
+                                     G_PARAM_READWRITE |
+                                     G_PARAM_STATIC_STRINGS);
 
         properties[PROP_BALANCE_TYPE] =
                 g_param_spec_int ("balance-type",
@@ -446,7 +445,9 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
                                   BALANCE_TYPE_RL,
                                   NUM_BALANCE_TYPES - 1,
                                   BALANCE_TYPE_RL,
-                                  G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+                                  G_PARAM_READWRITE |
+                                  G_PARAM_CONSTRUCT_ONLY |
+                                  G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 
@@ -495,20 +496,20 @@ on_adjustment_value_changed (GtkAdjustment *adjustment, GvcBalanceBar *bar)
 {
         gdouble value;
 
-        if (bar->priv->stream == NULL)
+        if (bar->priv->control == NULL)
                 return;
 
         value = gtk_adjustment_get_value (adjustment);
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                mate_mixer_stream_set_balance (bar->priv->stream, value);
+                mate_mixer_stream_control_set_balance (bar->priv->control, value);
                 break;
         case BALANCE_TYPE_FR:
-                mate_mixer_stream_set_fade (bar->priv->stream, value);
+                mate_mixer_stream_control_set_fade (bar->priv->control, value);
                 break;
         case BALANCE_TYPE_LFE:
-                mate_mixer_stream_set_channel_volume (bar->priv->stream,
+                mate_mixer_stream_control_set_channel_volume (bar->priv->control,
                                                       bar->priv->lfe_channel,
                                                       value);
                 break;
@@ -528,22 +529,22 @@ gvc_balance_bar_dispose (GObject *object)
 
         bar = GVC_BALANCE_BAR (object);
 
-        if (bar->priv->stream != NULL) {
-                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->stream),
+        if (bar->priv->control != NULL) {
+                g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->control),
                                                       on_balance_value_changed,
                                                       bar);
-                g_clear_object (&bar->priv->stream);
+                g_clear_object (&bar->priv->control);
         }
 
         G_OBJECT_CLASS (gvc_balance_bar_parent_class)->dispose (object);
 }
 
 GtkWidget *
-gvc_balance_bar_new (MateMixerStream *stream, GvcBalanceType btype)
+gvc_balance_bar_new (MateMixerStreamControl *control, GvcBalanceType btype)
 {
         return g_object_new (GVC_TYPE_BALANCE_BAR,
                             "balance-type", btype,
-                            "stream", stream,
+                            "control", control,
 #if GTK_CHECK_VERSION (3, 0, 0)
                             "orientation", GTK_ORIENTATION_HORIZONTAL,
 #endif

@@ -55,7 +55,8 @@ struct _GvcAppletPrivate
         GvcStreamStatusIcon *icon_input;
         GvcStreamStatusIcon *icon_output;
         gboolean             running;
-        MateMixerControl    *control;
+        MateMixerContext    *context;
+        MateMixerStream     *input;
 };
 
 static void gvc_applet_class_init (GvcAppletClass *klass);
@@ -66,48 +67,41 @@ G_DEFINE_TYPE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
 static void
 update_icon_input (GvcApplet *applet)
 {
-        MateMixerStream *stream;
-        gboolean         show = FALSE;
+        MateMixerStreamControl *control = NULL;
+        gboolean                show = FALSE;
 
         /* Enable the input icon in case there is an input stream present and there
          * is a non-mixer application using the input */
-        stream = mate_mixer_control_get_default_input_stream (applet->priv->control);
-        if (stream != NULL) {
+        if (applet->priv->input != NULL) {
                 const gchar *app_id;
                 const GList *inputs =
-                        mate_mixer_control_list_streams (applet->priv->control);
+                        mate_mixer_stream_list_controls (applet->priv->input);
+
+                control = mate_mixer_stream_get_default_control (applet->priv->input);
 
                 while (inputs != NULL) {
-                        MateMixerStream *input = MATE_MIXER_STREAM (inputs->data);
-                        MateMixerStreamFlags flags = mate_mixer_stream_get_flags (input);
+                        MateMixerStreamControl    *input =
+                                MATE_MIXER_STREAM_CONTROL (inputs->data);
+                        MateMixerStreamControlRole role =
+                                mate_mixer_stream_control_get_role (input);
 
-                        if (flags & MATE_MIXER_STREAM_INPUT && flags & MATE_MIXER_STREAM_CLIENT) {
-                                MateMixerClientStream *client =
-                                        MATE_MIXER_CLIENT_STREAM (input);
+                        if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
+                                MateMixerAppInfo *app_info =
+                                        mate_mixer_stream_control_get_app_info (input);
 
-                                MateMixerClientStreamRole client_role =
-                                        mate_mixer_client_stream_get_role (client);
-                                MateMixerClientStreamFlags client_flags =
-                                        mate_mixer_client_stream_get_flags (client);
-
-                                if (!(client_flags & MATE_MIXER_CLIENT_STREAM_APPLICATION) ||
-                                    client_role == MATE_MIXER_CLIENT_STREAM_ROLE_EVENT ||
-                                    client_role == MATE_MIXER_CLIENT_STREAM_ROLE_TEST ||
-                                    client_role == MATE_MIXER_CLIENT_STREAM_ROLE_ABSTRACT ||
-                                    client_role == MATE_MIXER_CLIENT_STREAM_ROLE_FILTER) {
-                                    /* Skip roles we don't care about and non-application
-                                     * client streams */
-                                    inputs = inputs->next;
-                                    continue;
-                                }
-
-                                app_id = mate_mixer_client_stream_get_app_id (client);
+                                app_id = mate_mixer_app_info_get_id (app_info);
                                 if (app_id == NULL) {
                                         /* A recording application which has no
                                          * identifier set */
-                                        g_debug ("Found a recording application %s (%s)",
-                                                 mate_mixer_stream_get_name (input),
-                                                 mate_mixer_stream_get_description (input));
+                                        g_debug ("Found a recording application control %s",
+                                                 mate_mixer_stream_control_get_label (input));
+
+                                        if G_UNLIKELY (control == NULL) {
+                                                /* In the unlikely case when there is no
+                                                 * default output control, use the application
+                                                 * control for the icon */
+                                                control = input;
+                                        }
                                         show = TRUE;
                                         break;
                                 }
@@ -116,6 +110,10 @@ update_icon_input (GvcApplet *applet)
                                     strcmp (app_id, "org.gnome.VolumeControl") != 0 &&
                                     strcmp (app_id, "org.PulseAudio.pavucontrol") != 0) {
                                         g_debug ("Found a recording application %s", app_id);
+
+                                        if G_UNLIKELY (control == NULL)
+                                                control = input;
+
                                         show = TRUE;
                                         break;
                                 }
@@ -123,19 +121,13 @@ update_icon_input (GvcApplet *applet)
                         inputs = inputs->next;
                 }
 
-                g_debug ("Current default input stream is %s (%s)",
-                         mate_mixer_stream_get_name (stream),
-                         mate_mixer_stream_get_description (stream));
-
-                if (show)
+                if (show == TRUE)
                         g_debug ("Input icon enabled");
                 else
                         g_debug ("There is no recording application, input icon disabled");
-        } else {
-                g_debug ("There is no default input stream, input icon disabled");
         }
 
-        gvc_stream_status_icon_set_stream (applet->priv->icon_input, stream);
+        gvc_stream_status_icon_set_control (applet->priv->icon_input, control);
 
         gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input), show);
 }
@@ -143,35 +135,94 @@ update_icon_input (GvcApplet *applet)
 static void
 update_icon_output (GvcApplet *applet)
 {
-        MateMixerStream *stream;
+        MateMixerStream        *stream;
+        MateMixerStreamControl *control = NULL;
 
-        stream = mate_mixer_control_get_default_output_stream (applet->priv->control);
+        stream = mate_mixer_context_get_default_output_stream (applet->priv->context);
+        if (stream != NULL)
+                control = mate_mixer_stream_get_default_control (stream);
 
-        gvc_stream_status_icon_set_stream (applet->priv->icon_output, stream);
+        gvc_stream_status_icon_set_control (applet->priv->icon_output, control);
 
-        if (stream != NULL) {
-                g_debug ("Current default output stream is %s (%s)",
-                         mate_mixer_stream_get_name (stream),
-                         mate_mixer_stream_get_description (stream));
-
+        if (control != NULL)
                 gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
                                              TRUE);
-
-                g_debug ("Output icon enabled");
-        } else {
+        else
                 gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
                                              FALSE);
-
-                g_debug ("There is no default output stream, output icon disabled");
-        }
 }
 
 static void
-on_control_state_notify (MateMixerControl *control,
+on_input_stream_control_added (MateMixerStream *stream,
+                               const gchar     *name,
+                               GvcApplet       *applet)
+{
+        MateMixerStreamControl *control;
+
+        control = mate_mixer_stream_get_control (stream, name);
+        if G_LIKELY (control != NULL) {
+                MateMixerStreamControlRole role =
+                        mate_mixer_stream_control_get_role (control);
+
+                /* Non-application input control doesn't affect the icon */
+                if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                        return;
+        }
+
+        /* Either an application control has been added or we couldn't
+         * read the control, this shouldn't happen but let's revalidate the
+         * icon to be sure if it does */
+        update_icon_input (applet);
+}
+
+static void
+on_input_stream_control_removed (MateMixerStream *stream,
+                                 const gchar     *name,
+                                 GvcApplet       *applet)
+{
+        /* The removed stream could be an application input, which may cause
+         * the input status icon to disappear */
+        update_icon_input (applet);
+}
+
+static gboolean
+update_default_input_stream (GvcApplet *applet)
+{
+        MateMixerStream *stream;
+
+        stream = mate_mixer_context_get_default_input_stream (applet->priv->context);
+        if (stream == applet->priv->input)
+                return FALSE;
+
+        /* The input stream has changed */
+        if (applet->priv->input != NULL) {
+                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input),
+                                                      applet);
+                g_object_unref (applet->priv->input);
+        }
+
+        applet->priv->input = mate_mixer_context_get_default_input_stream (applet->priv->context);
+        if (applet->priv->input != NULL) {
+                g_signal_connect (G_OBJECT (applet->priv->input),
+                                  "control-added",
+                                  G_CALLBACK (on_input_stream_control_added),
+                                  applet);
+                g_signal_connect (G_OBJECT (applet->priv->input),
+                                  "control-removed",
+                                  G_CALLBACK (on_input_stream_control_removed),
+                                  applet);
+        }
+
+        /* Return TRUE if the default input stream has changed */
+        return TRUE;
+}
+
+static void
+on_context_state_notify (MateMixerContext *context,
                          GParamSpec       *pspec,
                          GvcApplet        *applet)
 {
-        MateMixerState state = mate_mixer_control_get_state (control);
+        MateMixerState state = mate_mixer_context_get_state (context);
 
         switch (state) {
         case MATE_MIXER_STATE_FAILED:
@@ -180,6 +231,8 @@ on_control_state_notify (MateMixerControl *control,
 
         case MATE_MIXER_STATE_READY:
         case MATE_MIXER_STATE_CONNECTING:
+                update_default_input_stream (applet);
+
                 /* Each status change may affect the visibility of the icons */
                 update_icon_output (applet);
                 update_icon_input (applet);
@@ -190,92 +243,40 @@ on_control_state_notify (MateMixerControl *control,
 }
 
 static void
-on_control_default_input_notify (MateMixerControl *control,
-                                 GParamSpec       *pspec,
-                                 GvcApplet        *applet)
+on_context_default_input_stream_notify (MateMixerContext *context,
+                                        GParamSpec       *pspec,
+                                        GvcApplet        *applet)
 {
-        update_icon_input (applet);
-}
-
-static void
-on_control_default_output_notify (MateMixerControl *control,
-                                  GParamSpec       *pspec,
-                                  GvcApplet        *applet)
-{
-        update_icon_output (applet);
-}
-
-static void
-on_control_stream_added (MateMixerControl *control,
-                         const gchar      *name,
-                         GvcApplet        *applet)
-{
-        MateMixerStream      *stream;
-        MateMixerStreamFlags  flags;
-
-        stream = mate_mixer_control_get_stream (control, name);
-        if (G_UNLIKELY (stream == NULL))
+        if (update_default_input_stream (applet) == FALSE)
                 return;
 
-        flags = mate_mixer_stream_get_flags (stream);
-
-        /* Newly added input application stream may cause the input status
-         * icon to change visibility */
-        if (flags & MATE_MIXER_STREAM_CLIENT && flags & MATE_MIXER_STREAM_INPUT) {
-                MateMixerClientStreamFlags client_flags =
-                        mate_mixer_client_stream_get_flags (MATE_MIXER_CLIENT_STREAM (stream));
-
-                if (client_flags & MATE_MIXER_CLIENT_STREAM_APPLICATION) {
-                        g_debug ("Added input application stream %s (%s)",
-                                 mate_mixer_stream_get_name (stream),
-                                 mate_mixer_stream_get_description (stream));
-
-                        update_icon_input (applet);
-                }
-        } else
-                g_debug ("Ignoring new stream %s (%s)",
-                         mate_mixer_stream_get_name (stream),
-                         mate_mixer_stream_get_description (stream));
+        update_icon_input (applet);
 }
 
 static void
-on_control_stream_removed (MateMixerControl *control,
-                           const gchar      *name,
-                           GvcApplet        *applet)
+on_context_default_output_stream_notify (MateMixerContext *control,
+                                         GParamSpec       *pspec,
+                                         GvcApplet        *applet)
 {
-        g_debug ("Removed stream %s", name);
-
-        /* The removed stream could be an application input, which may cause
-         * the input status icon to disappear */
-        update_icon_input (applet);
+        update_icon_output (applet);
 }
 
 void
 gvc_applet_start (GvcApplet *applet)
 {
-        MateMixerState state;
-
         g_return_if_fail (GVC_IS_APPLET (applet));
 
-        if (G_UNLIKELY (applet->priv->running == TRUE))
+        if G_UNLIKELY (applet->priv->running == TRUE)
                 return;
 
-        state = mate_mixer_control_get_state (applet->priv->control);
-
-        if (G_UNLIKELY (state != MATE_MIXER_STATE_IDLE)) {
-                g_warn_if_reached ();
-        } else {
-                if (mate_mixer_control_open (applet->priv->control) == FALSE) {
-                        /* Normally this should never happen, in the worst case we
-                         * should end up with the Null module */
-                        g_warning ("Failed to connect to a sound system");
-                }
-
-                gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
-                                             FALSE);
-                gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input),
-                                             FALSE);
+        if G_UNLIKELY (mate_mixer_context_open (applet->priv->context) == FALSE) {
+                /* Normally this should never happen, in the worst case we
+                 * should end up with the Null module */
+                g_warning ("Failed to connect to a sound system");
         }
+
+        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output), FALSE);
+        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input), FALSE);
 
         g_debug ("Applet has been started");
 
@@ -287,7 +288,13 @@ gvc_applet_dispose (GObject *object)
 {
         GvcApplet *applet = GVC_APPLET (object);
 
-        g_clear_object (&applet->priv->control);
+        if (applet->priv->input != NULL) {
+                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input),
+                                                      applet);
+                g_clear_object (&applet->priv->input);
+        }
+
+        g_clear_object (&applet->priv->context);
         g_clear_object (&applet->priv->icon_input);
         g_clear_object (&applet->priv->icon_output);
 
@@ -320,34 +327,26 @@ gvc_applet_init (GvcApplet *applet)
         gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->icon_output),
                                    _("Sound Output Volume"));
 
-        applet->priv->control = mate_mixer_control_new ();
+        applet->priv->context = mate_mixer_context_new ();
 
-        mate_mixer_control_set_app_name (applet->priv->control,
+        mate_mixer_context_set_app_name (applet->priv->context,
                                          _("MATE Volume Control Applet"));
 
-        mate_mixer_control_set_app_id (applet->priv->control, GVC_APPLET_DBUS_NAME);
-        mate_mixer_control_set_app_version (applet->priv->control, VERSION);
-        mate_mixer_control_set_app_icon (applet->priv->control, "multimedia-volume-control");
+        mate_mixer_context_set_app_id (applet->priv->context, GVC_APPLET_DBUS_NAME);
+        mate_mixer_context_set_app_version (applet->priv->context, VERSION);
+        mate_mixer_context_set_app_icon (applet->priv->context, "multimedia-volume-control");
 
-        g_signal_connect (G_OBJECT (applet->priv->control),
+        g_signal_connect (G_OBJECT (applet->priv->context),
                           "notify::state",
-                          G_CALLBACK (on_control_state_notify),
+                          G_CALLBACK (on_context_state_notify),
                           applet);
-        g_signal_connect (G_OBJECT (applet->priv->control),
-                          "notify::default-input",
-                          G_CALLBACK (on_control_default_input_notify),
+        g_signal_connect (G_OBJECT (applet->priv->context),
+                          "notify::default-input-stream",
+                          G_CALLBACK (on_context_default_input_stream_notify),
                           applet);
-        g_signal_connect (G_OBJECT (applet->priv->control),
-                          "notify::default-output",
-                          G_CALLBACK (on_control_default_output_notify),
-                          applet);
-        g_signal_connect (G_OBJECT (applet->priv->control),
-                          "stream-added",
-                          G_CALLBACK (on_control_stream_added),
-                          applet);
-        g_signal_connect (G_OBJECT (applet->priv->control),
-                          "stream-removed",
-                          G_CALLBACK (on_control_stream_removed),
+        g_signal_connect (G_OBJECT (applet->priv->context),
+                          "notify::default-output-stream",
+                          G_CALLBACK (on_context_default_output_stream_notify),
                           applet);
 }
 

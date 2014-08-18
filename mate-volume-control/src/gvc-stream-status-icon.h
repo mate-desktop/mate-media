@@ -50,17 +50,18 @@ struct _GvcStreamStatusIconClass
         GtkStatusIconClass          parent_class;
 };
 
-GType                 gvc_stream_status_icon_get_type            (void) G_GNUC_CONST;
+GType                 gvc_stream_status_icon_get_type         (void) G_GNUC_CONST;
 
-GvcStreamStatusIcon * gvc_stream_status_icon_new                 (MateMixerStream     *stream,
-                                                                  const gchar        **icon_names);
+GvcStreamStatusIcon * gvc_stream_status_icon_new              (MateMixerStreamControl *control,
+                                                               const gchar           **icon_names);
 
-void                  gvc_stream_status_icon_set_icon_names      (GvcStreamStatusIcon *icon,
-                                                                  const gchar        **icon_names);
-void                  gvc_stream_status_icon_set_display_name    (GvcStreamStatusIcon *icon,
+void                  gvc_stream_status_icon_set_icon_names   (GvcStreamStatusIcon    *icon,
+                                                               const gchar           **icon_names);
+void                  gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon    *icon,
                                                                   const gchar         *display_name);
-void                  gvc_stream_status_icon_set_stream          (GvcStreamStatusIcon *icon,
-                                                                  MateMixerStream     *stream);
+
+void                  gvc_stream_status_icon_set_control      (GvcStreamStatusIcon    *icon,
+                                                               MateMixerStreamControl *control);
 
 G_END_DECLS
 

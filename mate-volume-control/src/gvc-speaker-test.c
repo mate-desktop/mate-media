@@ -42,7 +42,6 @@ struct _GvcSpeakerTestPrivate
 {
         GArray           *controls;
         ca_context       *canberra;
-        MateMixerControl *control;
         MateMixerStream  *stream;
 };
 
@@ -98,16 +97,18 @@ gvc_speaker_test_get_stream (GvcSpeakerTest *test)
 static void
 gvc_speaker_test_set_stream (GvcSpeakerTest *test, MateMixerStream *stream)
 {
-        guint i;
-        const gchar *name;
+        MateMixerStreamControl *control;
+        const gchar            *name;
+        guint                   i;
 
         name = mate_mixer_stream_get_name (stream);
+        control = mate_mixer_stream_get_default_control (stream);
 
         ca_context_change_device (test->priv->canberra, name);
 
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
                 gboolean has_position =
-                        mate_mixer_stream_has_channel_position (stream, positions[i].position);
+                        mate_mixer_stream_control_has_channel_position (control, positions[i].position);
 
                 gtk_widget_set_visible (g_array_index (test->priv->controls, GtkWidget *, i),
                                         has_position);

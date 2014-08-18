@@ -50,7 +50,7 @@ main (int argc, char **argv)
         textdomain (GETTEXT_PACKAGE);
 
         gtk_init_with_args (&argc, &argv,
-                            (char *) _(" — MATE Volume Control Applet"),
+                            _(" — MATE Volume Control Applet"),
                             entries, GETTEXT_PACKAGE,
                             &error);
 
@@ -58,18 +58,18 @@ main (int argc, char **argv)
                 g_warning ("%s", error->message);
                 return 1;
         }
-        if (show_version) {
+        if (show_version == TRUE) {
                 g_print ("%s %s\n", argv[0], VERSION);
                 return 0;
         }
 
         app = unique_app_new (GVC_APPLET_DBUS_NAME, NULL);
 
-        if (unique_app_is_running (app)) {
+        if (unique_app_is_running (app) == TRUE) {
                 g_warning ("Applet is already running, exiting");
                 return 0;
         }
-        if (!mate_mixer_init ()) {
+        if (mate_mixer_init () == FALSE) {
                 g_warning ("libmatemixer initialization failed, exiting");
                 return 1;
         }
@@ -84,8 +84,6 @@ main (int argc, char **argv)
 
         g_object_unref (applet);
         g_object_unref (app);
-
-        mate_mixer_deinit ();
 
         return 0;
 }

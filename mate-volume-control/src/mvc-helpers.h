@@ -29,7 +29,7 @@ G_BEGIN_DECLS
 
 const gchar *mvc_channel_position_to_string        (MateMixerChannelPosition position);
 const gchar *mvc_channel_position_to_pretty_string (MateMixerChannelPosition position);
-const gchar *mvc_channel_map_to_pretty_string      (MateMixerStream         *stream);
+const gchar *mvc_channel_map_to_pretty_string      (MateMixerStreamControl  *control);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 void         mvc_color_shade                       (GdkRGBA                 *a,

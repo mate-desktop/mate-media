@@ -51,14 +51,14 @@ mate_volume_control_LDADD =				\
 mate_volume_control_SOURCES =			\
 	gvc-balance-bar.h			\
 	gvc-balance-bar.c			\
-	gvc-mixer-dialog.h			\
-	gvc-mixer-dialog.c			\
 	gvc-level-bar.h				\
 	gvc-level-bar.c				\
 	gvc-combo-box.h				\
 	gvc-combo-box.c				\
 	gvc-speaker-test.h			\
 	gvc-speaker-test.c			\
+    gvc-mixer-dialog.h          \
+    gvc-mixer-dialog.c          \
 	dialog-main.c				\
 	$(NULL)
 

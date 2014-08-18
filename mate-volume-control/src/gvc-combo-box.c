@@ -202,46 +202,23 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
 }
 
 void
-gvc_combo_box_set_profiles (GvcComboBox *combobox, const GList *profiles)
+gvc_combo_box_set_options (GvcComboBox *combobox, const GList *options)
 {
         const GList *l;
 
         g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
         g_return_if_fail (combobox->priv->set_called == FALSE);
 
-        for (l = profiles; l != NULL; l = l->next) {
-                MateMixerDeviceProfile *p = MATE_MIXER_DEVICE_PROFILE (l->data);
+        for (l = options; l != NULL; l = l->next) {
+                MateMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (l->data);
 
                 gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
                                                    NULL,
                                                    G_MAXINT,
                                                    COL_NAME,
-                                                   mate_mixer_device_profile_get_name (p),
+                                                   mate_mixer_switch_option_get_name (option),
                                                    COL_HUMAN_NAME,
-                                                   mate_mixer_device_profile_get_description (p),
-                                                   -1);
-        }
-        combobox->priv->set_called = TRUE;
-}
-
-void
-gvc_combo_box_set_ports (GvcComboBox *combobox, const GList *ports)
-{
-        const GList *l;
-
-        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
-        g_return_if_fail (combobox->priv->set_called == FALSE);
-
-        for (l = ports; l != NULL; l = l->next) {
-                MateMixerPort *p = MATE_MIXER_PORT (l->data);
-
-                gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
-                                                   NULL,
-                                                   G_MAXINT,
-                                                   COL_NAME,
-                                                   mate_mixer_port_get_name (p),
-                                                   COL_HUMAN_NAME,
-                                                   mate_mixer_port_get_description (p),
+                                                   mate_mixer_switch_option_get_label (option),
                                                    -1);
         }
         combobox->priv->set_called = TRUE;

@@ -69,10 +69,8 @@ void                gvc_combo_box_set_size_group      (GvcComboBox  *combobox,
                                                        GtkSizeGroup *group,
                                                        gboolean      symmetric);
 
-void                gvc_combo_box_set_profiles        (GvcComboBox  *combobox,
-                                                       const GList  *profiles);
-void                gvc_combo_box_set_ports           (GvcComboBox  *combobox,
-                                                       const GList  *ports);
+void                gvc_combo_box_set_options         (GvcComboBox  *combobox,
+                                                       const GList  *options);
 void                gvc_combo_box_set_active          (GvcComboBox  *combobox,
                                                        const gchar  *id);
 
