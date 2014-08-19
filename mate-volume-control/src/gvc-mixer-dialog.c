@@ -942,7 +942,7 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                 }
                 model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
 
-                control = mate_mixer_stream_get_default_control (output);
+                control = mate_mixer_stream_get_default_control (stream);
                 if (G_LIKELY (control != NULL))
                         speakers = mvc_channel_map_to_pretty_string (control);
         }
