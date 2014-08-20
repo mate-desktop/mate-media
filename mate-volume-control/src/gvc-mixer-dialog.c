@@ -302,7 +302,7 @@ static void
 update_output_settings (GvcMixerDialog *dialog)
 {
         MateMixerStream            *stream;
-        MateMixerStreamControl     *control = NULL;
+        MateMixerStreamControl     *control;
         MateMixerStreamControlFlags flags;
         MateMixerSwitch            *port_switch;
         gboolean                    has_settings = FALSE;
@@ -334,19 +334,13 @@ update_output_settings (GvcMixerDialog *dialog)
                 dialog->priv->output_port_combo = NULL;
         }
 
-        stream = mate_mixer_context_get_default_output_stream (dialog->priv->context);
-        if (stream == NULL) {
-                g_debug ("There is no default output stream");
-                gtk_widget_hide (dialog->priv->output_settings_frame);
-                return;
-        }
-        control = mate_mixer_stream_get_default_control (stream);
+        /* Get the control currently associated with the output slider */
+        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->output_bar));
         if (control == NULL) {
                 g_debug ("There is no control for the default output stream");
                 gtk_widget_hide (dialog->priv->output_settings_frame);
                 return;
         }
-
         flags = mate_mixer_stream_control_get_flags (control);
 
         /* Enable balance bar if it is available */
@@ -399,6 +393,11 @@ update_output_settings (GvcMixerDialog *dialog)
                 gtk_widget_show (dialog->priv->output_lfe_bar);
                 has_settings = TRUE;
         }
+
+        /* Get owning stream of the control */
+        stream = mate_mixer_stream_control_get_stream (control);
+        if (G_UNLIKELY (stream == NULL))
+                return;
 
         /* Enable the port selector if the stream has one */
         port_switch = find_stream_port_switch (stream);
@@ -531,16 +530,10 @@ update_input_settings (GvcMixerDialog *dialog)
                 dialog->priv->input_port_combo = NULL;
         }
 
-        stream = mate_mixer_context_get_default_input_stream (dialog->priv->context);
-        if (stream == NULL) {
-                g_debug ("There is no default input stream");
+        /* Get the control currently associated with the input slider */
+        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
+        if (control == NULL)
                 return;
-        }
-        control = mate_mixer_stream_get_default_control (stream);
-        if (control == NULL) {
-                g_debug ("There is no control for the default input stream");
-                return;
-        }
 
         flags = mate_mixer_stream_control_get_flags (control);
 
@@ -550,6 +543,11 @@ update_input_settings (GvcMixerDialog *dialog)
                                   "monitor-value",
                                   G_CALLBACK (on_stream_control_monitor_value),
                                   dialog);
+
+        /* Get owning stream of the control */
+        stream = mate_mixer_stream_control_get_stream (control);
+        if (G_UNLIKELY (stream == NULL))
+                return;
 
         /* Enable the port selector if the stream has one */
         port_switch = find_stream_port_switch (stream);
@@ -907,7 +905,6 @@ add_effects_control (GvcMixerDialog *dialog, MateMixerStreamControl *control)
 static void
 add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 {
-        GtkWidget         *bar = NULL;
         GtkTreeModel      *model = NULL;
         GtkTreeIter        iter;
         const gchar       *speakers = NULL;
@@ -922,7 +919,7 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 
                 input = mate_mixer_context_get_default_input_stream (dialog->priv->context);
                 if (stream == input) {
-                        bar = dialog->priv->input_bar;
+                        bar_set_stream (dialog, dialog->priv->input_bar, stream);
 
                         update_input_settings (dialog);
                         is_default = TRUE;
@@ -935,7 +932,7 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 
                 output = mate_mixer_context_get_default_output_stream (dialog->priv->context);
                 if (stream == output) {
-                        bar = dialog->priv->output_bar;
+                        bar_set_stream (dialog, dialog->priv->output_bar, stream);
 
                         update_output_settings (dialog);
                         is_default = TRUE;
@@ -975,11 +972,6 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                                     ACTIVE_COLUMN, is_default,
                                     SPEAKERS_COLUMN, speakers,
                                     -1);
-        }
-
-        if (bar != NULL) {
-                bar_set_stream (dialog, bar, stream);
-                gtk_widget_show (bar);
         }
 }
 
@@ -2002,6 +1994,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->output_bar),
                                   _("_Output volume: "));
 
+        gtk_widget_show (self->priv->output_bar);
         gtk_widget_set_sensitive (self->priv->output_bar, FALSE);
 
         gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
@@ -2059,6 +2052,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->effects_bar),
                                   _("_Alert volume: "));
 
+        gtk_widget_show (self->priv->effects_bar);
         gtk_widget_set_sensitive (self->priv->effects_bar, FALSE);
 
         self->priv->sound_theme_chooser = gvc_sound_theme_chooser_new ();
@@ -2134,12 +2128,16 @@ gvc_mixer_dialog_constructor (GType                  type,
                                   label);
 
         self->priv->input_bar = create_bar (self, TRUE, TRUE);
+
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                   _("_Input volume: "));
+
         gvc_channel_bar_set_low_icon_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                            "audio-input-microphone-low");
         gvc_channel_bar_set_high_icon_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                             "audio-input-microphone-high");
+
+        gtk_widget_show (self->priv->input_bar);
         gtk_widget_set_sensitive (self->priv->input_bar, FALSE);
 
         alignment = gtk_alignment_new (0, 0, 1, 1);
