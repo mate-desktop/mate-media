@@ -1095,17 +1095,15 @@ remove_stream (GvcMixerDialog *dialog, const gchar *name)
         GtkTreeIter   iter;
         GtkTreeModel *model;
 
-        /* Remove bars for applications and reset fixed bars */
         bar = g_hash_table_lookup (dialog->priv->bars, name);
 
-        if (bar != dialog->priv->input_bar && bar != dialog->priv->output_bar)
-                return;
+        if (bar != NULL) {
+                g_debug ("Removing stream %s from bar %s",
+                         name,
+                         gvc_channel_bar_get_name (GVC_CHANNEL_BAR (bar)));
 
-        g_debug ("Removing stream %s from bar %s",
-                 name,
-                 gvc_channel_bar_get_name (GVC_CHANNEL_BAR (bar)));
-
-        bar_set_stream (dialog, bar, NULL);
+                bar_set_stream (dialog, bar, NULL);
+        }
 
         /* Remove from any models */
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
@@ -1149,7 +1147,6 @@ on_context_stream_removed (MateMixerContext *context,
                            const gchar      *name,
                            GvcMixerDialog   *dialog)
 {
-
         if (dialog->priv->hw_profile_combo != NULL) {
                 gboolean show_button;
 
