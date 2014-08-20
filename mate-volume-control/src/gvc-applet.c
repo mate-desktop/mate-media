@@ -98,7 +98,7 @@ update_icon_input (GvcApplet *applet)
 
                                         if G_UNLIKELY (control == NULL) {
                                                 /* In the unlikely case when there is no
-                                                 * default output control, use the application
+                                                 * default input control, use the application
                                                  * control for the icon */
                                                 control = input;
                                         }
@@ -165,7 +165,7 @@ on_input_stream_control_added (MateMixerStream *stream,
                         mate_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
-                if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
                         return;
         }
 
@@ -201,7 +201,7 @@ update_default_input_stream (GvcApplet *applet)
                 g_object_unref (applet->priv->input);
         }
 
-        applet->priv->input = mate_mixer_context_get_default_input_stream (applet->priv->context);
+        applet->priv->input = g_object_ref (stream);
         if (applet->priv->input != NULL) {
                 g_signal_connect (G_OBJECT (applet->priv->input),
                                   "control-added",

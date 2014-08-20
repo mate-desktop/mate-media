@@ -111,13 +111,28 @@ static const guint tab_accel_keys[] = {
         GDK_KEY_1, GDK_KEY_2, GDK_KEY_3, GDK_KEY_4, GDK_KEY_5
 };
 
-static void gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass);
-static void gvc_mixer_dialog_init       (GvcMixerDialog      *dialog);
-static void gvc_mixer_dialog_finalize   (GObject             *object);
+static void gvc_mixer_dialog_class_init (GvcMixerDialogClass    *klass);
+static void gvc_mixer_dialog_init       (GvcMixerDialog         *dialog);
+static void gvc_mixer_dialog_finalize   (GObject                *object);
 
-static void bar_set_stream              (GvcMixerDialog      *dialog,
-                                         GtkWidget           *bar,
-                                         MateMixerStream     *stream);
+static void add_stream                  (GvcMixerDialog         *dialog,
+                                         MateMixerStream        *stream);
+static void add_application_control     (GvcMixerDialog         *dialog,
+                                         MateMixerStreamControl *control);
+static void add_effects_control         (GvcMixerDialog         *dialog,
+                                         MateMixerStreamControl *control);
+
+static void remove_stream               (GvcMixerDialog         *dialog,
+                                         const gchar            *name);
+static void remove_application_control  (GvcMixerDialog         *dialog,
+                                         const gchar            *name);
+
+static void bar_set_stream              (GvcMixerDialog         *dialog,
+                                         GtkWidget              *bar,
+                                         MateMixerStream        *stream);
+static void bar_set_stream_control      (GvcMixerDialog         *dialog,
+                                         GtkWidget              *bar,
+                                         MateMixerStreamControl *control);
 
 G_DEFINE_TYPE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
 
@@ -760,6 +775,28 @@ bar_set_stream (GvcMixerDialog  *dialog,
                 MateMixerStream *stream)
 {
         MateMixerStreamControl *control = NULL;
+
+        if (stream != NULL) {
+                MateMixerSwitch *port_switch;
+
+                control = mate_mixer_stream_get_default_control (stream);
+
+                port_switch = find_stream_port_switch (stream);
+                if (port_switch != NULL)
+                        g_signal_connect (G_OBJECT (port_switch),
+                                          "notify::active-option",
+                                          G_CALLBACK (on_switch_option_notify),
+                                          dialog);
+        }
+
+        bar_set_stream_control (dialog, bar, control);
+}
+
+static void
+bar_set_stream_control (GvcMixerDialog         *dialog,
+                        GtkWidget              *bar,
+                        MateMixerStreamControl *control)
+{
         MateMixerStreamControl *previous;
 
         previous = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (bar));
@@ -778,27 +815,18 @@ bar_set_stream (GvcMixerDialog  *dialog,
                 g_hash_table_remove (dialog->priv->bars, name);
         }
 
-        if (stream != NULL) {
-                MateMixerSwitch *port_switch;
-
-                control = mate_mixer_stream_get_default_control (stream);
-
-                port_switch = find_stream_port_switch (stream);
-                if (port_switch != NULL)
-                        g_signal_connect (G_OBJECT (port_switch),
-                                          "notify::active-option",
-                                          G_CALLBACK (on_switch_option_notify),
-                                          dialog);
-
-                if (G_LIKELY (control != NULL))
-                        g_hash_table_insert (dialog->priv->bars,
-                                             (gpointer) mate_mixer_stream_control_get_name (control),
-                                             bar);
-        }
-
         gvc_channel_bar_set_control (GVC_CHANNEL_BAR (bar), control);
 
-        gtk_widget_set_sensitive (GTK_WIDGET (bar), (stream != NULL));
+        if (control != NULL) {
+                const gchar *name = mate_mixer_stream_control_get_name (control);
+
+                g_hash_table_insert (dialog->priv->bars,
+                                     (gpointer) name,
+                                     bar);
+
+                gtk_widget_set_sensitive (GTK_WIDGET (bar), TRUE);
+        } else
+                gtk_widget_set_sensitive (GTK_WIDGET (bar), TRUE);
 }
 
 static void
@@ -879,7 +907,7 @@ add_application_control (GvcMixerDialog *dialog, MateMixerStreamControl *control
                             bar,
                             FALSE, FALSE, 12);
 
-        bar_set_stream (dialog, bar, stream);
+        bar_set_stream_control (dialog, bar, control);
         dialog->priv->num_apps++;
 
         gtk_widget_hide (dialog->priv->no_apps_label);
@@ -915,6 +943,56 @@ add_effects_control (GvcMixerDialog *dialog, MateMixerStreamControl *control)
                 gtk_widget_set_sensitive (GTK_WIDGET (dialog->priv->effects_bar), TRUE);
         } else
                 gtk_widget_set_sensitive (GTK_WIDGET (dialog->priv->effects_bar), FALSE);
+}
+
+static void
+on_stream_control_added (MateMixerStream *stream,
+                         const gchar     *name,
+                         GvcMixerDialog  *dialog)
+{
+        MateMixerStreamControl    *control;
+        MateMixerStreamControlRole role;
+
+        control = mate_mixer_stream_get_control (stream, name);
+        if G_UNLIKELY (control == NULL)
+                return;
+
+        role = mate_mixer_stream_control_get_role (control);
+
+        if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                add_application_control (dialog, control);
+}
+
+static void
+on_stream_control_removed (MateMixerStream *stream,
+                           const gchar     *name,
+                           GvcMixerDialog  *dialog)
+{
+        MateMixerStreamControl *control;
+
+        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
+        if (control != NULL) {
+                const gchar *input_name = mate_mixer_stream_control_get_name (control);
+
+                if (strcmp (name, input_name) == 0) {
+                        // XXX probably can't even happen, but handle it somehow
+                        return;
+                }
+        }
+
+        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->output_bar));
+        if (control != NULL) {
+                const gchar *input_name = mate_mixer_stream_control_get_name (control);
+
+                if (strcmp (name, input_name) == 0) {
+                        // XXX probably can't even happen, but handle it somehow
+                        return;
+                }
+        }
+
+        /* No way to be sure that it is an application control, but we don't have
+         * any other than application bars that could match the name */
+        remove_application_control (dialog, name);
 }
 
 static void
@@ -988,6 +1066,16 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                                     SPEAKERS_COLUMN, speakers,
                                     -1);
         }
+
+        // XXX find a way to disconnect when removed
+        g_signal_connect (G_OBJECT (stream),
+                          "control-added",
+                          G_CALLBACK (on_stream_control_added),
+                          dialog);
+        g_signal_connect (G_OBJECT (stream),
+                          "control-removed",
+                          G_CALLBACK (on_stream_control_removed),
+                          dialog);
 }
 
 static void
@@ -1006,31 +1094,6 @@ update_device_test_visibility (GvcMixerDialog *dialog)
         g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
                       "show-button", (stream != NULL),
                       NULL);
-}
-
-static void
-on_stream_control_added (MateMixerStream *stream,
-                         const gchar     *name,
-                         GvcMixerDialog  *dialog)
-{
-        MateMixerStreamControl    *control;
-        MateMixerStreamControlRole role;
-
-        control = mate_mixer_stream_get_control (stream, name);
-        if G_UNLIKELY (control == NULL)
-                return;
-
-        role = mate_mixer_stream_control_get_role (control);
-
-        if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
-                add_application_control (dialog, control);
-}
-
-static void
-on_stream_control_removed (MateMixerStream *stream,
-                           const gchar     *name,
-                           GvcMixerDialog  *dialog)
-{
 }
 
 static void
@@ -1076,16 +1139,6 @@ on_context_stream_added (MateMixerContext *context,
                 return;
 
         add_stream (dialog, stream);
-
-        // XXX broken in libmatemixer?
-        g_signal_connect (G_OBJECT (stream),
-                          "control-added",
-                          G_CALLBACK (on_stream_control_added),
-                          dialog);
-        g_signal_connect (G_OBJECT (stream),
-                          "control-removed",
-                          G_CALLBACK (on_stream_control_removed),
-                          dialog);
 }
 
 static void
@@ -1127,10 +1180,15 @@ remove_application_control (GvcMixerDialog *dialog, const gchar *name)
         GtkWidget *bar;
 
         bar = g_hash_table_lookup (dialog->priv->bars, name);
+        if (G_UNLIKELY (bar == NULL))
+                return;
 
         g_debug ("Removing application stream %s", name);
 
+        /* We could call bar_set_stream_control here, but that would pointlessly
+         * invalidate the channel bar, so just remove it ourselves */
         g_hash_table_remove (dialog->priv->bars, name);
+
         gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (bar)), bar);
 
         if (G_UNLIKELY (dialog->priv->num_apps <= 0)) {
@@ -1138,7 +1196,9 @@ remove_application_control (GvcMixerDialog *dialog, const gchar *name)
                 dialog->priv->num_apps = 1;
         }
 
-        if (--dialog->priv->num_apps == 0)
+        dialog->priv->num_apps--;
+
+        if (dialog->priv->num_apps == 0)
                 gtk_widget_show (dialog->priv->no_apps_label);
 }
 
@@ -1778,6 +1838,11 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
                                                   _("_Profile:"),
                                                   options,
                                                   active_name);
+
+                g_object_set_data_full (G_OBJECT (dialog->priv->hw_profile_combo),
+                                   "device",
+                                   g_object_ref (device),
+                                   g_object_unref);
 
                 gtk_box_pack_start (GTK_BOX (dialog->priv->hw_settings_box),
                                     dialog->priv->hw_profile_combo,
