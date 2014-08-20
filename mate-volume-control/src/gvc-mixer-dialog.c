@@ -435,10 +435,25 @@ update_output_settings (GvcMixerDialog *dialog)
 static void
 set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 {
-        GtkTreeModel    *model;
-        MateMixerSwitch *swtch;
+        GtkTreeModel           *model;
+        MateMixerSwitch        *swtch;
+        MateMixerStreamControl *control;
 
-        if (0 && stream != NULL) {
+        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->output_bar));
+        if (control != NULL) {
+                /* Disconnect port switch of the previous stream */
+                if (dialog->priv->output_port_combo != NULL) {
+                        swtch = g_object_get_data (G_OBJECT (dialog->priv->output_port_combo),
+                                                   "switch");
+                        if (swtch != NULL)
+                                g_signal_handlers_disconnect_by_data (G_OBJECT (swtch),
+                                                                      dialog);
+                }
+        }
+
+        bar_set_stream (dialog, dialog->priv->output_bar, stream);
+
+        if (stream != NULL) {
                 const GList *controls;
 
                 controls = mate_mixer_context_list_stored_controls (dialog->priv->context);
@@ -451,7 +466,9 @@ set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                         control = MATE_MIXER_STREAM_CONTROL (controls->data);
                         parent  = mate_mixer_stream_control_get_stream (control);
 
-                        if (parent != stream) {
+                        /* Prefer streamless controls to stay the way they are, forcing them to
+                         * a particular owning stream would be wrong for eg. event controls */
+                        if (parent != NULL && parent != stream) {
                                 MateMixerDirection direction =
                                         mate_mixer_stream_get_direction (parent);
 
@@ -461,15 +478,6 @@ set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                         controls = controls->next;
                 }
         }
-
-        /* Changing the default input stream, disconnect the port switch */
-        if (dialog->priv->output_port_combo != NULL) {
-                swtch = g_object_get_data (G_OBJECT (dialog->priv->output_port_combo), "switch");
-                if (swtch != NULL)
-                        g_signal_handlers_disconnect_by_data (G_OBJECT (swtch), dialog);
-        }
-
-        bar_set_stream (dialog, dialog->priv->output_bar, stream);
 
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
         update_default_tree_item (dialog, model, stream);
@@ -597,13 +605,24 @@ set_input_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 
         control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
         if (control != NULL) {
-                /* Make sure to disable monitoring of the removed stream */
+                /* Disconnect port switch of the previous stream */
+                if (dialog->priv->input_port_combo != NULL) {
+                        swtch = g_object_get_data (G_OBJECT (dialog->priv->input_port_combo),
+                                                   "switch");
+                        if (swtch != NULL)
+                                g_signal_handlers_disconnect_by_data (G_OBJECT (swtch),
+                                                                      dialog);
+                }
+
+                /* Disable monitoring of the previous control */
                 g_signal_handlers_disconnect_by_func (G_OBJECT (control),
                                                       G_CALLBACK (on_stream_control_monitor_value),
                                                       dialog);
 
                 mate_mixer_stream_control_set_monitor_enabled (control, FALSE);
         }
+
+        bar_set_stream (dialog, dialog->priv->input_bar, stream);
 
         if (stream != NULL) {
                 const GList *controls;
@@ -618,7 +637,9 @@ set_input_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                         control = MATE_MIXER_STREAM_CONTROL (controls->data);
                         parent  = mate_mixer_stream_control_get_stream (control);
 
-                        if (parent != stream) {
+                        /* Prefer streamless controls to stay the way they are, forcing them to
+                         * a particular owning stream would be wrong for eg. event controls */
+                        if (parent != NULL && parent != stream) {
                                 MateMixerDirection direction =
                                         mate_mixer_stream_get_direction (parent);
 
@@ -628,20 +649,14 @@ set_input_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                         controls = controls->next;
                 }
 
-                if (page == PAGE_INPUT)
-                        mate_mixer_stream_control_set_monitor_enabled (control, TRUE);
-        }
+                if (page == PAGE_INPUT) {
+                        MateMixerStreamControl *control =
+                                gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
 
-        /* Changing the default input stream, disconnect the port switch */
-        if (dialog->priv->input_port_combo != NULL) {
-                swtch = g_object_get_data (G_OBJECT (dialog->priv->input_port_combo), "switch");
-                if (swtch != NULL)
-                        g_signal_handlers_disconnect_by_data (G_OBJECT (swtch), dialog);
-        }
+                        if (G_LIKELY (control != NULL))
+                                mate_mixer_stream_control_set_monitor_enabled (control, TRUE);
+                }
 
-        bar_set_stream (dialog, dialog->priv->input_bar, stream);
-
-        if (stream != NULL) {
                 /* Enable/disable the peak level monitor according to mute state */
                 g_signal_connect (G_OBJECT (stream),
                                   "notify::mute",
