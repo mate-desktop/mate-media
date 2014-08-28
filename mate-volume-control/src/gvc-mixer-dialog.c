@@ -139,35 +139,38 @@ G_DEFINE_TYPE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
 static MateMixerSwitch *
 find_stream_port_switch (MateMixerStream *stream)
 {
-    const GList *switches;
+        const GList *switches;
 
-    switches = mate_mixer_stream_list_switches (stream);
-    while (switches != NULL) {
-        MateMixerSwitch *swtch = MATE_MIXER_SWITCH (switches->data);
+        switches = mate_mixer_stream_list_switches (stream);
+        while (switches != NULL) {
+                MateMixerSwitch     *swtch = MATE_MIXER_SWITCH (switches->data);
+                MateMixerSwitchFlags flags;
 
-        if (mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_PORT)
-            return swtch;
+                flags = mate_mixer_switch_get_flags (swtch);
+                if ((flags & MATE_MIXER_SWITCH_TOGGLE) == 0 &&
+                    mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_PORT)
+                    return swtch;
 
-        switches = switches->next;
-    }
-    return NULL;
+                switches = switches->next;
+        }
+        return NULL;
 }
 
 static MateMixerSwitch *
 find_device_profile_switch (MateMixerDevice *device)
 {
-    const GList *switches;
+        const GList *switches;
 
-    switches = mate_mixer_device_list_switches (device);
-    while (switches != NULL) {
-        MateMixerSwitch *swtch = MATE_MIXER_SWITCH (switches->data);
+        switches = mate_mixer_device_list_switches (device);
+        while (switches != NULL) {
+                MateMixerSwitch *swtch = MATE_MIXER_SWITCH (switches->data);
 
-        if (mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_DEVICE_PROFILE)
-            return swtch;
+                if (mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_DEVICE_PROFILE)
+                        return swtch;
 
-        switches = switches->next;
-    }
-    return NULL;
+                switches = switches->next;
+        }
+        return NULL;
 }
 
 static MateMixerStream *
