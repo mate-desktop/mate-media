@@ -28,6 +28,5 @@ gst-mixer-applet/load.c
 gst-mixer-applet/org.mate.panel.applet.mixer.gschema.xml.in.in
 gst-mixer-applet/preferences.c
 sound-theme/gvc-sound-theme-chooser.c
-sound-theme/gvc-sound-theme-editor.c
 sound-theme/sound-theme-file-utils.c
 sound-theme/sounds/mate-sounds-default.xml.in.in
