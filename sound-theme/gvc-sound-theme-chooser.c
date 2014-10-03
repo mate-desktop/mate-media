@@ -47,7 +47,6 @@ struct GvcSoundThemeChooserPrivate
         GtkWidget *selection_box;
         GtkWidget *click_feedback_button;
         GSettings *sound_settings;
-        GSettings *marco_settings;
 };
 
 static void     gvc_sound_theme_chooser_class_init (GvcSoundThemeChooserClass *klass);
@@ -64,8 +63,6 @@ G_DEFINE_TYPE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_VBOX)
 #define EVENT_SOUNDS_KEY           "event-sounds"
 #define INPUT_SOUNDS_KEY           "input-feedback-sounds"
 #define SOUND_THEME_KEY            "theme-name"
-#define KEY_MARCO_SCHEMA           "org.mate.Marco.general"
-#define AUDIO_BELL_KEY             "audible-bell"
 
 #define DEFAULT_ALERT_ID        "__default"
 #define CUSTOM_THEME_NAME       "__custom"
@@ -948,11 +945,7 @@ update_theme (GvcSoundThemeChooser *chooser)
 {
         char        *theme_name;
         gboolean     events_enabled;
-        gboolean     bell_enabled;
         gboolean     feedback_enabled;
-
-        bell_enabled = g_settings_get_boolean (chooser->priv->marco_settings, AUDIO_BELL_KEY);
-        //set_audible_bell_enabled (chooser, bell_enabled);
 
         feedback_enabled = g_settings_get_boolean (chooser->priv->sound_settings, INPUT_SOUNDS_KEY);
         set_input_feedback_enabled (chooser, feedback_enabled);
@@ -1026,8 +1019,6 @@ on_key_changed (GSettings            *settings,
                 update_theme (chooser);
         } else if (strcmp (key, INPUT_SOUNDS_KEY) == 0) {
                 update_theme (chooser);
-        } else if (strcmp (key, AUDIO_BELL_KEY) == 0) {
-                update_theme (chooser);
         }
 }
 
@@ -1079,7 +1070,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->combo_box);
 
         chooser->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
-        chooser->priv->marco_settings = g_settings_new (KEY_MARCO_SCHEMA);
 
         str = g_strdup_printf ("<b>%s</b>", _("C_hoose an alert sound:"));
         chooser->priv->selection_box = box = gtk_frame_new (str);
@@ -1127,10 +1117,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
                           "changed",
                           G_CALLBACK (on_key_changed),
                           chooser);
-        g_signal_connect (chooser->priv->marco_settings,
-                          "changed::" AUDIO_BELL_KEY,
-                          G_CALLBACK (on_key_changed),
-                          chooser);
 
         /* FIXME: should accept drag and drop themes.  should also
            add an "Add Theme..." item to the theme combobox */
@@ -1149,8 +1135,6 @@ gvc_sound_theme_chooser_finalize (GObject *object)
 	if (sound_theme_chooser->priv != NULL) {
 		g_object_unref (sound_theme_chooser->priv->sound_settings);
 		sound_theme_chooser->priv->sound_settings = NULL;
-		g_object_unref (sound_theme_chooser->priv->marco_settings);
-		sound_theme_chooser->priv->marco_settings = NULL;
 	}
 
         G_OBJECT_CLASS (gvc_sound_theme_chooser_parent_class)->finalize (object);
