@@ -25,8 +25,6 @@ libsoundtheme_la_LDFLAGS = -no-undefined
 BUILT_SOURCES =				\
 	$(NULL)
 
-EXTRA_DIST = gvc-sound-theme-editor.c gvc-sound-theme-editor.h
-
 CLEANFILES =				\
 	$(BUILT_SOURCES)		\
 	$(NULL)
