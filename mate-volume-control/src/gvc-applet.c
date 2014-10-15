@@ -144,12 +144,16 @@ update_icon_output (GvcApplet *applet)
 
         gvc_stream_status_icon_set_control (applet->priv->icon_output, control);
 
-        if (control != NULL)
+        if (control != NULL) {
+                g_debug ("Output icon enabled");
                 gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
                                              TRUE);
-        else
+        }
+        else {
+                g_debug ("There is no output stream/control, output icon disabled");
                 gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
                                              FALSE);
+        }
 }
 
 static void
@@ -230,7 +234,6 @@ on_context_state_notify (MateMixerContext *context,
                 break;
 
         case MATE_MIXER_STATE_READY:
-        case MATE_MIXER_STATE_CONNECTING:
                 update_default_input_stream (applet);
 
                 /* Each status change may affect the visibility of the icons */
@@ -274,9 +277,6 @@ gvc_applet_start (GvcApplet *applet)
                  * should end up with the Null module */
                 g_warning ("Failed to connect to a sound system");
         }
-
-        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output), FALSE);
-        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input), FALSE);
 
         g_debug ("Applet has been started");
 
