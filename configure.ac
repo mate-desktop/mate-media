@@ -124,7 +124,7 @@ if test "x$enable_pulseaudio" != "xno"; then
             libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
             unique-$UNIQUE_API_VERSION
             libxml-2.0
-dnl            mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+            mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
             libmatemixer
     )
 

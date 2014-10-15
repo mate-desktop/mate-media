@@ -26,9 +26,8 @@
 
 #include <libmatemixer/matemixer.h>
 
-//#define MATE_DESKTOP_USE_UNSTABLE_API
-
-//#include <libmate-desktop/mate-desktop-utils.h>
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
 
 #include "gvc-channel-bar.h"
 #include "gvc-stream-status-icon.h"
@@ -219,11 +218,10 @@ on_menu_activate_open_volume_control (GtkMenuItem         *item,
 {
         GError *error = NULL;
 
-/*
-        mate_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
-                                           "mate-volume-control",
-                                           &error);
-                                           */
+        mate_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
+                                               "mate-volume-control",
+                                               &error);
+
         if (error != NULL) {
                 GtkWidget *dialog;
 
