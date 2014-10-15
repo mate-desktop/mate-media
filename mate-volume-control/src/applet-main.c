@@ -33,6 +33,7 @@
 #include "gvc-applet.h"
 
 static gboolean show_version = FALSE;
+static gboolean debug = FALSE;
 
 int
 main (int argc, char **argv)
@@ -42,6 +43,7 @@ main (int argc, char **argv)
         UniqueApp    *app;
         GOptionEntry  entries[] = {
                 { "version", 'v', 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
+                { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Enable debug"), NULL },
                 { NULL }
         };
 
@@ -61,6 +63,9 @@ main (int argc, char **argv)
         if (show_version == TRUE) {
                 g_print ("%s %s\n", argv[0], VERSION);
                 return 0;
+        }
+        if (debug == TRUE) {
+                g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
         }
 
         app = unique_app_new (GVC_APPLET_DBUS_NAME, NULL);
