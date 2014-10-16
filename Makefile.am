@@ -6,9 +6,8 @@ if HAVE_SOUND_THEME
 SUBDIRS += sound-theme
 endif
 
-if HAVE_PULSEAUDIO
+# m-v-c depends on sound-theme, if enabled, so add here to SUBDIRS
 SUBDIRS += mate-volume-control
-endif
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\

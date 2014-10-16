@@ -42,8 +42,8 @@ AC_TYPE_SIZE_T
 AC_PROG_GCC_TRADITIONAL
 AC_FUNC_MMAP
 
-GLIB_REQUIRED_VERSION=2.18.2
-GIO_REQUIRED_VERSION=2.25.0
+GLIB_REQUIRED_VERSION=2.36.0
+GIO_REQUIRED_VERSION=2.36.0
 PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
 MATE_DESKTOP_REQUIRED_VERSION=1.9.1
@@ -98,7 +98,25 @@ AC_SUBST(SOUNDTHEME_CFLAGS)
 AC_SUBST(SOUNDTHEME_LIBS)
 
 dnl=======================================================================
-dnl Check for the new volume control modules
+dnl Check for the volume control modules
+dnl=======================================================================
+
+PKG_CHECK_MODULES(VOLUME_CONTROL,
+                  gobject-2.0 >= $GLIB_REQUIRED_VERSION
+                  gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
+                  gio-2.0 >= $GIO_REQUIRED_VERSION
+                  libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
+                  unique-$UNIQUE_API_VERSION
+                  libxml-2.0
+                  mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+                  libmatemixer
+)
+
+AC_SUBST(VOLUME_CONTROL_CFLAGS)
+AC_SUBST(VOLUME_CONTROL_LIBS)
+
+dnl=======================================================================
+dnl Check for PulseAudio optional dependency
 dnl=======================================================================
 
 AC_ARG_ENABLE([pulseaudio],
@@ -117,24 +135,6 @@ if test "x$enable_pulseaudio" != "xno"; then
   fi
 
   if test "x$have_pulseaudio" = "xyes" ; then
-    PKG_CHECK_MODULES(VOLUME_CONTROL,
-            gobject-2.0 >= $GLIB_REQUIRED_VERSION
-            gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
-            gio-2.0 >= $GIO_REQUIRED_VERSION
-            libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
-            unique-$UNIQUE_API_VERSION
-            libxml-2.0
-            mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-            libmatemixer
-    )
-
-    AC_SUBST(VOLUME_CONTROL_CFLAGS)
-    AC_SUBST(VOLUME_CONTROL_LIBS)
-
-    if $PKG_CONFIG --atleast-version 2.26 glib-2.0; then
-        VOLUME_CONTROL_CFLAGS="$VOLUME_CONTROL_CFLAGS -DG_CONST_RETURN=const"
-    fi
-
     AC_DEFINE(HAVE_PULSEAUDIO, [], [Define if we have pulseaudio])
   fi
 else
@@ -145,7 +145,9 @@ AC_SUBST(HAVE_PULSEAUDIO)
 AC_SUBST(PULSEAUDIO_CFLAGS)
 AC_SUBST(PULSEAUDIO_LIBS)
 
-
+dnl=======================================================================
+dnl GLib
+dnl=======================================================================
 
 GLIB_GSETTINGS
 
@@ -268,4 +270,5 @@ echo "
         Compiler:                    ${CC}
         CFLAGS:                      ${CFLAGS}
         GTK+ API version:            ${GTK_API_VERSION}
+        PulseAudio:                  ${have_pulseaudio}
 "

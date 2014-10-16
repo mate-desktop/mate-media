@@ -29,10 +29,6 @@
 #include <canberra.h>
 #include <libmatemixer/matemixer.h>
 
-#ifdef HAVE_PULSEAUDIO
-#include <pulse/pulseaudio.h>
-#endif
-
 #include "gvc-speaker-test.h"
 #include "mvc-helpers.h"
 
