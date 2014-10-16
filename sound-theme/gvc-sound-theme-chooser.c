@@ -48,7 +48,6 @@ struct GvcSoundThemeChooserPrivate
         GtkWidget *selection_box;
         GtkWidget *click_feedback_button;
         GSettings *sound_settings;
-        GSettings *marco_settings;
 };
 
 static void     gvc_sound_theme_chooser_class_init (GvcSoundThemeChooserClass *klass);
@@ -65,8 +64,6 @@ G_DEFINE_TYPE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_VBOX)
 #define EVENT_SOUNDS_KEY           "event-sounds"
 #define INPUT_SOUNDS_KEY           "input-feedback-sounds"
 #define SOUND_THEME_KEY            "theme-name"
-#define KEY_MARCO_SCHEMA           "org.mate.Marco.general"
-#define AUDIO_BELL_KEY             "audible-bell"
 
 #define DEFAULT_ALERT_ID        "__default"
 #define CUSTOM_THEME_NAME       "__custom"
@@ -996,7 +993,6 @@ on_key_changed (GSettings            *settings,
         if (!strcmp (key, EVENT_SOUNDS_KEY) ||
             !strcmp (key, SOUND_THEME_KEY) ||
             !strcmp (key, INPUT_SOUNDS_KEY) ||
-            !strcmp (key, AUDIO_BELL_KEY))
                 update_theme (chooser);
 }
 
@@ -1069,7 +1065,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->combo_box);
 
         chooser->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
-        chooser->priv->marco_settings = g_settings_new (KEY_MARCO_SCHEMA);
 
         str = g_strdup_printf ("<b>%s</b>", _("C_hoose an alert sound:"));
         chooser->priv->selection_box = box = gtk_frame_new (str);
@@ -1119,10 +1114,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
                           "changed",
                           G_CALLBACK (on_key_changed),
                           chooser);
-        g_signal_connect (G_OBJECT (chooser->priv->marco_settings),
-                          "changed::" AUDIO_BELL_KEY,
-                          G_CALLBACK (on_key_changed),
-                          chooser);
 
         setup_theme_selector (chooser);
         update_theme (chooser);
@@ -1138,7 +1129,6 @@ gvc_sound_theme_chooser_dispose (GObject *object)
         chooser = GVC_SOUND_THEME_CHOOSER (object);
 
         g_clear_object (&chooser->priv->sound_settings);
-        g_clear_object (&chooser->priv->marco_settings);
 
         G_OBJECT_CLASS (gvc_sound_theme_chooser_parent_class)->dispose (object);
 }
