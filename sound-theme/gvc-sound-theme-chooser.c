@@ -992,7 +992,7 @@ on_key_changed (GSettings            *settings,
 {
         if (!strcmp (key, EVENT_SOUNDS_KEY) ||
             !strcmp (key, SOUND_THEME_KEY) ||
-            !strcmp (key, INPUT_SOUNDS_KEY) ||
+            !strcmp (key, INPUT_SOUNDS_KEY))
                 update_theme (chooser);
 }
 
