@@ -3,24 +3,33 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Sérgio Marques <smarquespt@gmail.com>, 2012.
+# Sérgio Marques <smarquespt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
-"POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-16 08:23+0200\n"
+"PO-Revision-Date: 2014-10-16 06:24+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
+msgid "Sound"
+msgstr "Som"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "Alterar volume do sistema e sons de eventos"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
+#: ../mate-volume-control/src/dialog-main.c:240
+#: ../mate-volume-control/src/gvc-channel-bar.c:500
+#: ../mate-volume-control/src/gvc-speaker-test.c:461
 msgid "Volume Control"
 msgstr "Controlo de volume"
 
@@ -28,132 +37,137 @@ msgstr "Controlo de volume"
 msgid "Show desktop volume control"
 msgstr "Mostrar controlo de volume"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-msgid "Sound"
-msgstr "Som"
-
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
-msgid "Change sound volume and sound events"
-msgstr "Alterar volume do sistema e sons de eventos"
-
-#: ../mate-volume-control/src/applet-main.c:49
-#: ../mate-volume-control/src/dialog-main.c:155
-msgid "Enable debugging code"
-msgstr "Ativar depuração"
-
-#: ../mate-volume-control/src/applet-main.c:50
-#: ../mate-volume-control/src/dialog-main.c:156
+#: ../mate-volume-control/src/applet-main.c:45
+#: ../mate-volume-control/src/dialog-main.c:185
 msgid "Version of this application"
 msgstr "Versão da aplicação"
 
-#: ../mate-volume-control/src/applet-main.c:62
+#: ../mate-volume-control/src/applet-main.c:46
+msgid "Enable debug"
+msgstr ""
+
+#: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"
 msgstr " — Applet para controlo de volume MATE"
 
-#: ../mate-volume-control/src/dialog-main.c:124
+#: ../mate-volume-control/src/dialog-main.c:137
+msgid "Sound system is not available"
+msgstr ""
+
+#: ../mate-volume-control/src/dialog-main.c:159
 msgid "Waiting for sound system to respond"
 msgstr "À espera da resposta do sistema de som"
 
-#: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
+#: ../mate-volume-control/src/dialog-main.c:183
+msgid "Sound system backend"
+msgstr ""
+
+#: ../mate-volume-control/src/dialog-main.c:184
 msgid "Startup page"
 msgstr "Página inicial"
 
-#: ../mate-volume-control/src/dialog-main.c:168
+#: ../mate-volume-control/src/dialog-main.c:194
 msgid " — MATE Volume Control"
 msgstr " — Controle de volume MATE"
 
-#: ../mate-volume-control/src/gvc-applet.c:275
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
-msgid "Output"
-msgstr "Saída"
-
-#: ../mate-volume-control/src/gvc-applet.c:277
-msgid "Sound Output Volume"
-msgstr "Volume da saída de som"
-
-#: ../mate-volume-control/src/gvc-applet.c:281
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
+#: ../mate-volume-control/src/gvc-applet.c:322
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2205
 msgid "Input"
 msgstr "Entrada"
 
-#: ../mate-volume-control/src/gvc-applet.c:283
+#: ../mate-volume-control/src/gvc-applet.c:323
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2307
+msgid "Output"
+msgstr "Saída"
+
+#: ../mate-volume-control/src/gvc-applet.c:326
 msgid "Microphone Volume"
 msgstr "Volume do microfone"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:109
+#: ../mate-volume-control/src/gvc-applet.c:328
+msgid "Sound Output Volume"
+msgstr "Volume da saída de som"
+
+#: ../mate-volume-control/src/gvc-applet.c:333
+msgid "MATE Volume Control Applet"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
 msgstr "Esquerda"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:110
+#: ../mate-volume-control/src/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
 msgstr "Direita"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:113
+#: ../mate-volume-control/src/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
 msgstr "Atrás"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:114
+#: ../mate-volume-control/src/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
 msgstr "Frente"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:117
+#: ../mate-volume-control/src/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Mínimo"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:118
+#: ../mate-volume-control/src/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Máximo"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:294
+#: ../mate-volume-control/src/gvc-balance-bar.c:355
 msgid "_Balance:"
 msgstr "_Balanço:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:297
+#: ../mate-volume-control/src/gvc-balance-bar.c:358
 msgid "_Fade:"
 msgstr "_Desvanecimento:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:300
+#: ../mate-volume-control/src/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
 msgstr "_Subwoofer:"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:602
-#: ../mate-volume-control/src/gvc-channel-bar.c:611
-msgctxt "volume"
-msgid "100%"
-msgstr "100%"
-
-#: ../mate-volume-control/src/gvc-channel-bar.c:606
+#: ../mate-volume-control/src/gvc-channel-bar.c:330
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Sem amplificação"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:868
+#: ../mate-volume-control/src/gvc-channel-bar.c:343
+msgctxt "volume"
+msgid "100%"
+msgstr "100%"
+
+#. Mute button
+#: ../mate-volume-control/src/gvc-channel-bar.c:1099
 msgid "Mute"
 msgstr "Silenciar"
 
-#: ../mate-volume-control/src/gvc-combo-box.c:166
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
+#: ../mate-volume-control/src/gvc-combo-box.c:164
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1841
 msgid "_Profile:"
 msgstr "_Perfil:"
 
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:435
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:593
+msgid "Co_nnector:"
+msgstr "Co_nector:"
+
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-control.c:1005
-#: ../sound-theme/gvc-sound-theme-editor.c:895
-#: ../sound-theme/gvc-sound-theme-editor.c:991
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1293
 msgid "Disabled"
 msgstr "Inativo"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1012
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1299
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -162,928 +176,181 @@ msgstr[1] "%u saídas"
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1022
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1308
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u entrada"
 msgstr[1] "%u entradas"
 
-#: ../mate-volume-control/src/gvc-mixer-control.c:1320
-msgid "System Sounds"
-msgstr "Sons do sistema"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:309
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:604
-msgid "Co_nnector:"
-msgstr "Co_nector:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:517
-msgid "Peak detect"
-msgstr "Deteção de \"peak\""
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
-#: ../sound-theme/gvc-sound-theme-chooser.c:874
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1690
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1989
+#: ../sound-theme/gvc-sound-theme-chooser.c:872
 msgid "Name"
 msgstr "Nome"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
-msgid "Device"
-msgstr "Dispositivo"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1729
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Teste de altifalante para %s"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1772
 msgid "Test Speakers"
 msgstr "Testar altifalantes"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2075
 msgid "_Output volume: "
 msgstr "V_olume de saída: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2120
 msgid "Sound Effects"
 msgstr "Efeitos sonoros"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2133
 msgid "_Alert volume: "
 msgstr "Volume do _alerta: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2151
 msgid "Hardware"
 msgstr "Equipamento"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2156
 msgid "C_hoose a device to configure:"
 msgstr "Escol_ha o dispositivo a configurar:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2183
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2339
 msgid "Settings for the selected device:"
 msgstr "Definições do dispositivo escolhido:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2213
 msgid "_Input volume: "
 msgstr "Volume de _entrada:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2247
 msgid "Input level:"
 msgstr "Nível de entrada:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2276
 msgid "C_hoose a device for sound input:"
 msgstr "Escol_ha o dispositivo de entrada a configurar:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2312
 msgid "C_hoose a device for sound output:"
 msgstr "Escol_ha o dispositivo de saída a configurar:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
 msgid "Applications"
 msgstr "Aplicações"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
 msgid "No application is currently playing or recording audio."
 msgstr "Neste momento, não existem aplicações a reproduzir ou gravar áudio"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
-#: ../sound-theme/gvc-sound-theme-chooser.c:739
-#: ../sound-theme/gvc-sound-theme-chooser.c:751
-#: ../sound-theme/gvc-sound-theme-chooser.c:763
-#: ../sound-theme/gvc-sound-theme-editor.c:560
-#: ../sound-theme/gvc-sound-theme-editor.c:949
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
+#: ../sound-theme/gvc-sound-theme-chooser.c:736
+#: ../sound-theme/gvc-sound-theme-chooser.c:748
+#: ../sound-theme/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
 msgstr "Preferências de som"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:220
+#: ../mate-volume-control/src/gvc-speaker-test.c:262
 msgid "Stop"
 msgstr "Parar"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:220
-#: ../mate-volume-control/src/gvc-speaker-test.c:332
+#: ../mate-volume-control/src/gvc-speaker-test.c:262
+#: ../mate-volume-control/src/gvc-speaker-test.c:380
 msgid "Test"
 msgstr "Testar"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:228
-msgid "Subwoofer"
-msgstr "Subwoofer"
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Ocorreu um erro ao iniciar as preferências: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:253
 msgid "_Mute"
 msgstr "_Silenciar"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:265
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:267
 msgid "_Sound Preferences"
 msgstr "Preferências de _som"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:462
 msgid "Muted"
 msgstr "Silenciado"
 
-#: ../gst-mixer/mate-volume-control.schemas.in.h:1
-msgid "Height of the Window"
-msgstr "Altura da janela"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:2
-msgid "Height of the window to be displayed."
-msgstr "Altura da janela exibida"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:3
-msgid "Width of the Window"
-msgstr "Larguar da janela"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:4
-msgid "Width of the window to be displayed."
-msgstr "Largura da janela exibida"
-
-#: ../gst-mixer/src/element.c:495
-msgid "Sound Theme"
-msgstr "Tema de sons"
-
-#: ../gst-mixer/src/main.c:82
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Controlo desconhecido %d"
-
-#: ../gst-mixer/src/main.c:159
-msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "Não foram encontrados plugins de controlo GStreamer e/ou dispositivos."
-
-#: ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "Reprodução"
-
-#: ../gst-mixer/src/misc.c:64
-msgid "Recording"
-msgstr "Gravação"
-
-#: ../gst-mixer/src/misc.c:66
-msgid "Switches"
-msgstr "Manípulos"
-
-#: ../gst-mixer/src/misc.c:68
-msgid "Options"
-msgstr "Opções"
-
-#. make window look cute
-#: ../gst-mixer/src/preferences.c:107
-msgid "Volume Control Preferences"
-msgstr "Preferências"
-
-#: ../gst-mixer/src/preferences.c:120
-msgid "_Select mixers to be visible:"
-msgstr "_Selecione os misturadores a mostrar"
-
-#: ../gst-mixer/src/track.c:295
-#, c-format
-msgid "%s:"
-msgstr "%s:"
-
-#. mute button
-#: ../gst-mixer/src/track.c:339
-#, c-format
-msgid "Mute/Unmute %s"
-msgstr "Silenciar/Restaurar %s"
-
-#: ../gst-mixer/src/track.c:356
-#, c-format
-msgid "Track %s: mute"
-msgstr "Faixa %s: silenciar"
-
-#. only the record button here
-#: ../gst-mixer/src/track.c:433
-#, c-format
-msgid "Toggle audio recording from %s"
-msgstr "Alternar gravação de áudio para %s"
-
-#: ../gst-mixer/src/track.c:449
-#, c-format
-msgid "Track %s: audio recording"
-msgstr "Faixa %s: gravação"
-
-#: ../gst-mixer/src/track.c:562
-#, c-format
-msgid "%s Option Selection"
-msgstr "Seleção de opção %s"
-
-#: ../gst-mixer/src/volume.c:112
-#, c-format
-msgid "Track %s"
-msgstr "Faixa %s"
-
-#: ../gst-mixer/src/volume.c:115
-#, c-format
-msgid "Channel %d of track %s"
-msgstr "Canal %d da faixa %s"
-
-#: ../gst-mixer/src/volume.c:118
-#, c-format
-msgid "Track %s, channel %d"
-msgstr "Faixa %s, canal %d"
-
-#: ../gst-mixer/src/volume.c:138
-#, c-format
-msgid "Lock channels for %s together"
-msgstr "Mover canais de %s em simultâneo"
-
-#: ../gst-mixer/src/volume.c:156
-#, c-format
-msgid "Track %s: lock channels together"
-msgstr "Faixa %s: mover canais em simultâneo"
-
-#: ../gst-mixer/src/volume.c:201
-msgid "mono"
-msgstr "mono"
-
-#: ../gst-mixer/src/volume.c:203
-msgid "left"
-msgstr "esquerda"
-
-#: ../gst-mixer/src/volume.c:203
-msgid "right"
-msgstr "direita"
-
-#: ../gst-mixer/src/volume.c:206
-msgid "front left"
-msgstr "frente - esquerda"
-
-#: ../gst-mixer/src/volume.c:207
-msgid "front right"
-msgstr "frente - direita"
-
-#: ../gst-mixer/src/volume.c:208
-msgid "rear left"
-msgstr "atrás - esquerda"
-
-#: ../gst-mixer/src/volume.c:209
-msgid "rear right"
-msgstr "atrás - direita"
-
-#: ../gst-mixer/src/volume.c:210
-msgid "front center"
-msgstr "frente - centro"
-
-#. Translators: This is the name of a surround sound channel. It
-#. * stands for "Low-Frequency Effects". If you're not sure that
-#. * this has an established and different translation in your
-#. * language, leave it unchanged.
-#: ../gst-mixer/src/volume.c:215
-msgid "LFE"
-msgstr "LFE"
-
-#: ../gst-mixer/src/volume.c:216
-msgid "side left"
-msgstr "lateral - esquerda"
-
-#: ../gst-mixer/src/volume.c:217
-msgid "side right"
-msgstr "lateral - direita"
-
-#: ../gst-mixer/src/volume.c:218
-msgid "unknown"
-msgstr "desconhecido"
-
-#. Here, we can actually tell people that this
-#. * is a slider that will change channel X.
-#: ../gst-mixer/src/volume.c:224
-#, c-format
-msgid "Volume of %s channel on %s"
-msgstr "Volume do canal %s em %s"
-
-#: ../gst-mixer/src/window.c:133
-msgid "A MATE/GStreamer-based volume control application"
-msgstr "Uma aplicação de controlo de volume para o MATE/GStreamer"
-
-#: ../gst-mixer/src/window.c:136
-msgid "translator-credits"
-msgstr "Sérgio Marques <smarquespt@gmail.com>"
-
-#. change window title
-#: ../gst-mixer/src/window.c:173
-#, c-format
-msgid "Volume Control: %s"
-msgstr "Controlo de volume: %s"
-
-#: ../gst-mixer/src/window.c:378
-msgid "_Device: "
-msgstr "_Dispositivo:"
-
-#. set tooltips
-#: ../gst-mixer/src/window.c:417
-msgid "Control volume on a different device"
-msgstr "Controlar volume de outro dispositivo"
-
-#: ../gstreamer-properties/gstreamer-properties.c:204
-msgid "None"
-msgstr "Nenhum"
-
-#. Element does not support setting devices
-#: ../gstreamer-properties/gstreamer-properties.c:246
-msgid "Unsupported"
-msgstr "Não suportado"
-
-#: ../gstreamer-properties/gstreamer-properties.c:268
-#: ../sound-theme/gvc-sound-theme-chooser.c:850
-#: ../sound-theme/gvc-sound-theme-editor.c:891
-#: ../sound-theme/gvc-sound-theme-editor.c:995
-msgid "Default"
-msgstr "Pré-definido"
-
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "Desconhecido"
-
-#: ../gstreamer-properties/gstreamer-properties.c:625
-msgid "Failure instantiating main window"
-msgstr "Ocorreu um erro ao iniciar a janela principal"
-
-#: ../gstreamer-properties/gstreamer-properties.c:678
-msgid "Failed to load UI file; please check your installation."
-msgstr "Ocorreu um erro ao iniciar a interface. Verifique a instalação"
-
-#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Multimedia Systems Selector"
-msgstr "Seletor de sistemas multimédia"
-
-#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
-msgid "Configure defaults for GStreamer applications"
-msgstr "Configure as definições das aplicações GStreamer"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Default Output"
-msgstr "Saída pré-definida"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "_Plugin:"
-msgstr "_Plugin:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "P_ipeline:"
-msgstr "_Canal:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
-msgid "_Test"
-msgstr "_Testar"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
-msgid "_Device:"
-msgstr "_Dispositivo:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
-msgid "Default Input"
-msgstr "Entrada pré-definida"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:8
-msgid "P_lugin:"
-msgstr "P_lugin:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:9
-msgid "Pipeli_ne:"
-msgstr "Ca_nal:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:10
-msgid "Te_st"
-msgstr "Te_star"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "D_evice:"
-msgstr "D_ispositivo:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Audio"
-msgstr "Áudio"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:13
-msgid "Video"
-msgstr "Vídeo"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "Testing Pipeline"
-msgstr "A testar o canal"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "Testing…"
-msgstr "A testar..."
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "Click Ok to finish."
-msgstr "Clique OK para terminar."
-
-#: ../gstreamer-properties/pipeline-constants.c:52
-#: ../gstreamer-properties/pipeline-constants.c:90
-msgid "Autodetect"
-msgstr "Deteção automática"
-
-#: ../gstreamer-properties/pipeline-constants.c:54
-#: ../gstreamer-properties/pipeline-constants.c:121
-msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr "ALSA — Advanced Linux Sound Architecture"
-
-#: ../gstreamer-properties/pipeline-constants.c:69
-msgid "Artsd — ART Sound Daemon"
-msgstr "Artsd — ART Sound Daemon"
-
-#: ../gstreamer-properties/pipeline-constants.c:71
-#: ../gstreamer-properties/pipeline-constants.c:123
-msgid "ESD — Enlightenment Sound Daemon"
-msgstr "ESD — Enlightenment Sound Daemon"
-
-#: ../gstreamer-properties/pipeline-constants.c:77
-#: ../gstreamer-properties/pipeline-constants.c:130
-msgid "OSS — Open Sound System"
-msgstr "OSS — Open Sound System"
-
-#: ../gstreamer-properties/pipeline-constants.c:79
-#: ../gstreamer-properties/pipeline-constants.c:132
-msgid "OSS - Open Sound System Version 4"
-msgstr "OSS - Open Sound System Versão 4"
-
-#: ../gstreamer-properties/pipeline-constants.c:81
-#: ../gstreamer-properties/pipeline-constants.c:136
-msgid "PulseAudio Sound Server"
-msgstr "PulseAudio Sound Server"
-
-#: ../gstreamer-properties/pipeline-constants.c:83
-#: ../gstreamer-properties/pipeline-constants.c:134
-msgid "Sun Audio"
-msgstr "Sun Audio"
-
-#: ../gstreamer-properties/pipeline-constants.c:85
-#: ../gstreamer-properties/pipeline-constants.c:116
-#: ../gstreamer-properties/pipeline-constants.c:144
-#: ../gstreamer-properties/pipeline-constants.c:159
-#: ../sound-theme/gvc-sound-theme-chooser.c:629
-#: ../sound-theme/gvc-sound-theme-editor.c:705
-#: ../sound-theme/gvc-sound-theme-editor.c:759
+#: ../mate-volume-control/src/mvc-helpers.c:113
+msgid "Mono"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:118
+msgid "Stereo"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:125
+msgid "Surround 4.0"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:133
+msgid "Surround 4.1"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:135
+msgid "Surround 5.0"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:144
+msgid "Surround 5.1"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:155
+msgid "Surround 7.1"
+msgstr ""
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:325
+msgid "No sounds"
+msgstr "Sem sons"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:447
+msgid "Built-in"
+msgstr "Incorporado"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:632
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
 msgstr "Personalizar"
 
-#: ../gstreamer-properties/pipeline-constants.c:108
-msgid "OpenGL"
-msgstr "OpenGL"
-
-#: ../gstreamer-properties/pipeline-constants.c:110
-msgid "SDL — Simple DirectMedia Layer"
-msgstr "SDL — Simple DirectMedia Layer"
-
-#: ../gstreamer-properties/pipeline-constants.c:112
-msgid "X Window System (No Xv)"
-msgstr "X Window System (sem Xv)"
-
-#: ../gstreamer-properties/pipeline-constants.c:114
-msgid "X Window System (X11/XShm/Xv)"
-msgstr "X Window System (X11/XShm/Xv)"
-
-#. Note: using triangle instead of sine for test sound so we
-#. * can test the vorbis encoder as well (otherwise it'd compress too well)
-#: ../gstreamer-properties/pipeline-constants.c:140
-msgid "Test Sound"
-msgstr "Testar som"
-
-#: ../gstreamer-properties/pipeline-constants.c:142
-msgid "Silence"
-msgstr "Silêcio"
-
-#: ../gstreamer-properties/pipeline-constants.c:149
-msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr "MJPEG (e.g. Zoran v4l device)"
-
-#: ../gstreamer-properties/pipeline-constants.c:151
-msgid "QCAM"
-msgstr "QCAM"
-
-#: ../gstreamer-properties/pipeline-constants.c:153
-msgid "Test Input"
-msgstr "Testar entrada"
-
-#: ../gstreamer-properties/pipeline-constants.c:155
-msgid "Video for Linux (v4l)"
-msgstr "Video for Linux (v4l)"
-
-#: ../gstreamer-properties/pipeline-constants.c:157
-msgid "Video for Linux 2 (v4l2)"
-msgstr "Video for Linux 2 (v4l2)"
-
-#: ../gstreamer-properties/pipeline-tests.c:176
-#, c-format
-msgid "Failed to construct test pipeline for '%s'"
-msgstr "Ocorreu um erro ao criar o canal de teste para \"%s\""
-
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
-#, c-format
-msgid "There was an error displaying help: %s"
-msgstr "Ocorreu um erro ao mostrar a ajuda: %s"
-
-#: ../profiles/audio-profile-edit.c:341
-#, c-format
-msgid "Editing profile \"%s\""
-msgstr "A editar o perfil \"%s\""
-
-#: ../profiles/audio-profile.c:92
-msgid "<no name>"
-msgstr "<sem nome>"
-
-#: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
-msgid "<no description>"
-msgstr "<sem descrição>"
-
-#: ../profiles/audio-profile.c:208
-#, c-format
-msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "Ocorreu um erro ao obter a lista dos perfis gm_audio (%s)\n"
-
-#: ../profiles/audio-profile.c:709
-#, c-format
-msgid ""
-"There was an error subscribing to notification of audio profile list "
-"changes. (%s)\n"
-msgstr "Ocorreu um erro ao subscrever a notificação das alterações da lista de perfis. (%s)\n"
-
-#: ../profiles/audio-profile.c:912
-#, c-format
-msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Ocorreu um erro ao descartar o caminho de perfil %s. (%s)\n"
-
-#: ../profiles/audio-profiles-edit.c:78
-msgid "_Edit"
-msgstr "_Editar"
-
-#. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:452
-#, c-format
-msgid "Delete this profile?\n"
-msgid_plural "Delete these %d profiles?\n"
-msgstr[0] "Eliminar este perfil?\n"
-msgstr[1] "Eliminar estes %d perfis?\n"
-
-#: ../profiles/audio-profiles-edit.c:471
-#, c-format
-msgid "Delete profile \"%s\"?"
-msgstr "Eliminar o perfil \"%s\"?"
-
-#: ../profiles/audio-profiles-edit.c:493
-msgid "Delete Profile"
-msgstr "Eiminar perfil"
-
-#: ../profiles/audio-profiles-edit.c:586
-msgid "Edit MATE Audio Profiles"
-msgstr "Editar perfis de áudio MATE"
-
-#: ../profiles/audio-profiles-edit.c:637
-msgid "_Profiles:"
-msgstr "_Perfis:"
-
-#: ../profiles/audio-profiles-edit.c:821
-#, c-format
-msgid "You already have a profile called \"%s\""
-msgstr "Já existe um perfil com o nome \"%s\""
-
-#: ../profiles/audio-profiles-edit.c:846
-#, c-format
-msgid "MateConf Error (FIXME): %s\n"
-msgstr "Erro MateConf (FIXME): %s\n"
-
-#: ../profiles/gmp-util.c:61
-#, c-format
-msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed"
-" incorrectly, so the dialog can't be displayed."
-msgstr "O ficheiro \"%s\" não existe. A inexistência do ficheiro indica que a aplicação não está instalada corretamente, logo o diálogo não pode ser mostrado"
-
-#: ../profiles/mate-audio-profiles-properties.c:54
-#, c-format
-msgid ""
-"%s\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\nExecute \"%s --help\" para ver a lista de opções possíveis na linha de comandos\n"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:1
-msgid "Edit Audio Profile"
-msgstr "Editar perfil"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:2
-msgid "Profile _description:"
-msgstr "_Descrição do perfil:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:3
-msgid "_Active?"
-msgstr "_Activo?"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:4
-msgid "_File extension:"
-msgstr "Extensão do _ficheiro"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:5
-msgid "_GStreamer pipeline:"
-msgstr "Canal _GStreamer:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:6
-#: ../profiles/mate-audio-profile-new.ui.h:3
-msgid "_Profile name:"
-msgstr "Nome do _perfil:"
-
-#: ../profiles/mate-audio-profile-new.ui.h:1
-msgid "New Profile"
-msgstr "Novo perfil"
-
-#: ../profiles/mate-audio-profile-new.ui.h:2
-msgid "_Create"
-msgstr "_Criar"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "List of profiles"
-msgstr "Lista de perfis"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to "
-"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "A lista de perfis de gravação de áudio. Esta lista contém as linhas que identificam os diretórios relacionados com /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid "A short name for the audio profile"
-msgstr "Abreviatura do perfil"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr "A abreviatura do perfil, para utilizar em seleções e identificar inequivocamente o perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A description for the audio profile"
-msgstr "Descrição do perfil"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr "A descrição do perfil que contém as informações e indicando as situações em que se deve utilizar este perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "The partial GStreamer pipeline used"
-msgstr "Canal GStreamer utilizado"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "O canal GStreamer a utilizar para este perfil."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "The default file extension for this profile"
-msgstr "A extensão de ficheiro pré-definida para este perfil"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid ""
-"A filename extension to be used when storing files encoded with this "
-"profile."
-msgstr "A extensão do ficheiro a utilizar ao gravar ficheiros com este perfil"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "Whether this profile is to be used"
-msgstr "Se este perfil deve ser utilizado"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid "Whether to use and display this profile."
-msgstr "Se este perfil deve ser utilizado e exibido"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
-msgid "CD Quality, Lossy"
-msgstr "Qualidade de CD, com perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec."
-" Use this for CD extraction and radio recordings."
-msgstr "Utilizado para converter os ficheiro com qualidade de CD, mas com perdas. Deve ser utilizado para extração de CDs e gravações de rádio."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "CD Quality, Lossless"
-msgstr "Qualidade de CD, sem perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:16
-msgid ""
-"Used for converting to CD-quality audio, but with a lossless compression "
-"codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Utilizado para converter os ficheiro com qualidade de CD, mas sem perdas. Deve ser utilizado se quiser, posteriormente, editar o ficheiro ou gravar para CD."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid "Voice, Lossless"
-msgstr "Voz, com perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:18
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr "Utilizado para converter num formato de voz sem perda. Deve ser utilizado para gravação e edição de vozes."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:19
-msgid "Voice, Lossy"
-msgstr "Voz, com perda"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr "Utilizado para converter num formato de voz com perda. Deve ser utilizado para gravação e de vozes que não precisem de ser editadas."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid "CD Quality, MP2"
-msgstr "Qualidade de CD, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
-"this for preparing files for copying to devices that only support the MP2 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "Utilizado para converter os ficheiro com qualidade de CD, no formato MP2. Deve ser utilizado para a utilização em dispositivos que só tenham suporte a este formato. A utilização deste formato pode ser ilegal no seu país. Contacte um advogado para mais detalhes."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "CD Quality, MP3"
-msgstr "Qualidade de CD, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
-"this for preparing files for copying to devices that only support the MP3 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "Utilizado para converter os ficheiro com qualidade de CD, no formato MP3. Deve ser utilizado para a utilização em dispositivos que só tenham suporte a este formato. A utilização deste formato pode ser ilegal no seu país. Contacte um advogado para mais detalhes."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "CD Quality, AAC"
-msgstr "Qualidade de CD, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "Utilizado para converter os ficheiro com qualidade de CD, no formato AAC. Deve ser utilizado para a utilização em dispositivos que só tenham suporte a este formato. A utilização deste formato pode ser ilegal no seu país. Contacte um advogado para mais detalhes."
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:322
-#: ../sound-theme/gvc-sound-theme-editor.c:522
-msgid "No sounds"
-msgstr "Sem sons"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:444
-msgid "Built-in"
-msgstr "Incorporado"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:742
-#: ../sound-theme/gvc-sound-theme-chooser.c:753
-#: ../sound-theme/gvc-sound-theme-chooser.c:765
-#: ../sound-theme/gvc-sound-theme-editor.c:562
-#: ../sound-theme/gvc-sound-theme-editor.c:951
+#: ../sound-theme/gvc-sound-theme-chooser.c:739
+#: ../sound-theme/gvc-sound-theme-chooser.c:750
+#: ../sound-theme/gvc-sound-theme-chooser.c:762
 msgid "Testing event sound"
 msgstr "A testar som do evento"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:851
+#: ../sound-theme/gvc-sound-theme-chooser.c:848
+msgid "Default"
+msgstr "Pré-definido"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:849
 msgid "From theme"
 msgstr "Do tema"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:881
+#: ../sound-theme/gvc-sound-theme-chooser.c:879
 msgid "Type"
 msgstr "Tipo"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1085
+#: ../sound-theme/gvc-sound-theme-chooser.c:1065
 msgid "Sound _theme:"
 msgstr "_Tema de sons:"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1093
+#: ../sound-theme/gvc-sound-theme-chooser.c:1074
 msgid "C_hoose an alert sound:"
 msgstr "Escol_ha o som de alerta:"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1124
+#: ../sound-theme/gvc-sound-theme-chooser.c:1106
 msgid "Enable _window and button sounds"
 msgstr "Ativar sons de janela_s e botões"
-
-#. Bell
-#: ../sound-theme/gvc-sound-theme-editor.c:79
-msgctxt "Sound event"
-msgid "Alert sound"
-msgstr "Som de alerta"
-
-#. Windows and buttons
-#: ../sound-theme/gvc-sound-theme-editor.c:81
-msgctxt "Sound event"
-msgid "Windows and Buttons"
-msgstr "janelas e botões"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:82
-msgctxt "Sound event"
-msgid "Button clicked"
-msgstr "Clicar botão"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:83
-msgctxt "Sound event"
-msgid "Toggle button clicked"
-msgstr "Clicar no botão para alternar"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:84
-msgctxt "Sound event"
-msgid "Window maximized"
-msgstr "Maximização de janelas"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:85
-msgctxt "Sound event"
-msgid "Window unmaximized"
-msgstr "Restauro de janelas"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:86
-msgctxt "Sound event"
-msgid "Window minimised"
-msgstr "Minimizção de janelas"
-
-#. Desktop
-#: ../sound-theme/gvc-sound-theme-editor.c:88
-msgctxt "Sound event"
-msgid "Desktop"
-msgstr "Ambiente de trabalho"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:89
-msgctxt "Sound event"
-msgid "Login"
-msgstr "Iniciar sessão"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:90
-msgctxt "Sound event"
-msgid "Logout"
-msgstr "Terminar sessão"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:91
-msgctxt "Sound event"
-msgid "New e-mail"
-msgstr "Nova mensagem eletrónica"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:92
-msgctxt "Sound event"
-msgid "Empty trash"
-msgstr "Evaziar lixo"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:93
-msgctxt "Sound event"
-msgid "Long action completed (download, CD burning, etc.)"
-msgstr "Conclusão de uma ação (transferências, gravação de CD...)"
-
-#. Alerts?
-#: ../sound-theme/gvc-sound-theme-editor.c:95
-msgctxt "Sound event"
-msgid "Alerts"
-msgstr "Alertas"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:96
-msgctxt "Sound event"
-msgid "Information or question"
-msgstr "Informações ou questão"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:97
-msgctxt "Sound event"
-msgid "Warning"
-msgstr "Aviso"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:98
-msgctxt "Sound event"
-msgid "Error"
-msgstr "Erro"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:99
-msgctxt "Sound event"
-msgid "Battery warning"
-msgstr "Aviso de bateria"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:592
-msgid "Select Sound File"
-msgstr "Escolha o ficheiro de som"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:603
-msgid "Sound files"
-msgstr "Ficheiros de som"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:899
-msgid "Custom…"
-msgstr "Personalizar..."
-
-#: ../sound-theme/gvc-sound-theme-editor.c:1302
-msgid "Sound Theme:"
-msgstr "Tema de sons:"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:1330
-msgid "Enable window and button sounds"
-msgstr "Ativar sons de janelas e botões"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.

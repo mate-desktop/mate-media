@@ -3,25 +3,34 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Amitakhya Phukan <amitakhya@svn.mate.org>, 2008.
-# Amitakhya Phukan <aphukan@fedoraproject.org>, 2009.
+# Amitakhya Phukan <amitakhya@svn.mate.org>, 2008
+# Amitakhya Phukan <aphukan@fedoraproject.org>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
-"POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2012-07-12 12:50+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-16 08:23+0200\n"
+"PO-Revision-Date: 2014-10-16 06:24+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Assamese (http://www.transifex.com/projects/p/MATE/language/as/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: as\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
+msgid "Sound"
+msgstr "ধ্বনি "
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "শব্দৰ মাত্ৰা o নিৰ্দিষ্ট ঘটনাৰ সৈতে যুক্ত শব্দ পৰিবৰ্তন কৰক"
 
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
+#: ../mate-volume-control/src/dialog-main.c:240
+#: ../mate-volume-control/src/gvc-channel-bar.c:500
+#: ../mate-volume-control/src/gvc-speaker-test.c:461
 msgid "Volume Control"
 msgstr "শব্দৰ মাত্ৰা নিয়ন্ত্ৰণকৰ্তা"
 
@@ -29,132 +38,137 @@ msgstr "শব্দৰ মাত্ৰা নিয়ন্ত্ৰণকৰ্�
 msgid "Show desktop volume control"
 msgstr "ডেস্কটপত শব্দৰ মাত্ৰা নিয়ন্ত্ৰণ ব্যৱস্থা প্ৰদৰ্শন কৰা হ'ব"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-msgid "Sound"
-msgstr "ধ্বনি "
-
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
-msgid "Change sound volume and sound events"
-msgstr "শব্দৰ মাত্ৰা o নিৰ্দিষ্ট ঘটনাৰ সৈতে যুক্ত শব্দ পৰিবৰ্তন কৰক"
-
-#: ../mate-volume-control/src/applet-main.c:49
-#: ../mate-volume-control/src/dialog-main.c:155
-msgid "Enable debugging code"
-msgstr "কোড ডিবাগ ব্যৱস্থা সক্ৰিয় কৰা হ'ব"
-
-#: ../mate-volume-control/src/applet-main.c:50
-#: ../mate-volume-control/src/dialog-main.c:156
+#: ../mate-volume-control/src/applet-main.c:45
+#: ../mate-volume-control/src/dialog-main.c:185
 msgid "Version of this application"
 msgstr "এপ্লিকেশনৰ সংস্কৰণ সংখ্যা"
 
-#: ../mate-volume-control/src/applet-main.c:62
+#: ../mate-volume-control/src/applet-main.c:46
+msgid "Enable debug"
+msgstr ""
+
+#: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"
 msgstr ""
 
-#: ../mate-volume-control/src/dialog-main.c:124
+#: ../mate-volume-control/src/dialog-main.c:137
+msgid "Sound system is not available"
+msgstr ""
+
+#: ../mate-volume-control/src/dialog-main.c:159
 msgid "Waiting for sound system to respond"
 msgstr "শব্দৰ ব্যৱস্থাপ্ৰণালীৰ পৰা প্ৰতিক্ৰিয়া প্ৰাপ্তিৰ অপেক্ষা কৰা হচ্ছে"
 
-#: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
+#: ../mate-volume-control/src/dialog-main.c:183
+msgid "Sound system backend"
+msgstr ""
+
+#: ../mate-volume-control/src/dialog-main.c:184
 msgid "Startup page"
 msgstr "প্ৰাৰম্ভিক পৃষ্ঠা"
 
-#: ../mate-volume-control/src/dialog-main.c:168
+#: ../mate-volume-control/src/dialog-main.c:194
 msgid " — MATE Volume Control"
 msgstr ""
 
-#: ../mate-volume-control/src/gvc-applet.c:275
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
-msgid "Output"
-msgstr "নিৰ্গম"
-
-#: ../mate-volume-control/src/gvc-applet.c:277
-msgid "Sound Output Volume"
-msgstr ""
-
-#: ../mate-volume-control/src/gvc-applet.c:281
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
+#: ../mate-volume-control/src/gvc-applet.c:322
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2205
 msgid "Input"
 msgstr "নিবেশ"
 
-#: ../mate-volume-control/src/gvc-applet.c:283
+#: ../mate-volume-control/src/gvc-applet.c:323
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2307
+msgid "Output"
+msgstr "নিৰ্গম"
+
+#: ../mate-volume-control/src/gvc-applet.c:326
 msgid "Microphone Volume"
 msgstr ""
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:109
+#: ../mate-volume-control/src/gvc-applet.c:328
+msgid "Sound Output Volume"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-applet.c:333
+msgid "MATE Volume Control Applet"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
 msgstr "বাওঁফালে"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:110
+#: ../mate-volume-control/src/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
 msgstr "সোঁফালে"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:113
+#: ../mate-volume-control/src/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
 msgstr "পশ্চাৎস্থিত"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:114
+#: ../mate-volume-control/src/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
 msgstr "সম্মুখস্থিত"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:117
+#: ../mate-volume-control/src/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
 msgstr "সৰ্বনিম্ন"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:118
+#: ../mate-volume-control/src/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
 msgstr "সৰ্বোচ্চ"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:294
+#: ../mate-volume-control/src/gvc-balance-bar.c:355
 msgid "_Balance:"
 msgstr "ভাৰসাম্য: (_B)"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:297
+#: ../mate-volume-control/src/gvc-balance-bar.c:358
 msgid "_Fade:"
 msgstr "নিষ্প্ৰভ: (_F)"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:300
+#: ../mate-volume-control/src/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
 msgstr "ছাবউফাৰ: (_S)"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:602
-#: ../mate-volume-control/src/gvc-channel-bar.c:611
-msgctxt "volume"
-msgid "100%"
-msgstr "100%"
-
-#: ../mate-volume-control/src/gvc-channel-bar.c:606
+#: ../mate-volume-control/src/gvc-channel-bar.c:330
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "এমপ্লিফাই নকৰা"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:868
+#: ../mate-volume-control/src/gvc-channel-bar.c:343
+msgctxt "volume"
+msgid "100%"
+msgstr "100%"
+
+#. Mute button
+#: ../mate-volume-control/src/gvc-channel-bar.c:1099
 msgid "Mute"
 msgstr "নিঃশব্দ"
 
-#: ../mate-volume-control/src/gvc-combo-box.c:166
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
+#: ../mate-volume-control/src/gvc-combo-box.c:164
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1841
 msgid "_Profile:"
 msgstr "প্ৰোফাইল:(_P)"
 
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:435
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:593
+msgid "Co_nnector:"
+msgstr "সংযোগকৰ্তা: (_n)"
+
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-control.c:1005
-#: ../sound-theme/gvc-sound-theme-editor.c:895
-#: ../sound-theme/gvc-sound-theme-editor.c:991
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1293
 msgid "Disabled"
 msgstr "নিষ্ক্ৰিয়"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1012
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1299
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -163,928 +177,181 @@ msgstr[1] "%u নিৰ্গম"
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1022
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1308
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u নিবেশ"
 msgstr[1] "%u নিবেশ"
 
-#: ../mate-volume-control/src/gvc-mixer-control.c:1320
-msgid "System Sounds"
-msgstr "ব্যৱস্থাপ্ৰণালীৰ শব্দ"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:309
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:604
-msgid "Co_nnector:"
-msgstr "সংযোগকৰ্তা: (_n)"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:517
-msgid "Peak detect"
-msgstr "সৰ্বাধিক মাত্ৰা চিনাক্ত"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
-#: ../sound-theme/gvc-sound-theme-chooser.c:874
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1690
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1989
+#: ../sound-theme/gvc-sound-theme-chooser.c:872
 msgid "Name"
 msgstr "নাম"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
-msgid "Device"
-msgstr "সঁজুলি "
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1729
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr ""
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1772
 msgid "Test Speakers"
 msgstr ""
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2075
 msgid "_Output volume: "
 msgstr "নিৰ্গমৰ শব্দৰ মাত্ৰা: (_O)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2120
 msgid "Sound Effects"
 msgstr "শব্দৰ ইফেক্ট"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2133
 msgid "_Alert volume: "
 msgstr "সতৰ্কবাৰ্তাৰ শব্দৰ মাত্ৰা: (_A)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2151
 msgid "Hardware"
 msgstr "হাৰ্ডৱেৰ"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2156
 msgid "C_hoose a device to configure:"
 msgstr "বিন্যাস কৰাৰ উদ্দেশ্যে এটা যন্ত্ৰ নিৰ্বাচন কৰক (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2183
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2339
 msgid "Settings for the selected device:"
 msgstr "নিৰ্বাচিত যন্ত্ৰেৰ বৈশিষ্ট্য:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2213
 msgid "_Input volume: "
 msgstr "নিবেশৰ শব্দৰ মাত্ৰা: (_I)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2247
 msgid "Input level:"
 msgstr "নিবেশ স্তৰ:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2276
 msgid "C_hoose a device for sound input:"
 msgstr "শব্দ নিবেশৰ বাবে এটা যন্ত্ৰ নিৰ্বাচন কৰক: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2312
 msgid "C_hoose a device for sound output:"
 msgstr "শব্দ নিৰ্গমৰ বাবে এটা যন্ত্ৰ নিৰ্বাচন কৰক: (_h)"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
 msgid "Applications"
 msgstr "অনুপ্ৰয়োগ"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
 msgid "No application is currently playing or recording audio."
 msgstr "কোনো এপ্লিকেশন দ্বাৰা বৰ্তমানে অডিও বাজানো অথবা ৰেকৰ্ড কৰা হচ্ছে না।"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
-#: ../sound-theme/gvc-sound-theme-chooser.c:739
-#: ../sound-theme/gvc-sound-theme-chooser.c:751
-#: ../sound-theme/gvc-sound-theme-chooser.c:763
-#: ../sound-theme/gvc-sound-theme-editor.c:560
-#: ../sound-theme/gvc-sound-theme-editor.c:949
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
+#: ../sound-theme/gvc-sound-theme-chooser.c:736
+#: ../sound-theme/gvc-sound-theme-chooser.c:748
+#: ../sound-theme/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
 msgstr "শব্দ সংক্ৰান্ত পছন্দ"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:220
+#: ../mate-volume-control/src/gvc-speaker-test.c:262
 msgid "Stop"
 msgstr ""
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:220
-#: ../mate-volume-control/src/gvc-speaker-test.c:332
+#: ../mate-volume-control/src/gvc-speaker-test.c:262
+#: ../mate-volume-control/src/gvc-speaker-test.c:380
 msgid "Test"
 msgstr ""
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:228
-msgid "Subwoofer"
-msgstr ""
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "শব্দ সংক্ৰান্ত পছন্দেৰ মান আৰম্ভ কৰিবলৈ ব্যৰ্থ: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:253
 msgid "_Mute"
 msgstr "নিঃশব্দ: (_M)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:265
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:267
 msgid "_Sound Preferences"
 msgstr "শব্দ সংক্ৰান্ত পছন্দ (_S)"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:462
 msgid "Muted"
 msgstr "নিঃশব্দ"
 
-#: ../gst-mixer/mate-volume-control.schemas.in.h:1
-msgid "Height of the Window"
-msgstr "উইন্ডোৰ উচ্চতা"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:2
-msgid "Height of the window to be displayed."
+#: ../mate-volume-control/src/mvc-helpers.c:113
+msgid "Mono"
 msgstr ""
 
-#: ../gst-mixer/mate-volume-control.schemas.in.h:3
-msgid "Width of the Window"
-msgstr "উইন্ডোৰ প্ৰস্থ"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:4
-msgid "Width of the window to be displayed."
+#: ../mate-volume-control/src/mvc-helpers.c:118
+msgid "Stereo"
 msgstr ""
 
-#: ../gst-mixer/src/element.c:495
-msgid "Sound Theme"
-msgstr "শব্দৰ থিম"
-
-#: ../gst-mixer/src/main.c:82
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Unknown Volume Control %d"
-
-#: ../gst-mixer/src/main.c:159
-msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "শব্দ নিয়ন্ত্ৰণেৰ বাবে GStreamer প্লাগ-ইন আৰু/অথবা যন্ত্ৰ পাওয়া যায়নি।"
-
-#: ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "প্লে-বেক"
-
-#: ../gst-mixer/src/misc.c:64
-msgid "Recording"
-msgstr "Recording"
-
-#: ../gst-mixer/src/misc.c:66
-msgid "Switches"
-msgstr "পাল্টায়"
-
-#: ../gst-mixer/src/misc.c:68
-msgid "Options"
-msgstr "অপশন"
-
-#. make window look cute
-#: ../gst-mixer/src/preferences.c:107
-msgid "Volume Control Preferences"
-msgstr "শব্দমাত্ৰা নিয়ন্ত্ৰক সম্পৰ্কিত পছন্দ"
-
-#: ../gst-mixer/src/preferences.c:120
-msgid "_Select mixers to be visible:"
-msgstr "প্ৰদৰ্শনযোগ্য মিক্সাৰ নিৰ্বাচন কৰক: (_S)"
-
-#: ../gst-mixer/src/track.c:295
-#, c-format
-msgid "%s:"
-msgstr "%s:"
-
-#. mute button
-#: ../gst-mixer/src/track.c:339
-#, c-format
-msgid "Mute/Unmute %s"
+#: ../mate-volume-control/src/mvc-helpers.c:125
+msgid "Surround 4.0"
 msgstr ""
 
-#: ../gst-mixer/src/track.c:356
-#, c-format
-msgid "Track %s: mute"
-msgstr "ট্ৰ্যাক %s: শব্দহীন"
-
-#. only the record button here
-#: ../gst-mixer/src/track.c:433
-#, c-format
-msgid "Toggle audio recording from %s"
-msgstr "Toggle audio recording from %s"
-
-#: ../gst-mixer/src/track.c:449
-#, c-format
-msgid "Track %s: audio recording"
-msgstr "Track %s: audio recording"
-
-#: ../gst-mixer/src/track.c:562
-#, c-format
-msgid "%s Option Selection"
-msgstr "%s অপশন নিৰ্বাচন"
-
-#: ../gst-mixer/src/volume.c:112
-#, c-format
-msgid "Track %s"
-msgstr "ট্ৰ্যাক %s"
-
-#: ../gst-mixer/src/volume.c:115
-#, c-format
-msgid "Channel %d of track %s"
-msgstr "%2$s ট্ৰ্যাকেৰ %1$d চ্যানেল"
-
-#: ../gst-mixer/src/volume.c:118
-#, c-format
-msgid "Track %s, channel %d"
-msgstr "ট্ৰ্যাক %s, চ্যানেল %d"
-
-#: ../gst-mixer/src/volume.c:138
-#, c-format
-msgid "Lock channels for %s together"
-msgstr "Lock channels for %s together"
-
-#: ../gst-mixer/src/volume.c:156
-#, c-format
-msgid "Track %s: lock channels together"
-msgstr "ট্ৰ্যাক %s: চ্যানেলগুলোকে একত্ৰে আটকাও"
-
-#: ../gst-mixer/src/volume.c:201
-msgid "mono"
-msgstr "মনো"
-
-#: ../gst-mixer/src/volume.c:203
-msgid "left"
-msgstr "বাম"
-
-#: ../gst-mixer/src/volume.c:203
-msgid "right"
-msgstr "ডান"
-
-#: ../gst-mixer/src/volume.c:206
-msgid "front left"
-msgstr "সামনৰ দিকে বামে"
-
-#: ../gst-mixer/src/volume.c:207
-msgid "front right"
-msgstr "সামনৰ দিকে ডানে"
-
-#: ../gst-mixer/src/volume.c:208
-msgid "rear left"
-msgstr "পেছনৰ দিকে বামে"
-
-#: ../gst-mixer/src/volume.c:209
-msgid "rear right"
-msgstr "পেছনে দিকে ডানে"
-
-#: ../gst-mixer/src/volume.c:210
-msgid "front center"
-msgstr "সামনৰ দিকে কেন্দ্ৰে"
-
-#. Translators: This is the name of a surround sound channel. It
-#. * stands for "Low-Frequency Effects". If you're not sure that
-#. * this has an established and different translation in your
-#. * language, leave it unchanged.
-#: ../gst-mixer/src/volume.c:215
-msgid "LFE"
-msgstr "নিম্ন-কম্পাংকেৰ-প্ৰভাব"
-
-#: ../gst-mixer/src/volume.c:216
-msgid "side left"
-msgstr "বামদিক"
-
-#: ../gst-mixer/src/volume.c:217
-msgid "side right"
-msgstr "ডানদিক"
-
-#: ../gst-mixer/src/volume.c:218
-msgid "unknown"
-msgstr "অজানা"
-
-#. Here, we can actually tell people that this
-#. * is a slider that will change channel X.
-#: ../gst-mixer/src/volume.c:224
-#, c-format
-msgid "Volume of %s channel on %s"
-msgstr "%2$s এৰ %1$s চ্যানেলেৰ শব্দমাত্ৰা"
-
-#: ../gst-mixer/src/window.c:133
-msgid "A MATE/GStreamer-based volume control application"
-msgstr "এটা গনোম/GStreamer-ভিত্তিক শব্দমাত্ৰা নিয়ন্ত্ৰক এপলিকেশন"
-
-#: ../gst-mixer/src/window.c:136
-msgid "translator-credits"
-msgstr "অমিতাক্ষ ফুকন (aphukan@fedoraproject.org)"
-
-#. change window title
-#: ../gst-mixer/src/window.c:173
-#, c-format
-msgid "Volume Control: %s"
-msgstr "শব্দমাত্ৰা নিয়ন্ত্ৰক: %s"
-
-#: ../gst-mixer/src/window.c:378
-msgid "_Device: "
-msgstr "যন্ত্ৰ: (_D) "
-
-#. set tooltips
-#: ../gst-mixer/src/window.c:417
-msgid "Control volume on a different device"
-msgstr "ভিন্ন এটা যন্ত্ৰেৰ শব্দমাত্ৰা নিয়ন্ত্ৰণ কৰো"
-
-#: ../gstreamer-properties/gstreamer-properties.c:204
-msgid "None"
-msgstr "শূণ্য"
-
-#. Element does not support setting devices
-#: ../gstreamer-properties/gstreamer-properties.c:246
-msgid "Unsupported"
-msgstr "Unsupported"
-
-#: ../gstreamer-properties/gstreamer-properties.c:268
-#: ../sound-theme/gvc-sound-theme-chooser.c:850
-#: ../sound-theme/gvc-sound-theme-editor.c:891
-#: ../sound-theme/gvc-sound-theme-editor.c:995
-msgid "Default"
-msgstr "অবিকল্পিত"
-
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "অজানা"
-
-#: ../gstreamer-properties/gstreamer-properties.c:625
-msgid "Failure instantiating main window"
-msgstr "মূল উইন্ডো আৰম্ভ কৰাৰ প্ৰক্ৰিয়া বিফল হয়েছে "
-
-#: ../gstreamer-properties/gstreamer-properties.c:678
-msgid "Failed to load UI file; please check your installation."
-msgstr "UI নথিপত্ৰ লোড কৰিবলৈ ব্যৰ্থ; অনুগ্ৰহ কৰি সংস্থাপন পৰীক্ষা কৰক।"
-
-#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Multimedia Systems Selector"
-msgstr "মাল্টিমিডিয়া ব্যৱস্থাপ্ৰণালী নিৰ্বাচক"
-
-#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
-msgid "Configure defaults for GStreamer applications"
-msgstr "জীস্ট্ৰিমাৰেৰ এপ্লিকেশনসমূহেৰ বাবে ডিফল্ট মান বিন্যাস কৰক"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Default Output"
+#: ../mate-volume-control/src/mvc-helpers.c:133
+msgid "Surround 4.1"
 msgstr ""
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "_Plugin:"
+#: ../mate-volume-control/src/mvc-helpers.c:135
+msgid "Surround 5.0"
 msgstr ""
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "P_ipeline:"
+#: ../mate-volume-control/src/mvc-helpers.c:144
+msgid "Surround 5.1"
 msgstr ""
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
-msgid "_Test"
+#: ../mate-volume-control/src/mvc-helpers.c:155
+msgid "Surround 7.1"
 msgstr ""
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
-msgid "_Device:"
-msgstr ""
+#: ../sound-theme/gvc-sound-theme-chooser.c:325
+msgid "No sounds"
+msgstr "কোনো ধ্বনি নাই"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
-msgid "Default Input"
-msgstr ""
+#: ../sound-theme/gvc-sound-theme-chooser.c:447
+msgid "Built-in"
+msgstr "বিল্ট-ইন"
 
-#: ../gstreamer-properties/gstreamer-properties.ui.h:8
-msgid "P_lugin:"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:9
-msgid "Pipeli_ne:"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:10
-msgid "Te_st"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "D_evice:"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Audio"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:13
-msgid "Video"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "Testing Pipeline"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "Testing…"
-msgstr ""
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "Click Ok to finish."
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:52
-#: ../gstreamer-properties/pipeline-constants.c:90
-msgid "Autodetect"
-msgstr "Autodetect"
-
-#: ../gstreamer-properties/pipeline-constants.c:54
-#: ../gstreamer-properties/pipeline-constants.c:121
-msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:69
-msgid "Artsd — ART Sound Daemon"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:71
-#: ../gstreamer-properties/pipeline-constants.c:123
-msgid "ESD — Enlightenment Sound Daemon"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:77
-#: ../gstreamer-properties/pipeline-constants.c:130
-msgid "OSS — Open Sound System"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:79
-#: ../gstreamer-properties/pipeline-constants.c:132
-msgid "OSS - Open Sound System Version 4"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:81
-#: ../gstreamer-properties/pipeline-constants.c:136
-msgid "PulseAudio Sound Server"
-msgstr "সেৱক"
-
-#: ../gstreamer-properties/pipeline-constants.c:83
-#: ../gstreamer-properties/pipeline-constants.c:134
-msgid "Sun Audio"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:85
-#: ../gstreamer-properties/pipeline-constants.c:116
-#: ../gstreamer-properties/pipeline-constants.c:144
-#: ../gstreamer-properties/pipeline-constants.c:159
-#: ../sound-theme/gvc-sound-theme-chooser.c:629
-#: ../sound-theme/gvc-sound-theme-editor.c:705
-#: ../sound-theme/gvc-sound-theme-editor.c:759
+#: ../sound-theme/gvc-sound-theme-chooser.c:632
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
 msgstr "নিজস্ব"
 
-#: ../gstreamer-properties/pipeline-constants.c:108
-msgid "OpenGL"
-msgstr "OpenGL"
-
-#: ../gstreamer-properties/pipeline-constants.c:110
-msgid "SDL — Simple DirectMedia Layer"
-msgstr ""
-
-#: ../gstreamer-properties/pipeline-constants.c:112
-msgid "X Window System (No Xv)"
-msgstr "X নহয়"
-
-#: ../gstreamer-properties/pipeline-constants.c:114
-msgid "X Window System (X11/XShm/Xv)"
-msgstr "X"
-
-#. Note: using triangle instead of sine for test sound so we
-#. * can test the vorbis encoder as well (otherwise it'd compress too well)
-#: ../gstreamer-properties/pipeline-constants.c:140
-msgid "Test Sound"
-msgstr "শব্দ পৰিক্ষা (_ৰ)"
-
-#: ../gstreamer-properties/pipeline-constants.c:142
-msgid "Silence"
-msgstr "Silence"
-
-#: ../gstreamer-properties/pipeline-constants.c:149
-msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr "MJPEG (e.g. Zoran v4l device)"
-
-#: ../gstreamer-properties/pipeline-constants.c:151
-msgid "QCAM"
-msgstr "QCAM"
-
-#: ../gstreamer-properties/pipeline-constants.c:153
-msgid "Test Input"
-msgstr "নিবেশ"
-
-#: ../gstreamer-properties/pipeline-constants.c:155
-msgid "Video for Linux (v4l)"
-msgstr "ভিডিও উল্লেখিত সময় অবধি"
-
-#: ../gstreamer-properties/pipeline-constants.c:157
-msgid "Video for Linux 2 (v4l2)"
-msgstr "ভিডিও উল্লেখিত সময় অবধি"
-
-#: ../gstreamer-properties/pipeline-tests.c:176
-#, c-format
-msgid "Failed to construct test pipeline for '%s'"
-msgstr "Failed to construct test pipeline for '%s'"
-
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
-#, c-format
-msgid "There was an error displaying help: %s"
-msgstr "সহায়িকা প্ৰদৰ্শনৰ সময় এটা সমস্যা হয়েছে: %s"
-
-#: ../profiles/audio-profile-edit.c:341
-#, c-format
-msgid "Editing profile \"%s\""
-msgstr "প্ৰোফাইল \"%s\" সম্পাদন কৰা হচ্ছে"
-
-#: ../profiles/audio-profile.c:92
-msgid "<no name>"
-msgstr "<no name>"
-
-#: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
-msgid "<no description>"
-msgstr "<no description>"
-
-#: ../profiles/audio-profile.c:208
-#, c-format
-msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "gm_audio প্ৰোফাইলেৰ তালিকা সংগ্ৰহে এটা সমস্যা হয়েছে। (%s)\n"
-
-#: ../profiles/audio-profile.c:709
-#, c-format
-msgid ""
-"There was an error subscribing to notification of audio profile list "
-"changes. (%s)\n"
-msgstr "অডিও প্ৰোফাইল তালিকাৰ পৰিবৰ্তন জানাৰ বাবে সদস্য হতে গিয়ে এটা সমস্যা হয়েছে। (%s)\n"
-
-#: ../profiles/audio-profile.c:912
-#, c-format
-msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "প্ৰোফাইলেৰ পাথ %s ভুলে যেতে গিয়ে এটা সমস্যা হয়েছে। (%s)\n"
-
-#: ../profiles/audio-profiles-edit.c:78
-msgid "_Edit"
-msgstr "সম্পাদনা (_E)"
-
-#. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:452
-#, c-format
-msgid "Delete this profile?\n"
-msgid_plural "Delete these %d profiles?\n"
-msgstr[0] "চিহ্নিত প্ৰোফাইল মুছে ফেলা হ'ব নেকি ?\n"
-msgstr[1] "Delete these %d profiles?\n"
-
-#: ../profiles/audio-profiles-edit.c:471
-#, c-format
-msgid "Delete profile \"%s\"?"
-msgstr "\"%s\" প্ৰোফাইলকে কি অপসাৰণ কৰা হ'ব?"
-
-#: ../profiles/audio-profiles-edit.c:493
-msgid "Delete Profile"
-msgstr "প্ৰোফাইল অপসাৰণ কৰো"
-
-#: ../profiles/audio-profiles-edit.c:586
-msgid "Edit MATE Audio Profiles"
-msgstr "GMAudio প্ৰোফাইল সম্পাদনা"
-
-#: ../profiles/audio-profiles-edit.c:637
-msgid "_Profiles:"
-msgstr "প্ৰোফাইল:"
-
-#: ../profiles/audio-profiles-edit.c:821
-#, c-format
-msgid "You already have a profile called \"%s\""
-msgstr "\"%s\" নামৰ এটা প্ৰোফাইল আপনাৰ ইতিমধ্যেই আছে"
-
-#: ../profiles/audio-profiles-edit.c:846
-#, c-format
-msgid "MateConf Error (FIXME): %s\n"
-msgstr "MateConf সমস্যা (আমাকে মৰামত কৰো): %s\n"
-
-#: ../profiles/gmp-util.c:61
-#, c-format
-msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed"
-" incorrectly, so the dialog can't be displayed."
-msgstr "\"%s\" নামক নথিপত্ৰ পাওয়া যাচ্ছে না।  এৰ পৰা বোঝা যায় যি এপলিকেশনটি সঠিকভাবে ইনস্টল কৰা হয় নি আৰু এ কাৰণে ডায়ালগ প্ৰদৰ্শন কৰা যাবে না।"
-
-#: ../profiles/mate-audio-profiles-properties.c:54
-#, c-format
-msgid ""
-"%s\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\nআদেশ-শাৰীৰ পৰা ব্যৱহাৰযোগ্য বিকল্পৰ সম্পূৰ্ণ তালিকা চোৱাৰ বাবে '%s --help' ব্যৱহাৰ কৰক।\n"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:1
-msgid "Edit Audio Profile"
-msgstr "অডিও প্ৰোফাইল সম্পাদন কৰো"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:2
-msgid "Profile _description:"
-msgstr "Profile _description:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:3
-msgid "_Active?"
-msgstr "সক্ৰিয়?(_A)"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:4
-msgid "_File extension:"
-msgstr "_File extension:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:5
-msgid "_GStreamer pipeline:"
-msgstr "_GStreamer pipeline:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:6
-#: ../profiles/mate-audio-profile-new.ui.h:3
-msgid "_Profile name:"
-msgstr "প্ৰোফাইলেৰ নাম:(_P)"
-
-#: ../profiles/mate-audio-profile-new.ui.h:1
-msgid "New Profile"
-msgstr "নতুন প্ৰোফাইল"
-
-#: ../profiles/mate-audio-profile-new.ui.h:2
-msgid "_Create"
-msgstr "নিৰ্মাণ কৰক (_C)"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "List of profiles"
-msgstr "প্ৰোফাইলেৰ তালিকা"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to "
-"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "List of audio recording profiles. The list contains strings naming subdirectories relative to /system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid "A short name for the audio profile"
-msgstr "অডিও প্ৰোফাইলৰ বাবে এটা সংক্ষিপ্ত নাম"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr "অডিও প্ৰোফাইলৰ বাবে এটা সংক্ষিপ্ত নাম, যা প্ৰোফাইল নিৰ্বাচন আৰু চিনাক্তকৰণেৰ সময় ব্যৱহৃত হ'ব।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A description for the audio profile"
-msgstr "অডিও প্ৰোফাইলেৰ বিবৰণ"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr "প্ৰোফাইলেৰ এটা বিবৰণ, যাতে আৰো অধিক তথ্য থাকে আৰু কখন এই প্ৰোফাইল ব্যৱহাৰ কৰিবলৈ হ'ব তা বলা থাকে।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "The partial GStreamer pipeline used"
-msgstr "যে আংশিক GStreamer পাইপশাৰী ব্যৱহৃত হয়েছে"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "এই প্ৰোফাইলেৰ বাবে যি আংশিক GStreamer পাইপশাৰী ব্যৱহাৰ কৰিবলৈ হ'ব।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "The default file extension for this profile"
-msgstr "এই প্ৰোফাইলেৰ বাবে ডিফল্ট নথিপত্ৰ এক্সটেনশন"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid ""
-"A filename extension to be used when storing files encoded with this "
-"profile."
-msgstr "এই প্ৰোফাইল সাহায্যে যেসব নথিপত্ৰকে এনকোড কৰা হয়েছে, তাদেৰ সংৰক্ষণেৰ সময় নথিপত্ৰেৰ নামৰ সৈতে যি এক্সটেনশন ব্যৱহৃত হ'ব।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "Whether this profile is to be used"
-msgstr ""
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid "Whether to use and display this profile."
-msgstr ""
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
-msgid "CD Quality, Lossy"
-msgstr "সিডি'ৰ সমান মানসম্পন্ন, নিম্নমানসম্পন্ন (Lossy)"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec."
-" Use this for CD extraction and radio recordings."
-msgstr "নিম্নমানসম্পন্ন (Lossless) কম্পপ্ৰেশন কোডেক ব্যৱহাৰ কৰি সিডি'ৰ সমান মানসম্পন্ন অডিও-তে ৰূপান্তৰেৰ বাবে ব্যৱহৃত হয়।  সিডিৰ পৰা অডিও কপি কৰা বা বেতাৰৰ পৰা অডিও ৰেকৰ্ড কৰাৰ সময় এটি ব্যৱহাৰ কৰক।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "CD Quality, Lossless"
-msgstr "সিডি'ৰ সমান মানসম্পন্ন, অনুৰূপ মানসম্পন্ন (Lossless)"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:16
-msgid ""
-"Used for converting to CD-quality audio, but with a lossless compression "
-"codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "অনুৰূপ মানসম্পন্ন (Lossless) কম্পপ্ৰেশন কোডেক ব্যৱহাৰ কৰি সিডি'ৰ সমান মানসম্পন্ন অডিও-তে ৰূপান্তৰেৰ বাবে ব্যৱহৃত হয়।  আপনি যদি নথিপত্ৰকে পৰবৰ্তীতে সম্পাদন কৰিবলৈ অথবা সিডি'তে লিখতে চান, তবে এটি ব্যৱহাৰ কৰক।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid "Voice, Lossless"
-msgstr "Voice, Lossless"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:18
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr "কণ্ঠস্বৰেৰ মত মানসম্পন্ন অডিওতে ৰূপান্তৰেৰ বাবে ব্যৱহৃত হয়।  কথা ৰেকৰ্ড আৰু পৰিবৰ্তনৰ বাবে এটি ব্যৱহাৰ কৰক।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:19
-msgid "Voice, Lossy"
-msgstr "Voice, Lossy"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr "কণ্ঠস্বৰেৰ মত মানসম্পন্ন অডিওতে ৰূপান্তৰেৰ বাবে ব্যৱহৃত হয়।  অপৰিবৰ্তনযোগ্য কথা ৰেকৰ্ড কৰাৰ বাবে এটি ব্যৱহাৰ কৰক।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid "CD Quality, MP2"
-msgstr "CD-ৰ গুণমান, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
-"this for preparing files for copying to devices that only support the MP2 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "CD-গুণমানৰ অডিওতে ৰূপান্তৰ কৰিবলৈ ব্যৱহৃত। কিন্তু নিম্ন গুণমানৰ MP2 কোডেক সহ। শুধুমাত্ৰ MP2 কোডেক ব্যৱহাৰকৰ্তা যন্ত্ৰে কপি কৰাৰ বাবে নথিপত্ৰ প্ৰস্তুত কৰাৰ বাবে এটি ব্যৱহাৰ কৰক। উল্লেখ্য, এই কোডেকেৰ ব্যৱহাৰ আপনাৰ এলাকায় বেআইনি হতে পাৰে আৰু কোনো আইনী বিশেষজ্ঞেৰ পৰামৰ্শ নেওয়া বাঞ্ছনীয়।"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "CD Quality, MP3"
-msgstr "CD Quality, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
-"this for preparing files for copying to devices that only support the MP3 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "উল্লেখিত সময় অবধি উল্লেখিত সময় অবধি উল্লেখিত সময় অবধি উল্লেখিত সময় অবধি."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "CD Quality, AAC"
-msgstr "CD Quality, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "উল্লেখিত সময় অবধি উল্লেখিত সময় অবধি উল্লেখিত সময় অবধি উল্লেখিত সময় অবধি."
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:322
-#: ../sound-theme/gvc-sound-theme-editor.c:522
-msgid "No sounds"
-msgstr "কোনো ধ্বনি নাই"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:444
-msgid "Built-in"
-msgstr "বিল্ট-ইন"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:742
-#: ../sound-theme/gvc-sound-theme-chooser.c:753
-#: ../sound-theme/gvc-sound-theme-chooser.c:765
-#: ../sound-theme/gvc-sound-theme-editor.c:562
-#: ../sound-theme/gvc-sound-theme-editor.c:951
+#: ../sound-theme/gvc-sound-theme-chooser.c:739
+#: ../sound-theme/gvc-sound-theme-chooser.c:750
+#: ../sound-theme/gvc-sound-theme-chooser.c:762
 msgid "Testing event sound"
 msgstr "ঘটনাৰ বাবে চিহ্নিত শব্দ পৰীক্ষা কৰা হচ্ছে"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:851
+#: ../sound-theme/gvc-sound-theme-chooser.c:848
+msgid "Default"
+msgstr "অবিকল্পিত"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:849
 msgid "From theme"
 msgstr "থিমৰ পৰা"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:881
+#: ../sound-theme/gvc-sound-theme-chooser.c:879
 msgid "Type"
 msgstr "প্ৰকাৰ"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1085
+#: ../sound-theme/gvc-sound-theme-chooser.c:1065
 msgid "Sound _theme:"
 msgstr "শব্দৰ থিম: (_t)"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1093
+#: ../sound-theme/gvc-sound-theme-chooser.c:1074
 msgid "C_hoose an alert sound:"
 msgstr "সতৰ্কতামূলক এটা শব্দ নিৰ্বাচন কৰক: (_h)"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1124
+#: ../sound-theme/gvc-sound-theme-chooser.c:1106
 msgid "Enable _window and button sounds"
 msgstr "উইন্ডো আৰু বুটামৰ শব্দ সক্ৰিয় কৰক (_w)"
-
-#. Bell
-#: ../sound-theme/gvc-sound-theme-editor.c:79
-msgctxt "Sound event"
-msgid "Alert sound"
-msgstr "সতৰ্কতামূলক শব্দ"
-
-#. Windows and buttons
-#: ../sound-theme/gvc-sound-theme-editor.c:81
-msgctxt "Sound event"
-msgid "Windows and Buttons"
-msgstr "উইন্ডো আৰু বুটাম"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:82
-msgctxt "Sound event"
-msgid "Button clicked"
-msgstr "বুটামৰ ক্লিক"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:83
-msgctxt "Sound event"
-msgid "Toggle button clicked"
-msgstr "টগল বুটামৰ ক্লিক"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:84
-msgctxt "Sound event"
-msgid "Window maximized"
-msgstr "উইন্ডোৰ সৰ্বাধিক মাপ নিৰ্ধাৰণ"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:85
-msgctxt "Sound event"
-msgid "Window unmaximized"
-msgstr "উইন্ডোৰ স্বাভাবিক মাপ নিৰ্ধাৰণ"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:86
-msgctxt "Sound event"
-msgid "Window minimised"
-msgstr "উইন্ডো আড়াল কৰা"
-
-#. Desktop
-#: ../sound-theme/gvc-sound-theme-editor.c:88
-msgctxt "Sound event"
-msgid "Desktop"
-msgstr "ডেস্কটপ"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:89
-msgctxt "Sound event"
-msgid "Login"
-msgstr "লগ-ইন"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:90
-msgctxt "Sound event"
-msgid "Logout"
-msgstr "প্ৰস্থান"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:91
-msgctxt "Sound event"
-msgid "New e-mail"
-msgstr "নতুন ই-মেইল"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:92
-msgctxt "Sound event"
-msgid "Empty trash"
-msgstr "আবৰ্জনাৰ বাক্স ফাঁকা হলে"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:93
-msgctxt "Sound event"
-msgid "Long action completed (download, CD burning, etc.)"
-msgstr "দীৰ্ঘ সময়বেপী কামৰ সমাপ্তি (ডাউনলোড, CD বাৰ্ন, প্ৰভৃতি)"
-
-#. Alerts?
-#: ../sound-theme/gvc-sound-theme-editor.c:95
-msgctxt "Sound event"
-msgid "Alerts"
-msgstr "সতৰ্কতামূলক"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:96
-msgctxt "Sound event"
-msgid "Information or question"
-msgstr "তথ্য অথবা প্ৰশ্ন"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:97
-msgctxt "Sound event"
-msgid "Warning"
-msgstr "সঁকিযনি"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:98
-msgctxt "Sound event"
-msgid "Error"
-msgstr "ত্ৰুটি"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:99
-msgctxt "Sound event"
-msgid "Battery warning"
-msgstr "বেটাৰি সংক্ৰান্ত সঁকিয়নি"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:592
-msgid "Select Sound File"
-msgstr "শব্দৰ নথিপত্ৰ নিৰ্বাচন কৰক"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:603
-msgid "Sound files"
-msgstr "শব্দৰ নথিপত্ৰ"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:899
-msgid "Custom…"
-msgstr ""
-
-#: ../sound-theme/gvc-sound-theme-editor.c:1302
-msgid "Sound Theme:"
-msgstr "শব্দৰ থিম:"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:1330
-msgid "Enable window and button sounds"
-msgstr "উইন্ডো আৰু বুটামৰ শব্দ সক্ৰিয় কৰক"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.

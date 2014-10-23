@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-12 14:50+0200\n"
-"PO-Revision-Date: 2013-01-26 10:38+0000\n"
-"Last-Translator: Imants Liepiņš <imzzinator@gmail.com>\n"
+"POT-Creation-Date: 2014-10-16 08:23+0200\n"
+"PO-Revision-Date: 2014-10-16 06:24+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/MATE/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,9 +21,18 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
+msgid "Sound"
+msgstr "Skaņa"
+
+#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+msgid "Change sound volume and sound events"
+msgstr "Mainīt skaņas līmeni un skaņas dažādiem notikumiem"
+
 #: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:1
-#: ../gst-mixer/src/window.c:269 ../gst-mixer/src/window.c:270
+#: ../mate-volume-control/src/dialog-main.c:240
+#: ../mate-volume-control/src/gvc-channel-bar.c:500
+#: ../mate-volume-control/src/gvc-speaker-test.c:461
 msgid "Volume Control"
 msgstr "Skaļuma kontrole"
 
@@ -31,132 +40,137 @@ msgstr "Skaļuma kontrole"
 msgid "Show desktop volume control"
 msgstr "Parādīt darbvirsmas skaņas kontroli"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
-msgid "Sound"
-msgstr "Skaņa"
-
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
-#: ../gst-mixer/mate-volume-control.desktop.in.in.h:2
-msgid "Change sound volume and sound events"
-msgstr "Mainīt skaņas līmeni un skaņas dažādiem notikumiem"
-
-#: ../mate-volume-control/src/applet-main.c:49
-#: ../mate-volume-control/src/dialog-main.c:155
-msgid "Enable debugging code"
-msgstr "Aktivizēt atkļūdošanas kodu"
-
-#: ../mate-volume-control/src/applet-main.c:50
-#: ../mate-volume-control/src/dialog-main.c:156
+#: ../mate-volume-control/src/applet-main.c:45
+#: ../mate-volume-control/src/dialog-main.c:185
 msgid "Version of this application"
 msgstr "Šīs lietotnes versija"
 
-#: ../mate-volume-control/src/applet-main.c:62
+#: ../mate-volume-control/src/applet-main.c:46
+msgid "Enable debug"
+msgstr ""
+
+#: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"
 msgstr " — MATE Skaļuma kontroles sīklietotne"
 
-#: ../mate-volume-control/src/dialog-main.c:124
+#: ../mate-volume-control/src/dialog-main.c:137
+msgid "Sound system is not available"
+msgstr ""
+
+#: ../mate-volume-control/src/dialog-main.c:159
 msgid "Waiting for sound system to respond"
 msgstr "Gaida skaņu sistēmas atbildi"
 
-#: ../mate-volume-control/src/dialog-main.c:154 ../gst-mixer/src/main.c:39
+#: ../mate-volume-control/src/dialog-main.c:183
+msgid "Sound system backend"
+msgstr ""
+
+#: ../mate-volume-control/src/dialog-main.c:184
 msgid "Startup page"
 msgstr "Startēšanās lapa"
 
-#: ../mate-volume-control/src/dialog-main.c:168
+#: ../mate-volume-control/src/dialog-main.c:194
 msgid " — MATE Volume Control"
 msgstr " — MATE Skaļuma kontrole"
 
-#: ../mate-volume-control/src/gvc-applet.c:275
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1922
-msgid "Output"
-msgstr "Izvads"
-
-#: ../mate-volume-control/src/gvc-applet.c:277
-msgid "Sound Output Volume"
-msgstr "Izejas skaņas līmenis"
-
-#: ../mate-volume-control/src/gvc-applet.c:281
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1836
+#: ../mate-volume-control/src/gvc-applet.c:322
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2205
 msgid "Input"
 msgstr "Ievads"
 
-#: ../mate-volume-control/src/gvc-applet.c:283
+#: ../mate-volume-control/src/gvc-applet.c:323
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2307
+msgid "Output"
+msgstr "Izvads"
+
+#: ../mate-volume-control/src/gvc-applet.c:326
 msgid "Microphone Volume"
 msgstr "Mikrofona skaļums"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:109
+#: ../mate-volume-control/src/gvc-applet.c:328
+msgid "Sound Output Volume"
+msgstr "Izejas skaņas līmenis"
+
+#: ../mate-volume-control/src/gvc-applet.c:333
+msgid "MATE Volume Control Applet"
+msgstr ""
+
+#: ../mate-volume-control/src/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
 msgstr "Pa kreisi"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:110
+#: ../mate-volume-control/src/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
 msgstr "Pa labi"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:113
+#: ../mate-volume-control/src/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
 msgstr "Aizmugure"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:114
+#: ../mate-volume-control/src/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
 msgstr "Priekšpuse"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:117
+#: ../mate-volume-control/src/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Minimums"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:118
+#: ../mate-volume-control/src/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Maksimums"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:294
+#: ../mate-volume-control/src/gvc-balance-bar.c:355
 msgid "_Balance:"
 msgstr "_Balanss:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:297
+#: ../mate-volume-control/src/gvc-balance-bar.c:358
 msgid "_Fade:"
 msgstr "_Pakāpeniski klusināt:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:300
+#: ../mate-volume-control/src/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
 msgstr "_Zemfrekvences reproduktors:"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:602
-#: ../mate-volume-control/src/gvc-channel-bar.c:611
-msgctxt "volume"
-msgid "100%"
-msgstr "100%"
-
-#: ../mate-volume-control/src/gvc-channel-bar.c:606
+#: ../mate-volume-control/src/gvc-channel-bar.c:330
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Nepastiprināts"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:868
+#: ../mate-volume-control/src/gvc-channel-bar.c:343
+msgctxt "volume"
+msgid "100%"
+msgstr "100%"
+
+#. Mute button
+#: ../mate-volume-control/src/gvc-channel-bar.c:1099
 msgid "Mute"
 msgstr "Apklusināt"
 
-#: ../mate-volume-control/src/gvc-combo-box.c:166
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1580
+#: ../mate-volume-control/src/gvc-combo-box.c:164
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1841
 msgid "_Profile:"
 msgstr "_Profili:"
 
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:435
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:593
+msgid "Co_nnector:"
+msgstr "Sa_vienotājs:"
+
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-control.c:1005
-#: ../sound-theme/gvc-sound-theme-editor.c:895
-#: ../sound-theme/gvc-sound-theme-editor.c:991
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1293
 msgid "Disabled"
 msgstr "Deaktivizēts"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1012
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1299
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -166,7 +180,7 @@ msgstr[2] "%u izvadkanālu"
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-control.c:1022
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1308
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
@@ -174,922 +188,174 @@ msgstr[0] "%u ievadkanāls"
 msgstr[1] "%u ievadkanāli"
 msgstr[2] "%u ievadkanālu"
 
-#: ../mate-volume-control/src/gvc-mixer-control.c:1320
-msgid "System Sounds"
-msgstr "Sistēmas skaņas"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:309
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:604
-msgid "Co_nnector:"
-msgstr "Sa_vienotājs:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:517
-msgid "Peak detect"
-msgstr "Pīķu noteikšana"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1469
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1668
-#: ../sound-theme/gvc-sound-theme-chooser.c:874
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1690
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1989
+#: ../sound-theme/gvc-sound-theme-chooser.c:872
 msgid "Name"
 msgstr "Nosaukums"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1474
-msgid "Device"
-msgstr "Ierīce"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1522
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1729
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Skaļruņu pārbaude %s"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1581
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:1772
 msgid "Test Speakers"
 msgstr "Pārbaudīt skaļruņus"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1742
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2075
 msgid "_Output volume: "
 msgstr "_Izvada skaļums: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2120
 msgid "Sound Effects"
 msgstr "Skaņas efekti"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1780
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2133
 msgid "_Alert volume: "
 msgstr "_Trauksmes skaļums: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1793
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2151
 msgid "Hardware"
 msgstr "Aparatūra"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1798
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2156
 msgid "C_hoose a device to configure:"
 msgstr "I_zvēlieties ierīci, kuru konfigurēt:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1825
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1954
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2183
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2339
 msgid "Settings for the selected device:"
 msgstr "Izvēlētās ierīces iestatījumi:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1843
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2213
 msgid "_Input volume: "
 msgstr "_Ievada skaļums: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1866
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2247
 msgid "Input level:"
 msgstr "Ievada līmenis:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1892
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2276
 msgid "C_hoose a device for sound input:"
 msgstr "Iz_vēlieties ierīci skaņas ievadei:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1927
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2312
 msgid "C_hoose a device for sound output:"
 msgstr "Iz_vēlieties ierīci skaņas izvadei:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1965
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
 msgid "Applications"
 msgstr "Lietotnes"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1969
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
 msgid "No application is currently playing or recording audio."
 msgstr "Neviena lietotne šobrīd neatskaņo vai neieraksta audio."
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2093
-#: ../sound-theme/gvc-sound-theme-chooser.c:739
-#: ../sound-theme/gvc-sound-theme-chooser.c:751
-#: ../sound-theme/gvc-sound-theme-chooser.c:763
-#: ../sound-theme/gvc-sound-theme-editor.c:560
-#: ../sound-theme/gvc-sound-theme-editor.c:949
+#: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
+#: ../sound-theme/gvc-sound-theme-chooser.c:736
+#: ../sound-theme/gvc-sound-theme-chooser.c:748
+#: ../sound-theme/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
 msgstr "Skaņas iestatījumi"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:220
+#: ../mate-volume-control/src/gvc-speaker-test.c:262
 msgid "Stop"
 msgstr "Pārtraukt"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:220
-#: ../mate-volume-control/src/gvc-speaker-test.c:332
+#: ../mate-volume-control/src/gvc-speaker-test.c:262
+#: ../mate-volume-control/src/gvc-speaker-test.c:380
 msgid "Test"
 msgstr "Pārbaudīt"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:228
-msgid "Subwoofer"
-msgstr "Basu skaļrunis"
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:236
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Neizdevās palaist skaņas iestatījumus: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:259
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:253
 msgid "_Mute"
 msgstr "_Apklusināt"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:268
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:265
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:267
 msgid "_Sound Preferences"
 msgstr "_Skaņas iestatījumi"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:452
+#: ../mate-volume-control/src/gvc-stream-status-icon.c:462
 msgid "Muted"
 msgstr "Apklusināts"
 
-#: ../gst-mixer/mate-volume-control.schemas.in.h:1
-msgid "Height of the Window"
-msgstr "Loga augstums"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:2
-msgid "Height of the window to be displayed."
-msgstr "Parādāmā loga augstums."
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:3
-msgid "Width of the Window"
-msgstr "Loga platums"
-
-#: ../gst-mixer/mate-volume-control.schemas.in.h:4
-msgid "Width of the window to be displayed."
-msgstr "Parādāmā loga platums."
-
-#: ../gst-mixer/src/element.c:495
-msgid "Sound Theme"
-msgstr "Skaņas tēma"
-
-#: ../gst-mixer/src/main.c:82
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Nezināma skaļuma kontrole %d"
-
-#: ../gst-mixer/src/main.c:159
-msgid "No volume control GStreamer plugins and/or devices found."
-msgstr "Nav atrasti vajadzīgie GStreamer skaļuma kontroles spraudņi un/vai ierīces."
-
-#: ../gst-mixer/src/misc.c:62
-msgid "Playback"
-msgstr "Atskaņot"
-
-#: ../gst-mixer/src/misc.c:64
-msgid "Recording"
-msgstr "Ierakstīšana"
-
-#: ../gst-mixer/src/misc.c:66
-msgid "Switches"
-msgstr "Pārslēgi"
-
-#: ../gst-mixer/src/misc.c:68
-msgid "Options"
-msgstr "Opcijas"
-
-#. make window look cute
-#: ../gst-mixer/src/preferences.c:107
-msgid "Volume Control Preferences"
-msgstr "Skaļuma kontroles iestatījumi"
-
-#: ../gst-mixer/src/preferences.c:120
-msgid "_Select mixers to be visible:"
-msgstr "Izvēlētie_s redzamos mikserus:"
-
-#: ../gst-mixer/src/track.c:295
-#, c-format
-msgid "%s:"
-msgstr "%s:"
-
-#. mute button
-#: ../gst-mixer/src/track.c:339
-#, c-format
-msgid "Mute/Unmute %s"
-msgstr "Izslēgt skaņu/Ieslēgt skaņu %s"
-
-#: ../gst-mixer/src/track.c:356
-#, c-format
-msgid "Track %s: mute"
-msgstr "%s celiņš: apklusināts"
-
-#. only the record button here
-#: ../gst-mixer/src/track.c:433
-#, c-format
-msgid "Toggle audio recording from %s"
-msgstr "Pārslēgt audio ierakstu no %s"
-
-#: ../gst-mixer/src/track.c:449
-#, c-format
-msgid "Track %s: audio recording"
-msgstr "%s celiņš: audio ieraksts"
-
-#: ../gst-mixer/src/track.c:562
-#, c-format
-msgid "%s Option Selection"
-msgstr "%s opciju izvēle"
-
-#: ../gst-mixer/src/volume.c:112
-#, c-format
-msgid "Track %s"
-msgstr "%s celiņš"
-
-#: ../gst-mixer/src/volume.c:115
-#, c-format
-msgid "Channel %d of track %s"
-msgstr "%d kanāls %s celiņā"
-
-#: ../gst-mixer/src/volume.c:118
-#, c-format
-msgid "Track %s, channel %d"
-msgstr "%s celiņš, %d kanāls"
-
-#: ../gst-mixer/src/volume.c:138
-#, c-format
-msgid "Lock channels for %s together"
-msgstr "Saslēgt %s kanālus kopā"
-
-#: ../gst-mixer/src/volume.c:156
-#, c-format
-msgid "Track %s: lock channels together"
-msgstr "%s celiņš: saslēgt kanālus kopā"
-
-#: ../gst-mixer/src/volume.c:201
-msgid "mono"
-msgstr "mono"
-
-#: ../gst-mixer/src/volume.c:203
-msgid "left"
-msgstr "pa kreisi %s"
-
-#: ../gst-mixer/src/volume.c:203
-msgid "right"
-msgstr "pa labi %s"
-
-#: ../gst-mixer/src/volume.c:206
-msgid "front left"
-msgstr "priekšpusē pa kreisi"
-
-#: ../gst-mixer/src/volume.c:207
-msgid "front right"
-msgstr "priekšpusē pa labi"
-
-#: ../gst-mixer/src/volume.c:208
-msgid "rear left"
-msgstr "aizmugurē pa kreisi"
-
-#: ../gst-mixer/src/volume.c:209
-msgid "rear right"
-msgstr "aizmugurē pa labi"
-
-#: ../gst-mixer/src/volume.c:210
-msgid "front center"
-msgstr "priekšpusē centrā"
-
-#. Translators: This is the name of a surround sound channel. It
-#. * stands for "Low-Frequency Effects". If you're not sure that
-#. * this has an established and different translation in your
-#. * language, leave it unchanged.
-#: ../gst-mixer/src/volume.c:215
-msgid "LFE"
-msgstr "zemfrekvences efekti (LFE)"
-
-#: ../gst-mixer/src/volume.c:216
-msgid "side left"
-msgstr "malā pa kreisi"
-
-#: ../gst-mixer/src/volume.c:217
-msgid "side right"
-msgstr "malā pa labi"
-
-#: ../gst-mixer/src/volume.c:218
-msgid "unknown"
-msgstr "nezināms"
-
-#. Here, we can actually tell people that this
-#. * is a slider that will change channel X.
-#: ../gst-mixer/src/volume.c:224
-#, c-format
-msgid "Volume of %s channel on %s"
-msgstr "%s kanāla skaļums uz %s"
-
-#: ../gst-mixer/src/window.c:133
-msgid "A MATE/GStreamer-based volume control application"
-msgstr "MATE/GStreamer bāzēta skaļuma kontroles lietotne"
-
-#: ../gst-mixer/src/window.c:136
-msgid "translator-credits"
-msgstr "Pēteris Krišjānis <pecisk@gmail.com>\nArtis Trops <hornet@navigator.lv>\nRaivis Dejus <orvils@gmail.com>"
-
-#. change window title
-#: ../gst-mixer/src/window.c:173
-#, c-format
-msgid "Volume Control: %s"
-msgstr "Skaļuma kontrole: %s"
-
-#: ../gst-mixer/src/window.c:378
-msgid "_Device: "
-msgstr "_Ierīce: "
-
-#. set tooltips
-#: ../gst-mixer/src/window.c:417
-msgid "Control volume on a different device"
-msgstr "Kontrolē citas ierīces skaļumu"
-
-#: ../gstreamer-properties/gstreamer-properties.c:204
-msgid "None"
-msgstr "Nekas"
-
-#. Element does not support setting devices
-#: ../gstreamer-properties/gstreamer-properties.c:246
-msgid "Unsupported"
-msgstr "Neatbalstīts"
-
-#: ../gstreamer-properties/gstreamer-properties.c:268
-#: ../sound-theme/gvc-sound-theme-chooser.c:850
-#: ../sound-theme/gvc-sound-theme-editor.c:891
-#: ../sound-theme/gvc-sound-theme-editor.c:995
-msgid "Default"
-msgstr "Noklusētais"
-
-#: ../gstreamer-properties/gstreamer-properties.c:301
-msgid "Unknown"
-msgstr "Nezināms"
-
-#: ../gstreamer-properties/gstreamer-properties.c:625
-msgid "Failure instantiating main window"
-msgstr "Neizdevās izveidot galveno logu"
-
-#: ../gstreamer-properties/gstreamer-properties.c:678
-msgid "Failed to load UI file; please check your installation."
-msgstr "Neizdevās ielādēt lietotāja saskarnes failu; lūdzu pārbaudiet savu instalāciju."
-
-#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:1
-#: ../gstreamer-properties/gstreamer-properties.ui.h:1
-msgid "Multimedia Systems Selector"
-msgstr "Multimediju sistēmas selektors"
-
-#: ../gstreamer-properties/mate-gstreamer-properties.desktop.in.in.h:2
-msgid "Configure defaults for GStreamer applications"
-msgstr "Noklusētie konfigurācijas iestatījumi GStreamer lietotnēm"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:2
-msgid "Default Output"
-msgstr "Noklusētā izvade"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:3
-msgid "_Plugin:"
-msgstr "S_praudnis:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:4
-msgid "P_ipeline:"
-msgstr "K_onveijers:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:5
-msgid "_Test"
-msgstr "_Testēt"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:6
-msgid "_Device:"
-msgstr "_Ierīce:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:7
-msgid "Default Input"
-msgstr "Noklusētā ievade"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:8
-msgid "P_lugin:"
-msgstr "S_praudnis:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:9
-msgid "Pipeli_ne:"
-msgstr "Ko_nveijers:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:10
-msgid "Te_st"
-msgstr "Te_stēt"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:11
-msgid "D_evice:"
-msgstr "_Ierīce:"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:12
-msgid "Audio"
-msgstr "Audio"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:13
-msgid "Video"
-msgstr "Video"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:14
-msgid "Testing Pipeline"
-msgstr "Testēju konveijeru"
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:15
-msgid "Testing…"
-msgstr "Pārbauda..."
-
-#: ../gstreamer-properties/gstreamer-properties.ui.h:16
-msgid "Click Ok to finish."
-msgstr "Klikšķiniet 'Labi', lai beigtu."
-
-#: ../gstreamer-properties/pipeline-constants.c:52
-#: ../gstreamer-properties/pipeline-constants.c:90
-msgid "Autodetect"
-msgstr "Automātiski noteikt"
-
-#: ../gstreamer-properties/pipeline-constants.c:54
-#: ../gstreamer-properties/pipeline-constants.c:121
-msgid "ALSA — Advanced Linux Sound Architecture"
-msgstr "ALSA — Advanced Linux Sound Architecture"
-
-#: ../gstreamer-properties/pipeline-constants.c:69
-msgid "Artsd — ART Sound Daemon"
-msgstr "Artsd — ART Sound Daemon"
-
-#: ../gstreamer-properties/pipeline-constants.c:71
-#: ../gstreamer-properties/pipeline-constants.c:123
-msgid "ESD — Enlightenment Sound Daemon"
-msgstr "ESD — Enlightenment Sound Daemon"
-
-#: ../gstreamer-properties/pipeline-constants.c:77
-#: ../gstreamer-properties/pipeline-constants.c:130
-msgid "OSS — Open Sound System"
-msgstr "OSS — Open Sound System"
-
-#: ../gstreamer-properties/pipeline-constants.c:79
-#: ../gstreamer-properties/pipeline-constants.c:132
-msgid "OSS - Open Sound System Version 4"
-msgstr "OSS - Open Sound System Version 4"
-
-#: ../gstreamer-properties/pipeline-constants.c:81
-#: ../gstreamer-properties/pipeline-constants.c:136
-msgid "PulseAudio Sound Server"
-msgstr "PulseAudio skaņas serveris"
-
-#: ../gstreamer-properties/pipeline-constants.c:83
-#: ../gstreamer-properties/pipeline-constants.c:134
-msgid "Sun Audio"
-msgstr "Sun Audio"
-
-#: ../gstreamer-properties/pipeline-constants.c:85
-#: ../gstreamer-properties/pipeline-constants.c:116
-#: ../gstreamer-properties/pipeline-constants.c:144
-#: ../gstreamer-properties/pipeline-constants.c:159
-#: ../sound-theme/gvc-sound-theme-chooser.c:629
-#: ../sound-theme/gvc-sound-theme-editor.c:705
-#: ../sound-theme/gvc-sound-theme-editor.c:759
+#: ../mate-volume-control/src/mvc-helpers.c:113
+msgid "Mono"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:118
+msgid "Stereo"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:125
+msgid "Surround 4.0"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:133
+msgid "Surround 4.1"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:135
+msgid "Surround 5.0"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:144
+msgid "Surround 5.1"
+msgstr ""
+
+#: ../mate-volume-control/src/mvc-helpers.c:155
+msgid "Surround 7.1"
+msgstr ""
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:325
+msgid "No sounds"
+msgstr "Skaņu nav"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:447
+msgid "Built-in"
+msgstr "Iebūvēta"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:632
 #: ../sound-theme/sound-theme-file-utils.c:292
 msgid "Custom"
 msgstr "Pielāgots"
 
-#: ../gstreamer-properties/pipeline-constants.c:108
-msgid "OpenGL"
-msgstr "OpenGL"
-
-#: ../gstreamer-properties/pipeline-constants.c:110
-msgid "SDL — Simple DirectMedia Layer"
-msgstr "SDL — Simple DirectMedia Layer"
-
-#: ../gstreamer-properties/pipeline-constants.c:112
-msgid "X Window System (No Xv)"
-msgstr "X logu sistēma (Bez Xv atbalsta)"
-
-#: ../gstreamer-properties/pipeline-constants.c:114
-msgid "X Window System (X11/XShm/Xv)"
-msgstr "X logu sistēma (X11/XShm/Xv)"
-
-#. Note: using triangle instead of sine for test sound so we
-#. * can test the vorbis encoder as well (otherwise it'd compress too well)
-#: ../gstreamer-properties/pipeline-constants.c:140
-msgid "Test Sound"
-msgstr "Testēt skaņu"
-
-#: ../gstreamer-properties/pipeline-constants.c:142
-msgid "Silence"
-msgstr "Klusums"
-
-#: ../gstreamer-properties/pipeline-constants.c:149
-msgid "MJPEG (e.g. Zoran v4l device)"
-msgstr "MJPEG (piemēram, Zoran v4l ierīce)"
-
-#: ../gstreamer-properties/pipeline-constants.c:151
-msgid "QCAM"
-msgstr "QCAM"
-
-#: ../gstreamer-properties/pipeline-constants.c:153
-msgid "Test Input"
-msgstr "Testēt ievadi"
-
-#: ../gstreamer-properties/pipeline-constants.c:155
-msgid "Video for Linux (v4l)"
-msgstr "Video for Linux (v4l)"
-
-#: ../gstreamer-properties/pipeline-constants.c:157
-msgid "Video for Linux 2 (v4l2)"
-msgstr "Video for Linux 2 (v4l2)"
-
-#: ../gstreamer-properties/pipeline-tests.c:176
-#, c-format
-msgid "Failed to construct test pipeline for '%s'"
-msgstr "Neizdevās izveidot testa konveijeru '%s'"
-
-#: ../profiles/audio-profile-edit.c:121 ../profiles/audio-profiles-edit.c:525
-#, c-format
-msgid "There was an error displaying help: %s"
-msgstr "Gadījās kļūda parādot palīdzību: %s"
-
-#: ../profiles/audio-profile-edit.c:341
-#, c-format
-msgid "Editing profile \"%s\""
-msgstr "Rediģē profilu %s"
-
-#: ../profiles/audio-profile.c:92
-msgid "<no name>"
-msgstr "<nav nosaukuma>"
-
-#: ../profiles/audio-profile.c:93 ../profiles/audio-profile.c:1002
-msgid "<no description>"
-msgstr "<nav apraksta>"
-
-#: ../profiles/audio-profile.c:208
-#, c-format
-msgid "There was an error getting the list of gm_audio profiles. (%s)\n"
-msgstr "Gadījās kļūda, iegūstot gm_audio profilu sarakstu. (%s)\n"
-
-#: ../profiles/audio-profile.c:709
-#, c-format
-msgid ""
-"There was an error subscribing to notification of audio profile list "
-"changes. (%s)\n"
-msgstr "Gadījās kļūda, pierakstoties uz audio profila saraksta izmaiņu paziņojumiem (%s)\n"
-
-#: ../profiles/audio-profile.c:912
-#, c-format
-msgid "There was an error forgetting profile path %s. (%s)\n"
-msgstr "Kļūda aizmirstot profila ceļu %s: (%s)\n"
-
-#: ../profiles/audio-profiles-edit.c:78
-msgid "_Edit"
-msgstr "_Rediģēt"
-
-#. the first argument will never be used since we only run for count > 1
-#: ../profiles/audio-profiles-edit.c:452
-#, c-format
-msgid "Delete this profile?\n"
-msgid_plural "Delete these %d profiles?\n"
-msgstr[0] "Dzēst šo %d profilu?\n"
-msgstr[1] "Dzēst šos %d profilus?\n"
-msgstr[2] "Dzēst šos %d profilus?\n"
-
-#: ../profiles/audio-profiles-edit.c:471
-#, c-format
-msgid "Delete profile \"%s\"?"
-msgstr "Dzēst profilu \"%s\"?"
-
-#: ../profiles/audio-profiles-edit.c:493
-msgid "Delete Profile"
-msgstr "Dzēst profilu"
-
-#: ../profiles/audio-profiles-edit.c:586
-msgid "Edit MATE Audio Profiles"
-msgstr "Rediģēt MATE audio profilus"
-
-#: ../profiles/audio-profiles-edit.c:637
-msgid "_Profiles:"
-msgstr "_Profili:"
-
-#: ../profiles/audio-profiles-edit.c:821
-#, c-format
-msgid "You already have a profile called \"%s\""
-msgstr "Jums jau ir profils ar nosaukumu \"%s\""
-
-#: ../profiles/audio-profiles-edit.c:846
-#, c-format
-msgid "MateConf Error (FIXME): %s\n"
-msgstr "MateConf Kļūda (FIXME): %s\n"
-
-#: ../profiles/gmp-util.c:61
-#, c-format
-msgid ""
-"The file \"%s\" is missing. This indicates that the application is installed"
-" incorrectly, so the dialog can't be displayed."
-msgstr "Fails \"%s\" ir pazudis. Tas liecina, ka lietotne ir uzinstalēta nepareizi, tādējādi dialogu nevar parādīt."
-
-#: ../profiles/mate-audio-profiles-properties.c:54
-#, c-format
-msgid ""
-"%s\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\nPalaidiet '%s --help' lai redzētu pilnu komandrindas opciju sarakstu.\n"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:1
-msgid "Edit Audio Profile"
-msgstr "Rediģēt audio profilu"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:2
-msgid "Profile _description:"
-msgstr "Profila _apraksts:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:3
-msgid "_Active?"
-msgstr "_Aktīvs?"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:4
-msgid "_File extension:"
-msgstr "Faila _paplašinājums:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:5
-msgid "_GStreamer pipeline:"
-msgstr "_GStreamer konveijers:"
-
-#: ../profiles/mate-audio-profile-edit.ui.h:6
-#: ../profiles/mate-audio-profile-new.ui.h:3
-msgid "_Profile name:"
-msgstr "_Profila nosaukums:"
-
-#: ../profiles/mate-audio-profile-new.ui.h:1
-msgid "New Profile"
-msgstr "Jauns profils"
-
-#: ../profiles/mate-audio-profile-new.ui.h:2
-msgid "_Create"
-msgstr "_Izveidot"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:1
-msgid "List of profiles"
-msgstr "Profilu saraksts"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:2
-msgid ""
-"List of audio recording profiles. The list contains strings naming "
-"subdirectories relative to "
-"/system/gstreamer/@GST_MAJORMINOR@/audio/profiles."
-msgstr "Saraksts ar audio ierakstīšanas profiliem. Saraksts satur virknes, kas relatīvi /system/gstreamer/@GST_MAJORMINOR@/audio/profiles apraksta apakšdirektorijas."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:3
-msgid "A short name for the audio profile"
-msgstr "Īss nosaukums audio profilam"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:4
-msgid ""
-"A short name for the audio profile, to be used in selections and uniquely "
-"identifying the profile."
-msgstr "Īss nosaukums audio profilam, tas unikāli identificēs šo profilu un tiks lietots izvēlnēs."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:5
-msgid "A description for the audio profile"
-msgstr "Audio profila apraksts"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:6
-msgid ""
-"A description of the profile, containing more information and describing "
-"when to use this profile."
-msgstr "Profila apraksts, kas satur vairāk informācijas un apraksta, kad lietot šo profilu."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:7
-msgid "The partial GStreamer pipeline used"
-msgstr "Lietotais daļējais GStreamer konveijers"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:8
-msgid "A partial GStreamer pipeline to use for this profile."
-msgstr "Daļējs GStreamer konveijers, ko izmantot šajā profilā."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:9
-msgid "The default file extension for this profile"
-msgstr "Šī profila noklusētais failu paplašinājums"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:10
-msgid ""
-"A filename extension to be used when storing files encoded with this "
-"profile."
-msgstr "Failu paplašinājums, ko izmantot saglabājot ar šo profilu izveidotos failus."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:11
-msgid "Whether this profile is to be used"
-msgstr "Vai lietojams šis profils"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:12
-msgid "Whether to use and display this profile."
-msgstr "Vai lietot un parādīt šo profilu."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:13
-msgid "CD Quality, Lossy"
-msgstr "CD Kvalitāte, ar zudumiem"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:14
-msgid ""
-"Used for converting to CD-quality audio, but with a lossy compression codec."
-" Use this for CD extraction and radio recordings."
-msgstr "Tiek izmantots, lai konvertētu uz CD kvalitātes audio ar kvalitātes zudumiem. Izmantojiet to CD kopiju veidošanai un radio pārraižu ierakstiem."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:15
-msgid "CD Quality, Lossless"
-msgstr "CD Kvalitāte, bez zudumiem"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:16
-msgid ""
-"Used for converting to CD-quality audio, but with a lossless compression "
-"codec. Use this if you later want to edit the file or burn it to CD."
-msgstr "Tiek izmantots, lai konvertētu uz CD kvalitātes audio bez kvalitātes zudumiem. Izmantojiet to, ja vēlāk gribēsiet rediģēt failus vai rakstīt tos diskos."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:17
-msgid "Voice, Lossless"
-msgstr "Balss, bez zudumiem"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:18
-msgid ""
-"Used for converting to lossless voice-quality audio. Use this for recording "
-"and editing speech."
-msgstr "Tiek izmantots, lai bez kvalitātes zudumiem konvertētu balss kvalitātes audio. Lietojiet to, lai ierakstītu un rediģētu balss ierakstus."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:19
-msgid "Voice, Lossy"
-msgstr "Balss, ar zudumiem"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:20
-msgid ""
-"Used for converting to lossy voice-quality audio. Use this for recording "
-"speech that doesn't need to be edited."
-msgstr "Tiek izmantots, lai ar kvalitātes zudumiem konvertētu balss kvalitātes audio. Lietojiet to, lai ierakstītu balss ierakstus, kas pēc tam nav jārediģē."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:21
-msgid "CD Quality, MP2"
-msgstr "CD kvalitāte, MP2"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:22
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP2 codec. Use "
-"this for preparing files for copying to devices that only support the MP2 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "Tiek izmantots, lai konvertētu uz CD kvalitātes skaņu izmantojot MP2 kodeku, kas kompresē ar zaudējumiem. Izmantojiet šo, lai sagatavotu skaņu pārnešanai uz ierīcēm, kas atbalsta vienīgi MP2 kodeku. Šī kodeka izmantošana var nebūt likumīga jūsu valstī; konsultējieties ar juristu."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:23
-msgid "CD Quality, MP3"
-msgstr "CD kvalitāte, MP3"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:24
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy MP3 codec. Use "
-"this for preparing files for copying to devices that only support the MP3 "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "Tiek izmantots, lai konvertētu uz CD kvalitātes skaņu izmantojot MP3 kodeku, kas kompresē ar zaudējumiem. Izmantojiet šo, lai sagatavotu skaņu pārnešanai uz ierīcēm, kas atbalsta vienīgi MP3 kodeku. Šī kodeka izmantošana var nebūt likumīga jūsu valstī; konsultējieties ar juristu."
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:25
-msgid "CD Quality, AAC"
-msgstr "CD Kvalitāte, AAC"
-
-#: ../profiles/mate-audio-profiles.schemas.in.in.h:26
-msgid ""
-"Used for converting to CD-quality audio, but with the lossy AAC codec. Use "
-"this for preparing files for copying to devices that only support the AAC "
-"codec. Note that using this format may be illegal in your jurisdiction; "
-"contact your lawyer for advice."
-msgstr "Tiek izmantots, lai konvertētu uz CD kvalitātes skaņu izmantojot AAC kodeku, kas kompresē ar zaudējumiem. Izmantojiet šo, lai sagatavotu skaņu pārnešanai uz ierīcēm, kas atbalsta vienīgi AAC kodeku. Šī kodeka izmantošana var nebūt likumīga jūsu valstī; konsultējieties ar juristu."
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:322
-#: ../sound-theme/gvc-sound-theme-editor.c:522
-msgid "No sounds"
-msgstr "Skaņu nav"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:444
-msgid "Built-in"
-msgstr "Iebūvēta"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:742
-#: ../sound-theme/gvc-sound-theme-chooser.c:753
-#: ../sound-theme/gvc-sound-theme-chooser.c:765
-#: ../sound-theme/gvc-sound-theme-editor.c:562
-#: ../sound-theme/gvc-sound-theme-editor.c:951
+#: ../sound-theme/gvc-sound-theme-chooser.c:739
+#: ../sound-theme/gvc-sound-theme-chooser.c:750
+#: ../sound-theme/gvc-sound-theme-chooser.c:762
 msgid "Testing event sound"
 msgstr "Pārbauda notikuma skaņu"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:851
+#: ../sound-theme/gvc-sound-theme-chooser.c:848
+msgid "Default"
+msgstr "Noklusētais"
+
+#: ../sound-theme/gvc-sound-theme-chooser.c:849
 msgid "From theme"
 msgstr "No tēmas"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:881
+#: ../sound-theme/gvc-sound-theme-chooser.c:879
 msgid "Type"
 msgstr "Veids"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1085
+#: ../sound-theme/gvc-sound-theme-chooser.c:1065
 msgid "Sound _theme:"
 msgstr "Skaņas _tēma:"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1093
+#: ../sound-theme/gvc-sound-theme-chooser.c:1074
 msgid "C_hoose an alert sound:"
 msgstr "I_zvēlieties trauksmes skaņu:"
 
-#: ../sound-theme/gvc-sound-theme-chooser.c:1124
+#: ../sound-theme/gvc-sound-theme-chooser.c:1106
 msgid "Enable _window and button sounds"
 msgstr "Aktivizēt _logu un pogu skaņas"
-
-#. Bell
-#: ../sound-theme/gvc-sound-theme-editor.c:79
-msgctxt "Sound event"
-msgid "Alert sound"
-msgstr "Trauksmes skaņa"
-
-#. Windows and buttons
-#: ../sound-theme/gvc-sound-theme-editor.c:81
-msgctxt "Sound event"
-msgid "Windows and Buttons"
-msgstr "Logi un pogas"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:82
-msgctxt "Sound event"
-msgid "Button clicked"
-msgstr "Pogas klikšķis"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:83
-msgctxt "Sound event"
-msgid "Toggle button clicked"
-msgstr "Pārslēga pogas klikšķis"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:84
-msgctxt "Sound event"
-msgid "Window maximized"
-msgstr "Loga maksimizēšana"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:85
-msgctxt "Sound event"
-msgid "Window unmaximized"
-msgstr "Loga atmaksimizēšana"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:86
-msgctxt "Sound event"
-msgid "Window minimised"
-msgstr "Loga minimizēšana"
-
-#. Desktop
-#: ../sound-theme/gvc-sound-theme-editor.c:88
-msgctxt "Sound event"
-msgid "Desktop"
-msgstr "Darbvirsma"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:89
-msgctxt "Sound event"
-msgid "Login"
-msgstr "Pieteikšanās"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:90
-msgctxt "Sound event"
-msgid "Logout"
-msgstr "Atteikšanās"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:91
-msgctxt "Sound event"
-msgid "New e-mail"
-msgstr "Jauna e-pasta vēstule"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:92
-msgctxt "Sound event"
-msgid "Empty trash"
-msgstr "Miskastes iztukšošana"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:93
-msgctxt "Sound event"
-msgid "Long action completed (download, CD burning, etc.)"
-msgstr "Garas darbības beigas (lejupielādēšana, CD ierakstīšana, utt)"
-
-#. Alerts?
-#: ../sound-theme/gvc-sound-theme-editor.c:95
-msgctxt "Sound event"
-msgid "Alerts"
-msgstr "Trauksmes"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:96
-msgctxt "Sound event"
-msgid "Information or question"
-msgstr "Informācija vai jautājums"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:97
-msgctxt "Sound event"
-msgid "Warning"
-msgstr "Brīdinājums"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:98
-msgctxt "Sound event"
-msgid "Error"
-msgstr "Kļūda"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:99
-msgctxt "Sound event"
-msgid "Battery warning"
-msgstr "Brīdinājums par bateriju"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:592
-msgid "Select Sound File"
-msgstr "Izvēlieties skaņas failu"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:603
-msgid "Sound files"
-msgstr "Skaņas faili"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:899
-msgid "Custom…"
-msgstr "Pielāgots..."
-
-#: ../sound-theme/gvc-sound-theme-editor.c:1302
-msgid "Sound Theme:"
-msgstr "Skaņas tēma:"
-
-#: ../sound-theme/gvc-sound-theme-editor.c:1330
-msgid "Enable window and button sounds"
-msgstr "Aktivizēt logu un pogu skaņas"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
