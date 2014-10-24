@@ -10,14 +10,15 @@
 # Laszlo Dvornik <dvornik@mate.hu>, 2004
 # Mate ORY <orymate at gmail d0t com>, 2006
 # Miklos Szel <mukka@freemail.hu>, 2000
+# Rezső Páder <rezso@rezso.net>, 2014
 # Szabolcs Ban <shooby@mate.hu>, 1999, 2000
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-16 06:24+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-10-23 14:03+0000\n"
+"Last-Translator: Rezső Páder <rezso@rezso.net>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +52,7 @@ msgstr "Ezen alkalmazás verziója"
 
 #: ../mate-volume-control/src/applet-main.c:46
 msgid "Enable debug"
-msgstr ""
+msgstr "Hibakeresés engedélyezése"
 
 #: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"
@@ -97,7 +98,7 @@ msgstr "Hangkimenet hangereje"
 
 #: ../mate-volume-control/src/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "MATE hangerőszabályzó kisalkalmazás"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:158
 msgctxt "balance"
