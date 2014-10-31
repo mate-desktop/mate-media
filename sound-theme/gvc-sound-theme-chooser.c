@@ -111,6 +111,10 @@ on_combobox_changed (GtkComboBox          *widget,
 
         g_assert (theme_name != NULL);
 
+        /* It is necessary to update the theme name before any other setting as
+         * the "changed" notification will reload the contents of the widget */
+        g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
+
         /* special case for no sounds */
         if (strcmp (theme_name, NO_SOUNDS_THEME_NAME) == 0) {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, FALSE);
@@ -118,8 +122,6 @@ on_combobox_changed (GtkComboBox          *widget,
         } else {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, TRUE);
         }
-
-        g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
 
         g_free (theme_name);
 
