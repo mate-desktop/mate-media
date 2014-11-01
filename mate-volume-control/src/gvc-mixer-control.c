@@ -533,13 +533,13 @@ static void
 update_default_source_from_name (GvcMixerControl *control,
                                  const char      *name)
 {
-        gboolean changed;
+        gboolean changed = FALSE;
 
         if ((control->priv->default_source_name == NULL
              && name != NULL)
             || (control->priv->default_source_name != NULL
                 && name == NULL)
-            || strcmp (control->priv->default_source_name, name) != 0) {
+            || g_strcmp0 (control->priv->default_source_name, name) != 0) {
                 changed = TRUE;
         }
 
@@ -558,13 +558,13 @@ static void
 update_default_sink_from_name (GvcMixerControl *control,
                                const char      *name)
 {
-        gboolean changed;
+        gboolean changed = FALSE;
 
         if ((control->priv->default_sink_name == NULL
              && name != NULL)
             || (control->priv->default_sink_name != NULL
                 && name == NULL)
-            || strcmp (control->priv->default_sink_name, name) != 0) {
+            || g_strcmp0 (control->priv->default_sink_name, name) != 0) {
                 changed = TRUE;
         }
 
