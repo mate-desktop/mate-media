@@ -1039,13 +1039,13 @@ update_card (GvcMixerControl      *control,
              const pa_card_info   *info)
 {
         GvcMixerCard *card;
-        gboolean      is_new;
+        gboolean      is_new = FALSE;
 #if 1
         guint i;
         const char *key;
         void *state;
 
-        g_debug ("Udpating card %s (index: %u driver: %s):",
+        g_debug ("Updating card %s (index: %u driver: %s):",
                  info->name, info->index, info->driver);
 
         for (i = 0; i < info->n_profiles; i++) {
