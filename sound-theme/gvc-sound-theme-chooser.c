@@ -512,6 +512,8 @@ populate_model_from_dir (GvcSoundThemeChooser *chooser,
                 populate_model_from_file (chooser, model, path);
                 g_free (path);
         }
+
+        g_dir_close (d);
 }
 
 static gboolean
