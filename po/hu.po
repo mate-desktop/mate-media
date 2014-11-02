@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-23 14:03+0000\n"
+"PO-Revision-Date: 2014-10-29 16:24+0000\n"
 "Last-Translator: Rezső Páder <rezso@rezso.net>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr " – MATE hangerőszabályzó kisalkalmazás"
 
 #: ../mate-volume-control/src/dialog-main.c:137
 msgid "Sound system is not available"
-msgstr ""
+msgstr "A hangrendszer nem elérhető"
 
 #: ../mate-volume-control/src/dialog-main.c:159
 msgid "Waiting for sound system to respond"
@@ -291,31 +291,31 @@ msgstr "Némítva"
 
 #: ../mate-volume-control/src/mvc-helpers.c:113
 msgid "Mono"
-msgstr ""
+msgstr "Monó"
 
 #: ../mate-volume-control/src/mvc-helpers.c:118
 msgid "Stereo"
-msgstr ""
+msgstr "Sztereó"
 
 #: ../mate-volume-control/src/mvc-helpers.c:125
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Surround 4.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:133
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Surround 4.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:135
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Surround 5.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:144
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Surround 5.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:155
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Surround 7.1"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:325
 msgid "No sounds"

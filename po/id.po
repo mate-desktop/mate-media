@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Willy Sudiarto Raharjo <willysr@slackware-id.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-16 06:24+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-10-24 13:13+0000\n"
+"Last-Translator: Willy Sudiarto Raharjo <willysr@slackware-id.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/MATE/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +44,7 @@ msgstr "Versi dari aplikasi ini"
 
 #: ../mate-volume-control/src/applet-main.c:46
 msgid "Enable debug"
-msgstr ""
+msgstr "Aktifkan mode debug"
 
 #: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"
@@ -51,7 +52,7 @@ msgstr " — Aplet Kendali Volume MATE"
 
 #: ../mate-volume-control/src/dialog-main.c:137
 msgid "Sound system is not available"
-msgstr ""
+msgstr "Sistem suara tidak tersedia"
 
 #: ../mate-volume-control/src/dialog-main.c:159
 msgid "Waiting for sound system to respond"
@@ -59,7 +60,7 @@ msgstr "Menunggu sistem suara merespon"
 
 #: ../mate-volume-control/src/dialog-main.c:183
 msgid "Sound system backend"
-msgstr ""
+msgstr "Sistem suara backend"
 
 #: ../mate-volume-control/src/dialog-main.c:184
 msgid "Startup page"
@@ -89,7 +90,7 @@ msgstr "Volume Keluaran Suara"
 
 #: ../mate-volume-control/src/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "Applet Kontrol Volume MATE"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:158
 msgctxt "balance"
@@ -280,31 +281,31 @@ msgstr "Dibisukan"
 
 #: ../mate-volume-control/src/mvc-helpers.c:113
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/src/mvc-helpers.c:118
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: ../mate-volume-control/src/mvc-helpers.c:125
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Surround 4.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:133
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Surround 4.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:135
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Surround 5.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:144
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Surround 5.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:155
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Surround 7.1"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:325
 msgid "No sounds"

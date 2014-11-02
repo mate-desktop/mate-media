@@ -4,6 +4,7 @@
 # 
 # Translators:
 # aurisc4 <aurisc4@gmail.com>, 2010
+# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2014
 # Gintautas Miliauskas <gintas@akl.lt>, 2007
 # Justina Klingaitė <justina.klingaite@gmail.com>, 2005
 # Rimas Kudelis <rq@akl.lt>, 2009
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-16 06:24+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-10-25 09:48+0000\n"
+"Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgstr "Programos versija"
 
 #: ../mate-volume-control/src/applet-main.c:46
 msgid "Enable debug"
-msgstr ""
+msgstr "Įgalinti derinimą"
 
 #: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"
@@ -56,7 +57,7 @@ msgstr " — MATE garsumo valdymo įtaisas"
 
 #: ../mate-volume-control/src/dialog-main.c:137
 msgid "Sound system is not available"
-msgstr ""
+msgstr "Garso sistema nepasiekiama"
 
 #: ../mate-volume-control/src/dialog-main.c:159
 msgid "Waiting for sound system to respond"
@@ -64,7 +65,7 @@ msgstr "Laukiama garsų sistemos atsakymo"
 
 #: ../mate-volume-control/src/dialog-main.c:183
 msgid "Sound system backend"
-msgstr ""
+msgstr "Garso sistemos vidinė pusė"
 
 #: ../mate-volume-control/src/dialog-main.c:184
 msgid "Startup page"
@@ -94,7 +95,7 @@ msgstr "Išvesties garsumas"
 
 #: ../mate-volume-control/src/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "MATE garsumo valdymo įtaisas"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:158
 msgctxt "balance"
@@ -289,31 +290,31 @@ msgstr "Nutildyta"
 
 #: ../mate-volume-control/src/mvc-helpers.c:113
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/src/mvc-helpers.c:118
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: ../mate-volume-control/src/mvc-helpers.c:125
 msgid "Surround 4.0"
-msgstr ""
+msgstr "„Surround“ 4.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:133
 msgid "Surround 4.1"
-msgstr ""
+msgstr "„Surround“ 4.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:135
 msgid "Surround 5.0"
-msgstr ""
+msgstr "„Surround“ 5.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:144
 msgid "Surround 5.1"
-msgstr ""
+msgstr "„Surround“ 5.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:155
 msgid "Surround 7.1"
-msgstr ""
+msgstr "„Surround“ 7.1"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:325
 msgid "No sounds"
