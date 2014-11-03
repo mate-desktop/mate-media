@@ -34,6 +34,7 @@
 #define DIALOG_POPUP_TIMEOUT 3
 
 static guint       popup_id = 0;
+static gboolean    debug = FALSE;
 static gboolean    show_version = FALSE;
 
 static gchar      *page = NULL;
@@ -181,6 +182,7 @@ main (int argc, char **argv)
         UniqueApp        *app;
         GOptionEntry      entries[] = {
                 { "backend", 'b', 0, G_OPTION_ARG_STRING, &backend, N_("Sound system backend"), "pulse|alsa|oss|null" },
+                { "debug",   'd', 0, G_OPTION_ARG_NONE,   &debug, N_("Enable debug"), NULL },
                 { "page",    'p', 0, G_OPTION_ARG_STRING, &page, N_("Startup page"), "effects|hardware|input|output|applications" },
                 { "version", 'v', 0, G_OPTION_ARG_NONE,   &show_version, N_("Version of this application"), NULL },
                 { NULL }
@@ -202,6 +204,9 @@ main (int argc, char **argv)
         if (show_version == TRUE) {
                 g_print ("%s %s\n", argv[0], VERSION);
                 return 0;
+        }
+        if (debug == TRUE) {
+                g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
         }
 
         app = unique_app_new (GVC_DIALOG_DBUS_NAME, NULL);
