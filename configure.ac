@@ -6,27 +6,21 @@ AC_INIT([mate-media],
 
 AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz -Wall -Wno-portability tar-pax foreign check-news])
-
+AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz tar-pax foreign check-news])
 AM_MAINTAINER_MODE
-
-if type -p stow > /dev/null && test -d /usr/local/stow ; then
-   AC_MSG_NOTICE([*** Found /usr/local/stow: default install prefix set to /usr/local/stow/${PACKAGE}-${VERSION} ***])
-   ac_default_prefix="/usr/local/stow/${PACKAGE}-${VERSION}"
-fi
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 IT_PROG_INTLTOOL([0.35.0])
 
-AC_PROG_CC
-AC_ISC_POSIX
-
 # Checks for programs.
+AC_PROG_CC
+AM_PROG_CC_C_O
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
+AM_PROG_LIBTOOL
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -38,13 +32,10 @@ AC_C_INLINE
 AC_TYPE_OFF_T
 AC_TYPE_SIZE_T
 
-# Checks for library functions.
-AC_PROG_GCC_TRADITIONAL
-AC_FUNC_MMAP
+YELP_HELP_INIT
 
 GLIB_REQUIRED_VERSION=2.36.0
 GIO_REQUIRED_VERSION=2.36.0
-PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
 MATE_DESKTOP_REQUIRED_VERSION=1.9.1
 MATE_PANEL_REQUIRED_VERSION=1.7.0
@@ -90,7 +81,6 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
                   mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
                   libmatemixer
 )
-
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
 
@@ -100,8 +90,6 @@ dnl=======================================================================
 
 GLIB_GSETTINGS
 
-AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
-
 dnl=======================================================================
 dnl i18n
 dnl=======================================================================
@@ -110,11 +98,6 @@ GETTEXT_PACKAGE=mate-media
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the Gettext package name])
 AM_GLIB_GNU_GETTEXT
-
-YELP_HELP_INIT
-
-AM_PROG_LIBTOOL
-AM_PROG_CC_C_O
 
 dnl ---------------------------------------------------------------------------
 dnl - Finish
@@ -132,8 +115,8 @@ AC_ARG_ENABLE(deprecated,
          [enable_deprecated=no])
 
 if test "x$enable_deprecated" = "xyes"; then
-   DISABLE_DEPRECATED=""
-     AC_SUBST(DISABLE_DEPRECATED)
+    DISABLE_DEPRECATED=""
+    AC_SUBST(DISABLE_DEPRECATED)
 fi
 
 # Turn on the additional warnings last, so warnings don't affect other tests.
@@ -147,6 +130,7 @@ AC_ARG_ENABLE(more-warnings,
                         set_more_warnings=no
                 fi
         ])
+
 AC_MSG_CHECKING(for more warnings)
 if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
         AC_MSG_RESULT(yes)
@@ -175,12 +159,7 @@ if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
 else
         AC_MSG_RESULT(no)
 fi
-
-
 AC_SUBST(CFLAGS)
-AC_SUBST(CPPFLAGS)
-AC_SUBST(LIBS)
-AC_SUBST(LDFLAGS)
 
 AC_CONFIG_FILES([
 Makefile
@@ -211,7 +190,7 @@ AC_OUTPUT
 echo "
 
                     ${PACKAGE} ${VERSION}
-                    ============
+                    ==========
 
 
         Prefix:                      ${prefix}
