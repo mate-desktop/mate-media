@@ -7,7 +7,7 @@ noinst_LTLIBRARIES = libsoundtheme.la
 AM_CPPFLAGS =						\
         $(WARN_CFLAGS)					\
         $(DISABLE_DEPRECATED)				\
-        $(SOUND_THEME_CFLAGS)				\
+        $(VOLUME_CONTROL_CFLAGS)				\
         -DSOUND_DATA_DIR="\"$(datadir)/sounds\""	\
         -DSOUND_SET_DIR="\"$(pkgdatadir)/sounds\""	\
         $(NULL)
@@ -19,7 +19,7 @@ libsoundtheme_la_SOURCES = \
 	sound-theme-file-utils.c		\
 	$(NULL)
 
-libsoundtheme_la_LIBADD = $(SOUND_THEME_LIBS)
+libsoundtheme_la_LIBADD = $(VOLUME_CONTROL_LIBS)
 libsoundtheme_la_LDFLAGS = -no-undefined
 
 BUILT_SOURCES =				\

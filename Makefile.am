@@ -1,13 +1,6 @@
 NULL =
 
-SUBDIRS = po man
-
-if HAVE_SOUND_THEME
-SUBDIRS += sound-theme
-endif
-
-# m-v-c depends on sound-theme, if enabled, so add here to SUBDIRS
-SUBDIRS += mate-volume-control
+SUBDIRS = po man sound-theme mate-volume-control
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
