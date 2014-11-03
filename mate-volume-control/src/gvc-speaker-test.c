@@ -319,7 +319,7 @@ on_test_button_clicked (GtkButton *button, GtkWidget *control)
                                   mvc_channel_position_to_pretty_string (position));
                 ca_proplist_sets (proplist,
                                   CA_PROP_CANBERRA_FORCE_CHANNEL,
-                                  mvc_channel_position_to_string (position));
+                                  mvc_channel_position_to_pulse_string (position));
 
                 ca_proplist_sets (proplist, CA_PROP_CANBERRA_ENABLE, "1");
 

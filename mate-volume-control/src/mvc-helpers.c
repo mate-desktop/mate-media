@@ -26,77 +26,73 @@
 
 #include <libmatemixer/matemixer.h>
 
-#ifdef HAVE_PULSEAUDIO
-#include <pulse/pulseaudio.h>
-#endif
-
 #include "mvc-helpers.h"
 
-#ifdef HAVE_PULSEAUDIO
-static pa_channel_position_t
-position_to_pulse (MateMixerChannelPosition position)
-{
-        switch (position) {
-        case MATE_MIXER_CHANNEL_MONO:
-                return PA_CHANNEL_POSITION_MONO;
-        case MATE_MIXER_CHANNEL_FRONT_LEFT:
-                return PA_CHANNEL_POSITION_FRONT_LEFT;
-        case MATE_MIXER_CHANNEL_FRONT_RIGHT:
-                return PA_CHANNEL_POSITION_FRONT_RIGHT;
-        case MATE_MIXER_CHANNEL_FRONT_CENTER:
-                return PA_CHANNEL_POSITION_FRONT_CENTER;
-        case MATE_MIXER_CHANNEL_LFE:
-                return PA_CHANNEL_POSITION_LFE;
-        case MATE_MIXER_CHANNEL_BACK_LEFT:
-                return PA_CHANNEL_POSITION_REAR_LEFT;
-        case MATE_MIXER_CHANNEL_BACK_RIGHT:
-                return PA_CHANNEL_POSITION_REAR_RIGHT;
-        case MATE_MIXER_CHANNEL_BACK_CENTER:
-                return PA_CHANNEL_POSITION_REAR_CENTER;
-        case MATE_MIXER_CHANNEL_FRONT_LEFT_CENTER:
-                return PA_CHANNEL_POSITION_FRONT_LEFT_OF_CENTER;
-        case MATE_MIXER_CHANNEL_FRONT_RIGHT_CENTER:
-                return PA_CHANNEL_POSITION_FRONT_RIGHT_OF_CENTER;
-        case MATE_MIXER_CHANNEL_SIDE_LEFT:
-                return PA_CHANNEL_POSITION_SIDE_LEFT;
-        case MATE_MIXER_CHANNEL_SIDE_RIGHT:
-                return PA_CHANNEL_POSITION_SIDE_RIGHT;
-        case MATE_MIXER_CHANNEL_TOP_FRONT_LEFT:
-                return PA_CHANNEL_POSITION_TOP_FRONT_LEFT;
-        case MATE_MIXER_CHANNEL_TOP_FRONT_RIGHT:
-                return PA_CHANNEL_POSITION_TOP_FRONT_RIGHT;
-        case MATE_MIXER_CHANNEL_TOP_FRONT_CENTER:
-                return PA_CHANNEL_POSITION_TOP_FRONT_CENTER;
-        case MATE_MIXER_CHANNEL_TOP_CENTER:
-                return PA_CHANNEL_POSITION_TOP_CENTER;
-        case MATE_MIXER_CHANNEL_TOP_BACK_LEFT:
-                return PA_CHANNEL_POSITION_TOP_REAR_LEFT;
-        case MATE_MIXER_CHANNEL_TOP_BACK_RIGHT:
-                return PA_CHANNEL_POSITION_TOP_REAR_RIGHT;
-        case MATE_MIXER_CHANNEL_TOP_BACK_CENTER:
-                return PA_CHANNEL_POSITION_TOP_REAR_CENTER;
-        default:
-                return PA_CHANNEL_POSITION_INVALID;
-        }
-}
-#endif
+/* libcanberra requires a PulseAudio channel name to be given to its
+ * CA_PROP_CANBERRA_FORCE_CHANNEL property.
+ *
+ * The strings here are copied from PulseAudio source code to avoid depending
+ * on libpulse. */
+static const gchar *pulse_position[MATE_MIXER_CHANNEL_MAX] = {
+        [MATE_MIXER_CHANNEL_MONO] = "mono",
+        [MATE_MIXER_CHANNEL_FRONT_LEFT] = "front-left",
+        [MATE_MIXER_CHANNEL_FRONT_RIGHT] = "front-right",
+        [MATE_MIXER_CHANNEL_FRONT_CENTER] = "front-center",
+        [MATE_MIXER_CHANNEL_LFE] = "lfe",
+        [MATE_MIXER_CHANNEL_BACK_LEFT] = "rear-left",
+        [MATE_MIXER_CHANNEL_BACK_RIGHT] = "rear-right",
+        [MATE_MIXER_CHANNEL_BACK_CENTER] = "rear-center",
+        [MATE_MIXER_CHANNEL_FRONT_LEFT_CENTER] = "front-left-of-center",
+        [MATE_MIXER_CHANNEL_FRONT_RIGHT_CENTER] = "front-right-of-center",
+        [MATE_MIXER_CHANNEL_SIDE_LEFT] = "side-left",
+        [MATE_MIXER_CHANNEL_SIDE_RIGHT] = "side-right",
+        [MATE_MIXER_CHANNEL_TOP_FRONT_LEFT] = "top-front-left",
+        [MATE_MIXER_CHANNEL_TOP_FRONT_RIGHT] = "top-front-right",
+        [MATE_MIXER_CHANNEL_TOP_FRONT_CENTER] = "top-front-center",
+        [MATE_MIXER_CHANNEL_TOP_CENTER] = "top-center",
+        [MATE_MIXER_CHANNEL_TOP_BACK_LEFT] = "top-rear-left",
+        [MATE_MIXER_CHANNEL_TOP_BACK_RIGHT] = "top-rear-right",
+        [MATE_MIXER_CHANNEL_TOP_BACK_CENTER] = "top-rear-center"
+};
+
+static const gchar *pretty_position[MATE_MIXER_CHANNEL_MAX] = {
+        [MATE_MIXER_CHANNEL_UNKNOWN] = N_("Unknown"),
+        /* Speaker channel names */
+        [MATE_MIXER_CHANNEL_MONO] = N_("Mono"),
+        [MATE_MIXER_CHANNEL_FRONT_LEFT] = N_("Front Left"),
+        [MATE_MIXER_CHANNEL_FRONT_RIGHT] = N_("Front Right"),
+        [MATE_MIXER_CHANNEL_FRONT_CENTER] = N_("Front Center"),
+        [MATE_MIXER_CHANNEL_LFE] = N_("LFE"),
+        [MATE_MIXER_CHANNEL_BACK_LEFT] = N_("Rear Left"),
+        [MATE_MIXER_CHANNEL_BACK_RIGHT] = N_("Rear Right"),
+        [MATE_MIXER_CHANNEL_BACK_CENTER] = N_("Rear Center"),
+        [MATE_MIXER_CHANNEL_FRONT_LEFT_CENTER] = N_("Front Left of Center"),
+        [MATE_MIXER_CHANNEL_FRONT_RIGHT_CENTER] = N_("Front Right of Center"),
+        [MATE_MIXER_CHANNEL_SIDE_LEFT] = N_("Side Left"),
+        [MATE_MIXER_CHANNEL_SIDE_RIGHT] = N_("Side Right"),
+        [MATE_MIXER_CHANNEL_TOP_FRONT_LEFT] = N_("Top Front Left"),
+        [MATE_MIXER_CHANNEL_TOP_FRONT_RIGHT] = N_("Top Front Right"),
+        [MATE_MIXER_CHANNEL_TOP_FRONT_CENTER] = N_("Top Front Center"),
+        [MATE_MIXER_CHANNEL_TOP_CENTER] = N_("Top Center"),
+        [MATE_MIXER_CHANNEL_TOP_BACK_LEFT] = N_("Top Rear Left"),
+        [MATE_MIXER_CHANNEL_TOP_BACK_RIGHT] = N_("Top Rear Right"),
+        [MATE_MIXER_CHANNEL_TOP_BACK_CENTER] = N_("Top Rear Center")
+};
 
 const gchar *
-mvc_channel_position_to_string (MateMixerChannelPosition position)
+mvc_channel_position_to_pulse_string (MateMixerChannelPosition position)
 {
-#ifdef HAVE_PULSEAUDIO
-        return pa_channel_position_to_string (position_to_pulse (position));
-#endif
-        return NULL;
+        g_return_val_if_fail (position >= 0 && position < MATE_MIXER_CHANNEL_MAX, NULL);
+
+        return pulse_position[position];
 }
 
 const gchar *
 mvc_channel_position_to_pretty_string (MateMixerChannelPosition position)
 {
-#ifdef HAVE_PULSEAUDIO
-        return pa_channel_position_to_pretty_string (position_to_pulse (position));
-#endif
-        return NULL;
+        g_return_val_if_fail (position >= 0 && position < MATE_MIXER_CHANNEL_MAX, NULL);
+
+        return pretty_position[position];
 }
 
 const gchar *

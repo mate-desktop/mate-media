@@ -116,36 +116,6 @@ AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
 
 dnl=======================================================================
-dnl Check for PulseAudio optional dependency
-dnl=======================================================================
-
-AC_ARG_ENABLE([pulseaudio],
-              AS_HELP_STRING([--enable-pulseaudio],
-                             [Enable PulseAudio support @<:@default=auto@:>@]),
-              enable_pulseaudio=$enableval, enable_pulseaudio=auto)
-
-if test "x$enable_pulseaudio" != "xno"; then
-  PKG_CHECK_MODULES(PULSEAUDIO,
-          libpulse >= $PA_REQUIRED_VERSION,
-          have_pulseaudio=yes,
-          have_pulseaudio=no)
-
-  if test "x$enable_pulseaudio" = "xyes" -a "x$have_pulseaudio" = "xno"; then
-    AC_MSG_ERROR([PulseAudio support explicitly requested but dependencies not found])
-  fi
-
-  if test "x$have_pulseaudio" = "xyes" ; then
-    AC_DEFINE(HAVE_PULSEAUDIO, [], [Define if we have pulseaudio])
-  fi
-else
-  have_pulseaudio=no
-fi
-AM_CONDITIONAL(HAVE_PULSEAUDIO, test x$have_pulseaudio = xyes)
-AC_SUBST(HAVE_PULSEAUDIO)
-AC_SUBST(PULSEAUDIO_CFLAGS)
-AC_SUBST(PULSEAUDIO_LIBS)
-
-dnl=======================================================================
 dnl GLib
 dnl=======================================================================
 
@@ -270,5 +240,4 @@ echo "
         Compiler:                    ${CC}
         CFLAGS:                      ${CFLAGS}
         GTK+ API version:            ${GTK_API_VERSION}
-        PulseAudio:                  ${have_pulseaudio}
 "

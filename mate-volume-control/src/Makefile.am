@@ -10,7 +10,6 @@ AM_CPPFLAGS =					\
 	-I$(top_srcdir)/sound-theme		\
 	$(VOLUME_CONTROL_CFLAGS)		\
 	$(xxDISABLE_DEPRECATED)			\
-	$(PULSEAUDIO_CFLAGS)			\
 	-DLOCALE_DIR=\""$(datadir)/locale"\"	\
 	-DLIBEXECDIR=\"$(libexecdir)\"		\
 	-DGLADEDIR=\""$(pkgdatadir)"\"		\
@@ -29,7 +28,6 @@ mate_volume_control_applet_LDADD =		\
 	-lm					\
 	libmatevolumecontrol.la		\
 	$(VOLUME_CONTROL_LIBS)			\
-	$(PULSEAUDIO_LIBS)			\
 	$(NULL)
 
 mate_volume_control_applet_SOURCES =		\
@@ -45,7 +43,6 @@ mate_volume_control_LDADD =				\
 	libmatevolumecontrol.la			\
 	$(top_builddir)/sound-theme/libsoundtheme.la	\
 	$(VOLUME_CONTROL_LIBS)				\
-	$(PULSEAUDIO_LIBS)				\
 	$(NULL)
 
 mate_volume_control_SOURCES =			\
