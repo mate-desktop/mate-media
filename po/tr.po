@@ -7,14 +7,15 @@
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009
 # Fatih Demir <kabalak@gtranslator.org>, 2000
 # Kudret Emre <kudretemre@hotmail.com.tr>, 2014
+# mauron, 2014
 # mauron, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-17 12:32+0000\n"
-"Last-Translator: Kudret Emre <kudretemre@hotmail.com.tr>\n"
+"PO-Revision-Date: 2014-11-04 13:21+0000\n"
+"Last-Translator: mauron\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/MATE/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +65,7 @@ msgstr "Ses sisteminin cevabı bekleniyor"
 
 #: ../mate-volume-control/src/dialog-main.c:183
 msgid "Sound system backend"
-msgstr ""
+msgstr "Ses sistemi arka ucu"
 
 #: ../mate-volume-control/src/dialog-main.c:184
 msgid "Startup page"
@@ -295,23 +296,23 @@ msgstr "Stereo"
 
 #: ../mate-volume-control/src/mvc-helpers.c:125
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Üç boyutlu ses 4.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:133
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Üç boyutlu ses 4.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:135
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Üç boyutlu ses 5.0"
 
 #: ../mate-volume-control/src/mvc-helpers.c:144
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Üç boyutlu ses 5.1"
 
 #: ../mate-volume-control/src/mvc-helpers.c:155
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Üç boyutlu ses 7.1"
 
 #: ../sound-theme/gvc-sound-theme-chooser.c:325
 msgid "No sounds"

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-22 03:31+0000\n"
+"PO-Revision-Date: 2014-11-03 01:08+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/MATE/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -294,11 +294,11 @@ msgstr "Mudo"
 
 #: ../mate-volume-control/src/mvc-helpers.c:113
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/src/mvc-helpers.c:118
 msgid "Stereo"
-msgstr ""
+msgstr "Estéreo"
 
 #: ../mate-volume-control/src/mvc-helpers.c:125
 msgid "Surround 4.0"
