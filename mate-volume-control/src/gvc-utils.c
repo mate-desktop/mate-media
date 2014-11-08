@@ -26,7 +26,7 @@
 
 #include <libmatemixer/matemixer.h>
 
-#include "mvc-helpers.h"
+#include "gvc-utils.h"
 
 /* libcanberra requires a PulseAudio channel name to be given to its
  * CA_PROP_CANBERRA_FORCE_CHANNEL property.
@@ -80,7 +80,7 @@ static const gchar *pretty_position[MATE_MIXER_CHANNEL_MAX] = {
 };
 
 const gchar *
-mvc_channel_position_to_pulse_string (MateMixerChannelPosition position)
+gvc_channel_position_to_pulse_string (MateMixerChannelPosition position)
 {
         g_return_val_if_fail (position >= 0 && position < MATE_MIXER_CHANNEL_MAX, NULL);
 
@@ -88,7 +88,7 @@ mvc_channel_position_to_pulse_string (MateMixerChannelPosition position)
 }
 
 const gchar *
-mvc_channel_position_to_pretty_string (MateMixerChannelPosition position)
+gvc_channel_position_to_pretty_string (MateMixerChannelPosition position)
 {
         g_return_val_if_fail (position >= 0 && position < MATE_MIXER_CHANNEL_MAX, NULL);
 
@@ -96,7 +96,7 @@ mvc_channel_position_to_pretty_string (MateMixerChannelPosition position)
 }
 
 const gchar *
-mvc_channel_map_to_pretty_string (MateMixerStreamControl *control)
+gvc_channel_map_to_pretty_string (MateMixerStreamControl *control)
 {
         g_return_val_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control), NULL);
 
@@ -163,7 +163,7 @@ static void rgb_to_hls (gdouble *r, gdouble *g, gdouble *b);
 static void hls_to_rgb (gdouble *h, gdouble *l, gdouble *s);
 
 void
-mvc_color_shade (GdkRGBA *a, GdkRGBA *b, gdouble k)
+gvc_color_shade (GdkRGBA *a, GdkRGBA *b, gdouble k)
 {
         gdouble red;
         gdouble green;

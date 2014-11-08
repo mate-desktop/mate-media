@@ -30,7 +30,7 @@
 #include <libmatemixer/matemixer.h>
 
 #include "gvc-speaker-test.h"
-#include "mvc-helpers.h"
+#include "gvc-utils.h"
 
 #define GVC_SPEAKER_TEST_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_SPEAKER_TEST, GvcSpeakerTestPrivate))
 
@@ -316,10 +316,10 @@ on_test_button_clicked (GtkButton *button, GtkWidget *control)
                                   CA_PROP_MEDIA_ROLE, "test");
                 ca_proplist_sets (proplist,
                                   CA_PROP_MEDIA_NAME,
-                                  mvc_channel_position_to_pretty_string (position));
+                                  gvc_channel_position_to_pretty_string (position));
                 ca_proplist_sets (proplist,
                                   CA_PROP_CANBERRA_FORCE_CHANNEL,
-                                  mvc_channel_position_to_pulse_string (position));
+                                  gvc_channel_position_to_pulse_string (position));
 
                 ca_proplist_sets (proplist, CA_PROP_CANBERRA_ENABLE, "1");
 
@@ -374,7 +374,7 @@ create_control (ca_context *canberra, MateMixerChannelPosition position)
         g_object_set_data (G_OBJECT (control), "image", image);
         gtk_box_pack_start (GTK_BOX (control), image, FALSE, FALSE, 0);
 
-        label = gtk_label_new (mvc_channel_position_to_pretty_string (position));
+        label = gtk_label_new (gvc_channel_position_to_pretty_string (position));
         gtk_box_pack_start (GTK_BOX (control), label, FALSE, FALSE, 0);
 
         test_button = gtk_button_new_with_label (_("Test"));

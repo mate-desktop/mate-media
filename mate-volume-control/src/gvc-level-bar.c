@@ -28,7 +28,7 @@
 #include <gtk/gtk.h>
 
 #include "gvc-level-bar.h"
-#include "mvc-helpers.h"
+#include "gvc-utils.h"
 
 #define GVC_LEVEL_BAR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_LEVEL_BAR, GvcLevelBarPrivate))
 
@@ -185,7 +185,7 @@ bar_calc_layout (GvcLevelBar *bar)
                                      GTK_STATE_FLAG_NORMAL,
                                      &bar->priv->layout.color_dark);
 
-        mvc_color_shade (&bar->priv->layout.color_dark,
+        gvc_color_shade (&bar->priv->layout.color_dark,
                          &bar->priv->layout.color_dark,
                          0.7);
 #else

@@ -36,7 +36,7 @@
 #include "gvc-sound-theme-chooser.h"
 #include "gvc-level-bar.h"
 #include "gvc-speaker-test.h"
-#include "mvc-helpers.h"
+#include "gvc-utils.h"
 
 #define GVC_MIXER_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_MIXER_DIALOG, GvcMixerDialogPrivate))
 
@@ -1037,7 +1037,7 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 
                 control = mate_mixer_stream_get_default_control (stream);
                 if (G_LIKELY (control != NULL))
-                        speakers = mvc_channel_map_to_pretty_string (control);
+                        speakers = gvc_channel_map_to_pretty_string (control);
         }
 
         controls = mate_mixer_stream_list_controls (stream);

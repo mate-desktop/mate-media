@@ -20,8 +20,8 @@ noinst_LTLIBRARIES = libmatevolumecontrol.la
 libmatevolumecontrol_la_SOURCES =		\
 	gvc-channel-bar.h			\
 	gvc-channel-bar.c			\
-    mvc-helpers.c               \
-    mvc-helpers.h               \
+    gvc-utils.c               \
+    gvc-utils.h               \
 	$(NULL)
 
 mate_volume_control_applet_LDADD =		\
