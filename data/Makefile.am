@@ -2,6 +2,7 @@ NULL =
 
 SUBDIRS =			\
 	icons			\
+	sounds 			\
 	$(NULL)
 
 @INTLTOOL_DESKTOP_RULE@

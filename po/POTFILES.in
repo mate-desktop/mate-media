@@ -1,18 +1,18 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
-mate-volume-control/data/mate-volume-control.desktop.in.in
-mate-volume-control/data/mate-volume-control-applet.desktop.in
-mate-volume-control/src/applet-main.c
-mate-volume-control/src/dialog-main.c
-mate-volume-control/src/gvc-applet.c
-mate-volume-control/src/gvc-balance-bar.c
-mate-volume-control/src/gvc-channel-bar.c
-mate-volume-control/src/gvc-combo-box.c
-mate-volume-control/src/gvc-mixer-dialog.c
-mate-volume-control/src/gvc-speaker-test.c
-mate-volume-control/src/gvc-stream-status-icon.c
-mate-volume-control/src/mvc-helpers.c
-sound-theme/gvc-sound-theme-chooser.c
-sound-theme/sound-theme-file-utils.c
-sound-theme/sounds/mate-sounds-default.xml.in.in
+data/mate-volume-control.desktop.in.in
+data/mate-volume-control-applet.desktop.in
+data/sounds/mate-sounds-default.xml.in.in
+mate-volume-control/applet-main.c
+mate-volume-control/dialog-main.c
+mate-volume-control/gvc-applet.c
+mate-volume-control/gvc-balance-bar.c
+mate-volume-control/gvc-channel-bar.c
+mate-volume-control/gvc-combo-box.c
+mate-volume-control/gvc-mixer-dialog.c
+mate-volume-control/gvc-sound-theme-chooser.c
+mate-volume-control/gvc-speaker-test.c
+mate-volume-control/gvc-stream-status-icon.c
+mate-volume-control/gvc-utils.c
+mate-volume-control/sound-theme-file-utils.c

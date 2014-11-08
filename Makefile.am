@@ -1,6 +1,6 @@
 NULL =
 
-SUBDIRS = po man sound-theme mate-volume-control
+SUBDIRS = data po man mate-volume-control
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-scrollkeeper	\
@@ -9,10 +9,10 @@ DISTCHECK_CONFIGURE_FLAGS = \
 	--enable-deprecated
 
 DIST_SUBDIRS = \
+	data		\
 	po 			\
 	man			\
 	mate-volume-control	\
-	sound-theme		\
 	$(NULL)
 
 EXTRA_DIST = \
