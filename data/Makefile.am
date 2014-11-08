@@ -1,8 +1,8 @@
 NULL =
 
-SUBDIRS =			\
-	icons			\
-	sounds 			\
+SUBDIRS =	\
+	icons	\
+	sounds	\
 	$(NULL)
 
 @INTLTOOL_DESKTOP_RULE@

@@ -1,11 +1,11 @@
 NULL =
 
-SUBDIRS = \
-	scalable \
-	16x16 \
-	22x22 \
-	24x24 \
-	32x32 \
+SUBDIRS = 		\
+	scalable 	\
+	16x16 		\
+	22x22 		\
+	24x24 		\
+	32x32 		\
 	$(NULL)
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/mate
@@ -20,6 +20,5 @@ update-icon-cache:
 		echo "*** Icon cache not updated.  After (un)install, run this:"; \
 		echo "***   $(gtk_update_icon_cache)"; \
 	fi
-
 
 -include $(top_srcdir)/git.mk

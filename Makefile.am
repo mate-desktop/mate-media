@@ -2,33 +2,31 @@ NULL =
 
 SUBDIRS = data po man mate-volume-control
 
-DISTCHECK_CONFIGURE_FLAGS = \
-	--disable-scrollkeeper	\
-	--enable-more-warnings  \
-	--enable-compile-warnings=maximum \
+DISTCHECK_CONFIGURE_FLAGS =			\
+	--enable-more-warnings			\
+	--enable-compile-warnings=maximum	\
 	--enable-deprecated
 
-DIST_SUBDIRS = \
-	data		\
-	po 			\
-	man			\
-	mate-volume-control	\
+DIST_SUBDIRS =					\
+	data					\
+	po 					\
+	man					\
+	mate-volume-control			\
 	$(NULL)
 
-EXTRA_DIST = \
-	.version		\
-	autogen.sh		\
-	configure		\
-	ChangeLog		\
-	COPYING			\
-	COPYING-DOCS		\
-	build-aux/git-version-gen \
-	$(INTLTOOL_BUILT:=.in)	\
+EXTRA_DIST =					\
+	.version				\
+	autogen.sh				\
+	configure				\
+	ChangeLog				\
+	COPYING					\
+	COPYING-DOCS				\
+	build-aux/git-version-gen 		\
+	$(INTLTOOL_BUILT:=.in)			\
 	$(NULL)
 
-DISTCLEANFILES = \
-	build-aux/mate-doc-utils.make	\
-	po/.intltool-merge-cache	\
+DISTCLEANFILES =				\
+	po/.intltool-merge-cache		\
 	$(NULL)
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
