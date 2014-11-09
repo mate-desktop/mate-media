@@ -31,12 +31,6 @@ const gchar *gvc_channel_position_to_pulse_string  (MateMixerChannelPosition pos
 const gchar *gvc_channel_position_to_pretty_string (MateMixerChannelPosition position);
 const gchar *gvc_channel_map_to_pretty_string      (MateMixerStreamControl  *control);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-void         gvc_color_shade                       (GdkRGBA                 *a,
-                                                    GdkRGBA                 *b,
-                                                    gdouble                  k);
-#endif
-
 G_END_DECLS
 
 #endif /* __GVC_HELPERS_H */

@@ -19,13 +19,14 @@
  *
  */
 
-// XXX on gtk3 the last two squares don't get filled
-
 #include <math.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
+
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
 
 #include "gvc-level-bar.h"
 #include "gvc-utils.h"
@@ -181,13 +182,10 @@ bar_calc_layout (GvcLevelBar *bar)
         gtk_style_context_get_background_color (context,
                                                 GTK_STATE_FLAG_SELECTED,
                                                 &bar->priv->layout.color_fg);
-        gtk_style_context_get_color (context,
-                                     GTK_STATE_FLAG_NORMAL,
-                                     &bar->priv->layout.color_dark);
 
-        gvc_color_shade (&bar->priv->layout.color_dark,
-                         &bar->priv->layout.color_dark,
-                         0.7);
+        mate_desktop_gtk_style_get_dark_color (context,
+                                               GTK_STATE_FLAG_NORMAL,
+                                               &bar->priv->layout.color_dark);
 #else
         GtkStyle *style;
 
@@ -825,6 +823,10 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
 static void
 gvc_level_bar_init (GvcLevelBar *bar)
 {
+        GtkStyleContext *context = gtk_widget_get_style_context (GTK_WIDGET (bar));
+
+        gtk_style_context_add_class (context, GTK_STYLE_CLASS_LIST_ROW);
+
         bar->priv = GVC_LEVEL_BAR_GET_PRIVATE (bar);
 
         bar->priv->peak_adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (0.0,
