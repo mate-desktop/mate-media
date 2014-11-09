@@ -26,6 +26,8 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
+#include <libmatemixer/matemixer.h>
+
 G_BEGIN_DECLS
 
 #define GVC_TYPE_COMBO_BOX         (gvc_combo_box_get_type ())
@@ -56,23 +58,21 @@ struct _GvcComboBoxClass
 #else
         GtkHBoxClass            parent_class;
 #endif
-        void (* changed)        (GvcComboBox *combobox,
-                                 const gchar *name);
-        void (* button_clicked) (GvcComboBox *combobox);
+        void (* changing)       (GvcComboBox           *combobox,
+                                 MateMixerSwitchOption *option);
+        void (* button_clicked) (GvcComboBox           *combobox);
 };
 
 GType               gvc_combo_box_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_combo_box_new                 (const gchar  *label);
+GtkWidget *         gvc_combo_box_new                 (MateMixerSwitch *swtch,
+                                                       const gchar     *label);
 
-void                gvc_combo_box_set_size_group      (GvcComboBox  *combobox,
-                                                       GtkSizeGroup *group,
-                                                       gboolean      symmetric);
+MateMixerSwitch *   gvc_combo_box_get_switch          (GvcComboBox     *combobox);
 
-void                gvc_combo_box_set_options         (GvcComboBox  *combobox,
-                                                       const GList  *options);
-void                gvc_combo_box_set_active          (GvcComboBox  *combobox,
-                                                       const gchar  *id);
+void                gvc_combo_box_set_size_group      (GvcComboBox     *combobox,
+                                                       GtkSizeGroup    *group,
+                                                       gboolean         symmetric);
 
 G_END_DECLS
 
