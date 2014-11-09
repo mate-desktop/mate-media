@@ -143,13 +143,11 @@ find_stream_port_switch (MateMixerStream *stream)
 
         switches = mate_mixer_stream_list_switches (stream);
         while (switches != NULL) {
-                MateMixerSwitch     *swtch = MATE_MIXER_SWITCH (switches->data);
-                MateMixerSwitchFlags flags;
+                MateMixerStreamSwitch *swtch = MATE_MIXER_STREAM_SWITCH (switches->data);
 
-                flags = mate_mixer_switch_get_flags (swtch);
-                if ((flags & MATE_MIXER_SWITCH_TOGGLE) == 0 &&
-                    mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_PORT)
-                    return swtch;
+                if (!MATE_MIXER_IS_TOGGLE (swtch) &&
+                    mate_mixer_stream_switch_get_role (swtch) == MATE_MIXER_STREAM_SWITCH_ROLE_PORT)
+                    return MATE_MIXER_SWITCH (swtch);
 
                 switches = switches->next;
         }
@@ -163,10 +161,10 @@ find_device_profile_switch (MateMixerDevice *device)
 
         switches = mate_mixer_device_list_switches (device);
         while (switches != NULL) {
-                MateMixerSwitch *swtch = MATE_MIXER_SWITCH (switches->data);
+                MateMixerDeviceSwitch *swtch = MATE_MIXER_DEVICE_SWITCH (switches->data);
 
-                if (mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_DEVICE_PROFILE)
-                        return swtch;
+                if (mate_mixer_device_switch_get_role (swtch) == MATE_MIXER_DEVICE_SWITCH_ROLE_PROFILE)
+                        return MATE_MIXER_SWITCH (swtch);
 
                 switches = switches->next;
         }
