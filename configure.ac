@@ -37,7 +37,6 @@ GIO_REQUIRED_VERSION=2.36.0
 CANBERRA_REQUIRED_VERSION=0.13
 MATE_MIXER_REQUIRED_VERSION=1.9.1
 MATE_DESKTOP_REQUIRED_VERSION=1.9.3
-MATE_PANEL_REQUIRED_VERSION=1.7.0
 
 dnl=======================================================================
 dnl Support multiple GTK versions
