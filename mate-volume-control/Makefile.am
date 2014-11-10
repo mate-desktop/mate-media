@@ -18,8 +18,6 @@ noinst_LTLIBRARIES = libmatevolumecontrol.la
 libmatevolumecontrol_la_SOURCES =			\
 	gvc-channel-bar.h				\
 	gvc-channel-bar.c				\
-	gvc-utils.c 					\
-	gvc-utils.h					\
 	$(NULL)
 
 mate_volume_control_applet_LDADD =			\
@@ -53,6 +51,8 @@ mate_volume_control_SOURCES =				\
 	gvc-sound-theme-chooser.h 			\
 	gvc-speaker-test.h				\
 	gvc-speaker-test.c				\
+	gvc-utils.c 					\
+	gvc-utils.h					\
 	sound-theme-file-utils.c			\
 	sound-theme-file-utils.h			\
 	gvc-mixer-dialog.c				\
