@@ -32,16 +32,14 @@
 
 struct _GvcComboBoxPrivate
 {
-        GtkWidget     *drop_box;
-        GtkWidget     *start_box;
-        GtkWidget     *end_box;
-        GtkWidget     *label;
-        GtkWidget     *button;
-        GtkTreeModel  *model;
-        GtkWidget     *combobox;
-        gboolean       set_called;
-        GtkSizeGroup  *size_group;
-        gboolean       symmetric;
+        GtkWidget       *drop_box;
+        GtkWidget       *start_box;
+        GtkWidget       *end_box;
+        GtkWidget       *label;
+        GtkWidget       *button;
+        GtkTreeModel    *model;
+        GtkWidget       *combobox;
+        MateMixerSwitch *swtch;
 };
 
 enum {
@@ -51,7 +49,7 @@ enum {
 };
 
 enum {
-        CHANGED,
+        CHANGING,
         BUTTON_CLICKED,
         LAST_SIGNAL
 };
@@ -60,6 +58,7 @@ static guint signals[LAST_SIGNAL] = { 0, };
 
 enum {
         PROP_0,
+        PROP_SWITCH,
         PROP_LABEL,
         PROP_SHOW_BUTTON,
         PROP_BUTTON_LABEL,
@@ -78,6 +77,14 @@ G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
 G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_HBOX)
 #endif
 
+MateMixerSwitch *
+gvc_combo_box_get_switch (GvcComboBox *combobox)
+{
+        g_return_val_if_fail (GVC_IS_COMBO_BOX (combobox), NULL);
+
+        return combobox->priv->swtch;
+}
+
 void
 gvc_combo_box_set_size_group (GvcComboBox  *combobox,
                               GtkSizeGroup *group,
@@ -86,18 +93,89 @@ gvc_combo_box_set_size_group (GvcComboBox  *combobox,
         g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
         g_return_if_fail (GTK_IS_SIZE_GROUP (group));
 
-        combobox->priv->size_group = group;
-        combobox->priv->symmetric = symmetric;
-
-        if (combobox->priv->size_group != NULL) {
-                gtk_size_group_add_widget (combobox->priv->size_group,
-                                           combobox->priv->start_box);
-
-                if (combobox->priv->symmetric)
-                        gtk_size_group_add_widget (combobox->priv->size_group,
-                                                   combobox->priv->end_box);
+        if (group != NULL) {
+                gtk_size_group_add_widget (group, combobox->priv->start_box);
+                if (symmetric == TRUE)
+                        gtk_size_group_add_widget (group, combobox->priv->end_box);
         }
         gtk_widget_queue_draw (GTK_WIDGET (combobox));
+}
+
+static void
+on_switch_active_option_notify (MateMixerSwitch *swtch,
+                                GParamSpec      *pspec,
+                                GvcComboBox     *combobox)
+{
+        GtkTreeIter            iter;
+        MateMixerSwitchOption *active;
+        gboolean               cont;
+        const gchar           *name;
+
+        active = mate_mixer_switch_get_active_option (swtch);
+        if G_UNLIKELY (active == NULL) {
+                g_warn_if_reached ();
+                return;
+        }
+
+        /* Select the newly activated switch option in the combo box */
+        name = mate_mixer_switch_option_get_name (active);
+        cont = gtk_tree_model_get_iter_first (combobox->priv->model, &iter);
+        while (cont == TRUE) {
+                gchar *current;
+
+                gtk_tree_model_get (combobox->priv->model, &iter,
+                                    COL_NAME, &current,
+                                    -1);
+                if (g_strcmp0 (name, current) == 0) {
+                        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combobox->priv->combobox), &iter);
+                        g_free (current);
+                        return;
+                }
+                g_free (current);
+
+                cont = gtk_tree_model_iter_next (combobox->priv->model, &iter);
+        }
+        g_warning ("Could not find switch option '%s' in combo box", name);
+}
+
+static void
+gvc_combo_box_set_switch (GvcComboBox *combobox, MateMixerSwitch *swtch)
+{
+        MateMixerSwitchOption *active;
+        const GList           *options;
+
+        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
+        g_return_if_fail (MATE_MIXER_IS_SWITCH (swtch));
+
+        combobox->priv->swtch = g_object_ref (swtch);
+
+        active  = mate_mixer_switch_get_active_option (swtch);
+        options = mate_mixer_switch_list_options (swtch);
+        while (options != NULL) {
+                GtkTreeIter            iter;
+                MateMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (options->data);
+
+                gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
+                                                   &iter,
+                                                   G_MAXINT,
+                                                   COL_NAME,
+                                                   mate_mixer_switch_option_get_name (option),
+                                                   COL_HUMAN_NAME,
+                                                   mate_mixer_switch_option_get_label (option),
+                                                   -1);
+
+                /* Select the currently active option of the switch */
+                if (option == active) {
+                        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combobox->priv->combobox),
+                                                       &iter);
+                }
+                options = options->next;
+        }
+
+        g_signal_connect (G_OBJECT (swtch),
+                          "notify::active-option",
+                          G_CALLBACK (on_switch_active_option_notify),
+                          combobox);
 }
 
 static void
@@ -109,6 +187,9 @@ gvc_combo_box_set_property (GObject       *object,
         GvcComboBox *self = GVC_COMBO_BOX (object);
 
         switch (prop_id) {
+        case PROP_SWITCH:
+                gvc_combo_box_set_switch (self, g_value_get_object (value));
+                break;
         case PROP_LABEL:
                 gtk_label_set_text_with_mnemonic (GTK_LABEL (self->priv->label), g_value_get_string (value));
                 break;
@@ -133,6 +214,9 @@ gvc_combo_box_get_property (GObject     *object,
         GvcComboBox *self = GVC_COMBO_BOX (object);
 
         switch (prop_id) {
+        case PROP_SWITCH:
+                g_value_set_object (value, self->priv->swtch);
+                break;
         case PROP_LABEL:
                 g_value_set_string (value, gtk_label_get_text (GTK_LABEL (self->priv->label)));
                 break;
@@ -157,37 +241,54 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
         object_class->set_property = gvc_combo_box_set_property;
         object_class->get_property = gvc_combo_box_get_property;
 
+        properties[PROP_SWITCH] =
+                g_param_spec_object ("switch",
+                                     "switch",
+                                     "The MateMixerSwitch",
+                                     MATE_MIXER_TYPE_SWITCH,
+                                     G_PARAM_READWRITE |
+                                     G_PARAM_CONSTRUCT_ONLY |
+                                     G_PARAM_STATIC_STRINGS);
+
         properties[PROP_LABEL] =
                 g_param_spec_string ("label",
                                      "label",
                                      "The combo box label",
                                      _("_Profile:"),
-                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+                                     G_PARAM_READWRITE |
+                                     G_PARAM_CONSTRUCT |
+                                     G_PARAM_STATIC_STRINGS);
 
         properties[PROP_SHOW_BUTTON] =
                 g_param_spec_boolean ("show-button",
                                       "show-button",
                                       "Whether to show the button",
                                       FALSE,
-                                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+                                      G_PARAM_READWRITE |
+                                      G_PARAM_CONSTRUCT |
+                                      G_PARAM_STATIC_STRINGS);
 
         properties[PROP_BUTTON_LABEL] =
                 g_param_spec_string ("button-label",
                                      "button-label",
                                      "The button's label",
                                      "",
-                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+                                     G_PARAM_READWRITE |
+                                     G_PARAM_CONSTRUCT |
+                                     G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 
-        signals[CHANGED] =
-                g_signal_new ("changed",
+        signals[CHANGING] =
+                g_signal_new ("changing",
                               G_TYPE_FROM_CLASS (klass),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (GvcComboBoxClass, changed),
+                              G_STRUCT_OFFSET (GvcComboBoxClass, changing),
                               NULL, NULL,
-                              g_cclosure_marshal_VOID__STRING,
-                              G_TYPE_NONE, 1, G_TYPE_STRING);
+                              g_cclosure_marshal_VOID__VOID,
+                              G_TYPE_NONE,
+                              1,
+                              MATE_MIXER_TYPE_SWITCH_OPTION);
 
         signals[BUTTON_CLICKED] =
                 g_signal_new ("button-clicked",
@@ -196,84 +297,46 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                               G_STRUCT_OFFSET (GvcComboBoxClass, button_clicked),
                               NULL, NULL,
                               g_cclosure_marshal_VOID__VOID,
-                              G_TYPE_NONE, 0, G_TYPE_NONE);
+                              G_TYPE_NONE,
+                              0,
+                              G_TYPE_NONE);
 
         g_type_class_add_private (klass, sizeof (GvcComboBoxPrivate));
-}
-
-void
-gvc_combo_box_set_options (GvcComboBox *combobox, const GList *options)
-{
-        const GList *l;
-
-        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
-        g_return_if_fail (combobox->priv->set_called == FALSE);
-
-        for (l = options; l != NULL; l = l->next) {
-                MateMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (l->data);
-
-                gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
-                                                   NULL,
-                                                   G_MAXINT,
-                                                   COL_NAME,
-                                                   mate_mixer_switch_option_get_name (option),
-                                                   COL_HUMAN_NAME,
-                                                   mate_mixer_switch_option_get_label (option),
-                                                   -1);
-        }
-        combobox->priv->set_called = TRUE;
-}
-
-void
-gvc_combo_box_set_active (GvcComboBox *combobox, const gchar *id)
-{
-        GtkTreeIter iter;
-        gboolean    cont;
-
-        g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
-        g_return_if_fail (id != NULL);
-
-        cont = gtk_tree_model_get_iter_first (combobox->priv->model, &iter);
-        while (cont != FALSE) {
-                gchar *name;
-
-                gtk_tree_model_get (combobox->priv->model, &iter,
-                                    COL_NAME, &name,
-                                    -1);
-                if (g_strcmp0 (name, id) == 0) {
-                        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combobox->priv->combobox), &iter);
-                        g_free (name);
-                        return;
-                }
-                g_free (name);
-
-                gtk_tree_model_iter_next (combobox->priv->model, &iter);
-        }
-        g_warning ("Could not find id '%s' in combo box", id);
 }
 
 static void
 on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
 {
-        GtkTreeIter iter;
-        gchar      *profile;
+        GtkTreeIter            iter;
+        gchar                 *name;
+        MateMixerSwitchOption *option;
 
-        if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter) == FALSE) {
-                g_warning ("Could not find an active profile or port");
+        if G_UNLIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter) == FALSE)
+                return;
+
+        gtk_tree_model_get (combobox->priv->model, &iter,
+                            COL_NAME, &name,
+                            -1);
+
+        option = mate_mixer_switch_get_option (combobox->priv->swtch, name);
+        if G_UNLIKELY (option == NULL) {
+                g_warn_if_reached ();
+                g_free (name);
                 return;
         }
 
-        gtk_tree_model_get (combobox->priv->model, &iter,
-                            COL_NAME, &profile,
-                            -1);
+        /* Inform that we are about to change the active option of the switch */
+        g_signal_emit (combobox, signals[CHANGING], 0, option);
 
-        g_signal_emit (combobox, signals[CHANGED], 0, profile);
-        g_free (profile);
+        mate_mixer_switch_set_active_option (combobox->priv->swtch, option);
+        g_free (name);
 }
 
 static void
 on_combo_box_button_clicked (GtkButton *button, GvcComboBox *combobox)
 {
+        /* The meaning of the button is defined by the owner, so only notify
+         * when it is clicked on */
         g_signal_emit (combobox, signals[BUTTON_CLICKED], 0);
 }
 
@@ -283,30 +346,21 @@ gvc_combo_box_init (GvcComboBox *combobox)
         GtkWidget       *frame;
         GtkCellRenderer *renderer;
 
+        frame = gtk_frame_new (NULL);
+        gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
+
         combobox->priv = GVC_COMBO_BOX_GET_PRIVATE (combobox);
 
         combobox->priv->model = GTK_TREE_MODEL (gtk_list_store_new (NUM_COLS,
                                                                     G_TYPE_STRING,
                                                                     G_TYPE_STRING));
+
+        combobox->priv->combobox = gtk_combo_box_new_with_model (combobox->priv->model);
+
         combobox->priv->label = gtk_label_new (NULL);
-
         gtk_misc_set_alignment (GTK_MISC (combobox->priv->label), 0.0, 0.5);
-
-        /* Frame */
-        frame = gtk_frame_new (NULL);
-        gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
-        gtk_box_pack_start (GTK_BOX (combobox), frame, TRUE, TRUE, 0);
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-        combobox->priv->drop_box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        combobox->priv->start_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        combobox->priv->end_box   = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-#else
-        combobox->priv->drop_box  = gtk_hbox_new (FALSE, 6);
-        combobox->priv->start_box = gtk_hbox_new (FALSE, 6);
-        combobox->priv->end_box   = gtk_hbox_new (FALSE, 6);
-#endif
-        combobox->priv->combobox  = gtk_combo_box_new_with_model (combobox->priv->model);
+        gtk_label_set_mnemonic_widget (GTK_LABEL (combobox->priv->label),
+                                       combobox->priv->combobox);
 
         renderer = gtk_cell_renderer_text_new ();
         gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combobox->priv->combobox),
@@ -318,6 +372,10 @@ gvc_combo_box_init (GvcComboBox *combobox)
                                        COL_HUMAN_NAME);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
+        combobox->priv->drop_box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        combobox->priv->start_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        combobox->priv->end_box   = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+
         /* Make sure the combo box does not get too long on long profile names */
         g_object_set (G_OBJECT (renderer),
                       "ellipsize",
@@ -325,7 +383,15 @@ gvc_combo_box_init (GvcComboBox *combobox)
                       NULL);
 
         gtk_combo_box_set_popup_fixed_width (GTK_COMBO_BOX (combobox->priv->combobox), FALSE);
+#else
+        combobox->priv->drop_box  = gtk_hbox_new (FALSE, 6);
+        combobox->priv->start_box = gtk_hbox_new (FALSE, 6);
+        combobox->priv->end_box   = gtk_hbox_new (FALSE, 6);
 #endif
+
+        gtk_box_pack_start (GTK_BOX (combobox),
+                            frame,
+                            TRUE, TRUE, 0);
 
         gtk_box_pack_start (GTK_BOX (combobox->priv->drop_box),
                             combobox->priv->start_box,
@@ -346,22 +412,7 @@ gvc_combo_box_init (GvcComboBox *combobox)
                             combobox->priv->end_box,
                             FALSE, FALSE, 0);
 
-        gtk_widget_set_no_show_all (combobox->priv->button, TRUE);
-
-        if (combobox->priv->size_group != NULL) {
-                gtk_size_group_add_widget (combobox->priv->size_group,
-                                           combobox->priv->start_box);
-
-                if (combobox->priv->symmetric)
-                        gtk_size_group_add_widget (combobox->priv->size_group,
-                                                   combobox->priv->end_box);
-        }
-
-        gtk_label_set_mnemonic_widget (GTK_LABEL (combobox->priv->label),
-                                       combobox->priv->combobox);
-
         gtk_container_add (GTK_CONTAINER (frame), combobox->priv->drop_box);
-        gtk_widget_show_all (frame);
 
         g_signal_connect (G_OBJECT (combobox->priv->combobox),
                           "changed",
@@ -371,6 +422,9 @@ gvc_combo_box_init (GvcComboBox *combobox)
                           "clicked",
                           G_CALLBACK (on_combo_box_button_clicked),
                           combobox);
+
+        gtk_widget_set_no_show_all (combobox->priv->button, TRUE);
+        gtk_widget_show_all (frame);
 }
 
 static void
@@ -380,15 +434,23 @@ gvc_combo_box_dispose (GObject *object)
 
         combobox = GVC_COMBO_BOX (object);
 
+        if G_LIKELY (combobox->priv->swtch != NULL) {
+                g_signal_handlers_disconnect_by_func (G_OBJECT (combobox->priv->swtch),
+                                                      G_CALLBACK (on_switch_active_option_notify),
+                                                      combobox);
+                g_clear_object (&combobox->priv->swtch);
+        }
+
         g_clear_object (&combobox->priv->model);
 
         G_OBJECT_CLASS (gvc_combo_box_parent_class)->dispose (object);
 }
 
 GtkWidget *
-gvc_combo_box_new (const gchar *label)
+gvc_combo_box_new (MateMixerSwitch *swtch, const gchar *label)
 {
         return g_object_new (GVC_TYPE_COMBO_BOX,
+                             "switch", swtch,
                              "label", label,
 #if GTK_CHECK_VERSION (3, 0, 0)
                              "orientation", GTK_ORIENTATION_HORIZONTAL,

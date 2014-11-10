@@ -1,32 +1,26 @@
 AC_PREREQ(2.60)
 
 AC_INIT([mate-media],
-        [1.9.0],
+        [1.9.1],
         [http://www.mate-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz -Wall -Wno-portability tar-pax foreign check-news])
-
+AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz tar-pax foreign check-news])
 AM_MAINTAINER_MODE
-
-if type -p stow > /dev/null && test -d /usr/local/stow ; then
-   AC_MSG_NOTICE([*** Found /usr/local/stow: default install prefix set to /usr/local/stow/${PACKAGE}-${VERSION} ***])
-   ac_default_prefix="/usr/local/stow/${PACKAGE}-${VERSION}"
-fi
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 IT_PROG_INTLTOOL([0.35.0])
 
-AC_PROG_CC
-AC_ISC_POSIX
-
 # Checks for programs.
+AC_PROG_CC
+AM_PROG_CC_C_O
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
+AM_PROG_LIBTOOL
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -38,16 +32,11 @@ AC_C_INLINE
 AC_TYPE_OFF_T
 AC_TYPE_SIZE_T
 
-# Checks for library functions.
-AC_PROG_GCC_TRADITIONAL
-AC_FUNC_MMAP
-
 GLIB_REQUIRED_VERSION=2.36.0
 GIO_REQUIRED_VERSION=2.36.0
-PA_REQUIRED_VERSION=0.9.16
 CANBERRA_REQUIRED_VERSION=0.13
-MATE_DESKTOP_REQUIRED_VERSION=1.9.1
-MATE_PANEL_REQUIRED_VERSION=1.7.0
+MATE_MIXER_REQUIRED_VERSION=1.9.1
+MATE_DESKTOP_REQUIRED_VERSION=1.9.3
 
 dnl=======================================================================
 dnl Support multiple GTK versions
@@ -77,27 +66,6 @@ case "$with_gtk" in
 esac
 
 dnl=======================================================================
-dnl Check for libcanberra
-dnl=======================================================================
-
-PKG_CHECK_MODULES(SOUND_THEME,
-        gobject-2.0 >= $GLIB_REQUIRED_VERSION
-        gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
-        gio-2.0 >= $GIO_REQUIRED_VERSION
-        libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
-        libxml-2.0,
-        have_soundtheme=yes,
-        have_soundtheme=no)
-
-if test "x$have_soundtheme" = "xyes" ; then
-  AC_DEFINE(HAVE_SOUND_THEME, [], [Define if we can build sound theme])
-fi
-AM_CONDITIONAL(HAVE_SOUND_THEME, test x$have_soundtheme = xyes)
-AC_SUBST(HAVE_SOUND_THEME)
-AC_SUBST(SOUNDTHEME_CFLAGS)
-AC_SUBST(SOUNDTHEME_LIBS)
-
-dnl=======================================================================
 dnl Check for the volume control modules
 dnl=======================================================================
 
@@ -109,49 +77,16 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
                   unique-$UNIQUE_API_VERSION
                   libxml-2.0
                   mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                  libmatemixer
+                  libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
 )
-
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
-
-dnl=======================================================================
-dnl Check for PulseAudio optional dependency
-dnl=======================================================================
-
-AC_ARG_ENABLE([pulseaudio],
-              AS_HELP_STRING([--enable-pulseaudio],
-                             [Enable PulseAudio support @<:@default=auto@:>@]),
-              enable_pulseaudio=$enableval, enable_pulseaudio=auto)
-
-if test "x$enable_pulseaudio" != "xno"; then
-  PKG_CHECK_MODULES(PULSEAUDIO,
-          libpulse >= $PA_REQUIRED_VERSION,
-          have_pulseaudio=yes,
-          have_pulseaudio=no)
-
-  if test "x$enable_pulseaudio" = "xyes" -a "x$have_pulseaudio" = "xno"; then
-    AC_MSG_ERROR([PulseAudio support explicitly requested but dependencies not found])
-  fi
-
-  if test "x$have_pulseaudio" = "xyes" ; then
-    AC_DEFINE(HAVE_PULSEAUDIO, [], [Define if we have pulseaudio])
-  fi
-else
-  have_pulseaudio=no
-fi
-AM_CONDITIONAL(HAVE_PULSEAUDIO, test x$have_pulseaudio = xyes)
-AC_SUBST(HAVE_PULSEAUDIO)
-AC_SUBST(PULSEAUDIO_CFLAGS)
-AC_SUBST(PULSEAUDIO_LIBS)
 
 dnl=======================================================================
 dnl GLib
 dnl=======================================================================
 
 GLIB_GSETTINGS
-
-AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
 dnl=======================================================================
 dnl i18n
@@ -161,11 +96,6 @@ GETTEXT_PACKAGE=mate-media
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the Gettext package name])
 AM_GLIB_GNU_GETTEXT
-
-YELP_HELP_INIT
-
-AM_PROG_LIBTOOL
-AM_PROG_CC_C_O
 
 dnl ---------------------------------------------------------------------------
 dnl - Finish
@@ -183,8 +113,8 @@ AC_ARG_ENABLE(deprecated,
          [enable_deprecated=no])
 
 if test "x$enable_deprecated" = "xyes"; then
-   DISABLE_DEPRECATED=""
-     AC_SUBST(DISABLE_DEPRECATED)
+    DISABLE_DEPRECATED=""
+    AC_SUBST(DISABLE_DEPRECATED)
 fi
 
 # Turn on the additional warnings last, so warnings don't affect other tests.
@@ -198,6 +128,7 @@ AC_ARG_ENABLE(more-warnings,
                         set_more_warnings=no
                 fi
         ])
+
 AC_MSG_CHECKING(for more warnings)
 if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
         AC_MSG_RESULT(yes)
@@ -226,35 +157,28 @@ if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
 else
         AC_MSG_RESULT(no)
 fi
-
-
 AC_SUBST(CFLAGS)
-AC_SUBST(CPPFLAGS)
-AC_SUBST(LIBS)
-AC_SUBST(LDFLAGS)
 
 AC_CONFIG_FILES([
 Makefile
+data/Makefile
+data/mate-volume-control.desktop.in
+data/icons/Makefile
+data/icons/16x16/Makefile
+data/icons/16x16/status/Makefile
+data/icons/22x22/Makefile
+data/icons/22x22/status/Makefile
+data/icons/24x24/Makefile
+data/icons/24x24/status/Makefile
+data/icons/32x32/Makefile
+data/icons/32x32/status/Makefile
+data/icons/scalable/Makefile
+data/icons/scalable/devices/Makefile
+data/icons/scalable/status/Makefile
+data/sounds/Makefile
 man/Makefile
 po/Makefile.in
-sound-theme/Makefile
-sound-theme/sounds/Makefile
 mate-volume-control/Makefile
-mate-volume-control/data/Makefile
-mate-volume-control/data/mate-volume-control.desktop.in
-mate-volume-control/data/icons/Makefile
-mate-volume-control/data/icons/16x16/Makefile
-mate-volume-control/data/icons/16x16/status/Makefile
-mate-volume-control/data/icons/22x22/Makefile
-mate-volume-control/data/icons/22x22/status/Makefile
-mate-volume-control/data/icons/24x24/Makefile
-mate-volume-control/data/icons/24x24/status/Makefile
-mate-volume-control/data/icons/32x32/Makefile
-mate-volume-control/data/icons/32x32/status/Makefile
-mate-volume-control/data/icons/scalable/Makefile
-mate-volume-control/data/icons/scalable/devices/Makefile
-mate-volume-control/data/icons/scalable/status/Makefile
-mate-volume-control/src/Makefile
 ])
 
 AC_OUTPUT
@@ -262,7 +186,7 @@ AC_OUTPUT
 echo "
 
                     ${PACKAGE} ${VERSION}
-                    ============
+                    ==========
 
 
         Prefix:                      ${prefix}
@@ -270,5 +194,4 @@ echo "
         Compiler:                    ${CC}
         CFLAGS:                      ${CFLAGS}
         GTK+ API version:            ${GTK_API_VERSION}
-        PulseAudio:                  ${have_pulseaudio}
 "

@@ -36,7 +36,7 @@
 #include "gvc-sound-theme-chooser.h"
 #include "gvc-level-bar.h"
 #include "gvc-speaker-test.h"
-#include "mvc-helpers.h"
+#include "gvc-utils.h"
 
 #define GVC_MIXER_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_MIXER_DIALOG, GvcMixerDialogPrivate))
 
@@ -143,13 +143,11 @@ find_stream_port_switch (MateMixerStream *stream)
 
         switches = mate_mixer_stream_list_switches (stream);
         while (switches != NULL) {
-                MateMixerSwitch     *swtch = MATE_MIXER_SWITCH (switches->data);
-                MateMixerSwitchFlags flags;
+                MateMixerStreamSwitch *swtch = MATE_MIXER_STREAM_SWITCH (switches->data);
 
-                flags = mate_mixer_switch_get_flags (swtch);
-                if ((flags & MATE_MIXER_SWITCH_TOGGLE) == 0 &&
-                    mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_PORT)
-                    return swtch;
+                if (!MATE_MIXER_IS_TOGGLE (swtch) &&
+                    mate_mixer_stream_switch_get_role (swtch) == MATE_MIXER_STREAM_SWITCH_ROLE_PORT)
+                    return MATE_MIXER_SWITCH (swtch);
 
                 switches = switches->next;
         }
@@ -163,10 +161,10 @@ find_device_profile_switch (MateMixerDevice *device)
 
         switches = mate_mixer_device_list_switches (device);
         while (switches != NULL) {
-                MateMixerSwitch *swtch = MATE_MIXER_SWITCH (switches->data);
+                MateMixerDeviceSwitch *swtch = MATE_MIXER_DEVICE_SWITCH (switches->data);
 
-                if (mate_mixer_switch_get_role (swtch) == MATE_MIXER_SWITCH_ROLE_DEVICE_PROFILE)
-                        return swtch;
+                if (mate_mixer_device_switch_get_role (swtch) == MATE_MIXER_DEVICE_SWITCH_ROLE_PROFILE)
+                        return MATE_MIXER_SWITCH (swtch);
 
                 switches = switches->next;
         }
@@ -250,70 +248,6 @@ update_default_tree_item (GvcMixerDialog  *dialog,
                                     -1);
                 g_free (n);
         } while (gtk_tree_model_iter_next (model, &iter));
-}
-
-static void
-on_combobox_option_changed (GvcComboBox    *combo,
-                            const gchar    *name,
-                            GvcMixerDialog *dialog)
-{
-        MateMixerSwitch       *swtch;
-        MateMixerSwitchOption *option;
-        const GList           *options;
-
-        swtch = g_object_get_data (G_OBJECT (combo), "switch");
-        if (G_UNLIKELY (swtch == NULL)) {
-                g_warn_if_reached ();
-                return;
-        }
-
-        options = mate_mixer_switch_list_options (swtch);
-        while (options != NULL) {
-                option = MATE_MIXER_SWITCH_OPTION (options->data);
-
-                if (g_strcmp0 (mate_mixer_switch_option_get_name (option), name) == 0)
-                        break;
-
-                option  = NULL;
-                options = options->next;
-        }
-
-        if (G_UNLIKELY (option == NULL)) {
-                g_warn_if_reached ();
-                return;
-        }
-
-        mate_mixer_switch_set_active_option (swtch, option);
-}
-
-static GtkWidget *
-create_port_combo_box (GvcMixerDialog  *dialog,
-                       MateMixerSwitch *swtch,
-                       const gchar     *name,
-                       const GList     *items,
-                       const gchar     *active)
-{
-        GtkWidget *combobox;
-
-        combobox = gvc_combo_box_new (name);
-
-        gvc_combo_box_set_options (GVC_COMBO_BOX (combobox), items);
-        gvc_combo_box_set_active (GVC_COMBO_BOX (combobox), active);
-
-        gvc_combo_box_set_size_group (GVC_COMBO_BOX (combobox),
-                                      dialog->priv->size_group,
-                                      FALSE);
-
-        g_object_set_data_full (G_OBJECT (combobox),
-                                "switch",
-                                g_object_ref (swtch),
-                                g_object_unref);
-
-        g_signal_connect (G_OBJECT (combobox),
-                          "changed",
-                          G_CALLBACK (on_combobox_option_changed),
-                          dialog);
-        return combobox;
 }
 
 static void
@@ -420,21 +354,12 @@ update_output_settings (GvcMixerDialog *dialog)
         /* Enable the port selector if the stream has one */
         port_switch = find_stream_port_switch (stream);
         if (port_switch != NULL) {
-                const GList           *options;
-                const gchar           *active_name = NULL;
-                MateMixerSwitchOption *active;
-
-                options = mate_mixer_switch_list_options (port_switch);
-                active  = mate_mixer_switch_get_active_option (port_switch);
-                if (active != NULL)
-                    active_name = mate_mixer_switch_option_get_name (active);
-
                 dialog->priv->output_port_combo =
-                        create_port_combo_box (dialog,
-                                               port_switch,
-                                               _("Co_nnector:"),
-                                               options,
-                                               active_name);
+                        gvc_combo_box_new (port_switch, _("Co_nnector:"));
+
+                gvc_combo_box_set_size_group (GVC_COMBO_BOX (dialog->priv->output_port_combo),
+                                              dialog->priv->size_group,
+                                              FALSE);
 
                 gtk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
                                     dialog->priv->output_port_combo,
@@ -578,21 +503,12 @@ update_input_settings (GvcMixerDialog *dialog)
         /* Enable the port selector if the stream has one */
         port_switch = find_stream_port_switch (stream);
         if (port_switch != NULL) {
-                const GList           *options;
-                const gchar           *active_name = NULL;
-                MateMixerSwitchOption *active;
-
-                options = mate_mixer_switch_list_options (port_switch);
-                active  = mate_mixer_switch_get_active_option (port_switch);
-                if (active != NULL)
-                    active_name = mate_mixer_switch_option_get_name (active);
-
                 dialog->priv->input_port_combo =
-                        create_port_combo_box (dialog,
-                                               port_switch,
-                                               _("Co_nnector:"),
-                                               options,
-                                               active_name);
+                        gvc_combo_box_new (port_switch, _("Co_nnector:"));
+
+                gvc_combo_box_set_size_group (GVC_COMBO_BOX (dialog->priv->input_port_combo),
+                                              dialog->priv->size_group,
+                                              FALSE);
 
                 gtk_box_pack_start (GTK_BOX (dialog->priv->input_settings_box),
                                     dialog->priv->input_port_combo,
@@ -702,55 +618,6 @@ on_context_default_input_stream_notify (MateMixerContext *context,
         set_input_stream (dialog, stream);
 }
 
-static GvcComboBox *
-find_combo_box_by_switch (GvcMixerDialog *dialog, MateMixerSwitch *swtch)
-{
-        MateMixerSwitch *combo_switch;
-
-        if (dialog->priv->output_port_combo != NULL) {
-                combo_switch = g_object_get_data (G_OBJECT (dialog->priv->output_port_combo),
-                                                  "switch");
-                if (combo_switch == swtch)
-                        return GVC_COMBO_BOX (dialog->priv->output_port_combo);
-        }
-
-        if (dialog->priv->input_port_combo != NULL) {
-                combo_switch = g_object_get_data (G_OBJECT (dialog->priv->input_port_combo),
-                                                  "switch");
-                if (combo_switch == swtch)
-                        return GVC_COMBO_BOX (dialog->priv->input_port_combo);
-        }
-        return NULL;
-}
-
-static void
-on_switch_option_notify (MateMixerSwitch *swtch,
-                         GParamSpec      *pspec,
-                         GvcMixerDialog  *dialog)
-{
-        GvcComboBox           *combobox;
-        MateMixerSwitchOption *port;
-
-        combobox = find_combo_box_by_switch (dialog, swtch);
-        if (G_UNLIKELY (combobox == NULL)) {
-                g_warn_if_reached ();
-                return;
-        }
-
-        g_signal_handlers_block_by_func (G_OBJECT (combobox),
-                                         on_combobox_option_changed,
-                                         dialog);
-
-        port = mate_mixer_switch_get_active_option (swtch);
-        if (G_LIKELY (port != NULL))
-                gvc_combo_box_set_active (GVC_COMBO_BOX (combobox),
-                                          mate_mixer_switch_option_get_name (port));
-
-        g_signal_handlers_unblock_by_func (G_OBJECT (combobox),
-                                           on_combobox_option_changed,
-                                           dialog);
-}
-
 static GtkWidget *
 create_bar (GvcMixerDialog *dialog, gboolean use_size_group, gboolean symmetric)
 {
@@ -779,18 +646,8 @@ bar_set_stream (GvcMixerDialog  *dialog,
 {
         MateMixerStreamControl *control = NULL;
 
-        if (stream != NULL) {
-                MateMixerSwitch *port_switch;
-
+        if (stream != NULL)
                 control = mate_mixer_stream_get_default_control (stream);
-
-                port_switch = find_stream_port_switch (stream);
-                if (port_switch != NULL)
-                        g_signal_connect (G_OBJECT (port_switch),
-                                          "notify::active-option",
-                                          G_CALLBACK (on_switch_option_notify),
-                                          dialog);
-        }
 
         bar_set_stream_control (dialog, bar, control);
 }
@@ -1037,7 +894,7 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 
                 control = mate_mixer_stream_get_default_control (stream);
                 if (G_LIKELY (control != NULL))
-                        speakers = mvc_channel_map_to_pretty_string (control);
+                        speakers = gvc_channel_map_to_pretty_string (control);
         }
 
         controls = mate_mixer_stream_list_controls (stream);
@@ -1367,30 +1224,15 @@ update_device_info (GvcMixerDialog *dialog, MateMixerDevice *device)
 }
 
 static void
-on_device_profile_notify (MateMixerSwitch *swtch,
-                          GParamSpec      *pspec,
-                          GvcMixerDialog  *dialog)
+on_device_profile_active_option_notify (MateMixerDeviceSwitch *swtch,
+                                        GParamSpec            *pspec,
+                                        GvcMixerDialog        *dialog)
 {
-        MateMixerSwitchOption *active;
+        MateMixerDevice *device;
 
-        g_signal_handlers_block_by_func (G_OBJECT (dialog->priv->hw_profile_combo),
-                                         G_CALLBACK (on_combobox_option_changed),
-                                         dialog);
+        device = mate_mixer_device_switch_get_device (swtch);
 
-        active = mate_mixer_switch_get_active_option (swtch);
-        if (G_LIKELY (active != NULL)) {
-                const gchar *name = mate_mixer_switch_option_get_name (active);
-
-                gvc_combo_box_set_active (GVC_COMBO_BOX (dialog->priv->hw_profile_combo),
-                                          name);
-        }
-
-        g_signal_handlers_unblock_by_func (G_OBJECT (dialog->priv->hw_profile_combo),
-                                           G_CALLBACK (on_combobox_option_changed),
-                                           dialog);
-
-        // XXX find device
-        // update_device_info (dialog, device);
+        update_device_info (dialog, device);
 }
 
 static void
@@ -1426,9 +1268,9 @@ add_device (GvcMixerDialog *dialog, MateMixerDevice *device)
                 if (G_LIKELY (active != NULL))
                         profile_label = mate_mixer_switch_option_get_label (active);
 
-                g_signal_connect (G_OBJECT (device),
+                g_signal_connect (G_OBJECT (profile_switch),
                                   "notify::active-option",
-                                  G_CALLBACK (on_device_profile_notify),
+                                  G_CALLBACK (on_device_profile_active_option_notify),
                                   dialog);
         }
 
@@ -1705,6 +1547,15 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
 }
 
 static void
+on_device_profile_changing (GvcComboBox           *combobox,
+                            MateMixerSwitchOption *option,
+                            GvcMixerDialog        *dialog)
+{
+        g_debug ("Changing device profile");
+        // TODO
+}
+
+static void
 on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
 {
         GtkWidget       *d,
@@ -1750,46 +1601,6 @@ on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
         gtk_widget_destroy (d);
 }
 
-static GtkWidget *
-create_profile_combo_box (GvcMixerDialog  *dialog,
-                          MateMixerSwitch *swtch,
-                          const gchar     *name,
-                          const GList     *items,
-                          const gchar     *active)
-{
-        GtkWidget *combobox;
-
-        combobox = gvc_combo_box_new (name);
-
-        gvc_combo_box_set_options (GVC_COMBO_BOX (combobox), items);
-        gvc_combo_box_set_active (GVC_COMBO_BOX (combobox), active);
-
-        gvc_combo_box_set_size_group (GVC_COMBO_BOX (combobox),
-                                      dialog->priv->size_group,
-                                      FALSE);
-
-        g_object_set (G_OBJECT (combobox),
-                      "button-label", _("Test Speakers"),
-                      NULL);
-
-        g_object_set_data_full (G_OBJECT (combobox),
-                                "switch",
-                                g_object_ref (swtch),
-                                g_object_unref);
-
-        g_signal_connect (G_OBJECT (combobox),
-                          "changed",
-                          G_CALLBACK (on_combobox_option_changed),
-                          dialog);
-
-        g_signal_connect (G_OBJECT (combobox),
-                          "button-clicked",
-                          G_CALLBACK (on_test_speakers_clicked),
-                          dialog);
-
-        return combobox;
-}
-
 static void
 on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog)
 {
@@ -1826,26 +1637,27 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
         /* Profile/speaker test combo */
         profile_switch = find_device_profile_switch (device);
         if (profile_switch != NULL) {
-                const GList           *options;
-                const gchar           *active_name = NULL;
-                MateMixerSwitchOption *active;
-
-                options = mate_mixer_switch_list_options (profile_switch);
-                active  = mate_mixer_switch_get_active_option (profile_switch);
-                if (active != NULL)
-                    active_name = mate_mixer_switch_option_get_name (active);
-
                 dialog->priv->hw_profile_combo =
-                        create_profile_combo_box (dialog,
-                                                  profile_switch,
-                                                  _("_Profile:"),
-                                                  options,
-                                                  active_name);
+                        gvc_combo_box_new (profile_switch, _("_Profile:"));
+
+                g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
+                              "button-label", _("Test Speakers"),
+                              NULL);
+
+                g_signal_connect (G_OBJECT (dialog->priv->hw_profile_combo),
+                                  "changing",
+                                  G_CALLBACK (on_device_profile_changing),
+                                  dialog);
+
+                g_signal_connect (G_OBJECT (dialog->priv->hw_profile_combo),
+                                  "button-clicked",
+                                  G_CALLBACK (on_test_speakers_clicked),
+                                  dialog);
 
                 g_object_set_data_full (G_OBJECT (dialog->priv->hw_profile_combo),
-                                   "device",
-                                   g_object_ref (device),
-                                   g_object_unref);
+                                        "device",
+                                        g_object_ref (device),
+                                        g_object_unref);
 
                 gtk_box_pack_start (GTK_BOX (dialog->priv->hw_settings_box),
                                     dialog->priv->hw_profile_combo,

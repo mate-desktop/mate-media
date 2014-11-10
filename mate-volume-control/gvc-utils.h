@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MVC_HELPERS_H
-#define __MVC_HELPERS_H
+#ifndef __GVC_HELPERS_H
+#define __GVC_HELPERS_H
 
 #include <glib.h>
 
@@ -27,16 +27,10 @@
 
 G_BEGIN_DECLS
 
-const gchar *mvc_channel_position_to_string        (MateMixerChannelPosition position);
-const gchar *mvc_channel_position_to_pretty_string (MateMixerChannelPosition position);
-const gchar *mvc_channel_map_to_pretty_string      (MateMixerStreamControl  *control);
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-void         mvc_color_shade                       (GdkRGBA                 *a,
-                                                    GdkRGBA                 *b,
-                                                    gdouble                  k);
-#endif
+const gchar *gvc_channel_position_to_pulse_string  (MateMixerChannelPosition position);
+const gchar *gvc_channel_position_to_pretty_string (MateMixerChannelPosition position);
+const gchar *gvc_channel_map_to_pretty_string      (MateMixerStreamControl  *control);
 
 G_END_DECLS
 
-#endif /* __MVC_HELPERS_H */
+#endif /* __GVC_HELPERS_H */
