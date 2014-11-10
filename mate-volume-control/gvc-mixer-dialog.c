@@ -145,7 +145,7 @@ find_stream_port_switch (MateMixerStream *stream)
         while (switches != NULL) {
                 MateMixerStreamSwitch *swtch = MATE_MIXER_STREAM_SWITCH (switches->data);
 
-                if (!MATE_MIXER_IS_TOGGLE (swtch) &&
+                if (!MATE_MIXER_IS_STREAM_TOGGLE (swtch) &&
                     mate_mixer_stream_switch_get_role (swtch) == MATE_MIXER_STREAM_SWITCH_ROLE_PORT)
                     return MATE_MIXER_SWITCH (swtch);
 
