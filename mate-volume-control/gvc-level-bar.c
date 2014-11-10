@@ -823,9 +823,11 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
 static void
 gvc_level_bar_init (GvcLevelBar *bar)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
         GtkStyleContext *context = gtk_widget_get_style_context (GTK_WIDGET (bar));
 
         gtk_style_context_add_class (context, GTK_STYLE_CLASS_LIST_ROW);
+#endif
 
         bar->priv = GVC_LEVEL_BAR_GET_PRIVATE (bar);
 
