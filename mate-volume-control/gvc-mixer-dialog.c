@@ -43,6 +43,7 @@
 struct _GvcMixerDialogPrivate
 {
         MateMixerContext *context;
+        MateMixerBackendFlags backend_flags;
         GHashTable       *bars;
         GtkWidget        *notebook;
         GtkWidget        *output_bar;
@@ -50,7 +51,6 @@ struct _GvcMixerDialogPrivate
         GtkWidget        *input_level_bar;
         GtkWidget        *effects_bar;
         GtkWidget        *output_stream_box;
-        GtkWidget        *sound_effects_box;
         GtkWidget        *hw_box;
         GtkWidget        *hw_treeview;
         GtkWidget        *hw_settings_box;
@@ -70,7 +70,6 @@ struct _GvcMixerDialogPrivate
         GtkWidget        *input_treeview;
         GtkWidget        *input_port_combo;
         GtkWidget        *input_settings_box;
-        GtkWidget        *sound_theme_chooser;
         GtkSizeGroup     *size_group;
         gdouble           last_input_peak;
         guint             num_apps;
@@ -118,8 +117,6 @@ static void gvc_mixer_dialog_finalize   (GObject                *object);
 static void add_stream                  (GvcMixerDialog         *dialog,
                                          MateMixerStream        *stream);
 static void add_application_control     (GvcMixerDialog         *dialog,
-                                         MateMixerStreamControl *control);
-static void add_effects_control         (GvcMixerDialog         *dialog,
                                          MateMixerStreamControl *control);
 
 static void remove_stream               (GvcMixerDialog         *dialog,
@@ -657,13 +654,19 @@ bar_set_stream_control (GvcMixerDialog         *dialog,
                         GtkWidget              *bar,
                         MateMixerStreamControl *control)
 {
+        const gchar            *name;
         MateMixerStreamControl *previous;
 
         previous = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (bar));
-        if (previous != NULL) {
-                const gchar *name = mate_mixer_stream_control_get_name (previous);
+        if (previous == control)
+                return;
 
-                g_debug ("Disconnecting old stream control %s", name);
+        if (previous != NULL) {
+                name = mate_mixer_stream_control_get_name (previous);
+
+                g_debug ("Removing stream control %s from bar %s",
+                         name,
+                         gvc_channel_bar_get_name (GVC_CHANNEL_BAR (bar)));
 
                 g_signal_handlers_disconnect_by_data (G_OBJECT (previous), dialog);
 
@@ -678,7 +681,11 @@ bar_set_stream_control (GvcMixerDialog         *dialog,
         gvc_channel_bar_set_control (GVC_CHANNEL_BAR (bar), control);
 
         if (control != NULL) {
-                const gchar *name = mate_mixer_stream_control_get_name (control);
+                name = mate_mixer_stream_control_get_name (control);
+
+                g_debug ("Setting stream control %s for bar %s",
+                         name,
+                         gvc_channel_bar_get_name (GVC_CHANNEL_BAR (bar)));
 
                 g_hash_table_insert (dialog->priv->bars,
                                      (gpointer) name,
@@ -772,37 +779,6 @@ add_application_control (GvcMixerDialog *dialog, MateMixerStreamControl *control
 
         gtk_widget_hide (dialog->priv->no_apps_label);
         gtk_widget_show (bar);
-}
-
-static void
-add_effects_control (GvcMixerDialog *dialog, MateMixerStreamControl *control)
-{
-        MateMixerStreamControl *previous;
-        const gchar            *name;
-
-        /* We use a stored event control for the effects volume slider,
-         * because regular streams are only created when an event sound
-         * is played and then immediately destroyed.
-         * The stored event control should exist all the time. */
-        previous = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->effects_bar));
-        if (previous != NULL) {
-                name = mate_mixer_stream_control_get_name (previous);
-
-                g_signal_handlers_disconnect_by_data (G_OBJECT (previous), dialog);
-                g_hash_table_remove (dialog->priv->bars, name);
-        }
-
-        gvc_channel_bar_set_control (GVC_CHANNEL_BAR (dialog->priv->effects_bar), control);
-
-        if (control != NULL) {
-                name = mate_mixer_stream_control_get_name (control);
-                g_hash_table_insert (dialog->priv->bars,
-                                     (gpointer) name,
-                                     dialog->priv->effects_bar);
-
-                gtk_widget_set_sensitive (GTK_WIDGET (dialog->priv->effects_bar), TRUE);
-        } else
-                gtk_widget_set_sensitive (GTK_WIDGET (dialog->priv->effects_bar), FALSE);
 }
 
 static void
@@ -1096,7 +1072,7 @@ on_context_stored_control_added (MateMixerContext *context,
         media_role = mate_mixer_stream_control_get_media_role (control);
 
         if (media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT)
-                add_effects_control (dialog, control);
+                bar_set_stream_control (dialog, dialog->priv->effects_bar, control);
 }
 
 static void
@@ -1836,6 +1812,70 @@ dialog_accel_cb (GtkAccelGroup    *accelgroup,
                 gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook), num);
 }
 
+static void
+create_page_effects (GvcMixerDialog *self)
+{
+        GtkWidget *box;
+        GtkWidget *label;
+        GtkWidget *chooser;
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+#else
+        box = gtk_vbox_new (FALSE, 6);
+#endif
+        gtk_container_set_border_width (GTK_CONTAINER (box), 12);
+
+        label = gtk_label_new (_("Sound Effects"));
+        gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
+                                  box,
+                                  label);
+
+        /*
+         * Create a volume slider for the sound effect sounds.
+         *
+         * Only look for a stored control because regular controls only exist
+         * for short time periods when an event sound is played.
+         */
+        if (self->priv->backend_flags & MATE_MIXER_BACKEND_HAS_STORED_CONTROLS) {
+                GvcChannelBar *bar;
+                const GList   *list;
+
+                bar = GVC_CHANNEL_BAR (create_bar (self, TRUE, TRUE));
+
+                gtk_box_pack_start (GTK_BOX (box),
+                                    GTK_WIDGET (bar),
+                                    FALSE, FALSE, 0);
+
+                gvc_channel_bar_set_show_marks (bar, FALSE);
+                gvc_channel_bar_set_extended (bar, FALSE);
+                gvc_channel_bar_set_name (bar, _("_Alert volume: "));
+
+                /* Find an event role stored control */
+                list = mate_mixer_context_list_stored_controls (self->priv->context);
+                while (list != NULL) {
+                        MateMixerStreamControl *control = MATE_MIXER_STREAM_CONTROL (list->data);
+                        MateMixerStreamControlMediaRole media_role;
+
+                        media_role = mate_mixer_stream_control_get_media_role (control);
+
+                        if (media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT) {
+                                bar_set_stream_control (self, GTK_WIDGET (bar), control);
+                                break;
+                        }
+
+                        list = list->next;
+                }
+
+                self->priv->effects_bar = GTK_WIDGET (bar);
+        }
+
+        chooser = gvc_sound_theme_chooser_new ();
+        gtk_box_pack_start (GTK_BOX (box),
+                            chooser,
+                            TRUE, TRUE, 6);
+}
+
 static GObject *
 gvc_mixer_dialog_constructor (GType                  type,
                               guint                  n_construct_properties,
@@ -1922,36 +1962,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         g_object_unref (accel_group);
 
         /* Create notebook pages */
-#if GTK_CHECK_VERSION (3, 0, 0)
-        self->priv->sound_effects_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-#else
-        self->priv->sound_effects_box = gtk_vbox_new (FALSE, 6);
-#endif
-        gtk_container_set_border_width (GTK_CONTAINER (self->priv->sound_effects_box), 12);
-
-        label = gtk_label_new (_("Sound Effects"));
-        gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
-                                  self->priv->sound_effects_box,
-                                  label);
-
-        self->priv->effects_bar = create_bar (self, TRUE, TRUE);
-        gtk_box_pack_start (GTK_BOX (self->priv->sound_effects_box),
-                            self->priv->effects_bar, FALSE, FALSE, 0);
-
-        gvc_channel_bar_set_show_marks (GVC_CHANNEL_BAR (self->priv->effects_bar), FALSE);
-        gvc_channel_bar_set_extended (GVC_CHANNEL_BAR (self->priv->effects_bar), FALSE);
-
-        gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->effects_bar),
-                                  _("_Alert volume: "));
-
-        gtk_widget_show (self->priv->effects_bar);
-        gtk_widget_set_sensitive (self->priv->effects_bar, FALSE);
-
-        self->priv->sound_theme_chooser = gvc_sound_theme_chooser_new ();
-
-        gtk_box_pack_start (GTK_BOX (self->priv->sound_effects_box),
-                            self->priv->sound_theme_chooser,
-                            TRUE, TRUE, 6);
+        create_page_effects (self);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->hw_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
@@ -2206,21 +2217,6 @@ gvc_mixer_dialog_constructor (GType                  type,
                 list = list->next;
         }
 
-        /* Find an event role stream */
-        list = mate_mixer_context_list_stored_controls (self->priv->context);
-        while (list != NULL) {
-                MateMixerStreamControl *control = MATE_MIXER_STREAM_CONTROL (list->data);
-                MateMixerStreamControlMediaRole media_role;
-
-                media_role = mate_mixer_stream_control_get_media_role (control);
-
-                if (media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT) {
-                        add_effects_control (self, control);
-                        break;
-                }
-                list = list->next;
-        }
-
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
 
         /* Select the first device in the list */
@@ -2282,6 +2278,8 @@ gvc_mixer_dialog_set_context (GvcMixerDialog *dialog, MateMixerContext *context)
                           "stored-control-removed",
                           G_CALLBACK (on_context_stored_control_removed),
                           dialog);
+
+        dialog->priv->backend_flags = mate_mixer_context_get_backend_flags (context);
 
         g_object_notify (G_OBJECT (dialog), "context");
 }
