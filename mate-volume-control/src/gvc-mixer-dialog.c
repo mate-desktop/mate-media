@@ -1552,6 +1552,9 @@ on_card_selection_changed (GtkTreeSelection *selection,
         GtkTreeModel        *model;
         GtkTreeIter          iter;
         const GList         *profiles;
+        GSList              *sinks;
+        gint                 card_index;
+        gboolean             has_sink = FALSE;
         guint                id;
         GvcMixerCard        *card;
         GvcMixerCardProfile *current_profile;
@@ -1590,9 +1593,23 @@ on_card_selection_changed (GtkTreeSelection *selection,
         gtk_box_pack_start (GTK_BOX (dialog->priv->hw_settings_box),
                             dialog->priv->hw_profile_combo,
                             TRUE, TRUE, 6);
+
+        sinks = gvc_mixer_control_get_sinks (dialog->priv->mixer_control);
+        card_index = gvc_mixer_card_get_index (card);
+        while (sinks != NULL) {
+                GvcMixerStream *s = sinks->data;
+
+                if (gvc_mixer_stream_get_card_index (s) == card_index) {
+                        has_sink = TRUE;
+                        break;
+                }
+                sinks = sinks->next;
+        }
+
         g_object_set (G_OBJECT (dialog->priv->hw_profile_combo),
-                      "show-button", current_profile->n_sinks == 1,
+                      "show-button", has_sink,
                       NULL);
+
         gtk_widget_show (dialog->priv->hw_profile_combo);
 
         g_object_set_data (G_OBJECT (dialog->priv->hw_profile_combo), "card", card);
