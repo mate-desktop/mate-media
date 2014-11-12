@@ -124,11 +124,12 @@ gvc_channel_map_to_pretty_string (MateMixerStreamControl *control)
                 if (HAS_POSITION (MATE_MIXER_CHANNEL_FRONT_LEFT) &&
                     HAS_POSITION (MATE_MIXER_CHANNEL_FRONT_RIGHT) &&
                     HAS_POSITION (MATE_MIXER_CHANNEL_BACK_LEFT) &&
-                    HAS_POSITION (MATE_MIXER_CHANNEL_BACK_RIGHT))
+                    HAS_POSITION (MATE_MIXER_CHANNEL_BACK_RIGHT)) {
                         if (HAS_POSITION (MATE_MIXER_CHANNEL_LFE))
                                 return _("Surround 4.1");
                         if (HAS_POSITION (MATE_MIXER_CHANNEL_FRONT_CENTER))
                                 return _("Surround 5.0");
+                }
                 break;
         case 6:
                 if (HAS_POSITION (MATE_MIXER_CHANNEL_FRONT_LEFT) &&
