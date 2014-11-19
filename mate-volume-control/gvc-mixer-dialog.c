@@ -44,6 +44,7 @@ struct _GvcMixerDialogPrivate
 {
         MateMixerContext *context;
         MateMixerBackendFlags backend_flags;
+        gboolean              backend_pulse;
         GHashTable       *bars;
         GtkWidget        *notebook;
         GtkWidget        *output_bar;
@@ -1976,46 +1977,67 @@ gvc_mixer_dialog_constructor (GType                  type,
                                   self->priv->hw_box,
                                   label);
 
-        box = gtk_frame_new (_("C_hoose a device to configure:"));
-        label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, TRUE, TRUE, 0);
+        if (self->priv->backend_pulse == TRUE) {
+                box = gtk_frame_new (_("C_hoose a device to configure:"));
+                label = gtk_frame_get_label_widget (GTK_FRAME (box));
+                make_label_bold (GTK_LABEL (label));
+                gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
+                gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
+                gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, TRUE, TRUE, 0);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
+                alignment = gtk_alignment_new (0, 0, 1, 1);
+                gtk_container_add (GTK_CONTAINER (box), alignment);
+                gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
 
-        self->priv->hw_treeview = create_device_treeview (self,
-                                                         G_CALLBACK (on_device_selection_changed));
-        gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->hw_treeview);
+                self->priv->hw_treeview = create_device_treeview (self,
+                                                                  G_CALLBACK (on_device_selection_changed));
+                gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->hw_treeview);
 
-        box = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (box),
-                                        GTK_POLICY_NEVER,
-                                        GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
-                                             GTK_SHADOW_IN);
-        gtk_container_add (GTK_CONTAINER (box), self->priv->hw_treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
+                box = gtk_scrolled_window_new (NULL, NULL);
+                gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (box),
+                                                GTK_POLICY_NEVER,
+                                                GTK_POLICY_AUTOMATIC);
+                gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
+                                                     GTK_SHADOW_IN);
+                gtk_container_add (GTK_CONTAINER (box), self->priv->hw_treeview);
+                gtk_container_add (GTK_CONTAINER (alignment), box);
 
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
-        gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+                selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
+                gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
 
-        box = gtk_frame_new (_("Settings for the selected device:"));
-        label = gtk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, FALSE, TRUE, 12);
+                box = gtk_frame_new (_("Settings for the selected device:"));
+                label = gtk_frame_get_label_widget (GTK_FRAME (box));
+                make_label_bold (GTK_LABEL (label));
+                gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
+                gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, FALSE, TRUE, 12);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
-        self->priv->hw_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+                self->priv->hw_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
 #else
-        self->priv->hw_settings_box = gtk_vbox_new (FALSE, 12);
+                self->priv->hw_settings_box = gtk_vbox_new (FALSE, 12);
 #endif
 
-        gtk_container_add (GTK_CONTAINER (box), self->priv->hw_settings_box);
+                gtk_container_add (GTK_CONTAINER (box), self->priv->hw_settings_box);
+
+                list = mate_mixer_context_list_devices (self->priv->context);
+                while (list != NULL) {
+                        add_device (self, MATE_MIXER_DEVICE (list->data));
+                        list = list->next;
+                }
+
+                selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
+
+                /* Select the first device in the list */
+                if (gtk_tree_selection_get_selected (selection, NULL, NULL) == FALSE) {
+                        GtkTreeModel *model =
+                                gtk_tree_view_get_model (GTK_TREE_VIEW (self->priv->hw_treeview));
+
+                        if (gtk_tree_model_get_iter_first (model, &iter))
+                                gtk_tree_selection_select_iter (selection, &iter);
+                }
+        } else {
+                gtk_widget_set_no_show_all (self->priv->hw_box, TRUE);
+        }
 
 #if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->input_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
@@ -2171,6 +2193,7 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         /* Applications */
         self->priv->applications_window = gtk_scrolled_window_new (NULL, NULL);
+
         gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (self->priv->applications_window),
                                         GTK_POLICY_NEVER,
                                         GTK_POLICY_AUTOMATIC);
@@ -2178,30 +2201,34 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_window),
                                              GTK_SHADOW_IN);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-        self->priv->applications_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-#else
-        self->priv->applications_box = gtk_vbox_new (FALSE, 12);
-#endif
-        gtk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
-
-#if GTK_CHECK_VERSION (3, 8, 0)
-        gtk_container_add (GTK_CONTAINER (self->priv->applications_window),
-                           self->priv->applications_box);
-#else
-        gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (self->priv->applications_window),
-                                               self->priv->applications_box);
-#endif
-
         label = gtk_label_new (_("Applications"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->applications_window,
                                   label);
 
-        self->priv->no_apps_label = gtk_label_new (_("No application is currently playing or recording audio."));
-        gtk_box_pack_start (GTK_BOX (self->priv->applications_box),
-                            self->priv->no_apps_label,
-                            TRUE, TRUE, 0);
+        if (self->priv->backend_pulse == TRUE) {
+#if GTK_CHECK_VERSION (3, 0, 0)
+                self->priv->applications_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+#else
+                self->priv->applications_box = gtk_vbox_new (FALSE, 12);
+#endif
+                gtk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
+
+#if GTK_CHECK_VERSION (3, 8, 0)
+                gtk_container_add (GTK_CONTAINER (self->priv->applications_window),
+                                   self->priv->applications_box);
+#else
+                gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (self->priv->applications_window),
+                                                       self->priv->applications_box);
+#endif
+
+                self->priv->no_apps_label = gtk_label_new (_("No application is currently playing or recording audio."));
+                gtk_box_pack_start (GTK_BOX (self->priv->applications_box),
+                                    self->priv->no_apps_label,
+                                    TRUE, TRUE, 0);
+        } else {
+                gtk_widget_set_no_show_all (self->priv->applications_window, TRUE);
+        }
 
         gtk_widget_show_all (main_vbox);
 
@@ -2209,24 +2236,6 @@ gvc_mixer_dialog_constructor (GType                  type,
         while (list != NULL) {
                 add_stream (self, MATE_MIXER_STREAM (list->data));
                 list = list->next;
-        }
-
-        list = mate_mixer_context_list_devices (self->priv->context);
-        while (list != NULL) {
-                add_device (self, MATE_MIXER_DEVICE (list->data));
-                list = list->next;
-        }
-
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
-
-        /* Select the first device in the list */
-        // XXX handle no devices
-        if (gtk_tree_selection_get_selected (selection, NULL, NULL) == FALSE) {
-                GtkTreeModel *model =
-                        gtk_tree_view_get_model (GTK_TREE_VIEW (self->priv->hw_treeview));
-
-                if (gtk_tree_model_get_iter_first (model, &iter))
-                        gtk_tree_selection_select_iter (selection, &iter);
         }
 
         return object;
@@ -2241,6 +2250,8 @@ gvc_mixer_dialog_get_context (GvcMixerDialog *dialog)
 static void
 gvc_mixer_dialog_set_context (GvcMixerDialog *dialog, MateMixerContext *context)
 {
+        MateMixerBackendType backend_type;
+
         dialog->priv->context = g_object_ref (context);
 
         g_signal_connect (G_OBJECT (dialog->priv->context),
@@ -2280,6 +2291,12 @@ gvc_mixer_dialog_set_context (GvcMixerDialog *dialog, MateMixerContext *context)
                           dialog);
 
         dialog->priv->backend_flags = mate_mixer_context_get_backend_flags (context);
+
+        backend_type = mate_mixer_context_get_backend_type (context);
+        if (backend_type == MATE_MIXER_BACKEND_PULSEAUDIO)
+                dialog->priv->backend_pulse = TRUE;
+        else
+                dialog->priv->backend_pulse = FALSE;
 
         g_object_notify (G_OBJECT (dialog), "context");
 }
