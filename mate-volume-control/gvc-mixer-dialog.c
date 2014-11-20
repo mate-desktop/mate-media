@@ -563,8 +563,10 @@ update_input_settings (GvcMixerDialog *dialog)
 
         /* Get the control currently associated with the input slider */
         control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
-        if (control == NULL)
+        if (control == NULL) {
+                gtk_widget_hide (dialog->priv->input_settings_box);
                 return;
+        }
 
         flags = mate_mixer_stream_control_get_flags (control);
 
@@ -577,8 +579,10 @@ update_input_settings (GvcMixerDialog *dialog)
 
         /* Get owning stream of the control */
         stream = mate_mixer_stream_control_get_stream (control);
-        if (G_UNLIKELY (stream == NULL))
+        if (G_UNLIKELY (stream == NULL)) {
+                gtk_widget_hide (dialog->priv->input_settings_box);
                 return;
+        }
 
         /* Enable the port selector if the stream has one */
         port_switch = find_stream_port_switch (stream);
@@ -599,8 +603,10 @@ update_input_settings (GvcMixerDialog *dialog)
                                   G_CALLBACK (on_port_switch_active_option_notify),
                                   dialog->priv->input_treeview);
 
+                gtk_widget_show (dialog->priv->input_settings_box);
                 gtk_widget_show (dialog->priv->input_port_combo);
-        }
+        } else
+                gtk_widget_hide (dialog->priv->input_settings_box);
 }
 
 static void
