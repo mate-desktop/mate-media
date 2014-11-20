@@ -2150,42 +2150,46 @@ gvc_mixer_dialog_constructor (GType                  type,
                             alignment,
                             FALSE, FALSE, 0);
 
+        /* TODO 1.12: while this works correctly, it is not documented to work this
+         * way in libmatemixer, the right way is to check flag on individual controls */
+        if (self->priv->backend_pulse == TRUE) {
 #if GTK_CHECK_VERSION (3, 0, 0)
-        box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        sbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        ebox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+                box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+                sbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+                ebox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 #else
-        box  = gtk_hbox_new (FALSE, 6);
-        sbox = gtk_hbox_new (FALSE, 6);
-        ebox = gtk_hbox_new (FALSE, 6);
+                box  = gtk_hbox_new (FALSE, 6);
+                sbox = gtk_hbox_new (FALSE, 6);
+                ebox = gtk_hbox_new (FALSE, 6);
 #endif
 
-        gtk_box_pack_start (GTK_BOX (self->priv->input_box),
-                            box,
-                            FALSE, FALSE, 6);
-        gtk_box_pack_start (GTK_BOX (box),
-                            sbox,
-                            FALSE, FALSE, 0);
+                gtk_box_pack_start (GTK_BOX (self->priv->input_box),
+                                    box,
+                                    FALSE, FALSE, 6);
+                gtk_box_pack_start (GTK_BOX (box),
+                                    sbox,
+                                    FALSE, FALSE, 0);
 
-        label = gtk_label_new (_("Input level:"));
-        gtk_box_pack_start (GTK_BOX (sbox),
-                            label,
-                            FALSE, FALSE, 0);
-        gtk_size_group_add_widget (self->priv->size_group, sbox);
+                label = gtk_label_new (_("Input level:"));
+                gtk_box_pack_start (GTK_BOX (sbox),
+                                    label,
+                                    FALSE, FALSE, 0);
+                gtk_size_group_add_widget (self->priv->size_group, sbox);
 
-        self->priv->input_level_bar = gvc_level_bar_new ();
-        gvc_level_bar_set_orientation (GVC_LEVEL_BAR (self->priv->input_level_bar),
-                                       GTK_ORIENTATION_HORIZONTAL);
-        gvc_level_bar_set_scale (GVC_LEVEL_BAR (self->priv->input_level_bar),
-                                 GVC_LEVEL_SCALE_LINEAR);
-        gtk_box_pack_start (GTK_BOX (box),
-                            self->priv->input_level_bar,
-                            TRUE, TRUE, 6);
+                self->priv->input_level_bar = gvc_level_bar_new ();
+                gvc_level_bar_set_orientation (GVC_LEVEL_BAR (self->priv->input_level_bar),
+                                               GTK_ORIENTATION_HORIZONTAL);
+                gvc_level_bar_set_scale (GVC_LEVEL_BAR (self->priv->input_level_bar),
+                                         GVC_LEVEL_SCALE_LINEAR);
+                gtk_box_pack_start (GTK_BOX (box),
+                                    self->priv->input_level_bar,
+                                    TRUE, TRUE, 6);
 
-        gtk_box_pack_start (GTK_BOX (box),
-                            ebox,
-                            FALSE, FALSE, 0);
-        gtk_size_group_add_widget (self->priv->size_group, ebox);
+                gtk_box_pack_start (GTK_BOX (box),
+                                    ebox,
+                                    FALSE, FALSE, 0);
+                gtk_size_group_add_widget (self->priv->size_group, ebox);
+        }
 
 #if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->input_settings_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
