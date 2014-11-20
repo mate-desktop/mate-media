@@ -311,7 +311,9 @@ update_marks (GvcChannelBar *bar)
 {
         gdouble  base;
         gdouble  normal;
+        gdouble  max;
         gboolean has_mark = FALSE;
+        gboolean extended;
 
         gtk_scale_clear_marks (GTK_SCALE (bar->priv->scale));
 
@@ -322,6 +324,7 @@ update_marks (GvcChannelBar *bar)
          * volume, in many cases they are the same as unamplified volume is unknown */
         base   = mate_mixer_stream_control_get_base_volume (bar->priv->control);
         normal = mate_mixer_stream_control_get_normal_volume (bar->priv->control);
+        max    = mate_mixer_stream_control_get_max_volume (bar->priv->control);
 
         if (normal <= gtk_adjustment_get_lower (bar->priv->adjustment))
                 return;
@@ -339,7 +342,8 @@ update_marks (GvcChannelBar *bar)
 
         /* Only show 100% mark if the scale is extended beyond 100% and
          * there is no unamplified mark or it is below the normal volume */
-        if (bar->priv->extended && (base == normal || base < normal)) {
+        extended = bar->priv->extended && max > normal;
+        if (extended && (base == normal || base < normal)) {
                 gchar *str = g_strdup_printf ("<small>%s</small>", C_("volume", "100%"));
 
                 gtk_scale_add_mark (GTK_SCALE (bar->priv->scale),
