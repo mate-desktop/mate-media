@@ -2485,12 +2485,14 @@ gvc_mixer_dialog_finalize (GObject *object)
 }
 
 GvcMixerDialog *
-gvc_mixer_dialog_new (MateMixerContext *context)
+gvc_mixer_dialog_new (MateMixerContext *context, gint width, gint height)
 {
         return g_object_new (GVC_TYPE_MIXER_DIALOG,
                              "icon-name", "multimedia-volume-control",
                              "title", _("Sound Preferences"),
                              "context", context,
+                             "default-width", width,
+                             "default-height", height,
                              NULL);
 }
 

@@ -33,6 +33,9 @@
 
 #define DIALOG_POPUP_TIMEOUT 3
 
+#define DIALOG_DEFAULT_WIDTH  600
+#define DIALOG_DEFAULT_HEIGHT 445
+
 static guint       popup_id = 0;
 static gboolean    debug = FALSE;
 static gboolean    show_version = FALSE;
@@ -94,7 +97,9 @@ context_ready (MateMixerContext *context, UniqueApp *app)
         if (app_dialog != NULL)
                 return;
 
-        app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
+        app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context,
+                                                       DIALOG_DEFAULT_WIDTH,
+                                                       DIALOG_DEFAULT_HEIGHT));
 
         g_signal_connect (G_OBJECT (app_dialog),
                           "response",
