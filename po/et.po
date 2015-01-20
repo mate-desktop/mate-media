@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-31 06:22+0000\n"
+"PO-Revision-Date: 2014-12-27 09:03+0000\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/MATE/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +132,7 @@ msgstr "_Tasakaal:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:358
 msgid "_Fade:"
-msgstr "_Hajumine:"
+msgstr "_Tuhmumine:"
 
 #: ../mate-volume-control/src/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
