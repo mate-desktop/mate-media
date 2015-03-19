@@ -422,6 +422,12 @@ mate_volume_applet_setup (MateVolumeApplet *applet,
   GstMixerTrack *first_track;
   gboolean res;
 
+  /* gsettings */
+  g_signal_connect (applet->settings, "changed::" MATE_VOLUME_APPLET_KEY_ACTIVE_ELEMENT,
+                    G_CALLBACK (cb_gsettings), applet);
+  g_signal_connect (applet->settings, "changed::" MATE_VOLUME_APPLET_KEY_ACTIVE_TRACK,
+                    G_CALLBACK (cb_gsettings), applet);
+
   active_element_name = g_settings_get_string (applet->settings,
 						       MATE_VOLUME_APPLET_KEY_ACTIVE_ELEMENT);
 
@@ -474,12 +480,6 @@ mate_volume_applet_setup (MateVolumeApplet *applet,
   mate_volume_applet_refresh (applet, TRUE, -1, -1);
   if (res) {
     mate_volume_applet_setup_timeout (applet);
-
-    /* gsettings */
-    g_signal_connect (applet->settings, "changed::" MATE_VOLUME_APPLET_KEY_ACTIVE_ELEMENT,
-			     G_CALLBACK (cb_gsettings), applet);
-    g_signal_connect (applet->settings, "changed::" MATE_VOLUME_APPLET_KEY_ACTIVE_TRACK,
-			     G_CALLBACK (cb_gsettings), applet);
   }
 
   gtk_widget_show (GTK_WIDGET (applet));
