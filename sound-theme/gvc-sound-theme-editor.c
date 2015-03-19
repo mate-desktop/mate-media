@@ -1282,9 +1282,17 @@ gvc_sound_theme_editor_init (GvcSoundThemeEditor *editor)
         editor->priv->combo_box = gtk_combo_box_new ();
         gtk_box_pack_start (GTK_BOX (editor->priv->theme_box), editor->priv->combo_box, FALSE, FALSE, 0);
 
-
         editor->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
         editor->priv->marco_settings = g_settings_new (KEY_MARCO_SCHEMA);
+
+        g_signal_connect (editor->priv->sound_settings,
+                          "changed",
+                          G_CALLBACK (on_key_changed),
+                          editor);
+        g_signal_connect (editor->priv->marco_settings,
+                          "changed::" AUDIO_BELL_KEY,
+                          G_CALLBACK (on_key_changed),
+                          editor);
 
         editor->priv->selection_box = box = gtk_vbox_new (FALSE, 0);
         gtk_box_pack_start (GTK_BOX (editor), box, TRUE, TRUE, 0);
@@ -1315,15 +1323,6 @@ gvc_sound_theme_editor_init (GvcSoundThemeEditor *editor)
         g_signal_connect (editor->priv->click_feedback_button,
                           "toggled",
                           G_CALLBACK (on_click_feedback_toggled),
-                          editor);
-
-        g_signal_connect (editor->priv->sound_settings,
-                          "changed",
-                          G_CALLBACK (on_key_changed),
-                          editor);
-        g_signal_connect (editor->priv->marco_settings,
-                          "changed::" AUDIO_BELL_KEY,
-                          G_CALLBACK (on_key_changed),
                           editor);
 
         /* FIXME: should accept drag and drop themes.  should also

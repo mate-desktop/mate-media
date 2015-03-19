@@ -191,11 +191,11 @@ mate_volume_control_preferences_new (GstElement  *element)
   prefs = g_object_new (MATE_VOLUME_CONTROL_TYPE_PREFERENCES, NULL);
   prefs->settings = g_settings_new (MATE_VOLUME_CONTROL_SCHEMA);
 
-  mate_volume_control_preferences_change (prefs, element);
-
   /* gsettings */
   g_signal_connect (prefs->settings, "changed::" MATE_VOLUME_CONTROL_KEY_SHOWN_ELEMENTS,
                     G_CALLBACK (cb_gsettings), prefs);
+
+  mate_volume_control_preferences_change (prefs, element);
 
   return GTK_WIDGET (prefs);
 }

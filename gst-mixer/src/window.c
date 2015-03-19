@@ -265,6 +265,10 @@ mate_volume_control_window_init (MateVolumeControlWindow *win)
   g_set_application_name (_("Volume Control"));
   gtk_window_set_title (GTK_WINDOW (win), _("Volume Control"));
 
+  /* gsettings */
+  g_signal_connect (win->settings, "changed::" MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT,
+                    G_CALLBACK (cb_gsettings_active_element), win);
+
   /* To set the window according to previous geometry */
   width = g_settings_get_int (win->settings, MATE_VOLUME_CONTROL_KEY_WINDOW_WIDTH);
   if (width < 250)
@@ -357,11 +361,6 @@ mate_volume_control_window_new (GList *elements)
   }
   gtk_combo_box_set_active (GTK_COMBO_BOX (combo_box), active_element_num);
   g_signal_connect (combo_box, "changed", G_CALLBACK (cb_change), win);
-
-
-  /* gsettings */
-  g_signal_connect (win->settings, "changed::" MATE_VOLUME_CONTROL_KEY_ACTIVE_ELEMENT,
-			   G_CALLBACK (cb_gsettings_active_element), win);
 
   win->use_default_mixer = (active_el_str == NULL);
 

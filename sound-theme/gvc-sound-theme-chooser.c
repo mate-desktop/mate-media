@@ -1083,6 +1083,15 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         chooser->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
         chooser->priv->marco_settings = g_settings_new (KEY_MARCO_SCHEMA);
 
+        g_signal_connect (chooser->priv->sound_settings,
+                          "changed",
+                          G_CALLBACK (on_key_changed),
+                          chooser);
+        g_signal_connect (chooser->priv->marco_settings,
+                          "changed::" AUDIO_BELL_KEY,
+                          G_CALLBACK (on_key_changed),
+                          chooser);
+
         str = g_strdup_printf ("<b>%s</b>", _("C_hoose an alert sound:"));
         chooser->priv->selection_box = box = gtk_frame_new (str);
         g_free (str);
@@ -1123,15 +1132,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         g_signal_connect (chooser->priv->click_feedback_button,
                           "toggled",
                           G_CALLBACK (on_click_feedback_toggled),
-                          chooser);
-
-        g_signal_connect (chooser->priv->sound_settings,
-                          "changed",
-                          G_CALLBACK (on_key_changed),
-                          chooser);
-        g_signal_connect (chooser->priv->marco_settings,
-                          "changed::" AUDIO_BELL_KEY,
-                          G_CALLBACK (on_key_changed),
                           chooser);
 
         /* FIXME: should accept drag and drop themes.  should also
