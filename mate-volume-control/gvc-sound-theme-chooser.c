@@ -1069,6 +1069,11 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
 
         chooser->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
 
+        g_signal_connect (G_OBJECT (chooser->priv->sound_settings),
+                          "changed",
+                          G_CALLBACK (on_key_changed),
+                          chooser);
+
         str = g_strdup_printf ("<b>%s</b>", _("C_hoose an alert sound:"));
         chooser->priv->selection_box = box = gtk_frame_new (str);
         g_free (str);
@@ -1112,10 +1117,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         g_signal_connect (G_OBJECT (chooser->priv->click_feedback_button),
                           "toggled",
                           G_CALLBACK (on_click_feedback_toggled),
-                          chooser);
-        g_signal_connect (G_OBJECT (chooser->priv->sound_settings),
-                          "changed",
-                          G_CALLBACK (on_key_changed),
                           chooser);
 
         setup_theme_selector (chooser);
