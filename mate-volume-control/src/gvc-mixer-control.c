@@ -533,13 +533,13 @@ static void
 update_default_source_from_name (GvcMixerControl *control,
                                  const char      *name)
 {
-        gboolean changed;
+        gboolean changed = FALSE;
 
         if ((control->priv->default_source_name == NULL
              && name != NULL)
             || (control->priv->default_source_name != NULL
                 && name == NULL)
-            || strcmp (control->priv->default_source_name, name) != 0) {
+            || g_strcmp0 (control->priv->default_source_name, name) != 0) {
                 changed = TRUE;
         }
 
@@ -558,13 +558,13 @@ static void
 update_default_sink_from_name (GvcMixerControl *control,
                                const char      *name)
 {
-        gboolean changed;
+        gboolean changed = FALSE;
 
         if ((control->priv->default_sink_name == NULL
              && name != NULL)
             || (control->priv->default_sink_name != NULL
                 && name == NULL)
-            || strcmp (control->priv->default_sink_name, name) != 0) {
+            || g_strcmp0 (control->priv->default_sink_name, name) != 0) {
                 changed = TRUE;
         }
 
@@ -1039,13 +1039,13 @@ update_card (GvcMixerControl      *control,
              const pa_card_info   *info)
 {
         GvcMixerCard *card;
-        gboolean      is_new;
+        gboolean      is_new = FALSE;
 #if 1
         guint i;
         const char *key;
         void *state;
 
-        g_debug ("Udpating card %s (index: %u driver: %s):",
+        g_debug ("Updating card %s (index: %u driver: %s):",
                  info->name, info->index, info->driver);
 
         for (i = 0; i < info->n_profiles; i++) {
