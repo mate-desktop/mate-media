@@ -7,13 +7,13 @@
 # nab <nab@mail.by>, 2004
 # Ihar Hrachyshka <boox.svaboda2006@gmail.com>, 2006
 # nab <nab@mail.by>, 2004
-# Vital Khilko <dojlid@mova.org>, 2003,2014
+# Vital Khilko <dojlid@mova.org>, 2003,2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-16 07:01+0000\n"
+"PO-Revision-Date: 2015-03-19 13:09+0000\n"
 "Last-Translator: Mihail Varantsou <meequz@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/MATE/language/be/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Версія гэтай праграмы"
 
 #: ../mate-volume-control/src/applet-main.c:46
 msgid "Enable debug"
-msgstr "Уключыць адладку"
+msgstr "Уключыць наладку"
 
 #: ../mate-volume-control/src/applet-main.c:55
 msgid " — MATE Volume Control Applet"

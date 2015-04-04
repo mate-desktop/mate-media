@@ -8,13 +8,13 @@
 # zubr139, 2013
 # zubr139, 2012
 # zubr139, 2012-2013
-# Микола Ткач <Stuartlittle1970@gmail.com>, 2014
+# Микола Ткач <Stuartlittle1970@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-22 18:10+0000\n"
+"PO-Revision-Date: 2015-02-23 17:35+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/MATE/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Показати регулятор гучності"
 #: ../mate-volume-control/src/applet-main.c:45
 #: ../mate-volume-control/src/dialog-main.c:185
 msgid "Version of this application"
-msgstr "Версія цієї програми"
+msgstr "Версія цієї проґрами"
 
 #: ../mate-volume-control/src/applet-main.c:46
 msgid "Enable debug"
@@ -248,11 +248,11 @@ msgstr "Ви_беріть пристрій виводу звуку"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
 msgid "Applications"
-msgstr "Програми"
+msgstr "Проґрами"
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
 msgid "No application is currently playing or recording audio."
-msgstr "Наразі програми не програють та не записують звук."
+msgstr "Наразі проґрами не програють та не записують звук."
 
 #: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
 #: ../sound-theme/gvc-sound-theme-chooser.c:736
