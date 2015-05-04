@@ -1,13 +1,8 @@
 ==============
-Version 1.9.90
+Version 1.10.0
 ==============
 
 - Removed PulseAudio dependency
-
-=============
-Version 1.9.0
-=============
-
 - Removed gst-mixer and gst-mixer-applet
 - mate-volume-control: Port from PulseAudio to libmatemixer
 - mate-volume-control: Allow selecting input and output connectors
