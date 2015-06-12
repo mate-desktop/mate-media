@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2015-02-23 17:35+0000\n"
+"PO-Revision-Date: 2015-05-08 10:59+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/MATE/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgstr "Вихід"
 
 #: ../mate-volume-control/src/gvc-applet.c:326
 msgid "Microphone Volume"
-msgstr "Гучність мікрофона"
+msgstr "Гучність мікрофону"
 
 #: ../mate-volume-control/src/gvc-applet.c:328
 msgid "Sound Output Volume"
@@ -273,7 +273,7 @@ msgstr "Тестувати"
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "Не вдається запустити діалог налаштовування параметрів звуку: %s"
+msgstr "Не вдається запустити діялоґ налаштовування параметрів звуку: %s"
 
 #: ../mate-volume-control/src/gvc-stream-status-icon.c:253
 msgid "_Mute"
@@ -371,7 +371,7 @@ msgstr "Гавкіт"
 #. You might want to translate it into the equivalent words of your language.
 #: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
-msgstr "Капання води"
+msgstr "Крапання води"
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
