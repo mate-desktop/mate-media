@@ -1,6 +1,6 @@
 NULL =
 
-themedir = $(pkgdatadir)/icons/mate
+themedir = $(pkgdatadir)/icons/hicolor
 size = 32x32
 context = status
 
