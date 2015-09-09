@@ -3,15 +3,27 @@
 .\" Please adjust this date when revising the manpage.
 .\"
 .SH "NAME"
-\fBmate-volume-control\fR \- The MATE Volume Controller
+\fBmate-volume-control\fR \- The MATE Volume Control application
 .SH "SYNOPSIS"
 .B mate-volume-control [OPTIONS]
 .SH "DESCRIPTION"
 The MATE Volume Control application is an audio mixer that enables you to mix audio and adjust volume levels of various audio mixer devices on your system.
 .SH "OPTIONS"
 .TP
-\fB\-p, \-\-page=playback|recording|switches|options\fR
+\fB\-b, \-\-backend=pulse|alsa|oss|null\fR
+Launch \fBmate\-volume\-control\fR with the selected sound system backend.
+.TP
+\fB\-d, \-\-debug\fR
+Enable debugging code.
+.TP
+\fB\-p, \-\-page=effects|hardware|input|output|applications\fR
 Launch \fBmate\-volume\-control\fR on the specified page/tab.
+.TP
+\fB\-v, \-\-version\fR
+Output version information and exit.
+.TP
+\fB\-\-display=DISPLAY\fR
+X display to use.
 .TP
 \fB\-?, \-h, \-\-help\fR
 Print standard command line options.
@@ -19,10 +31,7 @@ Print standard command line options.
 \fB\-\-help\-all\fR
 Print all command line options.
 .TP
-\fB\-\-help\-gst\fR
-Print GStreamer Options
-.P
-.SS \fRThis program also accepts the standard MATE/GTK+ options.
+This program also accepts the standard GTK+ options.
 .TP
 \fB\-\-help\-gtk\fR
 Print GTK+ options.
