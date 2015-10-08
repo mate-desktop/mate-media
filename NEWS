@@ -2,6 +2,10 @@
 Version 1.11.0
 ==============
 
+- Multiple fixes in manpages
+- GTK+3: fix missing icons with custom icon theme
+- Translations update
+
 ==============
 Version 1.10.0
 ==============
