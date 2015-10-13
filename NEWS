@@ -5,6 +5,7 @@ Version 1.11.0
 - Multiple fixes in manpages
 - GTK+3: fix missing icons with custom icon theme
 - Translations update
+- GTK+3: add style classes for slider and menu for volume-applet
 
 ==============
 Version 1.10.0
