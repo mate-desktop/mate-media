@@ -788,7 +788,6 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         GtkWidget *toplevel = gtk_widget_get_toplevel (icon->priv->dock);
         GtkStyleContext *context;
         context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
-        gtk_style_context_remove_class (context,GTK_STYLE_CLASS_BACKGROUND);
         gtk_style_context_add_class(context,"mate-panel-applet-slider");
         /* Make transparency possible in gtk3 theme */
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
