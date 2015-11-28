@@ -1,4 +1,11 @@
 ==============
+Version 1.10.1
+==============
+
+- Fix missing icons on GTK3 with custom icon theme
+- multiple fixes for both manpages
+
+==============
 Version 1.10.0
 ==============
 
