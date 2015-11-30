@@ -1,4 +1,11 @@
 ==============
+Version 1.12.1
+==============
+
+- GTK+3: don't remove slider background (fixes background in some
+  themes)
+
+==============
 Version 1.12.0
 ==============
 
