@@ -1,8 +1,16 @@
 ==============
-Version 1.11.0
+Version 1.12.1
+==============
+
+- GTK+3: don't remove slider background (fixes background in some
+  themes)
+
+==============
+Version 1.12.0
 ==============
 
 - Multiple fixes in manpages
+- GTK+3: add style classes for slider and menu for volume-applet
 - GTK+3: fix missing icons with custom icon theme
 - Translations update
 

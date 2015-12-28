@@ -250,8 +250,21 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
         GtkWidget *item;
 
         menu = gtk_menu_new ();
-        item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        /*Set up theme and transparency support*/
+        GtkWidget *toplevel = gtk_widget_get_toplevel (menu);
+        /* Fix any failures of compiz/other wm's to communicate with gtk for transparency */
+        GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
+        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+        gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+        /* Set menu and it's toplevel window to follow panel theme */
+        GtkStyleContext *context;
+        context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
+        gtk_style_context_add_class(context,"gnome-panel-menu-bar");
+        gtk_style_context_add_class(context,"mate-panel-menu-bar");
+#endif
+        item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
         gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
                                         mate_mixer_stream_control_get_mute (icon->priv->control));
         g_signal_connect (G_OBJECT (item),
@@ -769,6 +782,18 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
 
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          GTK_ORIENTATION_VERTICAL);
+                                         
+#if GTK_CHECK_VERSION (3, 0, 0)
+       	/* Set volume control frame, slider and toplevel window to follow panel theme */
+        GtkWidget *toplevel = gtk_widget_get_toplevel (icon->priv->dock);
+        GtkStyleContext *context;
+        context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
+        gtk_style_context_add_class(context,"mate-panel-applet-slider");
+        /* Make transparency possible in gtk3 theme */
+        GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
+        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+        gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+#endif
 
 #if GTK_CHECK_VERSION (3, 0, 0)
         box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
