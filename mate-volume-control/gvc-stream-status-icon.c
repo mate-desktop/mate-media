@@ -793,6 +793,7 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
         gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+        gtk_widget_realize (icon->priv->dock); /*stop slider from first showing at top left in gtk3.20 */
 #endif
 
 #if GTK_CHECK_VERSION (3, 0, 0)
