@@ -1132,7 +1132,7 @@ gvc_channel_bar_init (GvcChannelBar *bar)
         gtk_widget_set_no_show_all (bar->priv->high_image, TRUE);
 
         bar->priv->label = gtk_label_new (NULL);
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 16, 0)
         gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
         gtk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.5);
 #else
