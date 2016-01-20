@@ -36,21 +36,13 @@ typedef struct GvcSoundThemeChooserPrivate GvcSoundThemeChooserPrivate;
 
 typedef struct
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkBox                       parent;
-#else
-        GtkVBox                      parent;
-#endif
         GvcSoundThemeChooserPrivate *priv;
 } GvcSoundThemeChooser;
 
 typedef struct
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkBoxClass           parent_class;
-#else
-        GtkVBoxClass          parent_class;
-#endif
 } GvcSoundThemeChooserClass;
 
 GType               gvc_sound_theme_chooser_get_type            (void);

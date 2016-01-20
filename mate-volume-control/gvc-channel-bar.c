@@ -89,11 +89,7 @@ static gboolean on_scale_scroll_event         (GtkWidget          *widget,
                                                GdkEventScroll     *event,
                                                GvcChannelBar      *bar);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_BOX)
-#else
-G_DEFINE_TYPE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_HBOX)
-#endif
 
 static void
 create_scale_box (GvcChannelBar *bar)

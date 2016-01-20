@@ -43,21 +43,14 @@ typedef struct _GvcComboBoxPrivate  GvcComboBoxPrivate;
 
 struct _GvcComboBox
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkBox                  parent;
-#else
-        GtkHBox                 parent;
-#endif
         GvcComboBoxPrivate     *priv;
 };
 
 struct _GvcComboBoxClass
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkBoxClass             parent_class;
-#else
-        GtkHBoxClass            parent_class;
-#endif
+
         void (* changing)       (GvcComboBox           *combobox,
                                  MateMixerSwitchOption *option);
         void (* button_clicked) (GvcComboBox           *combobox);

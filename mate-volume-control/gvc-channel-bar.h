@@ -43,21 +43,13 @@ typedef struct _GvcChannelBarPrivate  GvcChannelBarPrivate;
 
 struct _GvcChannelBar
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkBox                parent;
-#else
-        GtkHBox               parent;
-#endif
         GvcChannelBarPrivate *priv;
 };
 
 struct _GvcChannelBarClass
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkBoxClass           parent_class;
-#else
-        GtkHBoxClass          parent_class;
-#endif
 
         void (* changed) (GvcChannelBar *bar);
 };

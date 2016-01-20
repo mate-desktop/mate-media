@@ -54,11 +54,7 @@ static void     gvc_sound_theme_chooser_class_init (GvcSoundThemeChooserClass *k
 static void     gvc_sound_theme_chooser_init       (GvcSoundThemeChooser      *sound_theme_chooser);
 static void     gvc_sound_theme_chooser_dispose   (GObject            *object);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_BOX)
-#else
-G_DEFINE_TYPE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_VBOX)
-#endif
 
 #define KEY_SOUNDS_SCHEMA          "org.mate.sound"
 #define EVENT_SOUNDS_KEY           "event-sounds"
@@ -1142,8 +1138,6 @@ gvc_sound_theme_chooser_new (void)
 {
         return g_object_new (GVC_TYPE_SOUND_THEME_CHOOSER,
                                 "spacing", 6,
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 "orientation", GTK_ORIENTATION_VERTICAL,
-#endif
                                 NULL);
 }

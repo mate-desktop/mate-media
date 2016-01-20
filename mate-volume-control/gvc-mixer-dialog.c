@@ -2125,7 +2125,11 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
 
         /* Output page */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->output_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+#else
         self->priv->output_box = gtk_vbox_new (FALSE, 12);
+#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->output_box), 12);
         label = gtk_label_new (_("Output"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
@@ -2164,7 +2168,11 @@ gvc_mixer_dialog_constructor (GType                  type,
         make_label_bold (GTK_LABEL (label));
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, FALSE, FALSE, 12);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        self->priv->output_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
         self->priv->output_settings_box = gtk_vbox_new (FALSE, 0);
+#endif
         gtk_container_add (GTK_CONTAINER (box), self->priv->output_settings_box);
 
         self->priv->output_settings_frame = box;

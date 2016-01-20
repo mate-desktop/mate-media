@@ -74,11 +74,7 @@ static gboolean on_scale_scroll_event       (GtkWidget          *widget,
 static void     on_adjustment_value_changed (GtkAdjustment      *adjustment,
                                              GvcBalanceBar      *bar);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_BOX)
-#else
-G_DEFINE_TYPE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_HBOX)
-#endif
 
 static void
 create_scale_box (GvcBalanceBar *bar)

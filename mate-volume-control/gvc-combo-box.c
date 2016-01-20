@@ -71,11 +71,7 @@ static void gvc_combo_box_class_init (GvcComboBoxClass *klass);
 static void gvc_combo_box_init       (GvcComboBox      *combo);
 static void gvc_combo_box_dispose    (GObject          *object);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
-#else
-G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_HBOX)
-#endif
 
 MateMixerSwitch *
 gvc_combo_box_get_switch (GvcComboBox *combobox)
