@@ -349,15 +349,33 @@ update_marks (GvcChannelBar *bar)
         if (has_mark) {
                 gtk_alignment_set (GTK_ALIGNMENT (bar->priv->mute_box), 0.5, 0, 0, 0);
 
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->low_image), 0.5, 0);
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->high_image), 0.5, 0);
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0, 0);
+#if GTK_CHECK_VERSION (3, 0, 0)
+                gtk_widget_set_halign (bar->priv->low_image, GTK_ALIGN_CENTER);
+                gtk_widget_set_valign (bar->priv->low_image, GTK_ALIGN_START);
+                gtk_widget_set_halign (bar->priv->high_image, GTK_ALIGN_CENTER);
+                gtk_widget_set_valign (bar->priv->high_image, GTK_ALIGN_START);
+                gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
+                gtk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.0);
+#else
+                gtk_misc_set_alignment (GTK_MISC (bar->priv->low_image), 0.5, 0.0);
+                gtk_misc_set_alignment (GTK_MISC (bar->priv->high_image), 0.5, 0.0);
+                gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0.0, 0.0);
+#endif
         } else {
                 gtk_alignment_set (GTK_ALIGNMENT (bar->priv->mute_box), 0.5, 0.5, 0, 0);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+                gtk_widget_set_halign (bar->priv->low_image, GTK_ALIGN_CENTER);
+                gtk_widget_set_valign (bar->priv->low_image, GTK_ALIGN_CENTER);
+                gtk_widget_set_halign (bar->priv->high_image, GTK_ALIGN_CENTER);
+                gtk_widget_set_valign (bar->priv->high_image, GTK_ALIGN_CENTER);
+                gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
+                gtk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.5);
+#else
                 gtk_misc_set_alignment (GTK_MISC (bar->priv->low_image), 0.5, 0.5);
                 gtk_misc_set_alignment (GTK_MISC (bar->priv->high_image), 0.5, 0.5);
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0, 0.5);
+                gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0.0, 0.5);
+#endif
         }
 }
 
@@ -1114,7 +1132,12 @@ gvc_channel_bar_init (GvcChannelBar *bar)
         gtk_widget_set_no_show_all (bar->priv->high_image, TRUE);
 
         bar->priv->label = gtk_label_new (NULL);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
+        gtk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.5);
+#else
         gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0.0, 0.5);
+#endif
         gtk_widget_set_no_show_all (bar->priv->label, TRUE);
 
         /* Frame */

@@ -354,7 +354,13 @@ gvc_combo_box_init (GvcComboBox *combobox)
         combobox->priv->combobox = gtk_combo_box_new_with_model (combobox->priv->model);
 
         combobox->priv->label = gtk_label_new (NULL);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_label_set_xalign (GTK_LABEL (combobox->priv->label), 0.0);
+        gtk_label_set_yalign (GTK_LABEL (combobox->priv->label), 0.5);
+#else
         gtk_misc_set_alignment (GTK_MISC (combobox->priv->label), 0.0, 0.5);
+#endif
         gtk_label_set_mnemonic_widget (GTK_LABEL (combobox->priv->label),
                                        combobox->priv->combobox);
 
