@@ -8,171 +8,201 @@
 # Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004, 2005, 2006, 2007
 # Josep Puigdemont <josep.puigdemont@gmail.com>, 2007
 # Pere Orga <gotrunks@gmail.com>, 2012-2013
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015-2016
 # Softcatalà <info@softcatala.org>, 2000
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-16 06:24+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
-"Language-Team: Catalan (http://www.transifex.com/projects/p/MATE/language/ca/)\n"
+"POT-Creation-Date: 2015-12-14 14:07+0300\n"
+"PO-Revision-Date: 2016-01-28 11:17+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"Language-Team: Catalan (http://www.transifex.com/mate/MATE/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
+#: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "So"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
 msgstr "Canvieu el volum del so i els sons dels esdeveniments"
 
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-#: ../mate-volume-control/src/dialog-main.c:240
-#: ../mate-volume-control/src/gvc-channel-bar.c:500
-#: ../mate-volume-control/src/gvc-speaker-test.c:461
+#: ../data/mate-volume-control-applet.desktop.in.h:1
+#: ../mate-volume-control/dialog-main.c:245
+#: ../mate-volume-control/gvc-channel-bar.c:500
+#: ../mate-volume-control/gvc-speaker-test.c:461
 msgid "Volume Control"
 msgstr "Control del volum"
 
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+#: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
 msgstr "Mostra el control del volum de l'escriptori"
 
-#: ../mate-volume-control/src/applet-main.c:45
-#: ../mate-volume-control/src/dialog-main.c:185
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:3
+msgid "Bark"
+msgstr "Lladruc"
+
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:6
+msgid "Drip"
+msgstr "Degoteig"
+
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:9
+msgid "Glass"
+msgstr "Vidre"
+
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:12
+msgid "Sonar"
+msgstr "Sonar"
+
+#: ../mate-volume-control/applet-main.c:45
+#: ../mate-volume-control/dialog-main.c:187
 msgid "Version of this application"
 msgstr "Versió d'aquesta aplicació"
 
-#: ../mate-volume-control/src/applet-main.c:46
+#: ../mate-volume-control/applet-main.c:46
+#: ../mate-volume-control/dialog-main.c:185
 msgid "Enable debug"
-msgstr ""
+msgstr "Habilita la depuració"
 
-#: ../mate-volume-control/src/applet-main.c:55
+#: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr " Miniaplicació del control de volum del MATE"
+msgstr " Miniaplicació del control de volum de MATE"
 
-#: ../mate-volume-control/src/dialog-main.c:137
+#: ../mate-volume-control/dialog-main.c:138
 msgid "Sound system is not available"
-msgstr ""
+msgstr "El sistema de so no està disponible"
 
-#: ../mate-volume-control/src/dialog-main.c:159
+#: ../mate-volume-control/dialog-main.c:160
 msgid "Waiting for sound system to respond"
 msgstr "S'està esperant que el sistema de so respongui"
 
-#: ../mate-volume-control/src/dialog-main.c:183
+#: ../mate-volume-control/dialog-main.c:184
 msgid "Sound system backend"
-msgstr ""
+msgstr "Programari especialitzat del sistema de so"
 
-#: ../mate-volume-control/src/dialog-main.c:184
+#: ../mate-volume-control/dialog-main.c:186
 msgid "Startup page"
 msgstr "Pàgina inicial"
 
-#: ../mate-volume-control/src/dialog-main.c:194
+#: ../mate-volume-control/dialog-main.c:196
 msgid " — MATE Volume Control"
-msgstr "Control de volum del MATE"
+msgstr "Control de volum de MATE"
 
-#: ../mate-volume-control/src/gvc-applet.c:322
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2205
+#: ../mate-volume-control/gvc-applet.c:322
+#: ../mate-volume-control/gvc-mixer-dialog.c:2028
 msgid "Input"
 msgstr "Entrada"
 
-#: ../mate-volume-control/src/gvc-applet.c:323
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2307
+#: ../mate-volume-control/gvc-applet.c:323
+#: ../mate-volume-control/gvc-mixer-dialog.c:2130
 msgid "Output"
 msgstr "Sortida"
 
-#: ../mate-volume-control/src/gvc-applet.c:326
+#: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
 msgstr "Volum del micròfon"
 
-#: ../mate-volume-control/src/gvc-applet.c:328
+#: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
 msgstr "Volum de sortida"
 
-#: ../mate-volume-control/src/gvc-applet.c:333
+#: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "Miniaplicació del control de volum de MATE"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:158
+#: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
 msgstr "Esquerre"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:159
+#: ../mate-volume-control/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
 msgstr "Dret"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:162
+#: ../mate-volume-control/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
 msgstr "Posterior"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:163
+#: ../mate-volume-control/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
-msgstr "Davanter"
+msgstr "Frontal"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:166
+#: ../mate-volume-control/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Mínim"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:167
+#: ../mate-volume-control/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Màxim"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:355
+#: ../mate-volume-control/gvc-balance-bar.c:355
 msgid "_Balance:"
 msgstr "_Balanç:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:358
+#: ../mate-volume-control/gvc-balance-bar.c:358
 msgid "_Fade:"
 msgstr "_Esvair:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:361
+#: ../mate-volume-control/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
 msgstr "_Altaveu de greus:"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:330
+#: ../mate-volume-control/gvc-channel-bar.c:330
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Sense amplificar"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:343
+#: ../mate-volume-control/gvc-channel-bar.c:343
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/src/gvc-channel-bar.c:1099
+#: ../mate-volume-control/gvc-channel-bar.c:1099
 msgid "Mute"
 msgstr "Silenci"
 
-#: ../mate-volume-control/src/gvc-combo-box.c:164
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1841
+#: ../mate-volume-control/gvc-combo-box.c:257
+#: ../mate-volume-control/gvc-mixer-dialog.c:1617
 msgid "_Profile:"
 msgstr "_Perfil:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:435
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:593
+#: ../mate-volume-control/gvc-mixer-dialog.c:355
+#: ../mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
 msgstr "Co_nnector:"
 
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1293
+#: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
 msgstr "Inhabilitat"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1299
+#: ../mate-volume-control/gvc-mixer-dialog.c:1132
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -181,206 +211,256 @@ msgstr[1] "%u sortides"
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1308
+#: ../mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u entrada"
 msgstr[1] "%u entrades"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1690
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1989
-#: ../sound-theme/gvc-sound-theme-chooser.c:872
+#: ../mate-volume-control/gvc-mixer-dialog.c:1508
+#: ../mate-volume-control/gvc-mixer-dialog.c:1777
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:872
 msgid "Name"
 msgstr "Nom"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1729
+#: ../mate-volume-control/gvc-mixer-dialog.c:1556
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Prova d'altaveus per a %s"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1772
+#: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
 msgstr "Prova els altaveus"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2075
-msgid "_Output volume: "
-msgstr "_Volum de sortida: "
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2120
+#: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
 msgstr "Efectes de so"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2133
+#: ../mate-volume-control/gvc-mixer-dialog.c:1852
 msgid "_Alert volume: "
 msgstr "Volum d'_alerta: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2151
+#: ../mate-volume-control/gvc-mixer-dialog.c:1927
+msgid "_Output volume: "
+msgstr "_Volum de sortida: "
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1974
 msgid "Hardware"
 msgstr "Maquinari"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2156
+#: ../mate-volume-control/gvc-mixer-dialog.c:1979
 msgid "C_hoose a device to configure:"
-msgstr "Seleccioneu un _dispositiu a configurar:"
+msgstr "Seleccioneu un _dispositiu per configurar-lo:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2183
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2339
+#: ../mate-volume-control/gvc-mixer-dialog.c:2006
+#: ../mate-volume-control/gvc-mixer-dialog.c:2162
 msgid "Settings for the selected device:"
-msgstr "Paràmetres per al dispositiu seleccionat:"
+msgstr "Ajusts per al dispositiu seleccionat:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2213
+#: ../mate-volume-control/gvc-mixer-dialog.c:2036
 msgid "_Input volume: "
 msgstr "_Volum d'entrada: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2247
+#: ../mate-volume-control/gvc-mixer-dialog.c:2070
 msgid "Input level:"
 msgstr "Nivell d'entrada:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2276
+#: ../mate-volume-control/gvc-mixer-dialog.c:2099
 msgid "C_hoose a device for sound input:"
 msgstr "_Seleccioneu un dispositiu per a l'entrada de so:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2312
+#: ../mate-volume-control/gvc-mixer-dialog.c:2135
 msgid "C_hoose a device for sound output:"
 msgstr "S_eleccioneu un dispositiu per a la sortida de so:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
+#: ../mate-volume-control/gvc-mixer-dialog.c:2196
 msgid "Applications"
 msgstr "Aplicacions"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
+#: ../mate-volume-control/gvc-mixer-dialog.c:2201
 msgid "No application is currently playing or recording audio."
 msgstr "No hi ha cap aplicació que estigui reproduint o enregistrant àudio."
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
-#: ../sound-theme/gvc-sound-theme-chooser.c:736
-#: ../sound-theme/gvc-sound-theme-chooser.c:748
-#: ../sound-theme/gvc-sound-theme-chooser.c:760
+#: ../mate-volume-control/gvc-mixer-dialog.c:2388
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:736
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:748
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
 msgstr "Preferències de so"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:262
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:324
+msgid "No sounds"
+msgstr "Sense sons"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:445
+msgid "Built-in"
+msgstr "Integrat"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:632
+#: ../mate-volume-control/sound-theme-file-utils.c:292
+msgid "Custom"
+msgstr "Personalitzat"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:739
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:750
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:762
+msgid "Testing event sound"
+msgstr "Prova d'esdeveniment de so"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:848
+msgid "Default"
+msgstr "Predeterminat"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:849
+msgid "From theme"
+msgstr "Del tema"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:879
+msgid "Type"
+msgstr "Tipus"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1064
+msgid "Sound _theme:"
+msgstr "_Tema de sons:"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1077
+msgid "C_hoose an alert sound:"
+msgstr "_Trieu un so d'alerta:"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
+msgid "Enable _window and button sounds"
+msgstr "Habilita els sons de les _finestres i dels botons"
+
+#: ../mate-volume-control/gvc-speaker-test.c:262
 msgid "Stop"
 msgstr "Atura"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:262
-#: ../mate-volume-control/src/gvc-speaker-test.c:380
+#: ../mate-volume-control/gvc-speaker-test.c:262
+#: ../mate-volume-control/gvc-speaker-test.c:380
 msgid "Test"
 msgstr "Prova"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "No s'han pogut iniciar les preferències del so: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:253
+#: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
 msgstr "_Silenci"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:265
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:267
+#: ../mate-volume-control/gvc-stream-status-icon.c:278
+#: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
 msgstr "Preferències del _so"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:462
+#: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
 msgstr "Silenciat"
 
-#: ../mate-volume-control/src/mvc-helpers.c:113
+#: ../mate-volume-control/gvc-utils.c:59
+msgid "Unknown"
+msgstr "Desconegut"
+
+#. Speaker channel names
+#: ../mate-volume-control/gvc-utils.c:61
+#: ../mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
-#: ../mate-volume-control/src/mvc-helpers.c:118
+#: ../mate-volume-control/gvc-utils.c:62
+msgid "Front Left"
+msgstr "Frontal esquerre"
+
+#: ../mate-volume-control/gvc-utils.c:63
+msgid "Front Right"
+msgstr "Frontal dret"
+
+#: ../mate-volume-control/gvc-utils.c:64
+msgid "Front Center"
+msgstr "Frontal centre"
+
+#: ../mate-volume-control/gvc-utils.c:65
+msgid "LFE"
+msgstr "LFE"
+
+#: ../mate-volume-control/gvc-utils.c:66
+msgid "Rear Left"
+msgstr "Posterior esquerre"
+
+#: ../mate-volume-control/gvc-utils.c:67
+msgid "Rear Right"
+msgstr "posterior dret"
+
+#: ../mate-volume-control/gvc-utils.c:68
+msgid "Rear Center"
+msgstr "Posterior centre"
+
+#: ../mate-volume-control/gvc-utils.c:69
+msgid "Front Left of Center"
+msgstr "Frontal esquerre del centre"
+
+#: ../mate-volume-control/gvc-utils.c:70
+msgid "Front Right of Center"
+msgstr "Frontal dret del centre"
+
+#: ../mate-volume-control/gvc-utils.c:71
+msgid "Side Left"
+msgstr "Costat esquerre"
+
+#: ../mate-volume-control/gvc-utils.c:72
+msgid "Side Right"
+msgstr "costat dret"
+
+#: ../mate-volume-control/gvc-utils.c:73
+msgid "Top Front Left"
+msgstr "Frontal esquerre superior"
+
+#: ../mate-volume-control/gvc-utils.c:74
+msgid "Top Front Right"
+msgstr "Frontal dret superior"
+
+#: ../mate-volume-control/gvc-utils.c:75
+msgid "Top Front Center"
+msgstr "Frontal esquerre centre"
+
+#: ../mate-volume-control/gvc-utils.c:76
+msgid "Top Center"
+msgstr "Superior centre"
+
+#: ../mate-volume-control/gvc-utils.c:77
+msgid "Top Rear Left"
+msgstr "Superior posterior esquerre"
+
+#: ../mate-volume-control/gvc-utils.c:78
+msgid "Top Rear Right"
+msgstr "Superior posterior dret"
+
+#: ../mate-volume-control/gvc-utils.c:79
+msgid "Top Rear Center"
+msgstr "Superior posterior centre"
+
+#: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr ""
+msgstr "Estèreo"
 
-#: ../mate-volume-control/src/mvc-helpers.c:125
+#: ../mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Envoltant 4.0"
 
-#: ../mate-volume-control/src/mvc-helpers.c:133
+#: ../mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Envoltant 4.1"
 
-#: ../mate-volume-control/src/mvc-helpers.c:135
+#: ../mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Envoltant 5.0"
 
-#: ../mate-volume-control/src/mvc-helpers.c:144
+#: ../mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Envoltant 5.1"
 
-#: ../mate-volume-control/src/mvc-helpers.c:155
+#: ../mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr ""
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:325
-msgid "No sounds"
-msgstr "Sense sons"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:447
-msgid "Built-in"
-msgstr "Integrat"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:632
-#: ../sound-theme/sound-theme-file-utils.c:292
-msgid "Custom"
-msgstr "Personalitzat"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:739
-#: ../sound-theme/gvc-sound-theme-chooser.c:750
-#: ../sound-theme/gvc-sound-theme-chooser.c:762
-msgid "Testing event sound"
-msgstr "Prova d'esdeveniment de so"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:848
-msgid "Default"
-msgstr "Predeterminat"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:849
-msgid "From theme"
-msgstr "Del tema"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:879
-msgid "Type"
-msgstr "Tipus"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1065
-msgid "Sound _theme:"
-msgstr "_Tema de sons:"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1074
-msgid "C_hoose an alert sound:"
-msgstr "_Escolliu un so d'alerta:"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1106
-msgid "Enable _window and button sounds"
-msgstr "Habilita els sons de les _finestres i dels botons"
-
-#. Translators: This is the name of an audio file that sounds like the bark of
-#. a dog.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
-msgid "Bark"
-msgstr "Lladruc"
-
-#. Translators: This is the name of an audio file that sounds like a water
-#. drip.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
-msgid "Drip"
-msgstr "Degoteig"
-
-#. Translators: This is the name of an audio file that sounds like tapping
-#. glass.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
-msgid "Glass"
-msgstr "Vidre"
-
-#. Translators: This is the name of an audio file that sounds sort of like a
-#. submarine sonar ping.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
-msgid "Sonar"
-msgstr "Sonar"
+msgstr "Envoltant 7.1"

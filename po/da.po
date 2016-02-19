@@ -4,172 +4,201 @@
 # 
 # Translators:
 # askhl <asklarsen@gmail.com>, 2010
-# Joe Hansen <joedalton2@yahoo.dk>, 2014
+# Joe Hansen <joedalton2@yahoo.dk>, 2014-2016
 # Peter Bach <bach.peter@gmail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2014-10-16 11:44+0000\n"
+"POT-Creation-Date: 2015-12-14 14:07+0300\n"
+"PO-Revision-Date: 2016-02-13 10:00+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/MATE/language/da/)\n"
+"Language-Team: Danish (http://www.transifex.com/mate/MATE/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
+#: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "Lyd"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
 msgstr "Skift lydstyrke og lydbegivenheder"
 
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-#: ../mate-volume-control/src/dialog-main.c:240
-#: ../mate-volume-control/src/gvc-channel-bar.c:500
-#: ../mate-volume-control/src/gvc-speaker-test.c:461
+#: ../data/mate-volume-control-applet.desktop.in.h:1
+#: ../mate-volume-control/dialog-main.c:245
+#: ../mate-volume-control/gvc-channel-bar.c:500
+#: ../mate-volume-control/gvc-speaker-test.c:461
 msgid "Volume Control"
 msgstr "Lydstyrkekontrol"
 
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+#: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
 msgstr "Vis lydstyrkekontrol til skrivebordet"
 
-#: ../mate-volume-control/src/applet-main.c:45
-#: ../mate-volume-control/src/dialog-main.c:185
+#. Translators: This is the name of an audio file that sounds like the bark of
+#. a dog.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:3
+msgid "Bark"
+msgstr "Gø"
+
+#. Translators: This is the name of an audio file that sounds like a water
+#. drip.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:6
+msgid "Drip"
+msgstr "Dryp"
+
+#. Translators: This is the name of an audio file that sounds like tapping
+#. glass.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:9
+msgid "Glass"
+msgstr "Glas"
+
+#. Translators: This is the name of an audio file that sounds sort of like a
+#. submarine sonar ping.
+#. You might want to translate it into the equivalent words of your language.
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:12
+msgid "Sonar"
+msgstr "Sonar"
+
+#: ../mate-volume-control/applet-main.c:45
+#: ../mate-volume-control/dialog-main.c:187
 msgid "Version of this application"
 msgstr "Versionen af dette program"
 
-#: ../mate-volume-control/src/applet-main.c:46
+#: ../mate-volume-control/applet-main.c:46
+#: ../mate-volume-control/dialog-main.c:185
 msgid "Enable debug"
 msgstr "Aktiver fejlsøgning"
 
-#: ../mate-volume-control/src/applet-main.c:55
+#: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
 msgstr " — MATE-panelprogram til lydstyrkekontrol"
 
-#: ../mate-volume-control/src/dialog-main.c:137
+#: ../mate-volume-control/dialog-main.c:138
 msgid "Sound system is not available"
 msgstr "Lydsystem er ikke tilgængeligt"
 
-#: ../mate-volume-control/src/dialog-main.c:159
+#: ../mate-volume-control/dialog-main.c:160
 msgid "Waiting for sound system to respond"
 msgstr "Venter på svar fra lydsystemet"
 
-#: ../mate-volume-control/src/dialog-main.c:183
+#: ../mate-volume-control/dialog-main.c:184
 msgid "Sound system backend"
 msgstr "Motor for lydsystem"
 
-#: ../mate-volume-control/src/dialog-main.c:184
+#: ../mate-volume-control/dialog-main.c:186
 msgid "Startup page"
 msgstr "Opstartsside"
 
-#: ../mate-volume-control/src/dialog-main.c:194
+#: ../mate-volume-control/dialog-main.c:196
 msgid " — MATE Volume Control"
 msgstr " — Lydstyrkekontrol til MATE"
 
-#: ../mate-volume-control/src/gvc-applet.c:322
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2205
+#: ../mate-volume-control/gvc-applet.c:322
+#: ../mate-volume-control/gvc-mixer-dialog.c:2028
 msgid "Input"
 msgstr "Input"
 
-#: ../mate-volume-control/src/gvc-applet.c:323
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2307
+#: ../mate-volume-control/gvc-applet.c:323
+#: ../mate-volume-control/gvc-mixer-dialog.c:2130
 msgid "Output"
 msgstr "Output"
 
-#: ../mate-volume-control/src/gvc-applet.c:326
+#: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
 msgstr "Lydstyrke for mikrofon"
 
-#: ../mate-volume-control/src/gvc-applet.c:328
+#: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
 msgstr "Afspilningslydstyrke"
 
-#: ../mate-volume-control/src/gvc-applet.c:333
+#: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
 msgstr "MATE-panelprogram til lydstyrkekontrol"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:158
+#: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
 msgstr "Venstre"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:159
+#: ../mate-volume-control/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
 msgstr "Højre"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:162
+#: ../mate-volume-control/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
 msgstr "Bagved"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:163
+#: ../mate-volume-control/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
 msgstr "Foran"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:166
+#: ../mate-volume-control/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Minimum"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:167
+#: ../mate-volume-control/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Maksimum"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:355
+#: ../mate-volume-control/gvc-balance-bar.c:355
 msgid "_Balance:"
 msgstr "_Balance:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:358
+#: ../mate-volume-control/gvc-balance-bar.c:358
 msgid "_Fade:"
 msgstr "_Dæmp:"
 
-#: ../mate-volume-control/src/gvc-balance-bar.c:361
+#: ../mate-volume-control/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
 msgstr "_Subwoofer:"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:330
+#: ../mate-volume-control/gvc-channel-bar.c:330
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Uforstærket"
 
-#: ../mate-volume-control/src/gvc-channel-bar.c:343
+#: ../mate-volume-control/gvc-channel-bar.c:343
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/src/gvc-channel-bar.c:1099
+#: ../mate-volume-control/gvc-channel-bar.c:1099
 msgid "Mute"
 msgstr "Stilhed"
 
-#: ../mate-volume-control/src/gvc-combo-box.c:164
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1841
+#: ../mate-volume-control/gvc-combo-box.c:257
+#: ../mate-volume-control/gvc-mixer-dialog.c:1617
 msgid "_Profile:"
 msgstr "_Profil:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:435
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:593
+#: ../mate-volume-control/gvc-mixer-dialog.c:355
+#: ../mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
 msgstr "Ko_nnektor:"
 
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1293
+#: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
 msgstr "Deaktiveret"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1299
+#: ../mate-volume-control/gvc-mixer-dialog.c:1132
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -178,206 +207,256 @@ msgstr[1] "%u output"
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1308
+#: ../mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u input"
 msgstr[1] "%u input"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1690
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1989
-#: ../sound-theme/gvc-sound-theme-chooser.c:872
+#: ../mate-volume-control/gvc-mixer-dialog.c:1508
+#: ../mate-volume-control/gvc-mixer-dialog.c:1777
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:872
 msgid "Name"
 msgstr "Navn"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1729
+#: ../mate-volume-control/gvc-mixer-dialog.c:1556
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Højttalertest for %s"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1772
+#: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
 msgstr "Afprøv højttalere"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2075
-msgid "_Output volume: "
-msgstr "_Afspilningslydstyrke: "
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2120
+#: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
 msgstr "Lydeffekter"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2133
+#: ../mate-volume-control/gvc-mixer-dialog.c:1852
 msgid "_Alert volume: "
 msgstr "_Påmindelseslydstyrke: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2151
+#: ../mate-volume-control/gvc-mixer-dialog.c:1927
+msgid "_Output volume: "
+msgstr "_Afspilningslydstyrke: "
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1974
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2156
+#: ../mate-volume-control/gvc-mixer-dialog.c:1979
 msgid "C_hoose a device to configure:"
 msgstr "_Vælg en enhed at konfigurere:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2183
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2339
+#: ../mate-volume-control/gvc-mixer-dialog.c:2006
+#: ../mate-volume-control/gvc-mixer-dialog.c:2162
 msgid "Settings for the selected device:"
 msgstr "Indstillinger for den valgte enhed:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2213
+#: ../mate-volume-control/gvc-mixer-dialog.c:2036
 msgid "_Input volume: "
 msgstr "_Optagelydstyrke: "
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2247
+#: ../mate-volume-control/gvc-mixer-dialog.c:2070
 msgid "Input level:"
 msgstr "Inputniveau:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2276
+#: ../mate-volume-control/gvc-mixer-dialog.c:2099
 msgid "C_hoose a device for sound input:"
 msgstr "_Vælg en enhed til lydinput:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2312
+#: ../mate-volume-control/gvc-mixer-dialog.c:2135
 msgid "C_hoose a device for sound output:"
 msgstr "_Vælg en enhed til lydoutput:"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
+#: ../mate-volume-control/gvc-mixer-dialog.c:2196
 msgid "Applications"
 msgstr "Programmer"
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
+#: ../mate-volume-control/gvc-mixer-dialog.c:2201
 msgid "No application is currently playing or recording audio."
 msgstr "Intet program afspiller eller optager i øjeblikket lyd."
 
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
-#: ../sound-theme/gvc-sound-theme-chooser.c:736
-#: ../sound-theme/gvc-sound-theme-chooser.c:748
-#: ../sound-theme/gvc-sound-theme-chooser.c:760
+#: ../mate-volume-control/gvc-mixer-dialog.c:2388
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:736
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:748
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
 msgstr "Lydindstillinger"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:262
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:324
+msgid "No sounds"
+msgstr "Ingen lyde"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:445
+msgid "Built-in"
+msgstr "Indbygget"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:632
+#: ../mate-volume-control/sound-theme-file-utils.c:292
+msgid "Custom"
+msgstr "Brugerdefineret"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:739
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:750
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:762
+msgid "Testing event sound"
+msgstr "Afprøver begivenhedslyd"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:848
+msgid "Default"
+msgstr "Standard"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:849
+msgid "From theme"
+msgstr "Fra tema"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:879
+msgid "Type"
+msgstr "Type"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1064
+msgid "Sound _theme:"
+msgstr "Lyd_tema:"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1077
+msgid "C_hoose an alert sound:"
+msgstr "_Vælg en påmindelseslyd:"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
+msgid "Enable _window and button sounds"
+msgstr "Aktiver lyde for _vinduer og knapper"
+
+#: ../mate-volume-control/gvc-speaker-test.c:262
 msgid "Stop"
 msgstr "Stop"
 
-#: ../mate-volume-control/src/gvc-speaker-test.c:262
-#: ../mate-volume-control/src/gvc-speaker-test.c:380
+#: ../mate-volume-control/gvc-speaker-test.c:262
+#: ../mate-volume-control/gvc-speaker-test.c:380
 msgid "Test"
 msgstr "Test"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Kunne ikke starte lydindstillinger: %s"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:253
+#: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
 msgstr "_Stilhed"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:265
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:267
+#: ../mate-volume-control/gvc-stream-status-icon.c:278
+#: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
 msgstr "_Lydindstillinger"
 
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:462
+#: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
 msgstr "Tavs"
 
-#: ../mate-volume-control/src/mvc-helpers.c:113
+#: ../mate-volume-control/gvc-utils.c:59
+msgid "Unknown"
+msgstr "Ukendt"
+
+#. Speaker channel names
+#: ../mate-volume-control/gvc-utils.c:61
+#: ../mate-volume-control/gvc-utils.c:109
 msgid "Mono"
 msgstr "Mono"
 
-#: ../mate-volume-control/src/mvc-helpers.c:118
+#: ../mate-volume-control/gvc-utils.c:62
+msgid "Front Left"
+msgstr "Venstre front"
+
+#: ../mate-volume-control/gvc-utils.c:63
+msgid "Front Right"
+msgstr "Højre Front"
+
+#: ../mate-volume-control/gvc-utils.c:64
+msgid "Front Center"
+msgstr "Midt front"
+
+#: ../mate-volume-control/gvc-utils.c:65
+msgid "LFE"
+msgstr "LFE"
+
+#: ../mate-volume-control/gvc-utils.c:66
+msgid "Rear Left"
+msgstr "Venstre bagerst"
+
+#: ../mate-volume-control/gvc-utils.c:67
+msgid "Rear Right"
+msgstr "Højre bagerst"
+
+#: ../mate-volume-control/gvc-utils.c:68
+msgid "Rear Center"
+msgstr "Centrum bagerst"
+
+#: ../mate-volume-control/gvc-utils.c:69
+msgid "Front Left of Center"
+msgstr "Venstre front for centrum"
+
+#: ../mate-volume-control/gvc-utils.c:70
+msgid "Front Right of Center"
+msgstr "Højre front for centrum"
+
+#: ../mate-volume-control/gvc-utils.c:71
+msgid "Side Left"
+msgstr "Venstre side"
+
+#: ../mate-volume-control/gvc-utils.c:72
+msgid "Side Right"
+msgstr "Højre side"
+
+#: ../mate-volume-control/gvc-utils.c:73
+msgid "Top Front Left"
+msgstr "Øverste front til venstre"
+
+#: ../mate-volume-control/gvc-utils.c:74
+msgid "Top Front Right"
+msgstr "Øverste front til højre"
+
+#: ../mate-volume-control/gvc-utils.c:75
+msgid "Top Front Center"
+msgstr "Øverste front i centrum"
+
+#: ../mate-volume-control/gvc-utils.c:76
+msgid "Top Center"
+msgstr "Øverst centrum"
+
+#: ../mate-volume-control/gvc-utils.c:77
+msgid "Top Rear Left"
+msgstr "Øverste baggrund til venstre"
+
+#: ../mate-volume-control/gvc-utils.c:78
+msgid "Top Rear Right"
+msgstr "Øverste Øverste baggrund til højre"
+
+#: ../mate-volume-control/gvc-utils.c:79
+msgid "Top Rear Center"
+msgstr "Øverste baggrund i centrum"
+
+#: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
 msgstr "Stereo"
 
-#: ../mate-volume-control/src/mvc-helpers.c:125
+#: ../mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
 msgstr "Surround 4.0"
 
-#: ../mate-volume-control/src/mvc-helpers.c:133
+#: ../mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
 msgstr "Surround 4.1"
 
-#: ../mate-volume-control/src/mvc-helpers.c:135
+#: ../mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
 msgstr "Surround 5.0"
 
-#: ../mate-volume-control/src/mvc-helpers.c:144
+#: ../mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
 msgstr "Surround 5.1"
 
-#: ../mate-volume-control/src/mvc-helpers.c:155
+#: ../mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:325
-msgid "No sounds"
-msgstr "Ingen lyde"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:447
-msgid "Built-in"
-msgstr "Indbygget"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:632
-#: ../sound-theme/sound-theme-file-utils.c:292
-msgid "Custom"
-msgstr "Brugerdefineret"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:739
-#: ../sound-theme/gvc-sound-theme-chooser.c:750
-#: ../sound-theme/gvc-sound-theme-chooser.c:762
-msgid "Testing event sound"
-msgstr "Afprøver begivenhedslyd"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:848
-msgid "Default"
-msgstr "Standard"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:849
-msgid "From theme"
-msgstr "Fra tema"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:879
-msgid "Type"
-msgstr "Type"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1065
-msgid "Sound _theme:"
-msgstr "Lyd_tema:"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1074
-msgid "C_hoose an alert sound:"
-msgstr "_Vælg en påmindelseslyd:"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1106
-msgid "Enable _window and button sounds"
-msgstr "Aktivér lyde for _vinduer og knapper"
-
-#. Translators: This is the name of an audio file that sounds like the bark of
-#. a dog.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
-msgid "Bark"
-msgstr "Gø"
-
-#. Translators: This is the name of an audio file that sounds like a water
-#. drip.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
-msgid "Drip"
-msgstr "Dryp"
-
-#. Translators: This is the name of an audio file that sounds like tapping
-#. glass.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
-msgid "Glass"
-msgstr "Glas"
-
-#. Translators: This is the name of an audio file that sounds sort of like a
-#. submarine sonar ping.
-#. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
-msgid "Sonar"
-msgstr "Sonar"
