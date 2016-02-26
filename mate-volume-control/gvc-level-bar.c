@@ -176,16 +176,20 @@ bar_calc_layout (GvcLevelBar *bar)
 
         context = gtk_widget_get_style_context (GTK_WIDGET (bar));
 
+        gtk_style_context_save (context);
+        gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
         gtk_style_context_get_background_color (context,
-                                                GTK_STATE_FLAG_NORMAL,
+                                                gtk_style_context_get_state (context),
                                                 &bar->priv->layout.color_bg);
-        gtk_style_context_get_background_color (context,
-                                                GTK_STATE_FLAG_SELECTED,
-                                                &bar->priv->layout.color_fg);
-
         mate_desktop_gtk_style_get_dark_color (context,
-                                               GTK_STATE_FLAG_NORMAL,
+                                               gtk_style_context_get_state (context),
                                                &bar->priv->layout.color_dark);
+
+        gtk_style_context_set_state (context, GTK_STATE_FLAG_SELECTED);
+        gtk_style_context_get_background_color (context,
+                                                gtk_style_context_get_state (context),
+                                                &bar->priv->layout.color_fg);
+        gtk_style_context_restore (context);
 #else
         GtkStyle *style;
 
