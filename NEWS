@@ -2,7 +2,9 @@
 Version 1.13.0
 ==============
 
-- fix some deprecations for gtk3 build
+- GTK+3: add css name GvcMixerDialog for 3.20
+- GTK+3: fix several deprecations
+- Translations update
 
 ==============
 Version 1.12.1
