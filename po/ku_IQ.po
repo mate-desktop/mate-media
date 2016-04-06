@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 13:02+0200\n"
+"POT-Creation-Date: 2015-12-14 14:07+0300\n"
 "PO-Revision-Date: 2015-09-09 11:00+0000\n"
 "Last-Translator: infirit <inactive+infirit@transifex.com>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/mate/MATE/language/ku_IQ/)\n"
@@ -340,16 +340,16 @@ msgstr ""
 msgid "Failed to start Sound Preferences: %s"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:253
+#: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:265
-#: ../mate-volume-control/gvc-stream-status-icon.c:267
+#: ../mate-volume-control/gvc-stream-status-icon.c:278
+#: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:462
+#: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
 msgstr ""
 

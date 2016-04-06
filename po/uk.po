@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
-"PO-Revision-Date: 2016-02-04 13:44+0000\n"
+"PO-Revision-Date: 2016-04-03 07:07+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/mate/MATE/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -30,18 +30,18 @@ msgstr "Звук"
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr "Зміна гучності звуку та прив'язка звуків до подій"
+msgstr "Зміна гучности звуку та прив'язка звуків до подій"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:245
 #: ../mate-volume-control/gvc-channel-bar.c:500
 #: ../mate-volume-control/gvc-speaker-test.c:461
 msgid "Volume Control"
-msgstr "Регулятор гучності"
+msgstr "Регулятор гучности"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr "Показати регулятор гучності"
+msgstr "Показати регулятор гучности"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
@@ -83,7 +83,7 @@ msgstr "Увімкнути зневадження"
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr "— Аплет регулятора гучності MATE"
+msgstr "— Аплет регулятора гучности MATE"
 
 #: ../mate-volume-control/dialog-main.c:138
 msgid "Sound system is not available"
@@ -103,7 +103,7 @@ msgstr "Початкова сторінка"
 
 #: ../mate-volume-control/dialog-main.c:196
 msgid " — MATE Volume Control"
-msgstr " — Регулятор гучності MATE"
+msgstr " — Регулятор гучности MATE"
 
 #: ../mate-volume-control/gvc-applet.c:322
 #: ../mate-volume-control/gvc-mixer-dialog.c:2028
@@ -125,7 +125,7 @@ msgstr "Гучність звуку"
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr "Аплет регулятора гучності MATE"
+msgstr "Аплет регулятора гучности MATE"
 
 #: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
@@ -229,11 +229,11 @@ msgstr "Назва"
 #: ../mate-volume-control/gvc-mixer-dialog.c:1556
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "Тест динаміків для %s"
+msgstr "Тест гучномовців для %s"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
-msgstr "Перевірити динаміки"
+msgstr "Перевірити гучномовці"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
@@ -297,7 +297,7 @@ msgstr "Без звуків"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:445
 msgid "Built-in"
-msgstr "Вбудована"
+msgstr "Вбудований"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:632
 #: ../mate-volume-control/sound-theme-file-utils.c:292
@@ -312,7 +312,7 @@ msgstr "Тестовий звуковий сигнал"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:848
 msgid "Default"
-msgstr "Типово"
+msgstr "Типовий"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:849
 msgid "From theme"
@@ -332,7 +332,7 @@ msgstr "Ви_беріть звук сповіщення:"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
 msgid "Enable _window and button sounds"
-msgstr "Увімкнути звукові сповіщення про дії з _вікнами та натискання кнопок"
+msgstr "Увімкнути звукові сповіщення про дії з _вікнами та натисканні кнопок"
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 msgid "Stop"

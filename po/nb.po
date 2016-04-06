@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Allan Nordhøy <epost@anotheragency.no>, 2016
+# Kenneth Jenssen <kennethjenssen@yahoo.com>, 2016
 # Terance Edward Sola <terance@lyse.net>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
-"PO-Revision-Date: 2016-02-10 20:00+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2016-03-24 20:34+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/mate/MATE/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +75,7 @@ msgstr "Versjon av dette programmet"
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:185
 msgid "Enable debug"
-msgstr ""
+msgstr "Skru på feilrettingsmodus"
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
@@ -81,7 +83,7 @@ msgstr " – MATE panelprogram for volumkontroll"
 
 #: ../mate-volume-control/dialog-main.c:138
 msgid "Sound system is not available"
-msgstr ""
+msgstr "Lyd system er ikke tilgjengelig"
 
 #: ../mate-volume-control/dialog-main.c:160
 msgid "Waiting for sound system to respond"
@@ -89,7 +91,7 @@ msgstr "Venter på svar fra lydsystemet"
 
 #: ../mate-volume-control/dialog-main.c:184
 msgid "Sound system backend"
-msgstr ""
+msgstr "Bakstykke for lydsystem"
 
 #: ../mate-volume-control/dialog-main.c:186
 msgid "Startup page"
@@ -119,7 +121,7 @@ msgstr "Utgangsvolum for lyd"
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "MATE-panelprogram for lydstyrkejustering"
 
 #: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
@@ -355,106 +357,106 @@ msgstr "Dempet"
 
 #: ../mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
-msgstr ""
+msgstr "Ukjent"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:61
 #: ../mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
-msgstr ""
+msgstr "Fremme til venstre"
 
 #: ../mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
-msgstr ""
+msgstr "Fremme til høyre"
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
-msgstr ""
+msgstr "Fremst i midten"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
-msgstr ""
+msgstr "Bakerst til venstre"
 
 #: ../mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
-msgstr ""
+msgstr "Bakerst til høyre"
 
 #: ../mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
-msgstr ""
+msgstr "Bakerst i midten"
 
 #: ../mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
-msgstr ""
+msgstr "Fremme til venstre for sentrum"
 
 #: ../mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
-msgstr ""
+msgstr "Fremme til høyre for sentrum"
 
 #: ../mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
-msgstr ""
+msgstr "Venstre side"
 
 #: ../mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
-msgstr ""
+msgstr "Høyre side"
 
 #: ../mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
-msgstr ""
+msgstr "Øverst oppe til venstre"
 
 #: ../mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
-msgstr ""
+msgstr "Øverst oppe til høyre"
 
 #: ../mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
-msgstr ""
+msgstr "Øverst fremme i midten"
 
 #: ../mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
-msgstr ""
+msgstr "Øverst i midten"
 
 #: ../mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
-msgstr ""
+msgstr "Bak øverst til venstre"
 
 #: ../mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
-msgstr ""
+msgstr "Øverst oppe til høyre"
 
 #: ../mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
-msgstr ""
+msgstr "Lengst bak i midten"
 
 #: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: ../mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Kringlyd 4.0"
 
 #: ../mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Kringlyd 4.1"
 
 #: ../mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Kringlyd 5.0"
 
 #: ../mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Kringlyd 5.1"
 
 #: ../mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Kringlyd 7.1"

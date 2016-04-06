@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 13:02+0200\n"
-"PO-Revision-Date: 2015-09-09 11:00+0000\n"
+"POT-Creation-Date: 2015-12-14 14:07+0300\n"
+"PO-Revision-Date: 2016-03-29 15:10+0000\n"
 "Last-Translator: infirit <inactive+infirit@transifex.com>\n"
 "Language-Team: Uzbek (http://www.transifex.com/mate/MATE/language/uz/)\n"
 "MIME-Version: 1.0\n"
@@ -239,7 +239,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1974
 msgid "Hardware"
-msgstr ""
+msgstr "Qurilmalar"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1979
 msgid "C_hoose a device to configure:"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2196
 msgid "Applications"
-msgstr ""
+msgstr "Dasturlar"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2201
 msgid "No application is currently playing or recording audio."
@@ -310,7 +310,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:879
 msgid "Type"
-msgstr ""
+msgstr "Turi"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1064
 msgid "Sound _theme:"
@@ -338,22 +338,22 @@ msgstr ""
 msgid "Failed to start Sound Preferences: %s"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:253
+#: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:265
-#: ../mate-volume-control/gvc-stream-status-icon.c:267
+#: ../mate-volume-control/gvc-stream-status-icon.c:278
+#: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:462
+#: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
-msgstr ""
+msgstr "Noma'lum"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:61

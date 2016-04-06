@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 13:02+0200\n"
-"PO-Revision-Date: 2015-10-04 15:39+0000\n"
+"POT-Creation-Date: 2015-12-14 14:07+0300\n"
+"PO-Revision-Date: 2016-01-03 15:20+0000\n"
 "Last-Translator: Siranush <ss.m.95@mail.ru>\n"
 "Language-Team: Armenian (http://www.transifex.com/mate/MATE/language/hy/)\n"
 "MIME-Version: 1.0\n"
@@ -161,7 +161,7 @@ msgstr "_Մոռացվել:"
 
 #: ../mate-volume-control/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
-msgstr ""
+msgstr "_Ենթաձայն։"
 
 #: ../mate-volume-control/gvc-channel-bar.c:330
 msgctxt "volume"
@@ -221,11 +221,11 @@ msgstr "Անուն"
 #: ../mate-volume-control/gvc-mixer-dialog.c:1556
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr ""
+msgstr "Թեստավորման համար Խոսնակներ  %s"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
-msgstr ""
+msgstr "Թեստավորման խոսնակներ"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
@@ -274,7 +274,7 @@ msgstr "Դիմումներ"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2201
 msgid "No application is currently playing or recording audio."
-msgstr ""
+msgstr "Ոչ մի դիմում ներկայումս չէ նվագել կամ արձանագրել ձայն։"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2388
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:736
@@ -340,16 +340,16 @@ msgstr "Թեստ"
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Չհաջողվեց սկսել Ձայնային Նախընտրանքները: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:253
+#: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
 msgstr "_Անջատել ձայնը"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:265
-#: ../mate-volume-control/gvc-stream-status-icon.c:267
+#: ../mate-volume-control/gvc-stream-status-icon.c:278
+#: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
 msgstr "_Ձայնաին Նախընտրանքներ"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:462
+#: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
 msgstr "Անջատված"
 
@@ -377,7 +377,7 @@ msgstr "Առջև Կենտրոն"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
@@ -425,15 +425,15 @@ msgstr "Վերև կենտրոն"
 
 #: ../mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
-msgstr ""
+msgstr "Վերև Հետև Ձախ"
 
 #: ../mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
-msgstr ""
+msgstr "Վերև Հետև Աջ"
 
 #: ../mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
-msgstr ""
+msgstr "Վերև Հետև Կենտրոն"
 
 #: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"

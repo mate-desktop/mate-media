@@ -3,203 +3,196 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Alexander Shopov <ash@kambanaria.org>, 2005, 2008, 2009, 2010
-# Evgeni Boevski <linkej@yahoo.com>, 2002, 2003
-# Georgi Georgiev <georgiev_1994@abv.bg>, 2015
-# Philip Dimitrov <philip.dimitrov@gmail.com>, 2005
-# Rostislav Raykov <zbrox@i-space.org>, 2004
-# Vladimir "Kaladan" Petkov <kaladan@gmail.com>, 2004
-# Yanko Kaneti <yaneti@declera.com>, 2003
-# Yavor Doganov <yavor@doganov.org>, 2007
+# Alexandre Raymond, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
-"PO-Revision-Date: 2016-03-22 07:26+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/mate/MATE/language/bg/)\n"
+"PO-Revision-Date: 2016-03-31 16:01+0000\n"
+"Last-Translator: Alexandre Raymond\n"
+"Language-Team: Franco-Provençal (Arpitan) (http://www.transifex.com/mate/MATE/language/frp/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: frp\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr "Звук"
+msgstr "Son"
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr "Промяна на силата на звука и звуците свързани със събития"
+msgstr ""
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:245
 #: ../mate-volume-control/gvc-channel-bar.c:500
 #: ../mate-volume-control/gvc-speaker-test.c:461
 msgid "Volume Control"
-msgstr "Сила на звука"
+msgstr "Controlo du volumo"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr "Показване на управлението на звука"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
-msgstr "Лай"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
-msgstr "Ромон"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
-msgstr "Стъкло"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
-msgstr "Сонар"
+msgstr ""
 
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:187
 msgid "Version of this application"
-msgstr "Версия на тази програма"
+msgstr ""
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:185
 msgid "Enable debug"
-msgstr "Включи изчистване на грешки"
+msgstr ""
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr "— аплет на MATE за силата на звука"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:138
 msgid "Sound system is not available"
-msgstr "Звуковата система не е достъпна"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:160
 msgid "Waiting for sound system to respond"
-msgstr "Изчакване на отговор от аудио подсистемата"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:184
 msgid "Sound system backend"
-msgstr "Бекенд на звуковата система"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:186
 msgid "Startup page"
-msgstr "Начална страница"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:196
 msgid " — MATE Volume Control"
-msgstr "— сила на звука на MATE"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:322
 #: ../mate-volume-control/gvc-mixer-dialog.c:2028
 msgid "Input"
-msgstr "Вход"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:323
 #: ../mate-volume-control/gvc-mixer-dialog.c:2130
 msgid "Output"
-msgstr "Изход"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
-msgstr "Сила на микрофона"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
-msgstr "Сила на изхода"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr "Аплет на MATE за силата на звука"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
-msgstr "Ляво"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
-msgstr "Дясно"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
-msgstr "Отзад"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
-msgstr "Отпред"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
-msgstr "Минимум"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
-msgstr "Максимум"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:355
 msgid "_Balance:"
-msgstr "_Баланс:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:358
 msgid "_Fade:"
-msgstr "_Затихване:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
-msgstr "_Бас:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-channel-bar.c:330
 msgctxt "volume"
 msgid "Unamplified"
-msgstr "Без усилване"
+msgstr ""
 
 #: ../mate-volume-control/gvc-channel-bar.c:343
 msgctxt "volume"
 msgid "100%"
-msgstr "100 %"
+msgstr ""
 
 #. Mute button
 #: ../mate-volume-control/gvc-channel-bar.c:1099
 msgid "Mute"
-msgstr "Заглушаване"
+msgstr ""
 
 #: ../mate-volume-control/gvc-combo-box.c:257
 #: ../mate-volume-control/gvc-mixer-dialog.c:1617
 msgid "_Profile:"
-msgstr "Про_фил:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:355
 #: ../mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
-msgstr "_Конектор:"
+msgstr ""
 
 #. translators:
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr "Изключен"
+msgstr ""
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -207,8 +200,8 @@ msgstr "Изключен"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u изход"
-msgstr[1] "%u изхода"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -216,149 +209,149 @@ msgstr[1] "%u изхода"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u вход"
-msgstr[1] "%u входа"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1508
 #: ../mate-volume-control/gvc-mixer-dialog.c:1777
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:872
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1556
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "Тестване на високоговорителите към %s"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
-msgstr "Тестване на високоговорителите"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
-msgstr "Аудио ефекти"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1852
 msgid "_Alert volume: "
-msgstr "Сила на _известяването:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1927
 msgid "_Output volume: "
-msgstr "Сила на _изхода:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1974
 msgid "Hardware"
-msgstr "Хардуер"
+msgstr "Quincalye"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1979
 msgid "C_hoose a device to configure:"
-msgstr "_Избор на устройството за настройване:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2006
 #: ../mate-volume-control/gvc-mixer-dialog.c:2162
 msgid "Settings for the selected device:"
-msgstr "Настройки на избраното устройство:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2036
 msgid "_Input volume: "
-msgstr "Сила на _входа:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2070
 msgid "Input level:"
-msgstr "Ниво на входа:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2099
 msgid "C_hoose a device for sound input:"
-msgstr "_Избор на входно аудио устройство:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2135
 msgid "C_hoose a device for sound output:"
-msgstr "_Избор на изходно аудио устройство:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2196
 msgid "Applications"
-msgstr "Програми"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2201
 msgid "No application is currently playing or recording audio."
-msgstr "В момента никоя програма не записва и не възпроизвежда звук"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2388
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:736
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:748
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
-msgstr "Настройки на звука"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:324
 msgid "No sounds"
-msgstr "Без звуци"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:445
 msgid "Built-in"
-msgstr "Вградена"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:632
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Потребителска"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:739
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:750
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:762
 msgid "Testing event sound"
-msgstr "Проба на звука за събитие"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:848
 msgid "Default"
-msgstr "По подразбиране"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:849
 msgid "From theme"
-msgstr "От тема"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:879
 msgid "Type"
-msgstr "Вид"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1064
 msgid "Sound _theme:"
-msgstr "_Тема от звуци:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1077
 msgid "C_hoose an alert sound:"
-msgstr "_Избор на звук за известяване:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
 msgid "Enable _window and button sounds"
-msgstr "_Включване на звуците за прозорци и бутони"
+msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 msgid "Stop"
-msgstr "Спиране"
+msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 #: ../mate-volume-control/gvc-speaker-test.c:380
 msgid "Test"
-msgstr "Тест"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:232
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "Настройките на звука не могат да бъдат стартирани: %s"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
-msgstr "_Заглушаване"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:278
 #: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
-msgstr "_Настройки на звука"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
-msgstr "Заглушено"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
@@ -368,7 +361,7 @@ msgstr ""
 #: ../mate-volume-control/gvc-utils.c:61
 #: ../mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr "Моно"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
@@ -444,24 +437,24 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr "Стерео"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr "Обемен звук 4.0"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr "Обемен звук 4.1"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr "Обемен звук 5.0"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr "Обемен звук 5.1"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr "Обемен звук 7.1"
+msgstr ""

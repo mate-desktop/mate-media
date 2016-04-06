@@ -11,7 +11,7 @@
 # Petr Kovar <pmkovar@gmail.com>, 2007, 2008, 2009, 2010
 # Petr Tomeš <ptomes@gmail.com>, 2006
 # Stanislav Brabec <utx@penguin.cz>, 2000, 2001
-# Stanislav Kučera <kacernator@quick.cz>, 2015
+# Stanislav Kučera <inactive+kacernator@transifex.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"

@@ -13,386 +13,466 @@
 # <lumina@silverpen.de>, 2003
 # Mosaab Alzoubi <moceap@hotmail.com>, 2013
 # Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002
+# مهدي السطيفي <chinoune.mehdi@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-16 08:23+0200\n"
-"PO-Revision-Date: 2015-02-02 20:44+0000\n"
-"Last-Translator: alibacha19 <alibacha19@gmail.com>\n"
-"Language-Team: Arabic (http://www.transifex.com/projects/p/MATE/language/ar/)\n"
+"POT-Creation-Date: 2015-12-14 14:07+0300\n"
+"PO-Revision-Date: 2015-09-09 13:26+0000\n"
+"Last-Translator: مهدي السطيفي <chinoune.mehdi@gmail.com>\n"
+"Language-Team: Arabic (http://www.transifex.com/mate/MATE/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:1
+#: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
 msgstr "الصوت"
 
-#: ../mate-volume-control/data/mate-volume-control.desktop.in.in.h:2
+#: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
 msgstr "غيّر شدة الصوت و أصوات الأحداث"
 
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:1
-#: ../mate-volume-control/src/dialog-main.c:240
-#: ../mate-volume-control/src/gvc-channel-bar.c:500
-#: ../mate-volume-control/src/gvc-speaker-test.c:461
+#: ../data/mate-volume-control-applet.desktop.in.h:1
+#: ../mate-volume-control/dialog-main.c:245
+#: ../mate-volume-control/gvc-channel-bar.c:500
+#: ../mate-volume-control/gvc-speaker-test.c:461
 msgid "Volume Control"
-msgstr "التحكم في شدة الصوت"
+msgstr "التحكم في حجم الصوت"
 
-#: ../mate-volume-control/data/mate-volume-control-applet.desktop.in.h:2
+#: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr "اعرض التحكم في شدة الصوت"
-
-#: ../mate-volume-control/src/applet-main.c:45
-#: ../mate-volume-control/src/dialog-main.c:185
-msgid "Version of this application"
-msgstr "إصدارة هذا التطبيق"
-
-#: ../mate-volume-control/src/applet-main.c:46
-msgid "Enable debug"
-msgstr "فعّل التنقيح"
-
-#: ../mate-volume-control/src/applet-main.c:55
-msgid " — MATE Volume Control Applet"
-msgstr " — بريمج متّة للتحكم في شدة الصوت"
-
-#: ../mate-volume-control/src/dialog-main.c:137
-msgid "Sound system is not available"
-msgstr "نظام الصوت غير متاح"
-
-#: ../mate-volume-control/src/dialog-main.c:159
-msgid "Waiting for sound system to respond"
-msgstr "ينتظر استجابة نظام الصوت"
-
-#: ../mate-volume-control/src/dialog-main.c:183
-msgid "Sound system backend"
-msgstr "نظام صوت الخلفية"
-
-#: ../mate-volume-control/src/dialog-main.c:184
-msgid "Startup page"
-msgstr "صفحة البدء"
-
-#: ../mate-volume-control/src/dialog-main.c:194
-msgid " — MATE Volume Control"
-msgstr " — تحكم متّة في شدة الصوت"
-
-#: ../mate-volume-control/src/gvc-applet.c:322
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2205
-msgid "Input"
-msgstr "الدخْل"
-
-#: ../mate-volume-control/src/gvc-applet.c:323
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2307
-msgid "Output"
-msgstr "الخرْج"
-
-#: ../mate-volume-control/src/gvc-applet.c:326
-msgid "Microphone Volume"
-msgstr "شدة صوت الميكروفون"
-
-#: ../mate-volume-control/src/gvc-applet.c:328
-msgid "Sound Output Volume"
-msgstr "شدة صوت الخرْج"
-
-#: ../mate-volume-control/src/gvc-applet.c:333
-msgid "MATE Volume Control Applet"
-msgstr "MATE الصغير للتحكم في شدة الصوت"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:158
-msgctxt "balance"
-msgid "Left"
-msgstr "اليسار"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:159
-msgctxt "balance"
-msgid "Right"
-msgstr "اليمين"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:162
-msgctxt "balance"
-msgid "Rear"
-msgstr "المؤخرة"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:163
-msgctxt "balance"
-msgid "Front"
-msgstr "المقدمة"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:166
-msgctxt "balance"
-msgid "Minimum"
-msgstr "أدنى"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:167
-msgctxt "balance"
-msgid "Maximum"
-msgstr "أقصى"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:355
-msgid "_Balance:"
-msgstr "ال_توازن:"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:358
-msgid "_Fade:"
-msgstr "ال_تلاشي:"
-
-#: ../mate-volume-control/src/gvc-balance-bar.c:361
-msgid "_Subwoofer:"
-msgstr "_سماعات كبيرى:"
-
-#: ../mate-volume-control/src/gvc-channel-bar.c:330
-msgctxt "volume"
-msgid "Unamplified"
-msgstr "غير مكبّر"
-
-#: ../mate-volume-control/src/gvc-channel-bar.c:343
-msgctxt "volume"
-msgid "100%"
-msgstr "100%"
-
-#. Mute button
-#: ../mate-volume-control/src/gvc-channel-bar.c:1099
-msgid "Mute"
-msgstr "أصمت"
-
-#: ../mate-volume-control/src/gvc-combo-box.c:164
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1841
-msgid "_Profile:"
-msgstr "ال_طور:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:435
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:593
-msgid "Co_nnector:"
-msgstr "المو_صّل:"
-
-#. translators:
-#. * The device has been disabled
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1293
-msgid "Disabled"
-msgstr "معطّل"
-
-#. translators:
-#. * The number of sound outputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1299
-#, c-format
-msgid "%u Output"
-msgid_plural "%u Outputs"
-msgstr[0] "لا خرْج"
-msgstr[1] "خرْج واحد"
-msgstr[2] "خرْجين"
-msgstr[3] "%u خرْج"
-msgstr[4] "%u خرْج"
-msgstr[5] "%u خرْج"
-
-#. translators:
-#. * The number of sound inputs on a particular device
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1308
-#, c-format
-msgid "%u Input"
-msgid_plural "%u Inputs"
-msgstr[0] "لا دخْل"
-msgstr[1] "دخْل واحد"
-msgstr[2] "دخْلين"
-msgstr[3] "%u دخْل"
-msgstr[4] "%u دخْل"
-msgstr[5] "%u دخْل"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1690
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1989
-#: ../sound-theme/gvc-sound-theme-chooser.c:872
-msgid "Name"
-msgstr "الاسم"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1729
-#, c-format
-msgid "Speaker Testing for %s"
-msgstr "اختبار سماعات %s"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:1772
-msgid "Test Speakers"
-msgstr "اختبر السماعات"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2075
-msgid "_Output volume: "
-msgstr "شدة صوت ال_خرْج:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2120
-msgid "Sound Effects"
-msgstr "المؤثرات الصوتية"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2133
-msgid "_Alert volume: "
-msgstr "شدة صوت التنبي_ه:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2151
-msgid "Hardware"
-msgstr "العتاد"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2156
-msgid "C_hoose a device to configure:"
-msgstr "ا_ختر جهازا لإعداده:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2183
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2339
-msgid "Settings for the selected device:"
-msgstr "إعدادات الجهاز المختار:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2213
-msgid "_Input volume: "
-msgstr "شدة صوت ال_دخْل:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2247
-msgid "Input level:"
-msgstr "مستوى الدخْل:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2276
-msgid "C_hoose a device for sound input:"
-msgstr "اخ_تر جهاز دخْل الصوت:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2312
-msgid "C_hoose a device for sound output:"
-msgstr "اخ_تر جهاز خرْج الصوت:"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2373
-msgid "Applications"
-msgstr "التطبيقات"
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2378
-msgid "No application is currently playing or recording audio."
-msgstr "لا تطبيقات تشغل أو تسجل صوت حاليا."
-
-#: ../mate-volume-control/src/gvc-mixer-dialog.c:2578
-#: ../sound-theme/gvc-sound-theme-chooser.c:736
-#: ../sound-theme/gvc-sound-theme-chooser.c:748
-#: ../sound-theme/gvc-sound-theme-chooser.c:760
-msgid "Sound Preferences"
-msgstr "تفضيلات الصوت"
-
-#: ../mate-volume-control/src/gvc-speaker-test.c:262
-msgid "Stop"
-msgstr "أوقف"
-
-#: ../mate-volume-control/src/gvc-speaker-test.c:262
-#: ../mate-volume-control/src/gvc-speaker-test.c:380
-msgid "Test"
-msgstr "اختبِر"
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:232
-#, c-format
-msgid "Failed to start Sound Preferences: %s"
-msgstr "فشل بدء تفضيلات الصوت: %s"
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:253
-msgid "_Mute"
-msgstr "أص_مت"
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:265
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:267
-msgid "_Sound Preferences"
-msgstr "_تفضيلات الصوت"
-
-#: ../mate-volume-control/src/gvc-stream-status-icon.c:462
-msgid "Muted"
-msgstr "مُصمت"
-
-#: ../mate-volume-control/src/mvc-helpers.c:113
-msgid "Mono"
-msgstr "أحادي"
-
-#: ../mate-volume-control/src/mvc-helpers.c:118
-msgid "Stereo"
-msgstr "ستيريو"
-
-#: ../mate-volume-control/src/mvc-helpers.c:125
-msgid "Surround 4.0"
-msgstr ""
-
-#: ../mate-volume-control/src/mvc-helpers.c:133
-msgid "Surround 4.1"
-msgstr ""
-
-#: ../mate-volume-control/src/mvc-helpers.c:135
-msgid "Surround 5.0"
-msgstr ""
-
-#: ../mate-volume-control/src/mvc-helpers.c:144
-msgid "Surround 5.1"
-msgstr ""
-
-#: ../mate-volume-control/src/mvc-helpers.c:155
-msgid "Surround 7.1"
-msgstr ""
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:325
-msgid "No sounds"
-msgstr "لا صوت"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:447
-msgid "Built-in"
-msgstr "مدمج"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:632
-#: ../sound-theme/sound-theme-file-utils.c:292
-msgid "Custom"
-msgstr "مخصّص"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:739
-#: ../sound-theme/gvc-sound-theme-chooser.c:750
-#: ../sound-theme/gvc-sound-theme-chooser.c:762
-msgid "Testing event sound"
-msgstr "يختبر صوت الحدث"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:848
-msgid "Default"
-msgstr "الافتراضي"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:849
-msgid "From theme"
-msgstr "من السمة"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:879
-msgid "Type"
-msgstr "النوع"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1065
-msgid "Sound _theme:"
-msgstr "_سمة الأصوات:"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1074
-msgid "C_hoose an alert sound:"
-msgstr "اختر صوت نتبي_ه:"
-
-#: ../sound-theme/gvc-sound-theme-chooser.c:1106
-msgid "Enable _window and button sounds"
-msgstr "فعّل أصوات ال_نوافذ والأزرار"
+msgstr "اعرض التحكم في حجم الصوت"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
 #. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:3
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
 msgstr "نباح"
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
 #. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:6
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
 msgstr "قطرات"
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
 #. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:9
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
 msgstr "زجاج"
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
-#: ../sound-theme/sounds/mate-sounds-default.xml.in.in.h:12
+#: ../data/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
 msgstr "سونار"
+
+#: ../mate-volume-control/applet-main.c:45
+#: ../mate-volume-control/dialog-main.c:187
+msgid "Version of this application"
+msgstr "إصدار هذا التطبيق"
+
+#: ../mate-volume-control/applet-main.c:46
+#: ../mate-volume-control/dialog-main.c:185
+msgid "Enable debug"
+msgstr "فعّل التنقيح"
+
+#: ../mate-volume-control/applet-main.c:55
+msgid " — MATE Volume Control Applet"
+msgstr " — بريمج متّة للتحكم في حجم الصوت"
+
+#: ../mate-volume-control/dialog-main.c:138
+msgid "Sound system is not available"
+msgstr "نظام الصوت غير متاح"
+
+#: ../mate-volume-control/dialog-main.c:160
+msgid "Waiting for sound system to respond"
+msgstr "ينتظر استجابة نظام الصوت"
+
+#: ../mate-volume-control/dialog-main.c:184
+msgid "Sound system backend"
+msgstr "نظام صوت الخلفية"
+
+#: ../mate-volume-control/dialog-main.c:186
+msgid "Startup page"
+msgstr "صفحة البدء"
+
+#: ../mate-volume-control/dialog-main.c:196
+msgid " — MATE Volume Control"
+msgstr " — تحكم متّة في شدة الصوت"
+
+#: ../mate-volume-control/gvc-applet.c:322
+#: ../mate-volume-control/gvc-mixer-dialog.c:2028
+msgid "Input"
+msgstr "الإدخال"
+
+#: ../mate-volume-control/gvc-applet.c:323
+#: ../mate-volume-control/gvc-mixer-dialog.c:2130
+msgid "Output"
+msgstr "الإخراج"
+
+#: ../mate-volume-control/gvc-applet.c:326
+msgid "Microphone Volume"
+msgstr "شدة صوت الميكروفون"
+
+#: ../mate-volume-control/gvc-applet.c:328
+msgid "Sound Output Volume"
+msgstr "شدة صوت الخرْج"
+
+#: ../mate-volume-control/gvc-applet.c:333
+msgid "MATE Volume Control Applet"
+msgstr "MATE الصغير للتحكم في شدة الصوت"
+
+#: ../mate-volume-control/gvc-balance-bar.c:158
+msgctxt "balance"
+msgid "Left"
+msgstr "اليسار"
+
+#: ../mate-volume-control/gvc-balance-bar.c:159
+msgctxt "balance"
+msgid "Right"
+msgstr "اليمين"
+
+#: ../mate-volume-control/gvc-balance-bar.c:162
+msgctxt "balance"
+msgid "Rear"
+msgstr "المؤخرة"
+
+#: ../mate-volume-control/gvc-balance-bar.c:163
+msgctxt "balance"
+msgid "Front"
+msgstr "المقدمة"
+
+#: ../mate-volume-control/gvc-balance-bar.c:166
+msgctxt "balance"
+msgid "Minimum"
+msgstr "أدنى"
+
+#: ../mate-volume-control/gvc-balance-bar.c:167
+msgctxt "balance"
+msgid "Maximum"
+msgstr "أقصى"
+
+#: ../mate-volume-control/gvc-balance-bar.c:355
+msgid "_Balance:"
+msgstr "ال_توازن:"
+
+#: ../mate-volume-control/gvc-balance-bar.c:358
+msgid "_Fade:"
+msgstr "ال_تلاشي:"
+
+#: ../mate-volume-control/gvc-balance-bar.c:361
+msgid "_Subwoofer:"
+msgstr "_مضخم الصوت:"
+
+#: ../mate-volume-control/gvc-channel-bar.c:330
+msgctxt "volume"
+msgid "Unamplified"
+msgstr "غير مكبّر"
+
+#: ../mate-volume-control/gvc-channel-bar.c:343
+msgctxt "volume"
+msgid "100%"
+msgstr "100%"
+
+#. Mute button
+#: ../mate-volume-control/gvc-channel-bar.c:1099
+msgid "Mute"
+msgstr "كتم"
+
+#: ../mate-volume-control/gvc-combo-box.c:257
+#: ../mate-volume-control/gvc-mixer-dialog.c:1617
+msgid "_Profile:"
+msgstr "ال_طور:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:355
+#: ../mate-volume-control/gvc-mixer-dialog.c:504
+msgid "Co_nnector:"
+msgstr "المو_صّل:"
+
+#. translators:
+#. * The device has been disabled
+#: ../mate-volume-control/gvc-mixer-dialog.c:1126
+msgid "Disabled"
+msgstr "معطّل"
+
+#. translators:
+#. * The number of sound outputs on a particular device
+#: ../mate-volume-control/gvc-mixer-dialog.c:1132
+#, c-format
+msgid "%u Output"
+msgid_plural "%u Outputs"
+msgstr[0] "%u مخرج"
+msgstr[1] "مخرج (%u)"
+msgstr[2] "مخرجان (%u)"
+msgstr[3] "%u مخارج"
+msgstr[4] "%u مخرجا"
+msgstr[5] "%u مخرجا"
+
+#. translators:
+#. * The number of sound inputs on a particular device
+#: ../mate-volume-control/gvc-mixer-dialog.c:1141
+#, c-format
+msgid "%u Input"
+msgid_plural "%u Inputs"
+msgstr[0] "%u مدخل"
+msgstr[1] "مدخل (%u)"
+msgstr[2] "مدخلان (%u)"
+msgstr[3] "%u مداخل"
+msgstr[4] "%u مدخلا"
+msgstr[5] "%u مدخلا"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1508
+#: ../mate-volume-control/gvc-mixer-dialog.c:1777
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:872
+msgid "Name"
+msgstr "الاسم"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1556
+#, c-format
+msgid "Speaker Testing for %s"
+msgstr "اختبار سماعات %s"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1620
+msgid "Test Speakers"
+msgstr "اختبر السماعات"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1829
+msgid "Sound Effects"
+msgstr "المؤثرات الصوتية"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1852
+msgid "_Alert volume: "
+msgstr "شدة صوت التنبي_ه:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1927
+msgid "_Output volume: "
+msgstr "حجم صوت ال_إخراج:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1974
+msgid "Hardware"
+msgstr "العتاد"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:1979
+msgid "C_hoose a device to configure:"
+msgstr "ا_ختر جهازا لضبطه:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2006
+#: ../mate-volume-control/gvc-mixer-dialog.c:2162
+msgid "Settings for the selected device:"
+msgstr "إعدادات الجهاز المختار:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2036
+msgid "_Input volume: "
+msgstr "حجم صوت ال_إدخال:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2070
+msgid "Input level:"
+msgstr "مستوى الإدخال:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2099
+msgid "C_hoose a device for sound input:"
+msgstr "اخ_تر جهازا لإدخال الصوت:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2135
+msgid "C_hoose a device for sound output:"
+msgstr "اخ_تر جهازا لإخراج الصوت:"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2196
+msgid "Applications"
+msgstr "التطبيقات"
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2201
+msgid "No application is currently playing or recording audio."
+msgstr "لا تطبيقات تشغل أو تسجل الصوت حاليا."
+
+#: ../mate-volume-control/gvc-mixer-dialog.c:2388
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:736
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:748
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:760
+msgid "Sound Preferences"
+msgstr "تفضيلات الصوت"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:324
+msgid "No sounds"
+msgstr "لا صوت"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:445
+msgid "Built-in"
+msgstr "مدمج"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:632
+#: ../mate-volume-control/sound-theme-file-utils.c:292
+msgid "Custom"
+msgstr "مخصّص"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:739
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:750
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:762
+msgid "Testing event sound"
+msgstr "يختبر صوت الحدث"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:848
+msgid "Default"
+msgstr "المبدئي"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:849
+msgid "From theme"
+msgstr "من السمة"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:879
+msgid "Type"
+msgstr "النوع"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1064
+msgid "Sound _theme:"
+msgstr "_سمة الأصوات:"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1077
+msgid "C_hoose an alert sound:"
+msgstr "اختر صوت تنبيه:"
+
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
+msgid "Enable _window and button sounds"
+msgstr "فعّل أصوات ال_نوافذ والأزرار"
+
+#: ../mate-volume-control/gvc-speaker-test.c:262
+msgid "Stop"
+msgstr "أوقف"
+
+#: ../mate-volume-control/gvc-speaker-test.c:262
+#: ../mate-volume-control/gvc-speaker-test.c:380
+msgid "Test"
+msgstr "اختبِر"
+
+#: ../mate-volume-control/gvc-stream-status-icon.c:232
+#, c-format
+msgid "Failed to start Sound Preferences: %s"
+msgstr "فشل بدء تفضيلات الصوت: %s"
+
+#: ../mate-volume-control/gvc-stream-status-icon.c:267
+msgid "_Mute"
+msgstr "_كتم"
+
+#: ../mate-volume-control/gvc-stream-status-icon.c:278
+#: ../mate-volume-control/gvc-stream-status-icon.c:280
+msgid "_Sound Preferences"
+msgstr "_تفضيلات الصوت"
+
+#: ../mate-volume-control/gvc-stream-status-icon.c:475
+msgid "Muted"
+msgstr "كُتِم"
+
+#: ../mate-volume-control/gvc-utils.c:59
+msgid "Unknown"
+msgstr "مجهول"
+
+#. Speaker channel names
+#: ../mate-volume-control/gvc-utils.c:61
+#: ../mate-volume-control/gvc-utils.c:109
+msgid "Mono"
+msgstr "أحادي"
+
+#: ../mate-volume-control/gvc-utils.c:62
+msgid "Front Left"
+msgstr "المقدّمة اليسرى"
+
+#: ../mate-volume-control/gvc-utils.c:63
+msgid "Front Right"
+msgstr "المقدّمة اليمنى"
+
+#: ../mate-volume-control/gvc-utils.c:64
+msgid "Front Center"
+msgstr "المقدّمة الوسطى"
+
+#: ../mate-volume-control/gvc-utils.c:65
+msgid "LFE"
+msgstr ""
+
+#: ../mate-volume-control/gvc-utils.c:66
+msgid "Rear Left"
+msgstr "الخلفية اليسرى"
+
+#: ../mate-volume-control/gvc-utils.c:67
+msgid "Rear Right"
+msgstr "الخلفية اليمنى"
+
+#: ../mate-volume-control/gvc-utils.c:68
+msgid "Rear Center"
+msgstr "الخلفية الوسطى"
+
+#: ../mate-volume-control/gvc-utils.c:69
+msgid "Front Left of Center"
+msgstr "المقدّمة اليسرى للوسط"
+
+#: ../mate-volume-control/gvc-utils.c:70
+msgid "Front Right of Center"
+msgstr "المقدّمة اليمنى للوسط"
+
+#: ../mate-volume-control/gvc-utils.c:71
+msgid "Side Left"
+msgstr "الجنب الأيسر"
+
+#: ../mate-volume-control/gvc-utils.c:72
+msgid "Side Right"
+msgstr "الجنب الأيمن"
+
+#: ../mate-volume-control/gvc-utils.c:73
+msgid "Top Front Left"
+msgstr "المقدّمة اليسرى العلوية"
+
+#: ../mate-volume-control/gvc-utils.c:74
+msgid "Top Front Right"
+msgstr "المقدّمة اليسرى العلوية"
+
+#: ../mate-volume-control/gvc-utils.c:75
+msgid "Top Front Center"
+msgstr "المقدّمة الوسطى العلوية"
+
+#: ../mate-volume-control/gvc-utils.c:76
+msgid "Top Center"
+msgstr "الوسط الأعلى"
+
+#: ../mate-volume-control/gvc-utils.c:77
+msgid "Top Rear Left"
+msgstr "الخلفية اليسرى العلوية"
+
+#: ../mate-volume-control/gvc-utils.c:78
+msgid "Top Rear Right"
+msgstr "الخلفية اليمنى العلوية"
+
+#: ../mate-volume-control/gvc-utils.c:79
+msgid "Top Rear Center"
+msgstr "الخلفية الوسطى العلوية"
+
+#: ../mate-volume-control/gvc-utils.c:114
+msgid "Stereo"
+msgstr "ستيريو"
+
+#: ../mate-volume-control/gvc-utils.c:121
+msgid "Surround 4.0"
+msgstr ""
+
+#: ../mate-volume-control/gvc-utils.c:129
+msgid "Surround 4.1"
+msgstr ""
+
+#: ../mate-volume-control/gvc-utils.c:131
+msgid "Surround 5.0"
+msgstr ""
+
+#: ../mate-volume-control/gvc-utils.c:141
+msgid "Surround 5.1"
+msgstr ""
+
+#: ../mate-volume-control/gvc-utils.c:152
+msgid "Surround 7.1"
+msgstr ""
