@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rajesh Ranjan <rranjan@redhat.com>, 2009
+# Rajesh Ranjan <rajesh672@gmail.com>, 2009
 # Sangeeta Kumari <sangeeta09@gmail.com>, 2009
 msgid ""
 msgstr ""

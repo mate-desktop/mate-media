@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Umid Almasov <u.almasov@gmail.com>, 2013
+# muzaffar habibullayev <muzaffarlearner@gmail.com>, 2016
+# Umidjon Almasov <u.almasov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
-"PO-Revision-Date: 2016-03-29 15:10+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2016-05-14 15:43+0000\n"
+"Last-Translator: muzaffar habibullayev <muzaffarlearner@gmail.com>\n"
 "Language-Team: Uzbek (http://www.transifex.com/mate/MATE/language/uz/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr ""
 #: ../mate-volume-control/gvc-channel-bar.c:500
 #: ../mate-volume-control/gvc-speaker-test.c:461
 msgid "Volume Control"
-msgstr ""
+msgstr "Ovoz Nazorati"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
@@ -42,7 +43,7 @@ msgstr ""
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
-msgstr ""
+msgstr "Vovullash"
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
@@ -56,7 +57,7 @@ msgstr ""
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
-msgstr ""
+msgstr "Shisha"
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
@@ -97,7 +98,7 @@ msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:196
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr " — MATE Ovoz Nazorati"
 
 #: ../mate-volume-control/gvc-applet.c:322
 #: ../mate-volume-control/gvc-mixer-dialog.c:2028
@@ -111,7 +112,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Mikrofon Ovozi"
 
 #: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
@@ -124,36 +125,36 @@ msgstr ""
 #: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
 msgid "Left"
-msgstr ""
+msgstr "Chap"
 
 #: ../mate-volume-control/gvc-balance-bar.c:159
 msgctxt "balance"
 msgid "Right"
-msgstr ""
+msgstr "Oʻng"
 
 #: ../mate-volume-control/gvc-balance-bar.c:162
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "Orqa"
 
 #: ../mate-volume-control/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "Oldi"
 
 #: ../mate-volume-control/gvc-balance-bar.c:166
 msgctxt "balance"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 #: ../mate-volume-control/gvc-balance-bar.c:167
 msgctxt "balance"
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimum"
 
 #: ../mate-volume-control/gvc-balance-bar.c:355
 msgid "_Balance:"
-msgstr ""
+msgstr "_Balans:"
 
 #: ../mate-volume-control/gvc-balance-bar.c:358
 msgid "_Fade:"
@@ -176,7 +177,7 @@ msgstr "100%"
 #. Mute button
 #: ../mate-volume-control/gvc-channel-bar.c:1099
 msgid "Mute"
-msgstr ""
+msgstr "Ovozsiz"
 
 #: ../mate-volume-control/gvc-combo-box.c:257
 #: ../mate-volume-control/gvc-mixer-dialog.c:1617
@@ -192,7 +193,7 @@ msgstr ""
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr ""
+msgstr "Oʻchirilgan"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -223,11 +224,11 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
-msgstr ""
+msgstr "Spikerlarni Sinash"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
-msgstr ""
+msgstr "Ovoz Effektlari"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1852
 msgid "_Alert volume: "
@@ -279,7 +280,7 @@ msgstr ""
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:748
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:760
 msgid "Sound Preferences"
-msgstr ""
+msgstr "Tovush Xususiyatlari"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:324
 msgid "No sounds"
@@ -302,7 +303,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:848
 msgid "Default"
-msgstr ""
+msgstr "Standart"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:849
 msgid "From theme"
@@ -326,12 +327,12 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 msgid "Stop"
-msgstr ""
+msgstr "To'xtatish"
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 #: ../mate-volume-control/gvc-speaker-test.c:380
 msgid "Test"
-msgstr ""
+msgstr "Sinash"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:232
 #, c-format
@@ -340,16 +341,16 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:267
 msgid "_Mute"
-msgstr ""
+msgstr "_Ovozsiz"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:278
 #: ../mate-volume-control/gvc-stream-status-icon.c:280
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "_Tovush Xususiyatlari"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:475
 msgid "Muted"
-msgstr ""
+msgstr "Ovoz o'chirilgan"
 
 #: ../mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
@@ -359,7 +360,7 @@ msgstr "Noma'lum"
 #: ../mate-volume-control/gvc-utils.c:61
 #: ../mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
@@ -435,7 +436,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: ../mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"

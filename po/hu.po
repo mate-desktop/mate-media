@@ -6,7 +6,7 @@
 # Andras Timar <timar@mate.hu>, 2001-2003
 # Emese Kovacs <emese@mate.hu>, 2002
 # Falu.Me, 2015
-# Faludi Zoltán, 2015
+# Falu <info@falu.me>, 2015
 # Gabor Kelemen <kelemeng at mate dot hu>, 2004-2010
 # Gergely Nagy <greg@mate.hu>, 2001
 # kami911 <kami911@gmail.com>, 2015

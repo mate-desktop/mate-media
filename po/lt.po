@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Audrius Meskauskas <audrius.meskauskas@meska.info>, 2015
+# Audrius Meskauskas, 2015
 # aurisc4 <aurisc4@gmail.com>, 2010
 # Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2014
 # Gintautas Miliauskas <gintas@akl.lt>, 2007
