@@ -5,7 +5,8 @@ SUBDIRS = data po man mate-volume-control
 DISTCHECK_CONFIGURE_FLAGS =			\
 	--enable-more-warnings			\
 	--enable-compile-warnings=maximum	\
-	--enable-deprecated
+	--enable-deprecated             \
+	--with-gtk=$(GTK_API_VERSION)
 
 DIST_SUBDIRS =					\
 	data					\

@@ -65,6 +65,8 @@ case "$with_gtk" in
        ;;
 esac
 
+AC_SUBST(GTK_API_VERSION)
+
 dnl=======================================================================
 dnl Check for the volume control modules
 dnl=======================================================================
