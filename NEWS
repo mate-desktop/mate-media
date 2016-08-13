@@ -1,4 +1,12 @@
 ==============
+Version 1.14.1
+==============
+
+- GTK+3: add css name gvc-level-bar for 3.20
+- Translations update
+- Make distcheck use currently selected GTK+ version
+
+==============
 Version 1.14.0
 ==============
 
