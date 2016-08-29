@@ -27,7 +27,7 @@
 #include <gtk/gtk.h>
 
 #include <libintl.h>
-#include <unique/uniqueapp.h>
+#include <gio/gio.h>
 #include <libmatemixer/matemixer.h>
 
 #include "gvc-applet.h"
@@ -40,7 +40,7 @@ main (int argc, char **argv)
 {
         GError       *error = NULL;
         GvcApplet    *applet;
-        UniqueApp    *app;
+	GApplication       *app = NULL;
         GOptionEntry  entries[] = {
                 { "version", 'v', 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
                 { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Enable debug"), NULL },
@@ -58,6 +58,7 @@ main (int argc, char **argv)
 
         if (error != NULL) {
                 g_warning ("%s", error->message);
+		g_error_free (error);
                 return 1;
         }
         if (show_version == TRUE) {
@@ -68,9 +69,14 @@ main (int argc, char **argv)
                 g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
         }
 
-        app = unique_app_new (GVC_APPLET_DBUS_NAME, NULL);
+	app = g_application_new (GVC_APPLET_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
 
-        if (unique_app_is_running (app) == TRUE) {
+	if (!g_application_register (app, NULL, &error)) {
+		g_warning ("%s", error->message);
+		g_error_free (error);
+		return 1;
+	}
+	if (g_application_get_is_remote (app)) {
                 g_warning ("Applet is already running, exiting");
                 return 0;
         }

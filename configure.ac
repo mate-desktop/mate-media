@@ -61,7 +61,6 @@ case "$with_gtk" in
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED_VERSION=3.0.0
        CANBERRA_API_VERSION=3
-       UNIQUE_API_VERSION=3.0
        ;;
 esac
 
@@ -71,16 +70,28 @@ dnl=======================================================================
 dnl Check for the volume control modules
 dnl=======================================================================
 
-PKG_CHECK_MODULES(VOLUME_CONTROL,
-                  gobject-2.0 >= $GLIB_REQUIRED_VERSION
-                  gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
-                  gio-2.0 >= $GIO_REQUIRED_VERSION
-                  libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
-                  unique-$UNIQUE_API_VERSION
-                  libxml-2.0
-                  mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                  libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
-)
+if test "$GTK_API_VERSION" = "3.0"; then
+        PKG_CHECK_MODULES(VOLUME_CONTROL,
+                          gobject-2.0 >= $GLIB_REQUIRED_VERSION
+                          gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
+                          gio-2.0 >= $GIO_REQUIRED_VERSION
+                          libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
+                          libxml-2.0
+                          mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+                          libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
+        )
+else
+        PKG_CHECK_MODULES(VOLUME_CONTROL,
+                          gobject-2.0 >= $GLIB_REQUIRED_VERSION
+                          gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
+                          gio-2.0 >= $GIO_REQUIRED_VERSION
+                          libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
+                          unique-$UNIQUE_API_VERSION
+                          libxml-2.0
+                          mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+                          libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
+        )
+fi
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
 
