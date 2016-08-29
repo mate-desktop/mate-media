@@ -26,7 +26,11 @@
 #include <gtk/gtk.h>
 
 #include <libintl.h>
+#if GTK_CHECK_VERSION (3, 0, 0)
+#include <gio/gio.h>
+#else
 #include <unique/uniqueapp.h>
+#endif
 #include <libmatemixer/matemixer.h>
 
 #include "gvc-mixer-dialog.h"
@@ -63,6 +67,7 @@ on_dialog_close (GtkDialog *dialog, gpointer data)
         gtk_main_quit ();
 }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static UniqueResponse
 on_app_message_received (UniqueApp         *app,
                          int                command,
@@ -74,6 +79,7 @@ on_app_message_received (UniqueApp         *app,
 
         return UNIQUE_RESPONSE_OK;
 }
+#endif
 
 static void
 remove_warning_dialog (void)
@@ -87,10 +93,36 @@ remove_warning_dialog (void)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+context_ready (MateMixerContext *context, GtkApplication *application)
+#else
 context_ready (MateMixerContext *context, UniqueApp *app)
+#endif
 {
 	/* The dialog might be already created, e.g. when reconnected
 	 * to a sound server */
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkApplication *app;
+	GError *error = NULL;
+
+	app = gtk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
+	g_application_register (G_APPLICATION (app), NULL, &error);
+	if (error != NULL)
+	{
+		g_warning ("%s", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	if (g_application_get_is_remote (G_APPLICATION (app)))
+	{
+		g_application_activate (G_APPLICATION (app));
+		g_object_unref (app);
+		app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
+		gtk_main_quit ();
+	}
+
+#endif
         if (app_dialog != NULL)
                 return;
 
@@ -107,18 +139,28 @@ context_ready (MateMixerContext *context, UniqueApp *app)
 
         gvc_mixer_dialog_set_page (GVC_MIXER_DIALOG (app_dialog), page);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
         g_signal_connect (G_OBJECT (app),
                           "message-received",
                           G_CALLBACK (on_app_message_received),
                           app_dialog);
 
+#endif
         gtk_widget_show (app_dialog);
+#if GTK_CHECK_VERSION (3, 0, 0)
+
+	g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), app_dialog);
+#endif
 }
 
 static void
 on_context_state_notify (MateMixerContext *context,
                          GParamSpec       *pspec,
+#if GTK_CHECK_VERSION (3, 0, 0)
+			 GtkApplication	  *app)
+#else
                          UniqueApp        *app)
+#endif
 {
         MateMixerState state = mate_mixer_context_get_state (context);
 
@@ -179,7 +221,11 @@ main (int argc, char **argv)
         GError           *error = NULL;
         gchar            *backend = NULL;
         MateMixerContext *context;
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GApplication	 *app;
+#else
         UniqueApp        *app;
+#endif
         GOptionEntry      entries[] = {
                 { "backend", 'b', 0, G_OPTION_ARG_STRING, &backend, N_("Sound system backend"), "pulse|alsa|oss|null" },
                 { "debug",   'd', 0, G_OPTION_ARG_NONE,   &debug, N_("Enable debug"), NULL },
@@ -199,6 +245,7 @@ main (int argc, char **argv)
 
         if (error != NULL) {
                 g_warning ("%s", error->message);
+		g_error_free (error);
                 return 1;
         }
         if (show_version == TRUE) {
@@ -209,12 +256,23 @@ main (int argc, char **argv)
                 g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
         }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	app = g_application_new (GVC_DIALOG_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
+
+	if (!g_application_register (app, NULL, &error))
+	{
+		g_warning ("%s", error->message);
+		g_error_free (error);
+		return 1;
+	}
+#else
         app = unique_app_new (GVC_DIALOG_DBUS_NAME, NULL);
 
         if (unique_app_is_running (app) == TRUE) {
                 unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
                 return 0;
         }
+#endif
         if (mate_mixer_init () == FALSE) {
                 g_warning ("libmatemixer initialization failed, exiting");
                 return 1;
