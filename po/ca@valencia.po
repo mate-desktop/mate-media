@@ -5,16 +5,19 @@
 # Translators:
 # Antoni Lacasta i Sulla <als@tinet.org>, 2002
 # jodufi <jodufi@gmail.com>, 2009, 2010
-# Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004, 2005, 2006, 2007
+# jodufi <jodufi@gmail.com>, 2009-2010
+# Jordi Mallach <jordi@sindominio.net>, 2002-2007
 # Josep Puigdemont <josep.puigdemont@gmail.com>, 2007
+# Josep Puigdemont <josep.puigdemont@gmail.com>, 2007
+# Pilar Embid Giner <embid_mar@gva.es>, 2016
 # Softcatalà <info@softcatala.org>, 2000
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
-"PO-Revision-Date: 2015-09-09 11:00+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2016-09-09 06:16+0000\n"
+"Last-Translator: Jose Alfredo Murcia Andrés <joamuran@gmail.com>\n"
 "Language-Team: Catalan (Valencian) (http://www.transifex.com/mate/MATE/language/ca@valencia/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,28 +75,28 @@ msgstr "Sonar"
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:187
 msgid "Version of this application"
-msgstr "Versió d'esta aplicació"
+msgstr "Versió d'aquesta aplicació"
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:185
 msgid "Enable debug"
-msgstr ""
+msgstr "Habilita la depuració"
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr ""
+msgstr "  Miniaplicació del control de volum del MATE"
 
 #: ../mate-volume-control/dialog-main.c:138
 msgid "Sound system is not available"
-msgstr ""
+msgstr "El sistema de so no està disponible"
 
 #: ../mate-volume-control/dialog-main.c:160
 msgid "Waiting for sound system to respond"
-msgstr "S'està esperant que el sistema de so respongui"
+msgstr "S'està esperant que el sistema de so responga"
 
 #: ../mate-volume-control/dialog-main.c:184
 msgid "Sound system backend"
-msgstr ""
+msgstr "Programari especialitzat del sistema de so"
 
 #: ../mate-volume-control/dialog-main.c:186
 msgid "Startup page"
@@ -101,7 +104,7 @@ msgstr "Pàgina inicial"
 
 #: ../mate-volume-control/dialog-main.c:196
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr "Control de volum del MATE"
 
 #: ../mate-volume-control/gvc-applet.c:322
 #: ../mate-volume-control/gvc-mixer-dialog.c:2028
@@ -115,15 +118,15 @@ msgstr "Eixida"
 
 #: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Volum del micròfon"
 
 #: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Volum d'eixida"
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "Miniaplicació del control de volum del MATE"
 
 #: ../mate-volume-control/gvc-balance-bar.c:158
 msgctxt "balance"
@@ -143,7 +146,7 @@ msgstr "Posterior"
 #: ../mate-volume-control/gvc-balance-bar.c:163
 msgctxt "balance"
 msgid "Front"
-msgstr "Davanter"
+msgstr "Frontal"
 
 #: ../mate-volume-control/gvc-balance-bar.c:166
 msgctxt "balance"
@@ -161,7 +164,7 @@ msgstr "_Balanç:"
 
 #: ../mate-volume-control/gvc-balance-bar.c:358
 msgid "_Fade:"
-msgstr "_Esvair:"
+msgstr "_Esvaïment:"
 
 #: ../mate-volume-control/gvc-balance-bar.c:361
 msgid "_Subwoofer:"
@@ -225,11 +228,11 @@ msgstr "Nom"
 #: ../mate-volume-control/gvc-mixer-dialog.c:1556
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr ""
+msgstr "Prova d'altaveus per a %s"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1620
 msgid "Test Speakers"
-msgstr ""
+msgstr "Prova els altaveus"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1829
 msgid "Sound Effects"
@@ -237,7 +240,7 @@ msgstr "Efectes de so"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1852
 msgid "_Alert volume: "
-msgstr "Volum d'_alerta: "
+msgstr "Volum d'_avís: "
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1927
 msgid "_Output volume: "
@@ -249,7 +252,7 @@ msgstr "Maquinari"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1979
 msgid "C_hoose a device to configure:"
-msgstr "Seleccioneu un _dispositiu a configurar:"
+msgstr "Seleccioneu un _dispositiu per a configurar-lo:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2006
 #: ../mate-volume-control/gvc-mixer-dialog.c:2162
@@ -278,7 +281,7 @@ msgstr "Aplicacions"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2201
 msgid "No application is currently playing or recording audio."
-msgstr "No hi ha cap aplicació que estiga reproduint o enregistrant àudio."
+msgstr "No hi ha cap aplicació que estiga reproduint o gravant àudio."
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2388
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:736
@@ -324,7 +327,7 @@ msgstr "_Tema de sons:"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1077
 msgid "C_hoose an alert sound:"
-msgstr "_Escolliu un so d'alerta:"
+msgstr "_Trieu un so d'avís:"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
 msgid "Enable _window and button sounds"
@@ -332,12 +335,12 @@ msgstr "Habilita els sons de les _finestres i dels botons"
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 msgid "Stop"
-msgstr ""
+msgstr "Para"
 
 #: ../mate-volume-control/gvc-speaker-test.c:262
 #: ../mate-volume-control/gvc-speaker-test.c:380
 msgid "Test"
-msgstr ""
+msgstr "Prova"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:232
 #, c-format
@@ -359,106 +362,106 @@ msgstr "Silenciat"
 
 #: ../mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:61
 #: ../mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
-msgstr ""
+msgstr "Frontal esquerre"
 
 #: ../mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
-msgstr ""
+msgstr "Frontal dret"
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
-msgstr ""
+msgstr "Frontal centre"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
-msgstr ""
+msgstr "Posterior esquerre"
 
 #: ../mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
-msgstr ""
+msgstr "posterior dret"
 
 #: ../mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
-msgstr ""
+msgstr "Posterior centre"
 
 #: ../mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
-msgstr ""
+msgstr "Frontal esquerre del centre"
 
 #: ../mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
-msgstr ""
+msgstr "Frontal dret del centre"
 
 #: ../mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
-msgstr ""
+msgstr "Costat esquerre"
 
 #: ../mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
-msgstr ""
+msgstr "costat dret"
 
 #: ../mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
-msgstr ""
+msgstr "Frontal esquerre superior"
 
 #: ../mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
-msgstr ""
+msgstr "Frontal dret superior"
 
 #: ../mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
-msgstr ""
+msgstr "Frontal centre superior"
 
 #: ../mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
-msgstr ""
+msgstr "Superior centre"
 
 #: ../mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
-msgstr ""
+msgstr "Posterior esquerre superior"
 
 #: ../mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
-msgstr ""
+msgstr "Posterior dret superior"
 
 #: ../mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
-msgstr ""
+msgstr "Posterior centre superior"
 
 #: ../mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr ""
+msgstr "Estèreo"
 
 #: ../mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Envoltant 4.0"
 
 #: ../mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Envoltant 4.1"
 
 #: ../mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Envoltant 5.0"
 
 #: ../mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Envoltant 5.1"
 
 #: ../mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Envoltant 7.1"
