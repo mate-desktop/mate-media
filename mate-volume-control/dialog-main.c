@@ -99,28 +99,28 @@ context_ready (MateMixerContext *context, GtkApplication *application)
 context_ready (MateMixerContext *context, UniqueApp *app)
 #endif
 {
-	/* The dialog might be already created, e.g. when reconnected
-	 * to a sound server */
+        /* The dialog might be already created, e.g. when reconnected
+         * to a sound server */
 #if GTK_CHECK_VERSION (3, 0, 0)
-	GtkApplication *app;
-	GError *error = NULL;
+        GtkApplication *app;
+        GError *error = NULL;
 
-	app = gtk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
-	g_application_register (G_APPLICATION (app), NULL, &error);
-	if (error != NULL)
-	{
-		g_warning ("%s", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
+        app = gtk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
+        g_application_register (G_APPLICATION (app), NULL, &error);
+        if (error != NULL)
+        {
+                g_warning ("%s", error->message);
+                g_error_free (error);
+                error = NULL;
+        }
 
-	if (g_application_get_is_remote (G_APPLICATION (app)))
-	{
-		g_application_activate (G_APPLICATION (app));
-		g_object_unref (app);
-		app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
-		gtk_main_quit ();
-	}
+        if (g_application_get_is_remote (G_APPLICATION (app)))
+        {
+                g_application_activate (G_APPLICATION (app));
+                g_object_unref (app);
+                app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
+                gtk_main_quit ();
+        }
 
 #endif
         if (app_dialog != NULL)
@@ -149,7 +149,7 @@ context_ready (MateMixerContext *context, UniqueApp *app)
         gtk_widget_show (app_dialog);
 #if GTK_CHECK_VERSION (3, 0, 0)
 
-	g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), app_dialog);
+        g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), app_dialog);
 #endif
 }
 
@@ -157,7 +157,7 @@ static void
 on_context_state_notify (MateMixerContext *context,
                          GParamSpec       *pspec,
 #if GTK_CHECK_VERSION (3, 0, 0)
-			 GtkApplication	  *app)
+                         GtkApplication	  *app)
 #else
                          UniqueApp        *app)
 #endif
@@ -222,7 +222,7 @@ main (int argc, char **argv)
         gchar            *backend = NULL;
         MateMixerContext *context;
 #if GTK_CHECK_VERSION (3, 0, 0)
-	GApplication	 *app;
+        GApplication	 *app;
 #else
         UniqueApp        *app;
 #endif
@@ -245,7 +245,7 @@ main (int argc, char **argv)
 
         if (error != NULL) {
                 g_warning ("%s", error->message);
-		g_error_free (error);
+                g_error_free (error);
                 return 1;
         }
         if (show_version == TRUE) {
@@ -257,14 +257,14 @@ main (int argc, char **argv)
         }
 
 #if GTK_CHECK_VERSION (3, 0, 0)
-	app = g_application_new (GVC_DIALOG_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
+        app = g_application_new (GVC_DIALOG_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
 
-	if (!g_application_register (app, NULL, &error))
-	{
-		g_warning ("%s", error->message);
-		g_error_free (error);
-		return 1;
-	}
+        if (!g_application_register (app, NULL, &error))
+        {
+                g_warning ("%s", error->message);
+                g_error_free (error);
+                return 1;
+        }
 #else
         app = unique_app_new (GVC_DIALOG_DBUS_NAME, NULL);
 
@@ -313,9 +313,9 @@ main (int argc, char **argv)
         mate_mixer_context_open (context);
 
         if (mate_mixer_context_get_state (context) == MATE_MIXER_STATE_CONNECTING) {
-		   popup_id = g_timeout_add_seconds (DIALOG_POPUP_TIMEOUT,
-                                                 dialog_popup_timeout,
-                                                 NULL);
+                popup_id = g_timeout_add_seconds (DIALOG_POPUP_TIMEOUT,
+                                                  dialog_popup_timeout,
+                                                  NULL);
         }
 
         gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
