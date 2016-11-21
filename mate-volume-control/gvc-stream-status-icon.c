@@ -94,11 +94,7 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
 
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock),
                                (GtkCallback) gtk_widget_show_all, NULL);
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
-#else
-        gtk_widget_size_request (icon->priv->dock, &dock_req);
-#endif
 
         if (orientation == GTK_ORIENTATION_VERTICAL) {
                 if (area.x + area.width + dock_req.width <= monitor.x + monitor.width)
@@ -135,7 +131,6 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
 
         display = gtk_widget_get_display (icon->priv->dock);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         do {
                 GdkDeviceManager *manager = gdk_display_get_device_manager (display);
 
@@ -153,29 +148,7 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
                         gtk_widget_hide (icon->priv->dock);
                 }
         } while (0);
-#else
-        if (gdk_pointer_grab (gtk_widget_get_window (icon->priv->dock),
-                              TRUE,
-                              GDK_BUTTON_PRESS_MASK |
-                              GDK_BUTTON_RELEASE_MASK |
-                              GDK_POINTER_MOTION_MASK |
-                              GDK_SCROLL_MASK,
-                              NULL, NULL,
-                              time) != GDK_GRAB_SUCCESS) {
-                gtk_grab_remove (icon->priv->dock);
-                gtk_widget_hide (icon->priv->dock);
-                return FALSE;
-        }
 
-        if (gdk_keyboard_grab (gtk_widget_get_window (icon->priv->dock),
-                               TRUE,
-                               time) != GDK_GRAB_SUCCESS) {
-                gdk_display_pointer_ungrab (display, time);
-                gtk_grab_remove (icon->priv->dock);
-                gtk_widget_hide (icon->priv->dock);
-                return FALSE;
-        }
-#endif
         gtk_widget_grab_focus (icon->priv->dock);
 
         return TRUE;
@@ -251,7 +224,6 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
 
         menu = gtk_menu_new ();
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         /*Set up theme and transparency support*/
         GtkWidget *toplevel = gtk_widget_get_toplevel (menu);
         /* Fix any failures of compiz/other wm's to communicate with gtk for transparency */
@@ -263,7 +235,7 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
         context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
         gtk_style_context_add_class(context,"gnome-panel-menu-bar");
         gtk_style_context_add_class(context,"mate-panel-menu-bar");
-#endif
+
         item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
         gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
                                         mate_mixer_stream_control_get_mute (icon->priv->control));
@@ -274,20 +246,9 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
 
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-#if GTK_CHECK_VERSION (3, 10, 0)
+        /* FIXME: we lost an icon with migrating from gtk_image_menu_item_new_with_mnemonic */
         item = gtk_menu_item_new_with_mnemonic (_("_Sound Preferences"));
-#else
-        item = gtk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
 
-        do {
-                GtkWidget *image;
-
-                image = gtk_image_new_from_icon_name ("multimedia-volume-control",
-                                                      GTK_ICON_SIZE_MENU);
-
-                gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
-        } while (0);
-#endif
         g_signal_connect (G_OBJECT (item),
                           "activate",
                           G_CALLBACK (on_menu_activate_open_volume_control),
@@ -316,16 +277,7 @@ on_status_icon_scroll_event (GtkStatusIcon       *status_icon,
 static void
 gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         gdk_device_ungrab (event->device, event->time);
-#else
-        GdkDisplay *display;
-
-        display = gtk_widget_get_display (GTK_WIDGET (icon->priv->dock));
-
-        gdk_display_keyboard_ungrab (display, event->time);
-        gdk_display_pointer_ungrab (display, event->time);
-#endif
         gtk_grab_remove (icon->priv->dock);
 
         /* Hide again */
@@ -352,16 +304,10 @@ popdown_dock (GvcStreamStatusIcon *icon)
 
         display = gtk_widget_get_display (icon->priv->dock);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         GdkDeviceManager *manager = gdk_display_get_device_manager (display);
 
         gdk_device_ungrab (gdk_device_manager_get_client_pointer (manager),
                            GDK_CURRENT_TIME);
-#else
-        gdk_display_keyboard_ungrab (display, GDK_CURRENT_TIME);
-        gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
-        gtk_grab_remove (icon->priv->dock);
-#endif
         /* Hide again */
         gtk_widget_hide (icon->priv->dock);
 }
@@ -783,7 +729,6 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          GTK_ORIENTATION_VERTICAL);
                                          
-#if GTK_CHECK_VERSION (3, 0, 0)
        	/* Set volume control frame, slider and toplevel window to follow panel theme */
         GtkWidget *toplevel = gtk_widget_get_toplevel (icon->priv->dock);
         GtkStyleContext *context;
@@ -793,13 +738,8 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
         gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
-#endif
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-#else
-        box = gtk_vbox_new (FALSE, 6);
-#endif
 
         gtk_container_set_border_width (GTK_CONTAINER (box), 2);
         gtk_container_add (GTK_CONTAINER (frame), box);

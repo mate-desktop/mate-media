@@ -995,29 +995,10 @@ on_key_changed (GSettings            *settings,
                 update_theme (chooser);
 }
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-static void
-constrain_list_size (GtkWidget      *widget,
-                     GtkRequisition *requisition,
-                     GtkWidget      *to_size)
-{
-        GtkRequisition req;
-        int            max_height;
-
-        /* Constrain height to be the tree height up to a max */
-        max_height = (gdk_screen_get_height (gtk_widget_get_screen (widget))) / 4;
-
-        gtk_widget_size_request (to_size, &req);
-
-        requisition->height = MIN (req.height, max_height);
-}
-#endif
-
 static void
 setup_list_size_constraint (GtkWidget *widget,
                             GtkWidget *to_size)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkRequisition req;
         int            max_height;
 
@@ -1029,12 +1010,6 @@ setup_list_size_constraint (GtkWidget *widget,
 
         gtk_scrolled_window_set_min_content_height (GTK_SCROLLED_WINDOW (widget),
                                                     MIN (req.height, max_height));
-#else
-        g_signal_connect (G_OBJECT (widget),
-                          "size-request",
-                          G_CALLBACK (constrain_list_size),
-                          to_size);
-#endif
 }
 
 static void
@@ -1048,11 +1023,7 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
 
         chooser->priv = GVC_SOUND_THEME_CHOOSER_GET_PRIVATE (chooser);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         chooser->priv->theme_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
-        chooser->priv->theme_box = gtk_hbox_new (FALSE, 0);
-#endif
 
         gtk_box_pack_start (GTK_BOX (chooser),
                             chooser->priv->theme_box, FALSE, FALSE, 0);

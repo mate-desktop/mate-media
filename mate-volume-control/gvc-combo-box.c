@@ -373,7 +373,6 @@ gvc_combo_box_init (GvcComboBox *combobox)
                                        "text",
                                        COL_HUMAN_NAME);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         combobox->priv->drop_box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         combobox->priv->start_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         combobox->priv->end_box   = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
@@ -385,11 +384,6 @@ gvc_combo_box_init (GvcComboBox *combobox)
                       NULL);
 
         gtk_combo_box_set_popup_fixed_width (GTK_COMBO_BOX (combobox->priv->combobox), FALSE);
-#else
-        combobox->priv->drop_box  = gtk_hbox_new (FALSE, 6);
-        combobox->priv->start_box = gtk_hbox_new (FALSE, 6);
-        combobox->priv->end_box   = gtk_hbox_new (FALSE, 6);
-#endif
 
         gtk_box_pack_start (GTK_BOX (combobox),
                             frame,
@@ -454,8 +448,6 @@ gvc_combo_box_new (MateMixerSwitch *swtch, const gchar *label)
         return g_object_new (GVC_TYPE_COMBO_BOX,
                              "switch", swtch,
                              "label", label,
-#if GTK_CHECK_VERSION (3, 0, 0)
                              "orientation", GTK_ORIENTATION_HORIZONTAL,
-#endif
                              NULL);
 }

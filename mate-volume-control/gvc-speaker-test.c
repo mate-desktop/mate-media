@@ -54,11 +54,7 @@ static void gvc_speaker_test_init       (GvcSpeakerTest      *test);
 static void gvc_speaker_test_dispose    (GObject             *object);
 static void gvc_speaker_test_finalize   (GObject             *object);
 
-#if GTK_CHECK_VERSION (3, 4, 0)
 G_DEFINE_TYPE (GvcSpeakerTest, gvc_speaker_test, GTK_TYPE_GRID)
-#else
-G_DEFINE_TYPE (GvcSpeakerTest, gvc_speaker_test, GTK_TYPE_TABLE)
-#endif
 
 typedef struct {
         MateMixerChannelPosition position;
@@ -355,13 +351,9 @@ create_control (ca_context *canberra, MateMixerChannelPosition position)
         GtkWidget   *test_button;
         const gchar *name;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         control = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
         box     = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
-        control = gtk_vbox_new (FALSE, 6);
-        box     = gtk_hbox_new (FALSE, 0);
-#endif
+
         g_object_set_data (G_OBJECT (control), "playing", GINT_TO_POINTER (FALSE));
         g_object_set_data (G_OBJECT (control), "position", GINT_TO_POINTER (position));
         g_object_set_data (G_OBJECT (control), "canberra", canberra);
@@ -401,21 +393,11 @@ create_controls (GvcSpeakerTest *test)
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
                 GtkWidget *control = create_control (test->priv->canberra, positions[i].position);
 
-#if GTK_CHECK_VERSION (3, 4, 0)
                 gtk_grid_attach (GTK_GRID (test),
                                  control,
                                  positions[i].left,
                                  positions[i].top,
                                  1, 1);
-#else
-                gtk_table_attach (GTK_TABLE (test),
-                                  control,
-                                  positions[i].left,
-                                  positions[i].left + 1,
-                                  positions[i].top,
-                                  positions[i].top + 1,
-                                  GTK_EXPAND, GTK_EXPAND, 0, 0);
-#endif
                 g_array_insert_val (test->priv->controls, i, control);
         }
 }
@@ -431,7 +413,6 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
 
         face = gtk_image_new_from_icon_name ("face-smile", GTK_ICON_SIZE_DIALOG);
 
-#if GTK_CHECK_VERSION (3, 4, 0)
         gtk_grid_attach (GTK_GRID (test),
                          face,
                          1, 1,
@@ -439,14 +420,6 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
 
 
         gtk_grid_set_baseline_row (GTK_GRID (test), 1);
-#else
-        gtk_table_attach (GTK_TABLE (test),
-                          face,
-                          2, 3, 1, 2,
-                          GTK_EXPAND,
-                          GTK_EXPAND,
-                          0, 0);
-#endif
         gtk_widget_show (face);
 
         ca_context_create (&test->priv->canberra);
@@ -502,14 +475,8 @@ gvc_speaker_test_new (MateMixerStream *stream)
         test = g_object_new (GVC_TYPE_SPEAKER_TEST,
                              "row-spacing", 6,
                              "column-spacing", 6,
-#if GTK_CHECK_VERSION (3, 4, 0)
                              "row-homogeneous", TRUE,
                              "column-homogeneous", TRUE,
-#else
-                             "homogeneous", TRUE,
-                             "n-rows", 3,
-                             "n-columns", 5,
-#endif
                              "stream", stream,
                              NULL);
 

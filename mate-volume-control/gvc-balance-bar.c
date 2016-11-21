@@ -79,29 +79,15 @@ G_DEFINE_TYPE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_BOX)
 static void
 create_scale_box (GvcBalanceBar *bar)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         bar->priv->scale_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         bar->priv->start_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         bar->priv->end_box   = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         bar->priv->scale     = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL,
                                               bar->priv->adjustment);
-#if GTK_CHECK_VERSION (3, 4, 0)
+
         /* Balance and fade scales do not have an origin */
         if (bar->priv->btype != BALANCE_TYPE_LFE)
                 gtk_scale_set_has_origin (GTK_SCALE (bar->priv->scale), FALSE);
-#endif
-#else
-        bar->priv->scale_box = gtk_hbox_new (FALSE, 6);
-        bar->priv->start_box = gtk_hbox_new (FALSE, 6);
-        bar->priv->end_box   = gtk_hbox_new (FALSE, 6);
-        bar->priv->scale     = gtk_hscale_new (bar->priv->adjustment);
-
-        /* GTK2 way to remove the origin */
-        if (bar->priv->btype != BALANCE_TYPE_LFE) {
-                gtk_rc_parse_string (BALANCE_BAR_STYLE);
-                gtk_widget_set_name (bar->priv->scale, "balance-bar-scale");
-        }
-#endif
 
         gtk_widget_set_size_request (bar->priv->scale, SCALE_SIZE, -1);
 
@@ -546,8 +532,6 @@ gvc_balance_bar_new (MateMixerStreamControl *control, GvcBalanceType btype)
         return g_object_new (GVC_TYPE_BALANCE_BAR,
                             "balance-type", btype,
                             "control", control,
-#if GTK_CHECK_VERSION (3, 0, 0)
                             "orientation", GTK_ORIENTATION_HORIZONTAL,
-#endif
                             NULL);
 }

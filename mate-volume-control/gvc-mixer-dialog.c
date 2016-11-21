@@ -1307,11 +1307,7 @@ make_label_bold (GtkLabel *label)
          * from the current state of the widget, which comes from the
          * theme or user prefs, since the font desc only has the
          * weight flag turned on. */
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_widget_override_font (GTK_WIDGET (label), font_desc);
-#else
-        gtk_widget_modify_font (GTK_WIDGET (label), font_desc);
-#endif
         pango_font_description_free (font_desc);
 }
 
@@ -1819,11 +1815,7 @@ create_page_effects (GvcMixerDialog *self)
         GtkWidget *label;
         GtkWidget *chooser;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-#else
-        box = gtk_vbox_new (FALSE, 6);
-#endif
         gtk_container_set_border_width (GTK_CONTAINER (box), 12);
 
         label = gtk_label_new (_("Sound Effects"));
@@ -1909,11 +1901,7 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         gtk_container_set_border_width (GTK_CONTAINER (self), 6);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->output_stream_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
-#else
-        self->priv->output_stream_box = gtk_hbox_new (FALSE, 12);
-#endif
 
         alignment = gtk_alignment_new (0, 0, 1, 1);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 12, 0, 0, 0);
@@ -1964,11 +1952,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         /* Create notebook pages */
         create_page_effects (self);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->hw_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-#else
-        self->priv->hw_box = gtk_vbox_new (FALSE, 12);
-#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->hw_box), 12);
 
         label = gtk_label_new (_("Hardware"));
@@ -2009,19 +1993,11 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, FALSE, TRUE, 12);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->hw_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-#else
-        self->priv->hw_settings_box = gtk_vbox_new (FALSE, 12);
-#endif
 
         gtk_container_add (GTK_CONTAINER (box), self->priv->hw_settings_box);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->input_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-#else
-        self->priv->input_box = gtk_vbox_new (FALSE, 12);
-#endif
 
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->input_box), 12);
 
@@ -2050,15 +2026,9 @@ gvc_mixer_dialog_constructor (GType                  type,
                             alignment,
                             FALSE, FALSE, 0);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         sbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         ebox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-#else
-        box  = gtk_hbox_new (FALSE, 6);
-        sbox = gtk_hbox_new (FALSE, 6);
-        ebox = gtk_hbox_new (FALSE, 6);
-#endif
 
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
                             box,
@@ -2087,11 +2057,7 @@ gvc_mixer_dialog_constructor (GType                  type,
                             FALSE, FALSE, 0);
         gtk_size_group_add_widget (self->priv->size_group, ebox);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->input_settings_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-#else
-        self->priv->input_settings_box = gtk_hbox_new (FALSE, 6);
-#endif
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
                             self->priv->input_settings_box,
                             FALSE, FALSE, 0);
@@ -2125,11 +2091,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
 
         /* Output page */
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->output_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-#else
-        self->priv->output_box = gtk_vbox_new (FALSE, 12);
-#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->output_box), 12);
         label = gtk_label_new (_("Output"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
@@ -2168,11 +2130,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         make_label_bold (GTK_LABEL (label));
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, FALSE, FALSE, 12);
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->output_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-#else
-        self->priv->output_settings_box = gtk_vbox_new (FALSE, 0);
-#endif
         gtk_container_add (GTK_CONTAINER (box), self->priv->output_settings_box);
 
         self->priv->output_settings_frame = box;
@@ -2186,20 +2144,11 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_window),
                                              GTK_SHADOW_IN);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         self->priv->applications_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-#else
-        self->priv->applications_box = gtk_vbox_new (FALSE, 12);
-#endif
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
 
-#if GTK_CHECK_VERSION (3, 8, 0)
         gtk_container_add (GTK_CONTAINER (self->priv->applications_window),
                            self->priv->applications_box);
-#else
-        gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (self->priv->applications_window),
-                                               self->priv->applications_box);
-#endif
 
         label = gtk_label_new (_("Applications"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),

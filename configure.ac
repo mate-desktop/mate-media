@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT([mate-media],
-        [1.16.0],
+        [1.17.0],
         [http://www.mate-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
@@ -34,64 +34,24 @@ AC_TYPE_SIZE_T
 
 GLIB_REQUIRED_VERSION=2.36.0
 GIO_REQUIRED_VERSION=2.36.0
+GTK_REQUIRED_VERSION=3.14.0
 CANBERRA_REQUIRED_VERSION=0.13
 MATE_MIXER_REQUIRED_VERSION=1.10.0
-MATE_DESKTOP_REQUIRED_VERSION=1.9.3
-
-dnl=======================================================================
-dnl Support multiple GTK versions
-dnl=======================================================================
-
-AC_MSG_CHECKING([which gtk+ version to compile against])
-AC_ARG_WITH([gtk],
-  [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
-  [case "$with_gtk" in
-     2.0|3.0) ;;
-     *) AC_MSG_ERROR([invalid gtk version specified]) ;;
-   esac],
-  [with_gtk=2.0])
-AC_MSG_RESULT([$with_gtk])
-
-case "$with_gtk" in
-  2.0) GTK_API_VERSION=2.0
-       GTK_REQUIRED_VERSION=2.24.0
-       CANBERRA_API_VERSION=
-       UNIQUE_API_VERSION=1.0
-       ;;
-  3.0) GTK_API_VERSION=3.0
-       GTK_REQUIRED_VERSION=3.0.0
-       CANBERRA_API_VERSION=3
-       ;;
-esac
-
-AC_SUBST(GTK_API_VERSION)
+MATE_DESKTOP_REQUIRED_VERSION=1.17.0
 
 dnl=======================================================================
 dnl Check for the volume control modules
 dnl=======================================================================
 
-AS_IF([test "$GTK_API_VERSION" = "3.0"], [
-        PKG_CHECK_MODULES(VOLUME_CONTROL,
-                          gobject-2.0 >= $GLIB_REQUIRED_VERSION
-                          gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
-                          gio-2.0 >= $GIO_REQUIRED_VERSION
-                          libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
-                          libxml-2.0
-                          mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                          libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
-        )
-], [
-        PKG_CHECK_MODULES(VOLUME_CONTROL,
-                          gobject-2.0 >= $GLIB_REQUIRED_VERSION
-                          gtk+-$GTK_API_VERSION >= $GTK_REQUIRED_VERSION
-                          gio-2.0 >= $GIO_REQUIRED_VERSION
-                          libcanberra-gtk$CANBERRA_API_VERSION >= $CANBERRA_REQUIRED_VERSION
-                          unique-$UNIQUE_API_VERSION
-                          libxml-2.0
-                          mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                          libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
-        )
-])
+PKG_CHECK_MODULES(VOLUME_CONTROL,
+                  gobject-2.0 >= $GLIB_REQUIRED_VERSION
+                  gtk+-3.0 >= $GTK_REQUIRED_VERSION
+                  gio-2.0 >= $GIO_REQUIRED_VERSION
+                  libcanberra-gtk3 >= $CANBERRA_REQUIRED_VERSION
+                  libxml-2.0
+                  mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+                  libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
+)
 
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
@@ -207,5 +167,4 @@ echo "
         Source code location:        ${srcdir}
         Compiler:                    ${CC}
         CFLAGS:                      ${CFLAGS}
-        GTK+ API version:            ${GTK_API_VERSION}
 "

@@ -47,15 +47,9 @@ typedef struct {
         int            box_width;
         int            box_height;
         int            box_radius;
-#if GTK_CHECK_VERSION (3, 0, 0)
         GdkRGBA        color_bg;
         GdkRGBA        color_fg;
         GdkRGBA        color_dark;
-#else
-        GdkColor       color_bg;
-        GdkColor       color_fg;
-        GdkColor       color_dark;
-#endif
 } LevelBarLayout;
 
 struct _GvcLevelBarPrivate
@@ -108,21 +102,13 @@ layout_changed (LevelBarLayout *layout1, LevelBarLayout *layout2)
         if (layout1->max_peak_num != layout2->max_peak_num)
                 return TRUE;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         if (!gdk_rgba_equal (&layout1->color_fg, &layout2->color_fg))
                 return TRUE;
         if (!gdk_rgba_equal (&layout1->color_bg, &layout2->color_bg))
                 return TRUE;
         if (!gdk_rgba_equal (&layout1->color_dark, &layout2->color_dark))
                 return TRUE;
-#else
-        if (!gdk_color_equal (&layout1->color_fg, &layout2->color_fg))
-                return TRUE;
-        if (!gdk_color_equal (&layout1->color_bg, &layout2->color_bg))
-                return TRUE;
-        if (!gdk_color_equal (&layout1->color_dark, &layout2->color_dark))
-                return TRUE;
-#endif
+
         return FALSE;
 }
 
@@ -171,7 +157,6 @@ bar_calc_layout (GvcLevelBar *bar)
         int           max_peak_level;
         GtkAllocation allocation;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkStyleContext *context;
 
         context = gtk_widget_get_style_context (GTK_WIDGET (bar));
@@ -190,15 +175,6 @@ bar_calc_layout (GvcLevelBar *bar)
                                                 gtk_style_context_get_state (context),
                                                 &bar->priv->layout.color_fg);
         gtk_style_context_restore (context);
-#else
-        GtkStyle *style;
-
-        style = gtk_widget_get_style (GTK_WIDGET (bar));
-
-        bar->priv->layout.color_bg   = style->bg[GTK_STATE_NORMAL];
-        bar->priv->layout.color_fg   = style->bg[GTK_STATE_SELECTED];
-        bar->priv->layout.color_dark = style->dark[GTK_STATE_NORMAL];
-#endif
 
         gtk_widget_get_allocation (GTK_WIDGET (bar), &allocation);
 
@@ -472,7 +448,6 @@ gvc_level_bar_size_request (GtkWidget      *widget,
         }
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 gvc_level_bar_get_preferred_width (GtkWidget *widget,
                                    gint      *minimum,
@@ -502,7 +477,6 @@ gvc_level_bar_get_preferred_height (GtkWidget *widget,
         if (natural != NULL)
                 *natural = requisition.height;
 }
-#endif
 
 static void
 gvc_level_bar_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
@@ -607,52 +581,28 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
                                           bar->priv->layout.box_radius);
                         if ((bar->priv->layout.max_peak_num - 1) == i) {
                                 /* fill peak foreground */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_fg);
-#else
-                                gdk_cairo_set_source_color (cr, &bar->priv->layout.color_fg);
-#endif
                                 cairo_fill_preserve (cr);
                         } else if ((bar->priv->layout.peak_num - 1) >= i) {
                                 /* fill background */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
-#else
-                                gdk_cairo_set_source_color (cr, &bar->priv->layout.color_bg);
-#endif
                                 cairo_fill_preserve (cr);
 
                                 /* fill foreground */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 cairo_set_source_rgba (cr,
                                                        bar->priv->layout.color_fg.red,
                                                        bar->priv->layout.color_fg.green,
                                                        bar->priv->layout.color_fg.blue,
                                                        0.5);
-#else
-                                cairo_set_source_rgba (cr,
-                                                       bar->priv->layout.color_fg.red / 65535.0,
-                                                       bar->priv->layout.color_fg.green / 65535.0,
-                                                       bar->priv->layout.color_fg.blue / 65535.0,
-                                                       0.5);
-#endif
                                 cairo_fill_preserve (cr);
                         } else {
                                 /* fill background */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
-#else
-                                gdk_cairo_set_source_color (cr, &bar->priv->layout.color_bg);
-#endif
                                 cairo_fill_preserve (cr);
                         }
 
                         /* stroke border */
-#if GTK_CHECK_VERSION (3, 0, 0)
                         gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_dark);
-#else
-                        gdk_cairo_set_source_color (cr, &bar->priv->layout.color_dark);
-#endif
                         cairo_set_line_width (cr, 1);
                         cairo_stroke (cr);
                 }
@@ -680,52 +630,28 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
 
                         if ((bar->priv->layout.max_peak_num - 1) == i) {
                                 /* fill peak foreground */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_fg);
-#else
-                                gdk_cairo_set_source_color (cr, &bar->priv->layout.color_fg);
-#endif
                                 cairo_fill_preserve (cr);
                         } else if ((bar->priv->layout.peak_num - 1) >= i) {
                                 /* fill background */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
-#else
-                                gdk_cairo_set_source_color (cr, &bar->priv->layout.color_bg);
-#endif
                                 cairo_fill_preserve (cr);
 
                                 /* fill foreground */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 cairo_set_source_rgba (cr,
                                                        bar->priv->layout.color_fg.red,
                                                        bar->priv->layout.color_fg.green,
                                                        bar->priv->layout.color_fg.blue,
                                                        0.5);
-#else
-                                cairo_set_source_rgba (cr,
-                                                       bar->priv->layout.color_fg.red / 65535.0,
-                                                       bar->priv->layout.color_fg.green / 65535.0,
-                                                       bar->priv->layout.color_fg.blue / 65535.0,
-                                                       0.5);
-#endif
                                 cairo_fill_preserve (cr);
                         } else {
                                 /* fill background */
-#if GTK_CHECK_VERSION (3, 0, 0)
                                 gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
-#else
-                                gdk_cairo_set_source_color (cr, &bar->priv->layout.color_bg);
-#endif
                                 cairo_fill_preserve (cr);
                         }
 
                         /* stroke border */
-#if GTK_CHECK_VERSION (3, 0, 0)
                         gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_dark);
-#else
-                        gdk_cairo_set_source_color (cr, &bar->priv->layout.color_dark);
-#endif
                         cairo_set_line_width (cr, 1);
                         cairo_stroke (cr);
                 }
@@ -735,33 +661,6 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
 
         return FALSE;
 }
-
-#if !GTK_CHECK_VERSION (3, 0, 0)
-static int
-gvc_level_bar_expose (GtkWidget *widget, GdkEventExpose *event)
-{
-        cairo_t       *cr;
-        GtkAllocation  allocation;
-
-        g_return_val_if_fail (event != NULL, FALSE);
-
-        /* Event queue compression */
-        if (event->count > 0)
-                return FALSE;
-
-        gtk_widget_get_allocation (widget, &allocation);
-
-        cr = gdk_cairo_create (gtk_widget_get_window (widget));
-        cairo_translate (cr,
-                         allocation.x,
-                         allocation.y);
-
-        gvc_level_bar_draw (widget, cr);
-
-        cairo_destroy (cr);
-        return FALSE;
-}
-#endif
 
 static void
 gvc_level_bar_class_init (GvcLevelBarClass *klass)
@@ -773,14 +672,9 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
         object_class->set_property = gvc_level_bar_set_property;
         object_class->get_property = gvc_level_bar_get_property;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         widget_class->draw = gvc_level_bar_draw;
         widget_class->get_preferred_width = gvc_level_bar_get_preferred_width;
         widget_class->get_preferred_height = gvc_level_bar_get_preferred_height;
-#else
-        widget_class->expose_event = gvc_level_bar_expose;
-        widget_class->size_request = gvc_level_bar_size_request;
-#endif
         widget_class->size_allocate = gvc_level_bar_size_allocate;
 #if GTK_CHECK_VERSION (3, 20, 0)
         gtk_widget_class_set_css_name (widget_class, "gvc-level-bar");
@@ -830,11 +724,9 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
 static void
 gvc_level_bar_init (GvcLevelBar *bar)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkStyleContext *context = gtk_widget_get_style_context (GTK_WIDGET (bar));
 
         gtk_style_context_add_class (context, GTK_STYLE_CLASS_LIST_ROW);
-#endif
 
         bar->priv = GVC_LEVEL_BAR_GET_PRIVATE (bar);
 

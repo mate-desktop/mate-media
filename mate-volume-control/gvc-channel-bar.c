@@ -94,25 +94,11 @@ G_DEFINE_TYPE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_BOX)
 static void
 create_scale_box (GvcChannelBar *bar)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
         bar->priv->scale_box = gtk_box_new (bar->priv->orientation, 6);
         bar->priv->start_box = gtk_box_new (bar->priv->orientation, 6);
         bar->priv->end_box   = gtk_box_new (bar->priv->orientation, 6);
         bar->priv->scale     = gtk_scale_new (bar->priv->orientation,
                                               bar->priv->adjustment);
-#else
-        if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
-                bar->priv->scale_box = gtk_vbox_new (FALSE, 6);
-                bar->priv->start_box = gtk_vbox_new (FALSE, 6);
-                bar->priv->end_box   = gtk_vbox_new (FALSE, 6);
-                bar->priv->scale     = gtk_vscale_new (bar->priv->adjustment);
-        } else {
-                bar->priv->scale_box = gtk_hbox_new (FALSE, 6);
-                bar->priv->start_box = gtk_hbox_new (FALSE, 6);
-                bar->priv->end_box   = gtk_hbox_new (FALSE, 6);
-                bar->priv->scale     = gtk_hscale_new (bar->priv->adjustment);
-        }
-#endif
         if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
                 gtk_widget_set_size_request (bar->priv->scale, -1, SCALE_SIZE);
 
@@ -349,15 +335,11 @@ update_marks (GvcChannelBar *bar)
         if (has_mark) {
                 gtk_alignment_set (GTK_ALIGNMENT (bar->priv->mute_box), 0.5, 0, 0, 0);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
                 gtk_widget_set_halign (bar->priv->low_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_valign (bar->priv->low_image, GTK_ALIGN_START);
                 gtk_widget_set_halign (bar->priv->high_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_valign (bar->priv->high_image, GTK_ALIGN_START);
-#else
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->low_image), 0.5, 0.0);
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->high_image), 0.5, 0.0);
-#endif
+
 #if GTK_CHECK_VERSION (3, 16, 0)
                 gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
                 gtk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.0);
@@ -367,15 +349,11 @@ update_marks (GvcChannelBar *bar)
         } else {
                 gtk_alignment_set (GTK_ALIGNMENT (bar->priv->mute_box), 0.5, 0.5, 0, 0);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
                 gtk_widget_set_halign (bar->priv->low_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_valign (bar->priv->low_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_halign (bar->priv->high_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_valign (bar->priv->high_image, GTK_ALIGN_CENTER);
-#else
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->low_image), 0.5, 0.5);
-                gtk_misc_set_alignment (GTK_MISC (bar->priv->high_image), 0.5, 0.5);
-#endif
+
 #if GTK_CHECK_VERSION (3, 16, 0)
                 gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
                 gtk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.5);
@@ -468,17 +446,6 @@ on_scale_button_press_event (GtkWidget      *widget,
                              GdkEventButton *event,
                              GvcChannelBar  *bar)
 {
-
-#if !GTK_CHECK_VERSION (3, 6, 0)
-        /* Up to GTK 3.4 the slider selection only moves in increments when
-         * clicking in the slider with the left button and it moves directly
-         * to the clicked position with the middle mouse button.
-         * Change this behaviour to also jump to the clicked position with the
-         * left mouse button. */
-        if (event->button == 1)
-                event->button = 2;
-#endif
-
         /* Muting the stream when volume is non-zero moves the slider to zero,
          * but the volume remains the same. In this case delay unmuting and
          * changing volume until user releases the mouse button. */
@@ -499,11 +466,6 @@ on_scale_button_release_event (GtkWidget      *widget,
                                GdkEventButton *event,
                                GvcChannelBar  *bar)
 {
-#if !GTK_CHECK_VERSION (3, 6, 0)
-        if (event->button == 1)
-                event->button = 2;
-#endif
-
         if (bar->priv->click_lock == TRUE) {
                 /* The volume change is not reflected while the lock is
                  * held, propagate the change now that user has released
@@ -531,7 +493,6 @@ on_scale_scroll_event (GtkWidget      *widget,
 {
         GdkScrollDirection direction = event->direction;
 
-#if GTK_CHECK_VERSION (3, 4, 0)
         if (direction == GDK_SCROLL_SMOOTH) {
                 gdouble dx = 0.0;
                 gdouble dy = 0.0;
@@ -544,7 +505,7 @@ on_scale_scroll_event (GtkWidget      *widget,
                 else
                         return FALSE;
         }
-#endif
+
         return gvc_channel_bar_scroll (bar, direction);
 }
 
@@ -1176,8 +1137,6 @@ gvc_channel_bar_new (MateMixerStreamControl *control)
 {
         return g_object_new (GVC_TYPE_CHANNEL_BAR,
                              "control", control,
-#if GTK_CHECK_VERSION (3, 0, 0)
                              "orientation", GTK_ORIENTATION_HORIZONTAL,
-#endif
                              NULL);
 }

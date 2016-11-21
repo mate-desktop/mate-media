@@ -43,21 +43,13 @@ typedef struct _GvcSpeakerTestPrivate  GvcSpeakerTestPrivate;
 
 struct _GvcSpeakerTest
 {
-#if GTK_CHECK_VERSION (3, 4, 0)
         GtkGrid                   parent;
-#else
-        GtkTable                  parent;
-#endif
         GvcSpeakerTestPrivate    *priv;
 };
 
 struct _GvcSpeakerTestClass
 {
-#if GTK_CHECK_VERSION (3, 4, 0)
         GtkGridClass              parent_class;
-#else
-        GtkTableClass             parent_class;
-#endif
 };
 
 GType               gvc_speaker_test_get_type            (void) G_GNUC_CONST;
