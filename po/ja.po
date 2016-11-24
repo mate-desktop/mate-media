@@ -4,11 +4,11 @@
 # 
 # Translators:
 # Akira TAGOH <tagoh@gnome.gr.jp>, 2000
-# BALLOON a.k.a. Fu-sen., 2014
+# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2014
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999
 # Hideki Yamane <henrich@debian.or.jp>, 2010
 # Hideki Yamane <henrich@debian.or.jp>, 2010
-# Ikuru Kanum <kanumaiku@gmail.com>, 2015
+# Ikuru K <kanumaiku@gmail.com>, 2015
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003
 # Mitsuru Oka <95i44@is.kochi-u.ac.jp>, 1998
 # Satoru SATOH <aihana@gnome.gr.jp>, 2006
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
 "PO-Revision-Date: 2016-02-25 12:48+0000\n"
-"Last-Translator: Ikuru Kanum <kanumaiku@gmail.com>\n"
+"Last-Translator: Ikuru K <kanumaiku@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/mate/MATE/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

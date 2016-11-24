@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 14:07+0300\n"
-"PO-Revision-Date: 2016-03-24 20:34+0000\n"
+"PO-Revision-Date: 2016-11-19 11:15+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/mate/MATE/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -247,7 +247,7 @@ msgstr "Maskinvare"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1979
 msgid "C_hoose a device to configure:"
-msgstr "Velg en en_het som skal konfigureres:"
+msgstr "Velg en en_het som skal settes opp:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2006
 #: ../mate-volume-control/gvc-mixer-dialog.c:2162
@@ -310,7 +310,7 @@ msgstr "Forvalgt"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:849
 msgid "From theme"
-msgstr "Fra tema"
+msgstr "Fra drakt"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:879
 msgid "Type"
