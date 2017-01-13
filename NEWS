@@ -1,81 +1,61 @@
-==============
-Version 1.17.0
-==============
+### mate-media 1.17.0
 
-- Translations update
-- move to GTK+3 (>= 3.14), drop GTK+2 code and --with-gtk build option
-- build: require libmatemixer >= 1.10 (first stable release)
-- drop ancient NEWS.GNOME
-- Port from libunique to GApplication and GtkApplication
+  * Translations update
+  * move to GTK+3 (>= 3.14), drop GTK+2 code and --with-gtk build option
+  * build: require libmatemixer >= 1.10 (first stable release)
+  * drop ancient NEWS.GNOME
+  * Port from libunique to GApplication and GtkApplication
 
-==============
-Version 1.16.0
-==============
+### mate-media 1.16.0
 
-- Translations update
+  * Translations update
 
-==============
-Version 1.14.1
-==============
+### mate-media 1.14.1
 
-- GTK+3: add css name gvc-level-bar for 3.20
-- Translations update
-- Make distcheck use currently selected GTK+ version
+  * GTK+3: add css name gvc-level-bar for 3.20
+  * Translations update
+  * Make distcheck use currently selected GTK+ version
 
-==============
-Version 1.14.0
-==============
+### mate-media 1.14.0
 
-- GTK+3: add css name GvcMixerDialog for 3.20
-- GTK+3: fix several deprecations
-- Translations update
-- Fix Changelog generation
+  * GTK+3: add css name GvcMixerDialog for 3.20
+  * GTK+3: fix several deprecations
+  * Translations update
+  * Fix Changelog generation
 
-==============
-Version 1.12.1
-==============
+### mate-media 1.12.1
 
-- GTK+3: don't remove slider background (fixes background in some
+  * GTK+3: don't remove slider background (fixes background in some
   themes)
 
-==============
-Version 1.12.0
-==============
+### mate-media 1.12.0
 
-- Multiple fixes in manpages
-- GTK+3: add style classes for slider and menu for volume-applet
-- GTK+3: fix missing icons with custom icon theme
-- Translations update
+  * Multiple fixes in manpages
+  * GTK+3: add style classes for slider and menu for volume-applet
+  * GTK+3: fix missing icons with custom icon theme
+  * Translations update
 
-==============
-Version 1.10.0
-==============
+### mate-media 1.10.0
 
-- Removed PulseAudio dependency
-- Removed gst-mixer and gst-mixer-applet
-- mate-volume-control: Port from PulseAudio to libmatemixer
-- mate-volume-control: Allow selecting input and output connectors
-- mate-volume-control: Speaker test widget now contains a Close button
-- mate-volume-control: Device and stream lists are now sorted
-- mate-volume-control-applet: Do not show icons when on a vertical panel
-- mate-volume-control-applet: Allow clicking in the popup window
+  * Removed PulseAudio dependency
+  * Removed gst-mixer and gst-mixer-applet
+  * mate-volume-control: Port from PulseAudio to libmatemixer
+  * mate-volume-control: Allow selecting input and output connectors
+  * mate-volume-control: Speaker test widget now contains a Close button
+  * mate-volume-control: Device and stream lists are now sorted
+  * mate-volume-control-applet: Do not show icons when on a vertical panel
+  * mate-volume-control-applet: Allow clicking in the popup window
 
-=============
-Version 1.8.0
-=============
+### mate-media 1.8.0
 
-- Middle click on applet toggles mute state
-- mate-volume-control: Allow applications list to be scrolled
+  * Middle click on applet toggles mute state
+  * mate-volume-control: Allow applications list to be scrolled
 
-=============
-Version 1.5.1
-=============
+### mate-media 1.5.1
 
-- Add GStreamer mixer applet (from mate-applets package)
+  * Add GStreamer mixer applet (from mate-applets package)
 
-=============
-Version 1.5.0
-=============
+### mate-media 1.5.0
 
-- Migration to GSettings
-- Removed gstreamer-properties and profiles (unused)
+  * Migration to GSettings
+  * Removed gstreamer-properties and profiles (unused)
