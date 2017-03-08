@@ -129,7 +129,7 @@ create_scale_box (GvcChannelBar *bar)
                                     bar->priv->low_image,
                                     FALSE, FALSE, 0);
                 gtk_box_pack_start (GTK_BOX (bar->priv->end_box),
-                                    bar->priv->mute_box,
+                                    bar->priv->mute_button,
                                     FALSE, FALSE, 0);
         } else {
                 gtk_widget_set_size_request (bar->priv->scale, SCALE_SIZE, -1);
@@ -160,7 +160,7 @@ create_scale_box (GvcChannelBar *bar)
                                     bar->priv->high_image,
                                     FALSE, FALSE, 0);
                 gtk_box_pack_start (GTK_BOX (bar->priv->end_box),
-                                    bar->priv->mute_box,
+                                    bar->priv->mute_button,
                                     FALSE, FALSE, 0);
         }
 
@@ -243,7 +243,7 @@ update_layout (GvcChannelBar *bar)
 
         g_object_ref (bar->priv->image);
         g_object_ref (bar->priv->label);
-        g_object_ref (bar->priv->mute_box);
+        g_object_ref (bar->priv->mute_button);
         g_object_ref (bar->priv->low_image);
         g_object_ref (bar->priv->high_image);
 
@@ -253,7 +253,7 @@ update_layout (GvcChannelBar *bar)
         gtk_container_remove (GTK_CONTAINER (bar->priv->start_box),
                               bar->priv->label);
         gtk_container_remove (GTK_CONTAINER (bar->priv->end_box),
-                              bar->priv->mute_box);
+                              bar->priv->mute_button);
 
         if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
                 gtk_container_remove (GTK_CONTAINER (bar->priv->start_box),
@@ -281,7 +281,7 @@ update_layout (GvcChannelBar *bar)
 
         g_object_unref (bar->priv->image);
         g_object_unref (bar->priv->label);
-        g_object_unref (bar->priv->mute_box);
+        g_object_unref (bar->priv->mute_button);
         g_object_unref (bar->priv->low_image);
         g_object_unref (bar->priv->high_image);
 
@@ -333,7 +333,7 @@ update_marks (GvcChannelBar *bar)
         }
 
         if (has_mark) {
-                gtk_alignment_set (GTK_ALIGNMENT (bar->priv->mute_box), 0.5, 0, 0, 0);
+                gtk_widget_set_valign (bar->priv->mute_button, GTK_ALIGN_START);
 
                 gtk_widget_set_halign (bar->priv->low_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_valign (bar->priv->low_image, GTK_ALIGN_START);
@@ -347,8 +347,6 @@ update_marks (GvcChannelBar *bar)
                 gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0.0, 0.0);
 #endif
         } else {
-                gtk_alignment_set (GTK_ALIGNMENT (bar->priv->mute_box), 0.5, 0.5, 0, 0);
-
                 gtk_widget_set_halign (bar->priv->low_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_valign (bar->priv->low_image, GTK_ALIGN_CENTER);
                 gtk_widget_set_halign (bar->priv->high_image, GTK_ALIGN_CENTER);
@@ -1092,9 +1090,6 @@ gvc_channel_bar_init (GvcChannelBar *bar)
                           "toggled",
                           G_CALLBACK (on_mute_button_toggled),
                           bar);
-
-        bar->priv->mute_box = gtk_alignment_new (0.5, 0.5, 0, 0);
-        gtk_container_add (GTK_CONTAINER (bar->priv->mute_box), bar->priv->mute_button);
 
         bar->priv->image = gtk_image_new ();
         gtk_widget_set_no_show_all (bar->priv->image, TRUE);
