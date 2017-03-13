@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Randy Ichinose <randyichinose@gmail.com>, 2016
+# Neverest <happytoast27@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2016-05-05 08:18+0000\n"
-"Last-Translator: Randy Ichinose <randyichinose@gmail.com>\n"
-"Language-Team: Piemontese (http://www.transifex.com/mate/MATE/language/pms/)\n"
+"PO-Revision-Date: 2016-11-30 23:47+0000\n"
+"Last-Translator: Neverest <happytoast27@gmail.com>\n"
+"Language-Team: Spanish (Puerto Rico) (http://www.transifex.com/mate/MATE/language/es_PR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pms\n"
+"Language: es_PR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr ""
+msgstr "Sonido"
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
@@ -102,12 +102,12 @@ msgstr ""
 #: ../mate-volume-control/gvc-applet.c:322
 #: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
-msgstr "Input"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:323
 #: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "Output"
-msgstr "Output"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
@@ -149,7 +149,7 @@ msgstr ""
 #: ../mate-volume-control/gvc-balance-bar.c:149
 msgctxt "balance"
 msgid "Maximum"
-msgstr ""
+msgstr "Máximo"
 
 #: ../mate-volume-control/gvc-balance-bar.c:337
 msgid "_Balance:"
@@ -192,7 +192,7 @@ msgstr ""
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr "Dësabilità"
+msgstr ""
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -200,8 +200,8 @@ msgstr "Dësabilità"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Output"
-msgstr[1] "%u Outputs"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -209,14 +209,14 @@ msgstr[1] "%u Outputs"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Input"
+msgstr[0] ""
 msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
-msgstr "Nòm"
+msgstr "Nombre"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1552
 #, c-format
@@ -270,7 +270,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2153
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2158
 msgid "No application is currently playing or recording audio."
@@ -312,7 +312,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
 msgid "Sound _theme:"
@@ -328,7 +328,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr "Stop"
+msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
@@ -362,7 +362,7 @@ msgstr ""
 #: ../mate-volume-control/gvc-utils.c:60
 #: ../mate-volume-control/gvc-utils.c:108
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: ../mate-volume-control/gvc-utils.c:61
 msgid "Front Left"
@@ -438,24 +438,24 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:113
 msgid "Stereo"
-msgstr "Stereo"
+msgstr "Estéreo"
 
 #: ../mate-volume-control/gvc-utils.c:120
 msgid "Surround 4.0"
-msgstr "Surround 4.0"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:128
 msgid "Surround 4.1"
-msgstr "Surround 4.1"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:130
 msgid "Surround 5.0"
-msgstr "Surround 5.0"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:140
 msgid "Surround 5.1"
-msgstr "Surround 5.1"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
-msgstr "Surround 7.1"
+msgstr ""

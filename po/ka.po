@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 14:07+0300\n"
+"POT-Creation-Date: 2016-12-06 00:47+0300\n"
 "PO-Revision-Date: 2015-09-09 11:00+0000\n"
 "Last-Translator: infirit <inactive+infirit@transifex.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/mate/MATE/language/ka/)\n"
@@ -27,9 +27,9 @@ msgid "Change sound volume and sound events"
 msgstr ""
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
-#: ../mate-volume-control/dialog-main.c:245
-#: ../mate-volume-control/gvc-channel-bar.c:500
-#: ../mate-volume-control/gvc-speaker-test.c:461
+#: ../mate-volume-control/dialog-main.c:255
+#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "ხმის კონტროლი"
 
@@ -66,12 +66,12 @@ msgid "Sonar"
 msgstr ""
 
 #: ../mate-volume-control/applet-main.c:45
-#: ../mate-volume-control/dialog-main.c:187
+#: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
 msgstr ""
 
 #: ../mate-volume-control/applet-main.c:46
-#: ../mate-volume-control/dialog-main.c:185
+#: ../mate-volume-control/dialog-main.c:191
 msgid "Enable debug"
 msgstr ""
 
@@ -79,33 +79,33 @@ msgstr ""
 msgid " — MATE Volume Control Applet"
 msgstr ""
 
-#: ../mate-volume-control/dialog-main.c:138
+#: ../mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
 msgstr ""
 
-#: ../mate-volume-control/dialog-main.c:160
+#: ../mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
 msgstr ""
 
-#: ../mate-volume-control/dialog-main.c:184
+#: ../mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
 msgstr ""
 
-#: ../mate-volume-control/dialog-main.c:186
+#: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
 msgstr ""
 
-#: ../mate-volume-control/dialog-main.c:196
+#: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2028
+#: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2130
+#: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "Output"
 msgstr ""
 
@@ -121,65 +121,65 @@ msgstr ""
 msgid "MATE Volume Control Applet"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:158
+#: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:159
+#: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:162
+#: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
 msgid "Rear"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:163
+#: ../mate-volume-control/gvc-balance-bar.c:145
 msgctxt "balance"
 msgid "Front"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:166
+#: ../mate-volume-control/gvc-balance-bar.c:148
 msgctxt "balance"
 msgid "Minimum"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:167
+#: ../mate-volume-control/gvc-balance-bar.c:149
 msgctxt "balance"
 msgid "Maximum"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:355
+#: ../mate-volume-control/gvc-balance-bar.c:337
 msgid "_Balance:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:358
+#: ../mate-volume-control/gvc-balance-bar.c:340
 msgid "_Fade:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:361
+#: ../mate-volume-control/gvc-balance-bar.c:343
 msgid "_Subwoofer:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-channel-bar.c:330
+#: ../mate-volume-control/gvc-channel-bar.c:312
 msgctxt "volume"
 msgid "Unamplified"
 msgstr ""
 
-#: ../mate-volume-control/gvc-channel-bar.c:343
+#: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
 msgstr ""
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1099
+#: ../mate-volume-control/gvc-channel-bar.c:1080
 msgid "Mute"
 msgstr ""
 
-#: ../mate-volume-control/gvc-combo-box.c:257
-#: ../mate-volume-control/gvc-mixer-dialog.c:1617
+#: ../mate-volume-control/gvc-combo-box.c:253
+#: ../mate-volume-control/gvc-mixer-dialog.c:1613
 msgid "_Profile:"
 msgstr ""
 
@@ -210,249 +210,250 @@ msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1508
-#: ../mate-volume-control/gvc-mixer-dialog.c:1777
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:872
+#: ../mate-volume-control/gvc-mixer-dialog.c:1504
+#: ../mate-volume-control/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1556
+#: ../mate-volume-control/gvc-mixer-dialog.c:1552
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1620
+#: ../mate-volume-control/gvc-mixer-dialog.c:1616
 msgid "Test Speakers"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1829
+#: ../mate-volume-control/gvc-mixer-dialog.c:1821
 msgid "Sound Effects"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1852
+#: ../mate-volume-control/gvc-mixer-dialog.c:1844
 msgid "_Alert volume: "
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1927
+#: ../mate-volume-control/gvc-mixer-dialog.c:1915
 msgid "_Output volume: "
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1974
+#: ../mate-volume-control/gvc-mixer-dialog.c:1958
 msgid "Hardware"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1979
+#: ../mate-volume-control/gvc-mixer-dialog.c:1963
 msgid "C_hoose a device to configure:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2006
-#: ../mate-volume-control/gvc-mixer-dialog.c:2162
+#: ../mate-volume-control/gvc-mixer-dialog.c:1990
+#: ../mate-volume-control/gvc-mixer-dialog.c:2128
 msgid "Settings for the selected device:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2036
+#: ../mate-volume-control/gvc-mixer-dialog.c:2012
 msgid "_Input volume: "
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2070
+#: ../mate-volume-control/gvc-mixer-dialog.c:2040
 msgid "Input level:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2099
+#: ../mate-volume-control/gvc-mixer-dialog.c:2065
 msgid "C_hoose a device for sound input:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2135
+#: ../mate-volume-control/gvc-mixer-dialog.c:2101
 msgid "C_hoose a device for sound output:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2196
+#: ../mate-volume-control/gvc-mixer-dialog.c:2153
 msgid "Applications"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2201
+#: ../mate-volume-control/gvc-mixer-dialog.c:2158
 msgid "No application is currently playing or recording audio."
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2388
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:736
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:748
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:760
+#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:732
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:744
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:756
 msgid "Sound Preferences"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:324
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:320
 msgid "No sounds"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:445
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:441
 msgid "Built-in"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:632
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:739
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:750
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:762
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:735
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:746
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:758
 msgid "Testing event sound"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:848
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:849
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:879
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1064
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
 msgid "Sound _theme:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1077
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
 msgid "C_hoose an alert sound:"
 msgstr ""
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1109
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
 msgid "Enable _window and button sounds"
 msgstr ""
 
-#: ../mate-volume-control/gvc-speaker-test.c:262
+#: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
 msgstr "სტოპ"
 
-#: ../mate-volume-control/gvc-speaker-test.c:262
-#: ../mate-volume-control/gvc-speaker-test.c:380
+#: ../mate-volume-control/gvc-speaker-test.c:258
+#: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:232
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:267
+#: ../mate-volume-control/gvc-stream-status-icon.c:239
 msgid "_Mute"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:278
-#: ../mate-volume-control/gvc-stream-status-icon.c:280
+#. FIXME: we lost an icon with migrating from
+#. gtk_image_menu_item_new_with_mnemonic
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:475
+#: ../mate-volume-control/gvc-stream-status-icon.c:421
 msgid "Muted"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:59
+#: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
 msgstr ""
 
 #. Speaker channel names
-#: ../mate-volume-control/gvc-utils.c:61
-#: ../mate-volume-control/gvc-utils.c:109
+#: ../mate-volume-control/gvc-utils.c:60
+#: ../mate-volume-control/gvc-utils.c:108
 msgid "Mono"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:62
+#: ../mate-volume-control/gvc-utils.c:61
 msgid "Front Left"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:63
+#: ../mate-volume-control/gvc-utils.c:62
 msgid "Front Right"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:64
+#: ../mate-volume-control/gvc-utils.c:63
 msgid "Front Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:65
+#: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:66
+#: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:67
+#: ../mate-volume-control/gvc-utils.c:66
 msgid "Rear Right"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:68
+#: ../mate-volume-control/gvc-utils.c:67
 msgid "Rear Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:69
+#: ../mate-volume-control/gvc-utils.c:68
 msgid "Front Left of Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:70
+#: ../mate-volume-control/gvc-utils.c:69
 msgid "Front Right of Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:71
+#: ../mate-volume-control/gvc-utils.c:70
 msgid "Side Left"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:72
+#: ../mate-volume-control/gvc-utils.c:71
 msgid "Side Right"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:73
+#: ../mate-volume-control/gvc-utils.c:72
 msgid "Top Front Left"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:74
+#: ../mate-volume-control/gvc-utils.c:73
 msgid "Top Front Right"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:75
+#: ../mate-volume-control/gvc-utils.c:74
 msgid "Top Front Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:76
+#: ../mate-volume-control/gvc-utils.c:75
 msgid "Top Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:77
+#: ../mate-volume-control/gvc-utils.c:76
 msgid "Top Rear Left"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:78
+#: ../mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Right"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:79
+#: ../mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Center"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:114
+#: ../mate-volume-control/gvc-utils.c:113
 msgid "Stereo"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:121
+#: ../mate-volume-control/gvc-utils.c:120
 msgid "Surround 4.0"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:129
+#: ../mate-volume-control/gvc-utils.c:128
 msgid "Surround 4.1"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:131
+#: ../mate-volume-control/gvc-utils.c:130
 msgid "Surround 5.0"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:141
+#: ../mate-volume-control/gvc-utils.c:140
 msgid "Surround 5.1"
 msgstr ""
 
-#: ../mate-volume-control/gvc-utils.c:152
+#: ../mate-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
 msgstr ""
