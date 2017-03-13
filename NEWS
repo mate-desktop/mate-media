@@ -1,10 +1,13 @@
-### mate-media 1.17.0
+### mate-media 1.18.0
 
-  * Translations update
-  * move to GTK+3 (>= 3.14), drop GTK+2 code and --with-gtk build option
-  * build: require libmatemixer >= 1.10 (first stable release)
-  * drop ancient NEWS.GNOME
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
+  * Build: require libmatemixer >= 1.10 and libmate-desktop >= 1.17
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+    build option
   * Port from libunique to GApplication and GtkApplication
+  * Some cleanups
+  * Translations update
 
 ### mate-media 1.16.0
 
@@ -26,7 +29,7 @@
 ### mate-media 1.12.1
 
   * GTK+3: don't remove slider background (fixes background in some
-  themes)
+    themes)
 
 ### mate-media 1.12.0
 
