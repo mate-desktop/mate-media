@@ -1018,7 +1018,6 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         GtkWidget   *box;
         GtkWidget   *label;
         GtkWidget   *scrolled_window;
-        GtkWidget   *alignment;
         gchar       *str;
 
         chooser->priv = GVC_SOUND_THEME_CHOOSER_GET_PRIVATE (chooser);
@@ -1050,19 +1049,15 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
-        gtk_box_pack_start (GTK_BOX (chooser), alignment, TRUE, TRUE, 6);
-
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
+        gtk_box_pack_start (GTK_BOX (chooser), box, TRUE, TRUE, 6);
 
         chooser->priv->treeview = create_alert_treeview (chooser);
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->treeview);
 
         scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+        gtk_widget_set_hexpand (scrolled_window, TRUE);
+        gtk_widget_set_vexpand (scrolled_window, TRUE);
+        gtk_widget_set_margin_top (scrolled_window, 6);
 
         gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                         GTK_POLICY_NEVER,
@@ -1071,7 +1066,7 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
                                              GTK_SHADOW_IN);
 
         gtk_container_add (GTK_CONTAINER (scrolled_window), chooser->priv->treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), scrolled_window);
+        gtk_container_add (GTK_CONTAINER (box), scrolled_window);
 
         chooser->priv->click_feedback_button = gtk_check_button_new_with_mnemonic (_("Enable _window and button sounds"));
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (chooser->priv->click_feedback_button),
