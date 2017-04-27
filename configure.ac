@@ -83,8 +83,8 @@ MATE_CXX_WARNINGS
 
 AC_ARG_ENABLE(deprecated,
         [AS_HELP_STRING([--enable-deprecated],
-                [warn about deprecated usages [default=no]])],,
-         [enable_deprecated=no])
+                [warn about deprecated usages [default=yes]])],,
+         [enable_deprecated=yes])
 
 if test "x$enable_deprecated" = "xyes"; then
     DISABLE_DEPRECATED=""
