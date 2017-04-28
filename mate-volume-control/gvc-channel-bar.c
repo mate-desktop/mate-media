@@ -381,11 +381,18 @@ update_adjustment_value (GvcChannelBar *bar)
         else
                 value = mate_mixer_stream_control_get_volume (bar->priv->control);
 
+        gdouble maximum = gtk_adjustment_get_upper (bar->priv->adjustment);
+        gdouble minimum = gtk_adjustment_get_lower (bar->priv->adjustment);
+        gdouble range = maximum - minimum;
+
+        /* round value to nearest hundreth of the range */
+        gdouble new_value = minimum + round (((value - minimum) / range) * 100) * (range / 100);
+
         g_signal_handlers_block_by_func (G_OBJECT (bar->priv->adjustment),
                                          on_adjustment_value_changed,
                                          bar);
 
-        gtk_adjustment_set_value (bar->priv->adjustment, value);
+        gtk_adjustment_set_value (bar->priv->adjustment, new_value);
 
         g_signal_handlers_unblock_by_func (G_OBJECT (bar->priv->adjustment),
                                            on_adjustment_value_changed,
@@ -861,6 +868,7 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         }
 
         gtk_adjustment_set_value (bar->priv->adjustment, value);
+
         return TRUE;
 }
 
