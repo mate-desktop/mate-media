@@ -1877,8 +1877,8 @@ gvc_mixer_dialog_constructor (GType                  type,
         GvcMixerDialog   *self;
         GtkWidget        *main_vbox;
         GtkWidget        *label;
-        GtkWidget        *alignment;
         GtkWidget        *box;
+        GtkWidget        *scroll_box;
         GtkWidget        *sbox;
         GtkWidget        *ebox;
         GtkTreeSelection *selection;
@@ -1902,12 +1902,10 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_container_set_border_width (GTK_CONTAINER (self), 6);
 
         self->priv->output_stream_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+        gtk_widget_set_margin_top (self->priv->output_stream_box, 12);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 12, 0, 0, 0);
-        gtk_container_add (GTK_CONTAINER (alignment), self->priv->output_stream_box);
         gtk_box_pack_start (GTK_BOX (main_vbox),
-                            alignment,
+                            self->priv->output_stream_box,
                             FALSE, FALSE, 0);
 
         self->priv->output_bar = create_bar (self, TRUE, TRUE);
@@ -1967,22 +1965,19 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->hw_box), box, TRUE, TRUE, 0);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-
         self->priv->hw_treeview = create_device_treeview (self,
                                                          G_CALLBACK (on_device_selection_changed));
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->hw_treeview);
 
-        box = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (box),
+        scroll_box = gtk_scrolled_window_new (NULL, NULL);
+        gtk_widget_set_margin_top (scroll_box, 6);
+        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_box),
                                         GTK_POLICY_NEVER,
                                         GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
+        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll_box),
                                              GTK_SHADOW_IN);
-        gtk_container_add (GTK_CONTAINER (box), self->priv->hw_treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
+        gtk_container_add (GTK_CONTAINER (scroll_box), self->priv->hw_treeview);
+        gtk_container_add (GTK_CONTAINER (box), scroll_box);
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
@@ -2007,6 +2002,7 @@ gvc_mixer_dialog_constructor (GType                  type,
                                   label);
 
         self->priv->input_bar = create_bar (self, TRUE, TRUE);
+        gtk_widget_set_margin_top (self->priv->input_bar, 6);
 
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                   _("_Input volume: "));
@@ -2019,11 +2015,8 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_widget_show (self->priv->input_bar);
         gtk_widget_set_sensitive (self->priv->input_bar, FALSE);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-        gtk_container_add (GTK_CONTAINER (alignment), self->priv->input_bar);
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
-                            alignment,
+                            self->priv->input_bar,
                             FALSE, FALSE, 0);
 
         box  = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
@@ -2069,23 +2062,20 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->input_box), box, TRUE, TRUE, 0);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-
         self->priv->input_treeview =
                 create_stream_treeview (self, G_CALLBACK (on_input_radio_toggled));
 
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->input_treeview);
 
-        box = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (box),
+        scroll_box = gtk_scrolled_window_new (NULL, NULL);
+        gtk_widget_set_margin_top (scroll_box, 6);
+        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_box),
                                         GTK_POLICY_NEVER,
                                         GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
+        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll_box),
                                              GTK_SHADOW_IN);
-        gtk_container_add (GTK_CONTAINER (box), self->priv->input_treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
+        gtk_container_add (GTK_CONTAINER (scroll_box), self->priv->input_treeview);
+        gtk_container_add (GTK_CONTAINER (box), scroll_box);
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->input_treeview));
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
@@ -2105,22 +2095,19 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, TRUE, TRUE, 0);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-
         self->priv->output_treeview = create_stream_treeview (self,
                                                               G_CALLBACK (on_output_radio_toggled));
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->output_treeview);
 
-        box = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (box),
+        scroll_box = gtk_scrolled_window_new (NULL, NULL);
+        gtk_widget_set_margin_top (scroll_box, 6);
+        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_box),
                                         GTK_POLICY_NEVER,
                                         GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
+        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll_box),
                                              GTK_SHADOW_IN);
-        gtk_container_add (GTK_CONTAINER (box), self->priv->output_treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
+        gtk_container_add (GTK_CONTAINER (scroll_box), self->priv->output_treeview);
+        gtk_container_add (GTK_CONTAINER (box), scroll_box);
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->output_treeview));
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
