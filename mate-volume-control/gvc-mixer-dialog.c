@@ -2129,7 +2129,7 @@ gvc_mixer_dialog_constructor (GType                  type,
                                         GTK_POLICY_AUTOMATIC);
 
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_window),
-                                             GTK_SHADOW_IN);
+                                             GTK_SHADOW_NONE);
 
         self->priv->applications_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
