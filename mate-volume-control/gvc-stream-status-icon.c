@@ -421,25 +421,25 @@ update_icon (GvcStreamStatusIcon *icon)
                                           _("Muted"),
                                           description);
         } else if (flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
-                gdouble display_volume = 100 * volume / normal;
+                guint display_volume = (guint) round (100.0 * volume / normal);
 
                 if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL) {
                         if (decibel > -MATE_MIXER_INFINITY) {
-                                markup = g_strdup_printf ("<b>%s: %.0f%%</b>\n"
+                                markup = g_strdup_printf ("<b>%s: %u%%</b>\n"
                                                           "<small>%0.2f dB\n%s</small>",
                                                           icon->priv->display_name,
                                                           display_volume,
                                                           decibel,
                                                           description);
                         } else {
-                                markup = g_strdup_printf ("<b>%s: %.0f%%</b>\n"
+                                markup = g_strdup_printf ("<b>%s: %u%%</b>\n"
                                                           "<small>-&#8734; dB\n%s</small>",
                                                           icon->priv->display_name,
                                                           display_volume,
                                                           description);
                         }
                 } else {
-                        markup = g_strdup_printf ("<b>%s: %.0f%%</b>\n<small>%s</small>",
+                        markup = g_strdup_printf ("<b>%s: %u%%</b>\n<small>%s</small>",
                                                   icon->priv->display_name,
                                                   display_volume,
                                                   description);
