@@ -415,33 +415,33 @@ update_icon (GvcStreamStatusIcon *icon)
 
         description = mate_mixer_stream_control_get_label (icon->priv->control);
 
+        guint volume_percent = (guint) round (100.0 * volume / normal);
         if (muted) {
-                markup = g_strdup_printf ("<b>%s: %s</b>\n<small>%s</small>",
+                markup = g_strdup_printf ("<b>%s: %s %u%%</b>\n<small>%s</small>",
                                           icon->priv->display_name,
-                                          _("Muted"),
+                                          _("Muted at"),
+                                          volume_percent,
                                           description);
         } else if (flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
-                guint display_volume = (guint) round (100.0 * volume / normal);
-
                 if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL) {
                         if (decibel > -MATE_MIXER_INFINITY) {
                                 markup = g_strdup_printf ("<b>%s: %u%%</b>\n"
                                                           "<small>%0.2f dB\n%s</small>",
                                                           icon->priv->display_name,
-                                                          display_volume,
+                                                          volume_percent,
                                                           decibel,
                                                           description);
                         } else {
                                 markup = g_strdup_printf ("<b>%s: %u%%</b>\n"
                                                           "<small>-&#8734; dB\n%s</small>",
                                                           icon->priv->display_name,
-                                                          display_volume,
+                                                          volume_percent,
                                                           description);
                         }
                 } else {
                         markup = g_strdup_printf ("<b>%s: %u%%</b>\n<small>%s</small>",
                                                   icon->priv->display_name,
-                                                  display_volume,
+                                                  volume_percent,
                                                   description);
                 }
         } else {
