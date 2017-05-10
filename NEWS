@@ -1,5 +1,12 @@
 ### mate-media 1.19.0
 
+  * Translations update
+  * mixer-dialog: remove style class .frame from a scrolledwindow
+  * volume-control-dialog: avoid deprecated GtkAlignment
+  * applet: show volume in popup even when muted
+  * applet: improve volume increments
+  * enable deprecation warnings by default
+
 ### mate-media 1.18.0
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
