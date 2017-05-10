@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2015-12-04 05:51+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"PO-Revision-Date: 2017-03-23 16:02+0000\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh (http://www.transifex.com/mate/MATE/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,11 +31,11 @@ msgstr ""
 #: ../mate-volume-control/gvc-channel-bar.c:482
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
-msgstr ""
+msgstr "Дыбыс деңгейін басқару"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr ""
+msgstr "Жұмыс үстелінің дыбыс деңгейін басқаруды көрсету"
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
@@ -72,31 +73,31 @@ msgstr "Осы бағдарламасының нұсқасы"
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
 msgid "Enable debug"
-msgstr ""
+msgstr "Жөндеуді іске қосу"
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr ""
+msgstr " — MATE дыбысты басқару апплеті"
 
 #: ../mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
-msgstr ""
+msgstr "Дыбыстық қызметі қолжетерсіз"
 
 #: ../mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
-msgstr ""
+msgstr "Дыбыстық қызметінің жауабын күту"
 
 #: ../mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
-msgstr ""
+msgstr "Дыбыстық қызметінің түрі"
 
 #: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
-msgstr ""
+msgstr "Іске қосылу парағы"
 
 #: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr " — MATE дыбыстарын басқару"
 
 #: ../mate-volume-control/gvc-applet.c:322
 #: ../mate-volume-control/gvc-mixer-dialog.c:2004
@@ -110,15 +111,15 @@ msgstr "Шығыс"
 
 #: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Микрофон деңгейі"
 
 #: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Дыбыстың шығыс деңгейі"
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "MATE дыбысты басқару апплеті"
 
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
@@ -185,7 +186,7 @@ msgstr "Проф_иль:"
 #: ../mate-volume-control/gvc-mixer-dialog.c:355
 #: ../mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
-msgstr ""
+msgstr "Ба_йланыстырушы:"
 
 #. translators:
 #. * The device has been disabled
@@ -199,7 +200,7 @@ msgstr "Сөндірулі"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
+msgstr[0] "%u шығыс"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -207,7 +208,7 @@ msgstr[0] ""
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
+msgstr[0] "%u кіріс"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -222,7 +223,7 @@ msgstr "%s үшін динамикті тексеру"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1616
 msgid "Test Speakers"
-msgstr ""
+msgstr "Динамиктерді тексеру"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1821
 msgid "Sound Effects"
@@ -230,11 +231,11 @@ msgstr "Дыбыс эффектілері"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1844
 msgid "_Alert volume: "
-msgstr ""
+msgstr "_Ескертудің дыбыс деңгейі: "
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1915
 msgid "_Output volume: "
-msgstr ""
+msgstr "_Шығыс деңгейі: "
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1958
 msgid "Hardware"
@@ -242,7 +243,7 @@ msgstr "Құрылғы"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1963
 msgid "C_hoose a device to configure:"
-msgstr ""
+msgstr "Баптау үшін құры_лғыны таңдаңыз:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1990
 #: ../mate-volume-control/gvc-mixer-dialog.c:2128
@@ -251,7 +252,7 @@ msgstr "Таңдалған құрылғы баптаулары:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2012
 msgid "_Input volume: "
-msgstr ""
+msgstr "_Кіріс дыбысы:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2040
 msgid "Input level:"
@@ -282,7 +283,7 @@ msgstr "Дыбыс баптаулары"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:320
 msgid "No sounds"
-msgstr ""
+msgstr "Дыбыстар жоқ"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:441
 msgid "Built-in"
@@ -313,7 +314,7 @@ msgstr "Түрі"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
 msgid "Sound _theme:"
-msgstr ""
+msgstr "Дыбыстар _темасы:"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
 msgid "C_hoose an alert sound:"
@@ -321,7 +322,7 @@ msgstr "Ес_керту дыбысын таңдау:"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
 msgid "Enable _window and button sounds"
-msgstr ""
+msgstr "_Терезе және батырмалар дыбыстарын іске қосу"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
@@ -335,17 +336,17 @@ msgstr "Сынау"
 #: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr ""
+msgstr "Дыбыстарды басқаруды іске қосу мүмкін емес: %s"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:239
 msgid "_Mute"
-msgstr ""
+msgstr "Дыбысын _басу"
 
 #. FIXME: we lost an icon with migrating from
 #. gtk_image_menu_item_new_with_mnemonic
 #: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "Дыбы_с баптаулары"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:421
 msgid "Muted"
@@ -353,49 +354,49 @@ msgstr "Дыбысы сөндірілген"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "Белгісіз"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
 #: ../mate-volume-control/gvc-utils.c:108
 msgid "Mono"
-msgstr ""
+msgstr "Моно"
 
 #: ../mate-volume-control/gvc-utils.c:61
 msgid "Front Left"
-msgstr ""
+msgstr "Алдыңғы сол жақ"
 
 #: ../mate-volume-control/gvc-utils.c:62
 msgid "Front Right"
-msgstr ""
+msgstr "Алдыңғы оң жақ"
 
 #: ../mate-volume-control/gvc-utils.c:63
 msgid "Front Center"
-msgstr ""
+msgstr "Алдыңғы ортаңғы"
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"
-msgstr ""
+msgstr "Артқы сол жақ"
 
 #: ../mate-volume-control/gvc-utils.c:66
 msgid "Rear Right"
-msgstr ""
+msgstr "Артқы оң жақ"
 
 #: ../mate-volume-control/gvc-utils.c:67
 msgid "Rear Center"
-msgstr ""
+msgstr "Артқы ортаңғы"
 
 #: ../mate-volume-control/gvc-utils.c:68
 msgid "Front Left of Center"
-msgstr ""
+msgstr "Алдыңғы ортаңғы сол жақ"
 
 #: ../mate-volume-control/gvc-utils.c:69
 msgid "Front Right of Center"
-msgstr ""
+msgstr "Алдыңғы ортаңғы оң жақ"
 
 #: ../mate-volume-control/gvc-utils.c:70
 msgid "Side Left"
@@ -435,7 +436,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:113
 msgid "Stereo"
-msgstr ""
+msgstr "Стерео"
 
 #: ../mate-volume-control/gvc-utils.c:120
 msgid "Surround 4.0"

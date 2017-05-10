@@ -5,6 +5,7 @@
 # Translators:
 # Andreas Hyden <a.hyden@cyberpoint.se>, 2000
 # Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2004, 2005, 2006
+# Daniel Gullbransen <daniel@llama.nu>, 2017
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010
 # Erik, 2016
 # Henrik Mattsson-Mårn <h@reglage.net>, 2016
@@ -15,8 +16,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2016-02-10 16:42+0000\n"
-"Last-Translator: Erik\n"
+"PO-Revision-Date: 2017-05-03 07:48+0000\n"
+"Last-Translator: Daniel Gullbransen <daniel@llama.nu>\n"
 "Language-Team: Swedish (http://www.transifex.com/mate/MATE/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -428,7 +429,7 @@ msgstr "Fronthögtalare övre mitten"
 
 #: ../mate-volume-control/gvc-utils.c:75
 msgid "Top Center"
-msgstr ""
+msgstr "Längst upp i mitten"
 
 #: ../mate-volume-control/gvc-utils.c:76
 msgid "Top Rear Left"

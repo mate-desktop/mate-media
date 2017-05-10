@@ -455,20 +455,20 @@ msgstr "Estéreo"
 
 #: ../mate-volume-control/gvc-utils.c:120
 msgid "Surround 4.0"
-msgstr "Surround 4.0"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:128
 msgid "Surround 4.1"
-msgstr "Surround 4.1"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:130
 msgid "Surround 5.0"
-msgstr "Surround 5.0"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:140
 msgid "Surround 5.1"
-msgstr "Surround 5.1"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
-msgstr "Surround 7.1"
+msgstr ""

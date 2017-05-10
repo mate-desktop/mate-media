@@ -6,7 +6,7 @@
 # Alexandre Prokoudine <alexandre.prokoudine@gmail.com>, 2009
 # Alexei Sorokin <sor.alexei@meowr.ru>, 2014
 # Andrew W. Nosenko <awn@bcs.zp.ua>, 2003
-# Дмитрий Михирев <bizdelnick@gmail.com>, 2015
+# Дмитрий Михирев, 2015
 # Leonid Kanter <leon@asplinux.ru>, 2004, 2005, 2006
 # theirix <theirix@gmail.com>, 2015
 # Valery Inozemtsev <inozemtsev@gmail.com>, 2009
