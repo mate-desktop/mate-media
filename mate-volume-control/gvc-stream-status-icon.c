@@ -666,6 +666,15 @@ on_status_icon_visible_notify (GvcStreamStatusIcon *icon)
 }
 
 static void
+on_icon_theme_change (GtkSettings         *settings,
+                      GParamSpec          *pspec,
+                      GvcStreamStatusIcon *icon)
+{
+        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
+                                            icon->priv->icon_names[icon->priv->current_icon]);
+}
+
+static void
 gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
 {
         GtkWidget *frame;
@@ -745,6 +754,11 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         gtk_container_add (GTK_CONTAINER (frame), box);
 
         gtk_box_pack_start (GTK_BOX (box), icon->priv->bar, TRUE, FALSE, 0);
+
+        g_signal_connect (gtk_settings_get_default (),
+                          "notify::gtk-icon-theme-name",
+                          G_CALLBACK (on_icon_theme_change),
+                          icon);
 }
 
 static void
@@ -755,6 +769,10 @@ gvc_stream_status_icon_finalize (GObject *object)
         icon = GVC_STREAM_STATUS_ICON (object);
 
         g_strfreev (icon->priv->icon_names);
+
+        g_signal_handlers_disconnect_by_func (gtk_settings_get_default (),
+                                              on_icon_theme_change,
+                                              icon);
 
         G_OBJECT_CLASS (gvc_stream_status_icon_parent_class)->finalize (object);
 }
