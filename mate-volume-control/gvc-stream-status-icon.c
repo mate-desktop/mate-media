@@ -70,7 +70,11 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         GdkScreen     *screen;
         int            x;
         int            y;
+#if GTK_CHECK_VERSION (3, 22, 0)
+        GdkMonitor    *monitor_num;
+#else
         int            monitor_num;
+#endif
         GdkRectangle   monitor;
         GtkRequisition dock_req;
 
@@ -89,8 +93,13 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          1 - orientation);
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+        monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), area.x, area.y);
+        gdk_monitor_get_geometry (monitor_num, &monitor);
+#else
         monitor_num = gdk_screen_get_monitor_at_point (screen, area.x, area.y);
         gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
+#endif
 
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock),
                                (GtkCallback) gtk_widget_show_all, NULL);
