@@ -142,9 +142,12 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
 
         do {
                 GdkDeviceManager *manager = gdk_display_get_device_manager (display);
+                GdkDevice *pointer = gdk_device_manager_get_client_pointer (manager);
+                GdkDevice *keyboard = gdk_device_get_associated_device (pointer);
+                GdkWindow *window = gtk_widget_get_window (icon->priv->dock);
 
-                if (gdk_device_grab (gdk_device_manager_get_client_pointer (manager),
-                                     gtk_widget_get_window (icon->priv->dock),
+                if (gdk_device_grab (pointer,
+                                     window,
                                      GDK_OWNERSHIP_NONE,
                                      TRUE,
                                      GDK_BUTTON_PRESS_MASK |
@@ -153,6 +156,20 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
                                      GDK_SCROLL_MASK,
                                      NULL,
                                      time) != GDK_GRAB_SUCCESS) {
+                        gtk_grab_remove (icon->priv->dock);
+                        gtk_widget_hide (icon->priv->dock);
+                        break;
+                }
+
+                if (gdk_device_grab (keyboard,
+                                     window,
+                                     GDK_OWNERSHIP_NONE,
+                                     TRUE,
+                                     GDK_KEY_PRESS_MASK |
+                                     GDK_KEY_RELEASE_MASK,
+                                     NULL,
+                                     time) != GDK_GRAB_SUCCESS) {
+                        gdk_device_ungrab (pointer, time);
                         gtk_grab_remove (icon->priv->dock);
                         gtk_widget_hide (icon->priv->dock);
                 }
