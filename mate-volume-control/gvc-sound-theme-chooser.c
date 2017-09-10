@@ -1000,10 +1000,14 @@ setup_list_size_constraint (GtkWidget *widget,
                             GtkWidget *to_size)
 {
         GtkRequisition req;
+        gint           sc_height;
         int            max_height;
 
         /* Constrain height to be the tree height up to a max */
-        max_height = (gdk_screen_get_height (gtk_widget_get_screen (widget))) / 4;
+        gdk_window_get_geometry (gdk_screen_get_root_window (gtk_widget_get_screen (widget)),
+                                 NULL, NULL, NULL, &sc_height);
+
+        max_height = sc_height / 4;
 
         // XXX this doesn't work
         gtk_widget_get_preferred_size (to_size, NULL, &req);
