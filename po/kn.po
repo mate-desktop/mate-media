@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2015-09-09 11:00+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-06-21 10:25+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Kannada (http://www.transifex.com/mate/MATE/language/kn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "ಧ್ವನಿಯ ಪ್ರಮಾಣ ಹಾಗು ಧ್ವನಿಗಳ
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "ಧ್ವನಿ ಪ್ರಮಾಣ ನಿಯಂತ್ರಣ"
@@ -100,12 +100,12 @@ msgid " — MATE Volume Control"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "ಇನ್‌ಪುಟ್‌"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "ಔಟ್‌ಪುಟ್"
 
@@ -174,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "ಮೂಕವಾಗಿಸು"
 
@@ -233,48 +233,48 @@ msgstr "ಧ್ವನಿ ಪರಿಣಾಮಗಳು"
 msgid "_Alert volume: "
 msgstr "ಸೂಚನೆಯ ಧ್ವನಿ ಪ್ರಮಾಣ(_A): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "ಔಟ್‌ಪುಟ್ ಧ್ವನಿಯ ಪ್ರಮಾಣ(_O): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "ಯಂತ್ರಾಂಶ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "ಸಂರಚಿಸಲು ಒಂದು ಸಾಧನವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ(_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "ಆಯ್ದ ಸಾಧನಗಳಿಗಾಗಿನ ಸಿದ್ಧತೆಗಳು:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "ಇನ್‌ಪುಟ್ ಧ್ವನಿಯ ಪ್ರಮಾಣ(_I): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "ಇನ್‌ಪುಟ್ ಹಂತ:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "ಧ್ವನಿಯ ಇನ್‌ಪುಟ್‌ಗಾಗಿ ಒಂದು ಸಾಧನವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ(_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "ಧ್ವನಿಯ ಔಟ್‌ಪುಟ್‌ಗಾಗಿ ಒಂದು ಸಾಧನವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ(_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "ಅನ್ವಯಗಳು"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "ಯಾವ ಅನ್ವಯವೂ ಆಡಿಯೊವನ್ನು ಚಲಾಯಿಸುತ್ತಿಲ್ಲ ಅಥವ ರೆಕಾರ್ಡು ಮಾಡುತ್ತಿಲ್ಲ."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -312,15 +312,15 @@ msgstr "ಪರಿಸರವಿನ್ಯಾಸದಿಂದ"
 msgid "Type"
 msgstr "ಬಗೆ"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "ಧ್ವನಿಯ ಪರಿಸರವಿನ್ಯಾಸ(_t):"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "ಒಂದು ಎಚ್ಚರಿಕೆ ಸೂಚನೆಯ ಶಬ್ಧವನ್ನು ಆಯ್ಕೆ ಮಾಡು(_h):"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "ವಿಂಡೊ ಹಾಗು ಗುಂಡಿಯ ಶಬ್ಧಗಳನ್ನು ಶಕ್ತಗೊಳಿಸು(_w)"
 
@@ -348,9 +348,9 @@ msgstr "ಮೂಕಗೊಳಿಸು(_M)"
 msgid "_Sound Preferences"
 msgstr "ಧ್ವನಿಯ ಆದ್ಯತೆಗಳು(_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "ಮೂಕಗೊಳಿಸಲಾಗಿದೆ"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
