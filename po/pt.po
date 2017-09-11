@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Carlos Moreira, 2014,2017
+# José Vieira <jvieira33@sapo.pt>, 2017
 # Manuela Silva <manuela.silva@sky.com>, 2016-2017
 # Sérgio Marques <smarquespt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2017-04-07 12:38+0000\n"
-"Last-Translator: Carlos Moreira\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-08-21 10:37+0000\n"
+"Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
 "Language-Team: Portuguese (http://www.transifex.com/mate/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +31,7 @@ msgstr "Alterar volume do sistema e sons de eventos"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Controlo de volume"
@@ -102,12 +103,12 @@ msgid " — MATE Volume Control"
 msgstr " — Controlo de volume MATE"
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "Entrada"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "Saída"
 
@@ -176,7 +177,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "Silenciar"
 
@@ -237,48 +238,48 @@ msgstr "Efeitos sonoros"
 msgid "_Alert volume: "
 msgstr "Volume do _alerta: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "V_olume de saída: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "Equipamento"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "Escol_ha o dispositivo a configurar:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "Definições do dispositivo escolhido:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "Volume de _entrada:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "Nível de entrada:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "Escol_ha um dispositivo para a entrada de som:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "Escol_ha um dispositivo para a saída de som:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "Aplicações"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "Neste momento, não há aplicações a reproduzir ou gravar áudio."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -316,15 +317,15 @@ msgstr "Do tema"
 msgid "Type"
 msgstr "Tipo"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "_Tema de sons:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "Escol_ha um som de alerta:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "Ativar sons de janela_s e botões"
 
@@ -352,9 +353,9 @@ msgstr "_Silenciar"
 msgid "_Sound Preferences"
 msgstr "Preferências de _som"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "Silenciado"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr "Silenciado em"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

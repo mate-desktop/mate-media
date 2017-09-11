@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2015-09-09 11:00+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-06-21 10:25+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Panjabi (Punjabi) (http://www.transifex.com/mate/MATE/language/pa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr "ਸਾਊਂਡ ਵਾਲੀਅਮ ਅਤੇ ਸਾਊਂਡ ਈਵੈ�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "ਆਵਾਜ਼ ਕੰਟਰੋਲ"
@@ -102,12 +102,12 @@ msgid " — MATE Volume Control"
 msgstr "— ਗਨੋਮ ਵਾਲੀਅਮ ਕੰਟਰੋਲ"
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "ਇੰਪੁੱਟ"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "ਆਉਟਪੁੱਟ"
 
@@ -176,7 +176,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "ਚੁੱਪ"
 
@@ -237,48 +237,48 @@ msgstr "ਸਾਊਂਡ ਪਰਭਾਵ"
 msgid "_Alert volume: "
 msgstr "ਚੇਤਾਵਨੀ ਵਾਲੀਅਮ(_A):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "ਆਉਟਪੁੱਟ ਵਾਲੀਅਮ(_O): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "ਹਾਰਡਵੇਅਰ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "ਸੰਰਚਨਾ ਲਈ ਇੱਕ ਜੰਤਰ ਚੁਣੋ(_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "ਚੁਣੇ ਜੰਤਰ ਲਈ ਸੈਟਿੰਗ:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "ਇੰਪੁੱਟ ਵਾਲੀਅਮ(_I): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "ਇੰਪੁੱਟ ਲੈਵਲ:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "ਸਾਊਂਡ ਇੰਪੁੱਟ ਲਈ ਇੱਕ ਜੰਤਰ ਚੁਣੋ(_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "ਸਾਊਂਡ ਆਉਟਪੁੱਟ ਲਈ ਇੱਕ ਜੰਤਰ ਚੁਣੋ(_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "ਐਪਲੀਕੇਸ਼ਨ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "ਕੋਈ ਵੀ ਐਪਲੀਕੇਸ਼ਨ ਇਸ ਸਮੇਂ ਆਡੀਓ ਚਲਾ ਜਾਂ ਰਿਕਾਰਡ ਨਹੀਂ ਕਰ ਰਹੀ ਹੈ।"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -316,15 +316,15 @@ msgstr "ਥੀਮ ਤੋਂ"
 msgid "Type"
 msgstr "ਟਾਈਪ"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "ਸਾਊਂਡ ਥੀਮ(_t):"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "ਇੱਕ ਚੇਤਾਵਨੀ ਸਾਊਂਡ ਚੁਣੋ(_h):"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "ਵਿੰਡੋ ਅਤੇ ਬਟਨ ਸਾਊਂਡ ਚਾਲੂ(_w)"
 
@@ -352,9 +352,9 @@ msgstr "ਚੁੱਪ(_M)"
 msgid "_Sound Preferences"
 msgstr "ਸਾਊਂਡ ਪਸੰਦ(_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "ਚੁੱਪ ਹੈ"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

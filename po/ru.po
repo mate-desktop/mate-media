@@ -7,6 +7,7 @@
 # Alexei Sorokin <sor.alexei@meowr.ru>, 2014
 # Andrew W. Nosenko <awn@bcs.zp.ua>, 2003
 # Дмитрий Михирев, 2015
+# Dmitriy Kulikov <kulikov@dima.perm.ru>, 2017
 # Leonid Kanter <leon@asplinux.ru>, 2004, 2005, 2006
 # theirix <theirix@gmail.com>, 2015
 # Valery Inozemtsev <inozemtsev@gmail.com>, 2009
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2016-02-02 15:31+0000\n"
-"Last-Translator: theirix <theirix@gmail.com>\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-07-11 07:43+0000\n"
+"Last-Translator: Dmitriy Kulikov <kulikov@dima.perm.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/mate/MATE/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgstr "Изменить громкость звука и связать зву�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Регулятор громкости"
@@ -107,12 +108,12 @@ msgid " — MATE Volume Control"
 msgstr " — Регулятор громкости MATE"
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "Вход"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "Выход"
 
@@ -181,7 +182,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "Приглушить"
 
@@ -246,48 +247,48 @@ msgstr "Звуковые события"
 msgid "_Alert volume: "
 msgstr "Громкость _уведомлений: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "_Громкость звука: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "Устройства"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "_Выберите настраиваемое устройство:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "Параметры выбранного устройства:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "Громкость _записи: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "Уровень записи:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "Выберите устройство для записи звука:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "В_ыберите устройство для вывода звука:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "Приложения"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "В настоящий момент приложения не проигрывают и не записывают звук."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -325,15 +326,15 @@ msgstr "Из темы"
 msgid "Type"
 msgstr "Тип"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "Тема звуков:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "Выберите звук уведомления:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "Включить звуковые уведомления о действиях с окнами и нажатии кнопок"
 
@@ -361,9 +362,9 @@ msgstr "_Приглушить"
 msgid "_Sound Preferences"
 msgstr "П_араметры звука"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "Приглушён"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr "Отключен"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

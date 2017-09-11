@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2015-09-09 11:00+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-06-21 10:25+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Malayalam (http://www.transifex.com/mate/MATE/language/ml/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr "ശബ്ദ വോള്യമും ശബ്ദ ഇവന്റുക
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "ശബ്ദം ക്രമീകാരി"
@@ -102,12 +102,12 @@ msgid " — MATE Volume Control"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "നിവേശകം"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "ഫലം"
 
@@ -176,7 +176,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "നിശബ്ദമാക്കുക"
 
@@ -237,48 +237,48 @@ msgstr "ശബ്ദ പ്രവാഹങ്ങള്‍"
 msgid "_Alert volume: "
 msgstr "_മുന്നറിയിപ്പിനുള്ള ശബ്ദം: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "_ഔട്ട്പുട്ട് വോള്യം: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "ഹാര്‍ഡ്‌വെയര്‍"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "ക്രമീകരിക്കുവാനുള്ളൊരു ഡിവൈസ് _തെരഞ്ഞെടുക്കുക:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "തെരഞ്ഞെടുത്ത ഉപകരണത്തിന്റെ ക്രമീകരണങ്ങള്‍"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "_ഇന്‍പുട്ട് വോള്യം: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "ഇന്‍പുട്ട് ലവല്‍:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "ശബ്ദ ഇന്‍പുട്ടിനുള്ള ഒരു ഡിവൈസ് _തെരഞ്ഞെടുക്കുക:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "ശബ്ദ ഔട്ട്പുട്ടിനുള്ള ഒരു ഡിവൈസ് _തെരഞ്ഞെടുക്കുക:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "പ്രയോഗങ്ങള്‍"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "ഓഡിയോ റിക്കോര്‍ഡ് ചെയ്യുന്നില്ല അല്ലെങ്കില്‍ നിലവില്‍ ഒരു പ്രയോഗവും പ്രവര്‍ത്തിക്കുന്നില്ല"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -316,15 +316,15 @@ msgstr "പ്രമേയത്തില്‍ നിന്നും"
 msgid "Type"
 msgstr "തരം"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "ശബ്ദ _പ്രമേയം:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "മുന്നറിയിപ്പ് ശബ്ദം _തെരഞ്ഞെടുക്കുക:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "_ജാലകം, ബട്ടണ്‍ ശബ്ദങ്ങള്‍ പ്രവര്‍ത്തന സജ്ജമാക്കുക"
 
@@ -352,9 +352,9 @@ msgstr "_നിശബ്ദമാക്കുക"
 msgid "_Sound Preferences"
 msgstr "_ശബ്ദ മുന്‍ഗണനകള്‍"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "നിശബ്ദമാക്കി"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

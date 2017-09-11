@@ -5,19 +5,19 @@
 # Translators:
 # Audrius Meskauskas, 2015
 # aurisc4 <aurisc4@gmail.com>, 2010
-# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2014
+# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2014,2017
 # Gintautas Miliauskas <gintas@akl.lt>, 2007
 # Justina Klingaitė <justina.klingaite@gmail.com>, 2005
-# Moo, 2015-2016
+# Moo, 2015-2017
 # Rimas Kudelis <rq@akl.lt>, 2009
 # Žygimantas Beručka <zygis@gnome.org>, 2003-2006, 2009, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2016-03-07 20:08+0000\n"
-"Last-Translator: Moo\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-07-05 22:59+0000\n"
+"Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "Keisti garsį ir susieti garsus su įvykiais"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Garsio valdymas"
@@ -107,12 +107,12 @@ msgid " — MATE Volume Control"
 msgstr " — MATE garsio valdymas"
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "Įvestis"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "Išvestis"
 
@@ -181,7 +181,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "Nutildyti"
 
@@ -244,53 +244,53 @@ msgstr "Garso efektai"
 msgid "_Alert volume: "
 msgstr "Įspėjimo _garsis: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "Išvesties _garsis: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "Įrenginiai"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "Pasi_rinkite derintiną įrenginį:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "Pasirinkto įrenginio nustatymai:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "Į_vesties garsis: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "Įvesties lygis:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "Pasi_rinkite garso įvesties įrenginį:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "Pasi_rinkite garso išvesties įrenginį:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "Programos"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "Šiuo metu jokia programa negroja ir neįrašinėja garso."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
 msgid "Sound Preferences"
-msgstr "Garso nuostatos"
+msgstr "Garso nustatymai"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:320
 msgid "No sounds"
@@ -323,15 +323,15 @@ msgstr "Iš temos"
 msgid "Type"
 msgstr "Tipas"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "Garsų _tema:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "Pasi_rinkite įspėjimo garsą:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "Įjungti _langų ir mygtukų garsus"
 
@@ -347,7 +347,7 @@ msgstr "Tikrinti"
 #: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "Nepavyko atverti garso nuostatų: %s"
+msgstr "Nepavyko atverti garso nustatymų: %s"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:239
 msgid "_Mute"
@@ -357,11 +357,11 @@ msgstr "_Nutildyti"
 #. gtk_image_menu_item_new_with_mnemonic
 #: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
-msgstr "_Garso nuostatos"
+msgstr "_Garso nustatymai"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "Nutildyta"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr "Nutildyta ties"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

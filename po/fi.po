@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Mikko Rauhala <mjr@iki.fi>, 1999
+# nomen omen <vapoursoft@gmail.com>, 2017
 # Tuomas J. Lukka <lukka@iki.fi>, 1998
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2016-02-20 09:59+0000\n"
-"Last-Translator: infirit <inactive+infirit@transifex.com>\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-07-25 10:34+0000\n"
+"Last-Translator: nomen omen <vapoursoft@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/mate/MATE/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr "Muuta äänenvoimakkuutta ja äänitapahtumia"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Äänenvoimakkuuden hallinta"
@@ -74,15 +75,15 @@ msgstr "Tämän ohjelman versio"
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
 msgid "Enable debug"
-msgstr ""
+msgstr "Käytä vianetsintää"
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr ""
+msgstr " — MATE Äänenvoimakkuuden Hallinta Sovelma"
 
 #: ../mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
-msgstr ""
+msgstr "Äänijärjestelmä ei ole käytettävissä"
 
 #: ../mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
@@ -90,7 +91,7 @@ msgstr "Odotetaan äänijärjestelmän vastausta"
 
 #: ../mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
-msgstr ""
+msgstr "Äänijärjestelmä taustaosa"
 
 #: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
@@ -98,29 +99,29 @@ msgstr "Aloitussivu"
 
 #: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr " — MATE Äänenvoimakkuuden Hallinta"
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "Tallennus"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "Toisto"
 
 #: ../mate-volume-control/gvc-applet.c:326
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Mikrofonin Äänenvoimakkuus"
 
 #: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
-msgstr ""
+msgstr "Äänentoisto Voimakkuus"
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr ""
+msgstr "MATE Äänenvoimakkuuden Hallinta Sovelma"
 
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
@@ -175,7 +176,7 @@ msgid "100%"
 msgstr "100 %"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "Vaimenna"
 
@@ -236,48 +237,48 @@ msgstr "Ääniefektit"
 msgid "_Alert volume: "
 msgstr "_Hälytysten voimakkuus: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "_Toistovoimakkuus: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
 msgstr "Laitteisto"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
 msgstr "_Valitse määriteltävä laite:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
 msgstr "Valitun laitteen asetukset:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "_Äänitysvoimakkuus: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "Äänitystaso: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
 msgstr "_Valitse laite äänen tallentamiseksi:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
 msgstr "_Valitse laite äänen toistamiseksi:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "Sovellukset"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "Mikään sovellus ei nyt soita tai tallenna ääntä."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -315,21 +316,21 @@ msgstr "Teemasta"
 msgid "Type"
 msgstr "Tyyppi"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "Ääni_teema:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "_Valitse hälytysääni:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "Ota _ikkuna- ja painikeäänet käyttöön"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
@@ -349,11 +350,11 @@ msgstr "_Vaimenna"
 #. gtk_image_menu_item_new_with_mnemonic
 #: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
-msgstr "Ää_niasetukset"
+msgstr "_Ääniasetukset"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "Vaimennettu"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

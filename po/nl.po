@@ -7,6 +7,7 @@
 # Huib Kleinhout <huib@stack.nl>, 2002
 # infirit <inactive+infirit@transifex.com>, 2014-2015
 # Mario Blättermann <mariobl@gnome.org>, 2010
+# Pjotr <pjotrvertaalt@gmail.com>, 2017
 # Reinout van Schouwen <reinouts@gnome.org>, 2009
 # Stef Pletinck <stef.plet@gmail.com>, 2015
 # Taco Witte <T.C.Witte@phys.uu.nl>, 2002
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 00:47+0300\n"
-"PO-Revision-Date: 2016-01-18 09:04+0000\n"
-"Last-Translator: Stef Pletinck <stef.plet@gmail.com>\n"
+"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"PO-Revision-Date: 2017-07-02 18:18+0000\n"
+"Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/mate/MATE/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,11 +33,11 @@ msgstr "Geluid"
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr "Geluidsvolume en systeemgeluiden aanpassen"
+msgstr "Geluidsvolume en systeemgeluiden wijzigen"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:482
+#: ../mate-volume-control/gvc-channel-bar.c:487
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Volumeregeling"
@@ -81,39 +82,39 @@ msgstr "Versie van deze toepassing"
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
 msgid "Enable debug"
-msgstr "Debug inschakelen"
+msgstr "Foutopsporing inschakelen"
 
 #: ../mate-volume-control/applet-main.c:55
 msgid " — MATE Volume Control Applet"
-msgstr " — Mate Volumeregeling-applet"
+msgstr " — MATE Volumeregeling-programmaatje"
 
 #: ../mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
-msgstr "Geluid systeem niet beschikbaar"
+msgstr "Geluidssysteem is niet beschikbaar"
 
 #: ../mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
-msgstr "Wachten op antwoord van het geluidsysteem"
+msgstr "Wachten op antwoord van het geluidssysteem"
 
 #: ../mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
-msgstr "Geluid systeem backend"
+msgstr "Achtergronddienst van geluidssysteem"
 
 #: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
-msgstr "Startup-pagina"
+msgstr "Opstartpagina"
 
 #: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr " — Mate Volumeregeling"
+msgstr " — MATE Volumeregeling"
 
 #: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:1999
 msgid "Input"
 msgstr "Invoer"
 
 #: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2086
 msgid "Output"
 msgstr "Uitvoer"
 
@@ -123,11 +124,11 @@ msgstr "Microfoonvolume"
 
 #: ../mate-volume-control/gvc-applet.c:328
 msgid "Sound Output Volume"
-msgstr "Uitvoervolume"
+msgstr "Geluiduitvoervolume"
 
 #: ../mate-volume-control/gvc-applet.c:333
 msgid "MATE Volume Control Applet"
-msgstr "Mate Volumeregeling Applet"
+msgstr "MATE Volumeregeling-programmaatje"
 
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
@@ -165,7 +166,7 @@ msgstr "_Balans:"
 
 #: ../mate-volume-control/gvc-balance-bar.c:340
 msgid "_Fade:"
-msgstr "_Fade:"
+msgstr "_Wegsterven:"
 
 #: ../mate-volume-control/gvc-balance-bar.c:343
 msgid "_Subwoofer:"
@@ -182,7 +183,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1080
+#: ../mate-volume-control/gvc-channel-bar.c:1086
 msgid "Mute"
 msgstr "Dempen"
 
@@ -194,7 +195,7 @@ msgstr "_Profiel:"
 #: ../mate-volume-control/gvc-mixer-dialog.c:355
 #: ../mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
-msgstr "Co_nnector:"
+msgstr "Verbi_ndingsstuk:"
 
 #. translators:
 #. * The device has been disabled
@@ -229,11 +230,11 @@ msgstr "Naam"
 #: ../mate-volume-control/gvc-mixer-dialog.c:1552
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "Luidsprekertest voor %s"
+msgstr "Luidsprekerproef voor %s"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1616
 msgid "Test Speakers"
-msgstr "Luidsprekers testen"
+msgstr "Luidsprekers beproeven"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1821
 msgid "Sound Effects"
@@ -243,48 +244,48 @@ msgstr "Geluidseffecten"
 msgid "_Alert volume: "
 msgstr "_Waarschuwingsvolume: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1915
+#: ../mate-volume-control/gvc-mixer-dialog.c:1913
 msgid "_Output volume: "
 msgstr "_Uitvoervolume: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1958
+#: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "Hardware"
+msgstr "Apparatuur"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1963
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
-msgstr "Kies een apparaat om te _configureren"
+msgstr "Kies een apparaat om te _configureren:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2128
+#: ../mate-volume-control/gvc-mixer-dialog.c:1985
+#: ../mate-volume-control/gvc-mixer-dialog.c:2115
 msgid "Settings for the selected device:"
-msgstr "Instellingen voor het geselecteerde apparaat"
+msgstr "Instellingen voor het geselecteerde apparaat:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2012
+#: ../mate-volume-control/gvc-mixer-dialog.c:2008
 msgid "_Input volume: "
 msgstr "_Invoervolume: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2040
+#: ../mate-volume-control/gvc-mixer-dialog.c:2033
 msgid "Input level:"
 msgstr "Invoerniveau:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2065
+#: ../mate-volume-control/gvc-mixer-dialog.c:2058
 msgid "C_hoose a device for sound input:"
-msgstr "Kies een apparaat voor geluids_invoer"
+msgstr "Kies een apparaat voor geluids_invoer:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2101
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "C_hoose a device for sound output:"
-msgstr "Kies een _apparaat voor geluidsuitvoer"
+msgstr "Kies een _apparaat voor geluidsuitvoer:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2153
+#: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
 msgstr "Toepassingen"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2158
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
-msgstr "Er is momenteel geen toepassing geluid aan het opnemen of afspelen."
+msgstr "Er is momenteel geen enkele toepassing geluid aan het opnemen of afspelen."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2350
+#: ../mate-volume-control/gvc-mixer-dialog.c:2337
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -308,7 +309,7 @@ msgstr "Aangepast"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:758
 msgid "Testing event sound"
-msgstr "Geluid testen"
+msgstr "Geluid beproeven"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
@@ -322,15 +323,15 @@ msgstr "Van thema"
 msgid "Type"
 msgstr "Type"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1031
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
 msgid "Sound _theme:"
 msgstr "Geluids_thema:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1044
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
 msgid "C_hoose an alert sound:"
 msgstr "Kies een _waarschuwingsgeluid:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1076
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
 msgid "Enable _window and button sounds"
 msgstr "Scherm- en knop_geluiden inschakelen"
 
@@ -341,12 +342,12 @@ msgstr "Stoppen"
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
-msgstr "Test"
+msgstr "Proef"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "Kon volumeregelingsvoorkeuren niet starten: %s"
+msgstr "Kon geluidsvoorkeuren niet starten: %s"
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:239
 msgid "_Mute"
@@ -358,9 +359,9 @@ msgstr "_Dempen"
 msgid "_Sound Preferences"
 msgstr "_Geluidsvoorkeuren"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:421
-msgid "Muted"
-msgstr "Gedempt"
+#: ../mate-volume-control/gvc-stream-status-icon.c:422
+msgid "Muted at"
+msgstr "Gedempt op"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
@@ -410,11 +411,11 @@ msgstr "Rechtsvoor van Midden"
 
 #: ../mate-volume-control/gvc-utils.c:70
 msgid "Side Left"
-msgstr "Linker zijkant"
+msgstr "Linkerzijkant"
 
 #: ../mate-volume-control/gvc-utils.c:71
 msgid "Side Right"
-msgstr "Rechter zijkant"
+msgstr "Rechterzijkant"
 
 #: ../mate-volume-control/gvc-utils.c:72
 msgid "Top Front Left"
