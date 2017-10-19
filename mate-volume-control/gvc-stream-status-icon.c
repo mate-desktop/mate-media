@@ -265,6 +265,7 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
 {
         GtkWidget *menu;
         GtkWidget *item;
+        GtkWidget *image;
 
         menu = gtk_menu_new ();
 
@@ -290,8 +291,10 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
 
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        /* FIXME: we lost an icon with migrating from gtk_image_menu_item_new_with_mnemonic */
-        item = gtk_menu_item_new_with_mnemonic (_("_Sound Preferences"));
+        item = gtk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
+        image = gtk_image_new_from_icon_name ("multimedia-volume-control",
+                                              GTK_ICON_SIZE_MENU);
+        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
 
         g_signal_connect (G_OBJECT (item),
                           "activate",
