@@ -1,3 +1,10 @@
+### mate-media 1.18.2
+
+  * Translations update
+  * applet: restore icon for "Sound Preferences" menu item
+  * applet: make keyboard work in popup
+  * refresh tray icon on icon theme change
+
 ### mate-media 1.18.1
 
   * Translations update
