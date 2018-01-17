@@ -205,7 +205,7 @@ update_default_input_stream (GvcApplet *applet)
                 g_object_unref (applet->priv->input);
         }
 
-        applet->priv->input = g_object_ref (stream);
+        applet->priv->input = (stream == NULL) ? NULL : g_object_ref (stream);
         if (applet->priv->input != NULL) {
                 g_signal_connect (G_OBJECT (applet->priv->input),
                                   "control-added",
