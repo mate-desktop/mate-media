@@ -281,7 +281,7 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                               G_SIGNAL_RUN_LAST,
                               G_STRUCT_OFFSET (GvcComboBoxClass, changing),
                               NULL, NULL,
-                              g_cclosure_marshal_VOID__VOID,
+                              g_cclosure_marshal_VOID__OBJECT,
                               G_TYPE_NONE,
                               1,
                               MATE_MIXER_TYPE_SWITCH_OPTION);
@@ -294,8 +294,7 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                               NULL, NULL,
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE,
-                              0,
-                              G_TYPE_NONE);
+                              0);
 
         g_type_class_add_private (klass, sizeof (GvcComboBoxPrivate));
 }
