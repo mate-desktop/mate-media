@@ -2300,10 +2300,8 @@ gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass)
                                                               G_PARAM_CONSTRUCT_ONLY |
                                                               G_PARAM_STATIC_STRINGS));
 
-#if GTK_CHECK_VERSION (3, 20, 0)
         GtkWidgetClass *widget_class  = GTK_WIDGET_CLASS (klass);
         gtk_widget_class_set_css_name (widget_class, "GvcMixerDialog");
-#endif
 
         g_type_class_add_private (klass, sizeof (GvcMixerDialogPrivate));
 }
