@@ -70,11 +70,7 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         GdkScreen     *screen;
         int            x;
         int            y;
-#if GTK_CHECK_VERSION (3, 22, 0)
         GdkMonitor    *monitor_num;
-#else
-        int            monitor_num;
-#endif
         GdkRectangle   monitor;
         GtkRequisition dock_req;
 
@@ -93,13 +89,8 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          1 - orientation);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
         monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), area.x, area.y);
         gdk_monitor_get_geometry (monitor_num, &monitor);
-#else
-        monitor_num = gdk_screen_get_monitor_at_point (screen, area.x, area.y);
-        gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
-#endif
 
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock),
                                (GtkCallback) gtk_widget_show_all, NULL);
@@ -141,7 +132,6 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         display = gtk_widget_get_display (icon->priv->dock);
 
         do {
-#if GTK_CHECK_VERSION (3, 20, 0)
                 GdkSeat *seat = gdk_display_get_default_seat (display);
                 GdkWindow *window = gtk_widget_get_window (icon->priv->dock);
 
@@ -157,40 +147,6 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
                         gtk_widget_hide (icon->priv->dock);
                         break;
                 }
-#else
-                GdkDeviceManager *manager = gdk_display_get_device_manager (display);
-                GdkDevice *pointer = gdk_device_manager_get_client_pointer (manager);
-                GdkDevice *keyboard = gdk_device_get_associated_device (pointer);
-                GdkWindow *window = gtk_widget_get_window (icon->priv->dock);
-
-                if (gdk_device_grab (pointer,
-                                     window,
-                                     GDK_OWNERSHIP_NONE,
-                                     TRUE,
-                                     GDK_BUTTON_PRESS_MASK |
-                                     GDK_BUTTON_RELEASE_MASK |
-                                     GDK_POINTER_MOTION_MASK |
-                                     GDK_SCROLL_MASK,
-                                     NULL,
-                                     time) != GDK_GRAB_SUCCESS) {
-                        gtk_grab_remove (icon->priv->dock);
-                        gtk_widget_hide (icon->priv->dock);
-                        break;
-                }
-
-                if (gdk_device_grab (keyboard,
-                                     window,
-                                     GDK_OWNERSHIP_NONE,
-                                     TRUE,
-                                     GDK_KEY_PRESS_MASK |
-                                     GDK_KEY_RELEASE_MASK,
-                                     NULL,
-                                     time) != GDK_GRAB_SUCCESS) {
-                        gdk_device_ungrab (pointer, time);
-                        gtk_grab_remove (icon->priv->dock);
-                        gtk_widget_hide (icon->priv->dock);
-                }
-#endif
         } while (0);
 
         gtk_widget_grab_focus (icon->priv->dock);
@@ -324,13 +280,9 @@ on_status_icon_scroll_event (GtkStatusIcon       *status_icon,
 static void
 gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 {
-#if GTK_CHECK_VERSION (3, 20, 0)
         GdkDisplay *display = gtk_widget_get_display (icon->priv->dock);
         GdkSeat *seat = gdk_display_get_default_seat (display);
         gdk_seat_ungrab (seat);
-#else
-        gdk_device_ungrab (event->device, event->time);
-#endif
         gtk_grab_remove (icon->priv->dock);
 
         /* Hide again */
@@ -357,15 +309,9 @@ popdown_dock (GvcStreamStatusIcon *icon)
 
         display = gtk_widget_get_display (icon->priv->dock);
 
-#if GTK_CHECK_VERSION (3, 20, 0)
         GdkSeat *seat = gdk_display_get_default_seat (display);
         gdk_seat_ungrab (seat);
-#else
-        GdkDeviceManager *manager = gdk_display_get_device_manager (display);
 
-        gdk_device_ungrab (gdk_device_manager_get_client_pointer (manager),
-                           GDK_CURRENT_TIME);
-#endif
         /* Hide again */
         gtk_widget_hide (icon->priv->dock);
 }

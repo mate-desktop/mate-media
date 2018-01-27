@@ -676,9 +676,8 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
         widget_class->get_preferred_width = gvc_level_bar_get_preferred_width;
         widget_class->get_preferred_height = gvc_level_bar_get_preferred_height;
         widget_class->size_allocate = gvc_level_bar_size_allocate;
-#if GTK_CHECK_VERSION (3, 20, 0)
+
         gtk_widget_class_set_css_name (widget_class, "gvc-level-bar");
-#endif
 
         properties[PROP_ORIENTATION] =
                 g_param_spec_enum ("orientation",
