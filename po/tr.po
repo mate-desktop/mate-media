@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"POT-Creation-Date: 2017-11-28 12:17+0100\n"
 "PO-Revision-Date: 2017-09-19 11:49+0000\n"
 "Last-Translator: Butterfly <gokhanlnx@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
@@ -321,15 +321,15 @@ msgstr "Teması"
 msgid "Type"
 msgstr "Tür"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
 msgstr "Ses _teması:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1047
 msgid "C_hoose an alert sound:"
 msgstr "Bir _uyarı sesi seçin:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1075
 msgid "Enable _window and button sounds"
 msgstr "_Pencere ve tuş seslerini etkinleştir"
 
@@ -342,22 +342,20 @@ msgstr "Dur"
 msgid "Test"
 msgstr "Test"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:205
+#: ../mate-volume-control/gvc-stream-status-icon.c:249
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Ses Tercihleri başlatılamadı: %ss"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:239
+#: ../mate-volume-control/gvc-stream-status-icon.c:284
 msgid "_Mute"
 msgstr "_Sessiz"
 
-#. FIXME: we lost an icon with migrating from
-#. gtk_image_menu_item_new_with_mnemonic
-#: ../mate-volume-control/gvc-stream-status-icon.c:250
+#: ../mate-volume-control/gvc-stream-status-icon.c:294
 msgid "_Sound Preferences"
 msgstr "_Ses Tercihleri"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:422
+#: ../mate-volume-control/gvc-stream-status-icon.c:480
 msgid "Muted at"
 msgstr "Şuna kapalı"
 

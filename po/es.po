@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Adolfo Jayme Barrientos, 2014
+# Adolfo Jayme-Barrientos, 2014
 # Andres Sanchez <blackatze93@gmail.com>, 2014,2016
 # Arcenio Cid <gusty.miliki@gmail.com>, 2015
 # ebray187 <ebray187@gmail.com>, 2016
 # Emiliano Fascetti, 2014
 # Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004, 2005, 2006
 # Jesús Bravo Álvarez <jba@pobox.com>, 2000
+# Joel Barrios <darkshram@gmail.com>, 2017
 # Jorge González <jorgegonz@svn.mate.org>, 2008, 2009, 2010
 # Lucas Vieites Fariña <lucas@asixinformatica.com>, 2005, 2006, 2007
 # Yelitza Louze <ylouze@redhat.com>, 2003
@@ -17,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-17 13:33+0300\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2017-11-28 12:17+0100\n"
+"PO-Revision-Date: 2017-12-15 15:44+0000\n"
+"Last-Translator: Joel Barrios <darkshram@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/mate/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,15 +324,15 @@ msgstr "Del tema"
 msgid "Type"
 msgstr "Tipo"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
 msgstr "_Tema de sonido:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1047
 msgid "C_hoose an alert sound:"
 msgstr "_Elegir un sonido de alerta:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1075
 msgid "Enable _window and button sounds"
 msgstr "Activar sonidos de _ventanas y botones"
 
@@ -344,24 +345,22 @@ msgstr "Parar"
 msgid "Test"
 msgstr "Probar"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:205
+#: ../mate-volume-control/gvc-stream-status-icon.c:249
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Falló al iniciar las Preferencias de sonido: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:239
+#: ../mate-volume-control/gvc-stream-status-icon.c:284
 msgid "_Mute"
 msgstr "_Silenciar"
 
-#. FIXME: we lost an icon with migrating from
-#. gtk_image_menu_item_new_with_mnemonic
-#: ../mate-volume-control/gvc-stream-status-icon.c:250
+#: ../mate-volume-control/gvc-stream-status-icon.c:294
 msgid "_Sound Preferences"
 msgstr "Prefere_ncias de sonido"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:422
+#: ../mate-volume-control/gvc-stream-status-icon.c:480
 msgid "Muted at"
-msgstr ""
+msgstr "Silenciado en"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"

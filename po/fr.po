@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-17 13:33+0300\n"
+"POT-Creation-Date: 2017-11-28 12:17+0100\n"
 "PO-Revision-Date: 2017-09-19 11:49+0000\n"
 "Last-Translator: Étienne Deparis <etienne@depar.is>\n"
 "Language-Team: French (http://www.transifex.com/mate/MATE/language/fr/)\n"
@@ -322,15 +322,15 @@ msgstr "À partir du thème"
 msgid "Type"
 msgstr "Type"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1030
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
 msgstr "_Thème sonore :"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1043
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1047
 msgid "C_hoose an alert sound:"
 msgstr "C_hoisissez un son d'alerte :"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1071
+#: ../mate-volume-control/gvc-sound-theme-chooser.c:1075
 msgid "Enable _window and button sounds"
 msgstr "Acti_ver les sons des fenêtres et boutons"
 
@@ -343,22 +343,20 @@ msgstr "Arrêter"
 msgid "Test"
 msgstr "Tester"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:205
+#: ../mate-volume-control/gvc-stream-status-icon.c:249
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Impossible d'ouvrir les préférences du son : %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:239
+#: ../mate-volume-control/gvc-stream-status-icon.c:284
 msgid "_Mute"
 msgstr "S_ourdine"
 
-#. FIXME: we lost an icon with migrating from
-#. gtk_image_menu_item_new_with_mnemonic
-#: ../mate-volume-control/gvc-stream-status-icon.c:250
+#: ../mate-volume-control/gvc-stream-status-icon.c:294
 msgid "_Sound Preferences"
 msgstr "Préférences du _son"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:422
+#: ../mate-volume-control/gvc-stream-status-icon.c:480
 msgid "Muted at"
 msgstr "Volume avant sourdine à"
 
