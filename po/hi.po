@@ -1,20 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# G Karunakar <karunakar@freedomink.org>, 2003
-# Rajesh Ranjan <rajesh672@gmail.com>, 2009
-# Rajesh Ranjan <rajesh672@gmail.com>, 2005, 2006, 2008, 2009
-# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2004
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Hindi (http://www.transifex.com/mate/MATE/language/hi/)\n"
+"POT-Creation-Date: 2018-03-17 09:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Sadgamaya <g.raghavan.g@gmail.com>, 2018\n"
+"Language-Team: Hindi (https://www.transifex.com/mate/teams/13566/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +28,7 @@ msgstr "ध्वनि आवाज और ध्वनि घटना बद�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "आवाज निर्धारक नियंत्रक"
@@ -177,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "मौन"
 
@@ -203,8 +200,8 @@ msgstr "अक्षम"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u आउटपुट"
-msgstr[1] "%u आउटपुट"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -212,8 +209,8 @@ msgstr[1] "%u आउटपुट"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u इनपुट"
-msgstr[1] "%u इनपुट"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -279,7 +276,7 @@ msgstr "अनुप्रयोग"
 msgid "No application is currently playing or recording audio."
 msgstr "कोई अनुप्रयोग अभी ध्वनि बजा या रिकार्ड नहीं कर रहा है."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -307,7 +304,7 @@ msgstr "घटना ध्वनि जाँच रहा है"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "डिफ़ॉल्ट"
+msgstr "मूलभूत"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -315,7 +312,7 @@ msgstr "प्रसंग से"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "क़िस्म"
+msgstr "प्रकार"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -331,33 +328,33 @@ msgstr "विंडो और बटन ध्वनि सक्रिय क�
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr ""
+msgstr "रोकें"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "ध्वनि वरीयता आरंभ करने में विफल: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "मूक (_M)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "ध्वनि वरीयता (_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "अज्ञात"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -379,7 +376,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

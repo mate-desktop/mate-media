@@ -1,19 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Amanpreet Singh Alam <aalam@users.sf.net>, 2008, 2009
-# Amanpreet Singh Alam <amanlinux@netscape.net>, 2004
-# A S Alam <aalam@users.sf.net>, 2005, 2006, 2007, 2009, 2010
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Panjabi (Punjabi) (http://www.transifex.com/mate/MATE/language/pa/)\n"
+"POT-Creation-Date: 2018-03-17 09:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
+"Language-Team: Panjabi (Punjabi) (https://www.transifex.com/mate/teams/13566/pa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +28,7 @@ msgstr "ਸਾਊਂਡ ਵਾਲੀਅਮ ਅਤੇ ਸਾਊਂਡ ਈਵੈ�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "ਆਵਾਜ਼ ਕੰਟਰੋਲ"
@@ -70,7 +68,7 @@ msgstr "ਸੋਨਰ"
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
-msgstr "ਇਸ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਵਰਜਨ"
+msgstr "ਇਹ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਵਰਜਨ"
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
@@ -173,10 +171,10 @@ msgstr "ਬਿਨਾਂ-ਐਪਲੀਫਾਈ"
 #: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
-msgstr "100%"
+msgstr "੧੦੦%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "ਚੁੱਪ"
 
@@ -202,8 +200,8 @@ msgstr "ਆਯੋਗ"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u ਆਉਟਪੁੱਟ"
-msgstr[1] "%u ਆਉਟਪੁੱਟ"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -211,8 +209,8 @@ msgstr[1] "%u ਆਉਟਪੁੱਟ"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u ਇੰਪੁੱਟ"
-msgstr[1] "%u ਇੰਪੁੱਟ"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -243,7 +241,7 @@ msgstr "ਆਉਟਪੁੱਟ ਵਾਲੀਅਮ(_O): "
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "ਹਾਰਡਵੇਅਰ"
+msgstr "ਜੰਤਰ"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -278,7 +276,7 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ"
 msgid "No application is currently playing or recording audio."
 msgstr "ਕੋਈ ਵੀ ਐਪਲੀਕੇਸ਼ਨ ਇਸ ਸਮੇਂ ਆਡੀਓ ਚਲਾ ਜਾਂ ਰਿਕਾਰਡ ਨਹੀਂ ਕਰ ਰਹੀ ਹੈ।"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -296,7 +294,7 @@ msgstr "ਬਿਲਟ-ਇਨ"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "ਸੋਧ"
+msgstr "ਕਸਟਮ"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -337,26 +335,26 @@ msgstr "ਰੋਕੋ"
 msgid "Test"
 msgstr "ਟੈਸਟ"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "ਸਾਊਂਡ ਪਸੰਦ ਚਲਾਉਣ ਲਈ ਫੇਲ੍ਹ ਹੈ: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "ਚੁੱਪ(_M)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "ਸਾਊਂਡ ਪਸੰਦ(_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "ਅਣਜਾਣ"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -378,7 +376,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

@@ -1,20 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Sanlig Badral <badral@chinggis.com>, 2003
-# Sanlig Badral <badral@openmn.org>, 2003, 2004, 2006
-# Sanlig Badral <Badral@openmn.org>, 2003, 2004
-# Sukhochir <sukhochir@csms.edu.mn>, 2003
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Mongolian (http://www.transifex.com/mate/MATE/language/mn/)\n"
+"POT-Creation-Date: 2018-03-17 09:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: baynaa devr <sageson.m@gmail.com>, 2018\n"
+"Language-Team: Mongolian (https://www.transifex.com/mate/teams/13566/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +20,7 @@ msgstr ""
 
 #: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr ""
+msgstr "Аудио"
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
@@ -31,7 +28,7 @@ msgstr ""
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Дууны хянагч"
@@ -71,7 +68,7 @@ msgstr ""
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
-msgstr ""
+msgstr "Энэ програмын хувилбар"
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
@@ -127,12 +124,12 @@ msgstr ""
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr ""
+msgstr "Зүүн"
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr ""
+msgstr "Баруун"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -174,10 +171,10 @@ msgstr ""
 #: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr ""
 
@@ -195,7 +192,7 @@ msgstr ""
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr ""
+msgstr "Хаагдсан"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -219,7 +216,7 @@ msgstr[1] ""
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
-msgstr ""
+msgstr "Нэр"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1552
 #, c-format
@@ -244,7 +241,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr ""
+msgstr "Техник хангамж"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -273,13 +270,13 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
-msgstr ""
+msgstr "Програм"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -307,7 +304,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr ""
+msgstr "Стандарт"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -315,7 +312,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr ""
+msgstr "Төрөл"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -338,26 +335,26 @@ msgstr "Зогс"
 msgid "Test"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "Тодорхойлогдоогүй"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -379,7 +376,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

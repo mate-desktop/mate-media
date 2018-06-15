@@ -1,27 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004
-# alibacha19 <alibacha19@gmail.com>, 2015
-# Anas Afif Emad <anas.e87@gmail.com, 2008
-# Arafat Medini <lumina@silverpen.de>, 2002-2003
-# Djihed Afifi <djihed@gmail.com>, 2006
-# Isam Bayazidi <bayazidi@arabeyes.org>, 2002
-# Khaled Hosny <khaledhosny@eglug.org>, 2006-2010
-# <lumina@silverpen.de>, 2003
-# Mosaab Alzoubi <moceap@hotmail.com>, 2013
-# Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002
-# مهدي السطيفي <chinoune.mehdi@gmail.com>, 2015
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-23 18:10+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Arabic (http://www.transifex.com/mate/MATE/language/ar/)\n"
+"POT-Creation-Date: 2018-03-17 09:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Hayder Majid <cteehayder@gmail.com>, 2018\n"
+"Language-Team: Arabic (https://www.transifex.com/mate/teams/13566/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +28,7 @@ msgstr "غيّر شدة الصوت و أصوات الأحداث"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "التحكم في حجم الصوت"
@@ -134,12 +124,12 @@ msgstr "MATE الصغير للتحكم في شدة الصوت"
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "اليسار"
+msgstr "يسار"
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "اليمين"
+msgstr "يمين"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -184,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "كتم"
 
@@ -210,12 +200,12 @@ msgstr "معطّل"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u مخرج"
-msgstr[1] "مخرج (%u)"
-msgstr[2] "مخرجان (%u)"
-msgstr[3] "%u مخارج"
-msgstr[4] "%u مخرجا"
-msgstr[5] "%u مخرجا"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -223,12 +213,12 @@ msgstr[5] "%u مخرجا"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u مدخل"
-msgstr[1] "مدخل (%u)"
-msgstr[2] "مدخلان (%u)"
-msgstr[3] "%u مداخل"
-msgstr[4] "%u مدخلا"
-msgstr[5] "%u مدخلا"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -294,7 +284,7 @@ msgstr "التطبيقات"
 msgid "No application is currently playing or recording audio."
 msgstr "لا تطبيقات تشغل أو تسجل الصوت حاليا."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -312,7 +302,7 @@ msgstr "مدمج"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "مخصّص"
+msgstr "مخصص"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -322,7 +312,7 @@ msgstr "يختبر صوت الحدث"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "المبدئي"
+msgstr "الافتراضي"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -330,7 +320,7 @@ msgstr "من السمة"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "النوع"
+msgstr "النّوع"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -346,27 +336,27 @@ msgstr "فعّل أصوات ال_نوافذ والأزرار"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr "أوقف"
+msgstr "أوقِف"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr "اختبِر"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "فشل بدء تفضيلات الصوت: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_كتم"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_تفضيلات الصوت"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
@@ -394,7 +384,7 @@ msgstr "المقدّمة الوسطى"
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

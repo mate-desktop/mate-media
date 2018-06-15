@@ -1,34 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# huskyviking <husky.viking@seznam.cz>, 2014
-# huskyviking <husky.viking@seznam.cz>, 2014
-# Lukas Novotny <lukasnov@cvs.mate.org>, 2006
-# LiberteCzech <liberte.czech@gmail.com>, 2016
-# Michal Bukovjan <bukm@centrum.cz>, 2002
-# Miloslav Trmač <mitr@volny.cz>, 2003, 2004, 2005, 2006
-# Miloslav Trmač <mitr@volny.cz>, 2003-2006
-# Petr Kovar <pmkovar@gmail.com>, 2007, 2008, 2009, 2010
-# Petr Kovar <pmkovar@gmail.com>, 2007-2010
-# Petr Tomeš <ptomes@gmail.com>, 2006
-# Stanislav Brabec <utx@penguin.cz>, 2000-2001
-# Stanislav Kučera <inactive+kacernator@transifex.com>, 2015
-# Stanislav Kučera <inactive+kacernator@transifex.com>, 2015
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: ToMáš Marný\n"
-"Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
+"POT-Creation-Date: 2018-03-17 09:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stanislav Kučera <inactive+kacernator@transifex.com>, 2018\n"
+"Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
@@ -40,7 +28,7 @@ msgstr "Změní hlasitost zvuku a přiřadí zvuky k událostem"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Ovládání hlasitosti"
@@ -136,12 +124,12 @@ msgstr "Zvukový řídící applet MATE"
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "Levý"
+msgstr "Vlevo"
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "Pravý"
+msgstr "Vpravo"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -183,10 +171,10 @@ msgstr "Nezesílené"
 #: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Ztlumit"
 
@@ -215,6 +203,7 @@ msgid_plural "%u Outputs"
 msgstr[0] "%u výstup"
 msgstr[1] "%u výstupy"
 msgstr[2] "%u výstupů"
+msgstr[3] "%u výstupů"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -225,6 +214,7 @@ msgid_plural "%u Inputs"
 msgstr[0] "%u vstup"
 msgstr[1] "%u vstupy"
 msgstr[2] "%u vstupů"
+msgstr[3] "%u vstupů"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -290,7 +280,7 @@ msgstr "Aplikace"
 msgid "No application is currently playing or recording audio."
 msgstr "Žádná aplikace aktuálně nepřehrává nebo nezaznamenává zvuk."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -326,7 +316,7 @@ msgstr "Z motivu"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "Typ"
+msgstr "Druh"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -349,26 +339,26 @@ msgstr "Zastavit"
 msgid "Test"
 msgstr "Otestovat"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Nezdařilo se spustit předvolby zvuku: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "Z_tlumit"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "Př_edvolby zvuku"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Ztlumeno při"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr "Neznámý"
+msgstr "Neznámo"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
