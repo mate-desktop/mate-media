@@ -1,20 +1,24 @@
+### mate-media 1.20.1
+
+  * sync with transifex
+
 ### mate-media 1.20.0
 
-    sync with transifex
-    require GTK+ 3.22 and GLib 2.50
-    gvc-applet: don't try to increase refcount of a NULL object
-    gvc-combo-box: fix signal arguments
-    applet: restore icon for "Sound Preferences" menu item
+  * sync with transifex
+  * require GTK+ 3.22 and GLib 2.50
+  * gvc-applet: don't try to increase refcount of a NULL object
+  * gvc-combo-box: fix signal arguments
+  * applet: restore icon for "Sound Preferences" menu item
 
 ### mate-media 1.19.1
 
-    sync with transifex
-    avoid deprecated gdk_screen_get_height
-    applet: use GdkSeat with GTK+ >= 3.20
-    applet: make keyboard work in popup
-    gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
-    refresh tray icon on icon theme change
-    Restore Polish translation credits from GNOME
+  * sync with transifex
+  * avoid deprecated gdk_screen_get_height
+  * applet: use GdkSeat with GTK+ >= 3.20
+  * applet: make keyboard work in popup
+  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * refresh tray icon on icon theme change
+  * Restore Polish translation credits from GNOME
 
 ### mate-media 1.19.0
 
