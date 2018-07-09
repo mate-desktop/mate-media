@@ -79,6 +79,14 @@ update_icon_input (GvcApplet *applet)
 
                 control = mate_mixer_stream_get_default_control (applet->priv->input);
 
+                const gchar *stream_name =
+                        mate_mixer_stream_get_name (applet->priv->input);
+                g_debug ("Got stream name %s", stream_name);
+                if (g_str_has_suffix (stream_name, ".monitor")) {
+                        inputs = NULL;
+                        g_debug ("Stream is a monitor, ignoring");
+                }
+
                 while (inputs != NULL) {
                         MateMixerStreamControl    *input =
                                 MATE_MIXER_STREAM_CONTROL (inputs->data);
