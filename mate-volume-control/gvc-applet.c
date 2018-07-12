@@ -50,6 +50,14 @@ static const gchar *icon_names_input[] = {
         NULL
 };
 
+static const gchar *icon_names_monitor[] = {
+        "audio-input-monitor-muted",
+        "audio-input-monitor-low",
+        "audio-input-monitor-medium",
+        "audio-input-monitor-high",
+        NULL
+};
+
 struct _GvcAppletPrivate
 {
         GvcStreamStatusIcon *icon_input;
@@ -65,6 +73,45 @@ static void gvc_applet_init       (GvcApplet      *applet);
 G_DEFINE_TYPE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
 
 static void
+update_mic_or_monitor_icon(GvcStreamStatusIcon *icon, 
+                           MateMixerStreamControl *control,
+                           const gchar         **names)
+{
+        /*Much of this is copied from update_icon in gvc-stream-status-icon.c
+         *All of this should take place in "update_icon" which is called from
+         *gvc_stream_status_icon_set_icon_names but for some reason only the 
+         *tooltip ends up correct without this
+         */
+        guint                volume = 0;
+        gdouble              decibel = 0;
+        guint                normal = 0;
+        gboolean             muted = FALSE;
+        guint                n = 0;
+        gchar               *markup;
+        MateMixerStreamControlFlags flags;
+
+        flags = mate_mixer_stream_control_get_flags (control);
+
+        if (flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
+        	    muted = mate_mixer_stream_control_get_mute (control);
+
+        if (flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
+                volume = mate_mixer_stream_control_get_volume (control);
+                normal = mate_mixer_stream_control_get_normal_volume (control);
+        }
+
+        /* Select an icon, they are expected to be sorted, the lowest index being
+         * the mute icon and the rest being volume increments */
+        if (volume <= 0 || muted)
+                n = 0;
+        else
+                n = CLAMP (3 * volume / normal + 1, 1, 3);
+
+        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
+                                            names[n]);
+}
+
+static void
 update_icon_input (GvcApplet *applet)
 {
         MateMixerStreamControl *control = NULL;
@@ -78,6 +125,19 @@ update_icon_input (GvcApplet *applet)
                         mate_mixer_stream_list_controls (applet->priv->input);
 
                 control = mate_mixer_stream_get_default_control (applet->priv->input);
+
+                /*Select microphone or soundcard icon for mic or monitor inputs*/
+                const gchar *stream_name =
+                        mate_mixer_stream_get_name (applet->priv->input);
+                g_debug ("Got stream name %s", stream_name);
+                if (g_str_has_suffix (stream_name, ".monitor")) {
+                        gvc_stream_status_icon_set_icon_names(applet->priv->icon_input, icon_names_monitor);
+                        update_mic_or_monitor_icon(applet->priv->icon_input, control, icon_names_monitor);
+                }
+                else{
+                        gvc_stream_status_icon_set_icon_names(applet->priv->icon_input, icon_names_input);
+                        update_mic_or_monitor_icon(applet->priv->icon_input, control, icon_names_input);
+                }
 
                 while (inputs != NULL) {
                         MateMixerStreamControl    *input =

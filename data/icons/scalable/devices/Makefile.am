@@ -1,7 +1,7 @@
 NULL =
 
 themedir = $(pkgdatadir)/icons/hicolor
-size = 48x48
+size = scalable
 context = devices
 
 iconsdir = $(themedir)/$(size)/$(context)
