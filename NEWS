@@ -1,5 +1,9 @@
 ### mate-media 1.21.0
 
+    sync with transifex
+    Ignore PulseAudio "monitor" inputs when displaying mic icon
+    gvc-mixer-dialog.c: avoid deprecated 'gtk_widget_override_font'
+
 ### mate-media 1.20.0
 
   * sync with transifex
