@@ -1,26 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# ABE Tsunehiko, 2017
-# Akira TAGOH <tagoh@gnome.gr.jp>, 2000
-# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2014
-# Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999
-# Hideki Yamane <henrich@debian.or.jp>, 2010
-# Hideki Yamane <henrich@debian.or.jp>, 2010
-# Ikuru K <kanumaiku@gmail.com>, 2015
-# KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003
-# Mitsuru Oka <95i44@is.kochi-u.ac.jp>, 1998
-# Satoru SATOH <aihana@gnome.gr.jp>, 2006
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Japanese (http://www.transifex.com/mate/MATE/language/ja/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: semicolon <mail@semicln.com>, 2018\n"
+"Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +28,7 @@ msgstr "音量や音のイベントを変更します"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "音量調節ツール"
@@ -183,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "ミュート"
 
@@ -209,7 +200,7 @@ msgstr "無効"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u 出力"
+msgstr[0] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -217,7 +208,7 @@ msgstr[0] "%u 出力"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u 入力"
+msgstr[0] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -283,7 +274,7 @@ msgstr "アプリケーション"
 msgid "No application is currently playing or recording audio."
 msgstr "現在、再生または録音しているアプリケーションはありません"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -301,7 +292,7 @@ msgstr "インストール済"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "その他"
+msgstr "カスタム"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -335,27 +326,27 @@ msgstr "ウィンドウとボタンの音を鳴らす(_W)"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr "停止します"
+msgstr "停止"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr "テスト"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "サウンドの設定を起動できませんでした: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "ミュート(_M)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "サウンドの設定(_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 

@@ -1,20 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2012,2015
-# Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2005, 2006, 2007, 2008, 2009, 2010
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Basque (http://www.transifex.com/mate/MATE/language/eu/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
+"Language-Team: Basque (https://www.transifex.com/mate/teams/13566/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +28,7 @@ msgstr "Aldatu soinuaren bolumena eta soinuaren gertaerak"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Bolumen-kontrola"
@@ -174,10 +171,10 @@ msgstr "Anplifikatu gabea"
 #: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
-msgstr "% 100"
+msgstr "%100"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Mututu"
 
@@ -203,8 +200,8 @@ msgstr "Desgaituta"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "Irteera %u"
-msgstr[1] "%u irteera"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -212,8 +209,8 @@ msgstr[1] "%u irteera"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "Sarrera %u"
-msgstr[1] "%u sarrera"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -279,7 +276,7 @@ msgstr "Aplikazioak"
 msgid "No application is currently playing or recording audio."
 msgstr "Ez dago unean audioa erreproduzitzen edo grabatzen duen aplikaziorik."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -338,26 +335,26 @@ msgstr "Gelditu"
 msgid "Test"
 msgstr "Probatu"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Huts egin du soinuaren hobespenak abiaraztean: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Mututu"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_Soinuaren hobespenak"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "Ezezaguna"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -379,7 +376,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "MBE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

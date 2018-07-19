@@ -1,18 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Bervianto Leo Pratama <bervianto.leo@gmail.com>, 2017
-# Willy Sudiarto Raharjo <willysr@slackware-id.org>, 2014,2016
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Bervianto Leo Pratama <bervianto.leo@gmail.com>\n"
-"Language-Team: Indonesian (http://www.transifex.com/mate/MATE/language/id/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>, 2018\n"
+"Language-Team: Indonesian (https://www.transifex.com/mate/teams/13566/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +28,7 @@ msgstr "Ubah volume suara dan peristiwa suara"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Pengatur Volume"
@@ -175,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Bisu"
 
@@ -193,7 +192,7 @@ msgstr "Ko_nektor:"
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr "Dimatikan"
+msgstr "Tidak aktif"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -201,7 +200,7 @@ msgstr "Dimatikan"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Keluaran"
+msgstr[0] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -209,7 +208,7 @@ msgstr[0] "%u Keluaran"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Masukan"
+msgstr[0] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -275,7 +274,7 @@ msgstr "Aplikasi"
 msgid "No application is currently playing or recording audio."
 msgstr "Tak ada aplikasi yang kini memainkan atau merekam suara."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -293,7 +292,7 @@ msgstr "Bawaan"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Bebas"
+msgstr "Kustom"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -303,7 +302,7 @@ msgstr "Menguji suara peristiwa"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "Bawaan"
+msgstr "Standar"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -311,7 +310,7 @@ msgstr "Dari tema"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "Jenis"
+msgstr "Tipe"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -327,27 +326,27 @@ msgstr "Aktifkan suara _jendela dan tombol"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr "Stop"
+msgstr "Hentikan"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr "Tes"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Gagal memulai Preferensi Suara: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Bisu"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "Preferensi _Suara"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Bisukan di"
 

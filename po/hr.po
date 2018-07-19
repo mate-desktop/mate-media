@@ -1,20 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2016
-# Ivica  Kolić <ikoli@yahoo.com>, 2013
-# Elvis M. Lukšić <meluksic@yahoo.com>, 2016
-# Tomislav Krznar <tomislav.krznar@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Croatian (http://www.transifex.com/mate/MATE/language/hr/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2018\n"
+"Language-Team: Croatian (https://www.transifex.com/mate/teams/13566/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +28,7 @@ msgstr "Promijeni glasnoću zvuka i zvučne događaje"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Nadzor glasnoće"
@@ -177,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Bez zvuka"
 
@@ -203,9 +200,9 @@ msgstr "Onemogućeno"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u izlaz"
-msgstr[1] "%u izlaza"
-msgstr[2] "%u izlaza"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -213,9 +210,9 @@ msgstr[2] "%u izlaza"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u ulaz"
-msgstr[1] "%u ulaza"
-msgstr[2] "%u ulaza"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -246,7 +243,7 @@ msgstr "_Glasnoća izlaza:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "Hardver"
+msgstr "Sklopovlje"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -281,7 +278,7 @@ msgstr "Aplikacije"
 msgid "No application is currently playing or recording audio."
 msgstr "Nijedna aplikacija trenutno ne izvodi niti snima zvuk."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -340,20 +337,20 @@ msgstr "Zaustavi"
 msgid "Test"
 msgstr "Provjeri"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Nije uspjelo pokretanje zvučnih prilagodbi: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Bez zvuka"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_Zvučne prilagodbe"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 

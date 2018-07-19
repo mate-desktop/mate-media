@@ -1,18 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Amitakhya Phukan <amitakhya@svn.mate.org>, 2008
-# Amitakhya Phukan <aphukan@fedoraproject.org>, 2009
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Assamese (http://www.transifex.com/mate/MATE/language/as/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
+"Language-Team: Assamese (https://www.transifex.com/mate/teams/13566/as/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +28,7 @@ msgstr "শব্দৰ মাত্ৰা o নিৰ্দিষ্ট ঘট�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "শব্দৰ মাত্ৰা নিয়ন্ত্ৰণকৰ্তা"
@@ -69,7 +68,7 @@ msgstr "সোনাৰ"
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
-msgstr "এপ্লিকেশনৰ সংস্কৰণ সংখ্যা"
+msgstr "এই অ্যাপলিকেশনটিৰ সংস্কৰণ"
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
@@ -172,10 +171,10 @@ msgstr "এমপ্লিফাই নকৰা"
 #: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
-msgstr "100%"
+msgstr "১০০%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "নিঃশব্দ"
 
@@ -201,8 +200,8 @@ msgstr "নিষ্ক্ৰিয়"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u নিৰ্গম"
-msgstr[1] "%u নিৰ্গম"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -210,8 +209,8 @@ msgstr[1] "%u নিৰ্গম"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u নিবেশ"
-msgstr[1] "%u নিবেশ"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -242,7 +241,7 @@ msgstr "নিৰ্গমৰ শব্দৰ মাত্ৰা: (_O)"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "হাৰ্ডৱেৰ"
+msgstr "যান্ত্ৰিক সামগ্ৰী"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -277,7 +276,7 @@ msgstr "অনুপ্ৰয়োগ"
 msgid "No application is currently playing or recording audio."
 msgstr "কোনো এপ্লিকেশন দ্বাৰা বৰ্তমানে অডিও বাজানো অথবা ৰেকৰ্ড কৰা হচ্ছে না।"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -313,7 +312,7 @@ msgstr "থিমৰ পৰা"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "প্ৰকাৰ"
+msgstr "ধৰন"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -329,33 +328,33 @@ msgstr "উইন্ডো আৰু বুটামৰ শব্দ সক্�
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr ""
+msgstr "বন্ধ কৰক"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "শব্দ সংক্ৰান্ত পছন্দেৰ মান আৰম্ভ কৰিবলৈ ব্যৰ্থ: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "নিঃশব্দ: (_M)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "শব্দ সংক্ৰান্ত পছন্দ (_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "অজ্ঞাত"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -377,7 +376,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "নিম্ন-কম্পাংকেৰ-প্ৰভাব"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

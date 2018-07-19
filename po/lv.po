@@ -1,20 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Artis Trops <hornet@navigators.lv>, 2001
-# Imants Liepiņš <imzzinator@gmail.com>, 2013
-# Pēteris Krišjānis <pecisk@gmail.com>, 2010
-# Raivis Dejus <orvils@gmail.com>, 2006, 2009
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Latvian (http://www.transifex.com/mate/MATE/language/lv/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ciba43 <voiceofwise1@gmail.com>, 2018\n"
+"Language-Team: Latvian (https://www.transifex.com/mate/teams/13566/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +28,7 @@ msgstr "Mainīt skaņas līmeni un skaņas dažādiem notikumiem"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Skaļuma kontrole"
@@ -127,12 +124,12 @@ msgstr ""
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "Pa kreisi"
+msgstr "Pa Kreisi"
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "Pa labi"
+msgstr "Pa Labi"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -177,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Apklusināt"
 
@@ -203,9 +200,9 @@ msgstr "Deaktivizēts"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u izvadkanāls"
-msgstr[1] "%u izvadkanāli"
-msgstr[2] "%u izvadkanālu"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -213,9 +210,9 @@ msgstr[2] "%u izvadkanālu"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u ievadkanāls"
-msgstr[1] "%u ievadkanāli"
-msgstr[2] "%u ievadkanālu"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -281,7 +278,7 @@ msgstr "Lietotnes"
 msgid "No application is currently playing or recording audio."
 msgstr "Neviena lietotne šobrīd neatskaņo vai neieraksta audio."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -309,7 +306,7 @@ msgstr "Pārbauda notikuma skaņu"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "Noklusētais"
+msgstr "Noklusējums"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -340,26 +337,26 @@ msgstr "Pārtraukt"
 msgid "Test"
 msgstr "Pārbaudīt"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Neizdevās palaist skaņas iestatījumus: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Apklusināt"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_Skaņas iestatījumi"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -381,7 +378,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "zemfrekvences efekti (LFE)"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

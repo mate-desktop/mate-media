@@ -1,21 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# nab <nab@mail.by>, 2004
-# nab <nab@mail.by>, 2004
-# Ihar Hrachyshka <boox.svaboda2006@gmail.com>, 2006
-# nab <nab@mail.by>, 2004
-# Vital Khilko <dojlid@mova.org>, 2003,2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Belarusian (http://www.transifex.com/mate/MATE/language/be/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mihail Varantsou <meequz@gmail.com>, 2018\n"
+"Language-Team: Belarusian (https://www.transifex.com/mate/teams/13566/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +28,7 @@ msgstr "Кіраваць гучнасцю сістэмы і гукавымі п�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Кіраванне гукам"
@@ -128,12 +124,12 @@ msgstr "Аплет кіравання гукам MATE"
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "Левы"
+msgstr "Злева"
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "Правы"
+msgstr "Справа"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -178,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Сцішыць"
 
@@ -204,10 +200,10 @@ msgstr "Адключаны"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u выхад"
-msgstr[1] "%u выхады"
-msgstr[2] "%u выхадаў"
-msgstr[3] "%u выхадаў"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -215,10 +211,10 @@ msgstr[3] "%u выхадаў"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u уваход"
-msgstr[1] "%u уваходы"
-msgstr[2] "%u уваходаў"
-msgstr[3] "%u уваходаў"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -284,7 +280,7 @@ msgstr "Праграмы"
 msgid "No application is currently playing or recording audio."
 msgstr "Ніводная праграма цяпер не грае і не піша гук."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -302,7 +298,7 @@ msgstr "Убудаваны"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Адмысловы"
+msgstr "Іншы"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -312,7 +308,7 @@ msgstr "Праверка гуку падзеі"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "Стандартны"
+msgstr "Стандартна"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -343,20 +339,20 @@ msgstr "Спыніць"
 msgid "Test"
 msgstr "Праверка"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Не выйшла запусціць настáўленні гуку: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Сцішыць"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_Настáўленні гуку"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 

@@ -1,20 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006, 2007
-# Miloš Popović <gpopac@gmail.com>, 2010
-# Miloš Popović <gpopac@gmail.com>, 2010
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian (http://www.transifex.com/mate/MATE/language/sr/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
+"Language-Team: Serbian (https://www.transifex.com/mate/teams/13566/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +28,7 @@ msgstr "Измените јачину звука и догађаје звука"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Управљање јачином звука"
@@ -127,12 +124,12 @@ msgstr "Мејтово програмче за управљање звуком"
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "Леви"
+msgstr "Лево"
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "Десни"
+msgstr "Десно"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -177,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Утишај"
 
@@ -195,7 +192,7 @@ msgstr "_Конектор:"
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr "Искључен"
+msgstr "Онемогућено"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -203,9 +200,9 @@ msgstr "Искључен"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u излаз"
-msgstr[1] "%u излаза"
-msgstr[2] "%u излаза"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -213,9 +210,9 @@ msgstr[2] "%u излаза"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u улаз"
-msgstr[1] "%u улаза"
-msgstr[2] "%u улаза"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -246,7 +243,7 @@ msgstr "Јачина звука на _излазу: "
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "Звучне картице"
+msgstr "Хардвер"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -281,7 +278,7 @@ msgstr "Програми"
 msgid "No application is currently playing or recording audio."
 msgstr "Ниједан програм тренутно не пушта нити снима звук."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -299,7 +296,7 @@ msgstr "Уграђено"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Произвољно"
+msgstr "Произвољна"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -340,20 +337,20 @@ msgstr "Заустави"
 msgid "Test"
 msgstr "Испробај"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Нисам успео да покренем поставке звука: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Утишај"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "Поставке _звука"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Утишано на"
 

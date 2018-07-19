@@ -1,22 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Dinesh Nadarajah <n_dinesh@yahoo.com>, 2003
-# Dr,T,Vasudevan <agnihot3@gmail.com>, 2010
-# Dr.T.Vasudevan <agnihot3@gmail.com>, 2007, 2009
-# Felix <ifelix@redhat.com>, 2006
-# I. Felix <ifelix@redhat.com>, 2008, 2009
-# Jayaradha N <jaya@pune.redhat.com>, 2004
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Tamil (http://www.transifex.com/mate/MATE/language/ta/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
+"Language-Team: Tamil (https://www.transifex.com/mate/teams/13566/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,7 +28,7 @@ msgstr "ஒலியளவு மற்றும்  ஒலி நிகழ்�
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "ஒலிவளவு கட்டுப்பாடு"
@@ -179,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "அமைதியாக்கு"
 
@@ -205,8 +200,8 @@ msgstr "செயல்நீக்கப்பட்டது"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u வெளிப்பாடு"
-msgstr[1] "%u வெளிப்பாடுகள்"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -214,8 +209,8 @@ msgstr[1] "%u வெளிப்பாடுகள்"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u உள்ளீடுகள்"
-msgstr[1] "%u உள்ளீடுகள்"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -246,7 +241,7 @@ msgstr "வெளியேறும் ஒலியளவு: (_O)"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "வன் பொருட்கள்"
+msgstr "வண் பொருட்கள்"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -275,13 +270,13 @@ msgstr "ஒலி வெளிப்பாடு சாதனத்தை தே
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2140
 msgid "Applications"
-msgstr "விண்ணப்பங்கள்"
+msgstr "பயன்பாடுகள்"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "No application is currently playing or recording audio."
 msgstr "ஆடியோவை ஒரு பயன்பாடும் தற்போது இயக்கவில்லை அல்லது பதிவு செய்யவில்லை"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -299,7 +294,7 @@ msgstr "உட்பொதியப்பட்டது"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "வழக்கம்"
+msgstr "தனிப்பயன்"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -317,7 +312,7 @@ msgstr "தீமிலிருந்து"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "வகை"
+msgstr "þனம்"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
@@ -333,33 +328,33 @@ msgstr "சாளரம் மற்றும் பொத்தான் ஒல
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr ""
+msgstr "நிறுத்து"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "ஒலியளவு கட்டுப்பாடு முன்னுரிமைகளில் தோல்வி : %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "அமைதியாக்கு(_M)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "ஒலியளவு முன்னுரிமைகள்(_S)"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியாத"
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -381,7 +376,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

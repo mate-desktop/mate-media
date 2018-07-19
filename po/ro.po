@@ -1,22 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Adi Roiban https://launchpad.net/~adiroiban, 2008, 2009
-# Daniel <danny3@tutanota.com>, 2015
-# Daniel <danny3@tutanota.com>, 2017
-# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010
-# Mugurel Tudor <mugurelu@mate.ro>, 2002-2003, 2004, 2005, 2006, 2007
-# Octi <octi@writeme.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-09-19 11:49+0000\n"
-"Last-Translator: Daniel <danny3@tutanota.com>\n"
-"Language-Team: Romanian (http://www.transifex.com/mate/MATE/language/ro/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Inpresentia I., 2018\n"
+"Language-Team: Romanian (https://www.transifex.com/mate/teams/13566/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,7 +28,7 @@ msgstr "Schimbă volumul sunetului și sunetele evenimentelor"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Control volum"
@@ -73,7 +68,7 @@ msgstr "Sonar"
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
-msgstr "Versiunea aceastei aplicații"
+msgstr "Versiunea acestei aplicații"
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
@@ -179,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Tăcut"
 
@@ -205,9 +200,9 @@ msgstr "Dezactivat"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u ieșire"
-msgstr[1] "%u ieșiri"
-msgstr[2] "%u de ieșiri"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -215,9 +210,9 @@ msgstr[2] "%u de ieșiri"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u intrare"
-msgstr[1] "%u intrări"
-msgstr[2] "%u de intrări"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -248,7 +243,7 @@ msgstr "V_olum ieșire:"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1956
 msgid "Hardware"
-msgstr "Hardware"
+msgstr "Componente"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "C_hoose a device to configure:"
@@ -283,7 +278,7 @@ msgstr "Aplicații"
 msgid "No application is currently playing or recording audio."
 msgstr "Nicio aplicație nu redă sau înregistrează sunete în acest moment."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -301,7 +296,7 @@ msgstr "Integrat"
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "Personalizat"
+msgstr "Personalizată"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
@@ -311,7 +306,7 @@ msgstr "Testare eveniment sunet"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "Implicit"
+msgstr "Mod implicit"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
@@ -335,27 +330,27 @@ msgstr "Acti_vare sunete pentru fereastră și butoane"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr "Stop"
+msgstr "Oprește"
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
 msgid "Test"
 msgstr "Testează"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Pornirea preferințelor sunet a eșuat: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Tăcut"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "Preferințe _sunet"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Tăcut la"
 

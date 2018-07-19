@@ -1,25 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Andreas Hyden <a.hyden@cyberpoint.se>, 2000
-# Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2004, 2005, 2006
-# Daniel Gullbransen <daniel@llama.nu>, 2017
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010
-# Erik, 2016
-# Henrik Mattsson-Mårn <h@reglage.net>, 2016
-# Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2015
-# Martin Wahlen <mva@sbbs.se>, 1998, 1999
-# Tobias Lekare <lekare@linux.com>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2017-11-29 11:23+0000\n"
-"Last-Translator: Tobias Lekare <lekare@linux.com>\n"
-"Language-Team: Swedish (http://www.transifex.com/mate/MATE/language/sv/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Tobias Lekare <lekare@linux.com>, 2018\n"
+"Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +28,7 @@ msgstr "Ändra ljudvolym och ljudhändelser"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Volymkontroll"
@@ -76,7 +68,7 @@ msgstr "Sonar"
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
-msgstr "Version av detta program"
+msgstr "Detta programs versionsnummer"
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
@@ -182,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "Tyst"
 
@@ -208,8 +200,8 @@ msgstr "Inaktiverad"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u utgång"
-msgstr[1] "%u utgångar"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -217,8 +209,8 @@ msgstr[1] "%u utgångar"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u ingång"
-msgstr[1] "%u ingångar"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
@@ -284,7 +276,7 @@ msgstr "Program"
 msgid "No application is currently playing or recording audio."
 msgstr "Inget program spelar upp eller in ljud för tillfället."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -343,20 +335,20 @@ msgstr "Stopp"
 msgid "Test"
 msgstr "Testa"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Misslyckades med att starta ljudinställningar: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_Tyst"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_Ljudinställningar"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Tystad vid"
 

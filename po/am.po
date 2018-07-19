@@ -1,18 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Ge'ez Frontier Foundation <locales@geez.org>, 2002
-# samson <sambelet@yahoo.com>, 2013,2015,2017-2018
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:17+0100\n"
-"PO-Revision-Date: 2018-01-10 00:56+0000\n"
-"Last-Translator: samson <sambelet@yahoo.com>\n"
-"Language-Team: Amharic (http://www.transifex.com/mate/MATE/language/am/)\n"
+"POT-Creation-Date: 2018-03-17 09:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: samson <sambelet@yahoo.com>, 2018\n"
+"Language-Team: Amharic (https://www.transifex.com/mate/teams/13566/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,18 +24,18 @@ msgstr "ድምፅ "
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr "የድምፅ መጠን እና የድምፅ ሁኔታዎችን መቀየሪያ"
+msgstr "የ ድምፅ መጠን እና የ ድምፅ ሁኔታዎችን መቀየሪያ"
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:487
+#: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "መጠን መቆጣጠሪያ "
 
 #: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr "የዴስክቶፕ መጠን መቆጣጠሪያ ማሳያ "
+msgstr "የ ዴስክቶፕ መጠን መቆጣጠሪያ ማሳያ "
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
@@ -125,12 +124,12 @@ msgstr " የ ሜት ድምፅ መቆጣጠሪያ ክፍል"
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "የ ግራ "
+msgstr "በ ግራ "
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "የ ቀኝ "
+msgstr "በ ቀኝ"
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
@@ -150,7 +149,7 @@ msgstr "አነስተኛ "
 #: ../mate-volume-control/gvc-balance-bar.c:149
 msgctxt "balance"
 msgid "Maximum"
-msgstr "ከፍተኛ "
+msgstr "ከፍተኛው"
 
 #: ../mate-volume-control/gvc-balance-bar.c:337
 msgid "_Balance:"
@@ -175,7 +174,7 @@ msgid "100%"
 msgstr "100%"
 
 #. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1086
+#: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
 msgstr "መቀነሻ"
 
@@ -201,8 +200,8 @@ msgstr "ተሰናክሏል"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u ውጤት "
-msgstr[1] "%u ውጤቶች "
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -210,14 +209,14 @@ msgstr[1] "%u ውጤቶች "
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u ማስገቢያ "
-msgstr[1] "%u ማስገቢያዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
-msgstr "ስም "
+msgstr "ስም"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1552
 #, c-format
@@ -277,7 +276,7 @@ msgstr "መተግበሪያዎች "
 msgid "No application is currently playing or recording audio."
 msgstr "ምንም መተገበሪያ አይጫወትም ወይንም ድምጽ አይቀርጽም"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2337
+#: ../mate-volume-control/gvc-mixer-dialog.c:2335
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
@@ -336,20 +335,20 @@ msgstr "ማስቆሚያ"
 msgid "Test"
 msgstr "መሞከሪያ"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:249
+#: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "የ ድምጽ ምርጫዎችን ማስጀመር አልተቻለም: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:284
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
 msgstr "_መቀነሻ "
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:294
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
 msgstr "_የ ድምፅ ምርጫዎች"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:480
+#: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "ተቋርጧል በ"
 
