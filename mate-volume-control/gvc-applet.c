@@ -42,11 +42,27 @@ static const gchar *icon_names_output[] = {
         NULL
 };
 
+static const gchar *icon_names_symbolic_output[] = {
+        "audio-status-volume-muted-symbolic",
+        "audio-status-volume-low-symbolic",
+        "audio-status-volume-medium-symbolic",
+        "audio-status-volume-high-symbolic",
+        NULL
+};
+
 static const gchar *icon_names_input[] = {
         "audio-input-microphone-muted",
         "audio-input-microphone-low",
         "audio-input-microphone-medium",
         "audio-input-microphone-high",
+        NULL
+};
+
+static const gchar *icon_names_symbolic_input[] = {
+        "audio-status-microphone-muted-symbolic",
+        "audio-status-microphone-low-symbolic",
+        "audio-status-microphone-medium-symbolic",
+        "audio-status-microphone-high-symbolic",
         NULL
 };
 
@@ -324,8 +340,16 @@ gvc_applet_init (GvcApplet *applet)
 {
         applet->priv = GVC_APPLET_GET_PRIVATE (applet);
 
-        applet->priv->icon_input  = gvc_stream_status_icon_new (NULL, icon_names_input);
-        applet->priv->icon_output = gvc_stream_status_icon_new (NULL, icon_names_output);
+        if (gtk_icon_theme_has_icon (gtk_icon_theme_get_default (), "audio-status-volume-muted-symbolic")) {
+            // The theme provides symbolic icons, use them.
+            applet->priv->icon_input  = gvc_stream_status_icon_new (NULL, icon_names_symbolic_input);
+            applet->priv->icon_output = gvc_stream_status_icon_new (NULL, icon_names_symbolic_output);
+        }
+        else {
+            // No symbolic icons provided by the theme, fallback to fullcolor icons.
+            applet->priv->icon_input  = gvc_stream_status_icon_new (NULL, icon_names_input);
+            applet->priv->icon_output = gvc_stream_status_icon_new (NULL, icon_names_output);
+        }
 
         gvc_stream_status_icon_set_display_name (applet->priv->icon_input,  _("Input"));
         gvc_stream_status_icon_set_display_name (applet->priv->icon_output, _("Output"));
