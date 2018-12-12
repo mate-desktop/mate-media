@@ -288,6 +288,21 @@ on_context_default_output_stream_notify (MateMixerContext *control,
         update_icon_output (applet);
 }
 
+static void
+on_icon_theme_change (GtkSettings         *settings,
+                      GParamSpec          *pspec,
+                      GvcApplet           *applet)
+{
+        if (gtk_icon_theme_has_icon (gtk_icon_theme_get_default (), "audio-status-volume-muted-symbolic")) {
+            gvc_stream_status_icon_set_icon_names (applet->priv->icon_input, icon_names_symbolic_input);
+            gvc_stream_status_icon_set_icon_names (applet->priv->icon_output, icon_names_symbolic_output);
+        }
+        else {
+            gvc_stream_status_icon_set_icon_names (applet->priv->icon_input, icon_names_input);
+            gvc_stream_status_icon_set_icon_names (applet->priv->icon_output, icon_names_output);
+        }
+}
+
 void
 gvc_applet_start (GvcApplet *applet)
 {
@@ -317,6 +332,10 @@ gvc_applet_dispose (GObject *object)
                                                       applet);
                 g_clear_object (&applet->priv->input);
         }
+
+        g_signal_handlers_disconnect_by_func (gtk_settings_get_default (),
+                                              on_icon_theme_change,
+                                              applet);
 
         g_clear_object (&applet->priv->context);
         g_clear_object (&applet->priv->icon_input);
@@ -379,6 +398,10 @@ gvc_applet_init (GvcApplet *applet)
         g_signal_connect (G_OBJECT (applet->priv->context),
                           "notify::default-output-stream",
                           G_CALLBACK (on_context_default_output_stream_notify),
+                          applet);
+        g_signal_connect (gtk_settings_get_default (),
+                          "notify::gtk-icon-theme-name",
+                          G_CALLBACK (on_icon_theme_change),
                           applet);
 }
 
