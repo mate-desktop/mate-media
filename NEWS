@@ -1,10 +1,14 @@
+### mate-media 1.20.2
+
+  * Translations update
+
 ### mate-media 1.20.1
 
-  * sync with transifex
+  * Translations update
 
 ### mate-media 1.20.0
 
-  * sync with transifex
+  * Translations update
   * require GTK+ 3.22 and GLib 2.50
   * gvc-applet: don't try to increase refcount of a NULL object
   * gvc-combo-box: fix signal arguments
@@ -12,7 +16,7 @@
 
 ### mate-media 1.19.1
 
-  * sync with transifex
+  * Translations update
   * avoid deprecated gdk_screen_get_height
   * applet: use GdkSeat with GTK+ >= 3.20
   * applet: make keyboard work in popup
