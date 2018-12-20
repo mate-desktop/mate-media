@@ -2,10 +2,8 @@ NULL =
 
 SUBDIRS = data po man mate-volume-control
 
-DISTCHECK_CONFIGURE_FLAGS =			\
-	--enable-more-warnings			\
-	--enable-compile-warnings=maximum	\
-	--enable-deprecated
+DISTCHECK_CONFIGURE_FLAGS = \
+	CFLAGS='-Wno-deprecated-declarations'
 
 DIST_SUBDIRS =					\
 	data					\
