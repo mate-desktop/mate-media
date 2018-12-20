@@ -3,14 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Mantas Kriaučiūnas <mantas@akl.lt>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2018
+# Audrius Meskauskas, 2018
+# Moo, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-17 09:52+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Audrius Meskauskas, 2018\n"
+"PO-Revision-Date: 2018-03-11 18:49+0000\n"
+"Last-Translator: Moo, 2018\n"
 "Language-Team: Lithuanian (https://www.transifex.com/mate/teams/13566/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,7 +210,7 @@ msgid_plural "%u Outputs"
 msgstr[0] "%u išvestis"
 msgstr[1] "%u išvestys"
 msgstr[2] "%u išvesčių"
-msgstr[3] "%u išvesčių"
+msgstr[3] "%u išvestis"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -214,7 +221,7 @@ msgid_plural "%u Inputs"
 msgstr[0] "%u įvestis"
 msgstr[1] "%u įvestys"
 msgstr[2] "%u įvesčių"
-msgstr[3] "%u įvesčių"
+msgstr[3] "%u įvestis"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1504
 #: ../mate-volume-control/gvc-mixer-dialog.c:1773
