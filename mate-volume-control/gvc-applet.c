@@ -2,6 +2,7 @@
  *
  * Copyright (C) 2008 Red Hat, Inc.
  * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
+ * Copyright (C) 2019 Victor Kareh <vkareh@vkareh.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +29,7 @@
 #include <gtk/gtk.h>
 
 #include <libmatemixer/matemixer.h>
+#include <mate-panel-applet.h>
 
 #include "gvc-applet.h"
 #include "gvc-stream-status-icon.h"
@@ -50,6 +52,21 @@ static const gchar *icon_names_input[] = {
         NULL
 };
 
+static void menu_input_mute_toggle (GtkAction *action, GvcApplet *applet);
+static void menu_output_mute_toggle (GtkAction *action, GvcApplet *applet);
+static void menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet);
+static const GtkActionEntry applet_menu_actions [] = {
+        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK (menu_activate_open_volume_control) }
+};
+/* static const GtkToggleActionEntry applet_menu_toggle_actions [] = { */
+/*         { "MuteInput", "audio-input-microphone-muted", N_("Mute Input"), NULL, NULL, G_CALLBACK (menu_input_mute_toggle) }, */
+/*         { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute_toggle) } */
+/* }; */
+static char *ui = "<menuitem name='Preferences' action='Preferences' />";
+/* static char *ui = "<menuitem name='MuteInput' action='MuteInput' />" */
+/*                   "<menuitem name='MuteOutput' action='MuteOutput' />" */
+/*                   "<menuitem name='Preferences' action='Preferences' />"; */
+
 struct _GvcAppletPrivate
 {
         GvcStreamStatusIcon *icon_input;
@@ -57,6 +74,10 @@ struct _GvcAppletPrivate
         gboolean             running;
         MateMixerContext    *context;
         MateMixerStream     *input;
+
+        MatePanelApplet     *applet;
+        GtkBox              *box;
+        GtkActionGroup      *action_group;
 };
 
 static void gvc_applet_class_init (GvcAppletClass *klass);
@@ -137,7 +158,7 @@ update_icon_input (GvcApplet *applet)
 
         gvc_stream_status_icon_set_control (applet->priv->icon_input, control);
 
-        gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_input), show);
+        gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_input), show);
 }
 
 static void
@@ -154,12 +175,12 @@ update_icon_output (GvcApplet *applet)
 
         if (control != NULL) {
                 g_debug ("Output icon enabled");
-                gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
+                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output),
                                              TRUE);
         }
         else {
                 g_debug ("There is no output stream/control, output icon disabled");
-                gtk_status_icon_set_visible (GTK_STATUS_ICON (applet->priv->icon_output),
+                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output),
                                              FALSE);
         }
 }
@@ -330,11 +351,6 @@ gvc_applet_init (GvcApplet *applet)
         gvc_stream_status_icon_set_display_name (applet->priv->icon_input,  _("Input"));
         gvc_stream_status_icon_set_display_name (applet->priv->icon_output, _("Output"));
 
-        gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->icon_input),
-                                   _("Microphone Volume"));
-        gtk_status_icon_set_title (GTK_STATUS_ICON (applet->priv->icon_output),
-                                   _("Sound Output Volume"));
-
         applet->priv->context = mate_mixer_context_new ();
 
         mate_mixer_context_set_app_name (applet->priv->context,
@@ -342,7 +358,7 @@ gvc_applet_init (GvcApplet *applet)
 
         mate_mixer_context_set_app_id (applet->priv->context, GVC_APPLET_DBUS_NAME);
         mate_mixer_context_set_app_version (applet->priv->context, VERSION);
-        mate_mixer_context_set_app_icon (applet->priv->context, "multimedia-volume-control");
+        mate_mixer_context_set_app_icon (applet->priv->context, APPLET_ICON);
 
         g_signal_connect (G_OBJECT (applet->priv->context),
                           "notify::state",
@@ -362,4 +378,115 @@ GvcApplet *
 gvc_applet_new (void)
 {
         return g_object_new (GVC_TYPE_APPLET, NULL);
+}
+
+static void
+gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
+{
+        GvcApplet *applet = user_data;
+
+        gvc_stream_status_icon_set_size (applet->priv->icon_input, size);
+        gvc_stream_status_icon_set_size (applet->priv->icon_output, size);
+}
+
+static void
+gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer user_data)
+{
+        GvcApplet *applet = user_data;
+
+        gvc_stream_status_icon_set_orient (applet->priv->icon_input, orient);
+        gvc_stream_status_icon_set_orient (applet->priv->icon_output, orient);
+}
+
+static void
+menu_input_mute_toggle (GtkAction *action, GvcApplet *applet)
+{
+        gboolean mute = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+        gvc_stream_status_icon_set_mute (applet->priv->icon_input, mute);
+}
+
+static void
+menu_output_mute_toggle (GtkAction *action, GvcApplet *applet)
+{
+        gboolean mute = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
+        gvc_stream_status_icon_set_mute (applet->priv->icon_output, mute);
+}
+
+static void
+menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
+{
+        gvc_stream_status_icon_volume_control (applet->priv->icon_output);
+}
+
+/* static void */
+/* on_popup_pre_activate (GtkActionGroup *action_group, */
+/*                        GtkAction      *action, */
+/*                        gpointer        user_data) */
+/* { */
+/*         g_message("on_popup_pre_activate"); */
+/*         GvcApplet *applet = user_data; */
+/*         gboolean   is_muted; */
+/*  */
+/*         is_muted = gvc_stream_status_icon_get_mute (applet->priv->icon_input); */
+/*         action = gtk_action_group_get_action (applet->priv->action_group, "MuteInput"); */
+/*         gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_muted); */
+/*  */
+/*         is_muted = gvc_stream_status_icon_get_mute (applet->priv->icon_output); */
+/*         action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput"); */
+/*         gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_muted); */
+/* } */
+
+gboolean
+gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
+{
+        GdkEventMask    event_mask;
+        GdkWindow      *window;
+
+        g_set_application_name (_("Volume Control Applet"));
+        gtk_window_set_default_icon_name (APPLET_ICON);
+
+        mate_panel_applet_set_flags (applet_widget, MATE_PANEL_APPLET_EXPAND_MINOR);
+        mate_panel_applet_set_background_widget (MATE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
+
+        applet->priv->applet = applet_widget;
+        applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+
+        /* Define an initial size and orientation */
+        gvc_stream_status_icon_set_size (applet->priv->icon_input, mate_panel_applet_get_size (applet->priv->applet));
+        gvc_stream_status_icon_set_size (applet->priv->icon_output, mate_panel_applet_get_size (applet->priv->applet));
+        gvc_stream_status_icon_set_orient (applet->priv->icon_input, mate_panel_applet_get_orient (applet->priv->applet));
+        gvc_stream_status_icon_set_orient (applet->priv->icon_output, mate_panel_applet_get_orient (applet->priv->applet));
+
+        /* we add the Gtk buttons into the applet */
+        gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
+        gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
+        gtk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
+        gtk_widget_show_all (GTK_WIDGET (applet->priv->applet));
+
+        /* Enable 'scroll-event' signal to get through */
+        window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
+        event_mask = gdk_window_get_events (window);
+        gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
+
+        window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_output));
+        event_mask = gdk_window_get_events (window);
+        gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
+
+        /* Update icons on size/orientation changes */
+        g_object_connect (applet->priv->applet,
+                         "signal::change_size", gvc_applet_set_size, applet,
+                         "signal::change_orient", gvc_applet_set_orient, applet,
+                         NULL);
+
+        /* set up context menu */
+        applet->priv->action_group = gtk_action_group_new ("Volume Control Applet Actions");
+        gtk_action_group_set_translation_domain (applet->priv->action_group, GETTEXT_PACKAGE);
+        gtk_action_group_add_actions (applet->priv->action_group, applet_menu_actions,
+                                      G_N_ELEMENTS (applet_menu_actions), applet);
+        /* gtk_action_group_add_toggle_actions (applet->priv->action_group, applet_menu_toggle_actions, */
+        /*                               G_N_ELEMENTS (applet_menu_toggle_actions), applet); */
+
+        mate_panel_applet_setup_menu (applet->priv->applet, ui, applet->priv->action_group);
+
+        return TRUE;
 }
