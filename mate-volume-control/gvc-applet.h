@@ -28,6 +28,7 @@
 G_BEGIN_DECLS
 
 #define GVC_APPLET_DBUS_NAME    "org.mate.VolumeControlApplet"
+#define APPLET_ICON             "multimedia-volume-control"
 
 #define GVC_TYPE_APPLET         (gvc_applet_get_type ())
 #define GVC_APPLET(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), GVC_TYPE_APPLET, GvcApplet))
@@ -55,6 +56,7 @@ GType               gvc_applet_get_type            (void) G_GNUC_CONST;
 
 GvcApplet *         gvc_applet_new                 (void);
 void                gvc_applet_start               (GvcApplet *applet);
+gboolean            gvc_applet_fill                (GvcApplet *applet, MatePanelApplet *applet_widget);
 
 G_END_DECLS
 

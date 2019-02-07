@@ -38,6 +38,7 @@ GTK_REQUIRED_VERSION=3.22.0
 CANBERRA_REQUIRED_VERSION=0.13
 MATE_MIXER_REQUIRED_VERSION=1.10.0
 MATE_DESKTOP_REQUIRED_VERSION=1.17.0
+LIBPANEL4_REQUIRED=1.17.0
 
 dnl=======================================================================
 dnl Check for the volume control modules
@@ -51,6 +52,7 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
                   libxml-2.0
                   mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
                   libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
+                  libmatepanelapplet-4.0 >= $LIBPANEL4_REQUIRED
 )
 
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
