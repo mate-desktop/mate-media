@@ -320,7 +320,9 @@ gvc_stream_status_icon_set_icon_from_name (GvcStreamStatusIcon *icon,
 
         cairo_surface_t* surface = gtk_icon_theme_load_surface (icon_theme, icon_name,
                                                                 icon->priv->size,
-                                                                icon_scale, NULL, 0, NULL);
+                                                                icon_scale, NULL,
+                                                                GTK_ICON_LOOKUP_FORCE_SIZE,
+                                                                NULL);
 
         gtk_image_set_from_surface (GTK_IMAGE (icon->priv->image), surface);
         cairo_surface_destroy (surface);
@@ -417,6 +419,18 @@ void
 gvc_stream_status_icon_set_size (GvcStreamStatusIcon *icon,
                                  guint                size)
 {
+
+        /*Iterate through the icon sizes so they can be kept sharp*/
+        if (size < 22)
+                size = 16;
+        else if (size < 24)
+                size = 22;
+        else if (size < 32)
+                size = 24;
+        else if (size < 48)
+                size = 32;
+        else
+                size = 48;
         icon->priv->size = size;
         gvc_stream_status_icon_set_icon_from_name (icon,
                                                    icon->priv->icon_names[icon->priv->current_icon]);

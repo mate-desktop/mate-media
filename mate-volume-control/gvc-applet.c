@@ -385,6 +385,18 @@ gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
 {
         GvcApplet *applet = user_data;
 
+        /*Iterate through the icon sizes so they can be kept sharp*/
+        if (size < 22)
+                size = 16;
+        else if (size < 24)
+                size = 22;
+        else if (size < 32)
+                size = 24;
+        else if (size < 48)
+                size = 32;
+        else
+                size = 48;
+
         gvc_stream_status_icon_set_size (applet->priv->icon_input, size);
         gvc_stream_status_icon_set_size (applet->priv->icon_output, size);
 }
