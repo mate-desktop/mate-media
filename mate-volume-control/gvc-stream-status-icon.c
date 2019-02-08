@@ -440,7 +440,14 @@ void
 gvc_stream_status_icon_set_orient (GvcStreamStatusIcon  *icon,
                                    MatePanelAppletOrient orient)
 {
-        icon->priv->orient = orient;
+        /*Sometimes orient does not get properly defined especially on a bottom panel
+         *Use the applet orientation if it is valid, otherwise set a vertical slider
+         *Otherwise bottom panels get a horizontal slider
+         */
+        if (orient)
+                icon->priv->orient = orient;
+        else
+        icon->priv->orient = MATE_PANEL_APPLET_ORIENT_DOWN;
 }
 
 void
