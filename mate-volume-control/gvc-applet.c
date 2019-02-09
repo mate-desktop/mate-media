@@ -52,20 +52,16 @@ static const gchar *icon_names_input[] = {
         NULL
 };
 
-static void menu_input_mute_toggle (GtkAction *action, GvcApplet *applet);
-static void menu_output_mute_toggle (GtkAction *action, GvcApplet *applet);
+static void menu_output_mute (GtkAction *action, GvcApplet *applet);
 static void menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet);
 static const GtkActionEntry applet_menu_actions [] = {
-        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK (menu_activate_open_volume_control) }
+        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL,
+                                        G_CALLBACK(menu_activate_open_volume_control) },
+        { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute) }
 };
-/* static const GtkToggleActionEntry applet_menu_toggle_actions [] = { */
-/*         { "MuteInput", "audio-input-microphone-muted", N_("Mute Input"), NULL, NULL, G_CALLBACK (menu_input_mute_toggle) }, */
-/*         { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute_toggle) } */
-/* }; */
-static char *ui = "<menuitem name='Preferences' action='Preferences' />";
-/* static char *ui = "<menuitem name='MuteInput' action='MuteInput' />" */
-/*                   "<menuitem name='MuteOutput' action='MuteOutput' />" */
-/*                   "<menuitem name='Preferences' action='Preferences' />"; */
+
+static char *ui = "<menuitem name='Preferences' action='Preferences' />"
+                  "<menuitem name='MuteOutput' action='MuteOutput' />";
 
 struct _GvcAppletPrivate
 {
@@ -402,6 +398,28 @@ gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
 }
 
 static void
+gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
+{
+        GvcApplet *applet = user_data;
+        gboolean is_muted;
+        GtkAction *action;
+
+        is_muted = gvc_stream_status_icon_get_mute (applet->priv->icon_output);
+
+        action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
+
+        if (is_muted) {
+                gtk_action_set_label (action, "Unmute Output");
+                gtk_action_set_icon_name (action, "audio-volume-medium");
+        }
+        else
+        {
+                gtk_action_set_label (action, "Mute Output");
+                gtk_action_set_icon_name (action, "audio-volume-muted");
+        }
+}
+
+static void
 gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer user_data)
 {
         GvcApplet *applet = user_data;
@@ -411,17 +429,22 @@ gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer 
 }
 
 static void
-menu_input_mute_toggle (GtkAction *action, GvcApplet *applet)
+menu_output_mute (GtkAction *action, GvcApplet *applet)
 {
-        gboolean mute = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
-        gvc_stream_status_icon_set_mute (applet->priv->icon_input, mute);
-}
+        gboolean               is_muted;
 
-static void
-menu_output_mute_toggle (GtkAction *action, GvcApplet *applet)
-{
-        gboolean mute = gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action));
-        gvc_stream_status_icon_set_mute (applet->priv->icon_output, mute);
+        is_muted = gvc_stream_status_icon_get_mute(applet->priv->icon_output);
+        if (!is_muted) {
+                gvc_stream_status_icon_set_mute (applet->priv->icon_output, TRUE);
+                gtk_action_set_label (action, "Unmute Output");
+                gtk_action_set_icon_name( action, "audio-volume-medium");
+
+        }
+        else {
+                gvc_stream_status_icon_set_mute (applet->priv->icon_output, FALSE);
+                gtk_action_set_label (action, "Mute Output");
+                gtk_action_set_icon_name (action, "audio-volume-muted");
+       }
 }
 
 static void
@@ -429,24 +452,6 @@ menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
 {
         gvc_stream_status_icon_volume_control (applet->priv->icon_output);
 }
-
-/* static void */
-/* on_popup_pre_activate (GtkActionGroup *action_group, */
-/*                        GtkAction      *action, */
-/*                        gpointer        user_data) */
-/* { */
-/*         g_message("on_popup_pre_activate"); */
-/*         GvcApplet *applet = user_data; */
-/*         gboolean   is_muted; */
-/*  */
-/*         is_muted = gvc_stream_status_icon_get_mute (applet->priv->icon_input); */
-/*         action = gtk_action_group_get_action (applet->priv->action_group, "MuteInput"); */
-/*         gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_muted); */
-/*  */
-/*         is_muted = gvc_stream_status_icon_get_mute (applet->priv->icon_output); */
-/*         action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput"); */
-/*         gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_muted); */
-/* } */
 
 gboolean
 gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
@@ -469,6 +474,7 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gvc_stream_status_icon_set_orient (applet->priv->icon_input, mate_panel_applet_get_orient (applet->priv->applet));
         gvc_stream_status_icon_set_orient (applet->priv->icon_output, mate_panel_applet_get_orient (applet->priv->applet));
 
+
         /* we add the Gtk buttons into the applet */
         gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
         gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
@@ -488,6 +494,7 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         g_object_connect (applet->priv->applet,
                          "signal::change_size", gvc_applet_set_size, applet,
                          "signal::change_orient", gvc_applet_set_orient, applet,
+                         "signal::event-after", gvc_applet_set_mute, applet,
                          NULL);
 
         /* set up context menu */
@@ -495,8 +502,6 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gtk_action_group_set_translation_domain (applet->priv->action_group, GETTEXT_PACKAGE);
         gtk_action_group_add_actions (applet->priv->action_group, applet_menu_actions,
                                       G_N_ELEMENTS (applet_menu_actions), applet);
-        /* gtk_action_group_add_toggle_actions (applet->priv->action_group, applet_menu_toggle_actions, */
-        /*                               G_N_ELEMENTS (applet_menu_toggle_actions), applet); */
 
         mate_panel_applet_setup_menu (applet->priv->applet, ui, applet->priv->action_group);
 
