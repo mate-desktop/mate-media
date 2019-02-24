@@ -3,13 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Siranush <ss.m.95@mail.ru>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 09:44+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-12-20 13:43+0100\n"
+"PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: Siranush <ss.m.95@mail.ru>, 2018\n"
 "Language-Team: Armenian (https://www.transifex.com/mate/teams/13566/hy/)\n"
 "MIME-Version: 1.0\n"
@@ -99,25 +102,25 @@ msgstr "Գործարկման էջը"
 msgid " — MATE Volume Control"
 msgstr "— MATE ՈՒժգնության Վերահսկիչ"
 
-#: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:1999
+#: ../mate-volume-control/gvc-applet.c:330
+#: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
 msgstr "Մուտքագրում"
 
-#: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2086
+#: ../mate-volume-control/gvc-applet.c:331
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "Output"
 msgstr "Ելք"
 
-#: ../mate-volume-control/gvc-applet.c:326
+#: ../mate-volume-control/gvc-applet.c:334
 msgid "Microphone Volume"
 msgstr "Խոսափողի ուժգնություն"
 
-#: ../mate-volume-control/gvc-applet.c:328
+#: ../mate-volume-control/gvc-applet.c:336
 msgid "Sound Output Volume"
 msgstr "Խոսափողի Ելքի ՈՒժգնություն"
 
-#: ../mate-volume-control/gvc-applet.c:333
+#: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
 msgstr "MATE ՈՒժգնության Վերահսկիչ Ապլետ"
 
@@ -179,7 +182,7 @@ msgid "Mute"
 msgstr "Անջատել ձայնը"
 
 #: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1613
+#: ../mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
 msgstr "_Պրոֆիլ։"
 
@@ -212,71 +215,71 @@ msgid_plural "%u Inputs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1504
-#: ../mate-volume-control/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/gvc-mixer-dialog.c:1509
+#: ../mate-volume-control/gvc-mixer-dialog.c:1778
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr "Անուն"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1552
+#: ../mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Թեստավորման համար Խոսնակներ  %s"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1616
+#: ../mate-volume-control/gvc-mixer-dialog.c:1621
 msgid "Test Speakers"
 msgstr "Թեստավորման խոսնակներ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1821
+#: ../mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
 msgstr "Ձայնային Էֆեկտներ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1844
+#: ../mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
 msgstr "_ՈՒժգնության ազդանշան։"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1913
+#: ../mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
 msgstr "_Ելքային ուժգնություն։"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1956
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "Hardware"
 msgstr "Ապարատային միջոցներ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/gvc-mixer-dialog.c:1966
 msgid "C_hoose a device to configure:"
 msgstr "Ընտրեք սարքի կարգավորումները:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1985
-#: ../mate-volume-control/gvc-mixer-dialog.c:2115
+#: ../mate-volume-control/gvc-mixer-dialog.c:1990
+#: ../mate-volume-control/gvc-mixer-dialog.c:2120
 msgid "Settings for the selected device:"
 msgstr "Ընտրված սարքերի համար պարամետրեր․"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2008
+#: ../mate-volume-control/gvc-mixer-dialog.c:2013
 msgid "_Input volume: "
 msgstr "_Մուտքային ուժգնություն։"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2033
+#: ../mate-volume-control/gvc-mixer-dialog.c:2038
 msgid "Input level:"
 msgstr " Մուտքային մակարդ․"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2058
+#: ../mate-volume-control/gvc-mixer-dialog.c:2063
 msgid "C_hoose a device for sound input:"
 msgstr "Ձայնային մուտքի համար Ընտրել սարք"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "C_hoose a device for sound output:"
 msgstr "Ձայնային ելքի համար ընտրել սարք"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2140
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "Applications"
 msgstr "Դիմումներ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: ../mate-volume-control/gvc-mixer-dialog.c:2150
 msgid "No application is currently playing or recording audio."
 msgstr "Ոչ մի դիմում ներկայումս չէ նվագել կամ արձանագրել ձայն։"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2335
+#: ../mate-volume-control/gvc-mixer-dialog.c:2340
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756

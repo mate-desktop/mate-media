@@ -4,8 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# umesh agarwal <umesh.agarwal1@gmail.com>, 2018
+# GunChleoc, 2019
 # 
 #, fuzzy
 msgid ""
@@ -14,65 +13,65 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-20 13:43+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: umesh agarwal <umesh.agarwal1@gmail.com>, 2018\n"
-"Language-Team: Bengali (India) (https://www.transifex.com/mate/teams/13566/bn_IN/)\n"
+"Last-Translator: GunChleoc, 2019\n"
+"Language-Team: Gaelic, Scottish (https://www.transifex.com/mate/teams/13566/gd/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn_IN\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: gd\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3;\n"
 
 #: ../data/mate-volume-control.desktop.in.in.h:1
 msgid "Sound"
-msgstr "শব্দ"
+msgstr ""
 
 #: ../data/mate-volume-control.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
-msgstr "শব্দের মাত্রা o নির্দিষ্ট ঘটনার সাথে যুক্ত শব্দ পরিবর্তন করুন"
+msgstr ""
 
 #: ../data/mate-volume-control-applet.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
 #: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
-msgstr "শব্দের মাত্রা নিয়ন্ত্রণকারী"
+msgstr ""
 
 #: ../data/mate-volume-control-applet.desktop.in.h:2
 msgid "Show desktop volume control"
-msgstr "ডেস্কটপের মধ্যে শব্দের মাত্রা নিয়ন্ত্রণ ব্যবস্থা প্রদর্শন করা হবে"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds like the bark of
 #. a dog.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:3
 msgid "Bark"
-msgstr "সারমেয়র-ধ্বনি"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds like a water
 #. drip.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:6
 msgid "Drip"
-msgstr "টিপটিপ"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds like tapping
 #. glass.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:9
 msgid "Glass"
-msgstr "কাঁচ"
+msgstr ""
 
 #. Translators: This is the name of an audio file that sounds sort of like a
 #. submarine sonar ping.
 #. You might want to translate it into the equivalent words of your language.
 #: ../data/sounds/mate-sounds-default.xml.in.in.h:12
 msgid "Sonar"
-msgstr "সোনার"
+msgstr ""
 
 #: ../mate-volume-control/applet-main.c:45
 #: ../mate-volume-control/dialog-main.c:193
 msgid "Version of this application"
-msgstr "এই অ্যাপলিকেশনটির সংস্করণ"
+msgstr ""
 
 #: ../mate-volume-control/applet-main.c:46
 #: ../mate-volume-control/dialog-main.c:191
@@ -89,7 +88,7 @@ msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
-msgstr "শব্দের সিস্টেম থেকে প্রতিক্রিয়া প্রাপ্তির অপেক্ষা করা হচ্ছে"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
@@ -97,7 +96,7 @@ msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
-msgstr "প্রারম্ভিক পৃষ্ঠা"
+msgstr ""
 
 #: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
@@ -106,12 +105,12 @@ msgstr ""
 #: ../mate-volume-control/gvc-applet.c:330
 #: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
-msgstr "ইনপুট"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:331
 #: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "Output"
-msgstr "আউটপুট"
+msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:334
 msgid "Microphone Volume"
@@ -128,75 +127,75 @@ msgstr ""
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Left"
-msgstr "বাঁদিকে"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Right"
-msgstr "ডানদিকে"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:144
 msgctxt "balance"
 msgid "Rear"
-msgstr "পশ্চাৎস্থিত"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:145
 msgctxt "balance"
 msgid "Front"
-msgstr "সম্মুখস্থিত"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:148
 msgctxt "balance"
 msgid "Minimum"
-msgstr "সর্বনিম্ন"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:149
 msgctxt "balance"
 msgid "Maximum"
-msgstr "সর্বোচ্চ"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:337
 msgid "_Balance:"
-msgstr "ভারসাম্য: (_B)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:340
 msgid "_Fade:"
-msgstr "নিষ্প্রভ: (_F)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:343
 msgid "_Subwoofer:"
-msgstr "সাব-উফার: (_S)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-channel-bar.c:312
 msgctxt "volume"
 msgid "Unamplified"
-msgstr "অ্যামপ্লফাই না করা"
+msgstr ""
 
 #: ../mate-volume-control/gvc-channel-bar.c:325
 msgctxt "volume"
 msgid "100%"
-msgstr "১০০%"
+msgstr ""
 
 #. Mute button
 #: ../mate-volume-control/gvc-channel-bar.c:1078
 msgid "Mute"
-msgstr "নিঃশব্দ"
+msgstr ""
 
 #: ../mate-volume-control/gvc-combo-box.c:253
 #: ../mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
-msgstr "প্রোফাইল: (_P)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:355
 #: ../mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
-msgstr "সংযোগকারী: (_n)"
+msgstr ""
 
 #. translators:
 #. * The device has been disabled
 #: ../mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr "নিষ্ক্রিয়"
+msgstr ""
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -206,6 +205,8 @@ msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -215,12 +216,14 @@ msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1509
 #: ../mate-volume-control/gvc-mixer-dialog.c:1778
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
-msgstr "নাম"
+msgstr "Ainm"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
@@ -233,107 +236,106 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
-msgstr "শব্দের ইফেক্ট"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
-msgstr "সতর্কবার্তার শব্দের মাত্রা: (_A)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
-msgstr "আউটপুটের শব্দের মাত্রা: (_O)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "Hardware"
-msgstr "হার্ডওয়্যার"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1966
 msgid "C_hoose a device to configure:"
-msgstr "কনফিগার করার উদ্দেশ্যে একটি ডিভাইস নির্বাচন করুন (_h)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1990
 #: ../mate-volume-control/gvc-mixer-dialog.c:2120
 msgid "Settings for the selected device:"
-msgstr "নির্বাচিত ডিভাইসের বৈশিষ্ট্য:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2013
 msgid "_Input volume: "
-msgstr "ইনপুটের শব্দের মাত্রা: (_I)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2038
 msgid "Input level:"
-msgstr "ইনপুটের মাত্রা:"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2063
 msgid "C_hoose a device for sound input:"
-msgstr "শব্দ ইনপুটের জন্য একটি ডিভাইস নির্বাচন করুন: (_h)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "C_hoose a device for sound output:"
-msgstr "শব্দ আউটপুটের জন্য একটি ডিভাইস নির্বাচন করুন: (_h)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "Applications"
-msgstr "অ্যাপলিকেশন"
+msgstr ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2150
 msgid "No application is currently playing or recording audio."
 msgstr ""
-"কোনো অ্যাপ্লিকেশন দ্বারা বর্তমানে অডিও বাজানো অথবা রেকর্ড করা হচ্ছে না।"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:2340
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
 msgid "Sound Preferences"
-msgstr "শব্দ সংক্রান্ত পছন্দ"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:320
 msgid "No sounds"
-msgstr "শব্দবিহীন"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:441
 msgid "Built-in"
-msgstr "বিল্ট-ইন"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:628
 #: ../mate-volume-control/sound-theme-file-utils.c:292
 msgid "Custom"
-msgstr "স্বনির্ধারিত"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:735
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:746
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:758
 msgid "Testing event sound"
-msgstr "ঘটনার জন্য চিহ্নিত শব্দ পরীক্ষা করা হচ্ছে"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:844
 msgid "Default"
-msgstr "डिफ़ॉल्ट"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:845
 msgid "From theme"
-msgstr "থিম থেকে প্রাপ্ত"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:875
 msgid "Type"
-msgstr "ধরন"
+msgstr "Seòrsa"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
 msgid "Sound _theme:"
-msgstr "শব্দের থিম: (_t)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1047
 msgid "C_hoose an alert sound:"
-msgstr "সতর্কতামূলক একটি শব্দ নির্বাচন করুন: (_h)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:1075
 msgid "Enable _window and button sounds"
-msgstr "উইন্ডো ও বাটনের শব্দ সক্রিয় করুন (_w)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 msgid "Stop"
-msgstr "বন্ধ করা হবে"
+msgstr ""
 
 #: ../mate-volume-control/gvc-speaker-test.c:258
 #: ../mate-volume-control/gvc-speaker-test.c:372
@@ -343,15 +345,15 @@ msgstr ""
 #: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "শব্দ সংক্রান্ত পছন্দের মান আরম্ভ করতে ব্যর্থ: %s"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:240
 msgid "_Mute"
-msgstr "নিঃশব্দ: (_M)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:250
 msgid "_Sound Preferences"
-msgstr "শব্দ সংক্রান্ত পছন্দ (_S)"
+msgstr ""
 
 #: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
@@ -359,7 +361,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr "অজানা"
+msgstr ""
 
 #. Speaker channel names
 #: ../mate-volume-control/gvc-utils.c:60
@@ -381,7 +383,7 @@ msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:64
 msgid "LFE"
-msgstr "LFE"
+msgstr ""
 
 #: ../mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"

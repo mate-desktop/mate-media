@@ -3,14 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# Tubuntu <tubuntu@testimonium.be>, 2018
+# Charles Monzat <c.monzat@laposte.net>, 2018
+# Louis-Martin Carrière <louismc@gmail.com>, 2018
+# Benjamin Teissier <enatheme@enatheme.org>, 2018
+# Étienne Deparis <etienne@depar.is>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 09:44+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Benjamin Teissier <enatheme@enatheme.org>, 2018\n"
+"POT-Creation-Date: 2018-12-20 13:43+0100\n"
+"PO-Revision-Date: 2018-03-11 18:54+0000\n"
+"Last-Translator: Étienne Deparis <etienne@depar.is>, 2018\n"
 "Language-Team: French (https://www.transifex.com/mate/teams/13566/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,25 +107,25 @@ msgstr "Page de démarrage"
 msgid " — MATE Volume Control"
 msgstr " — Contrôleur de volume MATE"
 
-#: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:1999
+#: ../mate-volume-control/gvc-applet.c:330
+#: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
 msgstr "Entrée"
 
-#: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2086
+#: ../mate-volume-control/gvc-applet.c:331
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "Output"
 msgstr "Sortie"
 
-#: ../mate-volume-control/gvc-applet.c:326
+#: ../mate-volume-control/gvc-applet.c:334
 msgid "Microphone Volume"
 msgstr "Volume du microphone"
 
-#: ../mate-volume-control/gvc-applet.c:328
+#: ../mate-volume-control/gvc-applet.c:336
 msgid "Sound Output Volume"
 msgstr "Volume de sortie sonore"
 
-#: ../mate-volume-control/gvc-applet.c:333
+#: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
 msgstr "Applet de contrôle du volume MATE"
 
@@ -179,7 +187,7 @@ msgid "Mute"
 msgstr "Sourdine"
 
 #: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1613
+#: ../mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
 msgstr "_Profil :"
 
@@ -212,71 +220,71 @@ msgid_plural "%u Inputs"
 msgstr[0] "%u entrée"
 msgstr[1] "%u entrées"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1504
-#: ../mate-volume-control/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/gvc-mixer-dialog.c:1509
+#: ../mate-volume-control/gvc-mixer-dialog.c:1778
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr "Nom"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1552
+#: ../mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Test des haut-parleurs pour %s"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1616
+#: ../mate-volume-control/gvc-mixer-dialog.c:1621
 msgid "Test Speakers"
 msgstr "Tester les haut-parleurs"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1821
+#: ../mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
 msgstr "Effets sonores"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1844
+#: ../mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
 msgstr "Volume d'_alerte : "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1913
+#: ../mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
 msgstr "Volume de _sortie : "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1956
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "Hardware"
 msgstr "Matériel"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/gvc-mixer-dialog.c:1966
 msgid "C_hoose a device to configure:"
 msgstr "C_hoisissez un périphérique à configurer :"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1985
-#: ../mate-volume-control/gvc-mixer-dialog.c:2115
+#: ../mate-volume-control/gvc-mixer-dialog.c:1990
+#: ../mate-volume-control/gvc-mixer-dialog.c:2120
 msgid "Settings for the selected device:"
 msgstr "Paramètres du périphérique sélectionné :"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2008
+#: ../mate-volume-control/gvc-mixer-dialog.c:2013
 msgid "_Input volume: "
 msgstr "Volume d'_entrée : "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2033
+#: ../mate-volume-control/gvc-mixer-dialog.c:2038
 msgid "Input level:"
 msgstr "Niveau d'entrée :"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2058
+#: ../mate-volume-control/gvc-mixer-dialog.c:2063
 msgid "C_hoose a device for sound input:"
 msgstr "Choisissez un _périphérique pour l'entrée son :"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "C_hoose a device for sound output:"
 msgstr "Choisissez un _périphérique pour la sortie son :"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2140
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "Applications"
 msgstr "Applications"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: ../mate-volume-control/gvc-mixer-dialog.c:2150
 msgid "No application is currently playing or recording audio."
 msgstr "Aucune application n'émet ou n'enregistre de son actuellement."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2335
+#: ../mate-volume-control/gvc-mixer-dialog.c:2340
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756

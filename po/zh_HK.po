@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# tomoe_musashi <hkg.musashi@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 09:44+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-12-20 13:43+0100\n"
+"PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: tomoe_musashi <hkg.musashi@gmail.com>, 2018\n"
 "Language-Team: Chinese (Hong Kong) (https://www.transifex.com/mate/teams/13566/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -99,25 +103,25 @@ msgstr "啟始頁面"
 msgid " — MATE Volume Control"
 msgstr " — MATE 音量控制"
 
-#: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:1999
+#: ../mate-volume-control/gvc-applet.c:330
+#: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
 msgstr "輸入"
 
-#: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2086
+#: ../mate-volume-control/gvc-applet.c:331
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "Output"
 msgstr "輸出"
 
-#: ../mate-volume-control/gvc-applet.c:326
+#: ../mate-volume-control/gvc-applet.c:334
 msgid "Microphone Volume"
 msgstr "麥克風音量"
 
-#: ../mate-volume-control/gvc-applet.c:328
+#: ../mate-volume-control/gvc-applet.c:336
 msgid "Sound Output Volume"
 msgstr "音效輸出音量"
 
-#: ../mate-volume-control/gvc-applet.c:333
+#: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
 msgstr "MATE 音量控制面板程式"
 
@@ -179,7 +183,7 @@ msgid "Mute"
 msgstr "靜音"
 
 #: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1613
+#: ../mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
 msgstr "設定組合(_P):"
 
@@ -210,71 +214,71 @@ msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1504
-#: ../mate-volume-control/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/gvc-mixer-dialog.c:1509
+#: ../mate-volume-control/gvc-mixer-dialog.c:1778
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr "名稱"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1552
+#: ../mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s 的喇叭測試"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1616
+#: ../mate-volume-control/gvc-mixer-dialog.c:1621
 msgid "Test Speakers"
 msgstr "測試喇叭"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1821
+#: ../mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
 msgstr "聲音效果"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1844
+#: ../mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
 msgstr "警示音量(_A):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1913
+#: ../mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
 msgstr "輸出音量(_O):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1956
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "Hardware"
 msgstr "硬件"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/gvc-mixer-dialog.c:1966
 msgid "C_hoose a device to configure:"
 msgstr "選擇要設定的裝置(_H):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1985
-#: ../mate-volume-control/gvc-mixer-dialog.c:2115
+#: ../mate-volume-control/gvc-mixer-dialog.c:1990
+#: ../mate-volume-control/gvc-mixer-dialog.c:2120
 msgid "Settings for the selected device:"
 msgstr "已選取裝置的設定值："
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2008
+#: ../mate-volume-control/gvc-mixer-dialog.c:2013
 msgid "_Input volume: "
 msgstr "輸入音量(_I):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2033
+#: ../mate-volume-control/gvc-mixer-dialog.c:2038
 msgid "Input level:"
 msgstr "輸入等級:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2058
+#: ../mate-volume-control/gvc-mixer-dialog.c:2063
 msgid "C_hoose a device for sound input:"
 msgstr "選擇聲音輸入的裝置(_H):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "C_hoose a device for sound output:"
 msgstr "選擇聲音輸出的裝置(_H):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2140
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "Applications"
 msgstr "應用程式"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: ../mate-volume-control/gvc-mixer-dialog.c:2150
 msgid "No application is currently playing or recording audio."
 msgstr "沒有應用程式目前正在播放或錄製音效。"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2335
+#: ../mate-volume-control/gvc-mixer-dialog.c:2340
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756

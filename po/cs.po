@@ -3,13 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# ToMáš Marný, 2018
+# Lucas Lommer <drom@kdyne.net>, 2018
+# huskyviking <husky.viking@seznam.cz>, 2018
+# Radek kohout <radekpv@seznam.cz>, 2018
+# LiberteCzech <liberte.czech@gmail.com>, 2018
+# Stanislav Kučera <inactive+kacernator@transifex.com>, 2018
+# Roman Horník <roman.hornik@debian-linux.cz>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 09:44+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-12-20 13:43+0100\n"
+"PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: Roman Horník <roman.hornik@debian-linux.cz>, 2018\n"
 "Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -99,25 +109,25 @@ msgstr "Spouštěcí stránka"
 msgid " — MATE Volume Control"
 msgstr " – ovládání hlasitosti MATE"
 
-#: ../mate-volume-control/gvc-applet.c:322
-#: ../mate-volume-control/gvc-mixer-dialog.c:1999
+#: ../mate-volume-control/gvc-applet.c:330
+#: ../mate-volume-control/gvc-mixer-dialog.c:2004
 msgid "Input"
 msgstr "Vstup"
 
-#: ../mate-volume-control/gvc-applet.c:323
-#: ../mate-volume-control/gvc-mixer-dialog.c:2086
+#: ../mate-volume-control/gvc-applet.c:331
+#: ../mate-volume-control/gvc-mixer-dialog.c:2091
 msgid "Output"
 msgstr "Výstup"
 
-#: ../mate-volume-control/gvc-applet.c:326
+#: ../mate-volume-control/gvc-applet.c:334
 msgid "Microphone Volume"
 msgstr "Hlasitost mikrofonu"
 
-#: ../mate-volume-control/gvc-applet.c:328
+#: ../mate-volume-control/gvc-applet.c:336
 msgid "Sound Output Volume"
 msgstr "Výstupní hlasitost zvuku"
 
-#: ../mate-volume-control/gvc-applet.c:333
+#: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
 msgstr "Zvukový řídící applet MATE"
 
@@ -179,7 +189,7 @@ msgid "Mute"
 msgstr "Ztlumit"
 
 #: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1613
+#: ../mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
 msgstr "_Profil:"
 
@@ -216,71 +226,71 @@ msgstr[1] "%u vstupy"
 msgstr[2] "%u vstupů"
 msgstr[3] "%u vstupů"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1504
-#: ../mate-volume-control/gvc-mixer-dialog.c:1773
+#: ../mate-volume-control/gvc-mixer-dialog.c:1509
+#: ../mate-volume-control/gvc-mixer-dialog.c:1778
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr "Název"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1552
+#: ../mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Testování reproduktorů %s"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1616
+#: ../mate-volume-control/gvc-mixer-dialog.c:1621
 msgid "Test Speakers"
 msgstr "Otestovat reproduktory"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1821
+#: ../mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
 msgstr "Zvukové efekty"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1844
+#: ../mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
 msgstr "Hl_asitost upozornění: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1913
+#: ../mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
 msgstr "_Výstupní hlasitost: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1956
+#: ../mate-volume-control/gvc-mixer-dialog.c:1961
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/gvc-mixer-dialog.c:1966
 msgid "C_hoose a device to configure:"
 msgstr "Zařízení nastavíte je_ho vybráním:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1985
-#: ../mate-volume-control/gvc-mixer-dialog.c:2115
+#: ../mate-volume-control/gvc-mixer-dialog.c:1990
+#: ../mate-volume-control/gvc-mixer-dialog.c:2120
 msgid "Settings for the selected device:"
 msgstr "Nastavení vybraného zařízení:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2008
+#: ../mate-volume-control/gvc-mixer-dialog.c:2013
 msgid "_Input volume: "
 msgstr "Vstupní hlas_itost: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2033
+#: ../mate-volume-control/gvc-mixer-dialog.c:2038
 msgid "Input level:"
 msgstr "Vstupní úroveň:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2058
+#: ../mate-volume-control/gvc-mixer-dialog.c:2063
 msgid "C_hoose a device for sound input:"
 msgstr "V_yberte zařízení zvukového vstupu:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-mixer-dialog.c:2096
 msgid "C_hoose a device for sound output:"
 msgstr "V_yberte zařízení zvukového výstupu:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2140
+#: ../mate-volume-control/gvc-mixer-dialog.c:2145
 msgid "Applications"
 msgstr "Aplikace"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: ../mate-volume-control/gvc-mixer-dialog.c:2150
 msgid "No application is currently playing or recording audio."
 msgstr "Žádná aplikace aktuálně nepřehrává nebo nezaznamenává zvuk."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2335
+#: ../mate-volume-control/gvc-mixer-dialog.c:2340
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
