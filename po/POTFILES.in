@@ -13,6 +13,9 @@ mate-volume-control/gvc-combo-box.c
 mate-volume-control/gvc-mixer-dialog.c
 mate-volume-control/gvc-sound-theme-chooser.c
 mate-volume-control/gvc-speaker-test.c
+mate-volume-control/gvc-status-icon.c
+mate-volume-control/gvc-stream-applet-icon.c
 mate-volume-control/gvc-stream-status-icon.c
 mate-volume-control/gvc-utils.c
 mate-volume-control/sound-theme-file-utils.c
+mate-volume-control/status-icon-main.c
