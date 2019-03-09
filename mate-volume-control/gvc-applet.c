@@ -32,7 +32,7 @@
 #include <mate-panel-applet.h>
 
 #include "gvc-applet.h"
-#include "gvc-stream-status-icon.h"
+#include "gvc-stream-applet-icon.h"
 
 #define GVC_APPLET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_APPLET, GvcAppletPrivate))
 
@@ -55,8 +55,7 @@ static const gchar *icon_names_input[] = {
 static void menu_output_mute (GtkAction *action, GvcApplet *applet);
 static void menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet);
 static const GtkActionEntry applet_menu_actions [] = {
-        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL,
-                                        G_CALLBACK(menu_activate_open_volume_control) },
+        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK(menu_activate_open_volume_control) },
         { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute) }
 };
 
@@ -65,8 +64,8 @@ static char *ui = "<menuitem name='Preferences' action='Preferences' />"
 
 struct _GvcAppletPrivate
 {
-        GvcStreamStatusIcon *icon_input;
-        GvcStreamStatusIcon *icon_output;
+        GvcStreamAppletIcon *icon_input;
+        GvcStreamAppletIcon *icon_output;
         gboolean             running;
         MateMixerContext    *context;
         MateMixerStream     *input;
@@ -91,13 +90,11 @@ update_icon_input (GvcApplet *applet)
          * is a non-mixer application using the input */
         if (applet->priv->input != NULL) {
                 const gchar *app_id;
-                const GList *inputs =
-                        mate_mixer_stream_list_controls (applet->priv->input);
+                const GList *inputs = mate_mixer_stream_list_controls (applet->priv->input);
 
                 control = mate_mixer_stream_get_default_control (applet->priv->input);
 
-                const gchar *stream_name =
-                        mate_mixer_stream_get_name (applet->priv->input);
+                const gchar *stream_name = mate_mixer_stream_get_name (applet->priv->input);
                 g_debug ("Got stream name %s", stream_name);
                 if (g_str_has_suffix (stream_name, ".monitor")) {
                         inputs = NULL;
@@ -105,14 +102,11 @@ update_icon_input (GvcApplet *applet)
                 }
 
                 while (inputs != NULL) {
-                        MateMixerStreamControl    *input =
-                                MATE_MIXER_STREAM_CONTROL (inputs->data);
-                        MateMixerStreamControlRole role =
-                                mate_mixer_stream_control_get_role (input);
+                        MateMixerStreamControl *input = MATE_MIXER_STREAM_CONTROL (inputs->data);
+                        MateMixerStreamControlRole role = mate_mixer_stream_control_get_role (input);
 
                         if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
-                                MateMixerAppInfo *app_info =
-                                        mate_mixer_stream_control_get_app_info (input);
+                                MateMixerAppInfo *app_info = mate_mixer_stream_control_get_app_info (input);
 
                                 app_id = mate_mixer_app_info_get_id (app_info);
                                 if (app_id == NULL) {
@@ -152,7 +146,7 @@ update_icon_input (GvcApplet *applet)
                         g_debug ("There is no recording application, input icon disabled");
         }
 
-        gvc_stream_status_icon_set_control (applet->priv->icon_input, control);
+        gvc_stream_applet_icon_set_control (applet->priv->icon_input, control);
 
         gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_input), show);
 }
@@ -167,17 +161,15 @@ update_icon_output (GvcApplet *applet)
         if (stream != NULL)
                 control = mate_mixer_stream_get_default_control (stream);
 
-        gvc_stream_status_icon_set_control (applet->priv->icon_output, control);
+        gvc_stream_applet_icon_set_control (applet->priv->icon_output, control);
 
         if (control != NULL) {
                 g_debug ("Output icon enabled");
-                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output),
-                                             TRUE);
+                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), TRUE);
         }
         else {
                 g_debug ("There is no output stream/control, output icon disabled");
-                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output),
-                                             FALSE);
+                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), FALSE);
         }
 }
 
@@ -190,8 +182,7 @@ on_input_stream_control_added (MateMixerStream *stream,
 
         control = mate_mixer_stream_get_control (stream, name);
         if G_LIKELY (control != NULL) {
-                MateMixerStreamControlRole role =
-                        mate_mixer_stream_control_get_role (control);
+                MateMixerStreamControlRole role = mate_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
                 if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
@@ -210,7 +201,7 @@ on_input_stream_control_removed (MateMixerStream *stream,
                                  GvcApplet       *applet)
 {
         /* The removed stream could be an application input, which may cause
-         * the input status icon to disappear */
+         * the input applet icon to disappear */
         update_icon_input (applet);
 }
 
@@ -225,8 +216,7 @@ update_default_input_stream (GvcApplet *applet)
 
         /* The input stream has changed */
         if (applet->priv->input != NULL) {
-                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input),
-                                                      applet);
+                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input), applet);
                 g_object_unref (applet->priv->input);
         }
 
@@ -261,7 +251,7 @@ on_context_state_notify (MateMixerContext *context,
         case MATE_MIXER_STATE_READY:
                 update_default_input_stream (applet);
 
-                /* Each status change may affect the visibility of the icons */
+                /* Each applet change may affect the visibility of the icons */
                 update_icon_output (applet);
                 update_icon_input (applet);
                 break;
@@ -314,8 +304,7 @@ gvc_applet_dispose (GObject *object)
         GvcApplet *applet = GVC_APPLET (object);
 
         if (applet->priv->input != NULL) {
-                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input),
-                                                      applet);
+                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input), applet);
                 g_clear_object (&applet->priv->input);
         }
 
@@ -341,16 +330,15 @@ gvc_applet_init (GvcApplet *applet)
 {
         applet->priv = GVC_APPLET_GET_PRIVATE (applet);
 
-        applet->priv->icon_input  = gvc_stream_status_icon_new (NULL, icon_names_input);
-        applet->priv->icon_output = gvc_stream_status_icon_new (NULL, icon_names_output);
+        applet->priv->icon_input  = gvc_stream_applet_icon_new (NULL, icon_names_input);
+        applet->priv->icon_output = gvc_stream_applet_icon_new (NULL, icon_names_output);
 
-        gvc_stream_status_icon_set_display_name (applet->priv->icon_input,  _("Input"));
-        gvc_stream_status_icon_set_display_name (applet->priv->icon_output, _("Output"));
+        gvc_stream_applet_icon_set_display_name (applet->priv->icon_input,  _("Input"));
+        gvc_stream_applet_icon_set_display_name (applet->priv->icon_output, _("Output"));
 
         applet->priv->context = mate_mixer_context_new ();
 
-        mate_mixer_context_set_app_name (applet->priv->context,
-                                         _("MATE Volume Control Applet"));
+        mate_mixer_context_set_app_name (applet->priv->context, _("MATE Volume Control Applet"));
 
         mate_mixer_context_set_app_id (applet->priv->context, GVC_APPLET_DBUS_NAME);
         mate_mixer_context_set_app_version (applet->priv->context, VERSION);
@@ -390,11 +378,9 @@ gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
                 size = 24;
         else if (size < 48)
                 size = 32;
-        else
-                size = 48;
 
-        gvc_stream_status_icon_set_size (applet->priv->icon_input, size);
-        gvc_stream_status_icon_set_size (applet->priv->icon_output, size);
+        gvc_stream_applet_icon_set_size (applet->priv->icon_input, size);
+        gvc_stream_applet_icon_set_size (applet->priv->icon_output, size);
 }
 
 static void
@@ -404,7 +390,7 @@ gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
         gboolean is_muted;
         GtkAction *action;
 
-        is_muted = gvc_stream_status_icon_get_mute (applet->priv->icon_output);
+        is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
 
         action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
 
@@ -424,8 +410,8 @@ gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer 
 {
         GvcApplet *applet = user_data;
 
-        gvc_stream_status_icon_set_orient (applet->priv->icon_input, orient);
-        gvc_stream_status_icon_set_orient (applet->priv->icon_output, orient);
+        gvc_stream_applet_icon_set_orient (applet->priv->icon_input, orient);
+        gvc_stream_applet_icon_set_orient (applet->priv->icon_output, orient);
 }
 
 static void
@@ -433,15 +419,15 @@ menu_output_mute (GtkAction *action, GvcApplet *applet)
 {
         gboolean               is_muted;
 
-        is_muted = gvc_stream_status_icon_get_mute(applet->priv->icon_output);
+        is_muted = gvc_stream_applet_icon_get_mute(applet->priv->icon_output);
         if (!is_muted) {
-                gvc_stream_status_icon_set_mute (applet->priv->icon_output, TRUE);
+                gvc_stream_applet_icon_set_mute (applet->priv->icon_output, TRUE);
                 gtk_action_set_label (action, "Unmute Output");
                 gtk_action_set_icon_name( action, "audio-volume-medium");
 
         }
         else {
-                gvc_stream_status_icon_set_mute (applet->priv->icon_output, FALSE);
+                gvc_stream_applet_icon_set_mute (applet->priv->icon_output, FALSE);
                 gtk_action_set_label (action, "Mute Output");
                 gtk_action_set_icon_name (action, "audio-volume-muted");
        }
@@ -450,7 +436,7 @@ menu_output_mute (GtkAction *action, GvcApplet *applet)
 static void
 menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
 {
-        gvc_stream_status_icon_volume_control (applet->priv->icon_output);
+        gvc_stream_applet_icon_volume_control (applet->priv->icon_output);
 }
 
 gboolean
@@ -469,11 +455,10 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
 
         /* Define an initial size and orientation */
-        gvc_stream_status_icon_set_size (applet->priv->icon_input, mate_panel_applet_get_size (applet->priv->applet));
-        gvc_stream_status_icon_set_size (applet->priv->icon_output, mate_panel_applet_get_size (applet->priv->applet));
-        gvc_stream_status_icon_set_orient (applet->priv->icon_input, mate_panel_applet_get_orient (applet->priv->applet));
-        gvc_stream_status_icon_set_orient (applet->priv->icon_output, mate_panel_applet_get_orient (applet->priv->applet));
-
+        gvc_stream_applet_icon_set_size (applet->priv->icon_input, mate_panel_applet_get_size (applet->priv->applet));
+        gvc_stream_applet_icon_set_size (applet->priv->icon_output, mate_panel_applet_get_size (applet->priv->applet));
+        gvc_stream_applet_icon_set_orient (applet->priv->icon_input, mate_panel_applet_get_orient (applet->priv->applet));
+        gvc_stream_applet_icon_set_orient (applet->priv->icon_output, mate_panel_applet_get_orient (applet->priv->applet));
 
         /* we add the Gtk buttons into the applet */
         gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);

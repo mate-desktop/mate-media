@@ -2,6 +2,7 @@
  *
  * Copyright (C) 2008 William Jon McCann
  * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
+ * Copyright (C) 2019 Victor Kareh <vkareh@vkareh.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,23 +26,27 @@
 #include <gdk/gdkkeysyms.h>
 
 #include <libmatemixer/matemixer.h>
+#include <mate-panel-applet.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
 
 #include "gvc-channel-bar.h"
-#include "gvc-stream-status-icon.h"
+#include "gvc-stream-applet-icon.h"
 
-#define GVC_STREAM_STATUS_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_STATUS_ICON, GvcStreamStatusIconPrivate))
+#define GVC_STREAM_APPLET_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_APPLET_ICON, GvcStreamAppletIconPrivate))
 
-struct _GvcStreamStatusIconPrivate
+struct _GvcStreamAppletIconPrivate
 {
-        gchar          **icon_names;
-        GtkWidget       *dock;
-        GtkWidget       *bar;
-        guint            current_icon;
-        gchar           *display_name;
+        gchar                 **icon_names;
+        GtkImage               *image;
+        GtkWidget              *dock;
+        GtkWidget              *bar;
+        guint                   current_icon;
+        gchar                  *display_name;
         MateMixerStreamControl *control;
+        MatePanelAppletOrient   orient;
+        guint                   size;
 };
 
 enum
@@ -55,65 +60,55 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass);
-static void gvc_stream_status_icon_init       (GvcStreamStatusIcon      *stream_status_icon);
-static void gvc_stream_status_icon_finalize   (GObject                  *object);
+static void gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass);
+static void gvc_stream_applet_icon_init       (GvcStreamAppletIcon      *stream_applet_icon);
+static void gvc_stream_applet_icon_finalize   (GObject                  *object);
 
-G_DEFINE_TYPE (GvcStreamStatusIcon, gvc_stream_status_icon, GTK_TYPE_STATUS_ICON)
+G_DEFINE_TYPE (GvcStreamAppletIcon, gvc_stream_applet_icon, GTK_TYPE_EVENT_BOX)
 
 static gboolean
-popup_dock (GvcStreamStatusIcon *icon, guint time)
+popup_dock (GvcStreamAppletIcon *icon, guint time)
 {
-        GdkRectangle   area;
-        GtkOrientation orientation;
+        GtkAllocation  allocation;
         GdkDisplay    *display;
         GdkScreen     *screen;
-        int            x;
-        int            y;
+        int            x, y;
         GdkMonitor    *monitor_num;
         GdkRectangle   monitor;
         GtkRequisition dock_req;
 
-        screen = gtk_status_icon_get_screen (GTK_STATUS_ICON (icon));
-
-        if (gtk_status_icon_get_geometry (GTK_STATUS_ICON (icon),
-                                          &screen,
-                                          &area,
-                                          &orientation) == FALSE) {
-                g_warning ("Unable to determine geometry of status icon");
-                return FALSE;
-        }
+        screen = gtk_widget_get_screen (GTK_WIDGET (icon));
+        gtk_widget_get_allocation (GTK_WIDGET (icon), &allocation);
+        gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (icon)), &allocation.x, &allocation.y);
 
         /* position roughly */
         gtk_window_set_screen (GTK_WINDOW (icon->priv->dock), screen);
-        gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
-                                         1 - orientation);
+        gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), icon->priv->orient);
 
-        monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), area.x, area.y);
+        monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), allocation.x, allocation.y);
         gdk_monitor_get_geometry (monitor_num, &monitor);
 
-        gtk_container_foreach (GTK_CONTAINER (icon->priv->dock),
-                               (GtkCallback) gtk_widget_show_all, NULL);
+        gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), (GtkCallback) gtk_widget_show_all, NULL);
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
-        if (orientation == GTK_ORIENTATION_VERTICAL) {
-                if (area.x + area.width + dock_req.width <= monitor.x + monitor.width)
-                        x = area.x + area.width;
+        if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+                if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)
+                        x = allocation.x + allocation.width;
                 else
-                        x = area.x - dock_req.width;
+                        x = allocation.x - dock_req.width;
 
-                if (area.y + dock_req.height <= monitor.y + monitor.height)
-                        y = area.y;
+                if (allocation.y + dock_req.height <= monitor.y + monitor.height)
+                        y = allocation.y;
                 else
                         y = monitor.y + monitor.height - dock_req.height;
         } else {
-                if (area.y + area.height + dock_req.height <= monitor.y + monitor.height)
-                        y = area.y + area.height;
+                if (allocation.y + allocation.height + dock_req.height <= monitor.y + monitor.height)
+                        y = allocation.y + allocation.height;
                 else
-                        y = area.y - dock_req.height;
+                        y = allocation.y - dock_req.height;
 
-                if (area.x + dock_req.width <= monitor.x + monitor.width)
-                        x = area.x;
+                if (allocation.x + dock_req.width <= monitor.x + monitor.width)
+                        x = allocation.x;
                 else
                         x = monitor.x + monitor.width - dock_req.width;
         }
@@ -154,17 +149,16 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         return TRUE;
 }
 
-static void
-on_status_icon_activate (GtkStatusIcon *status_icon, GvcStreamStatusIcon *icon)
-{
-        popup_dock (icon, GDK_CURRENT_TIME);
-}
-
 static gboolean
-on_status_icon_button_press (GtkStatusIcon       *status_icon,
+on_applet_icon_button_press (GtkWidget           *applet_icon,
                              GdkEventButton      *event,
-                             GvcStreamStatusIcon *icon)
+                             GvcStreamAppletIcon *icon)
 {
+        if (event->button == 1) {
+                popup_dock (icon, GDK_CURRENT_TIME);
+                return TRUE;
+        }
+
         /* Middle click acts as mute/unmute */
         if (event->button == 2) {
                 gboolean is_muted = mate_mixer_stream_control_get_mute (icon->priv->control);
@@ -175,19 +169,20 @@ on_status_icon_button_press (GtkStatusIcon       *status_icon,
         return FALSE;
 }
 
-static void
-on_menu_mute_toggled (GtkMenuItem *item, GvcStreamStatusIcon *icon)
+void
+gvc_stream_applet_icon_set_mute (GvcStreamAppletIcon *icon, gboolean mute)
 {
-        gboolean is_muted;
-
-        is_muted = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (item));
-
-        mate_mixer_stream_control_set_mute (icon->priv->control, is_muted);
+        mate_mixer_stream_control_set_mute (icon->priv->control, mute);
 }
 
-static void
-on_menu_activate_open_volume_control (GtkMenuItem         *item,
-                                      GvcStreamStatusIcon *icon)
+gboolean
+gvc_stream_applet_icon_get_mute (GvcStreamAppletIcon *icon)
+{
+        return mate_mixer_stream_control_get_mute (icon->priv->control);
+}
+
+void
+gvc_stream_applet_icon_volume_control (GvcStreamAppletIcon *icon)
 {
         GError *error = NULL;
 
@@ -213,72 +208,16 @@ on_menu_activate_open_volume_control (GtkMenuItem         *item,
         }
 }
 
-static void
-on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
-                           guint                button,
-                           guint                activate_time,
-                           GvcStreamStatusIcon *icon)
-{
-        GtkWidget *menu;
-        GtkWidget *item;
-        GtkWidget *image;
-
-        menu = gtk_menu_new ();
-
-        /*Set up theme and transparency support*/
-        GtkWidget *toplevel = gtk_widget_get_toplevel (menu);
-        /* Fix any failures of compiz/other wm's to communicate with gtk for transparency */
-        GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
-        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
-        gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
-        /* Set menu and it's toplevel window to follow panel theme */
-        GtkStyleContext *context;
-        context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
-        gtk_style_context_add_class(context,"gnome-panel-menu-bar");
-        gtk_style_context_add_class(context,"mate-panel-menu-bar");
-
-        item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
-        gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
-                                        mate_mixer_stream_control_get_mute (icon->priv->control));
-        g_signal_connect (G_OBJECT (item),
-                          "toggled",
-                          G_CALLBACK (on_menu_mute_toggled),
-                          icon);
-
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        item = gtk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
-        image = gtk_image_new_from_icon_name ("multimedia-volume-control",
-                                              GTK_ICON_SIZE_MENU);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
-
-        g_signal_connect (G_OBJECT (item),
-                          "activate",
-                          G_CALLBACK (on_menu_activate_open_volume_control),
-                          icon);
-
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        gtk_widget_show_all (menu);
-        gtk_menu_popup (GTK_MENU (menu),
-                        NULL,
-                        NULL,
-                        gtk_status_icon_position_menu,
-                        status_icon,
-                        button,
-                        activate_time);
-}
-
 static gboolean
-on_status_icon_scroll_event (GtkStatusIcon       *status_icon,
+on_applet_icon_scroll_event (GtkWidget           *event_box,
                              GdkEventScroll      *event,
-                             GvcStreamStatusIcon *icon)
+                             GvcStreamAppletIcon *icon)
 {
         return gvc_channel_bar_scroll (GVC_CHANNEL_BAR (icon->priv->bar), event->direction);
 }
 
 static void
-gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
+gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
 {
         GdkDisplay *display = gtk_widget_get_display (icon->priv->dock);
         GdkSeat *seat = gdk_display_get_default_seat (display);
@@ -292,7 +231,7 @@ gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 static gboolean
 on_dock_button_press (GtkWidget           *widget,
                       GdkEventButton      *event,
-                      GvcStreamStatusIcon *icon)
+                      GvcStreamAppletIcon *icon)
 {
         if (event->type == GDK_BUTTON_PRESS) {
                 gvc_icon_release_grab (icon, event);
@@ -303,7 +242,7 @@ on_dock_button_press (GtkWidget           *widget,
 }
 
 static void
-popdown_dock (GvcStreamStatusIcon *icon)
+popdown_dock (GvcStreamAppletIcon *icon)
 {
         GdkDisplay *display;
 
@@ -318,7 +257,7 @@ popdown_dock (GvcStreamStatusIcon *icon)
 
 /* This is called when the grab is broken for either the dock, or the scale */
 static void
-gvc_icon_grab_notify (GvcStreamStatusIcon *icon, gboolean was_grabbed)
+gvc_icon_grab_notify (GvcStreamAppletIcon *icon, gboolean was_grabbed)
 {
         if (was_grabbed != FALSE)
                 return;
@@ -335,7 +274,7 @@ gvc_icon_grab_notify (GvcStreamStatusIcon *icon, gboolean was_grabbed)
 static void
 on_dock_grab_notify (GtkWidget           *widget,
                      gboolean             was_grabbed,
-                     GvcStreamStatusIcon *icon)
+                     GvcStreamAppletIcon *icon)
 {
         gvc_icon_grab_notify (icon, was_grabbed);
 }
@@ -343,7 +282,7 @@ on_dock_grab_notify (GtkWidget           *widget,
 static gboolean
 on_dock_grab_broken_event (GtkWidget           *widget,
                            gboolean             was_grabbed,
-                           GvcStreamStatusIcon *icon)
+                           GvcStreamAppletIcon *icon)
 {
         gvc_icon_grab_notify (icon, FALSE);
         return FALSE;
@@ -352,7 +291,7 @@ on_dock_grab_broken_event (GtkWidget           *widget,
 static gboolean
 on_dock_key_release (GtkWidget           *widget,
                      GdkEventKey         *event,
-                     GvcStreamStatusIcon *icon)
+                     GvcStreamAppletIcon *icon)
 {
         if (event->keyval == GDK_KEY_Escape) {
                 popdown_dock (icon);
@@ -364,32 +303,49 @@ on_dock_key_release (GtkWidget           *widget,
 static gboolean
 on_dock_scroll_event (GtkWidget           *widget,
                       GdkEventScroll      *event,
-                      GvcStreamStatusIcon *icon)
+                      GvcStreamAppletIcon *icon)
 {
-        /* Forward event to the status icon */
-        on_status_icon_scroll_event (NULL, event, icon);
+        /* Forward event to the applet icon */
+        on_applet_icon_scroll_event (NULL, event, icon);
         return TRUE;
 }
 
 static void
-update_icon (GvcStreamStatusIcon *icon)
+gvc_stream_applet_icon_set_icon_from_name (GvcStreamAppletIcon *icon,
+                                           const gchar *icon_name)
 {
-        guint                volume = 0;
-        gdouble              decibel = 0;
-        guint                normal = 0;
-        gboolean             muted = FALSE;
-        guint                n = 0;
-        gchar               *markup;
-        const gchar         *description;
+        GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
+        gint icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (icon));
+
+        cairo_surface_t* surface = gtk_icon_theme_load_surface (icon_theme, icon_name,
+                                                                icon->priv->size,
+                                                                icon_scale, NULL,
+                                                                GTK_ICON_LOOKUP_FORCE_SIZE,
+                                                                NULL);
+
+        gtk_image_set_from_surface (GTK_IMAGE (icon->priv->image), surface);
+        cairo_surface_destroy (surface);
+}
+
+static void
+update_icon (GvcStreamAppletIcon *icon)
+{
+        guint                       volume = 0;
+        gdouble                     decibel = 0;
+        guint                       normal = 0;
+        gboolean                    muted = FALSE;
+        guint                       n = 0;
+        gchar                      *markup;
+        const gchar                *description;
         MateMixerStreamControlFlags flags;
 
         if (icon->priv->control == NULL) {
                 /* Do not bother creating a tooltip for an unusable icon as it
                  * has no practical use */
-                gtk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), FALSE);
+                gtk_widget_set_has_tooltip (GTK_WIDGET (icon), FALSE);
                 return;
         } else
-                gtk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), TRUE);
+                gtk_widget_set_has_tooltip (GTK_WIDGET (icon), TRUE);
 
         flags = mate_mixer_stream_control_get_flags (icon->priv->control);
 
@@ -410,10 +366,9 @@ update_icon (GvcStreamStatusIcon *icon)
         if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL)
                 decibel = mate_mixer_stream_control_get_decibel (icon->priv->control);
 
-        /* Apparently status icon will reset icon even if it doesn't change */
+        /* Apparently applet icon will reset icon even if it doesn't change */
         if (icon->priv->current_icon != n) {
-                gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
-                                                    icon->priv->icon_names[n]);
+                gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[n]);
                 icon->priv->current_icon = n;
         }
 
@@ -454,16 +409,49 @@ update_icon (GvcStreamStatusIcon *icon)
                                           description);
         }
 
-        gtk_status_icon_set_tooltip_markup (GTK_STATUS_ICON (icon), markup);
+        gtk_widget_set_tooltip_markup (GTK_WIDGET (icon), markup);
 
         g_free (markup);
 }
 
 void
-gvc_stream_status_icon_set_icon_names (GvcStreamStatusIcon  *icon,
+gvc_stream_applet_icon_set_size (GvcStreamAppletIcon *icon,
+                                 guint                size)
+{
+
+        /*Iterate through the icon sizes so they can be kept sharp*/
+        if (size < 22)
+                size = 16;
+        else if (size < 24)
+                size = 22;
+        else if (size < 32)
+                size = 24;
+        else if (size < 48)
+                size = 32;
+
+        icon->priv->size = size;
+        gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[icon->priv->current_icon]);
+}
+
+void
+gvc_stream_applet_icon_set_orient (GvcStreamAppletIcon  *icon,
+                                   MatePanelAppletOrient orient)
+{
+        /* Sometimes orient does not get properly defined especially on a bottom panel.
+         * Use the applet orientation if it is valid, otherwise set a vertical slider,
+         * otherwise bottom panels get a horizontal slider.
+         */
+        if (orient)
+                icon->priv->orient = orient;
+        else
+                icon->priv->orient = MATE_PANEL_APPLET_ORIENT_DOWN;
+}
+
+void
+gvc_stream_applet_icon_set_icon_names (GvcStreamAppletIcon  *icon,
                                        const gchar         **names)
 {
-        g_return_if_fail (GVC_IS_STREAM_STATUS_ICON (icon));
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
         g_return_if_fail (names != NULL && *names != NULL);
 
         if (G_UNLIKELY (g_strv_length ((gchar **) names) != 4)) {
@@ -477,33 +465,33 @@ gvc_stream_status_icon_set_icon_names (GvcStreamStatusIcon  *icon,
 
         /* Set the first icon as the initial one, the icon may be immediately
          * updated or not depending on whether a stream is available */
-        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon), names[0]);
+        gvc_stream_applet_icon_set_icon_from_name (icon, names[0]);
         update_icon (icon);
 
         g_object_notify_by_pspec (G_OBJECT (icon), properties[PROP_ICON_NAMES]);
 }
 
 static void
-on_stream_control_volume_notify (MateMixerStreamControl     *control,
-                         GParamSpec          *pspec,
-                         GvcStreamStatusIcon *icon)
+on_stream_control_volume_notify (MateMixerStreamControl *control,
+                                 GParamSpec             *pspec,
+                                 GvcStreamAppletIcon    *icon)
 {
         update_icon (icon);
 }
 
 static void
-on_stream_control_mute_notify (MateMixerStreamControl     *control,
-                       GParamSpec          *pspec,
-                       GvcStreamStatusIcon *icon)
+on_stream_control_mute_notify (MateMixerStreamControl *control,
+                               GParamSpec             *pspec,
+                               GvcStreamAppletIcon    *icon)
 {
         update_icon (icon);
 }
 
 void
-gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon *icon,
+gvc_stream_applet_icon_set_display_name (GvcStreamAppletIcon *icon,
                                          const gchar         *name)
 {
-        g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
+        g_return_if_fail (GVC_STREAM_APPLET_ICON (icon));
 
         g_free (icon->priv->display_name);
 
@@ -514,10 +502,10 @@ gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon *icon,
 }
 
 void
-gvc_stream_status_icon_set_control (GvcStreamStatusIcon    *icon,
+gvc_stream_applet_icon_set_control (GvcStreamAppletIcon    *icon,
                                     MateMixerStreamControl *control)
 {
-        g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
+        g_return_if_fail (GVC_STREAM_APPLET_ICON (icon));
 
         if (icon->priv->control == control)
                 return;
@@ -558,22 +546,22 @@ gvc_stream_status_icon_set_control (GvcStreamStatusIcon    *icon,
 }
 
 static void
-gvc_stream_status_icon_set_property (GObject       *object,
-                                     guint          prop_id,
-                                     const GValue  *value,
-                                     GParamSpec    *pspec)
+gvc_stream_applet_icon_set_property (GObject      *object,
+                                     guint         prop_id,
+                                     const GValue *value,
+                                     GParamSpec   *pspec)
 {
-        GvcStreamStatusIcon *self = GVC_STREAM_STATUS_ICON (object);
+        GvcStreamAppletIcon *self = GVC_STREAM_APPLET_ICON (object);
 
         switch (prop_id) {
         case PROP_CONTROL:
-                gvc_stream_status_icon_set_control (self, g_value_get_object (value));
+                gvc_stream_applet_icon_set_control (self, g_value_get_object (value));
                 break;
         case PROP_DISPLAY_NAME:
-                gvc_stream_status_icon_set_display_name (self, g_value_get_string (value));
+                gvc_stream_applet_icon_set_display_name (self, g_value_get_string (value));
                 break;
         case PROP_ICON_NAMES:
-                gvc_stream_status_icon_set_icon_names (self, g_value_get_boxed (value));
+                gvc_stream_applet_icon_set_icon_names (self, g_value_get_boxed (value));
                 break;
         default:
                 G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -582,12 +570,12 @@ gvc_stream_status_icon_set_property (GObject       *object,
 }
 
 static void
-gvc_stream_status_icon_get_property (GObject     *object,
-                                     guint        prop_id,
-                                     GValue      *value,
-                                     GParamSpec  *pspec)
+gvc_stream_applet_icon_get_property (GObject    *object,
+                                     guint       prop_id,
+                                     GValue     *value,
+                                     GParamSpec *pspec)
 {
-        GvcStreamStatusIcon *self = GVC_STREAM_STATUS_ICON (object);
+        GvcStreamAppletIcon *self = GVC_STREAM_APPLET_ICON (object);
 
         switch (prop_id) {
         case PROP_CONTROL:
@@ -606,9 +594,9 @@ gvc_stream_status_icon_get_property (GObject     *object,
 }
 
 static void
-gvc_stream_status_icon_dispose (GObject *object)
+gvc_stream_applet_icon_dispose (GObject *object)
 {
-        GvcStreamStatusIcon *icon = GVC_STREAM_STATUS_ICON (object);
+        GvcStreamAppletIcon *icon = GVC_STREAM_APPLET_ICON (object);
 
         if (icon->priv->dock != NULL) {
                 gtk_widget_destroy (icon->priv->dock);
@@ -617,18 +605,18 @@ gvc_stream_status_icon_dispose (GObject *object)
 
         g_clear_object (&icon->priv->control);
 
-        G_OBJECT_CLASS (gvc_stream_status_icon_parent_class)->dispose (object);
+        G_OBJECT_CLASS (gvc_stream_applet_icon_parent_class)->dispose (object);
 }
 
 static void
-gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
+gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = gvc_stream_status_icon_finalize;
-        object_class->dispose  = gvc_stream_status_icon_dispose;
-        object_class->set_property = gvc_stream_status_icon_set_property;
-        object_class->get_property = gvc_stream_status_icon_get_property;
+        object_class->finalize     = gvc_stream_applet_icon_finalize;
+        object_class->dispose      = gvc_stream_applet_icon_dispose;
+        object_class->set_property = gvc_stream_applet_icon_set_property;
+        object_class->get_property = gvc_stream_applet_icon_get_property;
 
         properties[PROP_CONTROL] =
                 g_param_spec_object ("control",
@@ -659,52 +647,46 @@ gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 
-        g_type_class_add_private (klass, sizeof (GvcStreamStatusIconPrivate));
+        g_type_class_add_private (klass, sizeof (GvcStreamAppletIconPrivate));
 }
 
 static void
-on_status_icon_visible_notify (GvcStreamStatusIcon *icon)
+on_applet_icon_visible_notify (GvcStreamAppletIcon *icon)
 {
-        if (gtk_status_icon_get_visible (GTK_STATUS_ICON (icon)) == FALSE)
+        if (gtk_widget_get_visible (GTK_WIDGET (icon)) == FALSE)
                 gtk_widget_hide (icon->priv->dock);
 }
 
 static void
 on_icon_theme_change (GtkSettings         *settings,
                       GParamSpec          *pspec,
-                      GvcStreamStatusIcon *icon)
+                      GvcStreamAppletIcon *icon)
 {
-        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
-                                            icon->priv->icon_names[icon->priv->current_icon]);
+        gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[icon->priv->current_icon]);
 }
 
 static void
-gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
+gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
 {
         GtkWidget *frame;
         GtkWidget *box;
 
-        icon->priv = GVC_STREAM_STATUS_ICON_GET_PRIVATE (icon);
+        icon->priv = GVC_STREAM_APPLET_ICON_GET_PRIVATE (icon);
 
-        g_signal_connect (G_OBJECT (icon),
-                          "activate",
-                          G_CALLBACK (on_status_icon_activate),
-                          icon);
-        g_signal_connect (G_OBJECT (icon),
+        icon->priv->image = GTK_IMAGE (gtk_image_new ());
+        gtk_container_add (GTK_CONTAINER (icon), GTK_WIDGET (icon->priv->image));
+
+        g_signal_connect (GTK_WIDGET (icon),
                           "button-press-event",
-                          G_CALLBACK (on_status_icon_button_press),
+                          G_CALLBACK (on_applet_icon_button_press),
                           icon);
-        g_signal_connect (G_OBJECT (icon),
-                          "popup-menu",
-                          G_CALLBACK (on_status_icon_popup_menu),
-                          icon);
-        g_signal_connect (G_OBJECT (icon),
+        g_signal_connect (GTK_WIDGET (icon),
                           "scroll-event",
-                          G_CALLBACK (on_status_icon_scroll_event),
+                          G_CALLBACK (on_applet_icon_scroll_event),
                           icon);
-        g_signal_connect (G_OBJECT (icon),
+        g_signal_connect (GTK_WIDGET (icon),
                           "notify::visible",
-                          G_CALLBACK (on_status_icon_visible_notify),
+                          G_CALLBACK (on_applet_icon_visible_notify),
                           NULL);
 
         /* Create the dock window */
@@ -747,6 +729,7 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         GtkStyleContext *context;
         context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
         gtk_style_context_add_class(context,"mate-panel-applet-slider");
+
         /* Make transparency possible in gtk3 theme */
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
@@ -766,11 +749,11 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
 }
 
 static void
-gvc_stream_status_icon_finalize (GObject *object)
+gvc_stream_applet_icon_finalize (GObject *object)
 {
-        GvcStreamStatusIcon *icon;
+        GvcStreamAppletIcon *icon;
 
-        icon = GVC_STREAM_STATUS_ICON (object);
+        icon = GVC_STREAM_APPLET_ICON (object);
 
         g_strfreev (icon->priv->icon_names);
 
@@ -778,14 +761,14 @@ gvc_stream_status_icon_finalize (GObject *object)
                                               on_icon_theme_change,
                                               icon);
 
-        G_OBJECT_CLASS (gvc_stream_status_icon_parent_class)->finalize (object);
+        G_OBJECT_CLASS (gvc_stream_applet_icon_parent_class)->finalize (object);
 }
 
-GvcStreamStatusIcon *
-gvc_stream_status_icon_new (MateMixerStreamControl *control,
+GvcStreamAppletIcon *
+gvc_stream_applet_icon_new (MateMixerStreamControl *control,
                             const gchar           **icon_names)
 {
-        return g_object_new (GVC_TYPE_STREAM_STATUS_ICON,
+        return g_object_new (GVC_TYPE_STREAM_APPLET_ICON,
                              "control", control,
                              "icon-names", icon_names,
                              NULL);
