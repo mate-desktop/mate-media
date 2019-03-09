@@ -7,7 +7,7 @@ SUBDIRS =	\
 
 @INTLTOOL_DESKTOP_RULE@
 autostartdir = $(sysconfdir)/xdg/autostart
-autostart_in_files = mate-volume-control-applet.desktop.in
+autostart_in_files = mate-volume-control-status-icon.desktop.in
 autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
 
 appsdir = $(datadir)/applications
@@ -24,7 +24,7 @@ CLEANFILES =					\
 	$(NULL)
 
 DISTCLEANFILES =				\
-	mate-volume-control-applet.desktop	\
+	mate-volume-control-status-icon.desktop	\
 	$(NULL)
 
 -include $(top_srcdir)/git.mk
