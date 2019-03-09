@@ -2,7 +2,7 @@
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
 data/mate-volume-control.desktop.in.in
-data/mate-volume-control-applet.desktop.in
+data/mate-volume-control-status-icon.desktop.in
 data/sounds/mate-sounds-default.xml.in.in
 mate-volume-control/applet-main.c
 mate-volume-control/dialog-main.c
