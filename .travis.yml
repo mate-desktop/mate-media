@@ -38,6 +38,7 @@ requires:
     - make
     - mate-common
     - mate-desktop
+    - mate-panel
     - which
 
   debian:
@@ -49,6 +50,7 @@ requires:
     - libglib2.0-dev
     - libgtk-3-dev
     - libmate-desktop-dev
+    - libmate-panel-applet-dev
     - libmatemixer-dev
     - libxml2-dev
     - make
@@ -63,9 +65,10 @@ requires:
     - libmatemixer-devel
     - libxml2-devel
     - libcanberra-devel
-    - mate-desktop-devel
     - make
     - mate-common
+    - mate-desktop-devel
+    - mate-panel-devel
     - redhat-rpm-config
 
   ubuntu:
@@ -75,6 +78,7 @@ requires:
     - libglib2.0-dev
     - libgtk-3-dev
     - libmate-desktop-dev
+    - libmate-panel-applet-dev
     - libmatemixer-dev
     - libxml2-dev
     - make
