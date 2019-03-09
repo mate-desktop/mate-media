@@ -24,6 +24,9 @@ EXTRA_DIST =					\
 	$(NULL)
 
 DISTCLEANFILES =				\
+	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet \
+	mate-volume-control/org.mate.panel.applet.GvcAppletFactory.service \
+	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.in \
 	po/.intltool-merge-cache		\
 	$(NULL)
 
