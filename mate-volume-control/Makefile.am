@@ -1,6 +1,10 @@
 NULL =
 
-bin_PROGRAMS = mate-volume-control
+bin_PROGRAMS = \
+	 mate-volume-control-status-icon \
+	 mate-volume-control \
+	$(NULL)
+
 libexec_PROGRAMS = mate-volume-control-applet
 
 AM_CPPFLAGS = \
@@ -45,6 +49,22 @@ libmatevolumecontrol_la_SOURCES = \
 	gvc-channel-bar.c \
 	$(NULL)
 
+mate_volume_control_status_icon_LDADD = \
+	-lm \
+	libmatevolumecontrol.la \
+	$(VOLUME_CONTROL_LIBS) \
+	$(NULL)
+
+mate_volume_control_status_icon_SOURCES = \
+	gvc-stream-status-icon.h \
+	gvc-stream-status-icon.c \
+	gvc-status-icon.h \
+	gvc-status-icon.c \
+	status-icon-main.c \
+	$(NULL)
+
+mate_volume_control_status_icon_CFLAGS = $(WARN_CFLAGS)
+
 mate_volume_control_applet_LDADD = \
 	-lm \
 	libmatevolumecontrol.la \
@@ -53,14 +73,14 @@ mate_volume_control_applet_LDADD = \
 	$(NULL)
 
 mate_volume_control_applet_SOURCES = \
-	gvc-stream-status-icon.h \
-	gvc-stream-status-icon.c \
+	gvc-stream-applet-icon.h \
+	gvc-stream-applet-icon.c \
 	gvc-applet.h \
 	gvc-applet.c \
 	applet-main.c \
 	$(NULL)
 
-mate_volume_contro_applet_CFLAGS = $(WARN_CFLAGS)
+mate_volume_control_applet_CFLAGS = $(WARN_CFLAGS)
 
 mate_volume_control_LDADD = \
 	-lm \

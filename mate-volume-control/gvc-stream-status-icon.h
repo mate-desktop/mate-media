@@ -41,13 +41,13 @@ typedef struct _GvcStreamStatusIconPrivate  GvcStreamStatusIconPrivate;
 
 struct _GvcStreamStatusIcon
 {
-        GtkEventBox                 parent;
+        GtkStatusIcon               parent;
         GvcStreamStatusIconPrivate *priv;
 };
 
 struct _GvcStreamStatusIconClass
 {
-        GtkEventBoxClass            parent_class;
+        GtkStatusIconClass          parent_class;
 };
 
 GType                 gvc_stream_status_icon_get_type         (void) G_GNUC_CONST;
@@ -62,19 +62,6 @@ void                  gvc_stream_status_icon_set_display_name (GvcStreamStatusIc
 
 void                  gvc_stream_status_icon_set_control      (GvcStreamStatusIcon    *icon,
                                                                MateMixerStreamControl *control);
-
-void                  gvc_stream_status_icon_set_size         (GvcStreamStatusIcon *icon,
-                                                               guint                size);
-
-void                  gvc_stream_status_icon_set_orient       (GvcStreamStatusIcon  *icon,
-                                                               MatePanelAppletOrient orient);
-
-gboolean              gvc_stream_status_icon_get_mute         (GvcStreamStatusIcon *icon);
-
-void                  gvc_stream_status_icon_set_mute         (GvcStreamStatusIcon *icon,
-                                                               gboolean mute);
-
-void                  gvc_stream_status_icon_volume_control   (GvcStreamStatusIcon *icon);
 
 G_END_DECLS
 
