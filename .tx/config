@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
  
-[MATE.master--mate-media]
+[MATE.1-22--mate-media]
 file_filter = po/<lang>.po
 source_file = po/mate-media.pot
 source_lang = en
