@@ -1,11 +1,17 @@
-NULL =
-
+if ENABLE_STATUSICON
 bin_PROGRAMS = \
 	 mate-volume-control-status-icon \
 	 mate-volume-control \
 	$(NULL)
+else
+bin_PROGRAMS = \
+	 mate-volume-control \
+	$(NULL)
+endif
 
+if ENABLE_PANELAPPLET
 libexec_PROGRAMS = mate-volume-control-applet
+endif
 
 AM_CPPFLAGS = \
 	$(WARN_CFLAGS) \
@@ -18,6 +24,7 @@ AM_CPPFLAGS = \
 	-I$(srcdir) \
 	$(NULL)
 
+if ENABLE_PANELAPPLET
 APPLET_LOCATION = $(libexecdir)/mate-volume-control-applet
 
 appletsdir       = $(datadir)/mate-panel/applets
@@ -43,12 +50,15 @@ EXTRA_DIST = \
 	$(applets_in_files).in \
 	$(service_in_files)
 
+endif
+
 noinst_LTLIBRARIES = libmatevolumecontrol.la
 libmatevolumecontrol_la_SOURCES = \
 	gvc-channel-bar.h \
 	gvc-channel-bar.c \
 	$(NULL)
 
+if ENABLE_STATUSICON
 mate_volume_control_status_icon_LDADD = \
 	-lm \
 	libmatevolumecontrol.la \
@@ -64,7 +74,9 @@ mate_volume_control_status_icon_SOURCES = \
 	$(NULL)
 
 mate_volume_control_status_icon_CFLAGS = $(WARN_CFLAGS)
+endif
 
+if ENABLE_PANELAPPLET
 mate_volume_control_applet_LDADD = \
 	-lm \
 	libmatevolumecontrol.la \
@@ -81,6 +93,7 @@ mate_volume_control_applet_SOURCES = \
 	$(NULL)
 
 mate_volume_control_applet_CFLAGS = $(WARN_CFLAGS)
+endif
 
 mate_volume_control_LDADD = \
 	-lm \
