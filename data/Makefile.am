@@ -6,9 +6,13 @@ SUBDIRS =	\
 	$(NULL)
 
 @INTLTOOL_DESKTOP_RULE@
+if ENABLE_STATUSICON
 autostartdir = $(sysconfdir)/xdg/autostart
+endif
 autostart_in_files = mate-volume-control-status-icon.desktop.in
+if ENABLE_STATUSICON
 autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
+endif
 
 appsdir = $(datadir)/applications
 apps_in_files = mate-volume-control.desktop.in
