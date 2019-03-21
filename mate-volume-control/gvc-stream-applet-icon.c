@@ -612,6 +612,7 @@ static void
 gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
+        GtkWidgetClass *widget_class = (GtkWidgetClass *) klass;
 
         object_class->finalize     = gvc_stream_applet_icon_finalize;
         object_class->dispose      = gvc_stream_applet_icon_dispose;
@@ -644,6 +645,8 @@ gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass)
                                     G_PARAM_READWRITE |
                                     G_PARAM_CONSTRUCT |
                                     G_PARAM_STATIC_STRINGS);
+
+        gtk_widget_class_set_css_name (widget_class, "volume-applet");
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 
