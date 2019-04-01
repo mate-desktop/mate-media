@@ -4,24 +4,25 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Sérgio Marques <smarquespt@gmail.com>, 2018
-# Carlos Moreira, 2018
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# ogalho Carlos Dias Martins <ogalho@gmail.com>, 2018
-# Diogo Oliveira <diogodesigns@gmail.com>, 2018
-# MS <manuelarodsilva@gmail.com>, 2018
-# José Vieira <jvieira33@sapo.pt>, 2018
-# Rui <xymarior@yandex.com>, 2018
+# Sérgio Marques <smarquespt@gmail.com>, 2019
+# Carlos Moreira, 2019
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Wolfgang Ulbrich <mate@raveit.de>, 2019
+# ogalho Carlos Dias Martins <ogalho@gmail.com>, 2019
+# Diogo Oliveira <diogodesigns@gmail.com>, 2019
+# MS <manuelarodsilva@gmail.com>, 2019
+# José Vieira <jvieira33@sapo.pt>, 2019
+# Rui <xymarior@yandex.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 13:43+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Rui <xymarior@yandex.com>, 2018\n"
+"POT-Creation-Date: 2019-03-22 09:59+0100\n"
+"PO-Revision-Date: 2019-03-13 14:13+0000\n"
+"Last-Translator: Rui <xymarior@yandex.com>, 2019\n"
 "Language-Team: Portuguese (https://www.transifex.com/mate/teams/13566/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,14 +38,14 @@ msgstr "Som"
 msgid "Change sound volume and sound events"
 msgstr "Alterar volume do sistema e sons de eventos"
 
-#: ../data/mate-volume-control-applet.desktop.in.h:1
+#: ../data/mate-volume-control-status-icon.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
 #: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Controlo de Volume"
 
-#: ../data/mate-volume-control-applet.desktop.in.h:2
+#: ../data/mate-volume-control-status-icon.desktop.in.h:2
 msgid "Show desktop volume control"
 msgstr "Mostrar controlo de volume no ambiente de trabalho"
 
@@ -76,20 +77,6 @@ msgstr "Vidro"
 msgid "Sonar"
 msgstr "Sonar"
 
-#: ../mate-volume-control/applet-main.c:45
-#: ../mate-volume-control/dialog-main.c:193
-msgid "Version of this application"
-msgstr "Versão desta aplicação"
-
-#: ../mate-volume-control/applet-main.c:46
-#: ../mate-volume-control/dialog-main.c:191
-msgid "Enable debug"
-msgstr "Ativar depuração"
-
-#: ../mate-volume-control/applet-main.c:55
-msgid " — MATE Volume Control Applet"
-msgstr " — Applet do controlo de volume MATE"
-
 #: ../mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
 msgstr "Sistema de som não disponível"
@@ -102,35 +89,52 @@ msgstr "À espera da resposta do sistema de som"
 msgid "Sound system backend"
 msgstr "Motor do sistema de som"
 
+#: ../mate-volume-control/dialog-main.c:191
+#: ../mate-volume-control/status-icon-main.c:46
+msgid "Enable debug"
+msgstr "Ativar depuração"
+
 #: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
 msgstr "Página inicial"
+
+#: ../mate-volume-control/dialog-main.c:193
+#: ../mate-volume-control/status-icon-main.c:45
+msgid "Version of this application"
+msgstr "Versão desta aplicação"
 
 #: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
 msgstr " — Controlo de volume MATE"
 
-#: ../mate-volume-control/gvc-applet.c:330
+#: ../mate-volume-control/gvc-applet.c:58
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
+msgid "_Sound Preferences"
+msgstr "Preferências de _som"
+
+#: ../mate-volume-control/gvc-applet.c:59
+msgid "Mute Output"
+msgstr ""
+
+#: ../mate-volume-control/gvc-applet.c:336
 #: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-status-icon.c:330
 msgid "Input"
 msgstr "Entrada"
 
-#: ../mate-volume-control/gvc-applet.c:331
+#: ../mate-volume-control/gvc-applet.c:337
 #: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-status-icon.c:331
 msgid "Output"
 msgstr "Saída"
-
-#: ../mate-volume-control/gvc-applet.c:334
-msgid "Microphone Volume"
-msgstr "Volume do microfone"
-
-#: ../mate-volume-control/gvc-applet.c:336
-msgid "Sound Output Volume"
-msgstr "Volume da saída de som"
 
 #: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
 msgstr "Applet do controlo de volume MATE"
+
+#: ../mate-volume-control/gvc-applet.c:448
+msgid "Volume Control Applet"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
@@ -211,8 +215,8 @@ msgstr "Inativo"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Saída"
-msgstr[1] "%u Saídas"
+msgstr[0] "%u saída"
+msgstr[1] "%u saídas"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -220,8 +224,8 @@ msgstr[1] "%u Saídas"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Entrada"
-msgstr[1] "%u Entradas"
+msgstr[0] "%u entrada"
+msgstr[1] "%u entradas"
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1509
 #: ../mate-volume-control/gvc-mixer-dialog.c:1778
@@ -292,7 +296,7 @@ msgstr "Neste momento, não há aplicações a reproduzir ou gravar áudio."
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
 msgid "Sound Preferences"
-msgstr "Preferências de som"
+msgstr "Preferências de Som"
 
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:320
 msgid "No sounds"
@@ -346,22 +350,32 @@ msgstr "Parar"
 msgid "Test"
 msgstr "Testar"
 
+#: ../mate-volume-control/gvc-status-icon.c:334
+msgid "Microphone Volume"
+msgstr "Volume do microfone"
+
+#: ../mate-volume-control/gvc-status-icon.c:336
+msgid "Sound Output Volume"
+msgstr "Volume da saída de som"
+
+#: ../mate-volume-control/gvc-status-icon.c:341
+msgid "MATE Volume Control StatusIcon"
+msgstr ""
+
+#: ../mate-volume-control/gvc-stream-applet-icon.c:200
 #: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Failed to start Sound Preferences: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:240
-msgid "_Mute"
-msgstr "_Silenciar"
-
-#: ../mate-volume-control/gvc-stream-status-icon.c:250
-msgid "_Sound Preferences"
-msgstr "Preferências de _som"
-
+#: ../mate-volume-control/gvc-stream-applet-icon.c:381
 #: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Silenciado em"
+
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
+msgid "_Mute"
+msgstr "_Silenciar"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
@@ -468,3 +482,7 @@ msgstr "Surround 5.1"
 #: ../mate-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
+
+#: ../mate-volume-control/status-icon-main.c:55
+msgid " — MATE Volume Control Status Icon"
+msgstr ""

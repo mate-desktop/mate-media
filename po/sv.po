@@ -4,23 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kristoffer Grundström <hamnisdude@gmail.com>, 2018
-# Erik, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Henrik Mattsson-Mårn <h@reglage.net>, 2018
-# Daniel Gullbransen <daniel@llama.nu>, 2018
-# Urban Berggren <pudberggren@icloud.com>, 2018
-# Tobias Lekare <lekare@linux.com>, 2018
-# Philip Andersen <renegadevi@codeofmagi.net>, 2018
+# Kristoffer Grundström <hamnisdude@gmail.com>, 2019
+# 6a42dd6e7ca9a813693714b0d9aa1ad8, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Henrik Mattsson-Mårn <h@reglage.net>, 2019
+# Daniel Gullbransen <daniel@llama.nu>, 2019
+# 8385e6e60a22e18cd347a1f6e4685fb9, 2019
+# Tobias Lekare <lekare@linux.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 13:43+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Philip Andersen <renegadevi@codeofmagi.net>, 2018\n"
+"POT-Creation-Date: 2019-03-22 09:59+0100\n"
+"PO-Revision-Date: 2019-03-13 14:13+0000\n"
+"Last-Translator: Tobias Lekare <lekare@linux.com>, 2019\n"
 "Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,14 +35,14 @@ msgstr "Ljud"
 msgid "Change sound volume and sound events"
 msgstr "Ändra ljudvolym och ljudhändelser"
 
-#: ../data/mate-volume-control-applet.desktop.in.h:1
+#: ../data/mate-volume-control-status-icon.desktop.in.h:1
 #: ../mate-volume-control/dialog-main.c:255
 #: ../mate-volume-control/gvc-channel-bar.c:479
 #: ../mate-volume-control/gvc-speaker-test.c:434
 msgid "Volume Control"
 msgstr "Volymkontroll"
 
-#: ../data/mate-volume-control-applet.desktop.in.h:2
+#: ../data/mate-volume-control-status-icon.desktop.in.h:2
 msgid "Show desktop volume control"
 msgstr "Visa skrivbordets volymkontroll"
 
@@ -75,20 +74,6 @@ msgstr "Glas"
 msgid "Sonar"
 msgstr "Sonar"
 
-#: ../mate-volume-control/applet-main.c:45
-#: ../mate-volume-control/dialog-main.c:193
-msgid "Version of this application"
-msgstr "Detta programs versionsnummer"
-
-#: ../mate-volume-control/applet-main.c:46
-#: ../mate-volume-control/dialog-main.c:191
-msgid "Enable debug"
-msgstr "Aktivera felsökning"
-
-#: ../mate-volume-control/applet-main.c:55
-msgid " — MATE Volume Control Applet"
-msgstr " — Volympanelprogram för MATE"
-
 #: ../mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
 msgstr "Ljudsystemet är inte tillgängligt"
@@ -101,35 +86,52 @@ msgstr "Väntar på att ljudsystemet ska svara"
 msgid "Sound system backend"
 msgstr "Ljudsystemets bakände"
 
+#: ../mate-volume-control/dialog-main.c:191
+#: ../mate-volume-control/status-icon-main.c:46
+msgid "Enable debug"
+msgstr "Aktivera felsökning"
+
 #: ../mate-volume-control/dialog-main.c:192
 msgid "Startup page"
 msgstr "Uppstartssida"
+
+#: ../mate-volume-control/dialog-main.c:193
+#: ../mate-volume-control/status-icon-main.c:45
+msgid "Version of this application"
+msgstr "Detta programs versionsnummer"
 
 #: ../mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
 msgstr " — Volymkontroll för MATE"
 
-#: ../mate-volume-control/gvc-applet.c:330
+#: ../mate-volume-control/gvc-applet.c:58
+#: ../mate-volume-control/gvc-stream-status-icon.c:250
+msgid "_Sound Preferences"
+msgstr "_Ljudinställningar"
+
+#: ../mate-volume-control/gvc-applet.c:59
+msgid "Mute Output"
+msgstr ""
+
+#: ../mate-volume-control/gvc-applet.c:336
 #: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-status-icon.c:330
 msgid "Input"
 msgstr "Ingång"
 
-#: ../mate-volume-control/gvc-applet.c:331
+#: ../mate-volume-control/gvc-applet.c:337
 #: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-status-icon.c:331
 msgid "Output"
 msgstr "Utgång"
-
-#: ../mate-volume-control/gvc-applet.c:334
-msgid "Microphone Volume"
-msgstr "Mikrofonvolym"
-
-#: ../mate-volume-control/gvc-applet.c:336
-msgid "Sound Output Volume"
-msgstr "Ljudutgångsvolym "
 
 #: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
 msgstr "Volymkontrollsapplet för MATE"
+
+#: ../mate-volume-control/gvc-applet.c:448
+msgid "Volume Control Applet"
+msgstr ""
 
 #: ../mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
@@ -210,8 +212,8 @@ msgstr "Inaktiverad"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u utgång"
-msgstr[1] "%u utgångar"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -219,8 +221,8 @@ msgstr[1] "%u utgångar"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u ingång"
-msgstr[1] "%u ingångar"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../mate-volume-control/gvc-mixer-dialog.c:1509
 #: ../mate-volume-control/gvc-mixer-dialog.c:1778
@@ -345,22 +347,32 @@ msgstr "Stopp"
 msgid "Test"
 msgstr "Testa"
 
+#: ../mate-volume-control/gvc-status-icon.c:334
+msgid "Microphone Volume"
+msgstr "Mikrofonvolym"
+
+#: ../mate-volume-control/gvc-status-icon.c:336
+msgid "Sound Output Volume"
+msgstr "Ljudutgångsvolym "
+
+#: ../mate-volume-control/gvc-status-icon.c:341
+msgid "MATE Volume Control StatusIcon"
+msgstr ""
+
+#: ../mate-volume-control/gvc-stream-applet-icon.c:200
 #: ../mate-volume-control/gvc-stream-status-icon.c:205
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Misslyckades med att starta ljudinställningar: %s"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:240
-msgid "_Mute"
-msgstr "_Tyst"
-
-#: ../mate-volume-control/gvc-stream-status-icon.c:250
-msgid "_Sound Preferences"
-msgstr "_Ljudinställningar"
-
+#: ../mate-volume-control/gvc-stream-applet-icon.c:381
 #: ../mate-volume-control/gvc-stream-status-icon.c:426
 msgid "Muted at"
 msgstr "Tystad vid"
+
+#: ../mate-volume-control/gvc-stream-status-icon.c:240
+msgid "_Mute"
+msgstr "_Tyst"
 
 #: ../mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
@@ -467,3 +479,7 @@ msgstr "Surround 5.1"
 #: ../mate-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
+
+#: ../mate-volume-control/status-icon-main.c:55
+msgid " — MATE Volume Control Status Icon"
+msgstr ""
