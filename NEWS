@@ -1,3 +1,16 @@
+### mate-media 1.23.0
+
+    sync with transifex
+    add widget name volume-applet to panel-applet
+    enable/disable StatusIcon applet in XDG dir
+    Allow disabling either statusicon or panelapplet
+    edit desktop file for GtkStatusIcon applet
+    Re-enable old GtkStatusIcon
+    Enable a mute menuitem for the output
+    Ensure volume slider is always perpendicular to the panel
+    Ensure volume icon is always correctly scaled
+    Convert GtkStatusIcon to real applet
+
 ### mate-media 1.22.0
 
   * Translations update
