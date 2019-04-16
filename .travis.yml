@@ -21,7 +21,7 @@ install:
   - ./docker-build --name ${DISTRO} --config .travis.yml --install
 
 script:
-  - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build scripts
+  - ./docker-build --name ${DISTRO} -vvvv --config .travis.yml --build scripts
 
 deploy:
   provider: pages
@@ -163,7 +163,7 @@ build_scripts:
 
 after_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
-  -   ./gen-index -i https://github.com/${OWNER_NAME}/mate-media/raw/master/data/icons/16x16/status/audio-input-microphone-high.png
+  -   bash -x ./gen-index -i https://github.com/${OWNER_NAME}/mate-media/raw/master/data/icons/16x16/status/audio-input-microphone-high.png
   - fi
   - make distcheck
 
