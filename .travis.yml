@@ -23,18 +23,6 @@ install:
 script:
   - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build scripts
 
-deploy:
-  provider: pages
-  github-token: $GITHUB_TOKEN
-  #keep-history: true
-  skip_cleanup: true
-  committer-from-gh: true
-  target-branch: gh-pages
-  local-dir: html-report
-  on:
-    all_branches: true
-    condition: ${DISTRO} =~ ^fedora.*$
-
 after_success:
   - 'if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" && "$TRAVIS_PULL_REQUEST" != "false" && ${DISTRO} =~ ^fedora.*$ ]]; then
         REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// });
@@ -47,6 +35,16 @@ after_success:
      fi'
 
 deploy:
+  - provider: pages
+    github-token: $GITHUB_TOKEN
+    #keep-history: true
+    skip_cleanup: true
+    committer-from-gh: true
+    target-branch: gh-pages
+    local-dir: html-report
+    on:
+      all_branches: true
+      condition: ${DISTRO} =~ ^fedora.*$
   - provider: script
     script: ./docker-build --verbose --config .travis.yml --release github
     skip_cleanup: true
