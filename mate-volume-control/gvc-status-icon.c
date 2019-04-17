@@ -104,7 +104,7 @@ update_icon_input (GvcStatusIcon *status_icon)
                                         g_debug ("Found a recording application control %s",
                                                  mate_mixer_stream_control_get_label (input));
 
-                                        if G_UNLIKELY (control == NULL) {
+                                        if (G_UNLIKELY (control == NULL)) {
                                                 /* In the unlikely case when there is no
                                                  * default input control, use the application
                                                  * control for the icon */
@@ -119,7 +119,7 @@ update_icon_input (GvcStatusIcon *status_icon)
                                     strcmp (app_id, "org.PulseAudio.pavucontrol") != 0) {
                                         g_debug ("Found a recording application %s", app_id);
 
-                                        if G_UNLIKELY (control == NULL)
+                                        if (G_UNLIKELY (control == NULL))
                                                 control = input;
 
                                         show = TRUE;
@@ -172,7 +172,7 @@ on_input_stream_control_added (MateMixerStream *stream,
         MateMixerStreamControl *control;
 
         control = mate_mixer_stream_get_control (stream, name);
-        if G_LIKELY (control != NULL) {
+        if (G_LIKELY (control != NULL)) {
                 MateMixerStreamControlRole role =
                         mate_mixer_stream_control_get_role (control);
 
@@ -277,10 +277,10 @@ gvc_status_icon_start (GvcStatusIcon *status_icon)
 {
         g_return_if_fail (GVC_IS_STATUS_ICON (status_icon));
 
-        if G_UNLIKELY (status_icon->priv->running == TRUE)
+        if (G_UNLIKELY (status_icon->priv->running == TRUE))
                 return;
 
-        if G_UNLIKELY (mate_mixer_context_open (status_icon->priv->context) == FALSE) {
+        if (G_UNLIKELY (mate_mixer_context_open (status_icon->priv->context) == FALSE)) {
                 /* Normally this should never happen, in the worst case we
                  * should end up with the Null module */
                 g_warning ("Failed to connect to a sound system");
