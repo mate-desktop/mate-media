@@ -108,7 +108,7 @@ on_switch_active_option_notify (MateMixerSwitch *swtch,
         const gchar           *name;
 
         active = mate_mixer_switch_get_active_option (swtch);
-        if G_UNLIKELY (active == NULL) {
+        if (G_UNLIKELY (active == NULL)) {
                 g_warn_if_reached ();
                 return;
         }
@@ -306,7 +306,7 @@ on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
         gchar                 *name;
         MateMixerSwitchOption *option;
 
-        if G_UNLIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter) == FALSE)
+        if (G_UNLIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter) == FALSE))
                 return;
 
         gtk_tree_model_get (combobox->priv->model, &iter,
@@ -314,7 +314,7 @@ on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
                             -1);
 
         option = mate_mixer_switch_get_option (combobox->priv->swtch, name);
-        if G_UNLIKELY (option == NULL) {
+        if (G_UNLIKELY (option == NULL)) {
                 g_warn_if_reached ();
                 g_free (name);
                 return;
@@ -425,7 +425,7 @@ gvc_combo_box_dispose (GObject *object)
 
         combobox = GVC_COMBO_BOX (object);
 
-        if G_LIKELY (combobox->priv->swtch != NULL) {
+        if (G_LIKELY (combobox->priv->swtch != NULL)) {
                 g_signal_handlers_disconnect_by_func (G_OBJECT (combobox->priv->swtch),
                                                       G_CALLBACK (on_switch_active_option_notify),
                                                       combobox);

@@ -790,7 +790,7 @@ on_stream_control_added (MateMixerStream *stream,
         MateMixerStreamControlRole role;
 
         control = mate_mixer_stream_get_control (stream, name);
-        if G_UNLIKELY (control == NULL)
+        if (G_UNLIKELY (control == NULL))
                 return;
 
         role = mate_mixer_stream_control_get_role (control);
