@@ -569,9 +569,10 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
 
         if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
                 int i;
-                int by;
 
                 for (i = 0; i < NUM_BOXES; i++) {
+                        int by;
+
                         by = i * bar->priv->layout.delta;
                         curved_rectangle (cr,
                                           bar->priv->layout.area.x + 0.5,
@@ -608,7 +609,6 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
                 }
         } else {
                 int i;
-                int bx;
 
                 if (gtk_widget_get_direction (widget) == GTK_TEXT_DIR_RTL) {
                         GtkAllocation allocation;
@@ -620,6 +620,8 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
                 }
 
                 for (i = 0; i < NUM_BOXES; i++) {
+                        int bx;
+
                         bx = i * bar->priv->layout.delta;
                         curved_rectangle (cr,
                                           bx + 0.5,

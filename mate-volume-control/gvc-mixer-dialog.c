@@ -376,13 +376,14 @@ static void
 set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 {
         GtkTreeModel           *model;
-        MateMixerSwitch        *swtch;
         MateMixerStreamControl *control;
 
         control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->output_bar));
         if (control != NULL) {
                 /* Disconnect port switch of the previous stream */
                 if (dialog->priv->output_port_combo != NULL) {
+                        MateMixerSwitch        *swtch;
+
                         swtch = g_object_get_data (G_OBJECT (dialog->priv->output_port_combo),
                                                    "switch");
                         if (swtch != NULL)
@@ -531,13 +532,14 @@ static void
 set_input_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 {
         GtkTreeModel           *model;
-        MateMixerSwitch        *swtch;
         MateMixerStreamControl *control;
 
         control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
         if (control != NULL) {
                 /* Disconnect port switch of the previous stream */
                 if (dialog->priv->input_port_combo != NULL) {
+                        MateMixerSwitch        *swtch;
+
                         swtch = g_object_get_data (G_OBJECT (dialog->priv->input_port_combo),
                                                    "switch");
                         if (swtch != NULL)
@@ -1888,10 +1890,10 @@ gvc_mixer_dialog_constructor (GType                  type,
         GtkWidget        *ebox;
         GtkTreeSelection *selection;
         GtkAccelGroup    *accel_group;
-        GClosure         *closure;
         GtkTreeIter       iter;
         gint              i;
         const GList      *list;
+        GClosure         *closure = NULL;
 
         object = G_OBJECT_CLASS (gvc_mixer_dialog_parent_class)->constructor (type,
                                                                               n_construct_properties,
