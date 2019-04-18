@@ -44,9 +44,10 @@ char *
 custom_theme_dir_path (const char *child)
 {
         static char *dir = NULL;
-        const char *data_dir;
 
         if (dir == NULL) {
+                const char *data_dir;
+
                 data_dir = g_get_user_data_dir ();
                 dir = g_build_filename (data_dir, "sounds", CUSTOM_THEME_NAME, NULL);
         }
