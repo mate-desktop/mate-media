@@ -402,7 +402,6 @@ set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                 /* Move all stored controls to the newly selected default stream */
                 while (controls != NULL) {
                         MateMixerStream        *parent;
-                        MateMixerStreamControl *control;
 
                         control = MATE_MIXER_STREAM_CONTROL (controls->data);
                         parent  = mate_mixer_stream_control_get_stream (control);
@@ -583,8 +582,7 @@ set_input_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                 }
 
                 if (page == PAGE_INPUT) {
-                        MateMixerStreamControl *control =
-                                gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
+                        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
 
                         if (G_LIKELY (control != NULL))
                                 mate_mixer_stream_control_set_monitor_enabled (control, TRUE);
