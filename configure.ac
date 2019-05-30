@@ -100,14 +100,14 @@ fi
 dnl Whether to  build the volume control statusicon
 dnl --
 
-AC_ARG_ENABLE(statusicon, AS_HELP_STRING([--enable-statusicon], [Enable volume control status icon (default: yes)]))
-if (test "${enable-statusicon}" == "no"); then
+AC_ARG_ENABLE(statusicon, [AS_HELP_STRING([--enable-statusicon], [Enable volume control status icon (default: yes)])],,[enable_statusicon=yes])
+if test "x$enable_statusicon" = "xno"; then
     AC_DEFINE(ENABLE_STATUSICON, 0, [Enable if you want to build the tray applet])
 else
 
     AC_DEFINE(ENABLE_STATUSICON, 1, [Enable if you want to build the tray applet])
 fi
-AM_CONDITIONAL(ENABLE_STATUSICON, test "${enable_statusicon}" != "no")
+AM_CONDITIONAL(ENABLE_STATUSICON, test "x$enable_statusicon" != "xno")
 
 #============================================================================
 # panel applet
@@ -117,19 +117,19 @@ dnl Whether to build the standalone volume control applet
 dnl --
 
 
-AC_ARG_ENABLE(panelapplet, AS_HELP_STRING([--enable-panelapplet], [Enable volume control panel applet (gives better icon rendering than a status icon on hidpi displays) (default: yes)]))
-if (test "${enable-panelapplet}" == "no"); then
+AC_ARG_ENABLE(panelapplet, [AS_HELP_STRING([--enable-panelapplet], [Enable volume control panel applet (gives better icon rendering than a status icon on hidpi displays) (default: yes)])],,[enable_panelapplet=yes])
+if test "x$enable_panelapplet" = "xno"; then
     AC_DEFINE(ENABLE_PANELAPPLET, 0, [Enable if you want to build the panel applet])
 else
     AC_DEFINE(ENABLE_PANELAPPLET, 1, [Enable if you want to build the panel applet])
 fi
-AM_CONDITIONAL(ENABLE_PANELAPPLET, test "${enable_panelapplet}" != "no")
+AM_CONDITIONAL(ENABLE_PANELAPPLET, test "x$enable_panelapplet" != "xno")
 
 #============================================================================
 # Sanity check: must build either status icon or panel applet
 #============================================================================
 
-if test "x$enable_statusicon" == "xno" && test "x$enable_panelapplet" == "xno"; then
+if test "x$enable_statusicon" = "xno" && test "x$enable_panelapplet" = "xno"; then
 	AC_MSG_ERROR([must build either volume control status icon or volume control applet])
 fi
 
