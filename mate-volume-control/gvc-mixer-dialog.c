@@ -110,26 +110,29 @@ static const guint tab_accel_keys[] = {
         GDK_KEY_1, GDK_KEY_2, GDK_KEY_3, GDK_KEY_4, GDK_KEY_5
 };
 
-static void gvc_mixer_dialog_class_init (GvcMixerDialogClass    *klass);
-static void gvc_mixer_dialog_init       (GvcMixerDialog         *dialog);
-static void gvc_mixer_dialog_finalize   (GObject                *object);
+static void gvc_mixer_dialog_class_init  (GvcMixerDialogClass    *klass);
+static void gvc_mixer_dialog_init        (GvcMixerDialog         *dialog);
+static void gvc_mixer_dialog_finalize    (GObject                *object);
 
-static void add_stream                  (GvcMixerDialog         *dialog,
-                                         MateMixerStream        *stream);
-static void add_application_control     (GvcMixerDialog         *dialog,
-                                         MateMixerStreamControl *control);
+static void add_stream                   (GvcMixerDialog         *dialog,
+                                          MateMixerStream        *stream);
+static void add_application_control      (GvcMixerDialog         *dialog,
+                                          MateMixerStreamControl *control);
 
-static void remove_stream               (GvcMixerDialog         *dialog,
-                                         const gchar            *name);
-static void remove_application_control  (GvcMixerDialog         *dialog,
-                                         const gchar            *name);
+static void remove_stream                (GvcMixerDialog         *dialog,
+                                          const gchar            *name);
+static void remove_application_control   (GvcMixerDialog         *dialog,
+                                          const gchar            *name);
 
-static void bar_set_stream              (GvcMixerDialog         *dialog,
-                                         GtkWidget              *bar,
-                                         MateMixerStream        *stream);
-static void bar_set_stream_control      (GvcMixerDialog         *dialog,
-                                         GtkWidget              *bar,
-                                         MateMixerStreamControl *control);
+static void bar_set_stream               (GvcMixerDialog         *dialog,
+                                          GtkWidget              *bar,
+                                          MateMixerStream        *stream);
+static void bar_set_stream_control       (GvcMixerDialog         *dialog,
+										  GtkWidget              *bar,
+										  MateMixerStreamControl *control);
+static gboolean notebook_scroll_event_cb (GtkWidget				 *widget,
+										  GdkEventScroll		 *event,
+										  GtkWindow 			 *window);
 
 G_DEFINE_TYPE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
 
@@ -1924,6 +1927,11 @@ gvc_mixer_dialog_constructor (GType                  type,
                             self->priv->output_bar, TRUE, TRUE, 12);
 
         self->priv->notebook = gtk_notebook_new ();
+
+		gtk_widget_add_events (self->priv->notebook, GDK_SCROLL_MASK);
+		g_signal_connect (self->priv->notebook, "scroll-event",
+								G_CALLBACK (notebook_scroll_event_cb), self);
+
         gtk_box_pack_start (GTK_BOX (main_vbox),
                             self->priv->notebook,
                             TRUE, TRUE, 0);
@@ -2365,4 +2373,68 @@ gvc_mixer_dialog_set_page (GvcMixerDialog *self, const gchar *page)
         gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook), num);
 
         return TRUE;
+}
+
+/* Copied from 'terminal-window.c'
+ */
+static gboolean
+notebook_scroll_event_cb (GtkWidget      *widget,
+                          GdkEventScroll *event,
+                          GtkWindow *window)
+{
+  GtkNotebook *notebook = GTK_NOTEBOOK (widget);
+  GtkWidget *child, *event_widget, *action_widget;
+
+  child = gtk_notebook_get_nth_page (notebook, gtk_notebook_get_current_page (notebook));
+  if (child == NULL)
+    return FALSE;
+
+  event_widget = gtk_get_event_widget ((GdkEvent *) event);
+
+  /* Ignore scroll events from the content of the page */
+  if (event_widget == NULL ||
+      event_widget == child ||
+      gtk_widget_is_ancestor (event_widget, child))
+    return FALSE;
+
+  /* And also from the action widgets */
+  action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_START);
+  if (event_widget == action_widget ||
+      (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+    return FALSE;
+  action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_END);
+  if (event_widget == action_widget ||
+      (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+    return FALSE;
+
+  switch (event->direction) {
+    case GDK_SCROLL_RIGHT:
+    case GDK_SCROLL_DOWN:
+      gtk_notebook_next_page (notebook);
+      break;
+    case GDK_SCROLL_LEFT:
+    case GDK_SCROLL_UP:
+      gtk_notebook_prev_page (notebook);
+      break;
+    case GDK_SCROLL_SMOOTH:
+      switch (gtk_notebook_get_tab_pos (notebook)) {
+        case GTK_POS_LEFT:
+        case GTK_POS_RIGHT:
+          if (event->delta_y > 0)
+            gtk_notebook_next_page (notebook);
+          else if (event->delta_y < 0)
+            gtk_notebook_prev_page (notebook);
+          break;
+        case GTK_POS_TOP:
+        case GTK_POS_BOTTOM:
+          if (event->delta_x > 0)
+            gtk_notebook_next_page (notebook);
+          else if (event->delta_x < 0)
+            gtk_notebook_prev_page (notebook);
+          break;
+      }
+      break;
+    }
+
+  return TRUE;
 }
