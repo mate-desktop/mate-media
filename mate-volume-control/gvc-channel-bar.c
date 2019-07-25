@@ -21,6 +21,8 @@
 
 #include "config.h"
 
+#include <sys/param.h>
+
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
@@ -817,6 +819,7 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         gdouble minimum;
         gdouble maximum;
         gdouble scrollstep;
+        GSettings *settings;
 
         g_return_val_if_fail (GVC_IS_CHANNEL_BAR (bar), FALSE);
 
@@ -843,18 +846,23 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         minimum = gtk_adjustment_get_lower (bar->priv->adjustment);
         maximum = gtk_adjustment_get_upper (bar->priv->adjustment);
 
-        scrollstep = maximum / 100.0 * 5.0;
+        /* Use the same setting for `scrollstep` as used by the media keys plugin */
+        settings = g_settings_new ("org.mate.SettingsDaemon.plugins.media-keys");
+        scrollstep = g_settings_get_int (settings, "volume-step");
+        if (scrollstep <= 0 || scrollstep > 100) {
+                GVariant *variant = g_settings_get_default_value (settings, "volume-step");
+                scrollstep = g_variant_get_int32 (variant);
+                g_variant_unref (variant);
+        }
+        g_object_unref (settings);
+
+        /* Scale the volume step size accordingly to the range used by the control */
+        scrollstep = (maximum - minimum) * scrollstep / 100;
 
         if (direction == GDK_SCROLL_UP) {
-                if (value + scrollstep > maximum)
-                        value = maximum;
-                else
-                        value = value + scrollstep;
+                value = MIN (value + scrollstep, maximum);
         } else if (direction == GDK_SCROLL_DOWN) {
-                if (value - scrollstep < minimum)
-                        value = minimum;
-                else
-                        value = value - scrollstep;
+                value = MAX (value - scrollstep, minimum);
         }
 
         gtk_adjustment_set_value (bar->priv->adjustment, value);
