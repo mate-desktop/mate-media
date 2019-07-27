@@ -850,7 +850,8 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         settings = g_settings_new ("org.mate.SettingsDaemon.plugins.media-keys");
         scrollstep = g_settings_get_int (settings, "volume-step");
         if (scrollstep <= 0 || scrollstep > 100)
-                scrollstep = 6;
+                scrollstep = g_settings_get_default_value ( settings, "volume-step");
+        g_object_unref (settings);
 
         /* Scale the volume step size accordingly to the range used by the control */
         scrollstep = (maximum - minimum) * scrollstep / 100;
