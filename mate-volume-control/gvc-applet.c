@@ -395,12 +395,12 @@ gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
         action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
 
         if (is_muted) {
-                gtk_action_set_label (action, "Unmute Output");
+                gtk_action_set_label (action, _("Unmute Output"));
                 gtk_action_set_icon_name (action, "audio-volume-medium");
         }
         else
         {
-                gtk_action_set_label (action, "Mute Output");
+                gtk_action_set_label (action, _("Mute Output"));
                 gtk_action_set_icon_name (action, "audio-volume-muted");
         }
 }
