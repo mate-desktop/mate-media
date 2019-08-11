@@ -68,6 +68,7 @@ struct _GvcAppletPrivate
         GvcStreamAppletIcon *icon_output;
         gboolean             running;
         MateMixerContext    *context;
+        MateMixerStream     *output;
         MateMixerStream     *input;
 
         MatePanelApplet     *applet;
@@ -174,6 +175,28 @@ update_icon_output (GvcApplet *applet)
 }
 
 static void
+on_output_stream_control_added (MateMixerStream *stream,
+                                const gchar     *name,
+                                GvcApplet       *applet)
+{
+        MateMixerStreamControl *control;
+
+        control = mate_mixer_stream_get_control (stream, name);
+        if (G_LIKELY (control != NULL)) {
+                MateMixerStreamControlRole role = mate_mixer_stream_control_get_role (control);
+
+                /* Non-application output control doesn't affect the icon */
+                if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                        return;
+        }
+
+        /* Either an application control has been added or we couldn't
+         * read the control, this shouldn't happen but let's revalidate the
+         * icon to be sure if it does */
+        update_icon_output (applet);
+}
+
+static void
 on_input_stream_control_added (MateMixerStream *stream,
                                const gchar     *name,
                                GvcApplet       *applet)
@@ -196,6 +219,16 @@ on_input_stream_control_added (MateMixerStream *stream,
 }
 
 static void
+on_output_stream_control_removed (MateMixerStream *stream,
+                                  const gchar     *name,
+                                  GvcApplet       *applet)
+{
+        /* The removed stream could be an application output, which may cause
+         * the output applet icon to disappear */
+        update_icon_output (applet);
+}
+
+static void
 on_input_stream_control_removed (MateMixerStream *stream,
                                  const gchar     *name,
                                  GvcApplet       *applet)
@@ -203,6 +236,37 @@ on_input_stream_control_removed (MateMixerStream *stream,
         /* The removed stream could be an application input, which may cause
          * the input applet icon to disappear */
         update_icon_input (applet);
+}
+
+static gboolean
+update_default_output_stream (GvcApplet *applet)
+{
+        MateMixerStream *stream;
+
+        stream = mate_mixer_context_get_default_output_stream (applet->priv->context);
+        if (stream == applet->priv->output)
+                return FALSE;
+
+        /* The output stream has changed */
+        if (applet->priv->output != NULL) {
+                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->output), applet);
+                g_object_unref (applet->priv->output);
+        }
+
+        applet->priv->output = (stream == NULL) ? NULL : g_object_ref (stream);
+        if (applet->priv->output != NULL) {
+                g_signal_connect (G_OBJECT (applet->priv->output),
+                                  "control-added",
+                                  G_CALLBACK (on_output_stream_control_added),
+                                  applet);
+                g_signal_connect (G_OBJECT (applet->priv->output),
+                                  "control-removed",
+                                  G_CALLBACK (on_output_stream_control_removed),
+                                  applet);
+        }
+
+        /* Return TRUE if the default output stream has changed */
+        return TRUE;
 }
 
 static gboolean
@@ -249,6 +313,7 @@ on_context_state_notify (MateMixerContext *context,
                 break;
 
         case MATE_MIXER_STATE_READY:
+                update_default_output_stream (applet);
                 update_default_input_stream (applet);
 
                 /* Each applet change may affect the visibility of the icons */
@@ -276,6 +341,9 @@ on_context_default_output_stream_notify (MateMixerContext *control,
                                          GParamSpec       *pspec,
                                          GvcApplet        *applet)
 {
+        if (update_default_output_stream (applet) == FALSE)
+                return;
+
         update_icon_output (applet);
 }
 
@@ -303,6 +371,10 @@ gvc_applet_dispose (GObject *object)
 {
         GvcApplet *applet = GVC_APPLET (object);
 
+        if (applet->priv->output != NULL) {
+                g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->output), applet);
+                g_clear_object (&applet->priv->output);
+        }
         if (applet->priv->input != NULL) {
                 g_signal_handlers_disconnect_by_data (G_OBJECT (applet->priv->input), applet);
                 g_clear_object (&applet->priv->input);
