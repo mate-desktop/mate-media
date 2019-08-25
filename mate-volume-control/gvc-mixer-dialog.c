@@ -1157,9 +1157,11 @@ device_status (MateMixerDevice *device)
                 return ret;
         }
 
-        if (inputs_str != NULL)
+        if (inputs_str != NULL) {
+                g_free (outputs_str);
                 return inputs_str;
-
+        }
+        
         return outputs_str;
 }
 
