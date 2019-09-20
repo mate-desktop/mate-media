@@ -1,3 +1,11 @@
+### mate-media 1.22.2
+
+  * Translations update
+  * applet: Update default output
+  * gvc applet: add missing translations (i18n)
+  * Add scroll interface tabs with mouse wheel
+  * configure.ac: fix typos in var names, portability fixes, etc.
+
 ### mate-media 1.22.1
 
   * Translations update
