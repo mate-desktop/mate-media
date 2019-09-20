@@ -10,9 +10,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-22 09:59+0100\n"
+"POT-Creation-Date: 2019-08-12 13:49+0300\n"
 "PO-Revision-Date: 2019-03-13 14:13+0000\n"
 "Last-Translator: David Ó Laıġeanáın, 2019\n"
 "Language-Team: Irish (https://www.transifex.com/mate/teams/13566/ga/)\n"
@@ -105,23 +105,28 @@ msgid "_Sound Preferences"
 msgstr "Sainroghanna _Fuaime"
 
 #: ../mate-volume-control/gvc-applet.c:59
+#: ../mate-volume-control/gvc-applet.c:403
 msgid "Mute Output"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:336
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:2015
 #: ../mate-volume-control/gvc-status-icon.c:330
 msgid "Input"
 msgstr "Ionchur"
 
 #: ../mate-volume-control/gvc-applet.c:337
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-mixer-dialog.c:2102
 #: ../mate-volume-control/gvc-status-icon.c:331
 msgid "Output"
 msgstr "Aschur"
 
 #: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
+msgstr ""
+
+#: ../mate-volume-control/gvc-applet.c:398
+msgid "Unmute Output"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:448
@@ -186,24 +191,24 @@ msgid "Mute"
 msgstr "Gan fuaim"
 
 #: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1618
+#: ../mate-volume-control/gvc-mixer-dialog.c:1622
 msgid "_Profile:"
 msgstr "_Próifíl:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:355
-#: ../mate-volume-control/gvc-mixer-dialog.c:504
+#: ../mate-volume-control/gvc-mixer-dialog.c:359
+#: ../mate-volume-control/gvc-mixer-dialog.c:508
 msgid "Co_nnector:"
 msgstr "_Nascóir:"
 
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/gvc-mixer-dialog.c:1126
+#: ../mate-volume-control/gvc-mixer-dialog.c:1130
 msgid "Disabled"
 msgstr "Díchumasaithe"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/gvc-mixer-dialog.c:1132
+#: ../mate-volume-control/gvc-mixer-dialog.c:1136
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -215,7 +220,7 @@ msgstr[4] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/gvc-mixer-dialog.c:1141
+#: ../mate-volume-control/gvc-mixer-dialog.c:1145
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
@@ -225,71 +230,71 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1509
-#: ../mate-volume-control/gvc-mixer-dialog.c:1778
+#: ../mate-volume-control/gvc-mixer-dialog.c:1513
+#: ../mate-volume-control/gvc-mixer-dialog.c:1782
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr "Ainm"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1557
+#: ../mate-volume-control/gvc-mixer-dialog.c:1561
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1621
+#: ../mate-volume-control/gvc-mixer-dialog.c:1625
 msgid "Test Speakers"
 msgstr ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1826
+#: ../mate-volume-control/gvc-mixer-dialog.c:1830
 msgid "Sound Effects"
 msgstr "Maisíochtaí Fuaime"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1849
+#: ../mate-volume-control/gvc-mixer-dialog.c:1853
 msgid "_Alert volume: "
 msgstr "Airde _foláirimh:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1918
+#: ../mate-volume-control/gvc-mixer-dialog.c:1922
 msgid "_Output volume: "
 msgstr "Airde _aschurtha:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/gvc-mixer-dialog.c:1972
 msgid "Hardware"
 msgstr "Crua-Earraí"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1966
+#: ../mate-volume-control/gvc-mixer-dialog.c:1977
 msgid "C_hoose a device to configure:"
 msgstr "_Roghnaigh gléas le cumrú"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2120
+#: ../mate-volume-control/gvc-mixer-dialog.c:2001
+#: ../mate-volume-control/gvc-mixer-dialog.c:2131
 msgid "Settings for the selected device:"
 msgstr "Socruithe don ghléas roghnaithe:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2013
+#: ../mate-volume-control/gvc-mixer-dialog.c:2024
 msgid "_Input volume: "
 msgstr "Airde _ionchurtha:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2038
+#: ../mate-volume-control/gvc-mixer-dialog.c:2049
 msgid "Input level:"
 msgstr "Leibhéal ionchurtha:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2063
+#: ../mate-volume-control/gvc-mixer-dialog.c:2074
 msgid "C_hoose a device for sound input:"
 msgstr "_Roghnaigh gléas le haghaidh ionchurtha fuaime:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2107
 msgid "C_hoose a device for sound output:"
 msgstr "_Roghnaigh gléas le haghaidh aschurtha fuaime:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: ../mate-volume-control/gvc-mixer-dialog.c:2156
 msgid "Applications"
 msgstr "Feidhmchláir"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2150
+#: ../mate-volume-control/gvc-mixer-dialog.c:2161
 msgid "No application is currently playing or recording audio."
 msgstr "Níl aon fheidhmchlár ag seinm nó ag taifeadadh fuaime faoi láthair."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2340
+#: ../mate-volume-control/gvc-mixer-dialog.c:2351
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756

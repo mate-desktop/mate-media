@@ -10,9 +10,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-22 09:59+0100\n"
+"POT-Creation-Date: 2019-08-12 13:49+0300\n"
 "PO-Revision-Date: 2019-03-13 14:13+0000\n"
 "Last-Translator: Vaibhav S Dalvi <vaibhav.dlv@gmail.com>, 2019\n"
 "Language-Team: Marathi (https://www.transifex.com/mate/teams/13566/mr/)\n"
@@ -105,23 +105,28 @@ msgid "_Sound Preferences"
 msgstr "आवाज आवड निवड (_S)"
 
 #: ../mate-volume-control/gvc-applet.c:59
+#: ../mate-volume-control/gvc-applet.c:403
 msgid "Mute Output"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:336
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
+#: ../mate-volume-control/gvc-mixer-dialog.c:2015
 #: ../mate-volume-control/gvc-status-icon.c:330
 msgid "Input"
 msgstr "इंपुट"
 
 #: ../mate-volume-control/gvc-applet.c:337
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
+#: ../mate-volume-control/gvc-mixer-dialog.c:2102
 #: ../mate-volume-control/gvc-status-icon.c:331
 msgid "Output"
 msgstr "आउटपुट"
 
 #: ../mate-volume-control/gvc-applet.c:341
 msgid "MATE Volume Control Applet"
+msgstr ""
+
+#: ../mate-volume-control/gvc-applet.c:398
+msgid "Unmute Output"
 msgstr ""
 
 #: ../mate-volume-control/gvc-applet.c:448
@@ -186,24 +191,24 @@ msgid "Mute"
 msgstr "मंद"
 
 #: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1618
+#: ../mate-volume-control/gvc-mixer-dialog.c:1622
 msgid "_Profile:"
 msgstr "प्रोफाइल (_P):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:355
-#: ../mate-volume-control/gvc-mixer-dialog.c:504
+#: ../mate-volume-control/gvc-mixer-dialog.c:359
+#: ../mate-volume-control/gvc-mixer-dialog.c:508
 msgid "Co_nnector:"
 msgstr "कनेक्टर (_n):"
 
 #. translators:
 #. * The device has been disabled
-#: ../mate-volume-control/gvc-mixer-dialog.c:1126
+#: ../mate-volume-control/gvc-mixer-dialog.c:1130
 msgid "Disabled"
 msgstr "अकार्यान्वीत"
 
 #. translators:
 #. * The number of sound outputs on a particular device
-#: ../mate-volume-control/gvc-mixer-dialog.c:1132
+#: ../mate-volume-control/gvc-mixer-dialog.c:1136
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -212,78 +217,78 @@ msgstr[1] ""
 
 #. translators:
 #. * The number of sound inputs on a particular device
-#: ../mate-volume-control/gvc-mixer-dialog.c:1141
+#: ../mate-volume-control/gvc-mixer-dialog.c:1145
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1509
-#: ../mate-volume-control/gvc-mixer-dialog.c:1778
+#: ../mate-volume-control/gvc-mixer-dialog.c:1513
+#: ../mate-volume-control/gvc-mixer-dialog.c:1782
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:868
 msgid "Name"
 msgstr "नाव"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1557
+#: ../mate-volume-control/gvc-mixer-dialog.c:1561
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s साठी ध्वनिक्षेपक तपासणी"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1621
+#: ../mate-volume-control/gvc-mixer-dialog.c:1625
 msgid "Test Speakers"
 msgstr "चाचणी ध्वनिक्षेपक"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1826
+#: ../mate-volume-control/gvc-mixer-dialog.c:1830
 msgid "Sound Effects"
 msgstr "आवाज प्रभाव"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1849
+#: ../mate-volume-control/gvc-mixer-dialog.c:1853
 msgid "_Alert volume: "
 msgstr "सतर्कता ध्वनिमान (_A): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1918
+#: ../mate-volume-control/gvc-mixer-dialog.c:1922
 msgid "_Output volume: "
 msgstr "आउटपुट ध्वनिमान (_O): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: ../mate-volume-control/gvc-mixer-dialog.c:1972
 msgid "Hardware"
 msgstr "हार्डवेअर"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1966
+#: ../mate-volume-control/gvc-mixer-dialog.c:1977
 msgid "C_hoose a device to configure:"
 msgstr "संरचना करीता उपकरन नीवडा (_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2120
+#: ../mate-volume-control/gvc-mixer-dialog.c:2001
+#: ../mate-volume-control/gvc-mixer-dialog.c:2131
 msgid "Settings for the selected device:"
 msgstr "निवडलेल्या साधन करीता संयोजना:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2013
+#: ../mate-volume-control/gvc-mixer-dialog.c:2024
 msgid "_Input volume: "
 msgstr "इंपुट ध्वनिमान (_I): "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2038
+#: ../mate-volume-control/gvc-mixer-dialog.c:2049
 msgid "Input level:"
 msgstr "इंपुट स्तर:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2063
+#: ../mate-volume-control/gvc-mixer-dialog.c:2074
 msgid "C_hoose a device for sound input:"
 msgstr "आवाज इंपुट करीता उपकरन नीवडा (_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: ../mate-volume-control/gvc-mixer-dialog.c:2107
 msgid "C_hoose a device for sound output:"
 msgstr "आवाज आउटपुट करीता उपकरन निवडा (_h):"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: ../mate-volume-control/gvc-mixer-dialog.c:2156
 msgid "Applications"
 msgstr "उपकरणं"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2150
+#: ../mate-volume-control/gvc-mixer-dialog.c:2161
 msgid "No application is currently playing or recording audio."
 msgstr "अनुप्रयोग वर्तमानक्षणी ऑडिओ चालवत किंवा रेकॉर्ड करत आहे."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2340
+#: ../mate-volume-control/gvc-mixer-dialog.c:2351
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:732
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:744
 #: ../mate-volume-control/gvc-sound-theme-chooser.c:756
