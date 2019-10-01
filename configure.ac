@@ -14,6 +14,9 @@ AC_CONFIG_MACRO_DIR([m4])
 
 IT_PROG_INTLTOOL([0.35.0])
 
+MATE_MAINTAINER_MODE_DEFINES
+MATE_COMPILE_WARNINGS([yes])
+
 # Checks for programs.
 AC_PROG_CC
 AM_PROG_CC_C_O
@@ -79,10 +82,6 @@ dnl ---------------------------------------------------------------------------
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
-MATE_MAINTAINER_MODE_DEFINES
-MATE_COMPILE_WARNINGS([maximum])
-MATE_CXX_WARNINGS
-
 AC_ARG_ENABLE(deprecated,
         [AS_HELP_STRING([--enable-deprecated],
                 [warn about deprecated usages [default=yes]])],,
@@ -133,48 +132,6 @@ if test "x$enable_statusicon" = "xno" && test "x$enable_panelapplet" = "xno"; th
 	AC_MSG_ERROR([must build either volume control status icon or volume control applet])
 fi
 
-# Turn on the additional warnings last, so warnings don't affect other tests.
-AC_ARG_ENABLE(more-warnings,
-        [AC_HELP_STRING([--enable-more-warnings],
-        [Maximum compiler warnings])],
-        set_more_warnings="$enableval",[
-                if test -d $srcdir/.git; then
-                        set_more_warnings=yes
-                else
-                        set_more_warnings=no
-                fi
-        ])
-
-AC_MSG_CHECKING(for more warnings)
-if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
-        AC_MSG_RESULT(yes)
-        CFLAGS="\
-        -Wall \
-        -Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes \
-        -Wnested-externs -Wpointer-arith \
-        -Wcast-align -Wsign-compare \
-        $CFLAGS"
-
-        for option in -Wno-unused-parameter -Wno-strict-aliasing -Wno-sign-compare; do
-                SAVE_CFLAGS="$CFLAGS"
-                CFLAGS="$CFLAGS $option"
-                AC_MSG_CHECKING([whether gcc understands $option])
-                AC_TRY_COMPILE([], [],
-                        has_option=yes,
-                        has_option=no,)
-                if test $has_option = no; then
-                        CFLAGS="$SAVE_CFLAGS"
-                fi
-                AC_MSG_RESULT($has_option)
-                unset has_option
-                unset SAVE_CFLAGS
-        done
-        unset option
-else
-        AC_MSG_RESULT(no)
-fi
-AC_SUBST(CFLAGS)
-
 AC_CONFIG_FILES([
 Makefile
 data/Makefile
@@ -208,7 +165,8 @@ echo "
         Prefix:                      ${prefix}
         Source code location:        ${srcdir}
         Compiler:                    ${CC}
-        CFLAGS:                      ${CFLAGS}
+        Compiler flags:              ${CFLAGS}
+        Warning flags:               ${WARN_CFLAGS}
 "
 #this is needed to get any output when the default is used
 #rather than explicitly specifying whether to build the applet or the tray icon
