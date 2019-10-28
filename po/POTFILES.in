@@ -1,6 +1,5 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-[encoding: UTF-8]
 data/mate-volume-control.desktop.in.in
 data/mate-volume-control-status-icon.desktop.in
 data/sounds/mate-sounds-default.xml.in.in
@@ -17,6 +16,6 @@ mate-volume-control/gvc-status-icon.c
 mate-volume-control/gvc-stream-applet-icon.c
 mate-volume-control/gvc-stream-status-icon.c
 mate-volume-control/gvc-utils.c
-mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.in.in
+mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in
 mate-volume-control/sound-theme-file-utils.c
 mate-volume-control/status-icon-main.c

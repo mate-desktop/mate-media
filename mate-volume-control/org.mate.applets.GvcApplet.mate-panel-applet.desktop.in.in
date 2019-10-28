@@ -1,0 +1,11 @@
+[Applet Factory]
+Id=GvcAppletFactory
+Location=@LOCATION@
+Name=Volume Control Factory
+Description=Volume Control Factory
+
+[GvcApplet]
+Name=Volume Control
+Description=Control multimedia volume
+Icon=multimedia-volume-control
+

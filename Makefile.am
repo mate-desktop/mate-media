@@ -1,6 +1,6 @@
 NULL =
 
-SUBDIRS = data po man mate-volume-control
+SUBDIRS = po data man mate-volume-control
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	CFLAGS='-Wno-deprecated-declarations'
@@ -20,14 +20,13 @@ EXTRA_DIST =					\
 	COPYING					\
 	COPYING-DOCS				\
 	build-aux/git-version-gen 		\
-	$(INTLTOOL_BUILT:=.in)			\
+	its					\
 	$(NULL)
 
 DISTCLEANFILES =				\
 	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet \
 	mate-volume-control/org.mate.panel.applet.GvcAppletFactory.service \
 	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.in \
-	po/.intltool-merge-cache		\
 	$(NULL)
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
