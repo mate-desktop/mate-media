@@ -36,7 +36,6 @@
         "widget \"*.balance-bar-scale\" style : rc \"balance-bar-scale-style\"\n"
 
 #define SCALE_SIZE 128
-#define GVC_BALANCE_BAR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_BALANCE_BAR, GvcBalanceBarPrivate))
 
 struct _GvcBalanceBarPrivate
 {
@@ -63,8 +62,6 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void     gvc_balance_bar_class_init  (GvcBalanceBarClass *klass);
-static void     gvc_balance_bar_init        (GvcBalanceBar      *balance_bar);
 static void     gvc_balance_bar_dispose     (GObject            *object);
 
 static gboolean on_scale_scroll_event       (GtkWidget          *widget,
@@ -74,7 +71,7 @@ static gboolean on_scale_scroll_event       (GtkWidget          *widget,
 static void     on_adjustment_value_changed (GtkAdjustment      *adjustment,
                                              GvcBalanceBar      *bar);
 
-G_DEFINE_TYPE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_BOX)
 
 static void
 create_scale_box (GvcBalanceBar *bar)
@@ -433,8 +430,6 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
                                   G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
-
-        g_type_class_add_private (klass, sizeof (GvcBalanceBarPrivate));
 }
 
 static gboolean
@@ -502,7 +497,7 @@ on_adjustment_value_changed (GtkAdjustment *adjustment, GvcBalanceBar *bar)
 static void
 gvc_balance_bar_init (GvcBalanceBar *bar)
 {
-        bar->priv = GVC_BALANCE_BAR_GET_PRIVATE (bar);
+        bar->priv = gvc_balance_bar_get_instance_private (bar);
 }
 
 static void
