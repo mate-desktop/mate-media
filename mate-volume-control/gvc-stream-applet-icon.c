@@ -34,8 +34,6 @@
 #include "gvc-channel-bar.h"
 #include "gvc-stream-applet-icon.h"
 
-#define GVC_STREAM_APPLET_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_APPLET_ICON, GvcStreamAppletIconPrivate))
-
 struct _GvcStreamAppletIconPrivate
 {
         gchar                 **icon_names;
@@ -60,11 +58,9 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass);
-static void gvc_stream_applet_icon_init       (GvcStreamAppletIcon      *stream_applet_icon);
-static void gvc_stream_applet_icon_finalize   (GObject                  *object);
+static void gvc_stream_applet_icon_finalize   (GObject *object);
 
-G_DEFINE_TYPE (GvcStreamAppletIcon, gvc_stream_applet_icon, GTK_TYPE_EVENT_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcStreamAppletIcon, gvc_stream_applet_icon, GTK_TYPE_EVENT_BOX)
 
 static gboolean
 popup_dock (GvcStreamAppletIcon *icon, guint time)
@@ -649,8 +645,6 @@ gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass)
         gtk_widget_class_set_css_name (widget_class, "volume-applet");
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
-
-        g_type_class_add_private (klass, sizeof (GvcStreamAppletIconPrivate));
 }
 
 static void
@@ -674,7 +668,7 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         GtkWidget *frame;
         GtkWidget *box;
 
-        icon->priv = GVC_STREAM_APPLET_ICON_GET_PRIVATE (icon);
+        icon->priv = gvc_stream_applet_icon_get_instance_private (icon);
 
         icon->priv->image = GTK_IMAGE (gtk_image_new ());
         gtk_container_add (GTK_CONTAINER (icon), GTK_WIDGET (icon->priv->image));
