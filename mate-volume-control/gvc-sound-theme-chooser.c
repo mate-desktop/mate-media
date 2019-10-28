@@ -38,8 +38,6 @@
 #include "gvc-sound-theme-chooser.h"
 #include "sound-theme-file-utils.h"
 
-#define GVC_SOUND_THEME_CHOOSER_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_SOUND_THEME_CHOOSER, GvcSoundThemeChooserPrivate))
-
 struct GvcSoundThemeChooserPrivate
 {
         GtkWidget *combo_box;
@@ -50,11 +48,9 @@ struct GvcSoundThemeChooserPrivate
         GSettings *sound_settings;
 };
 
-static void     gvc_sound_theme_chooser_class_init (GvcSoundThemeChooserClass *klass);
-static void     gvc_sound_theme_chooser_init       (GvcSoundThemeChooser      *sound_theme_chooser);
 static void     gvc_sound_theme_chooser_dispose   (GObject            *object);
 
-G_DEFINE_TYPE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_BOX)
 
 #define KEY_SOUNDS_SCHEMA          "org.mate.sound"
 #define EVENT_SOUNDS_KEY           "event-sounds"
@@ -969,8 +965,6 @@ gvc_sound_theme_chooser_class_init (GvcSoundThemeChooserClass *klass)
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
         object_class->dispose = gvc_sound_theme_chooser_dispose;
-
-        g_type_class_add_private (klass, sizeof (GvcSoundThemeChooserPrivate));
 }
 
 static void
@@ -1024,7 +1018,7 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         GtkWidget   *scrolled_window;
         gchar       *str;
 
-        chooser->priv = GVC_SOUND_THEME_CHOOSER_GET_PRIVATE (chooser);
+        chooser->priv = gvc_sound_theme_chooser_get_instance_private (chooser);
 
         chooser->priv->theme_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 
