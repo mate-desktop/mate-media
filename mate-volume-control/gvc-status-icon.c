@@ -32,8 +32,6 @@
 #include "gvc-status-icon.h"
 #include "gvc-stream-status-icon.h"
 
-#define GVC_STATUS_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STATUS_ICON, GvcStatusIconPrivate))
-
 static const gchar *icon_names_output[] = {
         "audio-volume-muted",
         "audio-volume-low",
@@ -59,10 +57,7 @@ struct _GvcStatusIconPrivate
         MateMixerStream     *input;
 };
 
-static void gvc_status_icon_class_init (GvcStatusIconClass *klass);
-static void gvc_status_icon_init       (GvcStatusIcon      *status_icon);
-
-G_DEFINE_TYPE (GvcStatusIcon, gvc_status_icon, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcStatusIcon, gvc_status_icon, G_TYPE_OBJECT)
 
 static void
 update_icon_input (GvcStatusIcon *status_icon)
@@ -315,14 +310,12 @@ gvc_status_icon_class_init (GvcStatusIconClass *klass)
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
         object_class->dispose = gvc_status_icon_dispose;
-
-        g_type_class_add_private (klass, sizeof (GvcStatusIconPrivate));
 }
 
 static void
 gvc_status_icon_init (GvcStatusIcon *status_icon)
 {
-        status_icon->priv = GVC_STATUS_ICON_GET_PRIVATE (status_icon);
+        status_icon->priv = gvc_status_icon_get_instance_private (status_icon);
 
         status_icon->priv->icon_input  = gvc_stream_status_icon_new (NULL, icon_names_input);
         status_icon->priv->icon_output = gvc_stream_status_icon_new (NULL, icon_names_output);
