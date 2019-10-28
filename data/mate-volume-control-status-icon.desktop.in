@@ -1,11 +1,13 @@
 [Desktop Entry]
-_Name=Volume Control
-_Comment=Show desktop volume control
+Name=Volume Control
+Comment=Show desktop volume control
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=multimedia-volume-control
 Exec=mate-volume-control-status-icon
 Terminal=false
 Type=Application
 Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=MATE;volume;control;mixer;settings;sound;
 NoDisplay=true
 OnlyShowIn=MATE;

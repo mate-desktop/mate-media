@@ -12,7 +12,8 @@ sound_DATA =			\
 metadata_in_files = mate-sounds-default.xml.in
 metadatadir = $(pkgdatadir)/sounds
 metadata_DATA = $(metadata_in_files:.xml.in=.xml)
-@INTLTOOL_XML_RULE@
+$(metadata_DATA): $(metadata_in_files)
+	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 noinst_DATA = mate-sounds-default.xml.in
 CLEANFILES = mate-sounds-default.xml mate-sounds-default.xml.in

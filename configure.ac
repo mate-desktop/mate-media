@@ -12,8 +12,6 @@ AM_MAINTAINER_MODE
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
-IT_PROG_INTLTOOL([0.35.0])
-
 MATE_MAINTAINER_MODE_DEFINES
 MATE_COMPILE_WARNINGS([yes])
 
@@ -70,11 +68,12 @@ GLIB_GSETTINGS
 dnl=======================================================================
 dnl i18n
 dnl=======================================================================
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT([external])
 
 GETTEXT_PACKAGE=mate-media
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the Gettext package name])
-AM_GLIB_GNU_GETTEXT
 
 dnl ---------------------------------------------------------------------------
 dnl - Finish

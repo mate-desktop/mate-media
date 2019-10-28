@@ -28,14 +28,16 @@ if ENABLE_PANELAPPLET
 APPLET_LOCATION = $(libexecdir)/mate-volume-control-applet
 
 appletsdir       = $(datadir)/mate-panel/applets
-applets_in_files = org.mate.applets.GvcApplet.mate-panel-applet.in
-applets_DATA     = $(applets_in_files:.mate-panel-applet.in=.mate-panel-applet)
+applets_in_files = org.mate.applets.GvcApplet.mate-panel-applet.desktop.in
+applets_DATA     = $(applets_in_files:.mate-panel-applet.desktop.in=.mate-panel-applet)
 
 $(applets_in_files): $(applets_in_files).in Makefile
 	$(AM_V_GEN)sed \
 		-e "s|\@LOCATION\@|$(APPLET_LOCATION)|" \
 		$< > $@
-%.mate-panel-applet: %.mate-panel-applet.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< $@ -d -u -c $(top_builddir)/po/.intltool-merge-cache
+
+$(applets_DATA): $(applets_in_files) Makefile
+	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=Name --keyword=Description --template $< -d $(top_srcdir)/po -o $@
 
 servicedir       = $(datadir)/dbus-1/services
 service_in_files = org.mate.panel.applet.GvcAppletFactory.service.in
@@ -125,6 +127,7 @@ BUILT_SOURCES = \
 	$(NULL)
 
 CLEANFILES = \
+	$(applets_in_files) \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
