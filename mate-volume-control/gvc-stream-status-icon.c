@@ -32,8 +32,6 @@
 #include "gvc-channel-bar.h"
 #include "gvc-stream-status-icon.h"
 
-#define GVC_STREAM_STATUS_ICON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_STREAM_STATUS_ICON, GvcStreamStatusIconPrivate))
-
 struct _GvcStreamStatusIconPrivate
 {
         gchar          **icon_names;
@@ -55,11 +53,9 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass);
-static void gvc_stream_status_icon_init       (GvcStreamStatusIcon      *stream_status_icon);
 static void gvc_stream_status_icon_finalize   (GObject                  *object);
 
-G_DEFINE_TYPE (GvcStreamStatusIcon, gvc_stream_status_icon, GTK_TYPE_STATUS_ICON)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcStreamStatusIcon, gvc_stream_status_icon, GTK_TYPE_STATUS_ICON)
 
 static gboolean
 popup_dock (GvcStreamStatusIcon *icon, guint time)
@@ -658,8 +654,6 @@ gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
                                     G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
-
-        g_type_class_add_private (klass, sizeof (GvcStreamStatusIconPrivate));
 }
 
 static void
@@ -684,7 +678,7 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         GtkWidget *frame;
         GtkWidget *box;
 
-        icon->priv = GVC_STREAM_STATUS_ICON_GET_PRIVATE (icon);
+        icon->priv = gvc_stream_status_icon_get_instance_private (icon);
 
         g_signal_connect (G_OBJECT (icon),
                           "activate",
