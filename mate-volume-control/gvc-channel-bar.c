@@ -46,7 +46,6 @@ struct _GvcChannelBarPrivate
         GtkWidget                  *low_image;
         GtkWidget                  *scale;
         GtkWidget                  *high_image;
-        GtkWidget                  *mute_box;
         GtkWidget                  *mute_button;
         GtkAdjustment              *adjustment;
         gboolean                    show_icons;
