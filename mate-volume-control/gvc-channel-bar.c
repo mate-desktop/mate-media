@@ -34,7 +34,6 @@
 #include "gvc-channel-bar.h"
 
 #define SCALE_SIZE 128
-#define GVC_CHANNEL_BAR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_CHANNEL_BAR, GvcChannelBarPrivate))
 
 struct _GvcChannelBarPrivate
 {
@@ -78,9 +77,6 @@ enum {
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void     gvc_channel_bar_class_init    (GvcChannelBarClass *klass);
-static void     gvc_channel_bar_init          (GvcChannelBar      *bar);
-
 static gboolean on_scale_button_press_event   (GtkWidget          *widget,
                                                GdkEventButton     *event,
                                                GvcChannelBar      *bar);
@@ -91,7 +87,7 @@ static gboolean on_scale_scroll_event         (GtkWidget          *widget,
                                                GdkEventScroll     *event,
                                                GvcChannelBar      *bar);
 
-G_DEFINE_TYPE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcChannelBar, gvc_channel_bar, GTK_TYPE_BOX)
 
 static void
 create_scale_box (GvcChannelBar *bar)
@@ -1071,8 +1067,6 @@ gvc_channel_bar_class_init (GvcChannelBarClass *klass)
                                      G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
-
-        g_type_class_add_private (klass, sizeof (GvcChannelBarPrivate));
 }
 
 static void
@@ -1080,7 +1074,7 @@ gvc_channel_bar_init (GvcChannelBar *bar)
 {
         GtkWidget *frame;
 
-        bar->priv = GVC_CHANNEL_BAR_GET_PRIVATE (bar);
+        bar->priv = gvc_channel_bar_get_instance_private (bar);
 
         /* Mute button */
         bar->priv->mute_button = gtk_check_button_new_with_label (_("Mute"));
