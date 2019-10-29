@@ -31,8 +31,6 @@
 #include "gvc-level-bar.h"
 #include "gvc-utils.h"
 
-#define GVC_LEVEL_BAR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_LEVEL_BAR, GvcLevelBarPrivate))
-
 #define NUM_BOXES                  15
 #define MIN_HORIZONTAL_BAR_WIDTH   150
 #define HORIZONTAL_BAR_HEIGHT      6
@@ -77,11 +75,9 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void gvc_level_bar_class_init (GvcLevelBarClass *klass);
-static void gvc_level_bar_init       (GvcLevelBar      *bar);
 static void gvc_level_bar_finalize   (GObject          *object);
 
-G_DEFINE_TYPE (GvcLevelBar, gvc_level_bar, GTK_TYPE_WIDGET)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcLevelBar, gvc_level_bar, GTK_TYPE_WIDGET)
 
 static gboolean
 layout_changed (LevelBarLayout *layout1, LevelBarLayout *layout2)
@@ -718,8 +714,6 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
                                   G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
-
-        g_type_class_add_private (klass, sizeof (GvcLevelBarPrivate));
 }
 
 static void
@@ -729,7 +723,7 @@ gvc_level_bar_init (GvcLevelBar *bar)
 
         gtk_style_context_add_class (context, GTK_STYLE_CLASS_LIST_ROW);
 
-        bar->priv = GVC_LEVEL_BAR_GET_PRIVATE (bar);
+        bar->priv = gvc_level_bar_get_instance_private (bar);
 
         bar->priv->peak_adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (0.0,
                                                                          0.0,
