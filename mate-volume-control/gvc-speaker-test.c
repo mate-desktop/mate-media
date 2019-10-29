@@ -32,8 +32,6 @@
 #include "gvc-speaker-test.h"
 #include "gvc-utils.h"
 
-#define GVC_SPEAKER_TEST_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_SPEAKER_TEST, GvcSpeakerTestPrivate))
-
 struct _GvcSpeakerTestPrivate
 {
         GArray           *controls;
@@ -49,12 +47,10 @@ enum {
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void gvc_speaker_test_class_init (GvcSpeakerTestClass *klass);
-static void gvc_speaker_test_init       (GvcSpeakerTest      *test);
 static void gvc_speaker_test_dispose    (GObject             *object);
 static void gvc_speaker_test_finalize   (GObject             *object);
 
-G_DEFINE_TYPE (GvcSpeakerTest, gvc_speaker_test, GTK_TYPE_GRID)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcSpeakerTest, gvc_speaker_test, GTK_TYPE_GRID)
 
 typedef struct {
         MateMixerChannelPosition position;
@@ -165,8 +161,6 @@ gvc_speaker_test_class_init (GvcSpeakerTestClass *klass)
                                      G_PARAM_STATIC_STRINGS);
 
         g_object_class_install_properties (object_class, N_PROPERTIES, properties);
-
-        g_type_class_add_private (klass, sizeof (GvcSpeakerTestPrivate));
 }
 
 static const gchar *
@@ -407,7 +401,7 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
 {
         GtkWidget *face;
 
-        test->priv = GVC_SPEAKER_TEST_GET_PRIVATE (test);
+        test->priv = gvc_speaker_test_get_instance_private (test);
 
         gtk_container_set_border_width (GTK_CONTAINER (test), 12);
 
