@@ -38,8 +38,6 @@
 #include "gvc-speaker-test.h"
 #include "gvc-utils.h"
 
-#define GVC_MIXER_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_MIXER_DIALOG, GvcMixerDialogPrivate))
-
 struct _GvcMixerDialogPrivate
 {
         MateMixerContext *context;
@@ -110,8 +108,6 @@ static const guint tab_accel_keys[] = {
         GDK_KEY_1, GDK_KEY_2, GDK_KEY_3, GDK_KEY_4, GDK_KEY_5
 };
 
-static void gvc_mixer_dialog_class_init (GvcMixerDialogClass    *klass);
-static void gvc_mixer_dialog_init       (GvcMixerDialog         *dialog);
 static void gvc_mixer_dialog_finalize   (GObject                *object);
 
 static void add_stream                  (GvcMixerDialog         *dialog,
@@ -135,7 +131,7 @@ static gboolean dialog_page_scroll_event_cb (GtkWidget          *widget,
                                              GdkEventScroll     *event,
                                              GtkWindow          *window);
 
-G_DEFINE_TYPE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
 
 static MateMixerSwitch *
 find_stream_port_switch (MateMixerStream *stream)
@@ -2318,14 +2314,12 @@ gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass)
 
         GtkWidgetClass *widget_class  = GTK_WIDGET_CLASS (klass);
         gtk_widget_class_set_css_name (widget_class, "GvcMixerDialog");
-
-        g_type_class_add_private (klass, sizeof (GvcMixerDialogPrivate));
 }
 
 static void
 gvc_mixer_dialog_init (GvcMixerDialog *dialog)
 {
-        dialog->priv = GVC_MIXER_DIALOG_GET_PRIVATE (dialog);
+        dialog->priv = gvc_mixer_dialog_get_instance_private (dialog);
 
         dialog->priv->bars = g_hash_table_new (g_str_hash, g_str_equal);
         dialog->priv->size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
