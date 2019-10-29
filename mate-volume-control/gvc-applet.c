@@ -34,8 +34,6 @@
 #include "gvc-applet.h"
 #include "gvc-stream-applet-icon.h"
 
-#define GVC_APPLET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_APPLET, GvcAppletPrivate))
-
 static const gchar *icon_names_output[] = {
         "audio-volume-muted",
         "audio-volume-low",
@@ -76,10 +74,7 @@ struct _GvcAppletPrivate
         GtkActionGroup      *action_group;
 };
 
-static void gvc_applet_class_init (GvcAppletClass *klass);
-static void gvc_applet_init       (GvcApplet      *applet);
-
-G_DEFINE_TYPE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
 
 static void
 update_icon_input (GvcApplet *applet)
@@ -393,14 +388,12 @@ gvc_applet_class_init (GvcAppletClass *klass)
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
         object_class->dispose = gvc_applet_dispose;
-
-        g_type_class_add_private (klass, sizeof (GvcAppletPrivate));
 }
 
 static void
 gvc_applet_init (GvcApplet *applet)
 {
-        applet->priv = GVC_APPLET_GET_PRIVATE (applet);
+        applet->priv = gvc_applet_get_instance_private (applet);
 
         applet->priv->icon_input  = gvc_stream_applet_icon_new (NULL, icon_names_input);
         applet->priv->icon_output = gvc_stream_applet_icon_new (NULL, icon_names_output);
