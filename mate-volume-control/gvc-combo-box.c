@@ -28,8 +28,6 @@
 
 #include "gvc-combo-box.h"
 
-#define GVC_COMBO_BOX_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GVC_TYPE_COMBO_BOX, GvcComboBoxPrivate))
-
 struct _GvcComboBoxPrivate
 {
         GtkWidget       *drop_box;
@@ -67,11 +65,9 @@ enum {
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static void gvc_combo_box_class_init (GvcComboBoxClass *klass);
-static void gvc_combo_box_init       (GvcComboBox      *combo);
 static void gvc_combo_box_dispose    (GObject          *object);
 
-G_DEFINE_TYPE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
 
 MateMixerSwitch *
 gvc_combo_box_get_switch (GvcComboBox *combobox)
@@ -295,8 +291,6 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                               g_cclosure_marshal_VOID__VOID,
                               G_TYPE_NONE,
                               0);
-
-        g_type_class_add_private (klass, sizeof (GvcComboBoxPrivate));
 }
 
 static void
@@ -344,7 +338,7 @@ gvc_combo_box_init (GvcComboBox *combobox)
         frame = gtk_frame_new (NULL);
         gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
 
-        combobox->priv = GVC_COMBO_BOX_GET_PRIVATE (combobox);
+        combobox->priv = gvc_combo_box_get_instance_private (combobox);
 
         combobox->priv->model = GTK_TREE_MODEL (gtk_list_store_new (NUM_COLS,
                                                                     G_TYPE_STRING,
