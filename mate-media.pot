@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the mate-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
