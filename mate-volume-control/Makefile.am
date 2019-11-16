@@ -17,7 +17,7 @@ AM_CPPFLAGS = \
 	$(WARN_CFLAGS) \
 	$(VOLUME_CONTROL_CFLAGS) \
 	$(DISABLE_DEPRECATED) \
-	-DMATELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+	-DMATELOCALEDIR=\""$(datadir)/locale"\" \
 	-DLOCALE_DIR=\""$(datadir)/locale"\" \
 	-DICON_DATA_DIR="\"$(pkgdatadir)/icons\"" \
 	-DSOUND_SET_DIR="\"$(pkgdatadir)/sounds\"" \
