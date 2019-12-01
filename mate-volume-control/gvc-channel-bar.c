@@ -750,13 +750,41 @@ gvc_channel_bar_set_icon_name (GvcChannelBar *bar, const gchar *name)
 {
         g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
 
-        gtk_image_set_from_icon_name (GTK_IMAGE (bar->priv->image),
-                                      name,
-                                      GTK_ICON_SIZE_DIALOG);
-        if (name != NULL)
-                gtk_widget_show (bar->priv->image);
-        else
+        if (name != NULL) {
+                GtkIconTheme *icon_theme;
+                GdkPixbuf *pixbuf;
+                gint width, height;
+                GError *error = NULL;
+
+                gtk_icon_size_lookup (GTK_ICON_SIZE_DIALOG, &width, &height);
+                icon_theme = gtk_icon_theme_get_default ();
+                pixbuf = gtk_icon_theme_load_icon (icon_theme,
+                                                   name,
+                                                   width,
+                                                   GTK_ICON_LOOKUP_GENERIC_FALLBACK | GTK_ICON_LOOKUP_FORCE_SIZE,
+                                                   &error);
+                if (error != NULL) {
+                        g_warning ("Couldn’t load icon: %s\n", error->message);
+                        g_clear_error (&error);
+                }
+
+                if (pixbuf == NULL) {
+                        pixbuf = gdk_pixbuf_new_from_file_at_scale (name, width, height, TRUE, &error);
+                        if (error != NULL)
+                        {
+                                g_warning ("Couldn’t load icon: %s\n", error->message);
+                                g_clear_error (&error);
+                        }
+                }
+
+                if (pixbuf) {
+                        gtk_image_set_from_pixbuf (GTK_IMAGE (bar->priv->image), pixbuf);
+                        gtk_widget_show (bar->priv->image);
+                        g_object_unref (pixbuf);
+                }
+        } else {
                 gtk_widget_hide (bar->priv->image);
+        }
 
         g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_ICON_NAME]);
 }
