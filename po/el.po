@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR MATE Desktop Environment team
+# This file is distributed under the same license as the mate-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -11,12 +11,11 @@
 # Constantinos Tsakiris, 2018
 # 437c9d6e19936ed69f57bed9e0fe4716, 2018
 # 
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-22 10:08+0100\n"
+"Project-Id-Version: mate-media 1.23.0\n"
+"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: 437c9d6e19936ed69f57bed9e0fe4716, 2018\n"
 "Language-Team: Greek (https://www.transifex.com/mate/teams/13566/el/)\n"
@@ -26,459 +25,451 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/mate-volume-control.desktop.in.in.h:1
+#: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
 msgstr "Ήχος"
 
-#: ../data/mate-volume-control.desktop.in.in.h:2
+#: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
 msgstr "Αλλαγή έντασης ήχου και ηχητικών γεγονότων"
 
-#: ../data/mate-volume-control-status-icon.desktop.in.h:1
-#: ../mate-volume-control/dialog-main.c:255
-#: ../mate-volume-control/gvc-channel-bar.c:479
-#: ../mate-volume-control/gvc-speaker-test.c:434
+#. Translators: Do NOT translate or transliterate this text (this is an icon
+#. file name)!
+#: data/mate-volume-control.desktop.in.in:7
+#: data/mate-volume-control-status-icon.desktop.in:6
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
+msgid "multimedia-volume-control"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
+#: data/mate-volume-control.desktop.in.in:13
+msgid "MATE;volume;control;mixer;settings;sound;events;"
+msgstr ""
+
+#: data/mate-volume-control-status-icon.desktop.in:3
+#: mate-volume-control/dialog-main.c:255
+#: mate-volume-control/gvc-channel-bar.c:476
+#: mate-volume-control/gvc-speaker-test.c:428
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "Έλεγχος έντασης ήχου"
 
-#: ../data/mate-volume-control-status-icon.desktop.in.h:2
+#: data/mate-volume-control-status-icon.desktop.in:4
 msgid "Show desktop volume control"
 msgstr "Εμφάνιση ελέγχου ήχου επιφάνειας εργασίας"
 
-#. Translators: This is the name of an audio file that sounds like the bark of
-#. a dog.
-#. You might want to translate it into the equivalent words of your language.
-#: ../data/sounds/mate-sounds-default.xml.in.in.h:3
-msgid "Bark"
-msgstr "Bark"
+#. Translators: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
+#: data/mate-volume-control-status-icon.desktop.in:12
+msgid "MATE;volume;control;mixer;settings;sound;"
+msgstr ""
 
-#. Translators: This is the name of an audio file that sounds like a water
-#. drip.
-#. You might want to translate it into the equivalent words of your language.
-#: ../data/sounds/mate-sounds-default.xml.in.in.h:6
-msgid "Drip"
-msgstr "Drip"
-
-#. Translators: This is the name of an audio file that sounds like tapping
-#. glass.
-#. You might want to translate it into the equivalent words of your language.
-#: ../data/sounds/mate-sounds-default.xml.in.in.h:9
-msgid "Glass"
-msgstr "Glass"
-
-#. Translators: This is the name of an audio file that sounds sort of like a
-#. submarine sonar ping.
-#. You might want to translate it into the equivalent words of your language.
-#: ../data/sounds/mate-sounds-default.xml.in.in.h:12
-msgid "Sonar"
-msgstr "Sonar"
-
-#: ../mate-volume-control/dialog-main.c:143
+#: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
 msgstr "Το σύστημα ήχου δεν είναι διαθέσιμο"
 
-#: ../mate-volume-control/dialog-main.c:165
+#: mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
 msgstr "Αναμονή για την ανταπόκριση του συστήματος ήχου"
 
-#: ../mate-volume-control/dialog-main.c:190
+#: mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
 msgstr "Σύστημα υποστήριξης συστήματος ήχου"
 
-#: ../mate-volume-control/dialog-main.c:191
-#: ../mate-volume-control/status-icon-main.c:46
+#: mate-volume-control/dialog-main.c:191
+#: mate-volume-control/status-icon-main.c:46
 msgid "Enable debug"
 msgstr "Ενεργοποίηση αποσφαλμάτωσης"
 
-#: ../mate-volume-control/dialog-main.c:192
+#: mate-volume-control/dialog-main.c:192
 msgid "Startup page"
 msgstr "Αρχική σελίδα"
 
-#: ../mate-volume-control/dialog-main.c:193
-#: ../mate-volume-control/status-icon-main.c:45
+#: mate-volume-control/dialog-main.c:193
+#: mate-volume-control/status-icon-main.c:45
 msgid "Version of this application"
 msgstr "Η Έκδοση αυτής της εφαρμογής"
 
-#: ../mate-volume-control/dialog-main.c:202
+#: mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
 msgstr " - Έλεγχος έντασης ήχου MATE"
 
-#: ../mate-volume-control/gvc-applet.c:58
-#: ../mate-volume-control/gvc-stream-status-icon.c:250
+#: mate-volume-control/gvc-applet.c:56
+#: mate-volume-control/gvc-stream-status-icon.c:246
 msgid "_Sound Preferences"
 msgstr "Προτιμήσεις ή_χου"
 
-#: ../mate-volume-control/gvc-applet.c:59
+#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
 msgstr ""
 
-#: ../mate-volume-control/gvc-applet.c:336
-#: ../mate-volume-control/gvc-mixer-dialog.c:2004
-#: ../mate-volume-control/gvc-status-icon.c:330
+#: mate-volume-control/gvc-applet.c:401
+#: mate-volume-control/gvc-mixer-dialog.c:2011
+#: mate-volume-control/gvc-status-icon.c:323
 msgid "Input"
 msgstr "Είσοδος"
 
-#: ../mate-volume-control/gvc-applet.c:337
-#: ../mate-volume-control/gvc-mixer-dialog.c:2091
-#: ../mate-volume-control/gvc-status-icon.c:331
+#: mate-volume-control/gvc-applet.c:402
+#: mate-volume-control/gvc-mixer-dialog.c:2098
+#: mate-volume-control/gvc-status-icon.c:324
 msgid "Output"
 msgstr "Έξοδος"
 
-#: ../mate-volume-control/gvc-applet.c:341
+#: mate-volume-control/gvc-applet.c:406
 msgid "MATE Volume Control Applet"
 msgstr "Μικροεφαρμογή ελέγχου έντασης ήχου MATE"
 
-#: ../mate-volume-control/gvc-applet.c:448
+#: mate-volume-control/gvc-applet.c:463
+msgid "Unmute Output"
+msgstr ""
+
+#: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
 msgstr ""
 
-#: ../mate-volume-control/gvc-balance-bar.c:140
+#: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Left"
 msgstr "Αριστερά"
 
-#: ../mate-volume-control/gvc-balance-bar.c:141
+#: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Right"
 msgstr "Δεξιά"
 
-#: ../mate-volume-control/gvc-balance-bar.c:144
+#: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Rear"
 msgstr "Πίσω"
 
-#: ../mate-volume-control/gvc-balance-bar.c:145
+#: mate-volume-control/gvc-balance-bar.c:142
 msgctxt "balance"
 msgid "Front"
 msgstr "Μπροστά"
 
-#: ../mate-volume-control/gvc-balance-bar.c:148
+#: mate-volume-control/gvc-balance-bar.c:145
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Ελάχιστο"
 
-#: ../mate-volume-control/gvc-balance-bar.c:149
+#: mate-volume-control/gvc-balance-bar.c:146
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Μέγιστο"
 
-#: ../mate-volume-control/gvc-balance-bar.c:337
+#: mate-volume-control/gvc-balance-bar.c:334
 msgid "_Balance:"
 msgstr "Ι_σοστάθμιση:"
 
-#: ../mate-volume-control/gvc-balance-bar.c:340
+#: mate-volume-control/gvc-balance-bar.c:337
 msgid "_Fade:"
 msgstr "Βα_θμιαία μείωση έντασης:"
 
-#: ../mate-volume-control/gvc-balance-bar.c:343
+#: mate-volume-control/gvc-balance-bar.c:340
 msgid "_Subwoofer:"
 msgstr "_Subwoofer:"
 
-#: ../mate-volume-control/gvc-channel-bar.c:312
+#: mate-volume-control/gvc-channel-bar.c:309
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Χωρίς ενισχυτή"
 
-#: ../mate-volume-control/gvc-channel-bar.c:325
+#: mate-volume-control/gvc-channel-bar.c:322
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#. Mute button
-#: ../mate-volume-control/gvc-channel-bar.c:1078
+#: mate-volume-control/gvc-channel-bar.c:1079
 msgid "Mute"
 msgstr "Σίγαση"
 
-#: ../mate-volume-control/gvc-combo-box.c:253
-#: ../mate-volume-control/gvc-mixer-dialog.c:1618
+#: mate-volume-control/gvc-combo-box.c:249
+#: mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
 msgstr "_Προφίλ:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:355
-#: ../mate-volume-control/gvc-mixer-dialog.c:504
+#: mate-volume-control/gvc-mixer-dialog.c:355
+#: mate-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
 msgstr "Σύν_δεσμος:"
 
-#. translators:
-#. * The device has been disabled
-#: ../mate-volume-control/gvc-mixer-dialog.c:1126
+#: mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
 msgstr "Απενεργοποιημένο"
 
-#. translators:
-#. * The number of sound outputs on a particular device
-#: ../mate-volume-control/gvc-mixer-dialog.c:1132
+#: mate-volume-control/gvc-mixer-dialog.c:1132
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators:
-#. * The number of sound inputs on a particular device
-#: ../mate-volume-control/gvc-mixer-dialog.c:1141
+#: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1509
-#: ../mate-volume-control/gvc-mixer-dialog.c:1778
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:868
+#: mate-volume-control/gvc-mixer-dialog.c:1509
+#: mate-volume-control/gvc-mixer-dialog.c:1778
+#: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1557
+#: mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Δοκιμή ηχείου για %s"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1621
+#: mate-volume-control/gvc-mixer-dialog.c:1621
 msgid "Test Speakers"
 msgstr "Δοκιμή ηχείων"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1826
+#: mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
 msgstr "Ηχητικά εφέ"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1849
+#: mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
 msgstr "Έ_νταση ειδοποίησης: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1918
+#: mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
 msgstr "Ένταση ήχου ε_ξόδου: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1961
+#: mate-volume-control/gvc-mixer-dialog.c:1968
 msgid "Hardware"
 msgstr "Υλικό"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1966
+#: mate-volume-control/gvc-mixer-dialog.c:1973
 msgid "C_hoose a device to configure:"
 msgstr "Επιλέ_ξτε μια συσκευή για ρύθμιση:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:1990
-#: ../mate-volume-control/gvc-mixer-dialog.c:2120
+#: mate-volume-control/gvc-mixer-dialog.c:1997
+#: mate-volume-control/gvc-mixer-dialog.c:2127
 msgid "Settings for the selected device:"
 msgstr "Ρυθμίσεις για την επιλεγμένη συσκευή:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2013
+#: mate-volume-control/gvc-mixer-dialog.c:2020
 msgid "_Input volume: "
 msgstr "Ένταση ήχου ει_σόδου: "
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2038
+#: mate-volume-control/gvc-mixer-dialog.c:2045
 msgid "Input level:"
 msgstr "Επίπεδο εισόδου:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2063
+#: mate-volume-control/gvc-mixer-dialog.c:2070
 msgid "C_hoose a device for sound input:"
 msgstr "Επιλέ_ξτε μια συσκευή για την είσοδο ήχου:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2096
+#: mate-volume-control/gvc-mixer-dialog.c:2103
 msgid "C_hoose a device for sound output:"
 msgstr "Επι_λέξτε μια συσκευή για την έξοδο ήχου:"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2145
+#: mate-volume-control/gvc-mixer-dialog.c:2152
 msgid "Applications"
 msgstr "Εφαρμογές"
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2150
+#: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "No application is currently playing or recording audio."
 msgstr "Προς το παρόν καμία εφαρμογή δεν αναπαράγει ή καταγράφει ήχο."
 
-#: ../mate-volume-control/gvc-mixer-dialog.c:2340
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:732
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:744
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:756
+#: mate-volume-control/gvc-mixer-dialog.c:2345
+#: mate-volume-control/gvc-sound-theme-chooser.c:728
+#: mate-volume-control/gvc-sound-theme-chooser.c:740
+#: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
 msgstr "Προτιμήσεις ήχου"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:320
+#: mate-volume-control/gvc-sound-theme-chooser.c:316
 msgid "No sounds"
 msgstr "Όχι ήχοι"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:441
+#: mate-volume-control/gvc-sound-theme-chooser.c:437
 msgid "Built-in"
 msgstr "Ενσωματωμένο"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:628
-#: ../mate-volume-control/sound-theme-file-utils.c:292
+#: mate-volume-control/gvc-sound-theme-chooser.c:624
+#: mate-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
 msgstr "Προσαρμοσμένη"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:735
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:746
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:758
+#: mate-volume-control/gvc-sound-theme-chooser.c:731
+#: mate-volume-control/gvc-sound-theme-chooser.c:742
+#: mate-volume-control/gvc-sound-theme-chooser.c:754
 msgid "Testing event sound"
 msgstr "Γίνεται δοκιμή ήχου γεγονότος"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:844
+#: mate-volume-control/gvc-sound-theme-chooser.c:840
 msgid "Default"
 msgstr "Προεπιλογή"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:845
+#: mate-volume-control/gvc-sound-theme-chooser.c:841
 msgid "From theme"
 msgstr "Από θέμα"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:875
+#: mate-volume-control/gvc-sound-theme-chooser.c:871
 msgid "Type"
 msgstr "Τύπος"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1034
+#: mate-volume-control/gvc-sound-theme-chooser.c:1028
 msgid "Sound _theme:"
 msgstr "_Θέμα ήχων:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1047
+#: mate-volume-control/gvc-sound-theme-chooser.c:1041
 msgid "C_hoose an alert sound:"
 msgstr "Επιλέ_ξτε έναν ήχο ειδοποίησης:"
 
-#: ../mate-volume-control/gvc-sound-theme-chooser.c:1075
+#: mate-volume-control/gvc-sound-theme-chooser.c:1069
 msgid "Enable _window and button sounds"
 msgstr "Ενεργοποίηση ήχων _παραθύρων και κουμπιών"
 
-#: ../mate-volume-control/gvc-speaker-test.c:258
+#: mate-volume-control/gvc-speaker-test.c:252
 msgid "Stop"
 msgstr "Διακοπή"
 
-#: ../mate-volume-control/gvc-speaker-test.c:258
-#: ../mate-volume-control/gvc-speaker-test.c:372
+#: mate-volume-control/gvc-speaker-test.c:252
+#: mate-volume-control/gvc-speaker-test.c:366
 msgid "Test"
 msgstr "Δοκιμή"
 
-#: ../mate-volume-control/gvc-status-icon.c:334
+#: mate-volume-control/gvc-status-icon.c:327
 msgid "Microphone Volume"
 msgstr "Ένταση μικροφώνου"
 
-#: ../mate-volume-control/gvc-status-icon.c:336
+#: mate-volume-control/gvc-status-icon.c:329
 msgid "Sound Output Volume"
 msgstr "Ένταση εξόδου ήχου:"
 
-#: ../mate-volume-control/gvc-status-icon.c:341
+#: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
 msgstr ""
 
-#: ../mate-volume-control/gvc-stream-applet-icon.c:200
-#: ../mate-volume-control/gvc-stream-status-icon.c:205
+#: mate-volume-control/gvc-stream-applet-icon.c:196
+#: mate-volume-control/gvc-stream-status-icon.c:201
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Αποτυχία εκκίνησης προτιμήσεων ήχου: %s"
 
-#: ../mate-volume-control/gvc-stream-applet-icon.c:381
-#: ../mate-volume-control/gvc-stream-status-icon.c:426
+#: mate-volume-control/gvc-stream-applet-icon.c:377
+#: mate-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
 msgstr "Σίγαση στο"
 
-#: ../mate-volume-control/gvc-stream-status-icon.c:240
+#: mate-volume-control/gvc-stream-status-icon.c:236
 msgid "_Mute"
 msgstr "Σίγα_ση"
 
-#: ../mate-volume-control/gvc-utils.c:58
+#: mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#. Speaker channel names
-#: ../mate-volume-control/gvc-utils.c:60
-#: ../mate-volume-control/gvc-utils.c:108
+#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
 msgid "Mono"
 msgstr "Μονοφωνικό"
 
-#: ../mate-volume-control/gvc-utils.c:61
+#: mate-volume-control/gvc-utils.c:61
 msgid "Front Left"
 msgstr "Μπροστά αριστερά"
 
-#: ../mate-volume-control/gvc-utils.c:62
+#: mate-volume-control/gvc-utils.c:62
 msgid "Front Right"
 msgstr "Μπροστά δεξιά"
 
-#: ../mate-volume-control/gvc-utils.c:63
+#: mate-volume-control/gvc-utils.c:63
 msgid "Front Center"
 msgstr "Μπροστά στο κέντρο"
 
-#: ../mate-volume-control/gvc-utils.c:64
+#: mate-volume-control/gvc-utils.c:64
 msgid "LFE"
 msgstr "LFE"
 
-#: ../mate-volume-control/gvc-utils.c:65
+#: mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"
 msgstr "Πίσω αριστερά"
 
-#: ../mate-volume-control/gvc-utils.c:66
+#: mate-volume-control/gvc-utils.c:66
 msgid "Rear Right"
 msgstr "Πίσω δεξιά"
 
-#: ../mate-volume-control/gvc-utils.c:67
+#: mate-volume-control/gvc-utils.c:67
 msgid "Rear Center"
 msgstr "Πίσω κέντρο"
 
-#: ../mate-volume-control/gvc-utils.c:68
+#: mate-volume-control/gvc-utils.c:68
 msgid "Front Left of Center"
 msgstr "Μπροστά αριστερά του κέντρου"
 
-#: ../mate-volume-control/gvc-utils.c:69
+#: mate-volume-control/gvc-utils.c:69
 msgid "Front Right of Center"
 msgstr "Μπροστά δεξιά του κέντρου"
 
-#: ../mate-volume-control/gvc-utils.c:70
+#: mate-volume-control/gvc-utils.c:70
 msgid "Side Left"
 msgstr "Πλάι αριστερά "
 
-#: ../mate-volume-control/gvc-utils.c:71
+#: mate-volume-control/gvc-utils.c:71
 msgid "Side Right"
 msgstr "Πλάι δεξιά"
 
-#: ../mate-volume-control/gvc-utils.c:72
+#: mate-volume-control/gvc-utils.c:72
 msgid "Top Front Left"
 msgstr "Μπροστά επάνω αριστερά"
 
-#: ../mate-volume-control/gvc-utils.c:73
+#: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Right"
 msgstr "Μπροστά επάνω δεξιά"
 
-#: ../mate-volume-control/gvc-utils.c:74
+#: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Center"
 msgstr "Μπροστά επάνω κέντρο"
 
-#: ../mate-volume-control/gvc-utils.c:75
+#: mate-volume-control/gvc-utils.c:75
 msgid "Top Center"
 msgstr "Κέντρο επάνω"
 
-#: ../mate-volume-control/gvc-utils.c:76
+#: mate-volume-control/gvc-utils.c:76
 msgid "Top Rear Left"
 msgstr "Πίσω επάνω αριστερά"
 
-#: ../mate-volume-control/gvc-utils.c:77
+#: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Right"
 msgstr "Πίσω επάνω δεξιά"
 
-#: ../mate-volume-control/gvc-utils.c:78
+#: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Center"
 msgstr "Πίσω επάνω κέντρο"
 
-#: ../mate-volume-control/gvc-utils.c:113
+#: mate-volume-control/gvc-utils.c:113
 msgid "Stereo"
 msgstr "Στερεοφωνικό"
 
-#: ../mate-volume-control/gvc-utils.c:120
+#: mate-volume-control/gvc-utils.c:120
 msgid "Surround 4.0"
 msgstr "Surround 4.0"
 
-#: ../mate-volume-control/gvc-utils.c:128
+#: mate-volume-control/gvc-utils.c:128
 msgid "Surround 4.1"
 msgstr "Surround 4.1"
 
-#: ../mate-volume-control/gvc-utils.c:130
+#: mate-volume-control/gvc-utils.c:130
 msgid "Surround 5.0"
 msgstr "Surround 5.0"
 
-#: ../mate-volume-control/gvc-utils.c:140
+#: mate-volume-control/gvc-utils.c:140
 msgid "Surround 5.1"
 msgstr "Surround 5.1"
 
-#: ../mate-volume-control/gvc-utils.c:151
+#: mate-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
 
-#: ../mate-volume-control/status-icon-main.c:55
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
+msgid "Volume Control Factory"
+msgstr ""
+
+#: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
 msgstr ""
