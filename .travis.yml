@@ -132,7 +132,7 @@ requires:
     - mate-common
 
 variables:
-  - CFLAGS="-Wall -Werror=format-security"
+  - CFLAGS="-Wall -Werror=format-security -Wredundant-decls"
   - 'CHECKERS="
     -enable-checker deadcode.DeadStores
     -enable-checker alpha.deadcode.UnreachableCode
