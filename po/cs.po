@@ -41,13 +41,14 @@ msgstr "Změní hlasitost zvuku a přiřadí zvuky k událostem"
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
 msgstr ""
+"MATE;hlasitost;ovládání;ovládat;mixer;směšovač;nastavení;zvuk;události;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -65,7 +66,7 @@ msgstr "Zobrazí ovládání hlasitosti pracovního prostředí"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;hlasitost;ovládání;mixer;nastavení;zvuk;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"

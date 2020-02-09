@@ -34,13 +34,13 @@ msgstr "Ubah volum bunyi dan peristiwa bunyi"
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volum;kawalan;pengadun;tetapan;bunyi;peristiwa;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -58,7 +58,7 @@ msgstr "Tunjuk kawalan volum desktop"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volum;kawalan;pengadun;tetapan;bunyi;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -461,7 +461,7 @@ msgstr "Keliling 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Kilang Kawalan Volum"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"

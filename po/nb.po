@@ -37,13 +37,13 @@ msgstr "Endre volum og tilegne lyder til hendelser"
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volumkontroll;volum;mikser;oppsett;lyd;hendelser;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -61,7 +61,7 @@ msgstr "Vis volumkontroll for skrivebordet"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volumkontroll;volum;mikser;oppsett;lyd;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
