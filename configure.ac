@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT([mate-media],
-        [1.23.1],
+        [1.24.0],
         [https://mate-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
