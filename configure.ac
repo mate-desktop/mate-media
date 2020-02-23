@@ -81,7 +81,6 @@ m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
 MATE_MAINTAINER_MODE_DEFINES
 MATE_COMPILE_WARNINGS([maximum])
-MATE_CXX_WARNINGS
 
 AC_ARG_ENABLE(deprecated,
         [AS_HELP_STRING([--enable-deprecated],
