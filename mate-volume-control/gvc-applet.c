@@ -524,7 +524,21 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         mate_panel_applet_set_background_widget (MATE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
 
         applet->priv->applet = applet_widget;
-        applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+        /*FIXME: We haved to set this up BEFORE packing in icons. find a way to update this when the applet is moved that works*/
+        switch (mate_panel_applet_get_orient (applet->priv->applet)) {
+        case MATE_PANEL_APPLET_ORIENT_UP:
+                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+		break;
+        case MATE_PANEL_APPLET_ORIENT_DOWN:
+                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+		break;
+        case MATE_PANEL_APPLET_ORIENT_LEFT:
+                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+		break;
+        case MATE_PANEL_APPLET_ORIENT_RIGHT:
+                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+        break;
+        }
 
         /* Define an initial size and orientation */
         gvc_stream_applet_icon_set_size (applet->priv->icon_input, mate_panel_applet_get_size (applet->priv->applet));
