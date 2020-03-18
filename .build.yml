@@ -59,6 +59,7 @@ requires:
     - autopoint
     - clang
     - clang-tools
+    - gcc
     - git
     - libcanberra-gtk3-dev
     - libglib2.0-dev
