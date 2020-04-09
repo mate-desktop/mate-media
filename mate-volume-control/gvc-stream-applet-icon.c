@@ -79,7 +79,16 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
 
         /* position roughly */
         gtk_window_set_screen (GTK_WINDOW (icon->priv->dock), screen);
-        gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), icon->priv->orient);
+        switch (icon->priv->orient) {
+            case MATE_PANEL_APPLET_ORIENT_LEFT:
+            case MATE_PANEL_APPLET_ORIENT_RIGHT:
+                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_HORIZONTAL);
+                break;
+            case MATE_PANEL_APPLET_ORIENT_UP:
+            case MATE_PANEL_APPLET_ORIENT_DOWN:
+            default:
+                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_VERTICAL);
+        }
 
         monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), allocation.x, allocation.y);
         gdk_monitor_get_geometry (monitor_num, &monitor);
