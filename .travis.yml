@@ -24,16 +24,17 @@ install:
 script:
   - ./docker-build --name ${DISTRO} --verbose --config .build.yml --build scripts
 
-after_success:
-  - 'if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" && "$TRAVIS_PULL_REQUEST" != "false" && ${DISTRO} =~ ^fedora.*$ ]]; then
-        REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// });
-        REPO_NAME=${REPO_SLUG_ARRAY[1]};
-        URL="https://${REPO_NAME}.mate-desktop.dev";
-        COMMENT="Code analysis completed";
-        curl -H "Authorization: token $GITHUB_TOKEN" -X POST
-           -d "{\"state\": \"success\", \"description\": \"$COMMENT\", \"context\":\"scan-build\", \"target_url\": \"$URL\"}"
-           https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_PULL_REQUEST_SHA};
-     fi'
+notifications:
+  irc:
+    if: branch = master AND
+        repo = "mate-desktop/mate-media"
+    channels:
+      - "irc.freenode.org#mate-dev"
+    template:
+      - "[%{repository_name}] %{author}: %{commit_subject}"
+      - "[%{branch}] %{commit} %{message} %{build_url}"
+    on_success: never
+    on_failure: always
 
 deploy:
   - provider: pages
@@ -53,6 +54,17 @@ deploy:
     on:
       tags: true
       condition: "${TRAVIS_TAG} =~ ^v.*$ && ${DISTRO} =~ ^fedora.*$"
+
+after_success:
+  - 'if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" && "$TRAVIS_PULL_REQUEST" != "false" && ${DISTRO} =~ ^fedora.*$ ]]; then
+        REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// });
+        REPO_NAME=${REPO_SLUG_ARRAY[1]};
+        URL="https://${REPO_NAME}.mate-desktop.dev";
+        COMMENT="Code analysis completed";
+        curl -H "Authorization: token $GITHUB_TOKEN" -X POST
+           -d "{\"state\": \"success\", \"description\": \"$COMMENT\", \"context\":\"scan-build\", \"target_url\": \"$URL\"}"
+           https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_PULL_REQUEST_SHA};
+     fi'
 
 env:
   - DISTRO="archlinux:latest"
