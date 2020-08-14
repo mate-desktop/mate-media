@@ -4,15 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# samson <sambelet@yahoo.com>, 2018
+# samson <sambelet@yahoo.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: samson <sambelet@yahoo.com>, 2018\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>, 2020\n"
 "Language-Team: Amharic (https://www.transifex.com/mate/teams/13566/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,7 +93,7 @@ msgstr " —  የሜት ድምፅ መቆጣጠሪያ ክፍል"
 #: mate-volume-control/gvc-applet.c:56
 #: mate-volume-control/gvc-stream-status-icon.c:246
 msgid "_Sound Preferences"
-msgstr "_የ ድምፅ ምርጫዎች"
+msgstr "የ _ድምፅ ምርጫዎች"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
@@ -224,11 +224,11 @@ msgstr "ስፒከር መሞከሪያ"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
-msgstr "የድምፅ ተጽእኖ "
+msgstr "የ ድምፅ ተጽእኖ "
 
 #: mate-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
-msgstr "_የማስጠንቀቂያ መጠን: "
+msgstr "የ _ማስጠንቀቂያ መጠን: "
 
 #: mate-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
@@ -245,15 +245,15 @@ msgstr "አካል ይ_ምረጡ ለማዋቀር:"
 #: mate-volume-control/gvc-mixer-dialog.c:1997
 #: mate-volume-control/gvc-mixer-dialog.c:2127
 msgid "Settings for the selected device:"
-msgstr "ለተመረጠው አካል ማሰናጃ:"
+msgstr "ለ ተመረጠው አካል ማሰናጃ:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2020
 msgid "_Input volume: "
-msgstr "_የማስገቢያ መጠን: "
+msgstr "የ _ማስገቢያ መጠን: "
 
 #: mate-volume-control/gvc-mixer-dialog.c:2045
 msgid "Input level:"
-msgstr "የማስገቢያ መጠን:"
+msgstr "የ ማስገቢያ መጠን:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2070
 msgid "C_hoose a device for sound input:"
@@ -276,7 +276,7 @@ msgstr "ምንም መተገበሪያ አይጫወትም ወይንም ድምጽ �
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
-msgstr "የድምፅ ምርጫዎች "
+msgstr "የ ድምፅ ምርጫዎች "
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:316
 msgid "No sounds"
@@ -332,11 +332,11 @@ msgstr "መሞከሪያ"
 
 #: mate-volume-control/gvc-status-icon.c:327
 msgid "Microphone Volume"
-msgstr "የማይክሮን መጠን "
+msgstr "የ ማይክሮን መጠን "
 
 #: mate-volume-control/gvc-status-icon.c:329
 msgid "Sound Output Volume"
-msgstr "የድምፅ ውጤት መጠን "
+msgstr "የ ድምፅ ውጤት መጠን "
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"

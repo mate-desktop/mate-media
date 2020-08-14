@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# 黃柏諺 <s8321414@gmail.com>, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# 黃柏諺 <s8321414@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/mate/teams/13566/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,13 +198,13 @@ msgstr "已停用"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u 輸出"
+msgstr[0] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u 輸入"
+msgstr[0] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778

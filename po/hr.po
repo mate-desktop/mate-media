@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Ivica  Kolić <ikoli@yahoo.com>, 2018
-# Tomislav Krznar <tomislav.krznar@gmail.com>, 2018
-# Elvis M. Lukšić <meluksic@yahoo.com>, 2018
-# Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2018
+# Ivica  Kolić <ikoli@yahoo.com>, 2020
+# Tomislav Krznar <tomislav.krznar@gmail.com>, 2020
+# Elvis M. Lukšić <meluksic@yahoo.com>, 2020
+# Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2018\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Ivan Branimir Škorić <ivanskrc123@gmail.com>, 2020\n"
 "Language-Team: Croatian (https://www.transifex.com/mate/teams/13566/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -356,7 +356,7 @@ msgstr "Nije uspjelo pokretanje zvučnih prilagodbi: %s"
 #: mate-volume-control/gvc-stream-applet-icon.c:377
 #: mate-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
-msgstr ""
+msgstr "Bezvučno na"
 
 #: mate-volume-control/gvc-stream-status-icon.c:236
 msgid "_Mute"

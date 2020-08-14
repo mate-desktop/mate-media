@@ -4,22 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# tarakbumba <tarakbumba@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Mehmet, 2018
-# Butterfly <gokhanlnx@gmail.com>, 2018
-# Kudret <kudretemre@hotmail.com.tr>, 2018
-# Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2018
-# mauron, 2018
-# Cenk Yıldızlı <goncagul@national.shitposting.agency>, 2019
+# tarakbumba <tarakbumba@gmail.com>, 2020
+# mauron, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Mehmet, 2020
+# Butterfly <gokhanlnx@gmail.com>, 2020
+# Kudret <kudretemre@hotmail.com.tr>, 2020
+# Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2020
+# 0d1bdb3b9a0d4e8f77bc854af8bf3dfc_e6913f4, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Cenk Yıldızlı <goncagul@national.shitposting.agency>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: 0d1bdb3b9a0d4e8f77bc854af8bf3dfc_e6913f4, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,15 +204,15 @@ msgstr "Devre dışı"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Çıkış"
-msgstr[1] "%u Çıkış"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Giriş"
-msgstr[1] "%u Giriş"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778

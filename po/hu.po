@@ -4,19 +4,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# KAMI KAMI <kami911@gmail.com>, 2018
-# Rezső Páder <rezso@rezso.net>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Falu <info@falu.me>, 2018
-# Balázs Meskó <meskobalazs@gmail.com>, 2019
+# KAMI KAMI <kami911@gmail.com>, 2020
+# Rezső Páder <rezso@rezso.net>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
+# Falu <info@falu.me>, 2020
+# Balázs Meskó <meskobalazs@mailbox.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,15 +202,15 @@ msgstr "Tiltva"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u kimenet"
-msgstr[1] "%u kimenet"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u bemenet"
-msgstr[1] "%u bemenet"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -280,7 +281,7 @@ msgstr "Jelenleg nincs hangot lejátszó vagy felvevő alkalmazás."
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
-msgstr "Hangbeállítások"
+msgstr "Hangok beállításai"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:316
 msgid "No sounds"

@@ -4,18 +4,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# zubr139, 2018
-# Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2018
-# Микола Ткач <chistomov@gmail.com>, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# zubr139, 2020
+# Микола Ткач <chistomov@gmail.com>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
+# Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2020
+# Oleksii Khalikov <oleksii.khalikov@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Микола Ткач <chistomov@gmail.com>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Oleksii Khalikov <oleksii.khalikov@gmail.com>, 2020\n"
 "Language-Team: Ukrainian (https://www.transifex.com/mate/teams/13566/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +102,7 @@ msgstr "П_араметри звуку"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr "Вимкнення звуку"
+msgstr "Вимкнення виходу"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2011
@@ -129,12 +131,12 @@ msgstr "Аплет регулювання гучности"
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Left"
-msgstr "Лівий"
+msgstr "Ліворуч"
 
 #: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Right"
-msgstr "Правий"
+msgstr "Праворуч"
 
 #: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
@@ -200,19 +202,19 @@ msgstr "Вимк."
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Вихід"
-msgstr[1] "%u Виходи"
-msgstr[2] "%u Виходів"
-msgstr[3] "%u Виходів"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Вхід"
-msgstr[1] "%u Входи"
-msgstr[2] "%u Входів"
-msgstr[3] "%u Входів"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -243,7 +245,7 @@ msgstr "_Гучність звуку: "
 
 #: mate-volume-control/gvc-mixer-dialog.c:1968
 msgid "Hardware"
-msgstr "Пристрої"
+msgstr "Апаратне забезпечення"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1973
 msgid "C_hoose a device to configure:"
@@ -296,7 +298,7 @@ msgstr "Вбудований"
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
 #: mate-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
-msgstr "Инше"
+msgstr "Інше"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:731
 #: mate-volume-control/gvc-sound-theme-chooser.c:742
@@ -322,11 +324,11 @@ msgstr "Тема _звуків:"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1041
 msgid "C_hoose an alert sound:"
-msgstr "Ви_беріть звук сповіщення:"
+msgstr "Ви_брати звук сповіщення:"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1069
 msgid "Enable _window and button sounds"
-msgstr "Увімкнути звукові сповіщення про дії з _вікнами та натисканні кнопок"
+msgstr "Увімкнути звукові сповіщення про дії з _вікнами та натискання кнопок"
 
 #: mate-volume-control/gvc-speaker-test.c:252
 msgid "Stop"
@@ -353,7 +355,7 @@ msgstr "Піктограма стану регулювання гучности 
 #: mate-volume-control/gvc-stream-status-icon.c:201
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "Не вдається запустити діялоґ налаштовування параметрів звуку: %s"
+msgstr "Не вдається запустити діалог налаштовування параметрів звуку: %s"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:377
 #: mate-volume-control/gvc-stream-status-icon.c:422

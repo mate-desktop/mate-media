@@ -4,20 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pavol Šimo <palo.simo@gmail.com>, 2018
-# Ján Ďanovský <dagsoftware@yahoo.com>, 2018
-# Dušan Kazik <prescott66@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Tibor Kaputa <tibbbi2@gmail.com>, 2018
-# Erik Bročko <erik.brocko@letemsvetemapplem.eu>, 2018
+# Pavol Šimo <palo.simo@gmail.com>, 2020
+# Dušan Kazik <prescott66@gmail.com>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Tibor Kaputa <tibbbi2@gmail.com>, 2020
+# Ján Ďanovský <dagsoftware@yahoo.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Erik Bročko <erik.brocko@letemsvetemapplem.eu>, 2018\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>, 2020\n"
 "Language-Team: Slovak (https://www.transifex.com/mate/teams/13566/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,19 +201,19 @@ msgstr "Zakázaný"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u výstup"
-msgstr[1] "%u výstupy"
-msgstr[2] "%u výstupov"
-msgstr[3] "%u výstupov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u vstup"
-msgstr[1] "%u vstupy"
-msgstr[2] "%u vstupov"
-msgstr[3] "%u vstupov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -274,7 +273,7 @@ msgstr "V_yberte zariadenie zvukového výstupu:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2152
 msgid "Applications"
-msgstr "Aplikácie"
+msgstr "Programy"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "No application is currently playing or recording audio."

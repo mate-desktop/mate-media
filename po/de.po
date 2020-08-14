@@ -4,21 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Ettore Atalan <atalanttore@googlemail.com>, 2018
-# Moritz Bruder <muesli4@gmail.com>, 2018
-# Wolfgang Ulbrich <mate@raveit.de>, 2018
-# Christian Kopp <christiankopp79@gmail.com>, 2018
-# Julian Rüger <jr98@gmx.net>, 2018
-# Tobias Bannert <tobannert@gmail.com>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Ettore Atalan <atalanttore@googlemail.com>, 2020
+# Moritz Bruder <muesli4@gmail.com>, 2020
+# Tobias Bannert <tobannert@gmail.com>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
+# Christian Kopp <christiankopp79@gmail.com>, 2020
+# Julian Rüger <jr98@gmx.net>, 2020
+# Michael Hartmann, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Tobias Bannert <tobannert@gmail.com>, 2018\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Michael Hartmann, 2020\n"
 "Language-Team: German (https://www.transifex.com/mate/teams/13566/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr ""
 
 #: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
-msgstr "Klang"
+msgstr "Audio"
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
@@ -46,7 +47,7 @@ msgstr ""
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;Lautstärke;Steuerung;Mixer;Einstellungen;Klang;Ereignisse;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -103,7 +104,7 @@ msgstr "_Klangeinstellungen"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr ""
+msgstr "Ausgang stummschalten"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2011
@@ -203,15 +204,15 @@ msgstr "Deaktiviert"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Ausgang"
-msgstr[1] "%u Ausgänge"
+msgstr[0] "Ausgang"
+msgstr[1] "Ausgänge"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Eingang"
-msgstr[1] "%u Eingänge"
+msgstr[0] "Eingang"
+msgstr[1] "Eingänge"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -242,7 +243,7 @@ msgstr "_Ausgangslautstärke: "
 
 #: mate-volume-control/gvc-mixer-dialog.c:1968
 msgid "Hardware"
-msgstr "Geräte"
+msgstr "Hardware"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1973
 msgid "C_hoose a device to configure:"
@@ -282,7 +283,7 @@ msgstr "Derzeit wird von keiner Tonanwendung aufgenommen oder wiedergegeben."
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
-msgstr "Klangeinstellungen"
+msgstr "Sound-Einstellungen"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:316
 msgid "No sounds"
@@ -346,7 +347,7 @@ msgstr "Ausgangslautstärke"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATE Lautstärkeregler Status Symbol"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:196
 #: mate-volume-control/gvc-stream-status-icon.c:201
@@ -473,4 +474,4 @@ msgstr ""
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — MATE Lautstärkeregler Status Symbol"

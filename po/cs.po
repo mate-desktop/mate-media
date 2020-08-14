@@ -4,22 +4,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Lucas Lommer <drom@kdyne.net>, 2018
-# huskyviking <husky.viking@seznam.cz>, 2018
-# Radek kohout <radekpv@seznam.cz>, 2018
-# LiberteCzech <liberte.czech@gmail.com>, 2018
-# Stanislav Kučera <inactive+kacernator@transifex.com>, 2018
-# Roman Horník <roman.hornik@debian-linux.cz>, 2018
-# ToMáš Marný, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# ToMáš Marný, 2020
+# huskyviking <husky.viking@seznam.cz>, 2020
+# Radek kohout <radekpv@seznam.cz>, 2020
+# LiberteCzech <liberte.czech@gmail.com>, 2020
+# 6e833d5535e2fe0dd9dfa7fe5bf473f2_d78f422 <64c38a0ff10419c64e8e03d54c72b3bd_352524>, 2020
+# Lucas Lommer <drom@kdyne.net>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: ToMáš Marný, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Lucas Lommer <drom@kdyne.net>, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,7 +124,7 @@ msgstr "Zvukový řídící applet MATE"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Zrušit ztlumení výstupu"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
@@ -134,12 +133,12 @@ msgstr "Applet ovládání hlasitosti"
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Left"
-msgstr "Vlevo"
+msgstr "Doleva"
 
 #: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Right"
-msgstr "Vpravo"
+msgstr "Doprava"
 
 #: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
@@ -199,7 +198,7 @@ msgstr "Ko_nektor:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
-msgstr "Zakázáno"
+msgstr "Vypnuto"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1132
 #, c-format
@@ -319,7 +318,7 @@ msgstr "Z motivu"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:871
 msgid "Type"
-msgstr "Druh"
+msgstr "Typ"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1028
 msgid "Sound _theme:"
@@ -475,7 +474,7 @@ msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Generátor ovládání hlasitosti"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"

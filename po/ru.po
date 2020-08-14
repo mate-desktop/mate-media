@@ -4,24 +4,25 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Alexei Sorokin <sor.alexei@meowr.ru>, 2018
-# Дмитрий Михирев, 2018
-# Aleksey Kabanov <ak099@mail.ru>, 2018
-# Victor Kukshiev <andrey0bolkonsky@gmail.com>, 2018
-# AlexL <loginov.alex.valer@gmail.com>, 2018
-# Dmitry Mandryk <dmandryk@gmail.com>, 2018
-# theirix <theirix@gmail.com>, 2018
-# Dmitriy Kulikov <kulikov@dima.perm.ru>, 2018
-# Alex Putz, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Alexei Sorokin, 2020
+# Дмитрий Михирев, 2020
+# Aleksey Kabanov <ak099@mail.ru>, 2020
+# Victor Kukshiev <andrey0bolkonsky@gmail.com>, 2020
+# AlexL <loginov.alex.valer@gmail.com>, 2020
+# Dmitry Mandryk <dmandryk@gmail.com>, 2020
+# theirix <theirix@gmail.com>, 2020
+# Dmitriy Kulikov <kulikov@dima.perm.ru>, 2020
+# Olesya Gerasimenko <gammaray@basealt.ru>, 2020
+# Anna Vyalkova <cybertailor@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Alex Putz, 2018\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Anna Vyalkova <cybertailor@gmail.com>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/mate/teams/13566/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,13 +44,13 @@ msgstr "Изменить громкость звука и связать зву�
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;громкость;управление;микшер;настройки;звук;события;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -67,7 +68,7 @@ msgstr "Показать регулятор громкости"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;громкость;управление;микшер;настройки;звук;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -106,7 +107,7 @@ msgstr "П_араметры звука"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr ""
+msgstr "Выключить устройство воспроизведения"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2011
@@ -126,11 +127,11 @@ msgstr "Апплет регулятора громкости MATE"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Включить устройство воспроизведения"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Апплет регулятора громкости"
 
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
@@ -206,25 +207,25 @@ msgstr "Выключен"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Выход"
-msgstr[1] "%u Выходов"
-msgstr[2] "%u Выходов"
-msgstr[3] "%u Выходов"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Вход"
-msgstr[1] "%u Входов"
-msgstr[2] "%u Входов"
-msgstr[3] "%u Входов"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
-msgstr "Название"
+msgstr "Имя"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
@@ -353,7 +354,7 @@ msgstr "Громкость звука"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "Значок регулятора громкости MATE"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:196
 #: mate-volume-control/gvc-stream-status-icon.c:201
@@ -372,7 +373,7 @@ msgstr "_Приглушить"
 
 #: mate-volume-control/gvc-utils.c:58
 msgid "Unknown"
-msgstr "Неизвестный"
+msgstr "Неизвестная"
 
 #: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
 msgid "Mono"
@@ -476,8 +477,8 @@ msgstr "Объёмный звук 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Фабрика апплета регулятора громкости"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — значок регулятора громкости MATE"

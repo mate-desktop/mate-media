@@ -4,19 +4,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2018
-# D.K Kim <pepct84@gmail.com>, 2018
-# 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2020
+# clefebvre <clement.lefebvre@linuxmint.com>, 2020
+# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
+# D.K Kim <pepct84@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: D.K Kim <pepct84@gmail.com>, 2020\n"
 "Language-Team: Korean (https://www.transifex.com/mate/teams/13566/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,7 +94,7 @@ msgstr "이 프로그램의 버전"
 
 #: mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr "— 마테 볼륨 조정"
+msgstr "— 마테 볼륨 조절"
 
 #: mate-volume-control/gvc-applet.c:56
 #: mate-volume-control/gvc-stream-status-icon.c:246
@@ -201,13 +203,13 @@ msgstr "사용하지 않음"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "출력 %u개"
+msgstr[0] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "입력 %u개"
+msgstr[0] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -267,7 +269,7 @@ msgstr "사운드 출력 장치를 선택하십시오(_H):"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2152
 msgid "Applications"
-msgstr "프로그램"
+msgstr "응용 프로그램"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "No application is currently playing or recording audio."

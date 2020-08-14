@@ -4,25 +4,25 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# seacat <seacat.linux@gmail.com>, 2018
-# Adolfo Jayme-Barrientos, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Andres Sanchez <blackatze93@gmail.com>, 2018
-# elio <micta2003@hotmail.com>, 2018
-# ebray187 <ebray187@gmail.com>, 2018
-# Emiliano Fascetti, 2018
-# Arcenio Cid <gusty.miliki@gmail.com>, 2018
-# Mario Verdin <jmvl1303@gmail.com>, 2018
-# Joel Barrios <darkshram@gmail.com>, 2018
-# Toni Estévez <toni.estevez@gmail.com>, 2019
+# seacat <seacat.linux@gmail.com>, 2020
+# Adolfo Jayme-Barrientos, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Toni Estévez <toni.estevez@gmail.com>, 2020
+# Andres Sanchez <blackatze93@gmail.com>, 2020
+# elio <micta2003@hotmail.com>, 2020
+# ebray187 <ebray187@gmail.com>, 2020
+# Emiliano Fascetti, 2020
+# Joel Barrios <darkshram@gmail.com>, 2020
+# Arcenio Cid <gusty.miliki@gmail.com>, 2020
+# Mario Verdin <jmvl1303@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: Mario Verdin <jmvl1303@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/mate/teams/13566/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "Sonido"
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
-msgstr "Cambiar el volumen y los eventos de sonido"
+msgstr "Cambiar el volumen de sonido y el sonido de los eventos"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
@@ -72,7 +72,7 @@ msgstr "MATE;volumen;control;mezclador;ajustes;sonido;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
-msgstr "Sistema de sonido no disponible"
+msgstr "El sistema de sonido no está disponible"
 
 #: mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
@@ -85,7 +85,7 @@ msgstr "Motor del sistema de sonido"
 #: mate-volume-control/dialog-main.c:191
 #: mate-volume-control/status-icon-main.c:46
 msgid "Enable debug"
-msgstr "Activar depuración"
+msgstr "Activar la depuración"
 
 #: mate-volume-control/dialog-main.c:192
 msgid "Startup page"
@@ -98,7 +98,7 @@ msgstr "Versión de esta aplicación"
 
 #: mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr ": Control de volumen de MATE"
+msgstr " — Control de volumen de MATE"
 
 #: mate-volume-control/gvc-applet.c:56
 #: mate-volume-control/gvc-stream-status-icon.c:246
@@ -146,7 +146,7 @@ msgstr "Derecha"
 #: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Rear"
-msgstr "Trasero"
+msgstr "Posterior"
 
 #: mate-volume-control/gvc-balance-bar.c:142
 msgctxt "balance"
@@ -207,15 +207,15 @@ msgstr "Desconectado"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u Salida"
-msgstr[1] "%u Salidas"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u Entrada"
-msgstr[1] "%u Entradas"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -299,13 +299,13 @@ msgstr "Integrado"
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
 #: mate-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
-msgstr "Personalizada"
+msgstr "Personalizar"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:731
 #: mate-volume-control/gvc-sound-theme-chooser.c:742
 #: mate-volume-control/gvc-sound-theme-chooser.c:754
 msgid "Testing event sound"
-msgstr "Probando sonido de evento"
+msgstr "Probando el evento de sonido"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:840
 msgid "Default"
@@ -329,7 +329,7 @@ msgstr "_Elegir un sonido de alerta:"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1069
 msgid "Enable _window and button sounds"
-msgstr "Activar sonidos de _ventanas y botones"
+msgstr "Activar los sonidos de las _ventanas y los botones"
 
 #: mate-volume-control/gvc-speaker-test.c:252
 msgid "Stop"
@@ -342,7 +342,7 @@ msgstr "Probar"
 
 #: mate-volume-control/gvc-status-icon.c:327
 msgid "Microphone Volume"
-msgstr "Volumen del micrófono"
+msgstr "Volumen del micrófono"
 
 #: mate-volume-control/gvc-status-icon.c:329
 msgid "Sound Output Volume"
@@ -350,7 +350,7 @@ msgstr "Volumen de salida del sonido"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr "Icono de estado del control del volumen de MATE"
+msgstr "Icono de estado del control de volumen de MATE"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:196
 #: mate-volume-control/gvc-stream-status-icon.c:201
@@ -393,11 +393,11 @@ msgstr "Canal LFE"
 
 #: mate-volume-control/gvc-utils.c:65
 msgid "Rear Left"
-msgstr "Posterior izquierda"
+msgstr "Posterior izquierdo"
 
 #: mate-volume-control/gvc-utils.c:66
 msgid "Rear Right"
-msgstr "Posterior derecha"
+msgstr "Posterior derecho"
 
 #: mate-volume-control/gvc-utils.c:67
 msgid "Rear Center"
@@ -413,11 +413,11 @@ msgstr "Frontal derecho del centro"
 
 #: mate-volume-control/gvc-utils.c:70
 msgid "Side Left"
-msgstr "Lateral Izquierda"
+msgstr "Lateral izquierdo"
 
 #: mate-volume-control/gvc-utils.c:71
 msgid "Side Right"
-msgstr "Lateral Derecha"
+msgstr "Lateral derecho"
 
 #: mate-volume-control/gvc-utils.c:72
 msgid "Top Front Left"
@@ -433,7 +433,7 @@ msgstr "Superior frontal central"
 
 #: mate-volume-control/gvc-utils.c:75
 msgid "Top Center"
-msgstr "Superior Central"
+msgstr "Superior central"
 
 #: mate-volume-control/gvc-utils.c:76
 msgid "Top Rear Left"
@@ -477,4 +477,4 @@ msgstr "Fábrica del control de volumen"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr " — Icono de estado del control del volumen de MATE"
+msgstr " — Icono de estado del control de volumen de MATE"

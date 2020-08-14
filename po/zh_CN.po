@@ -4,22 +4,23 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Wylmer Wang, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# 玉堂白鹤 <yjwork@qq.com>, 2018
-# Mingcong Bai <jeffbai@aosc.xyz>, 2018
-# liushuyu011 <liushuyu011@gmail.com>, 2018
-# Wenbin Lv <wenbin816@gmail.com>, 2019
-# zhineng404 <zhinengge@gmail.com>, 2019
-# liulitchi <xingzuo88@qq.com>, 2019
+# e0c668032ced196bd60f2b6a070d982d_8f72ae0, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2020
+# Mingcong Bai <jeffbai@aosc.xyz>, 2020
+# liushuyu011 <liushuyu011@gmail.com>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
+# Wenbin Lv <wenbin816@gmail.com>, 2020
+# zhineng404 <zhinengge@gmail.com>, 2020
+# liulitchi <xingzuo88@qq.com>, 2020
+# 玉堂白鹤 <yjwork@qq.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: liulitchi <xingzuo88@qq.com>, 2019\n"
+"PO-Revision-Date: 2020-02-15 14:01+0000\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/mate/teams/13566/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr ""
 
 #: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
-msgstr "声音"
+msgstr "音效"
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
@@ -41,13 +42,13 @@ msgstr "更改音量以及将声音与事件关联"
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;音量;控制;混音;设置;声音;事件;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -65,7 +66,7 @@ msgstr "显示桌面音量控制"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;音量;控制;混音;设置;声音;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -204,13 +205,13 @@ msgstr "禁用"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u 输出"
+msgstr[0] "%u 个输出设备"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u 输入"
+msgstr[0] "%u 个输入设备"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -468,7 +469,7 @@ msgstr "环绕声 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "音量控制工厂"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
