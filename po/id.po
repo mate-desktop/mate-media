@@ -9,7 +9,7 @@
 # La Ode Muh. Fadlun Akbar <fadlun.net@gmail.com>, 2018
 # Bervianto Leo Pratama <bervianto.leo@gmail.com>, 2018
 # Kukuh Syafaat <syafaatkukuh@gmail.com>, 2018
-# Andika Triwidada <andika@gmail.com>, 2018
+# Andika Triwidada <andika@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>, 2018\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/mate/teams/13566/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,13 +39,13 @@ msgstr "Ubah volume suara dan peristiwa suara"
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volume;kendali;mixer;pengaturan;suara;kejadian;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -63,7 +63,7 @@ msgstr "Tampilkan kendali volume desktop"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volume;kendali;mixer;pengaturan;suara;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -102,7 +102,7 @@ msgstr "Preferensi _Suara"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr ""
+msgstr "Bisukan Luaran"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2011
@@ -122,11 +122,11 @@ msgstr "Applet Kontrol Volume MATE"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Bunyikan Luaran"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Aplet Kendali Volume"
 
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
@@ -343,7 +343,7 @@ msgstr "Volume Keluaran Suara"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "StatusIcon Kendali Volume MATE"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:196
 #: mate-volume-control/gvc-stream-status-icon.c:201
@@ -466,8 +466,8 @@ msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Pabrik Kendali Volume"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — Ikon Status Kendali Volume MATE"

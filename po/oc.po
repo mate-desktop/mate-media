@@ -6,7 +6,8 @@
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Cédric Valmary <cvalmary@yahoo.fr>, 2018
-# Cfpo Miègjorn-Pirenèus <inactive+cfpomp@transifex.com>, 2018
+# 48c2de07903ce5a77a8e90265f95c4c2_8909374 <837c8d0ab97b27e737893c19f79bd4de_348476>, 2018
+# Quentin PAGÈS, 2020
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Cfpo Miègjorn-Pirenèus <inactive+cfpomp@transifex.com>, 2018\n"
+"Last-Translator: Quentin PAGÈS, 2020\n"
 "Language-Team: Occitan (post 1500) (https://www.transifex.com/mate/teams/13566/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr "Son"
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "Cambiar lo volum del son e dels eveniments"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
@@ -36,13 +37,13 @@ msgstr ""
 #: data/mate-volume-control-status-icon.desktop.in:6
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
-msgstr ""
+msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;events;son;volum;bruch;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -50,7 +51,7 @@ msgstr ""
 #: mate-volume-control/gvc-speaker-test.c:428
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
-msgstr "Contraròtle de volum"
+msgstr "Reglatge del son"
 
 #: data/mate-volume-control-status-icon.desktop.in:4
 msgid "Show desktop volume control"
@@ -60,15 +61,15 @@ msgstr ""
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;paramètres;son;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
-msgstr ""
+msgstr "Lo sistèma de son es pas disponible"
 
 #: mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
-msgstr ""
+msgstr "En espèra d’una responsa del sistèma de son"
 
 #: mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
@@ -77,11 +78,11 @@ msgstr ""
 #: mate-volume-control/dialog-main.c:191
 #: mate-volume-control/status-icon-main.c:46
 msgid "Enable debug"
-msgstr ""
+msgstr "Activar desbugatge"
 
 #: mate-volume-control/dialog-main.c:192
 msgid "Startup page"
-msgstr ""
+msgstr "Pagina d’aviada"
 
 #: mate-volume-control/dialog-main.c:193
 #: mate-volume-control/status-icon-main.c:45
@@ -90,12 +91,12 @@ msgstr "Version d'aquesta aplicacion"
 
 #: mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr ""
+msgstr " — Reglatge del son de MATE"
 
 #: mate-volume-control/gvc-applet.c:56
 #: mate-volume-control/gvc-stream-status-icon.c:246
 msgid "_Sound Preferences"
-msgstr ""
+msgstr "Preferéncias del _son"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
@@ -133,7 +134,7 @@ msgstr "Esquèrra"
 #: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Right"
-msgstr "Dreita"
+msgstr "Drecha"
 
 #: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
@@ -175,7 +176,7 @@ msgstr "Pas amplificat"
 #: mate-volume-control/gvc-channel-bar.c:322
 msgctxt "volume"
 msgid "100%"
-msgstr "100 %"
+msgstr "100%"
 
 #: mate-volume-control/gvc-channel-bar.c:1079
 msgid "Mute"
@@ -199,15 +200,15 @@ msgstr "Desactivat"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u sortida"
+msgstr[1] "%u sortidas "
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u entrada"
+msgstr[1] "%u entradas"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -334,7 +335,7 @@ msgstr "Testar"
 
 #: mate-volume-control/gvc-status-icon.c:327
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Volum del microfòn"
 
 #: mate-volume-control/gvc-status-icon.c:329
 msgid "Sound Output Volume"
@@ -365,7 +366,7 @@ msgstr "Desconegut"
 
 #: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: mate-volume-control/gvc-utils.c:61
 msgid "Front Left"

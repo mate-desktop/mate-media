@@ -11,6 +11,7 @@
 # Marco Z. <minaz666@gmail.com>, 2018
 # l3nn4rt, 2018
 # Enrico B. <enricobe@hotmail.com>, 2019
+# Alessandro Volturno <alelvb@inwind.it>, 2020
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Enrico B. <enricobe@hotmail.com>, 2019\n"
+"Last-Translator: Alessandro Volturno <alelvb@inwind.it>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/mate/teams/13566/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +47,7 @@ msgstr "multimedia-volume-control"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr "MATE;volume;controllo;mixer;impostazioni;suono;audio;eventi;"
+msgstr "MATE;volume;control;mixer;settings;sound;events;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -64,7 +65,7 @@ msgstr "Mostra la regolazione del volume"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr "MATE;volume;controllo;audio;mixer;impostazioni;suono;"
+msgstr "MATE;volume;control;mixer;settings;sound;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -72,7 +73,7 @@ msgstr "Sistema sonoro non disponibile"
 
 #: mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
-msgstr "Attesa una risposta dal sistema audio"
+msgstr "In attesa di una risposta dal sistema audio"
 
 #: mate-volume-control/dialog-main.c:190
 msgid "Sound system backend"
@@ -275,7 +276,7 @@ msgstr "Applicazioni"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "No application is currently playing or recording audio."
-msgstr "Nessuna applicazione sta riproducendo dell'audio."
+msgstr "Nessuna applicazione sta riproducendo o registrando audio."
 
 #: mate-volume-control/gvc-mixer-dialog.c:2345
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
@@ -295,7 +296,7 @@ msgstr "Integrato"
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
 #: mate-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
-msgstr "Personalizzata"
+msgstr "Personalizzato"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:731
 #: mate-volume-control/gvc-sound-theme-chooser.c:742

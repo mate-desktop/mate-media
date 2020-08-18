@@ -7,13 +7,15 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Aldo Oliveira <america103@gmail.com>, 2018
 # Marcelo Ghelman <marcelo.ghelman@gmail.com>, 2018
-# Marcus Vinícius Marques, 2018
+# 65f2af3cfa184c075942a0418b98d2de_d688669, 2018
 # Eduardo Querido Name <eduardo.querido@gmail.com>, 2018
 # Gilberto José Souza Coutinho <gilberto.jsc@gmail.com>, 2018
 # Rodrigo Piñero <rodrigo.pinero@yahoo.com.br>, 2018
 # Roger Araújo <roger.rf@gmail.com>, 2018
 # Jonatas da Silva Teixeira <jonatasteixeira@id.uff.br>, 2018
 # 18ab4449a00621534598e84a949423ea, 2018
+# gustavo s, 2020
+# Rafael Oliveira <rsachetto@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -21,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: 18ab4449a00621534598e84a949423ea, 2018\n"
+"Last-Translator: Rafael Oliveira <rsachetto@gmail.com>, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/mate/teams/13566/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +51,7 @@ msgstr ""
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volume;controle;mixer;configurações;som;eventos;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -67,7 +69,7 @@ msgstr "Exibir controle de volume"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volume;controle;mixer;configurações;som;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -106,7 +108,7 @@ msgstr "Preferências de _som"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr ""
+msgstr "Silenciar Saída"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2011
@@ -126,11 +128,11 @@ msgstr "Miniaplicativo de controle de volume do MATE"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Habilitar o som de saída"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Miniaplicativo de controle de volume"
 
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"

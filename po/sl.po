@@ -201,19 +201,19 @@ msgstr "Neomogočeno"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%uIzhod"
+msgstr[1] "%uIzhoda"
+msgstr[2] "%uIzhodov"
+msgstr[3] "%u izhodi"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%uVhod"
+msgstr[1] "%uVhoda"
+msgstr[2] "%uVhodov"
+msgstr[3] "%u Vhodi"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778

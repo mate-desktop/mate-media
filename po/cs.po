@@ -5,13 +5,13 @@
 # 
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Lucas Lommer <drom@kdyne.net>, 2018
 # huskyviking <husky.viking@seznam.cz>, 2018
 # Radek kohout <radekpv@seznam.cz>, 2018
 # LiberteCzech <liberte.czech@gmail.com>, 2018
-# Stanislav Kučera <inactive+kacernator@transifex.com>, 2018
+# 6e833d5535e2fe0dd9dfa7fe5bf473f2_d78f422 <64c38a0ff10419c64e8e03d54c72b3bd_352524>, 2018
 # Roman Horník <roman.hornik@debian-linux.cz>, 2018
 # ToMáš Marný, 2019
+# Lucas Lommer <drom@kdyne.net>, 2020
 # 
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: ToMáš Marný, 2019\n"
+"Last-Translator: Lucas Lommer <drom@kdyne.net>, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,7 +125,7 @@ msgstr "Zvukový řídící applet MATE"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Zrušit ztlumení výstupu"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
@@ -475,7 +475,7 @@ msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Generátor ovládání hlasitosti"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
