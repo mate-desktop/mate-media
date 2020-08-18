@@ -1,5 +1,13 @@
 ### mate-media 1.25.0
 
+  * Translations update
+  * gvc-mixer-dialogi: Refactor on_notebook_scroll_event
+  * add git.mk to generate .gitignore
+  * gvc-stream-applet-icon: Remove enum-conversion warning
+  * build: silent build warnings for distcheck
+  * build: do not override the default value for MATE_COMPILE_WARNINGS
+  * panel-applet: ensure speaker can be shown alongside or above mic
+
 ### mate-media 1.24.0
 
   * Translations update
