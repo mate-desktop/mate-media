@@ -514,7 +514,6 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gtk_window_set_default_icon_name (APPLET_ICON);
 
         mate_panel_applet_set_flags (applet_widget, MATE_PANEL_APPLET_EXPAND_MINOR);
-        mate_panel_applet_set_background_widget (MATE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
 
         applet->priv->applet = applet_widget;
         /*FIXME: We haved to set this up BEFORE packing in icons. find a way to update this when the applet is moved that works*/
