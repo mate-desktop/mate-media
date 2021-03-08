@@ -1,0 +1,124 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cppcheck - HTML report - mate-media</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+    <script>
+      function getStyle(el, styleProp) {
+        var y;
+
+        if (el.currentStyle) {
+          y = el.currentStyle[styleProp];
+        } else if (window.getComputedStyle) {
+          y = document.defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+        }
+
+        return y;
+      }
+
+      function toggle() {
+        var el = this.expandable_content;
+        var mark = this.expandable_marker;
+
+        if (el.style.display === "block") {
+          el.style.display = "none";
+          mark.textContent = "[+]";
+        } else {
+          el.style.display = "block";
+          mark.textContent = "[-]";
+        }
+      }
+
+      function initExpandables() {
+        var elements = document.querySelectorAll(".expandable");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var el = elements[i];
+          var clickable = el.querySelector("span");
+          var marker = clickable.querySelector(".marker");
+          var content = el.querySelector(".content");
+          var width = clickable.clientWidth - parseInt(getStyle(content, "padding-left")) - parseInt(getStyle(content, "padding-right"));
+          content.style.width = width + "px";
+          clickable.expandable_content = content;
+          clickable.expandable_marker = marker;
+          clickable.addEventListener("click", toggle);
+        }
+      }
+
+      function toggleDisplay(id) {
+        var elements = document.querySelectorAll("." + id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("d-none");
+        }
+      }
+
+      function toggleAll() {
+        var elements = document.querySelectorAll("input");
+
+        // starting from 1 since 0 is the "toggle all" input
+        for (var i = 1, len = elements.length; i < len; i++) {
+          var el = elements[i];
+
+          if (el.checked) {
+            el.checked = false;
+          } else {
+            el.checked = true;
+          }
+
+          toggleDisplay(el.id);
+        }
+      }
+      window.addEventListener("load", initExpandables);
+    </script>
+  </head>
+  <body>
+    <div id="header" class="header">
+      <h1>Cppcheck report - mate-media: </h1>
+    </div>
+    <div class="wrapper">
+      <div id="menu_index">
+       <p id="filename"><a href="index.html">Defect summary;</a> </p>
+
+       <label><input type="checkbox" onclick="toggleAll()" checked> Toggle all</label>
+       <table>
+           <tr><th>Show</th><th>#</th><th>Defect ID</th></tr>
+            <tr><td><input type="checkbox" onclick="toggleDisplay(this.id)" id="ConfigurationNotChecked" name="ConfigurationNotChecked" checked></td><td>3</td><td>ConfigurationNotChecked</td></tr>
+            <tr><td><input type="checkbox" onclick="toggleDisplay(this.id)" id="unknownMacro" name="unknownMacro" checked></td><td>2</td><td>unknownMacro</td></tr>
+            <tr><td><input type="checkbox" onclick="toggleDisplay(this.id)" id="missingInclude" name="missingInclude" checked></td><td>1</td><td>missingInclude</td></tr>
+           <tr><td></td><td>6</td><td>total</td></tr>
+       </table>
+       <p><a href="stats.html">Statistics</a></p>
+    </div>
+    <div id="content_index">
+
+       <table>
+       <tr><th>Line</th><th>Id</th><th>CWE</th><th>Severity</th><th>Message</th></tr>
+       <tr><td colspan="5"><a href="3.html"></a></td></tr>
+         <tr class="missingInclude"><td></td><td>missingInclude</td><td></td><td>information</td><td>Cppcheck cannot find all the include files (use --check-config for details)</td></tr>
+       <tr><td colspan="5"><a href="0.html">mate-volume-control/gvc-combo-box.c</a></td></tr>
+       <tr class="unknownMacro"><td><a href="0.html#line-70">70</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+       <tr><td colspan="5"><a href="1.html">mate-volume-control/gvc-sound-theme-chooser.c</a></td></tr>
+       <tr class="ConfigurationNotChecked"><td><a href="1.html#line-735">735</a></td><td>ConfigurationNotChecked</td><td></td><td>information</td><td >Skipping configuration &apos;CA_PROP_CANBERRA_ENABLE&apos; since the value of &apos;CA_PROP_CANBERRA_ENABLE&apos; is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.</td></tr>
+       <tr class="ConfigurationNotChecked"><td><a href="1.html#line-746">746</a></td><td>ConfigurationNotChecked</td><td></td><td>information</td><td >Skipping configuration &apos;CA_PROP_CANBERRA_ENABLE&apos; since the value of &apos;CA_PROP_CANBERRA_ENABLE&apos; is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.</td></tr>
+       <tr class="ConfigurationNotChecked"><td><a href="1.html#line-758">758</a></td><td>ConfigurationNotChecked</td><td></td><td>information</td><td >Skipping configuration &apos;CA_PROP_CANBERRA_ENABLE&apos; since the value of &apos;CA_PROP_CANBERRA_ENABLE&apos; is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.</td></tr>
+       <tr><td colspan="5"><a href="2.html">mate-volume-control/gvc-speaker-test.c</a></td></tr>
+       <tr class="unknownMacro"><td><a href="2.html#line-53">53</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+       </table>
+      </div> <!-- /.wrapper -->
+    </div>
+    <div id="footer" class="footer">
+      <p>
+        Cppcheck 2.2 - a tool for static C/C++ code analysis<br>
+        <br>
+        Internet: <a href="http://cppcheck.net">http://cppcheck.net</a><br>
+        IRC: <a href="irc://irc.freenode.net/cppcheck">irc://irc.freenode.net/cppcheck</a><br>
+      </p>
+    </div>
+  </body>
+</html>
