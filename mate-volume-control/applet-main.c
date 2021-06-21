@@ -3,6 +3,7 @@
  * Copyright (C) 2008 Red Hat, Inc.
  * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  * Copyright (C) 2019 Victor Kareh <vkareh@vkareh.net>
+ * Copyright (C) 2014-2021 MATE Developers
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
