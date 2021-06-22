@@ -12,9 +12,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-18 18:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/mate/teams/13566/lt/)\n"
@@ -31,14 +31,6 @@ msgstr "Garsas"
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
 msgstr "Keisti garsį ir susieti garsus su įvykiais"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -104,13 +96,13 @@ msgid "Mute Output"
 msgstr "Nutildyti išvestį"
 
 #: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2011
+#: mate-volume-control/gvc-mixer-dialog.c:2065
 #: mate-volume-control/gvc-status-icon.c:323
 msgid "Input"
 msgstr "Įvestis"
 
 #: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2098
+#: mate-volume-control/gvc-mixer-dialog.c:2152
 #: mate-volume-control/gvc-status-icon.c:324
 msgid "Output"
 msgstr "Išvestis"
@@ -179,25 +171,25 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "Nutildyti"
 
 #: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1618
+#: mate-volume-control/gvc-mixer-dialog.c:1614
 msgid "_Profile:"
 msgstr "_Profilis:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:355
-#: mate-volume-control/gvc-mixer-dialog.c:504
+#: mate-volume-control/gvc-mixer-dialog.c:351
+#: mate-volume-control/gvc-mixer-dialog.c:500
 msgid "Co_nnector:"
 msgstr "J_ungtis:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1126
+#: mate-volume-control/gvc-mixer-dialog.c:1122
 msgid "Disabled"
 msgstr "Išjungtas"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1132
+#: mate-volume-control/gvc-mixer-dialog.c:1128
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -206,7 +198,7 @@ msgstr[1] "%u išvestys"
 msgstr[2] "%u išvesčių"
 msgstr[3] "%u išvesčių"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1141
+#: mate-volume-control/gvc-mixer-dialog.c:1137
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
@@ -215,71 +207,71 @@ msgstr[1] "%u įvestys"
 msgstr[2] "%u įvesčių"
 msgstr[3] "%u įvesčių"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1509
-#: mate-volume-control/gvc-mixer-dialog.c:1778
+#: mate-volume-control/gvc-mixer-dialog.c:1505
+#: mate-volume-control/gvc-mixer-dialog.c:1774
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1557
+#: mate-volume-control/gvc-mixer-dialog.c:1553
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s garsiakalbių tikrinimas"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1621
+#: mate-volume-control/gvc-mixer-dialog.c:1617
 msgid "Test Speakers"
 msgstr "Tikrinti garsiakalbius"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1826
+#: mate-volume-control/gvc-mixer-dialog.c:1822
 msgid "Sound Effects"
 msgstr "Garso efektai"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1849
+#: mate-volume-control/gvc-mixer-dialog.c:1845
 msgid "_Alert volume: "
 msgstr "Įspėjimo _garsis: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1918
+#: mate-volume-control/gvc-mixer-dialog.c:1972
 msgid "_Output volume: "
 msgstr "Išvesties _garsis: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1968
+#: mate-volume-control/gvc-mixer-dialog.c:2022
 msgid "Hardware"
 msgstr "Aparatinė įranga"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1973
+#: mate-volume-control/gvc-mixer-dialog.c:2027
 msgid "C_hoose a device to configure:"
 msgstr "Pasi_rinkite derintiną įrenginį:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1997
-#: mate-volume-control/gvc-mixer-dialog.c:2127
+#: mate-volume-control/gvc-mixer-dialog.c:2051
+#: mate-volume-control/gvc-mixer-dialog.c:2181
 msgid "Settings for the selected device:"
 msgstr "Pasirinkto įrenginio nustatymai:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2020
+#: mate-volume-control/gvc-mixer-dialog.c:2074
 msgid "_Input volume: "
 msgstr "Į_vesties garsis: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2045
+#: mate-volume-control/gvc-mixer-dialog.c:2099
 msgid "Input level:"
 msgstr "Įvesties lygis:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2070
+#: mate-volume-control/gvc-mixer-dialog.c:2124
 msgid "C_hoose a device for sound input:"
 msgstr "Pasi_rinkite garso įvesties įrenginį:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2103
+#: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "C_hoose a device for sound output:"
 msgstr "Pasi_rinkite garso išvesties įrenginį:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2152
+#: mate-volume-control/gvc-mixer-dialog.c:2206
 msgid "Applications"
 msgstr "Programos"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2211
 msgid "No application is currently playing or recording audio."
 msgstr "Šiuo metu jokia programa negroja ir neįrašinėja garso."
 
-#: mate-volume-control/gvc-mixer-dialog.c:2345
+#: mate-volume-control/gvc-mixer-dialog.c:2399
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
@@ -350,13 +342,13 @@ msgstr "Išvesties garsis"
 msgid "MATE Volume Control StatusIcon"
 msgstr "MATE garso valdymo būsenos piktograma"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:196
+#: mate-volume-control/gvc-stream-applet-icon.c:205
 #: mate-volume-control/gvc-stream-status-icon.c:201
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Nepavyko atverti garso nustatymų: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:377
+#: mate-volume-control/gvc-stream-applet-icon.c:386
 #: mate-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
 msgstr "Nutildyta ties"

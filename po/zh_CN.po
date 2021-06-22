@@ -7,7 +7,7 @@
 # e0c668032ced196bd60f2b6a070d982d_8f72ae0, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Mingcong Bai <jeffbai@aosc.xyz>, 2018
-# liushuyu011 <liushuyu011@gmail.com>, 2018
+# shuyu liu <liushuyu011@gmail.com>, 2018
 # Wenbin Lv <wenbin816@gmail.com>, 2019
 # zhineng404 <zhinengge@gmail.com>, 2019
 # liulitchi <xingzuo88@qq.com>, 2019
@@ -15,9 +15,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-18 18:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/mate/teams/13566/zh_CN/)\n"
@@ -34,14 +34,6 @@ msgstr "声音"
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
 msgstr "更改音量以及将声音与事件关联"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -107,13 +99,13 @@ msgid "Mute Output"
 msgstr "静音输出"
 
 #: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2011
+#: mate-volume-control/gvc-mixer-dialog.c:2065
 #: mate-volume-control/gvc-status-icon.c:323
 msgid "Input"
 msgstr "输入"
 
 #: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2098
+#: mate-volume-control/gvc-mixer-dialog.c:2152
 #: mate-volume-control/gvc-status-icon.c:324
 msgid "Output"
 msgstr "输出"
@@ -182,101 +174,101 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "静音"
 
 #: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1618
+#: mate-volume-control/gvc-mixer-dialog.c:1614
 msgid "_Profile:"
 msgstr "配置文件(_P)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:355
-#: mate-volume-control/gvc-mixer-dialog.c:504
+#: mate-volume-control/gvc-mixer-dialog.c:351
+#: mate-volume-control/gvc-mixer-dialog.c:500
 msgid "Co_nnector:"
 msgstr "连接器(_N)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:1126
+#: mate-volume-control/gvc-mixer-dialog.c:1122
 msgid "Disabled"
 msgstr "禁用"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1132
+#: mate-volume-control/gvc-mixer-dialog.c:1128
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] "%u 输出"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1141
+#: mate-volume-control/gvc-mixer-dialog.c:1137
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u 输入"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1509
-#: mate-volume-control/gvc-mixer-dialog.c:1778
+#: mate-volume-control/gvc-mixer-dialog.c:1505
+#: mate-volume-control/gvc-mixer-dialog.c:1774
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "名称"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1557
+#: mate-volume-control/gvc-mixer-dialog.c:1553
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s 话筒设置"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1621
+#: mate-volume-control/gvc-mixer-dialog.c:1617
 msgid "Test Speakers"
 msgstr "测试话筒"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1826
+#: mate-volume-control/gvc-mixer-dialog.c:1822
 msgid "Sound Effects"
 msgstr "声音效果"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1849
+#: mate-volume-control/gvc-mixer-dialog.c:1845
 msgid "_Alert volume: "
 msgstr "报警音量(_A)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:1918
+#: mate-volume-control/gvc-mixer-dialog.c:1972
 msgid "_Output volume: "
 msgstr "输出音量(_O)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:1968
+#: mate-volume-control/gvc-mixer-dialog.c:2022
 msgid "Hardware"
 msgstr "硬件"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1973
+#: mate-volume-control/gvc-mixer-dialog.c:2027
 msgid "C_hoose a device to configure:"
 msgstr "选择要配置的设备(_H)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1997
-#: mate-volume-control/gvc-mixer-dialog.c:2127
+#: mate-volume-control/gvc-mixer-dialog.c:2051
+#: mate-volume-control/gvc-mixer-dialog.c:2181
 msgid "Settings for the selected device:"
 msgstr "所选设备的设置："
 
-#: mate-volume-control/gvc-mixer-dialog.c:2020
+#: mate-volume-control/gvc-mixer-dialog.c:2074
 msgid "_Input volume: "
 msgstr "输入音量(_I)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:2045
+#: mate-volume-control/gvc-mixer-dialog.c:2099
 msgid "Input level:"
 msgstr "输入等级："
 
-#: mate-volume-control/gvc-mixer-dialog.c:2070
+#: mate-volume-control/gvc-mixer-dialog.c:2124
 msgid "C_hoose a device for sound input:"
 msgstr "选择声音输入设备(_H)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:2103
+#: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "C_hoose a device for sound output:"
 msgstr "选择声音输出设备(_H)："
 
-#: mate-volume-control/gvc-mixer-dialog.c:2152
+#: mate-volume-control/gvc-mixer-dialog.c:2206
 msgid "Applications"
 msgstr "应用程序"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2211
 msgid "No application is currently playing or recording audio."
 msgstr "目前没有应用程序在播放或录制音频。"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2345
+#: mate-volume-control/gvc-mixer-dialog.c:2399
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
@@ -347,13 +339,13 @@ msgstr "输出音量："
 msgid "MATE Volume Control StatusIcon"
 msgstr "MATE音量控制状态图标"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:196
+#: mate-volume-control/gvc-stream-applet-icon.c:205
 #: mate-volume-control/gvc-stream-status-icon.c:201
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "启动音量首选项失败：%s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:377
+#: mate-volume-control/gvc-stream-applet-icon.c:386
 #: mate-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
 msgstr "已静音于"

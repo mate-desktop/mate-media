@@ -9,14 +9,15 @@
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2018
 # D.K Kim <pepct84@gmail.com>, 2018
 # 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019
+# JungHee Lee <daemul72@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-18 18:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019\n"
+"Last-Translator: JungHee Lee <daemul72@gmail.com>, 2021\n"
 "Language-Team: Korean (https://www.transifex.com/mate/teams/13566/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,14 +32,6 @@ msgstr "사운드"
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
 msgstr "사운드 볼륨과 사운드 이벤트를 바꿉니다"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -66,7 +59,7 @@ msgstr ""
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
-msgstr "사운드 시스템 사용이 불가능합니다. "
+msgstr "사운드 시스템을 사용할 수 없습니다"
 
 #: mate-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
@@ -92,7 +85,7 @@ msgstr "이 프로그램의 버전"
 
 #: mate-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr "— 마테 볼륨 조정"
+msgstr "— MATE 볼륨 조정"
 
 #: mate-volume-control/gvc-applet.c:56
 #: mate-volume-control/gvc-stream-status-icon.c:246
@@ -104,20 +97,20 @@ msgid "Mute Output"
 msgstr "음소거 출력"
 
 #: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2011
+#: mate-volume-control/gvc-mixer-dialog.c:2065
 #: mate-volume-control/gvc-status-icon.c:323
 msgid "Input"
 msgstr "입력"
 
 #: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2098
+#: mate-volume-control/gvc-mixer-dialog.c:2152
 #: mate-volume-control/gvc-status-icon.c:324
 msgid "Output"
 msgstr "출력"
 
 #: mate-volume-control/gvc-applet.c:406
 msgid "MATE Volume Control Applet"
-msgstr "마테 볼륨 조절 애플릿"
+msgstr "MATE 볼륨 조절 애플릿"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
@@ -179,101 +172,101 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "조용히"
 
 #: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1618
+#: mate-volume-control/gvc-mixer-dialog.c:1614
 msgid "_Profile:"
 msgstr "프로파일(_P):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:355
-#: mate-volume-control/gvc-mixer-dialog.c:504
+#: mate-volume-control/gvc-mixer-dialog.c:351
+#: mate-volume-control/gvc-mixer-dialog.c:500
 msgid "Co_nnector:"
 msgstr "커넥터(_N):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1126
+#: mate-volume-control/gvc-mixer-dialog.c:1122
 msgid "Disabled"
 msgstr "사용하지 않음"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1132
+#: mate-volume-control/gvc-mixer-dialog.c:1128
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] "출력 %u개"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1141
+#: mate-volume-control/gvc-mixer-dialog.c:1137
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "입력 %u개"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1509
-#: mate-volume-control/gvc-mixer-dialog.c:1778
+#: mate-volume-control/gvc-mixer-dialog.c:1505
+#: mate-volume-control/gvc-mixer-dialog.c:1774
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "이름"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1557
+#: mate-volume-control/gvc-mixer-dialog.c:1553
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s에 대한 스피커 테스트"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1621
+#: mate-volume-control/gvc-mixer-dialog.c:1617
 msgid "Test Speakers"
 msgstr "스피커 테스트"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1826
+#: mate-volume-control/gvc-mixer-dialog.c:1822
 msgid "Sound Effects"
 msgstr "사운드 효과"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1849
+#: mate-volume-control/gvc-mixer-dialog.c:1845
 msgid "_Alert volume: "
 msgstr "경보 볼륨(_A): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1918
+#: mate-volume-control/gvc-mixer-dialog.c:1972
 msgid "_Output volume: "
 msgstr "출력 볼륨(_O): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1968
+#: mate-volume-control/gvc-mixer-dialog.c:2022
 msgid "Hardware"
 msgstr "하드웨어"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1973
+#: mate-volume-control/gvc-mixer-dialog.c:2027
 msgid "C_hoose a device to configure:"
 msgstr "설정할 장치를 선택하십시오(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1997
-#: mate-volume-control/gvc-mixer-dialog.c:2127
+#: mate-volume-control/gvc-mixer-dialog.c:2051
+#: mate-volume-control/gvc-mixer-dialog.c:2181
 msgid "Settings for the selected device:"
 msgstr "선택한 장치의 설정:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2020
+#: mate-volume-control/gvc-mixer-dialog.c:2074
 msgid "_Input volume: "
 msgstr "입력 볼륨(_I): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2045
+#: mate-volume-control/gvc-mixer-dialog.c:2099
 msgid "Input level:"
 msgstr "입력 단계:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2070
+#: mate-volume-control/gvc-mixer-dialog.c:2124
 msgid "C_hoose a device for sound input:"
 msgstr "사운드 입력 장치를 선택하십시오(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2103
+#: mate-volume-control/gvc-mixer-dialog.c:2157
 msgid "C_hoose a device for sound output:"
 msgstr "사운드 출력 장치를 선택하십시오(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2152
+#: mate-volume-control/gvc-mixer-dialog.c:2206
 msgid "Applications"
 msgstr "프로그램"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2211
 msgid "No application is currently playing or recording audio."
 msgstr "현재 오디오를 재생하거나 녹음하는 프로그램이 없습니다."
 
-#: mate-volume-control/gvc-mixer-dialog.c:2345
+#: mate-volume-control/gvc-mixer-dialog.c:2399
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
@@ -321,7 +314,7 @@ msgstr "경보 사운드 선택(_H):"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1069
 msgid "Enable _window and button sounds"
-msgstr "창 및 단추 사운드 사용(_W)"
+msgstr "창 및 버튼 사운드 사용(_W)"
 
 #: mate-volume-control/gvc-speaker-test.c:252
 msgid "Stop"
@@ -342,15 +335,15 @@ msgstr "사운드 출력 볼륨"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr "마테 볼륨 조절 상태 아이콘"
+msgstr "MATE 볼륨 조절 상태 아이콘"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:196
+#: mate-volume-control/gvc-stream-applet-icon.c:205
 #: mate-volume-control/gvc-stream-status-icon.c:201
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "사운드 기본 설정 시작에 실패: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:377
+#: mate-volume-control/gvc-stream-applet-icon.c:386
 #: mate-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
 msgstr "음소거"
@@ -469,4 +462,4 @@ msgstr ""
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr " — 마테 볼륨 조절 상태 아이콘"
+msgstr " — MATE 볼륨 조절 상태 아이콘"
