@@ -7,7 +7,6 @@
 # seacat <seacat.linux@gmail.com>, 2020
 # Adolfo Jayme-Barrientos, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
-# Toni Estévez <toni.estevez@gmail.com>, 2020
 # Andres Sanchez <blackatze93@gmail.com>, 2020
 # elio <micta2003@hotmail.com>, 2020
 # ebray187 <ebray187@gmail.com>, 2020
@@ -15,14 +14,15 @@
 # Joel Barrios <darkshram@gmail.com>, 2020
 # Arcenio Cid <gusty.miliki@gmail.com>, 2020
 # Mario Verdin <jmvl1303@gmail.com>, 2020
+# Toni Estévez <toni.estevez@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.24.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-14 18:07+0200\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
-"Last-Translator: Mario Verdin <jmvl1303@gmail.com>, 2020\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/mate/teams/13566/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,14 +37,6 @@ msgstr "Sonido"
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
 msgstr "Cambiar el volumen de sonido y el sonido de los eventos"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -185,7 +177,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100 %"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "Silenciar"
 
@@ -207,15 +199,15 @@ msgstr "Desconectado"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u salida"
+msgstr[1] "%u salidas"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u entrada"
+msgstr[1] "%u entradas"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778

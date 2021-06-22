@@ -10,9 +10,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.24.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-14 18:07+0200\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: chautari <chautari@gmail.com>, 2020\n"
 "Language-Team: Nepali (https://www.transifex.com/mate/teams/13566/ne/)\n"
@@ -28,14 +28,6 @@ msgstr "ध्वनि"
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
-msgstr ""
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
@@ -177,7 +169,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "१००%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr ""
 

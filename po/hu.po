@@ -13,9 +13,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.24.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-14 18:07+0200\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
@@ -33,19 +33,11 @@ msgstr "Hang"
 msgid "Change sound volume and sound events"
 msgstr "Hangerő és hangesemények módosítása"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr ""
-
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;hangerő;vezérlés;keverő;beállítások;hangok;események;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -63,7 +55,7 @@ msgstr "Hangerőszabályzó megjelenítése"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;hangerő;vezérlés;keverő;beállítások;hang;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -122,7 +114,7 @@ msgstr "MATE hangerőszabályzó kisalkalmazás"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Kimenet némításának feloldása"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
@@ -180,7 +172,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "Némítás"
 
@@ -202,15 +194,15 @@ msgstr "Tiltva"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u kimenet"
+msgstr[1] "%u kimenet"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u bemenet"
+msgstr[1] "%u bemenet"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -468,7 +460,7 @@ msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Hangerőszabályzó factory"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"

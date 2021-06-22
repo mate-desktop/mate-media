@@ -13,14 +13,15 @@
 # ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2020
 # Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Ikuru K <kanumaiku@gmail.com>, 2020
+# Green, 2021
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
+"Project-Id-Version: mate-media 1.24.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2020-08-14 18:07+0200\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
-"Last-Translator: Ikuru K <kanumaiku@gmail.com>, 2020\n"
+"Last-Translator: Green, 2021\n"
 "Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,19 +37,11 @@ msgstr "サウンド"
 msgid "Change sound volume and sound events"
 msgstr "音量や音のイベントを変更します"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr ""
-
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;events;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -66,7 +59,7 @@ msgstr "デスクトップの音量を調節するアプレットです"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -105,7 +98,7 @@ msgstr "サウンドの設定(_S)"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr ""
+msgstr "出力をミュート"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2011
@@ -125,11 +118,11 @@ msgstr "MATE 音量調整アプレット"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "出力のミュートを解除"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "音量調節アプレット"
 
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
@@ -183,7 +176,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: mate-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "ミュート"
 
@@ -205,13 +198,13 @@ msgstr "無効"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
+msgstr[0] "出力 %u"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
+msgstr[0] "入力 %u"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1509
 #: mate-volume-control/gvc-mixer-dialog.c:1778
@@ -346,7 +339,7 @@ msgstr "出力の音量"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATE 音量調節ステータスアイコン"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:196
 #: mate-volume-control/gvc-stream-status-icon.c:201
@@ -357,7 +350,7 @@ msgstr "サウンドの設定を起動できませんでした: %s"
 #: mate-volume-control/gvc-stream-applet-icon.c:377
 #: mate-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
-msgstr ""
+msgstr "でミュート"
 
 #: mate-volume-control/gvc-stream-status-icon.c:236
 msgid "_Mute"
@@ -469,8 +462,8 @@ msgstr "サラウンド 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "音量コントロール・ファクトリ"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr "MATE 音量調節ステータスアイコン (_M)"
