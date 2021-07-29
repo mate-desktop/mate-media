@@ -175,11 +175,7 @@ on_status_icon_button_press (GtkStatusIcon       *status_icon,
 static void
 on_menu_mute_toggled (GtkMenuItem *item, GvcStreamStatusIcon *icon)
 {
-        gboolean is_muted;
-
-        is_muted = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (item));
-
-        mate_mixer_stream_control_set_mute (icon->priv->control, is_muted);
+        mate_mixer_stream_control_set_mute (icon->priv->control, !mate_mixer_stream_control_get_mute (icon->priv->control));
 }
 
 static void
@@ -219,10 +215,11 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
         GtkWidget *menu;
         GtkWidget *item;
         GtkWidget *image;
+        g_autofree char *label = NULL;
 
         menu = gtk_menu_new ();
 
-        /*Set up theme and transparency support*/
+        /* Set up theme and transparency support */
         GtkWidget *toplevel = gtk_widget_get_toplevel (menu);
         /* Fix any failures of compiz/other wm's to communicate with gtk for transparency */
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
@@ -234,11 +231,22 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
         gtk_style_context_add_class(context,"gnome-panel-menu-bar");
         gtk_style_context_add_class(context,"mate-panel-menu-bar");
 
-        item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
-        gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
-                                        mate_mixer_stream_control_get_mute (icon->priv->control));
+        if (mate_mixer_stream_control_get_mute (icon->priv->control))
+        {
+                label = g_strdup_printf ("%s %s", _("Unmute"), icon->priv->display_name);
+                /* Set icon to medium*/
+                image = gtk_image_new_from_icon_name(icon->priv->icon_names[2], GTK_ICON_SIZE_MENU);
+        }
+        else
+        {
+                label = g_strdup_printf ("%s %s", _("Mute"), icon->priv->display_name);
+                /* Set icon to muted*/
+                image = gtk_image_new_from_icon_name(icon->priv->icon_names[0], GTK_ICON_SIZE_MENU);
+        }
+        item = gtk_image_menu_item_new_with_mnemonic(label);
+        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
         g_signal_connect (G_OBJECT (item),
-                          "toggled",
+                          "activate",
                           G_CALLBACK (on_menu_mute_toggled),
                           icon);
 
