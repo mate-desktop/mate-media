@@ -1,3 +1,13 @@
+### mate-media 1.26.0
+
+  * Translations update
+  * replace mute/unmute checkmenuitem with imagemenuitem
+  * re-generate po files
+  * update copyright to 2021
+  * man page: mate-volume-control-applet.1 -> mate-volume-control-status-icon.1.
+  * Fix desktop file validation warnings
+  * remove dead function mate_panel_applet_set_background_widget
+
 ### mate-media 1.25.0
 
   * Translations update
