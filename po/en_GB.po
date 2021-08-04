@@ -6,7 +6,7 @@
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Martin Wimpress <code@flexion.org>, 2018
-# Andi Chandler <andi@gowling.com>, 2018
+# Andi Chandler <andi@gowling.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2020-08-18 18:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>, 2018\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2021\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/mate/teams/13566/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgstr "Change sound volume and sound events"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;events;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:255
@@ -52,7 +52,7 @@ msgstr "Show desktop volume control"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;"
 
 #: mate-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -91,7 +91,7 @@ msgstr "_Sound Preferences"
 
 #: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
 msgid "Mute Output"
-msgstr ""
+msgstr "Mute Output"
 
 #: mate-volume-control/gvc-applet.c:401
 #: mate-volume-control/gvc-mixer-dialog.c:2065
@@ -111,11 +111,11 @@ msgstr "MATE Volume Control Applet"
 
 #: mate-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
-msgstr ""
+msgstr "Unmute Output"
 
 #: mate-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Volume Control Applet"
 
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
@@ -334,7 +334,7 @@ msgstr "Sound Output Volume"
 
 #: mate-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATE Volume Control StatusIcon"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:205
 #: mate-volume-control/gvc-stream-status-icon.c:201
@@ -457,8 +457,8 @@ msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Volume Control Factory"
 
 #: mate-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — MATE Volume Control Status Icon"
