@@ -414,7 +414,6 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
                          1, 1,
                          3, 1);
 
-
         gtk_grid_set_baseline_row (GTK_GRID (test), 1);
         gtk_widget_show (face);
 
