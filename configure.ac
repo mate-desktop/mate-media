@@ -156,30 +156,30 @@ mate-volume-control/Makefile
 AC_OUTPUT
 
 echo "
+Configure summary:
 
-                    ${PACKAGE} ${VERSION}
-                    ==========
+    ${PACKAGE_STRING}
+    `echo $PACKAGE_STRING | sed "s/./=/g"`
 
-
-        Prefix:                      ${prefix}
-        Source code location:        ${srcdir}
-        Compiler:                    ${CC}
-        Compiler flags:              ${CFLAGS}
-        Warning flags:               ${WARN_CFLAGS}
+    Prefix .....................: ${prefix}
+    Source code location........: ${srcdir}
+    Compiler ...................: ${CC}
+    Compiler flags .............: ${CFLAGS}
+    Warning flags ..............: ${WARN_CFLAGS}
 "
 #this is needed to get any output when the default is used
 #rather than explicitly specifying whether to build the applet or the tray icon
 
 if test "x$enable_statusicon" = "xno"; then
-	echo "        Building status icon:  no"
+	echo "    Building status icon .......: no"
 else
-	echo "        Building status icon:  yes"
+	echo "    Building status icon .......: yes"
 fi
 
 if test "x$enable_panelapplet" = "xno"; then
-	echo "        Building panel applet: no"
+	echo "    Building panel applet ......: no"
 else
-	echo "        Building panel applet: yes"
+	echo "    Building panel applet ......: yes"
 fi
 #get a newline in the terminal
 echo ""
