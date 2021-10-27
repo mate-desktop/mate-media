@@ -535,7 +535,6 @@ save_alert_sounds (GvcSoundThemeChooser  *chooser,
         return FALSE;
 }
 
-
 static void
 update_alert_model (GvcSoundThemeChooser  *chooser,
                     const char            *id)
