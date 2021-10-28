@@ -45,7 +45,7 @@ main (int argc, char **argv)
         GOptionEntry   entries[] = {
                 { "version", 'v', 0, G_OPTION_ARG_NONE, &show_version, N_("Version of this application"), NULL },
                 { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Enable debug"), NULL },
-                { NULL }
+                { NULL, 0, 0, G_OPTION_ARG_NONE, NULL, NULL, NULL }
         };
 
         bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
