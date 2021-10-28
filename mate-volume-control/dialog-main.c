@@ -192,7 +192,7 @@ main (int argc, char **argv)
                 { "debug",   'd', 0, G_OPTION_ARG_NONE,   &debug, N_("Enable debug"), NULL },
                 { "page",    'p', 0, G_OPTION_ARG_STRING, &page, N_("Startup page"), "effects|hardware|input|output|applications" },
                 { "version", 'v', 0, G_OPTION_ARG_NONE,   &show_version, N_("Version of this application"), NULL },
-                { NULL }
+                { NULL,        0, 0, G_OPTION_ARG_NONE,   NULL, NULL, NULL }
         };
 
         bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
