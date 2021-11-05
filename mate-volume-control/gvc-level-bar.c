@@ -217,6 +217,7 @@ update_peak_value (GvcLevelBar *bar)
         if (value > bar->priv->max_peak) {
                 AtkObject     *acc_obj;
                 char          *acc_string;
+                gdouble        peak_percentage;
 
                 if (bar->priv->max_peak_id > 0)
                         g_source_remove (bar->priv->max_peak_id);
@@ -227,8 +228,8 @@ update_peak_value (GvcLevelBar *bar)
                 /* Providing an accessible based on peaks, so that
                  * it doesn’t get updated too often. */
                 acc_obj = gtk_widget_get_accessible (GTK_WIDGET (bar));
-                acc_string = g_strdup_printf (_("Peak: %d"),
-                                              (int)round (value * 100));
+                peak_percentage = round (value * 100.0);
+                acc_string = g_strdup_printf (_("Peak: %.0lf"), peak_percentage);
                 atk_object_set_name (acc_obj, acc_string);
                 g_free (acc_string);
         }
