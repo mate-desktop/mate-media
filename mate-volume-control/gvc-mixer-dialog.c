@@ -2108,6 +2108,9 @@ gvc_mixer_dialog_constructor (GType                  type,
                                        GTK_ORIENTATION_HORIZONTAL);
         gvc_level_bar_set_scale (GVC_LEVEL_BAR (self->priv->input_level_bar),
                                  GVC_LEVEL_SCALE_LINEAR);
+        gtk_label_set_mnemonic_widget (GTK_LABEL (label),
+                                       self->priv->input_level_bar);
+        gtk_widget_set_can_focus (self->priv->input_level_bar, TRUE);
         gtk_box_pack_start (GTK_BOX (box),
                             self->priv->input_level_bar,
                             TRUE, TRUE, 6);
