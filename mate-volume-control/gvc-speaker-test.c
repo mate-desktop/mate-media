@@ -365,6 +365,7 @@ create_control (ca_context *canberra, MateMixerChannelPosition position)
         gtk_box_pack_start (GTK_BOX (control), label, FALSE, FALSE, 0);
 
         test_button = gtk_button_new_with_label (_("Test"));
+        gtk_label_set_mnemonic_widget (GTK_LABEL (label), test_button);
         g_signal_connect (G_OBJECT (test_button),
                           "clicked",
                           G_CALLBACK (on_test_button_clicked),
