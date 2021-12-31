@@ -763,6 +763,7 @@ gvc_stream_applet_icon_finalize (GObject *object)
         icon = GVC_STREAM_APPLET_ICON (object);
 
         g_strfreev (icon->priv->icon_names);
+        g_clear_pointer (&icon->priv->display_name, g_free);
 
         g_signal_handlers_disconnect_by_func (gtk_settings_get_default (),
                                               on_icon_theme_change,
