@@ -24,6 +24,7 @@
 
 #include <sys/param.h>
 
+#include <math.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
@@ -447,9 +448,10 @@ on_scale_button_press_event (GtkWidget      *widget,
         if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE &&
             bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
                 if (mate_mixer_stream_control_get_mute (bar->priv->control) == TRUE) {
-                        guint minimum = (guint) gtk_adjustment_get_lower (bar->priv->adjustment);
+                        double minimum;
 
-                        if (mate_mixer_stream_control_get_volume (bar->priv->control) > minimum)
+                        minimum = gtk_adjustment_get_lower (bar->priv->adjustment);
+                        if (mate_mixer_stream_control_get_volume (bar->priv->control) > (guint) minimum)
                                 bar->priv->click_lock = TRUE;
                 }
         }
