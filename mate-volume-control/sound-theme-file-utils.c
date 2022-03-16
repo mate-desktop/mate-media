@@ -187,12 +187,12 @@ custom_theme_dir_is_empty (void)
 }
 
 static void
-delete_one_file (const char *sound_name, const char *pattern)
+delete_one_file (const char *sound_name, const char *file_extension)
 {
         GFile *file;
         char *name, *filename;
 
-        name = g_strdup_printf (pattern, sound_name);
+        name = g_strconcat (sound_name, file_extension, NULL);
         filename = custom_theme_dir_path (name);
         g_free (name);
         file = g_file_new_for_path (filename);
@@ -207,7 +207,7 @@ delete_old_files (const char **sounds)
         guint i;
 
         for (i = 0; sounds[i] != NULL; i++) {
-                delete_one_file (sounds[i], "%s.ogg");
+                delete_one_file (sounds[i], ".ogg");
         }
 }
 
@@ -217,7 +217,7 @@ delete_disabled_files (const char **sounds)
         guint i;
 
         for (i = 0; sounds[i] != NULL; i++)
-                delete_one_file (sounds[i], "%s.disabled");
+                delete_one_file (sounds[i], ".disabled");
 }
 
 static void
