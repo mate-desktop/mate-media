@@ -482,15 +482,17 @@ on_adjustment_value_changed (GtkAdjustment *adjustment, GvcBalanceBar *bar)
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                mate_mixer_stream_control_set_balance (bar->priv->control, value);
+                mate_mixer_stream_control_set_balance (bar->priv->control,
+                                                       (gfloat) value);
                 break;
         case BALANCE_TYPE_FR:
-                mate_mixer_stream_control_set_fade (bar->priv->control, value);
+                mate_mixer_stream_control_set_fade (bar->priv->control,
+                                                    (gfloat) value);
                 break;
         case BALANCE_TYPE_LFE:
                 mate_mixer_stream_control_set_channel_volume (bar->priv->control,
-                                                      bar->priv->lfe_channel,
-                                                      value);
+                                                              bar->priv->lfe_channel,
+                                                              (guint) value);
                 break;
         }
 }
