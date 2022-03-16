@@ -150,8 +150,8 @@ reset_max_peak (GvcLevelBar *bar)
 static void
 bar_calc_layout (GvcLevelBar *bar)
 {
-        int           peak_level;
-        int           max_peak_level;
+        gdouble       peak_level;
+        gdouble       max_peak_level;
         GtkAllocation allocation;
 
         GtkStyleContext *context;
@@ -179,8 +179,8 @@ bar_calc_layout (GvcLevelBar *bar)
         bar->priv->layout.area.height = allocation.height - 2;
 
         if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
-                peak_level = bar->priv->peak_fraction * bar->priv->layout.area.height;
-                max_peak_level = bar->priv->max_peak * bar->priv->layout.area.height;
+                peak_level = bar->priv->peak_fraction * (gdouble) bar->priv->layout.area.height;
+                max_peak_level = bar->priv->max_peak * (gdouble) bar->priv->layout.area.height;
 
                 bar->priv->layout.delta = bar->priv->layout.area.height / NUM_BOXES;
                 bar->priv->layout.area.x = 0;
@@ -189,8 +189,8 @@ bar_calc_layout (GvcLevelBar *bar)
                 bar->priv->layout.box_width  = bar->priv->layout.area.width;
                 bar->priv->layout.box_radius = bar->priv->layout.box_width / 2;
         } else {
-                peak_level = bar->priv->peak_fraction * bar->priv->layout.area.width;
-                max_peak_level = bar->priv->max_peak * bar->priv->layout.area.width;
+                peak_level = bar->priv->peak_fraction * (gdouble) bar->priv->layout.area.width;
+                max_peak_level = bar->priv->max_peak * (gdouble) bar->priv->layout.area.width;
 
                 bar->priv->layout.delta = bar->priv->layout.area.width / NUM_BOXES;
                 bar->priv->layout.area.x = 0;
@@ -200,8 +200,8 @@ bar_calc_layout (GvcLevelBar *bar)
                 bar->priv->layout.box_radius = bar->priv->layout.box_height / 2;
         }
 
-        bar->priv->layout.peak_num = peak_level / bar->priv->layout.delta;
-        bar->priv->layout.max_peak_num = max_peak_level / bar->priv->layout.delta;
+        bar->priv->layout.peak_num = (int) (peak_level / (gdouble) bar->priv->layout.delta);
+        bar->priv->layout.max_peak_num = (int) (max_peak_level / (gdouble) bar->priv->layout.delta);
 }
 
 static void
@@ -524,7 +524,7 @@ curved_rectangle (cairo_t *cr,
         x1 = x0 + width;
         y1 = y0 + height;
 
-        if (!width || !height)
+        if (width == 0.0 || height == 0.0)
                 return;
 
         if (width / 2 < radius) {
