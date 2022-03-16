@@ -1796,12 +1796,12 @@ dialog_accel_cb (GtkAccelGroup    *accelgroup,
                  GdkModifierType   mod,
                  GvcMixerDialog   *self)
 {
-        gint num = -1;
-        gint i;
+        gint  num = -1;
+        gsize i;
 
         for (i = 0; i < G_N_ELEMENTS (tab_accel_keys); i++) {
                 if (tab_accel_keys[i] == key) {
-                        num = i;
+                        num = (gint) i;
                         break;
                 }
         }
@@ -1944,7 +1944,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         GtkTreeSelection *selection;
         GtkAccelGroup    *accel_group;
         GtkTreeIter       iter;
-        gint              i;
+        gsize             i;
         const GList      *list;
         GClosure         *closure = NULL;
 
