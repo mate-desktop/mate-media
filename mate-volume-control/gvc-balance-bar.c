@@ -30,12 +30,6 @@
 
 #include "gvc-balance-bar.h"
 
-#define BALANCE_BAR_STYLE                                       \
-        "style \"balance-bar-scale-style\" {\n"                 \
-        " GtkScale::trough-side-details = 0\n"                  \
-        "}\n"                                                   \
-        "widget \"*.balance-bar-scale\" style : rc \"balance-bar-scale-style\"\n"
-
 #define SCALE_SIZE 128
 
 struct _GvcBalanceBarPrivate
