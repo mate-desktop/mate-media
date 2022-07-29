@@ -95,6 +95,10 @@ gboolean            gvc_channel_bar_get_show_marks      (GvcChannelBar      *bar
 void                gvc_channel_bar_set_show_marks      (GvcChannelBar      *bar,
                                                          gboolean            show_marks);
 
+gboolean            gvc_channel_bar_get_show_mark_text  (GvcChannelBar      *bar);
+void                gvc_channel_bar_set_show_mark_text  (GvcChannelBar      *bar,
+                                                         gboolean            show_mark_text);
+
 gboolean            gvc_channel_bar_get_extended        (GvcChannelBar      *bar);
 void                gvc_channel_bar_set_extended        (GvcChannelBar      *bar,
                                                          gboolean            extended);

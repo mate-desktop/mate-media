@@ -52,6 +52,7 @@ struct _GvcChannelBarPrivate
         gboolean                    show_icons;
         gboolean                    show_mute;
         gboolean                    show_marks;
+        gboolean                    show_mark_text;
         gboolean                    extended;
         GtkSizeGroup               *size_group;
         gboolean                    symmetric;
@@ -67,6 +68,7 @@ enum {
         PROP_SHOW_ICONS,
         PROP_SHOW_MUTE,
         PROP_SHOW_MARKS,
+        PROP_SHOW_MARK_TEXT,
         PROP_EXTENDED,
         PROP_NAME,
         PROP_ICON_NAME,
@@ -287,6 +289,28 @@ update_layout (GvcChannelBar *bar)
 }
 
 static void
+update_scale_size (GvcChannelBar *bar)
+{
+        gdouble normal_volume;
+        gdouble maximum_volume;
+        int     calculated_scale_size = SCALE_SIZE;
+
+        if (bar->priv->extended && bar->priv->control != NULL)
+        {
+                normal_volume = mate_mixer_stream_control_get_normal_volume (bar->priv->control);
+                maximum_volume = mate_mixer_stream_control_get_max_volume (bar->priv->control);
+                calculated_scale_size = (maximum_volume / normal_volume) * SCALE_SIZE;
+        }
+
+        if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL)
+                gtk_widget_set_size_request (bar->priv->scale,
+                                             -1, calculated_scale_size);
+        else
+                gtk_widget_set_size_request (bar->priv->scale,
+                                             calculated_scale_size, -1);
+}
+
+static void
 update_marks (GvcChannelBar *bar)
 {
         gdouble  base;
@@ -307,7 +331,11 @@ update_marks (GvcChannelBar *bar)
                 return;
 
         if (base < normal) {
-                gchar *str = g_strdup_printf ("<small>%s</small>", C_("volume", "Unamplified"));
+                gchar *str = NULL;
+
+                if (bar->priv->show_mark_text)
+                        str = g_strdup_printf ("<small>%s</small>",
+                                               C_("volume", "Unamplified"));
 
                 gtk_scale_add_mark (GTK_SCALE (bar->priv->scale),
                                     base,
@@ -320,7 +348,11 @@ update_marks (GvcChannelBar *bar)
         /* Only show 100% mark if the scale is extended beyond 100% and
          * there is no unamplified mark or it is below the normal volume */
         if (bar->priv->extended && (base == normal || base < normal)) {
-                gchar *str = g_strdup_printf ("<small>%s</small>", C_("volume", "100%"));
+                gchar *str = NULL;
+
+                if (bar->priv->show_mark_text)
+                        str = g_strdup_printf ("<small>%s</small>",
+                                               C_("volume", "100%"));
 
                 gtk_scale_add_mark (GTK_SCALE (bar->priv->scale),
                                     normal,
@@ -584,6 +616,7 @@ gvc_channel_bar_set_control (GvcChannelBar *bar, MateMixerStreamControl *control
         update_mute_button (bar);
         update_adjustment_limits (bar);
         update_adjustment_value (bar);
+        update_scale_size (bar);
 }
 
 GtkOrientation
@@ -683,6 +716,28 @@ gvc_channel_bar_set_show_marks (GvcChannelBar *bar, gboolean show_marks)
 }
 
 gboolean
+gvc_channel_bar_get_show_mark_text (GvcChannelBar *bar)
+{
+        g_return_val_if_fail (GVC_IS_CHANNEL_BAR (bar), FALSE);
+
+        return bar->priv->show_mark_text;
+}
+
+void
+gvc_channel_bar_set_show_mark_text (GvcChannelBar *bar, gboolean show_mark_text)
+{
+        g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
+
+        if (show_mark_text == bar->priv->show_mark_text)
+                return;
+
+        bar->priv->show_mark_text = show_mark_text;
+        update_marks (bar);
+
+        g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_SHOW_MARK_TEXT]);
+}
+
+gboolean
 gvc_channel_bar_get_extended (GvcChannelBar *bar)
 {
         g_return_val_if_fail (GVC_IS_CHANNEL_BAR (bar), FALSE);
@@ -704,6 +759,7 @@ gvc_channel_bar_set_extended (GvcChannelBar *bar, gboolean extended)
          * limit at the end of the scale */
         update_marks (bar);
         update_adjustment_limits (bar);
+        update_scale_size (bar);
 
         g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_EXTENDED]);
 }
@@ -940,6 +996,9 @@ gvc_channel_bar_set_property (GObject       *object,
         case PROP_SHOW_MARKS:
                 gvc_channel_bar_set_show_marks (self, g_value_get_boolean (value));
                 break;
+        case PROP_SHOW_MARK_TEXT:
+                gvc_channel_bar_set_show_mark_text (self, g_value_get_boolean (value));
+                break;
         case PROP_EXTENDED:
                 gvc_channel_bar_set_extended (self, g_value_get_boolean (value));
                 break;
@@ -984,6 +1043,9 @@ gvc_channel_bar_get_property (GObject     *object,
                 break;
         case PROP_SHOW_MARKS:
                 g_value_set_boolean (value, self->priv->show_marks);
+                break;
+        case PROP_SHOW_MARK_TEXT:
+                g_value_set_boolean (value, self->priv->show_mark_text);
                 break;
         case PROP_EXTENDED:
                 g_value_set_boolean (value, self->priv->extended);
@@ -1046,6 +1108,15 @@ gvc_channel_bar_class_init (GvcChannelBarClass *klass)
                                       "Show marks",
                                       "Whether to show scale marks",
                                       FALSE,
+                                      G_PARAM_READWRITE |
+                                      G_PARAM_CONSTRUCT |
+                                      G_PARAM_STATIC_STRINGS);
+
+        properties[PROP_SHOW_MARK_TEXT] =
+                g_param_spec_boolean ("show-mark-text",
+                                      "Show mark-text",
+                                      "Whether to show a volume level label next to each scale mark",
+                                      TRUE,
                                       G_PARAM_READWRITE |
                                       G_PARAM_CONSTRUCT |
                                       G_PARAM_STATIC_STRINGS);

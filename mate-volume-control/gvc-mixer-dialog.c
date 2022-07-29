@@ -41,9 +41,11 @@
 
 struct _GvcMixerDialogPrivate
 {
+        GSettings        *sound_settings;
         MateMixerContext *context;
         MateMixerBackendFlags backend_flags;
         GHashTable       *bars;
+        GtkWidget        *volume_overamplifiable_button;
         GtkWidget        *notebook;
         GtkWidget        *output_bar;
         GtkWidget        *input_bar;
@@ -369,6 +371,39 @@ update_output_settings (GvcMixerDialog *dialog)
                 gtk_widget_hide (dialog->priv->output_settings_frame);
 }
 
+/*
+ * Enable or disable the checkbox allowing the user to set the volume above
+ * 100%, depending on whether the maximum volume is greater than the
+ * "normal" volume.  If the maximum volume is greater than the normal
+ * volume, then enable the checkbox; otherwise, over-amplification is not
+ * possible with this control, so disable the checkbox.
+ */
+static void
+update_overamplify_sensitivity (GvcMixerDialog *dialog)
+{
+        MateMixerStreamControl *control;
+        guint                   normal_volume;
+        guint                   maximum_volume;
+
+        control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->output_bar));
+        if (control == NULL)
+        {
+                gtk_widget_set_sensitive (dialog->priv->volume_overamplifiable_button,
+                                          FALSE);
+                return;
+        }
+
+        normal_volume = mate_mixer_stream_control_get_normal_volume (control);
+        maximum_volume = mate_mixer_stream_control_get_max_volume (control);
+
+        if (maximum_volume > normal_volume)
+                gtk_widget_set_sensitive (dialog->priv->volume_overamplifiable_button,
+                                          TRUE);
+        else
+                gtk_widget_set_sensitive (dialog->priv->volume_overamplifiable_button,
+                                          FALSE);
+}
+
 static void
 set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
 {
@@ -420,6 +455,7 @@ set_output_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
         update_default_tree_item (dialog, model, stream);
 
         update_output_settings (dialog);
+        update_overamplify_sensitivity (dialog);
 }
 
 static void
@@ -628,8 +664,7 @@ create_bar (GvcMixerDialog *dialog, gboolean use_size_group, gboolean symmetric)
                       "orientation", GTK_ORIENTATION_HORIZONTAL,
                       "show-mute",   TRUE,
                       "show-icons",  TRUE,
-                      "show-marks",  TRUE,
-                      "extended",    TRUE, NULL);
+                      "show-marks",  TRUE, NULL);
         return bar;
 }
 
@@ -861,6 +896,7 @@ add_stream (GvcMixerDialog *dialog, MateMixerStream *stream)
                         bar_set_stream (dialog, dialog->priv->output_bar, stream);
 
                         update_output_settings (dialog);
+                        update_overamplify_sensitivity (dialog);
                         is_default = TRUE;
                 }
                 model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
@@ -1954,6 +1990,8 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         self = GVC_MIXER_DIALOG (object);
 
+        self->priv->sound_settings = g_settings_new ("org.mate.sound");
+
         gtk_dialog_add_button (GTK_DIALOG (self), "gtk-close", GTK_RESPONSE_OK);
 
         main_vbox = gtk_dialog_get_content_area (GTK_DIALOG (self));
@@ -1961,8 +1999,8 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         gtk_container_set_border_width (GTK_CONTAINER (self), 6);
 
-        self->priv->output_stream_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
-        gtk_widget_set_margin_top (self->priv->output_stream_box, 12);
+        self->priv->output_stream_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+        gtk_container_set_border_width (GTK_CONTAINER (self->priv->output_stream_box), 12);
 
         gtk_box_pack_start (GTK_BOX (main_vbox),
                             self->priv->output_stream_box,
@@ -1972,11 +2010,26 @@ gvc_mixer_dialog_constructor (GType                  type,
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->output_bar),
                                   _("_Output volume: "));
 
+        g_settings_bind (self->priv->sound_settings, "volume-overamplifiable",
+                         self->priv->output_bar,     "extended",
+                         G_SETTINGS_BIND_GET);
+
         gtk_widget_show (self->priv->output_bar);
         gtk_widget_set_sensitive (self->priv->output_bar, FALSE);
 
         gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
-                            self->priv->output_bar, TRUE, TRUE, 12);
+                            self->priv->output_bar, TRUE, TRUE, 0);
+
+        self->priv->volume_overamplifiable_button =
+                gtk_check_button_new_with_mnemonic (_("Allow volume to e_xceed 100%"));
+
+        g_settings_bind (self->priv->sound_settings,                "volume-overamplifiable",
+                         self->priv->volume_overamplifiable_button, "active",
+                         G_SETTINGS_BIND_GET|G_SETTINGS_BIND_SET);
+
+        gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
+                            self->priv->volume_overamplifiable_button,
+                            FALSE, FALSE, 0);
 
         self->priv->notebook = gtk_notebook_new ();
 
@@ -2345,6 +2398,8 @@ gvc_mixer_dialog_dispose (GObject *object)
 
                 g_clear_object (&dialog->priv->context);
         }
+
+        g_clear_object (&dialog->priv->sound_settings);
 
         G_OBJECT_CLASS (gvc_mixer_dialog_parent_class)->dispose (object);
 }

@@ -37,6 +37,7 @@
 
 struct _GvcStreamAppletIconPrivate
 {
+        GSettings              *sound_settings;
         gchar                 **icon_names;
         GtkImage               *image;
         GtkWidget              *dock;
@@ -680,6 +681,8 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
 
         icon->priv = gvc_stream_applet_icon_get_instance_private (icon);
 
+        icon->priv->sound_settings = g_settings_new ("org.mate.sound");
+
         icon->priv->image = GTK_IMAGE (gtk_image_new ());
         gtk_container_add (GTK_CONTAINER (icon), GTK_WIDGET (icon->priv->image));
 
@@ -731,6 +734,17 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          GTK_ORIENTATION_VERTICAL);
 
+        gvc_channel_bar_set_show_mark_text (GVC_CHANNEL_BAR (icon->priv->bar),
+                                            FALSE);
+
+        g_settings_bind (icon->priv->sound_settings, "volume-overamplifiable",
+                         icon->priv->bar,            "show-marks",
+                         G_SETTINGS_BIND_GET);
+
+        g_settings_bind (icon->priv->sound_settings, "volume-overamplifiable",
+                         icon->priv->bar,            "extended",
+                         G_SETTINGS_BIND_GET);
+
         /* Set volume control frame, slider and toplevel window to follow panel theme */
         GtkWidget *toplevel = gtk_widget_get_toplevel (icon->priv->dock);
         GtkStyleContext *context;
@@ -768,6 +782,8 @@ gvc_stream_applet_icon_finalize (GObject *object)
         g_signal_handlers_disconnect_by_func (gtk_settings_get_default (),
                                               on_icon_theme_change,
                                               icon);
+
+        g_clear_object (&icon->priv->sound_settings);
 
         G_OBJECT_CLASS (gvc_stream_applet_icon_parent_class)->finalize (object);
 }
