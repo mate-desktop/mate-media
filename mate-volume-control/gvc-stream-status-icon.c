@@ -381,6 +381,7 @@ static void
 update_icon (GvcStreamStatusIcon *icon)
 {
         guint                volume = 0;
+        guint                volume_percent = 0;
         gdouble              decibel = 0;
         guint                normal = 0;
         gboolean             muted = FALSE;
@@ -408,7 +409,7 @@ update_icon (GvcStreamStatusIcon *icon)
 
                 /* Select an icon, they are expected to be sorted, the lowest index being
                  * the mute icon and the rest being volume increments */
-                if (volume <= 0 || muted)
+                if (volume == 0 || muted)
                         n = 0;
                 else
                         n = CLAMP (3 * volume / normal + 1, 1, 3);
@@ -425,7 +426,9 @@ update_icon (GvcStreamStatusIcon *icon)
 
         description = mate_mixer_stream_control_get_label (icon->priv->control);
 
-        guint volume_percent = (guint) round (100.0 * volume / normal);
+        if (normal != 0)
+                volume_percent = (guint) (100.0 * ((double) volume) / ((double) normal));
+
         if (muted) {
                 markup = g_strdup_printf ("<b>%s: %s %u%%</b>\n<small>%s</small>",
                                           icon->priv->display_name,
