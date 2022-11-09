@@ -11,15 +11,15 @@
 # Kudret <kudretemre@hotmail.com.tr>, 2018
 # Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2018
 # mauron, 2018
-# 0d1bdb3b9a0d4e8f77bc854af8bf3dfc_e6913f4, 2019
+# Sabri Ünal <libreajans@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.25.0\n"
+"Project-Id-Version: mate-media 1.26.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2020-08-18 18:32+0200\n"
+"POT-Creation-Date: 2022-10-29 15:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: 0d1bdb3b9a0d4e8f77bc854af8bf3dfc_e6913f4, 2019\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>, 2022\n"
 "Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,12 +39,12 @@ msgstr "Ses seviyesini ve olay seslerini değiştir"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;ses;kontrol;denetim;mikser;ayarlar;olaylar;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
-#: mate-volume-control/dialog-main.c:255
-#: mate-volume-control/gvc-channel-bar.c:476
-#: mate-volume-control/gvc-speaker-test.c:428
+#: mate-volume-control/dialog-main.c:256
+#: mate-volume-control/gvc-channel-bar.c:502
+#: mate-volume-control/gvc-speaker-test.c:429
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "Ses Kontrolü"
@@ -57,236 +57,241 @@ msgstr "Masaüstü ses kontrolünü göster"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;ses;denetim;mikser;ayarlar;"
 
-#: mate-volume-control/dialog-main.c:143
+#: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
 msgstr "Ses sistemi kullanılabilir değil"
 
-#: mate-volume-control/dialog-main.c:165
+#: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
 msgstr "Ses sisteminin cevabı bekleniyor"
 
-#: mate-volume-control/dialog-main.c:190
+#: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
 msgstr "Ses sistemi arka ucu"
 
-#: mate-volume-control/dialog-main.c:191
-#: mate-volume-control/status-icon-main.c:46
+#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
 msgstr "Hata ayıklamayı etkinleştir"
 
-#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
 msgstr "Başlangıç sayfası"
 
-#: mate-volume-control/dialog-main.c:193
-#: mate-volume-control/status-icon-main.c:45
+#: mate-volume-control/dialog-main.c:194
+#: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
 msgstr "Bu uygulamanın sürümü"
 
-#: mate-volume-control/dialog-main.c:202
+#: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
 msgstr " — MATE Ses Seviyesi Kontrolü"
 
-#: mate-volume-control/gvc-applet.c:56
-#: mate-volume-control/gvc-stream-status-icon.c:246
+#: mate-volume-control/gvc-applet.c:57
+#: mate-volume-control/gvc-stream-status-icon.c:256
 msgid "_Sound Preferences"
 msgstr "_Ses Tercihleri"
 
-#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
+#: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
-msgstr "Sesi Kapat"
+msgstr "Çıktıyı Sustur"
 
-#: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2065
-#: mate-volume-control/gvc-status-icon.c:323
+#: mate-volume-control/gvc-applet.c:402
+#: mate-volume-control/gvc-mixer-dialog.c:2119
+#: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
 msgstr "Giriş"
 
-#: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2152
-#: mate-volume-control/gvc-status-icon.c:324
+#: mate-volume-control/gvc-applet.c:403
+#: mate-volume-control/gvc-mixer-dialog.c:2209
+#: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
-msgstr "Çıkış"
+msgstr "Çıktı"
 
-#: mate-volume-control/gvc-applet.c:406
+#: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
 msgstr "MATE Ses Seviyesi Kontrol Programcığı"
 
-#: mate-volume-control/gvc-applet.c:463
+#: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
-msgstr ""
+msgstr "Çıktıyı Susturma"
 
-#: mate-volume-control/gvc-applet.c:513
+#: mate-volume-control/gvc-applet.c:514
 msgid "Volume Control Applet"
-msgstr "Ses Kontrol Uygulaması"
+msgstr "Ses Seviyesi Kontrol Uygulamacığı"
 
-#: mate-volume-control/gvc-balance-bar.c:137
+#: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
 msgid "Left"
 msgstr "Sol"
 
-#: mate-volume-control/gvc-balance-bar.c:138
+#: mate-volume-control/gvc-balance-bar.c:133
 msgctxt "balance"
 msgid "Right"
 msgstr "Sağ"
 
-#: mate-volume-control/gvc-balance-bar.c:141
+#: mate-volume-control/gvc-balance-bar.c:136
 msgctxt "balance"
 msgid "Rear"
 msgstr "Arka"
 
-#: mate-volume-control/gvc-balance-bar.c:142
+#: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Front"
 msgstr "Ön"
 
-#: mate-volume-control/gvc-balance-bar.c:145
+#: mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Minimum"
 msgstr "En az"
 
-#: mate-volume-control/gvc-balance-bar.c:146
+#: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Azami"
 
-#: mate-volume-control/gvc-balance-bar.c:334
+#: mate-volume-control/gvc-balance-bar.c:329
 msgid "_Balance:"
 msgstr "_Denge:"
 
-#: mate-volume-control/gvc-balance-bar.c:337
+#: mate-volume-control/gvc-balance-bar.c:332
 msgid "_Fade:"
 msgstr "_Geçiş:"
 
-#: mate-volume-control/gvc-balance-bar.c:340
+#: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Subwoofer:"
 msgstr "_Subwoofer:"
 
-#: mate-volume-control/gvc-channel-bar.c:309
+#: mate-volume-control/gvc-channel-bar.c:338
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Yükseltilmemiş"
 
-#: mate-volume-control/gvc-channel-bar.c:322
+#: mate-volume-control/gvc-channel-bar.c:355
 msgctxt "volume"
 msgid "100%"
 msgstr "%100"
 
-#: mate-volume-control/gvc-channel-bar.c:1107
+#: mate-volume-control/gvc-channel-bar.c:1172
+#: mate-volume-control/gvc-stream-status-icon.c:243
 msgid "Mute"
 msgstr "Sessiz"
 
-#: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1614
+#: mate-volume-control/gvc-combo-box.c:250
+#: mate-volume-control/gvc-mixer-dialog.c:1651
 msgid "_Profile:"
 msgstr "_Profil:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:351
-#: mate-volume-control/gvc-mixer-dialog.c:500
+#: mate-volume-control/gvc-mixer-dialog.c:354
+#: mate-volume-control/gvc-mixer-dialog.c:537
 msgid "Co_nnector:"
 msgstr "_Bağlayıcı:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1122
+#: mate-volume-control/gvc-mixer-dialog.c:1159
 msgid "Disabled"
 msgstr "Devre dışı"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1128
+#: mate-volume-control/gvc-mixer-dialog.c:1165
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] "%u Çıkış"
-msgstr[1] "%u Çıkış"
+msgstr[1] "%u Çıktı"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1137
+#: mate-volume-control/gvc-mixer-dialog.c:1174
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u Giriş"
 msgstr[1] "%u Giriş"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1505
-#: mate-volume-control/gvc-mixer-dialog.c:1774
+#: mate-volume-control/gvc-mixer-dialog.c:1542
+#: mate-volume-control/gvc-mixer-dialog.c:1811
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "İsim"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1553
+#: mate-volume-control/gvc-mixer-dialog.c:1590
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s İçin Hoparlör Testi"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1617
+#: mate-volume-control/gvc-mixer-dialog.c:1654
 msgid "Test Speakers"
 msgstr "Hoparlörleri sına"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1822
+#: mate-volume-control/gvc-mixer-dialog.c:1859
 msgid "Sound Effects"
 msgstr "Ses Etkileri"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1845
+#: mate-volume-control/gvc-mixer-dialog.c:1882
 msgid "_Alert volume: "
 msgstr "_Uyarı ses seviyesi:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1972
+#: mate-volume-control/gvc-mixer-dialog.c:2011
 msgid "_Output volume: "
-msgstr "Çıkış _ses seviyesi: "
+msgstr "Çıktı _ses seviyesi: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2022
+#: mate-volume-control/gvc-mixer-dialog.c:2024
+msgid "Allow volume to e_xceed 100%"
+msgstr ""
+
+#: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
 msgstr "Donanım"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2027
+#: mate-volume-control/gvc-mixer-dialog.c:2081
 msgid "C_hoose a device to configure:"
 msgstr "_Yapılandırmak için bir aygıt seçin:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2051
-#: mate-volume-control/gvc-mixer-dialog.c:2181
+#: mate-volume-control/gvc-mixer-dialog.c:2105
+#: mate-volume-control/gvc-mixer-dialog.c:2238
 msgid "Settings for the selected device:"
 msgstr "Seçilen aygıt için ayarlar:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2074
+#: mate-volume-control/gvc-mixer-dialog.c:2128
 msgid "_Input volume: "
 msgstr "_Giriş ses seviyesi:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2099
+#: mate-volume-control/gvc-mixer-dialog.c:2153
 msgid "Input level:"
 msgstr "Giriş seviyesi:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2124
+#: mate-volume-control/gvc-mixer-dialog.c:2181
 msgid "C_hoose a device for sound input:"
 msgstr "Ses _girişi için bir aygıt seçin:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2214
 msgid "C_hoose a device for sound output:"
-msgstr "Ses çı_kışı için bir aygıt seçin:"
+msgstr "Ses çı_ktısı için bir aygıt seçin:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2206
+#: mate-volume-control/gvc-mixer-dialog.c:2263
 msgid "Applications"
 msgstr "Uygulamalar"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2211
+#: mate-volume-control/gvc-mixer-dialog.c:2268
 msgid "No application is currently playing or recording audio."
 msgstr "Şu an da hiçbir uygulama ses çalmıyor veya kaydetmiyor."
 
-#: mate-volume-control/gvc-mixer-dialog.c:2399
+#: mate-volume-control/gvc-mixer-dialog.c:2458
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
 msgstr "Ses Tercihleri"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:316
+#: mate-volume-control/gvc-sound-theme-chooser.c:317
 msgid "No sounds"
 msgstr "Ses yok"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:437
+#: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
 msgstr "Dahili"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
-#: mate-volume-control/sound-theme-file-utils.c:293
+#: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
 msgstr "Kişisel"
 
@@ -320,150 +325,150 @@ msgstr "Bir _uyarı sesi seçin:"
 msgid "Enable _window and button sounds"
 msgstr "_Pencere ve tuş seslerini etkinleştir"
 
-#: mate-volume-control/gvc-speaker-test.c:252
+#: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
 msgstr "Dur"
 
-#: mate-volume-control/gvc-speaker-test.c:252
-#: mate-volume-control/gvc-speaker-test.c:366
+#: mate-volume-control/gvc-speaker-test.c:253
+#: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
 msgstr "Test"
 
-#: mate-volume-control/gvc-status-icon.c:327
+#: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
 msgstr "Mikrofon seviyesi"
 
-#: mate-volume-control/gvc-status-icon.c:329
+#: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
 msgstr "Ses Çıktı Seviyesi"
 
-#: mate-volume-control/gvc-status-icon.c:334
+#: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATE Ses Kontrol Durumİkonu"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:205
-#: mate-volume-control/gvc-stream-status-icon.c:201
+#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Ses Tercihleri başlatılamadı: %ss"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:386
-#: mate-volume-control/gvc-stream-status-icon.c:422
+#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr "Şuna kapalı"
 
-#: mate-volume-control/gvc-stream-status-icon.c:236
-msgid "_Mute"
-msgstr "_Sessiz"
+#: mate-volume-control/gvc-stream-status-icon.c:237
+msgid "Unmute"
+msgstr "Susturma"
 
-#: mate-volume-control/gvc-utils.c:58
+#: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
+#: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
 msgstr "Mono"
 
-#: mate-volume-control/gvc-utils.c:61
+#: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
 msgstr "Ön Sol"
 
-#: mate-volume-control/gvc-utils.c:62
+#: mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
 msgstr "Ön Sağ"
 
-#: mate-volume-control/gvc-utils.c:63
+#: mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
 msgstr "Ön Merkez"
 
-#: mate-volume-control/gvc-utils.c:64
+#: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
 msgstr "Bas Hoparlörü"
 
-#: mate-volume-control/gvc-utils.c:65
+#: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
 msgstr "Arka Sol"
 
-#: mate-volume-control/gvc-utils.c:66
+#: mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
 msgstr "Arka Sağ"
 
-#: mate-volume-control/gvc-utils.c:67
+#: mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
 msgstr "Arka Merkez"
 
-#: mate-volume-control/gvc-utils.c:68
+#: mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
 msgstr "Ön Merkezin Solu"
 
-#: mate-volume-control/gvc-utils.c:69
+#: mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
 msgstr "Ön Merkezin Sağı"
 
-#: mate-volume-control/gvc-utils.c:70
+#: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
 msgstr "Sol Kenar"
 
-#: mate-volume-control/gvc-utils.c:71
+#: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
 msgstr "Sağ Kenar"
 
-#: mate-volume-control/gvc-utils.c:72
+#: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
 msgstr "En Ön Sol"
 
-#: mate-volume-control/gvc-utils.c:73
+#: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
 msgstr "En Ön Sağ"
 
-#: mate-volume-control/gvc-utils.c:74
+#: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
 msgstr "En Ön Merkez"
 
-#: mate-volume-control/gvc-utils.c:75
+#: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
 msgstr "En Orta"
 
-#: mate-volume-control/gvc-utils.c:76
+#: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
 msgstr "En Arka Sol"
 
-#: mate-volume-control/gvc-utils.c:77
+#: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
 msgstr "En Arka Sağ"
 
-#: mate-volume-control/gvc-utils.c:78
+#: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
 msgstr "En Arka Merkez"
 
-#: mate-volume-control/gvc-utils.c:113
+#: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
 msgstr "Stereo"
 
-#: mate-volume-control/gvc-utils.c:120
+#: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
 msgstr "Çevresel ses 4.0"
 
-#: mate-volume-control/gvc-utils.c:128
+#: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
 msgstr "Çevresel ses 4.1"
 
-#: mate-volume-control/gvc-utils.c:130
+#: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
 msgstr "Çevresel ses 5.0"
 
-#: mate-volume-control/gvc-utils.c:140
+#: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
 msgstr "Çevresel Ses 5.1"
 
-#: mate-volume-control/gvc-utils.c:151
+#: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
 msgstr "Çevresel ses 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Ses Kontrol Üreticisi"
 
-#: mate-volume-control/status-icon-main.c:55
+#: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — MATE Ses Kontrol Durum İkonu"

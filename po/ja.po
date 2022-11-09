@@ -7,20 +7,20 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # ABE Tsunehiko, 2018
 # あわしろいくや <ikunya@gmail.com>, 2018
-# Mika Kobayashi, 2018
+# fbc955180bc2b956cb4ef52d00eb80a0_91487f8, 2018
 # Rockers <sumorock@hotmail.com>, 2018
-# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2018
+# 🎈 BALLOON | FU-SEN, 2018
 # Ikuru K <kanumaiku@gmail.com>, 2018
 # semicolon <mail@semicln.com>, 2018
-# Green, 2021
+# Green, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.25.0\n"
+"Project-Id-Version: mate-media 1.26.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2020-08-18 18:32+0200\n"
+"POT-Creation-Date: 2022-10-29 15:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Green, 2021\n"
+"Last-Translator: Green, 2022\n"
 "Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,9 +43,9 @@ msgid "MATE;volume;control;mixer;settings;sound;events;"
 msgstr "MATE;volume;control;mixer;settings;sound;events;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
-#: mate-volume-control/dialog-main.c:255
-#: mate-volume-control/gvc-channel-bar.c:476
-#: mate-volume-control/gvc-speaker-test.c:428
+#: mate-volume-control/dialog-main.c:256
+#: mate-volume-control/gvc-channel-bar.c:502
+#: mate-volume-control/gvc-speaker-test.c:429
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "音量調節ツール"
@@ -60,232 +60,237 @@ msgstr "デスクトップの音量を調節するアプレットです"
 msgid "MATE;volume;control;mixer;settings;sound;"
 msgstr "MATE;volume;control;mixer;settings;sound;"
 
-#: mate-volume-control/dialog-main.c:143
+#: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
 msgstr "サウンドシステムが無効です"
 
-#: mate-volume-control/dialog-main.c:165
+#: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
 msgstr "サウンドシステムからの応答待ちです"
 
-#: mate-volume-control/dialog-main.c:190
+#: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
 msgstr "サウンドシステムバックエンド"
 
-#: mate-volume-control/dialog-main.c:191
-#: mate-volume-control/status-icon-main.c:46
+#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
 msgstr "デバッグを有効にする"
 
-#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
 msgstr "起動時に開くページを指定する"
 
-#: mate-volume-control/dialog-main.c:193
-#: mate-volume-control/status-icon-main.c:45
+#: mate-volume-control/dialog-main.c:194
+#: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
 msgstr "このアプリケーションのバージョンを表示する"
 
-#: mate-volume-control/dialog-main.c:202
+#: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
 msgstr " — 音量調節ツール"
 
-#: mate-volume-control/gvc-applet.c:56
-#: mate-volume-control/gvc-stream-status-icon.c:246
+#: mate-volume-control/gvc-applet.c:57
+#: mate-volume-control/gvc-stream-status-icon.c:256
 msgid "_Sound Preferences"
 msgstr "サウンドの設定(_S)"
 
-#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
+#: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
 msgstr "出力をミュート"
 
-#: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2065
-#: mate-volume-control/gvc-status-icon.c:323
+#: mate-volume-control/gvc-applet.c:402
+#: mate-volume-control/gvc-mixer-dialog.c:2119
+#: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
 msgstr "入力"
 
-#: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2152
-#: mate-volume-control/gvc-status-icon.c:324
+#: mate-volume-control/gvc-applet.c:403
+#: mate-volume-control/gvc-mixer-dialog.c:2209
+#: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
 msgstr "出力"
 
-#: mate-volume-control/gvc-applet.c:406
+#: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
 msgstr "MATE 音量調整アプレット"
 
-#: mate-volume-control/gvc-applet.c:463
+#: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
 msgstr "出力のミュートを解除"
 
-#: mate-volume-control/gvc-applet.c:513
+#: mate-volume-control/gvc-applet.c:514
 msgid "Volume Control Applet"
 msgstr "音量調節アプレット"
 
-#: mate-volume-control/gvc-balance-bar.c:137
+#: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
 msgid "Left"
 msgstr "左"
 
-#: mate-volume-control/gvc-balance-bar.c:138
+#: mate-volume-control/gvc-balance-bar.c:133
 msgctxt "balance"
 msgid "Right"
 msgstr "右"
 
-#: mate-volume-control/gvc-balance-bar.c:141
+#: mate-volume-control/gvc-balance-bar.c:136
 msgctxt "balance"
 msgid "Rear"
 msgstr "リア"
 
-#: mate-volume-control/gvc-balance-bar.c:142
+#: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Front"
 msgstr "フロント"
 
-#: mate-volume-control/gvc-balance-bar.c:145
+#: mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Minimum"
 msgstr "最小"
 
-#: mate-volume-control/gvc-balance-bar.c:146
+#: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Maximum"
 msgstr "最大"
 
-#: mate-volume-control/gvc-balance-bar.c:334
+#: mate-volume-control/gvc-balance-bar.c:329
 msgid "_Balance:"
 msgstr "バランス(_B):"
 
-#: mate-volume-control/gvc-balance-bar.c:337
+#: mate-volume-control/gvc-balance-bar.c:332
 msgid "_Fade:"
 msgstr "フェード(_F):"
 
-#: mate-volume-control/gvc-balance-bar.c:340
+#: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Subwoofer:"
 msgstr "サブウーファー(_S):"
 
-#: mate-volume-control/gvc-channel-bar.c:309
+#: mate-volume-control/gvc-channel-bar.c:338
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "増幅しない"
 
-#: mate-volume-control/gvc-channel-bar.c:322
+#: mate-volume-control/gvc-channel-bar.c:355
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1107
+#: mate-volume-control/gvc-channel-bar.c:1172
+#: mate-volume-control/gvc-stream-status-icon.c:243
 msgid "Mute"
 msgstr "ミュート"
 
-#: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1614
+#: mate-volume-control/gvc-combo-box.c:250
+#: mate-volume-control/gvc-mixer-dialog.c:1651
 msgid "_Profile:"
 msgstr "プロファイル(_P):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:351
-#: mate-volume-control/gvc-mixer-dialog.c:500
+#: mate-volume-control/gvc-mixer-dialog.c:354
+#: mate-volume-control/gvc-mixer-dialog.c:537
 msgid "Co_nnector:"
 msgstr "コネクター(_N):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1122
+#: mate-volume-control/gvc-mixer-dialog.c:1159
 msgid "Disabled"
 msgstr "無効"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1128
+#: mate-volume-control/gvc-mixer-dialog.c:1165
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] "%u 出力"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1137
+#: mate-volume-control/gvc-mixer-dialog.c:1174
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u 入力"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1505
-#: mate-volume-control/gvc-mixer-dialog.c:1774
+#: mate-volume-control/gvc-mixer-dialog.c:1542
+#: mate-volume-control/gvc-mixer-dialog.c:1811
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "名前"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1553
+#: mate-volume-control/gvc-mixer-dialog.c:1590
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s でスピーカのテスト"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1617
+#: mate-volume-control/gvc-mixer-dialog.c:1654
 msgid "Test Speakers"
 msgstr "スピーカのテスト"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1822
+#: mate-volume-control/gvc-mixer-dialog.c:1859
 msgid "Sound Effects"
 msgstr "サウンドの効果"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1845
+#: mate-volume-control/gvc-mixer-dialog.c:1882
 msgid "_Alert volume: "
 msgstr "警告音の音量(_A): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1972
+#: mate-volume-control/gvc-mixer-dialog.c:2011
 msgid "_Output volume: "
 msgstr "出力の音量(_O): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2022
+#: mate-volume-control/gvc-mixer-dialog.c:2024
+msgid "Allow volume to e_xceed 100%"
+msgstr "音量 100% 超を有効にする(_E)"
+
+#: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
 msgstr "ハードウェア"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2027
+#: mate-volume-control/gvc-mixer-dialog.c:2081
 msgid "C_hoose a device to configure:"
 msgstr "設定するデバイスを選択してください(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2051
-#: mate-volume-control/gvc-mixer-dialog.c:2181
+#: mate-volume-control/gvc-mixer-dialog.c:2105
+#: mate-volume-control/gvc-mixer-dialog.c:2238
 msgid "Settings for the selected device:"
 msgstr "選択したデバイスの設定:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2074
+#: mate-volume-control/gvc-mixer-dialog.c:2128
 msgid "_Input volume: "
 msgstr "入力の音量(_I): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2099
+#: mate-volume-control/gvc-mixer-dialog.c:2153
 msgid "Input level:"
 msgstr "入力レベル:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2124
+#: mate-volume-control/gvc-mixer-dialog.c:2181
 msgid "C_hoose a device for sound input:"
 msgstr "サウンドの入力デバイスを選択してください(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2214
 msgid "C_hoose a device for sound output:"
 msgstr "サウンドの出力デバイスを選択してください(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2206
+#: mate-volume-control/gvc-mixer-dialog.c:2263
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2211
+#: mate-volume-control/gvc-mixer-dialog.c:2268
 msgid "No application is currently playing or recording audio."
 msgstr "現在、再生または録音しているアプリケーションはありません"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2399
+#: mate-volume-control/gvc-mixer-dialog.c:2458
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
 msgstr "サウンドの設定"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:316
+#: mate-volume-control/gvc-sound-theme-chooser.c:317
 msgid "No sounds"
 msgstr "なし"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:437
+#: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
 msgstr "インストール済"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
-#: mate-volume-control/sound-theme-file-utils.c:293
+#: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
 msgstr "カスタム"
 
@@ -319,150 +324,150 @@ msgstr "警告音を選択してください(_H):"
 msgid "Enable _window and button sounds"
 msgstr "ウィンドウとボタンの音を鳴らす(_W)"
 
-#: mate-volume-control/gvc-speaker-test.c:252
+#: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
 msgstr "停止"
 
-#: mate-volume-control/gvc-speaker-test.c:252
-#: mate-volume-control/gvc-speaker-test.c:366
+#: mate-volume-control/gvc-speaker-test.c:253
+#: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
 msgstr "テスト"
 
-#: mate-volume-control/gvc-status-icon.c:327
+#: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
-msgstr "マイクのボリューム"
+msgstr "マイクの音量"
 
-#: mate-volume-control/gvc-status-icon.c:329
+#: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
 msgstr "出力の音量"
 
-#: mate-volume-control/gvc-status-icon.c:334
+#: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
 msgstr "MATE 音量調節ステータスアイコン"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:205
-#: mate-volume-control/gvc-stream-status-icon.c:201
+#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "サウンドの設定を起動できませんでした: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:386
-#: mate-volume-control/gvc-stream-status-icon.c:422
+#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr "でミュート"
 
-#: mate-volume-control/gvc-stream-status-icon.c:236
-msgid "_Mute"
-msgstr "ミュート(_M)"
+#: mate-volume-control/gvc-stream-status-icon.c:237
+msgid "Unmute"
+msgstr "ミュート解除"
 
-#: mate-volume-control/gvc-utils.c:58
+#: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
 msgstr "不明"
 
-#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
+#: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
 msgstr "モノラル"
 
-#: mate-volume-control/gvc-utils.c:61
+#: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
 msgstr "左前方"
 
-#: mate-volume-control/gvc-utils.c:62
+#: mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
 msgstr "右前方"
 
-#: mate-volume-control/gvc-utils.c:63
+#: mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
 msgstr "中央前方"
 
-#: mate-volume-control/gvc-utils.c:64
+#: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
 msgstr "LFE"
 
-#: mate-volume-control/gvc-utils.c:65
+#: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
 msgstr "左後方"
 
-#: mate-volume-control/gvc-utils.c:66
+#: mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
 msgstr "右後方"
 
-#: mate-volume-control/gvc-utils.c:67
+#: mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
 msgstr "中央後方"
 
-#: mate-volume-control/gvc-utils.c:68
+#: mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
 msgstr "中央の左前方"
 
-#: mate-volume-control/gvc-utils.c:69
+#: mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
 msgstr "中央の右前方"
 
-#: mate-volume-control/gvc-utils.c:70
+#: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
 msgstr "左側"
 
-#: mate-volume-control/gvc-utils.c:71
+#: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
 msgstr "右側"
 
-#: mate-volume-control/gvc-utils.c:72
+#: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
 msgstr "上左前方"
 
-#: mate-volume-control/gvc-utils.c:73
+#: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
 msgstr "上右前方"
 
-#: mate-volume-control/gvc-utils.c:74
+#: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
 msgstr "上中央前方"
 
-#: mate-volume-control/gvc-utils.c:75
+#: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
 msgstr "上中央"
 
-#: mate-volume-control/gvc-utils.c:76
+#: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
 msgstr "上左後方"
 
-#: mate-volume-control/gvc-utils.c:77
+#: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
 msgstr "上右後方"
 
-#: mate-volume-control/gvc-utils.c:78
+#: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
 msgstr "上中央後方"
 
-#: mate-volume-control/gvc-utils.c:113
+#: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
 msgstr "ステレオ"
 
-#: mate-volume-control/gvc-utils.c:120
+#: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
 msgstr "サラウンド 4.0"
 
-#: mate-volume-control/gvc-utils.c:128
+#: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
 msgstr "サラウンド 4.1"
 
-#: mate-volume-control/gvc-utils.c:130
+#: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
 msgstr "サラウンド 5.0"
 
-#: mate-volume-control/gvc-utils.c:140
+#: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
 msgstr "サラウンド 5.1"
 
-#: mate-volume-control/gvc-utils.c:151
+#: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
 msgstr "サラウンド 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr "音量コントロール・ファクトリ"
+msgstr "音量調節ファクトリ"
 
-#: mate-volume-control/status-icon-main.c:55
+#: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
 msgstr "MATE 音量調節ステータスアイコン (_M)"

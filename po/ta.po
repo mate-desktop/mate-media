@@ -8,9 +8,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.25.0\n"
+"Project-Id-Version: mate-media 1.26.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2020-08-18 18:32+0200\n"
+"POT-Creation-Date: 2022-10-29 15:32+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
 "Language-Team: Tamil (https://www.transifex.com/mate/teams/13566/ta/)\n"
@@ -35,9 +35,9 @@ msgid "MATE;volume;control;mixer;settings;sound;events;"
 msgstr ""
 
 #: data/mate-volume-control-status-icon.desktop.in:3
-#: mate-volume-control/dialog-main.c:255
-#: mate-volume-control/gvc-channel-bar.c:476
-#: mate-volume-control/gvc-speaker-test.c:428
+#: mate-volume-control/dialog-main.c:256
+#: mate-volume-control/gvc-channel-bar.c:502
+#: mate-volume-control/gvc-speaker-test.c:429
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "ஒலிவளவு கட்டுப்பாடு"
@@ -52,234 +52,239 @@ msgstr "பணிமேடை ஒலியளவு கட்டுப்பா�
 msgid "MATE;volume;control;mixer;settings;sound;"
 msgstr ""
 
-#: mate-volume-control/dialog-main.c:143
+#: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
 msgstr ""
 
-#: mate-volume-control/dialog-main.c:165
+#: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
 msgstr "ஒலி அமைப்பு பதிலளிக்க காத்திருக்கிறது"
 
-#: mate-volume-control/dialog-main.c:190
+#: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
 msgstr ""
 
-#: mate-volume-control/dialog-main.c:191
-#: mate-volume-control/status-icon-main.c:46
+#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
 msgstr ""
 
-#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
 msgstr "துவக்க பக்கம்"
 
-#: mate-volume-control/dialog-main.c:193
-#: mate-volume-control/status-icon-main.c:45
+#: mate-volume-control/dialog-main.c:194
+#: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
 msgstr "இந்த பயன்பாட்டின் பதிப்பு"
 
-#: mate-volume-control/dialog-main.c:202
+#: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
 msgstr ""
 
-#: mate-volume-control/gvc-applet.c:56
-#: mate-volume-control/gvc-stream-status-icon.c:246
+#: mate-volume-control/gvc-applet.c:57
+#: mate-volume-control/gvc-stream-status-icon.c:256
 msgid "_Sound Preferences"
 msgstr "ஒலியளவு முன்னுரிமைகள்(_S)"
 
-#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
+#: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
 msgstr ""
 
-#: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2065
-#: mate-volume-control/gvc-status-icon.c:323
+#: mate-volume-control/gvc-applet.c:402
+#: mate-volume-control/gvc-mixer-dialog.c:2119
+#: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
 msgstr "உள்ளீடு"
 
-#: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2152
-#: mate-volume-control/gvc-status-icon.c:324
+#: mate-volume-control/gvc-applet.c:403
+#: mate-volume-control/gvc-mixer-dialog.c:2209
+#: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
 msgstr "வெளிப்பாடு"
 
-#: mate-volume-control/gvc-applet.c:406
+#: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
 msgstr ""
 
-#: mate-volume-control/gvc-applet.c:463
+#: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
 msgstr ""
 
-#: mate-volume-control/gvc-applet.c:513
+#: mate-volume-control/gvc-applet.c:514
 msgid "Volume Control Applet"
 msgstr ""
 
-#: mate-volume-control/gvc-balance-bar.c:137
+#: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
 msgid "Left"
 msgstr "இடது"
 
-#: mate-volume-control/gvc-balance-bar.c:138
+#: mate-volume-control/gvc-balance-bar.c:133
 msgctxt "balance"
 msgid "Right"
 msgstr "வலது"
 
-#: mate-volume-control/gvc-balance-bar.c:141
+#: mate-volume-control/gvc-balance-bar.c:136
 msgctxt "balance"
 msgid "Rear"
 msgstr "பின்"
 
-#: mate-volume-control/gvc-balance-bar.c:142
+#: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Front"
 msgstr "முன்"
 
-#: mate-volume-control/gvc-balance-bar.c:145
+#: mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Minimum"
 msgstr "குறைந்த பட்சம்"
 
-#: mate-volume-control/gvc-balance-bar.c:146
+#: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Maximum"
 msgstr "அதிக பட்சம்"
 
-#: mate-volume-control/gvc-balance-bar.c:334
+#: mate-volume-control/gvc-balance-bar.c:329
 msgid "_Balance:"
 msgstr "மீதி (_B):"
 
-#: mate-volume-control/gvc-balance-bar.c:337
+#: mate-volume-control/gvc-balance-bar.c:332
 msgid "_Fade:"
 msgstr "_F மெதுவாக அழி:"
 
-#: mate-volume-control/gvc-balance-bar.c:340
+#: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Subwoofer:"
 msgstr "_S சப் வூஃபர்"
 
-#: mate-volume-control/gvc-channel-bar.c:309
+#: mate-volume-control/gvc-channel-bar.c:338
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "செறிவூட்டாத"
 
-#: mate-volume-control/gvc-channel-bar.c:322
+#: mate-volume-control/gvc-channel-bar.c:355
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1107
+#: mate-volume-control/gvc-channel-bar.c:1172
+#: mate-volume-control/gvc-stream-status-icon.c:243
 msgid "Mute"
 msgstr "அமைதியாக்கு"
 
-#: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1614
+#: mate-volume-control/gvc-combo-box.c:250
+#: mate-volume-control/gvc-mixer-dialog.c:1651
 msgid "_Profile:"
 msgstr "விவரக்குறிப்பு: (_P)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:351
-#: mate-volume-control/gvc-mixer-dialog.c:500
+#: mate-volume-control/gvc-mixer-dialog.c:354
+#: mate-volume-control/gvc-mixer-dialog.c:537
 msgid "Co_nnector:"
 msgstr "இணைப்பி: (_n)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1122
+#: mate-volume-control/gvc-mixer-dialog.c:1159
 msgid "Disabled"
 msgstr "செயல்நீக்கப்பட்டது"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1128
+#: mate-volume-control/gvc-mixer-dialog.c:1165
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1137
+#: mate-volume-control/gvc-mixer-dialog.c:1174
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1505
-#: mate-volume-control/gvc-mixer-dialog.c:1774
+#: mate-volume-control/gvc-mixer-dialog.c:1542
+#: mate-volume-control/gvc-mixer-dialog.c:1811
 #: mate-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "பெயர்"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1553
+#: mate-volume-control/gvc-mixer-dialog.c:1590
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1617
+#: mate-volume-control/gvc-mixer-dialog.c:1654
 msgid "Test Speakers"
 msgstr ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1822
+#: mate-volume-control/gvc-mixer-dialog.c:1859
 msgid "Sound Effects"
 msgstr "ஒலி விளைவுகள்"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1845
+#: mate-volume-control/gvc-mixer-dialog.c:1882
 msgid "_Alert volume: "
 msgstr "விழிப்பூட்டும் ஒலியளவு: (_A)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1972
+#: mate-volume-control/gvc-mixer-dialog.c:2011
 msgid "_Output volume: "
 msgstr "வெளியேறும் ஒலியளவு: (_O)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2022
+#: mate-volume-control/gvc-mixer-dialog.c:2024
+msgid "Allow volume to e_xceed 100%"
+msgstr ""
+
+#: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
 msgstr "வண் பொருட்கள்"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2027
+#: mate-volume-control/gvc-mixer-dialog.c:2081
 msgid "C_hoose a device to configure:"
 msgstr "கட்டமைப்புக்கு ஒரு சாதனத்தை தேர்ந்தெடு: (_h)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2051
-#: mate-volume-control/gvc-mixer-dialog.c:2181
+#: mate-volume-control/gvc-mixer-dialog.c:2105
+#: mate-volume-control/gvc-mixer-dialog.c:2238
 msgid "Settings for the selected device:"
 msgstr "தேர்ந்தெடுக்கப்பட்ட சாதனத்தின் அமைப்புகள்:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2074
+#: mate-volume-control/gvc-mixer-dialog.c:2128
 msgid "_Input volume: "
 msgstr "உள்ளீடு ஒலியளவு: (_I)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2099
+#: mate-volume-control/gvc-mixer-dialog.c:2153
 msgid "Input level:"
 msgstr "உள்ளீடு நிலை:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2124
+#: mate-volume-control/gvc-mixer-dialog.c:2181
 msgid "C_hoose a device for sound input:"
 msgstr "ஒலி உள்ளீட்டிற்கு ஒரு சாதனத்தை தேர்ந்தெடு: (_h)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2214
 msgid "C_hoose a device for sound output:"
 msgstr "ஒலி வெளிப்பாடு சாதனத்தை தேர்ந்தெடு: (_h)"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2206
+#: mate-volume-control/gvc-mixer-dialog.c:2263
 msgid "Applications"
 msgstr "பயன்பாடுகள்"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2211
+#: mate-volume-control/gvc-mixer-dialog.c:2268
 msgid "No application is currently playing or recording audio."
 msgstr "ஆடியோவை ஒரு பயன்பாடும் தற்போது இயக்கவில்லை அல்லது பதிவு செய்யவில்லை"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2399
+#: mate-volume-control/gvc-mixer-dialog.c:2458
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
 #: mate-volume-control/gvc-sound-theme-chooser.c:740
 #: mate-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
 msgstr "ஒலியளவு முன்னுரிமைகள்"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:316
+#: mate-volume-control/gvc-sound-theme-chooser.c:317
 msgid "No sounds"
 msgstr "ஒலியளவு இல்லை"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:437
+#: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
 msgstr "உட்பொதியப்பட்டது"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
-#: mate-volume-control/sound-theme-file-utils.c:293
+#: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
 msgstr "தனிப்பயன்"
 
@@ -313,143 +318,143 @@ msgstr "ஒரு விழிப்பூட்டும் ஒலியை த
 msgid "Enable _window and button sounds"
 msgstr "சாளரம் மற்றும் பொத்தான் ஒலிகளை செயல்படுத்து ( _w)"
 
-#: mate-volume-control/gvc-speaker-test.c:252
+#: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
 msgstr "நிறுத்து"
 
-#: mate-volume-control/gvc-speaker-test.c:252
-#: mate-volume-control/gvc-speaker-test.c:366
+#: mate-volume-control/gvc-speaker-test.c:253
+#: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
 msgstr ""
 
-#: mate-volume-control/gvc-status-icon.c:327
+#: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
 msgstr ""
 
-#: mate-volume-control/gvc-status-icon.c:329
+#: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
 msgstr ""
 
-#: mate-volume-control/gvc-status-icon.c:334
+#: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
 msgstr ""
 
-#: mate-volume-control/gvc-stream-applet-icon.c:205
-#: mate-volume-control/gvc-stream-status-icon.c:201
+#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "ஒலியளவு கட்டுப்பாடு முன்னுரிமைகளில் தோல்வி : %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:386
-#: mate-volume-control/gvc-stream-status-icon.c:422
+#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr ""
 
-#: mate-volume-control/gvc-stream-status-icon.c:236
-msgid "_Mute"
-msgstr "அமைதியாக்கு(_M)"
+#: mate-volume-control/gvc-stream-status-icon.c:237
+msgid "Unmute"
+msgstr ""
 
-#: mate-volume-control/gvc-utils.c:58
+#: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
 msgstr "தெரியாத"
 
-#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
+#: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:61
+#: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:62
+#: mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:63
+#: mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:64
+#: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
 msgstr "LFE"
 
-#: mate-volume-control/gvc-utils.c:65
+#: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:66
+#: mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:67
+#: mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:68
+#: mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:69
+#: mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:70
+#: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:71
+#: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:72
+#: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:73
+#: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:74
+#: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:75
+#: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:76
+#: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:77
+#: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:78
+#: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:113
+#: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:120
+#: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:128
+#: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:130
+#: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:140
+#: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
 msgstr ""
 
-#: mate-volume-control/gvc-utils.c:151
+#: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
 msgstr ""
 
@@ -457,6 +462,6 @@ msgstr ""
 msgid "Volume Control Factory"
 msgstr ""
 
-#: mate-volume-control/status-icon-main.c:55
+#: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
 msgstr ""
