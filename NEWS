@@ -1,3 +1,22 @@
+### mate-media 1.27.0
+
+  * tx: sync with transifex
+  * tx: update resource
+  * tx: migrate config file
+  * gvc-stream-status-icon: fix a volume rounding error (101% -> 100%)
+  * Add setting for adjustment of audio volume above 100 per cent:  Part 2
+  * Fix build warnings about missing field initializer
+  * gvc-balance-bar: fix build warning -Wunused-macros
+  * gvc-stream-applet-icon: fix memory leak
+  * sound-theme-file-utils: fix build warning -Wformat-nonliteral
+  * Fix warnings -Wfloat-conversion, -Wimplicit-float-conversion
+  * gvc-mixer-dialog: fix build warning -Wsign-compare
+  * ci: drop -Wunused-parameter compiler cflag from debian build
+  * build: show configure summary using a pretty format
+  * Use a blank line at most
+  * Accessibility improvements
+  * Revert Fix desktop file validation warnings
+
 ### mate-media 1.26.0
 
   * Translations update
