@@ -1,3 +1,10 @@
+### mate-media 1.26.1
+
+  * Translations update
+    gvc-stream-applet-icon: fix memory leak
+    Accessibility improvements
+    Revert Fix desktop file validation warnings
+
 ### mate-media 1.26.0
 
   * Translations update

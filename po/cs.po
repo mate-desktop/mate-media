@@ -4,23 +4,23 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# huskyviking <husky.viking@seznam.cz>, 2018
-# Radek kohout <radekpv@seznam.cz>, 2018
-# LiberteCzech <liberte.czech@gmail.com>, 2018
-# 6e833d5535e2fe0dd9dfa7fe5bf473f2_d78f422 <64c38a0ff10419c64e8e03d54c72b3bd_352524>, 2018
-# Roman Horník <roman.hornik@debian-linux.cz>, 2018
-# ToMáš Marný, 2019
-# Lukáš Lommer <drom@kdyne.net>, 2020
+# Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# Lukáš Lommer <drom@kdyne.net>, 2021
+# huskyviking <husky.viking@seznam.cz>, 2021
+# Radek kohout <radekpv@seznam.cz>, 2021
+# LiberteCzech <martin.kriz.czech@gmail.com>, 2021
+# 6e833d5535e2fe0dd9dfa7fe5bf473f2_d78f422 <64c38a0ff10419c64e8e03d54c72b3bd_352524>, 2021
+# Roman Horník <roman.hornik@debian-linux.cz>, 2021
+# ToMáš Marný, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2020-08-18 18:32+0200\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Lukáš Lommer <drom@kdyne.net>, 2020\n"
-"Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
+"POT-Creation-Date: 2021-08-04 15:36+0200\n"
+"PO-Revision-Date: 2021-09-19 13:23+0000\n"
+"Last-Translator: ToMáš Marný, 2021\n"
+"Language-Team: Czech (https://app.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,9 +43,9 @@ msgstr ""
 "MATE;hlasitost;ovládání;ovládat;mixer;směšovač;nastavení;zvuk;události;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
-#: mate-volume-control/dialog-main.c:255
-#: mate-volume-control/gvc-channel-bar.c:476
-#: mate-volume-control/gvc-speaker-test.c:428
+#: mate-volume-control/dialog-main.c:256
+#: mate-volume-control/gvc-channel-bar.c:477
+#: mate-volume-control/gvc-speaker-test.c:429
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "Ovládání hlasitosti"
@@ -60,140 +60,141 @@ msgstr "Zobrazí ovládání hlasitosti pracovního prostředí"
 msgid "MATE;volume;control;mixer;settings;sound;"
 msgstr "MATE;hlasitost;ovládání;mixer;nastavení;zvuk;"
 
-#: mate-volume-control/dialog-main.c:143
+#: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
 msgstr "Zvukový systém není dostupný"
 
-#: mate-volume-control/dialog-main.c:165
+#: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
 msgstr "Čekání na odpověď zvukového systému"
 
-#: mate-volume-control/dialog-main.c:190
+#: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
 msgstr "Backend zvukového systému"
 
-#: mate-volume-control/dialog-main.c:191
-#: mate-volume-control/status-icon-main.c:46
+#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
 msgstr "Zapnout ladění"
 
-#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
 msgstr "Spouštěcí stránka"
 
-#: mate-volume-control/dialog-main.c:193
-#: mate-volume-control/status-icon-main.c:45
+#: mate-volume-control/dialog-main.c:194
+#: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
 msgstr "Verze této aplikace"
 
-#: mate-volume-control/dialog-main.c:202
+#: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
 msgstr " – ovládání hlasitosti MATE"
 
-#: mate-volume-control/gvc-applet.c:56
-#: mate-volume-control/gvc-stream-status-icon.c:246
+#: mate-volume-control/gvc-applet.c:57
+#: mate-volume-control/gvc-stream-status-icon.c:255
 msgid "_Sound Preferences"
 msgstr "Př_edvolby zvuku"
 
-#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
+#: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
 msgstr "Ztlumit výstup"
 
-#: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2065
-#: mate-volume-control/gvc-status-icon.c:323
+#: mate-volume-control/gvc-applet.c:402
+#: mate-volume-control/gvc-mixer-dialog.c:2066
+#: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
 msgstr "Vstup"
 
-#: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2152
-#: mate-volume-control/gvc-status-icon.c:324
+#: mate-volume-control/gvc-applet.c:403
+#: mate-volume-control/gvc-mixer-dialog.c:2153
+#: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
 msgstr "Výstup"
 
-#: mate-volume-control/gvc-applet.c:406
+#: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
 msgstr "Zvukový řídící applet MATE"
 
-#: mate-volume-control/gvc-applet.c:463
+#: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
 msgstr "Zrušit ztlumení výstupu"
 
-#: mate-volume-control/gvc-applet.c:513
+#: mate-volume-control/gvc-applet.c:514
 msgid "Volume Control Applet"
 msgstr "Applet ovládání hlasitosti"
 
-#: mate-volume-control/gvc-balance-bar.c:137
+#: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Left"
 msgstr "Vlevo"
 
-#: mate-volume-control/gvc-balance-bar.c:138
+#: mate-volume-control/gvc-balance-bar.c:139
 msgctxt "balance"
 msgid "Right"
 msgstr "Vpravo"
 
-#: mate-volume-control/gvc-balance-bar.c:141
+#: mate-volume-control/gvc-balance-bar.c:142
 msgctxt "balance"
 msgid "Rear"
 msgstr "Zadní"
 
-#: mate-volume-control/gvc-balance-bar.c:142
+#: mate-volume-control/gvc-balance-bar.c:143
 msgctxt "balance"
 msgid "Front"
 msgstr "Přední"
 
-#: mate-volume-control/gvc-balance-bar.c:145
+#: mate-volume-control/gvc-balance-bar.c:146
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Minimum"
 
-#: mate-volume-control/gvc-balance-bar.c:146
+#: mate-volume-control/gvc-balance-bar.c:147
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Maximum"
 
-#: mate-volume-control/gvc-balance-bar.c:334
+#: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Balance:"
 msgstr "_Vyvážení:"
 
-#: mate-volume-control/gvc-balance-bar.c:337
+#: mate-volume-control/gvc-balance-bar.c:338
 msgid "_Fade:"
 msgstr "_Prolínání:"
 
-#: mate-volume-control/gvc-balance-bar.c:340
+#: mate-volume-control/gvc-balance-bar.c:341
 msgid "_Subwoofer:"
 msgstr "_Subwoofer:"
 
-#: mate-volume-control/gvc-channel-bar.c:309
+#: mate-volume-control/gvc-channel-bar.c:310
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Nezesílené"
 
-#: mate-volume-control/gvc-channel-bar.c:322
+#: mate-volume-control/gvc-channel-bar.c:323
 msgctxt "volume"
 msgid "100%"
 msgstr "100 %"
 
-#: mate-volume-control/gvc-channel-bar.c:1107
+#: mate-volume-control/gvc-channel-bar.c:1108
+#: mate-volume-control/gvc-stream-status-icon.c:242
 msgid "Mute"
 msgstr "Ztlumit"
 
-#: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1614
+#: mate-volume-control/gvc-combo-box.c:250
+#: mate-volume-control/gvc-mixer-dialog.c:1615
 msgid "_Profile:"
 msgstr "_Profil:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:351
-#: mate-volume-control/gvc-mixer-dialog.c:500
+#: mate-volume-control/gvc-mixer-dialog.c:352
+#: mate-volume-control/gvc-mixer-dialog.c:501
 msgid "Co_nnector:"
 msgstr "Ko_nektor:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1122
+#: mate-volume-control/gvc-mixer-dialog.c:1123
 msgid "Disabled"
-msgstr "Zakázáno"
+msgstr "Vypnuto"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1128
+#: mate-volume-control/gvc-mixer-dialog.c:1129
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
@@ -202,7 +203,7 @@ msgstr[1] "%u výstupy"
 msgstr[2] "%u výstupů"
 msgstr[3] "%u výstupů"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1137
+#: mate-volume-control/gvc-mixer-dialog.c:1138
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
@@ -211,257 +212,257 @@ msgstr[1] "%u vstupy"
 msgstr[2] "%u vstupů"
 msgstr[3] "%u vstupů"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1505
-#: mate-volume-control/gvc-mixer-dialog.c:1774
-#: mate-volume-control/gvc-sound-theme-chooser.c:864
+#: mate-volume-control/gvc-mixer-dialog.c:1506
+#: mate-volume-control/gvc-mixer-dialog.c:1775
+#: mate-volume-control/gvc-sound-theme-chooser.c:865
 msgid "Name"
 msgstr "Název"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1553
+#: mate-volume-control/gvc-mixer-dialog.c:1554
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Testování reproduktorů %s"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1617
+#: mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "Test Speakers"
 msgstr "Otestovat reproduktory"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1822
+#: mate-volume-control/gvc-mixer-dialog.c:1823
 msgid "Sound Effects"
 msgstr "Zvukové efekty"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1845
+#: mate-volume-control/gvc-mixer-dialog.c:1846
 msgid "_Alert volume: "
 msgstr "Hl_asitost upozornění: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1972
+#: mate-volume-control/gvc-mixer-dialog.c:1973
 msgid "_Output volume: "
 msgstr "_Výstupní hlasitost: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2022
+#: mate-volume-control/gvc-mixer-dialog.c:2023
 msgid "Hardware"
 msgstr "Hardware"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2027
+#: mate-volume-control/gvc-mixer-dialog.c:2028
 msgid "C_hoose a device to configure:"
 msgstr "Zařízení nastavíte je_ho vybráním:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2051
-#: mate-volume-control/gvc-mixer-dialog.c:2181
+#: mate-volume-control/gvc-mixer-dialog.c:2052
+#: mate-volume-control/gvc-mixer-dialog.c:2182
 msgid "Settings for the selected device:"
 msgstr "Nastavení vybraného zařízení:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2074
+#: mate-volume-control/gvc-mixer-dialog.c:2075
 msgid "_Input volume: "
 msgstr "Vstupní hlas_itost: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2099
+#: mate-volume-control/gvc-mixer-dialog.c:2100
 msgid "Input level:"
 msgstr "Vstupní úroveň:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2124
+#: mate-volume-control/gvc-mixer-dialog.c:2125
 msgid "C_hoose a device for sound input:"
 msgstr "V_yberte zařízení zvukového vstupu:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2158
 msgid "C_hoose a device for sound output:"
 msgstr "V_yberte zařízení zvukového výstupu:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2206
+#: mate-volume-control/gvc-mixer-dialog.c:2207
 msgid "Applications"
 msgstr "Aplikace"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2211
+#: mate-volume-control/gvc-mixer-dialog.c:2212
 msgid "No application is currently playing or recording audio."
 msgstr "Žádná aplikace aktuálně nepřehrává nebo nezaznamenává zvuk."
 
-#: mate-volume-control/gvc-mixer-dialog.c:2399
-#: mate-volume-control/gvc-sound-theme-chooser.c:728
-#: mate-volume-control/gvc-sound-theme-chooser.c:740
-#: mate-volume-control/gvc-sound-theme-chooser.c:752
+#: mate-volume-control/gvc-mixer-dialog.c:2400
+#: mate-volume-control/gvc-sound-theme-chooser.c:729
+#: mate-volume-control/gvc-sound-theme-chooser.c:741
+#: mate-volume-control/gvc-sound-theme-chooser.c:753
 msgid "Sound Preferences"
 msgstr "Předvolby zvuku"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:316
+#: mate-volume-control/gvc-sound-theme-chooser.c:317
 msgid "No sounds"
 msgstr "Bez zvuků"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:437
+#: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
 msgstr "Zabudované"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:624
-#: mate-volume-control/sound-theme-file-utils.c:293
+#: mate-volume-control/gvc-sound-theme-chooser.c:625
+#: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
 msgstr "Vlastní"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:731
-#: mate-volume-control/gvc-sound-theme-chooser.c:742
-#: mate-volume-control/gvc-sound-theme-chooser.c:754
+#: mate-volume-control/gvc-sound-theme-chooser.c:732
+#: mate-volume-control/gvc-sound-theme-chooser.c:743
+#: mate-volume-control/gvc-sound-theme-chooser.c:755
 msgid "Testing event sound"
 msgstr "Testují se zvuky událostí"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:840
+#: mate-volume-control/gvc-sound-theme-chooser.c:841
 msgid "Default"
 msgstr "Výchozí"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:841
+#: mate-volume-control/gvc-sound-theme-chooser.c:842
 msgid "From theme"
 msgstr "Z motivu"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:871
+#: mate-volume-control/gvc-sound-theme-chooser.c:872
 msgid "Type"
-msgstr "Druh"
+msgstr "Typ"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1028
+#: mate-volume-control/gvc-sound-theme-chooser.c:1029
 msgid "Sound _theme:"
 msgstr "Mo_tiv zvuku:"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1041
+#: mate-volume-control/gvc-sound-theme-chooser.c:1042
 msgid "C_hoose an alert sound:"
 msgstr "V_yberte zvuk upozornění:"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1069
+#: mate-volume-control/gvc-sound-theme-chooser.c:1070
 msgid "Enable _window and button sounds"
 msgstr "P_ovolit zvuky oken a tlačítek"
 
-#: mate-volume-control/gvc-speaker-test.c:252
+#: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
 msgstr "Zastavit"
 
-#: mate-volume-control/gvc-speaker-test.c:252
-#: mate-volume-control/gvc-speaker-test.c:366
+#: mate-volume-control/gvc-speaker-test.c:253
+#: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
 msgstr "Otestovat"
 
-#: mate-volume-control/gvc-status-icon.c:327
+#: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
 msgstr "Hlasitost mikrofonu"
 
-#: mate-volume-control/gvc-status-icon.c:329
+#: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
 msgstr "Výstupní hlasitost zvuku"
 
-#: mate-volume-control/gvc-status-icon.c:334
+#: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
 msgstr "Stavová ikona ovládání hlasitosti MATE"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:205
-#: mate-volume-control/gvc-stream-status-icon.c:201
+#: mate-volume-control/gvc-stream-applet-icon.c:206
+#: mate-volume-control/gvc-stream-status-icon.c:198
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Nezdařilo se spustit předvolby zvuku: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:386
-#: mate-volume-control/gvc-stream-status-icon.c:422
+#: mate-volume-control/gvc-stream-applet-icon.c:387
+#: mate-volume-control/gvc-stream-status-icon.c:431
 msgid "Muted at"
 msgstr "Ztlumeno při"
 
 #: mate-volume-control/gvc-stream-status-icon.c:236
-msgid "_Mute"
-msgstr "Z_tlumit"
+msgid "Unmute"
+msgstr "Zapnout zvuk"
 
-#: mate-volume-control/gvc-utils.c:58
+#: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
-msgstr "Neznámo"
+msgstr "Neznámé"
 
-#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
+#: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
 msgstr "Mono"
 
-#: mate-volume-control/gvc-utils.c:61
+#: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
 msgstr "přední levý"
 
-#: mate-volume-control/gvc-utils.c:62
+#: mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
 msgstr "pravý přední"
 
-#: mate-volume-control/gvc-utils.c:63
+#: mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
 msgstr "přední střední"
 
-#: mate-volume-control/gvc-utils.c:64
+#: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
 msgstr "LFE, subwoofer"
 
-#: mate-volume-control/gvc-utils.c:65
+#: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
 msgstr "zadní levý"
 
-#: mate-volume-control/gvc-utils.c:66
+#: mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
 msgstr "zadní pravý"
 
-#: mate-volume-control/gvc-utils.c:67
+#: mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
 msgstr "zadní střední"
 
-#: mate-volume-control/gvc-utils.c:68
+#: mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
 msgstr "přední levý nebo prostřední"
 
-#: mate-volume-control/gvc-utils.c:69
+#: mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
 msgstr "přední pravý nebo prostřední"
 
-#: mate-volume-control/gvc-utils.c:70
+#: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
 msgstr "Postranní levý"
 
-#: mate-volume-control/gvc-utils.c:71
+#: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
 msgstr "Postranní pravý"
 
-#: mate-volume-control/gvc-utils.c:72
+#: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
 msgstr "Hlavní přední vlevo"
 
-#: mate-volume-control/gvc-utils.c:73
+#: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
 msgstr "Hlavní přední vpravo"
 
-#: mate-volume-control/gvc-utils.c:74
+#: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
 msgstr "Hlavní přední uprostřed"
 
-#: mate-volume-control/gvc-utils.c:75
+#: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
 msgstr "Hlavní střed"
 
-#: mate-volume-control/gvc-utils.c:76
+#: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
 msgstr "Hlavní zadní vlevo"
 
-#: mate-volume-control/gvc-utils.c:77
+#: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
 msgstr "Hlavní zadní vpravo"
 
-#: mate-volume-control/gvc-utils.c:78
+#: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
 msgstr "Hlavní zadní uprostřed"
 
-#: mate-volume-control/gvc-utils.c:113
+#: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
 msgstr "Stereo"
 
-#: mate-volume-control/gvc-utils.c:120
+#: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
 msgstr "Surround 4.0"
 
-#: mate-volume-control/gvc-utils.c:128
+#: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
 msgstr "Surround 4.1"
 
-#: mate-volume-control/gvc-utils.c:130
+#: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
 msgstr "Surround 5.0"
 
-#: mate-volume-control/gvc-utils.c:140
+#: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
 msgstr "Surround 5.1"
 
-#: mate-volume-control/gvc-utils.c:151
+#: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
 
@@ -469,6 +470,6 @@ msgstr "Surround 7.1"
 msgid "Volume Control Factory"
 msgstr "Generátor ovládání hlasitosti"
 
-#: mate-volume-control/status-icon-main.c:55
+#: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
 msgstr " — Stavová ikona ovládání hlasitosti MATE"

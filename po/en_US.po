@@ -4,15 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# e0c668032ced196bd60f2b6a070d982d_8f72ae0, 2021
-# Stefano Karapetsas <stefano@karapetsas.com>, 2021
-# liu lizhi <xingzuo88@qq.com>, 2021
-# Mingcong Bai <jeffbai@aosc.xyz>, 2021
-# shuyu liu <liushuyu011@gmail.com>, 2021
-# Wolfgang Ulbrich <mate@raveit.de>, 2021
-# zhineng404 <zhinengge@gmail.com>, 2021
-# 玉堂白鹤 <yjwork@qq.com>, 2021
-# Wenbin Lv <wenbin816@gmail.com>, 2022
+# Christopher Patrick <cpatrick08@rocketmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -20,27 +12,27 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2021-08-04 15:36+0200\n"
 "PO-Revision-Date: 2021-09-19 13:23+0000\n"
-"Last-Translator: Wenbin Lv <wenbin816@gmail.com>, 2022\n"
-"Language-Team: Chinese (China) (https://app.transifex.com/mate/teams/13566/zh_CN/)\n"
+"Last-Translator: Christopher Patrick <cpatrick08@rocketmail.com>, 2021\n"
+"Language-Team: English (United States) (https://app.transifex.com/mate/teams/13566/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
-msgstr "音效"
+msgstr ""
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
-msgstr "更改音量以及将声音与事件关联"
+msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr "MATE;音量;控制;混音;设置;声音;事件;"
+msgstr ""
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:256
@@ -48,422 +40,424 @@ msgstr "MATE;音量;控制;混音;设置;声音;事件;"
 #: mate-volume-control/gvc-speaker-test.c:429
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
-msgstr "音量控制"
+msgstr ""
 
 #: data/mate-volume-control-status-icon.desktop.in:4
 msgid "Show desktop volume control"
-msgstr "显示桌面音量控制"
+msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr "MATE;音量;控制;混音;设置;声音;"
+msgstr ""
 
 #: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
-msgstr "声音系统不可用"
+msgstr ""
 
 #: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
-msgstr "正在等待声音系统响应"
+msgstr ""
 
 #: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
-msgstr "声音系统后台"
+msgstr ""
 
 #: mate-volume-control/dialog-main.c:192
 #: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
-msgstr "启用调试"
+msgstr ""
 
 #: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
-msgstr "启动页面"
+msgstr ""
 
 #: mate-volume-control/dialog-main.c:194
 #: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
-msgstr "此应用程序的版本"
+msgstr "Version of this application"
 
 #: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
-msgstr " - MATE 音量控制"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:57
 #: mate-volume-control/gvc-stream-status-icon.c:255
 msgid "_Sound Preferences"
-msgstr "声音首选项(_S)"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
-msgstr "静音输出"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:402
 #: mate-volume-control/gvc-mixer-dialog.c:2066
 #: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
-msgstr "输入"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:403
 #: mate-volume-control/gvc-mixer-dialog.c:2153
 #: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
-msgstr "输出"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
-msgstr "MATE 音量控制小应用"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
-msgstr "取消静音输出"
+msgstr ""
 
 #: mate-volume-control/gvc-applet.c:514
 msgid "Volume Control Applet"
-msgstr "音量控制小程序"
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Left"
-msgstr "左"
+msgstr "Left"
 
 #: mate-volume-control/gvc-balance-bar.c:139
 msgctxt "balance"
 msgid "Right"
-msgstr "右"
+msgstr "Right"
 
 #: mate-volume-control/gvc-balance-bar.c:142
 msgctxt "balance"
 msgid "Rear"
-msgstr "后置声道"
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:143
 msgctxt "balance"
 msgid "Front"
-msgstr "前置声道"
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:146
 msgctxt "balance"
 msgid "Minimum"
-msgstr "最小值"
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:147
 msgctxt "balance"
 msgid "Maximum"
-msgstr "最大值"
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Balance:"
-msgstr "平衡(_B)："
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:338
 msgid "_Fade:"
-msgstr "淡出(_F)："
+msgstr ""
 
 #: mate-volume-control/gvc-balance-bar.c:341
 msgid "_Subwoofer:"
-msgstr "低音炮(_S)："
+msgstr ""
 
 #: mate-volume-control/gvc-channel-bar.c:310
 msgctxt "volume"
 msgid "Unamplified"
-msgstr "非放大"
+msgstr ""
 
 #: mate-volume-control/gvc-channel-bar.c:323
 msgctxt "volume"
 msgid "100%"
-msgstr "100%"
+msgstr ""
 
 #: mate-volume-control/gvc-channel-bar.c:1108
 #: mate-volume-control/gvc-stream-status-icon.c:242
 msgid "Mute"
-msgstr "静音"
+msgstr ""
 
 #: mate-volume-control/gvc-combo-box.c:250
 #: mate-volume-control/gvc-mixer-dialog.c:1615
 msgid "_Profile:"
-msgstr "配置文件(_P)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:352
 #: mate-volume-control/gvc-mixer-dialog.c:501
 msgid "Co_nnector:"
-msgstr "连接器(_N)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1123
 msgid "Disabled"
-msgstr "禁用"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1129
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u 个输出设备"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1138
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u 个输入设备"
+msgstr[0] ""
+msgstr[1] ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1506
 #: mate-volume-control/gvc-mixer-dialog.c:1775
 #: mate-volume-control/gvc-sound-theme-chooser.c:865
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1554
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "%s 话筒设置"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "Test Speakers"
-msgstr "测试话筒"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1823
 msgid "Sound Effects"
-msgstr "声音效果"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1846
 msgid "_Alert volume: "
-msgstr "报警音量(_A)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:1973
 msgid "_Output volume: "
-msgstr "输出音量(_O)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2023
 msgid "Hardware"
-msgstr "硬件"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2028
 msgid "C_hoose a device to configure:"
-msgstr "选择要配置的设备(_H)"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2052
 #: mate-volume-control/gvc-mixer-dialog.c:2182
 msgid "Settings for the selected device:"
-msgstr "所选设备的设置："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2075
 msgid "_Input volume: "
-msgstr "输入音量(_I)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2100
 msgid "Input level:"
-msgstr "输入等级："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2125
 msgid "C_hoose a device for sound input:"
-msgstr "选择声音输入设备(_H)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2158
 msgid "C_hoose a device for sound output:"
-msgstr "选择声音输出设备(_H)："
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2207
 msgid "Applications"
-msgstr "应用程序"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2212
 msgid "No application is currently playing or recording audio."
-msgstr "目前没有应用程序在播放或录制音频。"
+msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2400
 #: mate-volume-control/gvc-sound-theme-chooser.c:729
 #: mate-volume-control/gvc-sound-theme-chooser.c:741
 #: mate-volume-control/gvc-sound-theme-chooser.c:753
 msgid "Sound Preferences"
-msgstr "声音首选项"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:317
 msgid "No sounds"
-msgstr "无声音"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
-msgstr "内置"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:625
 #: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
-msgstr "自定义"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:732
 #: mate-volume-control/gvc-sound-theme-chooser.c:743
 #: mate-volume-control/gvc-sound-theme-chooser.c:755
 msgid "Testing event sound"
-msgstr "测试事件声音"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:841
 msgid "Default"
-msgstr "默认"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:842
 msgid "From theme"
-msgstr "来自主题"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:872
 msgid "Type"
-msgstr "类型"
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1029
 msgid "Sound _theme:"
-msgstr "声音主题(_T)："
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1042
 msgid "C_hoose an alert sound:"
-msgstr "选择警报声音(_H)："
+msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1070
 msgid "Enable _window and button sounds"
-msgstr "启用窗体与按钮声音(_W)"
+msgstr ""
 
 #: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
-msgstr "停止"
+msgstr ""
 
 #: mate-volume-control/gvc-speaker-test.c:253
 #: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
-msgstr "测试"
+msgstr ""
 
 #: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
-msgstr "麦克风音量"
+msgstr ""
 
 #: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
-msgstr "输出音量："
+msgstr ""
 
 #: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
-msgstr "MATE音量控制状态图标"
+msgstr ""
 
 #: mate-volume-control/gvc-stream-applet-icon.c:206
 #: mate-volume-control/gvc-stream-status-icon.c:198
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
-msgstr "启动音量首选项失败：%s"
+msgstr ""
 
 #: mate-volume-control/gvc-stream-applet-icon.c:387
 #: mate-volume-control/gvc-stream-status-icon.c:431
 msgid "Muted at"
-msgstr "已静音于"
+msgstr ""
 
 #: mate-volume-control/gvc-stream-status-icon.c:236
 msgid "Unmute"
-msgstr "取消靜音"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
-msgstr "未知"
+msgstr "Unknown"
 
 #: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr "单声道"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
-msgstr "左前"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
-msgstr "右前"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
-msgstr "前部中央"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
-msgstr "LFE"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
-msgstr "左后"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
-msgstr "右后"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
-msgstr "后部中央"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
-msgstr "前方左中"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
-msgstr "中心右前"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
-msgstr "左侧"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
-msgstr "右侧"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
-msgstr "顶部左前"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
-msgstr "顶部右前"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
-msgstr "顶部前中央"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
-msgstr "顶部居中央"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
-msgstr "顶部后方左"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
-msgstr "右上"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
-msgstr "中上"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr "立体声"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr "环绕声 4.0"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr "环绕声 4.1"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr "环绕声 5.0"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr "环绕声 5.1"
+msgstr ""
 
 #: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr "环绕声 7.1"
+msgstr ""
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
-msgstr "音量控制工厂"
+msgstr ""
 
 #: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
-msgstr " — MATE音量控制状态图标"
+msgstr ""

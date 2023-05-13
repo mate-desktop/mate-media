@@ -4,20 +4,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# KAMI KAMI <kami911@gmail.com>, 2018
-# Rezső Páder <rezso@rezso.net>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Falu <info@falu.me>, 2018
-# Balázs Meskó <meskobalazs@mailbox.org>, 2020
+# KAMI KAMI <kami911@gmail.com>, 2021
+# Rezső Páder <rezso@rezso.net>, 2021
+# Stefano Karapetsas <stefano@karapetsas.com>, 2021
+# Wolfgang Ulbrich <mate@raveit.de>, 2021
+# Falu <info@falu.me>, 2021
+# Balázs Meskó <meskobalazs@mailbox.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2020-08-18 18:32+0200\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2020\n"
-"Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
+"POT-Creation-Date: 2021-08-04 15:36+0200\n"
+"PO-Revision-Date: 2021-09-19 13:23+0000\n"
+"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2021\n"
+"Language-Team: Hungarian (https://app.transifex.com/mate/teams/13566/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,9 +40,9 @@ msgid "MATE;volume;control;mixer;settings;sound;events;"
 msgstr "MATE;hangerő;vezérlés;keverő;beállítások;hangok;események;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
-#: mate-volume-control/dialog-main.c:255
-#: mate-volume-control/gvc-channel-bar.c:476
-#: mate-volume-control/gvc-speaker-test.c:428
+#: mate-volume-control/dialog-main.c:256
+#: mate-volume-control/gvc-channel-bar.c:477
+#: mate-volume-control/gvc-speaker-test.c:429
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "Hangerőszabályzó"
@@ -56,404 +57,405 @@ msgstr "Hangerőszabályzó megjelenítése"
 msgid "MATE;volume;control;mixer;settings;sound;"
 msgstr "MATE;hangerő;vezérlés;keverő;beállítások;hang;"
 
-#: mate-volume-control/dialog-main.c:143
+#: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
 msgstr "A hangrendszer nem elérhető"
 
-#: mate-volume-control/dialog-main.c:165
+#: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
 msgstr "Várakozás a hangrendszer válaszára"
 
-#: mate-volume-control/dialog-main.c:190
+#: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
 msgstr "Hangrendszer háttér"
 
-#: mate-volume-control/dialog-main.c:191
-#: mate-volume-control/status-icon-main.c:46
+#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
 msgstr "Hibakeresés engedélyezése"
 
-#: mate-volume-control/dialog-main.c:192
+#: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
 msgstr "Indulóoldal"
 
-#: mate-volume-control/dialog-main.c:193
-#: mate-volume-control/status-icon-main.c:45
+#: mate-volume-control/dialog-main.c:194
+#: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
 msgstr "Ezen alkalmazás verziója"
 
-#: mate-volume-control/dialog-main.c:202
+#: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
 msgstr " – MATE hangerőszabályzó"
 
-#: mate-volume-control/gvc-applet.c:56
-#: mate-volume-control/gvc-stream-status-icon.c:246
+#: mate-volume-control/gvc-applet.c:57
+#: mate-volume-control/gvc-stream-status-icon.c:255
 msgid "_Sound Preferences"
 msgstr "_Hangbeállítások"
 
-#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
+#: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
 msgstr "Kimenet némítása"
 
-#: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2065
-#: mate-volume-control/gvc-status-icon.c:323
+#: mate-volume-control/gvc-applet.c:402
+#: mate-volume-control/gvc-mixer-dialog.c:2066
+#: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
 msgstr "Bemenet"
 
-#: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2152
-#: mate-volume-control/gvc-status-icon.c:324
+#: mate-volume-control/gvc-applet.c:403
+#: mate-volume-control/gvc-mixer-dialog.c:2153
+#: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
 msgstr "Kimenet"
 
-#: mate-volume-control/gvc-applet.c:406
+#: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
 msgstr "MATE hangerőszabályzó kisalkalmazás"
 
-#: mate-volume-control/gvc-applet.c:463
+#: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
 msgstr "Kimenet némításának feloldása"
 
-#: mate-volume-control/gvc-applet.c:513
+#: mate-volume-control/gvc-applet.c:514
 msgid "Volume Control Applet"
 msgstr "Hangerőszabályzó kisalkalmazás"
 
-#: mate-volume-control/gvc-balance-bar.c:137
+#: mate-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Left"
 msgstr "Bal"
 
-#: mate-volume-control/gvc-balance-bar.c:138
+#: mate-volume-control/gvc-balance-bar.c:139
 msgctxt "balance"
 msgid "Right"
 msgstr "Jobb"
 
-#: mate-volume-control/gvc-balance-bar.c:141
+#: mate-volume-control/gvc-balance-bar.c:142
 msgctxt "balance"
 msgid "Rear"
 msgstr "Hátul"
 
-#: mate-volume-control/gvc-balance-bar.c:142
+#: mate-volume-control/gvc-balance-bar.c:143
 msgctxt "balance"
 msgid "Front"
 msgstr "Elöl"
 
-#: mate-volume-control/gvc-balance-bar.c:145
+#: mate-volume-control/gvc-balance-bar.c:146
 msgctxt "balance"
 msgid "Minimum"
 msgstr "Minimum"
 
-#: mate-volume-control/gvc-balance-bar.c:146
+#: mate-volume-control/gvc-balance-bar.c:147
 msgctxt "balance"
 msgid "Maximum"
 msgstr "Maximum"
 
-#: mate-volume-control/gvc-balance-bar.c:334
+#: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Balance:"
 msgstr "_Egyensúly:"
 
-#: mate-volume-control/gvc-balance-bar.c:337
+#: mate-volume-control/gvc-balance-bar.c:338
 msgid "_Fade:"
 msgstr "_Elhalás:"
 
-#: mate-volume-control/gvc-balance-bar.c:340
+#: mate-volume-control/gvc-balance-bar.c:341
 msgid "_Subwoofer:"
 msgstr "_Mélysugárzó:"
 
-#: mate-volume-control/gvc-channel-bar.c:309
+#: mate-volume-control/gvc-channel-bar.c:310
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "Erősítetlen"
 
-#: mate-volume-control/gvc-channel-bar.c:322
+#: mate-volume-control/gvc-channel-bar.c:323
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1107
+#: mate-volume-control/gvc-channel-bar.c:1108
+#: mate-volume-control/gvc-stream-status-icon.c:242
 msgid "Mute"
 msgstr "Némítás"
 
-#: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1614
+#: mate-volume-control/gvc-combo-box.c:250
+#: mate-volume-control/gvc-mixer-dialog.c:1615
 msgid "_Profile:"
 msgstr "_Profil:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:351
-#: mate-volume-control/gvc-mixer-dialog.c:500
+#: mate-volume-control/gvc-mixer-dialog.c:352
+#: mate-volume-control/gvc-mixer-dialog.c:501
 msgid "Co_nnector:"
 msgstr "_Csatlakozó:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1122
+#: mate-volume-control/gvc-mixer-dialog.c:1123
 msgid "Disabled"
 msgstr "Tiltva"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1128
+#: mate-volume-control/gvc-mixer-dialog.c:1129
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u kimenet"
-msgstr[1] "%u kimenet"
+msgstr[0] ""
+msgstr[1] ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1137
+#: mate-volume-control/gvc-mixer-dialog.c:1138
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u bemenet"
-msgstr[1] "%u bemenet"
+msgstr[0] ""
+msgstr[1] ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1505
-#: mate-volume-control/gvc-mixer-dialog.c:1774
-#: mate-volume-control/gvc-sound-theme-chooser.c:864
+#: mate-volume-control/gvc-mixer-dialog.c:1506
+#: mate-volume-control/gvc-mixer-dialog.c:1775
+#: mate-volume-control/gvc-sound-theme-chooser.c:865
 msgid "Name"
 msgstr "Név"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1553
+#: mate-volume-control/gvc-mixer-dialog.c:1554
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "Hangszóróteszt ehhez: %s"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1617
+#: mate-volume-control/gvc-mixer-dialog.c:1618
 msgid "Test Speakers"
 msgstr "Hangszórók tesztelése"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1822
+#: mate-volume-control/gvc-mixer-dialog.c:1823
 msgid "Sound Effects"
 msgstr "Hangeffektusok"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1845
+#: mate-volume-control/gvc-mixer-dialog.c:1846
 msgid "_Alert volume: "
 msgstr "_Riasztás hangereje: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1972
+#: mate-volume-control/gvc-mixer-dialog.c:1973
 msgid "_Output volume: "
 msgstr "_Kimeneti hangerő: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2022
+#: mate-volume-control/gvc-mixer-dialog.c:2023
 msgid "Hardware"
 msgstr "Hardver"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2027
+#: mate-volume-control/gvc-mixer-dialog.c:2028
 msgid "C_hoose a device to configure:"
 msgstr "_Válassza ki a beállítandó eszközt:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2051
-#: mate-volume-control/gvc-mixer-dialog.c:2181
+#: mate-volume-control/gvc-mixer-dialog.c:2052
+#: mate-volume-control/gvc-mixer-dialog.c:2182
 msgid "Settings for the selected device:"
 msgstr "Kiválasztott eszköz beállításai:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2074
+#: mate-volume-control/gvc-mixer-dialog.c:2075
 msgid "_Input volume: "
 msgstr "B_emeneti hangerő: "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2099
+#: mate-volume-control/gvc-mixer-dialog.c:2100
 msgid "Input level:"
 msgstr "Bemeneti szint:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2124
+#: mate-volume-control/gvc-mixer-dialog.c:2125
 msgid "C_hoose a device for sound input:"
 msgstr "Válasszon _hangbemeneti eszközt:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: mate-volume-control/gvc-mixer-dialog.c:2158
 msgid "C_hoose a device for sound output:"
 msgstr "Válasszon ha_ngkimeneti eszközt:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2206
+#: mate-volume-control/gvc-mixer-dialog.c:2207
 msgid "Applications"
 msgstr "Alkalmazások"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2211
+#: mate-volume-control/gvc-mixer-dialog.c:2212
 msgid "No application is currently playing or recording audio."
 msgstr "Jelenleg nincs hangot lejátszó vagy felvevő alkalmazás."
 
-#: mate-volume-control/gvc-mixer-dialog.c:2399
-#: mate-volume-control/gvc-sound-theme-chooser.c:728
-#: mate-volume-control/gvc-sound-theme-chooser.c:740
-#: mate-volume-control/gvc-sound-theme-chooser.c:752
+#: mate-volume-control/gvc-mixer-dialog.c:2400
+#: mate-volume-control/gvc-sound-theme-chooser.c:729
+#: mate-volume-control/gvc-sound-theme-chooser.c:741
+#: mate-volume-control/gvc-sound-theme-chooser.c:753
 msgid "Sound Preferences"
-msgstr "Hangbeállítások"
+msgstr "Hangok beállításai"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:316
+#: mate-volume-control/gvc-sound-theme-chooser.c:317
 msgid "No sounds"
 msgstr "Nincsenek hangok"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:437
+#: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
 msgstr "Beépített"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:624
-#: mate-volume-control/sound-theme-file-utils.c:293
+#: mate-volume-control/gvc-sound-theme-chooser.c:625
+#: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
 msgstr "Egyéni"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:731
-#: mate-volume-control/gvc-sound-theme-chooser.c:742
-#: mate-volume-control/gvc-sound-theme-chooser.c:754
+#: mate-volume-control/gvc-sound-theme-chooser.c:732
+#: mate-volume-control/gvc-sound-theme-chooser.c:743
+#: mate-volume-control/gvc-sound-theme-chooser.c:755
 msgid "Testing event sound"
 msgstr "Eseményhang tesztelése"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:840
+#: mate-volume-control/gvc-sound-theme-chooser.c:841
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:841
+#: mate-volume-control/gvc-sound-theme-chooser.c:842
 msgid "From theme"
 msgstr "Témából"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:871
+#: mate-volume-control/gvc-sound-theme-chooser.c:872
 msgid "Type"
 msgstr "Típus"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1028
+#: mate-volume-control/gvc-sound-theme-chooser.c:1029
 msgid "Sound _theme:"
 msgstr "Hang_téma:"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1041
+#: mate-volume-control/gvc-sound-theme-chooser.c:1042
 msgid "C_hoose an alert sound:"
 msgstr "Válasszon _riasztáshangot:"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1069
+#: mate-volume-control/gvc-sound-theme-chooser.c:1070
 msgid "Enable _window and button sounds"
 msgstr "_Ablak- és gombhangok engedélyezése"
 
-#: mate-volume-control/gvc-speaker-test.c:252
+#: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
 msgstr "Leállítás"
 
-#: mate-volume-control/gvc-speaker-test.c:252
-#: mate-volume-control/gvc-speaker-test.c:366
+#: mate-volume-control/gvc-speaker-test.c:253
+#: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
 msgstr "Teszt"
 
-#: mate-volume-control/gvc-status-icon.c:327
+#: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
 msgstr "Mikrofon hangereje"
 
-#: mate-volume-control/gvc-status-icon.c:329
+#: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
 msgstr "Hangkimenet hangereje"
 
-#: mate-volume-control/gvc-status-icon.c:334
+#: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
 msgstr "MATE hangerőszabályzó állapotikon"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:205
-#: mate-volume-control/gvc-stream-status-icon.c:201
+#: mate-volume-control/gvc-stream-applet-icon.c:206
+#: mate-volume-control/gvc-stream-status-icon.c:198
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "A Hangbeállítások indítása meghiúsult: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:386
-#: mate-volume-control/gvc-stream-status-icon.c:422
+#: mate-volume-control/gvc-stream-applet-icon.c:387
+#: mate-volume-control/gvc-stream-status-icon.c:431
 msgid "Muted at"
 msgstr "Némítva itt:"
 
 #: mate-volume-control/gvc-stream-status-icon.c:236
-msgid "_Mute"
-msgstr "_Némítás"
+msgid "Unmute"
+msgstr ""
 
-#: mate-volume-control/gvc-utils.c:58
+#: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
+#: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
 msgstr "Monó"
 
-#: mate-volume-control/gvc-utils.c:61
+#: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
 msgstr "Bal első"
 
-#: mate-volume-control/gvc-utils.c:62
+#: mate-volume-control/gvc-utils.c:63
 msgid "Front Right"
 msgstr "Jobb első"
 
-#: mate-volume-control/gvc-utils.c:63
+#: mate-volume-control/gvc-utils.c:64
 msgid "Front Center"
 msgstr "Közép első"
 
-#: mate-volume-control/gvc-utils.c:64
+#: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
 msgstr "LFE"
 
-#: mate-volume-control/gvc-utils.c:65
+#: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
 msgstr "Bal hátsó"
 
-#: mate-volume-control/gvc-utils.c:66
+#: mate-volume-control/gvc-utils.c:67
 msgid "Rear Right"
 msgstr "Jobb hátsó"
 
-#: mate-volume-control/gvc-utils.c:67
+#: mate-volume-control/gvc-utils.c:68
 msgid "Rear Center"
 msgstr "Közép hátső"
 
-#: mate-volume-control/gvc-utils.c:68
+#: mate-volume-control/gvc-utils.c:69
 msgid "Front Left of Center"
 msgstr "Első közép-bal"
 
-#: mate-volume-control/gvc-utils.c:69
+#: mate-volume-control/gvc-utils.c:70
 msgid "Front Right of Center"
 msgstr "Első közép-jobb"
 
-#: mate-volume-control/gvc-utils.c:70
+#: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
 msgstr "Bal szélső"
 
-#: mate-volume-control/gvc-utils.c:71
+#: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
 msgstr "Jobb szélső"
 
-#: mate-volume-control/gvc-utils.c:72
+#: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
 msgstr "Elöl balra fent"
 
-#: mate-volume-control/gvc-utils.c:73
+#: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
 msgstr "Elöl jobbra fent"
 
-#: mate-volume-control/gvc-utils.c:74
+#: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
 msgstr "Elöl középen fent"
 
-#: mate-volume-control/gvc-utils.c:75
+#: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
 msgstr "Felső közép"
 
-#: mate-volume-control/gvc-utils.c:76
+#: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
 msgstr "Hátul balra fent"
 
-#: mate-volume-control/gvc-utils.c:77
+#: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
 msgstr "Hátul jobbra fent"
 
-#: mate-volume-control/gvc-utils.c:78
+#: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
 msgstr "Hátul középen fent"
 
-#: mate-volume-control/gvc-utils.c:113
+#: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
 msgstr "Sztereó"
 
-#: mate-volume-control/gvc-utils.c:120
+#: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
 msgstr "Surround 4.0"
 
-#: mate-volume-control/gvc-utils.c:128
+#: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
 msgstr "Surround 4.1"
 
-#: mate-volume-control/gvc-utils.c:130
+#: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
 msgstr "Surround 5.0"
 
-#: mate-volume-control/gvc-utils.c:140
+#: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
 msgstr "Surround 5.1"
 
-#: mate-volume-control/gvc-utils.c:151
+#: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
 
@@ -461,6 +463,6 @@ msgstr "Surround 7.1"
 msgid "Volume Control Factory"
 msgstr "Hangerőszabályzó factory"
 
-#: mate-volume-control/status-icon-main.c:55
+#: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
 msgstr " – MATE hangerőszabályzó állapotikon"
