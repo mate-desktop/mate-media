@@ -38,7 +38,7 @@ notifications:
     on_failure: always
 
 deploy:
-  - provider: pages
+  - provider: script
     edge: true
     script: ./docker-build --verbose --config .build.yml --release github
     on:
