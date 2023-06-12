@@ -1,6 +1,7 @@
 [Applet Factory]
 Id=GvcAppletFactory
-Location=@LOCATION@
+InProcess=true
+Location=@APPLET_LOCATION@
 Name=Volume Control Factory
 Description=Volume Control Factory
 

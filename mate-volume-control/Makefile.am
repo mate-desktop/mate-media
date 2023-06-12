@@ -9,10 +9,6 @@ bin_PROGRAMS = \
 	$(NULL)
 endif
 
-if ENABLE_PANELAPPLET
-libexec_PROGRAMS = mate-volume-control-applet
-endif
-
 AM_CPPFLAGS = \
 	$(WARN_CFLAGS) \
 	$(VOLUME_CONTROL_CFLAGS) \
@@ -25,28 +21,20 @@ AM_CPPFLAGS = \
 	$(NULL)
 
 if ENABLE_PANELAPPLET
-APPLET_LOCATION = $(libexecdir)/mate-volume-control-applet
-
+APPLET_LOCATION = $(libdir)/libmate-volume-control-applet.so
 appletsdir       = $(datadir)/mate-panel/applets
 applets_in_files = org.mate.applets.GvcApplet.mate-panel-applet.desktop.in
 applets_DATA     = $(applets_in_files:.mate-panel-applet.desktop.in=.mate-panel-applet)
+mate_volume_control_applet_libdir= $(libdir)
+mate_volume_control_applet_lib_LTLIBRARIES=libmate-volume-control-applet.la
 
 $(applets_in_files): $(applets_in_files).in Makefile
 	$(AM_V_GEN)sed \
-		-e "s|\@LOCATION\@|$(APPLET_LOCATION)|" \
+		-e "s|\@APPLET_LOCATION\@|$(APPLET_LOCATION)|" \
 		$< > $@
 
 $(applets_DATA): $(applets_in_files) Makefile
 	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=Name --keyword=Description --template $< -d $(top_srcdir)/po -o $@
-
-servicedir       = $(datadir)/dbus-1/services
-service_in_files = org.mate.panel.applet.GvcAppletFactory.service.in
-service_DATA     = $(service_in_files:.service.in=.service)
-
-org.mate.panel.applet.GvcAppletFactory.service: $(service_in_files)
-	$(AM_V_GEN)sed \
-		-e "s|\@LOCATION\@|$(APPLET_LOCATION)|" \
-		$< > $@
 
 EXTRA_DIST = \
 	$(applets_in_files).in \
@@ -79,14 +67,14 @@ mate_volume_control_status_icon_CFLAGS = $(WARN_CFLAGS)
 endif
 
 if ENABLE_PANELAPPLET
-mate_volume_control_applet_LDADD = \
-	-lm \
-	libmatevolumecontrol.la \
-	$(VOLUME_CONTROL_LIBS) \
-	$(MATEDESKTOP_LIBS) \
+
+D_LDFLAGS = \
+	-module -avoid-version \
+	$(WARN_LDFLAGS) \
+	$(AM_LDFLAGS) \
 	$(NULL)
 
-mate_volume_control_applet_SOURCES = \
+libmate_volume_control_applet_la_SOURCES = \
 	gvc-stream-applet-icon.h \
 	gvc-stream-applet-icon.c \
 	gvc-applet.h \
@@ -94,7 +82,15 @@ mate_volume_control_applet_SOURCES = \
 	applet-main.c \
 	$(NULL)
 
-mate_volume_control_applet_CFLAGS = $(WARN_CFLAGS)
+libmate_volume_control_applet_la_CFLAGS = $(WARN_CFLAGS)
+
+libmate_volume_control_applet_la_LIBADD = \
+	-lm \
+	libmatevolumecontrol.la \
+    $(MATE_APPLETS4_CFLAGS)		\
+	$(VOLUME_CONTROL_LIBS) \
+	$(NULL)
+
 endif
 
 mate_volume_control_LDADD = \
