@@ -88,7 +88,7 @@ applet_factory (MatePanelApplet* applet, const char* iid, gpointer data)
 }
 
 /* needed by mate-panel applet library */
-MATE_PANEL_APPLET_OUT_PROCESS_FACTORY("GvcAppletFactory",
+MATE_PANEL_APPLET_IN_PROCESS_FACTORY("GvcAppletFactory",
                                       PANEL_TYPE_APPLET,
                                       "Volume Control applet",
                                       applet_factory,

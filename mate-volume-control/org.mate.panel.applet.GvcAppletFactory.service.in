@@ -1,4 +1,0 @@
-[D-BUS Service]
-Name=org.mate.panel.applet.GvcAppletFactory
-Exec=@LOCATION@
-
