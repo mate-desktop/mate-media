@@ -68,7 +68,7 @@ endif
 
 if ENABLE_PANELAPPLET
 
-D_LDFLAGS = \
+libmate_volume_control_applet_la_LDFLAGS = \
 	-module -avoid-version \
 	$(WARN_LDFLAGS) \
 	$(AM_LDFLAGS) \
