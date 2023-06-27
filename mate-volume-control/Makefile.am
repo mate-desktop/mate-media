@@ -91,6 +91,14 @@ libmate_volume_control_applet_la_LIBADD = \
 	$(VOLUME_CONTROL_LIBS) \
 	$(NULL)
 
+if ENABLE_WAYLAND
+libmate_volume_control_applet_la_LIBADD += \
+	$(WAYLAND_LIBS)
+
+AM_CPPFLAGS += \
+	$(WAYLAND_CFLAGS)
+endif
+
 endif
 
 mate_volume_control_LDADD = \

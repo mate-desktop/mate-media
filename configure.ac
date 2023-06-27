@@ -91,6 +91,13 @@ if test "x$enable_deprecated" = "xyes"; then
     AC_SUBST(DISABLE_DEPRECATED)
 fi
 
+AC_DEFINE(HAVE_WAYLAND, 1, [Have the Wayland development library])
+
+
+AC_SUBST(WAYLAND_CFLAGS)
+AC_SUBST(WAYLAND_LIBS)
+
+
 #============================================================================
 # status icon
 #============================================================================
@@ -123,6 +130,43 @@ else
 fi
 AM_CONDITIONAL(ENABLE_PANELAPPLET, test "x$enable_panelapplet" != "xno")
 
+dnl Whether to build the volume control applet in-process
+dnl --
+
+AC_ARG_ENABLE(in-process, [AS_HELP_STRING([--enable-in-process], [Enable in-process build of panel applet (default: yes, forced if wayland enabled)])],,[enable_in-process=yes] [in-process is forced if wayland support is enabled])
+if test "x$enable_panelapplet" = "xno"; then
+    AC_DEFINE(ENABLE_IN_PROCESS, 0, [Enable if you want to build the panel applet in-process])
+else
+    AC_DEFINE(ENABLE_IN_PROCESS, 1, [Enable if you want to build the panel applet in-process])
+fi
+
+AC_ARG_ENABLE(wayland,
+              [AS_HELP_STRING([--enable-wayland],
+                              [Explicitly enable or disable Wayland support
+                              (default is to enable only if Wayland client development library is detected)])],
+              [enable_wayland=$enableval],
+              [enable_wayland=auto])
+
+# Check if we have gtk-layer-shell installed, and thus should build with Wayland support
+have_wayland=no
+if test "x$enable_wayland" != "xno"; then
+  PKG_CHECK_MODULES(WAYLAND, gtk-layer-shell-0 wayland-client, have_wayland=yes, [
+        if test "x$enable_wayland" = "xyes"; then
+          AC_MSG_ERROR([Wayland enabled but GTK Layer Shell library not found])
+        fi
+    ])
+fi
+
+AM_CONDITIONAL(ENABLE_WAYLAND, test "x$enable_wayland" != "xno")
+if test "x$enable_wayland" = "xno"; then
+    AC_DEFINE(ENABLE_WAYLAND, 0, [Enable if you want to build the panel applet with wayland support])
+else
+    AC_DEFINE(ENABLE_WAYLAND, 1, [Enable if you want to build the panel applet with wayland support])
+    AC_DEFINE(ENABLE_IN_PROCESS, 1, [in-process required for wayland support])
+    AC_SUBST(WAYLAND_CFLAGS)
+    AC_SUBST(WAYLAND_LIBS)
+fi
+
 #============================================================================
 # Sanity check: must build either status icon or panel applet
 #============================================================================
@@ -153,6 +197,10 @@ po/Makefile.in
 mate-volume-control/Makefile
 ])
 
+if test "x$have_wayland" = "xyes"; then
+  AC_DEFINE(HAVE_WAYLAND)
+fi
+
 AC_OUTPUT
 
 echo "
@@ -175,11 +223,20 @@ if test "x$enable_statusicon" = "xno"; then
 else
 	echo "    Building status icon .......: yes"
 fi
-
 if test "x$enable_panelapplet" = "xno"; then
 	echo "    Building panel applet ......: no"
-else
+else 
 	echo "    Building panel applet ......: yes"
+fi
+if test "x$enable_in_process" = "xno"; then
+	echo "    Building in-process .......: no"
+else
+	echo "    Building in-process .......: yes"
+fi
+if test "x$enable_wayland" = "xno"; then
+	echo "    Building with wayland support .......: no"
+else
+	echo "    Building with wayland support .......: yes"
 fi
 #get a newline in the terminal
 echo ""
