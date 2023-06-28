@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.mate.panel.applet.GvcAppletFactory
+Exec=/usr/libexec/mate-volume-control-applet
+

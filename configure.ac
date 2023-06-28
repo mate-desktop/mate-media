@@ -133,12 +133,16 @@ AM_CONDITIONAL(ENABLE_PANELAPPLET, test "x$enable_panelapplet" != "xno")
 dnl Whether to build the volume control applet in-process
 dnl --
 
-AC_ARG_ENABLE(in-process, [AS_HELP_STRING([--enable-in-process], [Enable in-process build of panel applet (default: yes, forced if wayland enabled)])],,[enable_in-process=yes] [in-process is forced if wayland support is enabled])
-if test "x$enable_panelapplet" = "xno"; then
-    AC_DEFINE(ENABLE_IN_PROCESS, 0, [Enable if you want to build the panel applet in-process])
-else
-    AC_DEFINE(ENABLE_IN_PROCESS, 1, [Enable if you want to build the panel applet in-process])
+AC_ARG_ENABLE(in-process, [AS_HELP_STRING([--enable-in-process], [Enable in-process build of panel applet (default: yes, required for wayland)])],,[enable_in-process=yes])
+
+AM_CONDITIONAL(IN_PROCESS, test "x$enable_in_process" != "xno")
+if test "x$enable_in_process" != "xno"; then
+    AC_DEFINE(IN_PROCESS, 1, [Enable if you want to build the panel applet in-process])
 fi
+
+AC_STRUCT_DIRENT_D_TYPE
+
+# $$enable_wayland will be set to "yes", "no" or "auto"
 
 AC_ARG_ENABLE(wayland,
               [AS_HELP_STRING([--enable-wayland],
@@ -157,22 +161,31 @@ if test "x$enable_wayland" != "xno"; then
     ])
 fi
 
-AM_CONDITIONAL(ENABLE_WAYLAND, test "x$enable_wayland" != "xno")
-if test "x$enable_wayland" = "xno"; then
-    AC_DEFINE(ENABLE_WAYLAND, 0, [Enable if you want to build the panel applet with wayland support])
+AM_CONDITIONAL(HAVE_WAYLAND, [test "x$have_wayland" = "xyes"])
+
+if test "x$have_wayland" = "xyes"; then
+  AC_DEFINE(HAVE_WAYLAND, 1, [Have the Wayland development library])
 else
-    AC_DEFINE(ENABLE_WAYLAND, 1, [Enable if you want to build the panel applet with wayland support])
-    AC_DEFINE(ENABLE_IN_PROCESS, 1, [in-process required for wayland support])
-    AC_SUBST(WAYLAND_CFLAGS)
-    AC_SUBST(WAYLAND_LIBS)
+  AC_DEFINE(HAVE_WAYLAND, 0, [Have the Wayland development library])
 fi
 
-#============================================================================
-# Sanity check: must build either status icon or panel applet
-#============================================================================
+AC_SUBST(WAYLAND_CFLAGS)
+AC_SUBST(WAYLAND_LIBS)
+
+#=============================================================================================
+# Sanity check: must build either status icon or panel applet and wayland requires in-process
+#=============================================================================================
 
 if test "x$enable_statusicon" = "xno" && test "x$enable_panelapplet" = "xno"; then
 	AC_MSG_ERROR([must build either volume control status icon or volume control applet])
+fi
+
+if test "x$enable_in_process" = "xno" && test "x$have_wayland" = "xyes"; then
+	AC_MSG_ERROR([must build in-process to enable wayland])
+fi
+
+if test "x$enable_in_process" = "xyes" && test "x$have_wayland" = "xno"; then
+	AC_MSG_ERROR([in-process is only for wayland builds])
 fi
 
 AC_CONFIG_FILES([
@@ -196,10 +209,6 @@ man/Makefile
 po/Makefile.in
 mate-volume-control/Makefile
 ])
-
-if test "x$have_wayland" = "xyes"; then
-  AC_DEFINE(HAVE_WAYLAND)
-fi
 
 AC_OUTPUT
 

@@ -1,4 +1,5 @@
 if ENABLE_STATUSICON
+
 bin_PROGRAMS = \
 	 mate-volume-control-status-icon \
 	 mate-volume-control \
@@ -21,16 +22,32 @@ AM_CPPFLAGS = \
 	$(NULL)
 
 if ENABLE_PANELAPPLET
-APPLET_LOCATION = $(libdir)/libmate-volume-control-applet.so
 appletsdir       = $(datadir)/mate-panel/applets
 applets_in_files = org.mate.applets.GvcApplet.mate-panel-applet.desktop.in
 applets_DATA     = $(applets_in_files:.mate-panel-applet.desktop.in=.mate-panel-applet)
+if IN_PROCESS
+APPLET_LOCATION = $(libdir)/libmate-volume-control-applet.so
 mate_volume_control_applet_libdir= $(libdir)
 mate_volume_control_applet_lib_LTLIBRARIES=libmate-volume-control-applet.la
+IN_PROCESS = true
+
+else
+APPLET_LOCATION = $(libexecdir)/mate-volume-control-applet
+servicedir       = $(datadir)/dbus-1/services
+service_in_files = org.mate.panel.applet.GvcAppletFactory.service.in
+service_DATA     = $(service_in_files:.service.in=.service)
+IN_PROCESS = false
+
+org.mate.panel.applet.GvcAppletFactory.service: $(service_in_files)
+	$(AM_V_GEN)sed \
+		-e "s|\@LOCATION\@|$(APPLET_LOCATION)|" \
+		$< > $@
+endif
 
 $(applets_in_files): $(applets_in_files).in Makefile
 	$(AM_V_GEN)sed \
 		-e "s|\@APPLET_LOCATION\@|$(APPLET_LOCATION)|" \
+		-e "s|\@IN_PROCESS\@|$(IN_PROCESS)|" \
 		$< > $@
 
 $(applets_DATA): $(applets_in_files) Makefile
@@ -67,7 +84,7 @@ mate_volume_control_status_icon_CFLAGS = $(WARN_CFLAGS)
 endif
 
 if ENABLE_PANELAPPLET
-
+if IN_PROCESS
 libmate_volume_control_applet_la_LDFLAGS = \
 	-module -avoid-version \
 	$(WARN_LDFLAGS) \
@@ -91,14 +108,40 @@ libmate_volume_control_applet_la_LIBADD = \
 	$(VOLUME_CONTROL_LIBS) \
 	$(NULL)
 
-if ENABLE_WAYLAND
+if HAVE_WAYLAND
 libmate_volume_control_applet_la_LIBADD += \
 	$(WAYLAND_LIBS)
 
 AM_CPPFLAGS += \
 	$(WAYLAND_CFLAGS)
+
 endif
 
+else
+libexec_PROGRAMS = mate-volume-control-applet
+mate_volume_control_applet_LDADD = \
+	-lm \
+	libmatevolumecontrol.la \
+	$(VOLUME_CONTROL_LIBS) \
+	$(MATEDESKTOP_LIBS) \
+	$(NULL)
+
+mate_volume_control_applet_SOURCES = \
+	gvc-stream-applet-icon.h \
+	gvc-stream-applet-icon.c \
+	gvc-applet.h \
+	gvc-applet.c \
+	applet-main.c \
+	$(NULL)
+mate_volume_control_applet_CFLAGS = $(WARN_CFLAGS)
+
+mate_volume_control_applet_LDFLAGS = \
+	-module -avoid-version \
+	$(WARN_LDFLAGS) \
+	$(AM_LDFLAGS) \
+	$(NULL)
+
+endif
 endif
 
 mate_volume_control_LDADD = \
@@ -132,7 +175,6 @@ BUILT_SOURCES = \
 
 CLEANFILES = \
 	$(applets_in_files) \
-	$(BUILT_SOURCES) \
 	$(NULL)
 
 MAINTAINERCLEANFILES = \

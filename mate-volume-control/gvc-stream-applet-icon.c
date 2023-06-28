@@ -28,7 +28,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#ifdef HAVE_WAYLAND
+#ifdef IN_PROCESS
 #include <gdk/gdkwayland.h>
 #include <gtk-layer-shell/gtk-layer-shell.h>
 #endif
@@ -75,14 +75,12 @@ static gboolean
 popup_dock (GvcStreamAppletIcon *icon, guint time)
 {
         GtkAllocation  allocation;
-        GtkWidget *toplevel;
         GdkDisplay    *display;
         GdkScreen     *screen;
         int            x, y;
         GdkMonitor    *monitor_num;
         GdkRectangle   monitor;
         GtkRequisition dock_req;
-        gboolean top, bottom, left, right;
 
         screen = gtk_widget_get_screen (GTK_WIDGET (icon));
         gtk_widget_get_allocation (GTK_WIDGET (icon), &allocation);
@@ -107,11 +105,14 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), (GtkCallback) gtk_widget_show_all, NULL);
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
-        toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
         display = gdk_screen_get_display (gdk_screen_get_default());
-#ifdef HAVE_WAYLAND
+#ifdef IN_PROCESS
         if  (GDK_IS_WAYLAND_DISPLAY (display))
         {
+            gboolean top, bottom, left, right;
+            GtkWidget *toplevel;
+            toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
+        
             if (!gtk_layer_is_layer_window(GTK_WINDOW (icon->priv->dock)))
             {
                 gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
@@ -159,30 +160,29 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         }
         else
 #endif
-        {
-                if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
-                        if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)
-                                x = allocation.x + allocation.width;
-                        else
-                                x = allocation.x - dock_req.width;
+        if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+                if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)
+                        x = allocation.x + allocation.width;
+                else
+                        x = allocation.x - dock_req.width;
 
-                        if (allocation.y + dock_req.height <= monitor.y + monitor.height)
-                                y = allocation.y;
-                        else
-                                y = monitor.y + monitor.height - dock_req.height;
-                } else {
-                        if (allocation.y + allocation.height + dock_req.height <= monitor.y + monitor.height)
-                                y = allocation.y + allocation.height;
-                        else
-                                y = allocation.y - dock_req.height;
+                if (allocation.y + dock_req.height <= monitor.y + monitor.height)
+                        y = allocation.y;
+                else
+                        y = monitor.y + monitor.height - dock_req.height;
+        } else {
+                if (allocation.y + allocation.height + dock_req.height <= monitor.y + monitor.height)
+                        y = allocation.y + allocation.height;
+                else
+                        y = allocation.y - dock_req.height;
 
-                        if (allocation.x + dock_req.width <= monitor.x + monitor.width)
-                                x = allocation.x;
-                        else
-                                x = monitor.x + monitor.width - dock_req.width;
-                }
-                gtk_window_move (GTK_WINDOW (icon->priv->dock), x, y);
+                if (allocation.x + dock_req.width <= monitor.x + monitor.width)
+                        x = allocation.x;
+                else
+                        x = monitor.x + monitor.width - dock_req.width;
         }
+
+        gtk_window_move (GTK_WINDOW (icon->priv->dock), x, y);
 
         /* Without this, the popup window appears as a square after changing
          * the orientation */
