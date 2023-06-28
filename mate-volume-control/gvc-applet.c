@@ -508,7 +508,7 @@ menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
 gboolean
 gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
 {
-#ifndef ENABLE_IN_PROCESS
+#ifndef IN_PROCESS
         GdkEventMask    event_mask;
         GdkWindow      *window;
 
@@ -545,7 +545,7 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gtk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
         gtk_widget_show_all (GTK_WIDGET (applet->priv->applet));
 
-#ifndef ENABLE_IN_PROCESS
+#ifndef IN_PROCESS
         /* Enable 'scroll-event' signal to get through */
         window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
         event_mask = gdk_window_get_events (window);
