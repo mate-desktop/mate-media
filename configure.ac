@@ -40,6 +40,8 @@ CANBERRA_REQUIRED_VERSION=0.13
 MATE_MIXER_REQUIRED_VERSION=1.10.0
 MATE_DESKTOP_REQUIRED_VERSION=1.17.0
 LIBPANEL4_REQUIRED=1.17.0
+GTK_LAYER_SHELL_REQUIRED_VERSION=0.6
+GDK_WAYLAND_REQUIRED_VERSION=3.22.0
 
 dnl=======================================================================
 dnl Check for the volume control modules
@@ -58,6 +60,19 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
 
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
+
+dnl=======================================================================
+dnl Check for wayland modules
+dnl=======================================================================
+
+PKG_CHECK_MODULES(wayland,
+                  gtk-layer-shell-0 >= $GTK_LAYER_SHELL_REQUIRED_VERSION
+                  gdk-wayland-3.0 >= $GDK_WAYLAND_REQUIRED_VERSION
+)
+
+AC_SUBST(VOLUME_CONTROL_CFLAGS)
+AC_SUBST(VOLUME_CONTROL_LIBS)
+
 
 dnl=======================================================================
 dnl GLib
@@ -148,7 +163,7 @@ dnl - "yes" if explicitly enabled or if Wayland is explicitly enabled
 dnl - "auto" if nothing specific is requested, in which case, default back to "no"
 AS_IF([test "x$enable_in_process" != xyes], [enable_in_process=no])
 
-WAYLAND_DEPS="gtk-layer-shell-0 wayland-client"
+WAYLAND_DEPS="gtk-layer-shell-0 wayland-client gdk-wayland-3.0"
 AS_CASE(["x$enable_wayland$enable_in_process"],
         [xautoyes], [PKG_CHECK_MODULES([WAYLAND], [$WAYLAND_DEPS],
                                        [enable_wayland=yes], [enable_wayland=no])],
