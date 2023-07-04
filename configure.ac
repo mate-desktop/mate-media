@@ -238,7 +238,7 @@ if test "x$enable_panelapplet" = "xno"; then
 else
 	echo "    Building panel applet ......: yes"
 fi
-echo "    Building in-process ......: $enable_in_process"
-echo "    Wayland support ..........: $enable_wayland"
+echo "    Building in-process ........: $enable_in_process"
+echo "    Wayland support ............: $enable_wayland"
 #get a newline in the terminal
 echo ""
