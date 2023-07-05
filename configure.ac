@@ -40,6 +40,8 @@ CANBERRA_REQUIRED_VERSION=0.13
 MATE_MIXER_REQUIRED_VERSION=1.10.0
 MATE_DESKTOP_REQUIRED_VERSION=1.17.0
 LIBPANEL4_REQUIRED=1.17.0
+GTK_LAYER_SHELL_REQUIRED_VERSION=0.6
+GDK_WAYLAND_REQUIRED_VERSION=3.22.0
 
 dnl=======================================================================
 dnl Check for the volume control modules
@@ -124,8 +126,48 @@ fi
 AM_CONDITIONAL(ENABLE_PANELAPPLET, test "x$enable_panelapplet" != "xno")
 
 #============================================================================
-# Sanity check: must build either status icon or panel applet
+# applet in-process and Wayland support
 #============================================================================
+
+AC_ARG_ENABLE([wayland],
+              [AS_HELP_STRING([--enable-wayland],
+                              [Explicitly enable or disable Wayland support
+                               (default is to enable only if Wayland client development library is detected)])],
+              [enable_wayland=$enableval],
+              [enable_wayland=auto])
+AC_ARG_ENABLE([in-process],
+              [AS_HELP_STRING([--enable-in-process],
+                              [Enable in-process build of panel applet (default: no, required for wayland)])],
+              [enable_in_process=$enableval],
+              [dnl the default follows whether Wayland is requested or not,
+               dnl as Wayland support requires it but we d rather not have it
+               dnl otherwise for the moment
+               enable_in_process=$enable_wayland])
+
+dnl $enable_in_process is gonna be either:
+dnl - "no" if explicitly disabled
+dnl - "yes" if explicitly enabled or if Wayland is explicitly enabled
+dnl - "auto" if nothing specific is requested, in which case, default back to "no"
+AS_IF([test "x$enable_in_process" != xyes], [enable_in_process=no])
+
+WAYLAND_DEPS="gtk-layer-shell-0 >= $GTK_LAYER_SHELL_REQUIRED_VERSION wayland-client gdk-wayland-3.0 >= $GDK_WAYLAND_REQUIRED_VERSION"
+AS_CASE(["x$enable_wayland$enable_in_process"],
+        [xautoyes], [PKG_CHECK_MODULES([WAYLAND], [$WAYLAND_DEPS],
+                                       [enable_wayland=yes], [enable_wayland=no])],
+        [xyesyes], [PKG_CHECK_MODULES([WAYLAND], [$WAYLAND_DEPS])],
+        [xyes*], [AC_MSG_ERROR([--enable-wayland requires --enable-in-process])],
+        [enable_wayland=no])
+
+AM_CONDITIONAL(IN_PROCESS, test "x$enable_in_process" = "xyes")
+AS_IF([test "x$enable_in_process" = "xyes"],
+      [AC_DEFINE([IN_PROCESS], [1], [Enable if you want to build the panel applet in-process])])
+AM_CONDITIONAL(ENABLE_WAYLAND, [test "x$enable_wayland" = "xyes"])
+AS_IF([test "x$enable_wayland" = "xyes"],
+      [AC_DEFINE([ENABLE_WAYLAND], [1], [Enable if you want to build the panel applet in-process])])
+
+#=============================================================================
+# Sanity check: must build either status icon or panel applet
+#=============================================================================
 
 if test "x$enable_statusicon" = "xno" && test "x$enable_panelapplet" = "xno"; then
 	AC_MSG_ERROR([must build either volume control status icon or volume control applet])
@@ -181,5 +223,7 @@ if test "x$enable_panelapplet" = "xno"; then
 else
 	echo "    Building panel applet ......: yes"
 fi
+echo "    Building in-process ........: $enable_in_process"
+echo "    Wayland support ............: $enable_wayland"
 #get a newline in the terminal
 echo ""

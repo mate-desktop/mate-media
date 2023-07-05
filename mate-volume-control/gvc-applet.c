@@ -508,8 +508,14 @@ menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
 gboolean
 gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
 {
-        mate_panel_applet_set_flags (applet_widget, MATE_PANEL_APPLET_EXPAND_MINOR);
+#ifndef IN_PROCESS
+        GdkEventMask    event_mask;
+        GdkWindow      *window;
 
+        g_set_application_name (_("Volume Control Applet"));
+        gtk_window_set_default_icon_name (APPLET_ICON);
+        mate_panel_applet_set_flags (applet_widget, MATE_PANEL_APPLET_EXPAND_MINOR);
+#endif
         applet->priv->applet = applet_widget;
         /*FIXME: We haved to set this up BEFORE packing in icons. find a way to update this when the applet is moved that works*/
         switch (mate_panel_applet_get_orient (applet->priv->applet)) {
@@ -539,6 +545,16 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gtk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
         gtk_widget_show_all (GTK_WIDGET (applet->priv->applet));
 
+#ifndef IN_PROCESS
+        /* Enable 'scroll-event' signal to get through */
+        window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
+        event_mask = gdk_window_get_events (window);
+        gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
+
+        window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_output));
+        event_mask = gdk_window_get_events (window);
+        gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
+#endif
         /* Update icons on size/orientation changes*/
         g_object_connect (applet->priv->applet,
                          "signal::change_size", gvc_applet_set_size, applet,

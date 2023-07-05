@@ -20,11 +20,17 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
+#include <config.h>
 
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
+
+#if defined(ENABLE_WAYLAND) && defined(GDK_WINDOWING_WAYLAND)
+#include <gdk/gdkwayland.h>
+#include <gtk-layer-shell/gtk-layer-shell.h>
+#endif
 
 #include <libmatemixer/matemixer.h>
 #include <mate-panel-applet.h>
@@ -92,11 +98,82 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
                 gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_VERTICAL);
         }
 
-        monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), allocation.x, allocation.y);
+        display = gdk_screen_get_display (screen);
+        monitor_num = gdk_display_get_monitor_at_point (display, allocation.x, allocation.y);
         gdk_monitor_get_geometry (monitor_num, &monitor);
 
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), (GtkCallback) gtk_widget_show_all, NULL);
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
+
+#if defined(ENABLE_WAYLAND) && defined(GDK_WINDOWING_WAYLAND)
+        if (GDK_IS_WAYLAND_DISPLAY (display))
+        {
+            gboolean top, bottom, left, right;
+            GtkWidget *toplevel;
+            toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
+
+            if (!gtk_layer_is_layer_window (GTK_WINDOW (icon->priv->dock)))
+            {
+                gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
+                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_BOTTOM);
+                gtk_layer_set_keyboard_mode (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND);
+            }
+
+            top = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_TOP);
+            bottom = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_BOTTOM);
+            left = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_LEFT);
+            right = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_RIGHT);
+
+            /*Set anchors to the edges (will hold to panel edge) and position along the panel
+             *Unset margins and anchors from any other position so as to avoid rendering issues
+             *when orientation changes as when the panel is moved
+             */
+
+            if (top && left && right)
+            {
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, FALSE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, FALSE);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, allocation.x);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, 0);
+            }
+            if (bottom && left && right)
+            {
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, FALSE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, FALSE);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, allocation.x);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, 0);
+            }
+            if (left && bottom && top && !right)
+            {
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, FALSE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, FALSE);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, allocation.y);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, 0);
+            }
+            if (right && bottom && top && !left)
+            {
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, FALSE);
+                gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, FALSE);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, allocation.y);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, 0);
+            }
+            gtk_widget_show_all (icon->priv->dock);
+
+            /* Grab focus */
+            gtk_grab_add (icon->priv->dock);
+            gtk_widget_grab_focus (icon->priv->dock);
+
+            return TRUE;
+        }
+#endif /* wayland support */
 
         if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
                 if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)

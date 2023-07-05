@@ -87,9 +87,17 @@ applet_factory (MatePanelApplet* applet, const char* iid, gpointer data)
         return retval;
 }
 
+#ifdef IN_PROCESS
 /* needed by mate-panel applet library */
 MATE_PANEL_APPLET_IN_PROCESS_FACTORY("GvcAppletFactory",
                                       PANEL_TYPE_APPLET,
                                       "Volume Control applet",
                                       applet_factory,
                                       NULL)
+#else
+MATE_PANEL_APPLET_OUT_PROCESS_FACTORY("GvcAppletFactory",
+                                      PANEL_TYPE_APPLET,
+                                      "Volume Control applet",
+                                      applet_factory,
+                                      NULL)
+#endif

@@ -29,6 +29,7 @@ requires:
     - libcanberra-gtk3-dev
     - libglib2.0-dev
     - libgtk-3-dev
+    - libgtk-layer-shell-dev
     - libmate-desktop-dev
     - libmate-panel-applet-dev
     - libmatemixer-dev
@@ -46,6 +47,7 @@ requires:
     - desktop-file-utils
     - git
     - gtk3-devel
+    - gtk-layer-shell-devel
     - libmatemixer-devel
     - libxml2-devel
     - libcanberra-devel
@@ -65,6 +67,7 @@ requires:
     - libcanberra-gtk3-dev
     - libglib2.0-dev
     - libgtk-3-dev
+    - libgtk-layer-shell-dev
     - libmate-desktop-dev
     - libmate-panel-applet-dev
     - libmatemixer-dev
