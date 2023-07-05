@@ -62,19 +62,6 @@ AC_SUBST(VOLUME_CONTROL_CFLAGS)
 AC_SUBST(VOLUME_CONTROL_LIBS)
 
 dnl=======================================================================
-dnl Check for wayland modules
-dnl=======================================================================
-
-PKG_CHECK_MODULES(wayland,
-                  gtk-layer-shell-0 >= $GTK_LAYER_SHELL_REQUIRED_VERSION
-                  gdk-wayland-3.0 >= $GDK_WAYLAND_REQUIRED_VERSION
-)
-
-AC_SUBST(VOLUME_CONTROL_CFLAGS)
-AC_SUBST(VOLUME_CONTROL_LIBS)
-
-
-dnl=======================================================================
 dnl GLib
 dnl=======================================================================
 
@@ -163,15 +150,13 @@ dnl - "yes" if explicitly enabled or if Wayland is explicitly enabled
 dnl - "auto" if nothing specific is requested, in which case, default back to "no"
 AS_IF([test "x$enable_in_process" != xyes], [enable_in_process=no])
 
-WAYLAND_DEPS="gtk-layer-shell-0 wayland-client gdk-wayland-3.0"
+WAYLAND_DEPS="gtk-layer-shell-0 >= $GTK_LAYER_SHELL_REQUIRED_VERSION wayland-client gdk-wayland-3.0 >= $GDK_WAYLAND_REQUIRED_VERSION"
 AS_CASE(["x$enable_wayland$enable_in_process"],
         [xautoyes], [PKG_CHECK_MODULES([WAYLAND], [$WAYLAND_DEPS],
                                        [enable_wayland=yes], [enable_wayland=no])],
         [xyesyes], [PKG_CHECK_MODULES([WAYLAND], [$WAYLAND_DEPS])],
         [xyes*], [AC_MSG_ERROR([--enable-wayland requires --enable-in-process])],
         [enable_wayland=no])
-dnl should we make sure GDK has Wayland support? it seems unlikely it would
-dnl not, but still?
 
 AM_CONDITIONAL(IN_PROCESS, test "x$enable_in_process" = "xyes")
 AS_IF([test "x$enable_in_process" = "xyes"],
