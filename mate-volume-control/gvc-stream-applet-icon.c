@@ -115,7 +115,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
             if (!gtk_layer_is_layer_window (GTK_WINDOW (icon->priv->dock)))
             {
                 gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
-                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_BOTTOM);
+                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_TOP);
                 gtk_layer_set_keyboard_mode (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND);
             }
 
