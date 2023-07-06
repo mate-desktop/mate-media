@@ -545,7 +545,11 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gtk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
         gtk_widget_show_all (GTK_WIDGET (applet->priv->applet));
 
-#ifndef IN_PROCESS
+#ifdef IN_PROCESS
+         /* Enable 'scroll-event' signal to be received w/o an applet GtkPlug window */
+        gtk_widget_add_events (GTK_WIDGET(applet->priv->icon_input), GDK_SCROLL_MASK);
+        gtk_widget_add_events (GTK_WIDGET(applet->priv->icon_output), GDK_SCROLL_MASK);
+#else
         /* Enable 'scroll-event' signal to get through */
         window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
         event_mask = gdk_window_get_events (window);
