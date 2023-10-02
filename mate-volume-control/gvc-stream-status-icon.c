@@ -29,6 +29,7 @@
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
+#include <libmate-desktop/mate-image-menu-item.h>
 
 #include "gvc-channel-bar.h"
 #include "gvc-stream-status-icon.h"
@@ -244,8 +245,8 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
                 /* Set icon to muted*/
                 image = gtk_image_new_from_icon_name(icon->priv->icon_names[0], GTK_ICON_SIZE_MENU);
         }
-        item = gtk_image_menu_item_new_with_mnemonic(label);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
+        item = mate_image_menu_item_new_with_mnemonic(label);
+        mate_image_menu_item_set_image (MATE_IMAGE_MENU_ITEM (item), image);
         g_signal_connect (G_OBJECT (item),
                           "activate",
                           G_CALLBACK (on_menu_mute_toggled),
@@ -253,10 +254,10 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
 
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        item = gtk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
+        item = mate_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
         image = gtk_image_new_from_icon_name ("multimedia-volume-control",
                                               GTK_ICON_SIZE_MENU);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
+        mate_image_menu_item_set_image (MATE_IMAGE_MENU_ITEM (item), image);
 
         g_signal_connect (G_OBJECT (item),
                           "activate",
