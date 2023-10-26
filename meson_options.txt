@@ -1,0 +1,4 @@
+option('statusicon', type : 'boolean', value : true, description : 'enable tests')
+option('panelapplet', type : 'boolean', value : true, description : 'gnome-keyring support')
+option('wayland', type : 'string', value : 'auto', description : 'wayland enabled')
+option('in-process', type : 'boolean', value : false, description : 'in-process enabled')
