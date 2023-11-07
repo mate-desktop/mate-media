@@ -513,7 +513,7 @@ void
 gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon *icon,
                                          const gchar         *name)
 {
-        g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
+        g_return_if_fail (GVC_IS_STREAM_STATUS_ICON (icon));
 
         g_free (icon->priv->display_name);
 
@@ -527,7 +527,7 @@ void
 gvc_stream_status_icon_set_control (GvcStreamStatusIcon    *icon,
                                     MateMixerStreamControl *control)
 {
-        g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
+        g_return_if_fail (GVC_IS_STREAM_STATUS_ICON (icon));
 
         if (icon->priv->control == control)
                 return;
