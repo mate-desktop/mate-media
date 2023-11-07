@@ -295,7 +295,7 @@ void
 gvc_level_bar_set_peak_adjustment (GvcLevelBar   *bar,
                                    GtkAdjustment *adjustment)
 {
-        g_return_if_fail (GVC_LEVEL_BAR (bar));
+        g_return_if_fail (GVC_IS_LEVEL_BAR (bar));
         g_return_if_fail (GTK_IS_ADJUSTMENT (adjustment));
 
         if (bar->priv->peak_adjustment != NULL) {
@@ -321,7 +321,7 @@ void
 gvc_level_bar_set_rms_adjustment (GvcLevelBar   *bar,
                                   GtkAdjustment *adjustment)
 {
-        g_return_if_fail (GVC_LEVEL_BAR (bar));
+        g_return_if_fail (GVC_IS_LEVEL_BAR (bar));
         g_return_if_fail (GTK_IS_ADJUSTMENT (adjustment));
 
         if (bar->priv->rms_adjustment != NULL) {
