@@ -575,7 +575,7 @@ void
 gvc_stream_applet_icon_set_display_name (GvcStreamAppletIcon *icon,
                                          const gchar         *name)
 {
-        g_return_if_fail (GVC_STREAM_APPLET_ICON (icon));
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
 
         g_free (icon->priv->display_name);
 
@@ -589,7 +589,7 @@ void
 gvc_stream_applet_icon_set_control (GvcStreamAppletIcon    *icon,
                                     MateMixerStreamControl *control)
 {
-        g_return_if_fail (GVC_STREAM_APPLET_ICON (icon));
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
 
         if (icon->priv->control == control)
                 return;

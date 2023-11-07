@@ -236,7 +236,7 @@ find_stream_lfe_channel (MateMixerStreamControl *control)
 static void
 gvc_balance_bar_set_control (GvcBalanceBar *bar, MateMixerStreamControl *control)
 {
-        g_return_if_fail (GVC_BALANCE_BAR (bar));
+        g_return_if_fail (GVC_IS_BALANCE_BAR (bar));
         g_return_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control));
 
         if (bar->priv->control != NULL) {
