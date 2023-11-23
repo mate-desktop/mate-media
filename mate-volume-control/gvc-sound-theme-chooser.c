@@ -35,6 +35,7 @@
 #include <gtk/gtk.h>
 #include <canberra-gtk.h>
 #include <libxml/tree.h>
+#include <libxml/parser.h>
 
 #include "gvc-sound-theme-chooser.h"
 #include "sound-theme-file-utils.h"
