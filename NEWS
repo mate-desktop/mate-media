@@ -1,6 +1,13 @@
 ### mate-media 1.26.1
 
   * Translations update
+  * Fix various instance checks
+  * update German translation
+  * fix building with libxml 2.12.0
+
+### mate-media 1.26.1
+
+  * Translations update
     gvc-stream-applet-icon: fix memory leak
     Accessibility improvements
     Revert Fix desktop file validation warnings
