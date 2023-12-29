@@ -27,7 +27,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#if defined(ENABLE_WAYLAND) && defined(GDK_WINDOWING_WAYLAND)
+#if defined(ENABLE_WAYLAND)
 #include <gdk/gdkwayland.h>
 #include <gtk-layer-shell/gtk-layer-shell.h>
 #endif
@@ -105,7 +105,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), (GtkCallback) gtk_widget_show_all, NULL);
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
-#if defined(ENABLE_WAYLAND) && defined(GDK_WINDOWING_WAYLAND)
+#if defined(ENABLE_WAYLAND)
         if (GDK_IS_WAYLAND_DISPLAY (display))
         {
             gboolean top, bottom, left, right;
