@@ -7,16 +7,16 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Cédric Valmary <cvalmary@yahoo.fr>, 2018
 # 48c2de07903ce5a77a8e90265f95c4c2_8909374 <837c8d0ab97b27e737893c19f79bd4de_348476>, 2018
-# Quentin PAGÈS, 2021
+# Quentin PAGÈS, 2023
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.26.0\n"
+"Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2022-10-29 15:32+0200\n"
+"POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Quentin PAGÈS, 2021\n"
-"Language-Team: Occitan (post 1500) (https://www.transifex.com/mate/teams/13566/oc/)\n"
+"Last-Translator: Quentin PAGÈS, 2023\n"
+"Language-Team: Occitan (post 1500) (https://app.transifex.com/mate/teams/13566/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +41,7 @@ msgstr "MATE;volume;control;mixer;settings;sound;events;son;volum;bruch;"
 #: mate-volume-control/dialog-main.c:256
 #: mate-volume-control/gvc-channel-bar.c:502
 #: mate-volume-control/gvc-speaker-test.c:429
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:10
 msgid "Volume Control"
 msgstr "Reglatge del son"
 
@@ -114,7 +114,7 @@ msgstr "Applet de contraròtle de volum de MATE"
 msgid "Unmute Output"
 msgstr "Restablir lo son en sortida"
 
-#: mate-volume-control/gvc-applet.c:514
+#: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
 msgstr "Applet de contraròtle de volum"
 
@@ -232,7 +232,7 @@ msgstr "Volum _sortida : "
 
 #: mate-volume-control/gvc-mixer-dialog.c:2024
 msgid "Allow volume to e_xceed 100%"
-msgstr ""
+msgstr "Permetre un volum al _delai de 100%"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
@@ -342,13 +342,13 @@ msgstr "Volum sortida sonòra"
 msgid "MATE Volume Control StatusIcon"
 msgstr "Icòna d’estatut del contraròtle de volum MATE"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Impossible de dobrir las preferéncias de son : %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-applet-icon.c:465
 #: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr "Amudir a"
@@ -461,7 +461,7 @@ msgstr "Surround 5.1"
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
 
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
 msgstr "Factor de contraròtle de volum"
 

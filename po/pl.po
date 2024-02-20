@@ -18,12 +18,12 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.26.0\n"
+"Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2022-10-29 15:32+0200\n"
+"POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: Marek Adamski, 2022\n"
-"Language-Team: Polish (https://www.transifex.com/mate/teams/13566/pl/)\n"
+"Language-Team: Polish (https://app.transifex.com/mate/teams/13566/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,7 +48,7 @@ msgstr "MATE;głośność;sterowanie;mikser;ustawienia;dźwięk;zdarzenia;"
 #: mate-volume-control/dialog-main.c:256
 #: mate-volume-control/gvc-channel-bar.c:502
 #: mate-volume-control/gvc-speaker-test.c:429
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:10
 msgid "Volume Control"
 msgstr "Regulacja głośności"
 
@@ -121,7 +121,7 @@ msgstr "Aplet regulacji głośności MATE"
 msgid "Unmute Output"
 msgstr "Odwycisz wyjście"
 
-#: mate-volume-control/gvc-applet.c:514
+#: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
 msgstr "Aplet Regulacja głośności"
 
@@ -353,13 +353,13 @@ msgstr "Głośność dźwięku na wyjściu"
 msgid "MATE Volume Control StatusIcon"
 msgstr "Ikona statusu regulacji głośności MATE"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Uruchomienie preferencji dźwięku się nie powiodło: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-applet-icon.c:465
 #: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr "Wyciszony na"
@@ -472,7 +472,7 @@ msgstr "Surround 5.1"
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
 
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
 msgstr "Generator regulacji głośności"
 

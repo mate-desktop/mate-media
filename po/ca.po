@@ -5,17 +5,17 @@
 # 
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Pere Orga <gotrunks@gmail.com>, 2018
+# Pere O. <gotrunks@gmail.com>, 2018
 # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2022
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.26.0\n"
+"Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2022-10-29 15:32+0200\n"
+"POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2022\n"
-"Language-Team: Catalan (https://www.transifex.com/mate/teams/13566/ca/)\n"
+"Language-Team: Catalan (https://app.transifex.com/mate/teams/13566/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,7 +40,7 @@ msgstr "MATE;volum;control;mesclador;ajusts;so;esdeveniments;"
 #: mate-volume-control/dialog-main.c:256
 #: mate-volume-control/gvc-channel-bar.c:502
 #: mate-volume-control/gvc-speaker-test.c:429
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:10
 msgid "Volume Control"
 msgstr "Control del volum"
 
@@ -113,7 +113,7 @@ msgstr "Miniaplicació del control de volum de MATE"
 msgid "Unmute Output"
 msgstr "No silenciïs la sortida"
 
-#: mate-volume-control/gvc-applet.c:514
+#: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
 msgstr "Miniaplicació de control de volum"
 
@@ -341,13 +341,13 @@ msgstr "Volum de sortida dels sons"
 msgid "MATE Volume Control StatusIcon"
 msgstr "Icona d'estat del control de volum de MATE"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "No s'han pogut iniciar les preferències del so: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-applet-icon.c:465
 #: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr "S'ha silenciat al"
@@ -460,7 +460,7 @@ msgstr "Envoltant 5.1"
 msgid "Surround 7.1"
 msgstr "Envoltant 7.1"
 
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
 msgstr "Fàbrica de control de volum"
 

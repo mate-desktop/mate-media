@@ -11,16 +11,16 @@
 # Kudret <kudretemre@hotmail.com.tr>, 2018
 # Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2018
 # mauron, 2018
-# Sabri Ünal <libreajans@gmail.com>, 2022
+# Sabri Ünal <libreajans@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.26.0\n"
+"Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
-"POT-Creation-Date: 2022-10-29 15:32+0200\n"
+"POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>, 2022\n"
-"Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>, 2023\n"
+"Language-Team: Turkish (https://app.transifex.com/mate/teams/13566/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,7 +45,7 @@ msgstr "MATE;ses;kontrol;denetim;mikser;ayarlar;olaylar;"
 #: mate-volume-control/dialog-main.c:256
 #: mate-volume-control/gvc-channel-bar.c:502
 #: mate-volume-control/gvc-speaker-test.c:429
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:10
 msgid "Volume Control"
 msgstr "Ses Kontrolü"
 
@@ -118,7 +118,7 @@ msgstr "MATE Ses Seviyesi Kontrol Programcığı"
 msgid "Unmute Output"
 msgstr "Çıktıyı Susturma"
 
-#: mate-volume-control/gvc-applet.c:514
+#: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
 msgstr "Ses Seviyesi Kontrol Uygulamacığı"
 
@@ -236,7 +236,7 @@ msgstr "Çıktı _ses seviyesi: "
 
 #: mate-volume-control/gvc-mixer-dialog.c:2024
 msgid "Allow volume to e_xceed 100%"
-msgstr ""
+msgstr "S_esin %100'ü aşmasına izin ver"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
@@ -346,13 +346,13 @@ msgstr "Ses Çıktı Seviyesi"
 msgid "MATE Volume Control StatusIcon"
 msgstr "MATE Ses Kontrol Durumİkonu"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:207
+#: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "Ses Tercihleri başlatılamadı: %ss"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:388
+#: mate-volume-control/gvc-stream-applet-icon.c:465
 #: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
 msgstr "Şuna kapalı"
@@ -465,7 +465,7 @@ msgstr "Çevresel Ses 5.1"
 msgid "Surround 7.1"
 msgstr "Çevresel ses 7.1"
 
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
+#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
 msgstr "Ses Kontrol Üreticisi"
 
