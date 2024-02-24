@@ -24,6 +24,18 @@ EXTRA_DIST =					\
 	its					\
 	$(NULL)
 
+# Distribute the Meson build system files as well
+EXTRA_DIST += \
+	meson.build			\
+	meson_options.txt		\
+	build-aux/meson_post_install.sh	\
+	data/meson.build		\
+	data/icons/meson.build		\
+	data/sounds/meson.build		\
+	man/meson.build			\
+	mate-volume-control/meson.build	\
+	po/meson.build
+
 DISTCLEANFILES =				\
 	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet \
 	mate-volume-control/org.mate.panel.applet.GvcAppletFactory.service \
