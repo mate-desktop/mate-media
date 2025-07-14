@@ -84,6 +84,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         screen = gtk_widget_get_screen (GTK_WIDGET (icon));
         gtk_widget_get_allocation (GTK_WIDGET (icon), &allocation);
         gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (icon)), &allocation.x, &allocation.y);
+        gtk_widget_set_state_flags (GTK_WIDGET (icon), GTK_STATE_FLAG_CHECKED, FALSE);
 
         /* position roughly */
         gtk_window_set_screen (GTK_WINDOW (icon->priv->dock), screen);
@@ -309,6 +310,7 @@ gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
         gtk_grab_remove (icon->priv->dock);
 
         /* Hide again */
+        gtk_widget_unset_state_flags (GTK_WIDGET (icon), GTK_STATE_FLAG_CHECKED);
         gtk_widget_hide (icon->priv->dock);
 }
 
@@ -336,6 +338,7 @@ popdown_dock (GvcStreamAppletIcon *icon)
         gdk_seat_ungrab (seat);
 
         /* Hide again */
+        gtk_widget_unset_state_flags (GTK_WIDGET (icon), GTK_STATE_FLAG_CHECKED);
         gtk_widget_hide (icon->priv->dock);
 }
 
@@ -762,6 +765,7 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
 
         icon->priv->image = GTK_IMAGE (gtk_image_new ());
         gtk_container_add (GTK_CONTAINER (icon), GTK_WIDGET (icon->priv->image));
+        gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (icon)), "menu-button"); // icon = volume-applet
 
         g_signal_connect (GTK_WIDGET (icon),
                           "button-press-event",
