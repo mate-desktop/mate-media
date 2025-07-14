@@ -53,13 +53,16 @@ static const gchar *icon_names_input[] = {
 
 static void menu_output_mute (GtkAction *action, GvcApplet *applet);
 static void menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet);
+
+// @todo like in mate-volume-control-status-icon: label = g_strdup_printf ("%s %s", _("Mute/Unmute"), icon->priv->display_name);
+// @todo mute/unmute output OR input not output AND output
 static const GtkActionEntry applet_menu_actions [] = {
-        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK(menu_activate_open_volume_control) },
-        { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute) }
+        { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute) },
+        { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK (menu_activate_open_volume_control) }
 };
 
-static char *ui = "<menuitem name='Preferences' action='Preferences' />"
-                  "<menuitem name='MuteOutput' action='MuteOutput' />";
+static char *ui = "<menuitem name='MuteOutput' action='MuteOutput' />"
+                  "<menuitem name='Preferences' action='Preferences' />";
 
 struct _GvcAppletPrivate
 {
@@ -529,6 +532,8 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
                 applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
         break;
         }
+
+        gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (applet->priv->applet)), "mate-volume-applet");
 
         /* Define an initial size and orientation */
         gvc_stream_applet_icon_set_size (applet->priv->icon_input, mate_panel_applet_get_size (applet->priv->applet));
