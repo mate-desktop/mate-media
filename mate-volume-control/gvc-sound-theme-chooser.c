@@ -87,6 +87,12 @@ enum {
 };
 
 static void
+on_key_changed (GSettings            *settings,
+                gchar                *key,
+                GvcSoundThemeChooser *chooser);
+
+
+static void
 on_combobox_changed (GtkComboBox          *widget,
                      GvcSoundThemeChooser *chooser)
 {
@@ -103,9 +109,12 @@ on_combobox_changed (GtkComboBox          *widget,
 
         g_assert (theme_name != NULL);
 
+        g_signal_handlers_block_by_func(chooser->priv->sound_settings, on_key_changed, chooser);
         /* It is necessary to update the theme name before any other setting as
          * the "changed" notification will reload the contents of the widget */
         g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
+
+        g_signal_handlers_unblock_by_func(chooser->priv->sound_settings, on_key_changed, chooser);
 
         /* special case for no sounds */
         if (strcmp (theme_name, NO_SOUNDS_THEME_NAME) == 0) {
