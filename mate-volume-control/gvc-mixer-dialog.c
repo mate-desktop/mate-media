@@ -1581,7 +1581,7 @@ on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
                 return;
         }
 
-        stream = find_device_test_stream (dialog, device);
+        stream = mate_mixer_context_get_default_output_stream (dialog->priv->context);
         if (G_UNLIKELY (stream == NULL)) {
                 g_warn_if_reached ();
                 return;

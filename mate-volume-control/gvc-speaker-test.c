@@ -174,6 +174,8 @@ sound_name (MateMixerChannelPosition position)
                 return "audio-channel-front-right";
         case MATE_MIXER_CHANNEL_FRONT_CENTER:
                 return "audio-channel-front-center";
+        case MATE_MIXER_CHANNEL_MONO:
+                return "audio-channel-front-center";
         case MATE_MIXER_CHANNEL_BACK_LEFT:
                 return "audio-channel-rear-left";
         case MATE_MIXER_CHANNEL_BACK_RIGHT:
@@ -204,6 +206,10 @@ icon_name (MateMixerChannelPosition position, gboolean playing)
                         ? "audio-speaker-right-testing"
                         : "audio-speaker-right";
         case MATE_MIXER_CHANNEL_FRONT_CENTER:
+                return playing
+                        ? "audio-speaker-center-testing"
+                        : "audio-speaker-center";
+        case MATE_MIXER_CHANNEL_MONO:
                 return playing
                         ? "audio-speaker-center-testing"
                         : "audio-speaker-center";
