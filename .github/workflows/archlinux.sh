@@ -19,9 +19,14 @@ requires=(
 requires+=(
 	autoconf-archive
 	gcc
+	gettext
 	git
+	libcanberra
+	libmatemixer
 	make
 	mate-common
+	mate-desktop
+	mate-panel
 	which
 )
 
