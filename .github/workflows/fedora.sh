@@ -14,6 +14,7 @@ requires=(
 	meson  # Used for meson build
 )
 
+# https://src.fedoraproject.org/cgit/rpms/mate-media.git
 requires+=(
 	autoconf-archive
 	gcc
