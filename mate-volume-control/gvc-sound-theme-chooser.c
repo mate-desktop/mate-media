@@ -110,6 +110,7 @@ on_combobox_changed (GtkComboBox          *widget,
         /* special case for no sounds */
         if (strcmp (theme_name, NO_SOUNDS_THEME_NAME) == 0) {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, FALSE);
+                g_free (theme_name);
                 return;
         } else {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, TRUE);
