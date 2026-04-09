@@ -5,6 +5,8 @@
 # 
 # Translators:
 # Siranush <ss.m.95@mail.ru>, 2018
+# Tigran Khachatryan, 2024
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
@@ -12,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Siranush <ss.m.95@mail.ru>, 2018\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Armenian (https://app.transifex.com/mate/teams/13566/hy/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,7 +235,7 @@ msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
-msgstr "Ապարատային միջոցներ"
+msgstr "Սարքավորում"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2081
 msgid "C_hoose a device to configure:"
@@ -262,7 +264,7 @@ msgstr "Ձայնային ելքի համար ընտրել սարք"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2263
 msgid "Applications"
-msgstr "Դիմումներ"
+msgstr "Հավելվածներ"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2268
 msgid "No application is currently playing or recording audio."
@@ -320,12 +322,12 @@ msgstr "Ակտիվացնել _պատուհանը և ձայնի կոճակը"
 
 #: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
-msgstr "Դադար"
+msgstr "Կանգ տալ"
 
 #: mate-volume-control/gvc-speaker-test.c:253
 #: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
-msgstr "Թեստ"
+msgstr "Փորձարկել"
 
 #: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
@@ -440,23 +442,23 @@ msgstr "Ստերեո"
 
 #: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr "Շրջապատել 4.0"
+msgstr "Surround 4.0"
 
 #: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr "Շրջապատել 4.1"
+msgstr "Surround 4.1"
 
 #: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr "Շրջապատել 5.0"
+msgstr "Surround 5.0"
 
 #: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr "Շրջապատել 5.1"
+msgstr "Surround 5.1"
 
 #: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr "Շրջապատել 7.1"
+msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
