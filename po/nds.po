@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Benedikt Straub <benedikt-straub@web.de>, 2019
+# Benedikt Straub <benedikt-straub@web.de>, 2025
 # 
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Benedikt Straub <benedikt-straub@web.de>, 2019\n"
+"Last-Translator: Benedikt Straub <benedikt-straub@web.de>, 2025\n"
 "Language-Team: Low German (https://app.transifex.com/mate/teams/13566/nds/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +33,7 @@ msgstr "Gedrüüs-Luudstarkde un Gedrüüsklangen ännern"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;Luudstarkde;Kuntrull;Misker;Instellens;Gedrüüs;Vörfallen;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:256
@@ -51,24 +51,24 @@ msgstr "Schrievdisk"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;Luudstarkde;Kuntrull;Misker;Instellens;Gedrüüs;"
 
 #: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
-msgstr "Gedrüüssystem is nich verfögbaar"
+msgstr "Gedrüüssysteem is nich verföögbaar"
 
 #: mate-volume-control/dialog-main.c:166
 msgid "Waiting for sound system to respond"
-msgstr "Wacht, bit dat Gedrüüssystem antwoordt"
+msgstr "Wacht, bit dat Gedrüüssysteem antwoordt"
 
 #: mate-volume-control/dialog-main.c:191
 msgid "Sound system backend"
-msgstr ""
+msgstr "Gedrüüs-Systeem-Achterenn"
 
 #: mate-volume-control/dialog-main.c:192
 #: mate-volume-control/status-icon-main.c:47
 msgid "Enable debug"
-msgstr ""
+msgstr "Fehlersöök anknipsen"
 
 #: mate-volume-control/dialog-main.c:193
 msgid "Startup page"
@@ -77,7 +77,7 @@ msgstr "Startsiet"
 #: mate-volume-control/dialog-main.c:194
 #: mate-volume-control/status-icon-main.c:46
 msgid "Version of this application"
-msgstr "Verschoon vun düssem Programm"
+msgstr "Versioon vun deesem Programm"
 
 #: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
@@ -90,7 +90,7 @@ msgstr "_Toninstellens"
 
 #: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
-msgstr ""
+msgstr "Utgaav stummknipsen"
 
 #: mate-volume-control/gvc-applet.c:402
 #: mate-volume-control/gvc-mixer-dialog.c:2119
@@ -110,11 +110,11 @@ msgstr "MATE-Luudstarkden-Anpassens-Programm"
 
 #: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
-msgstr ""
+msgstr "Utgaav nich mehr stummknipsen"
 
 #: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Luudstarkde-Instell-Anwennen"
 
 #: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
@@ -185,7 +185,7 @@ msgstr "Verbi_nner:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1159
 msgid "Disabled"
-msgstr "Deaktivert"
+msgstr "Deaktiveert"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1165
 #, c-format
@@ -230,7 +230,7 @@ msgstr "_Utgavluutstärke:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2024
 msgid "Allow volume to e_xceed 100%"
-msgstr ""
+msgstr "Verlöven, de Luudstarkde _hooger as 100% to setten"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
@@ -238,12 +238,12 @@ msgstr "Hardware"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2081
 msgid "C_hoose a device to configure:"
-msgstr "Lööpwark wählen, dat _instellt werrn chall:"
+msgstr "Lööpwark kören, dat _instellt worden chall:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2105
 #: mate-volume-control/gvc-mixer-dialog.c:2238
 msgid "Settings for the selected device:"
-msgstr "Instellen för dat utwählte Lööpwark:"
+msgstr "Instellen för dat utköörte Lööpwark:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2128
 msgid "_Input volume: "
@@ -267,7 +267,7 @@ msgstr "Programme"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2268
 msgid "No application is currently playing or recording audio."
-msgstr "Jüüst gifft keen Programm Gedrüüs weer oder nimmt welkes up."
+msgstr "Jüüst gifft keen Programm Gedrüüs weer of nimmt welkes up."
 
 #: mate-volume-control/gvc-mixer-dialog.c:2458
 #: mate-volume-control/gvc-sound-theme-chooser.c:728
@@ -313,11 +313,11 @@ msgstr "Ton_thema:"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1041
 msgid "C_hoose an alert sound:"
-msgstr "Alarmton _wählen:"
+msgstr "Alarmton _utkören:"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:1069
 msgid "Enable _window and button sounds"
-msgstr "_Finster- un Knopptöne aktiveren"
+msgstr "_Finster- un Knopptöne anknipsen"
 
 #: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
@@ -330,7 +330,7 @@ msgstr "Test"
 
 #: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
-msgstr ""
+msgstr "Mikrofon-Luudstarkde"
 
 #: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
@@ -338,7 +338,7 @@ msgstr "Gedrüüs-Utgaav-Luudstarkde"
 
 #: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATE-Luudstarkden-Tostands-Teken"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
@@ -353,7 +353,7 @@ msgstr "Still bi"
 
 #: mate-volume-control/gvc-stream-status-icon.c:237
 msgid "Unmute"
-msgstr ""
+msgstr "Nich mehr stummknipsen"
 
 #: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
@@ -361,7 +361,7 @@ msgstr "Unbekannt"
 
 #: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
@@ -437,32 +437,32 @@ msgstr "Boven achtern in de Midde"
 
 #: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 #: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Surround 4.0"
 
 #: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Surround 4.1"
 
 #: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Surround 5.0"
 
 #: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Surround 5.1"
 
 #: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Surround 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Luudstarkde-Instell-Fabrik"
 
 #: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — MATE-Luudstarkden-Tostands-Teken"

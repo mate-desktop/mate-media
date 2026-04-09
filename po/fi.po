@@ -4,11 +4,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Lasse Liehu <larso@gmx.com>, 2018
+# Lasse Liehu-Inui <larso@gmx.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Ammuu5, 2018
 # nomen omen, 2018
 # Kimmo Kujansuu <mrkujansuu@gmail.com>, 2019
+# Tommi Nieminen <translator@legisign.org>, 2026
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
@@ -16,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2023-09-02 17:04+0200\n"
 "PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>, 2019\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Finnish (https://app.transifex.com/mate/teams/13566/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +38,7 @@ msgstr "Muuta äänenvoimakkuutta ja äänitapahtumia"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;äänenvoimakkuus;säädin;mikseri;asetukset;ääni;tapahtumat;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:256
@@ -54,7 +56,7 @@ msgstr "Näytä työpöydän äänenvoimakkuuden hallinta"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;äänenvoimakkuus;säädin;mikseri;asetukset;ääni;"
 
 #: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
@@ -93,7 +95,7 @@ msgstr "_Ääniasetukset"
 
 #: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
-msgstr ""
+msgstr "Vaimenna ulostulo"
 
 #: mate-volume-control/gvc-applet.c:402
 #: mate-volume-control/gvc-mixer-dialog.c:2119
@@ -113,11 +115,11 @@ msgstr "MATE Äänenvoimakkuuden Hallinta Sovelma"
 
 #: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
-msgstr ""
+msgstr "Poista ulostulon vaimennus"
 
 #: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Äänenvoimakkuussovelma"
 
 #: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
@@ -194,15 +196,15 @@ msgstr "Ei käytössä"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u ulostulo"
+msgstr[1] "%u ulostuloa"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1174
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u sisäänmeno"
+msgstr[1] "%u sisäänmenoa"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1542
 #: mate-volume-control/gvc-mixer-dialog.c:1811
@@ -341,7 +343,7 @@ msgstr "Äänentoisto Voimakkuus"
 
 #: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATEn äänenvoimakkuussovelman tilakuvake"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
@@ -356,7 +358,7 @@ msgstr "Mykistetty"
 
 #: mate-volume-control/gvc-stream-status-icon.c:237
 msgid "Unmute"
-msgstr ""
+msgstr "Poista vaimennus"
 
 #: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
@@ -468,4 +470,4 @@ msgstr ""
 
 #: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr "— MATEn äänenvoimakkuussovelman tilakuvake"
