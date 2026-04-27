@@ -9,6 +9,8 @@ cflags = [
 ]
 deps = [
   glib,
+  gio,
+  gio_unix,
   gtk,
   matemixer
 ]
@@ -34,13 +36,16 @@ if enable_applet
     desktop_data.set('IN_PROCESS', 'true')
     applet_metadata_output = 'org.mate.applets.GvcApplet.mate-panel-applet'
     
-    libmvca_shared = library(
-      'mate-volume-control-applet',
-      sources: [
-        'gvc-stream-applet-icon.c',
-        'gvc-applet.c',
-        'applet-main.c'
-      ],
+	    libmvca_shared = library(
+	      'mate-volume-control-applet',
+	      sources: [
+	        'gvc-stream-applet-icon.c',
+	        'gvc-mpris-manager.c',
+	        'gvc-mpris-player.c',
+	        'gvc-player-widget.c',
+	        'gvc-applet.c',
+	        'applet-main.c'
+	      ],
       include_directories: config_inc,
       dependencies: [
         deps,
@@ -68,13 +73,16 @@ if enable_applet
       install : true,
       install_dir : join_paths(mm_datadir, 'dbus-1/services')
     )
-    executable(
-      'mate-volume-control-applet',
-      sources : [
-        'gvc-stream-applet-icon.c',
-        'gvc-applet.c',
-        'applet-main.c'
-      ],
+	    executable(
+	      'mate-volume-control-applet',
+	      sources : [
+	        'gvc-stream-applet-icon.c',
+	        'gvc-mpris-manager.c',
+	        'gvc-mpris-player.c',
+	        'gvc-player-widget.c',
+	        'gvc-applet.c',
+	        'applet-main.c'
+	      ],
       include_directories: config_inc,
       dependencies : [
         deps,
@@ -112,6 +120,9 @@ if enable_statusicon
     sources : [
       'gvc-stream-status-icon.c',
       'gvc-status-icon.c',
+      'gvc-mpris-manager.c',
+      'gvc-mpris-player.c',
+      'gvc-player-widget.c',
       'status-icon-main.c'
     ],
     include_directories: config_inc,
@@ -153,4 +164,3 @@ executable(
   install : true,
   install_dir : get_option('bindir')
 )
-

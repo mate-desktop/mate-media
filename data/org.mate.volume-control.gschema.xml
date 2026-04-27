@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.mate.volume-control" path="/org/mate/volume-control/">
+    <key name="show-track-in-panel" type="b">
+      <default>false</default>
+      <summary>Show track title in the panel</summary>
+      <description>Whether the volume applet should show the current track next to the panel icon.</description>
+    </key>
+    <key name="show-player-controls" type="b">
+      <default>true</default>
+      <summary>Show media player controls</summary>
+      <description>Whether the applet popup should include MPRIS media player controls.</description>
+    </key>
+    <key name="middle-click-action" type="s">
+      <default>'mute-output'</default>
+      <summary>Middle click action</summary>
+      <description>Action for middle click: mute-all, mute-output, mute-input, or player.</description>
+    </key>
+    <key name="horizontal-scroll-controls" type="b">
+      <default>true</default>
+      <summary>Horizontal scroll controls media</summary>
+      <description>Whether horizontal scroll events on the applet move to the previous or next track.</description>
+    </key>
+    <key name="known-players" type="as">
+      <default>[]</default>
+      <summary>Known media players</summary>
+      <description>Desktop entry IDs discovered from MPRIS players.</description>
+    </key>
+    <key name="tooltip-show-volume" type="b">
+      <default>true</default>
+      <summary>Show volume in tooltip</summary>
+      <description>Whether the applet tooltip should include volume information.</description>
+    </key>
+    <key name="tooltip-show-player" type="b">
+      <default>false</default>
+      <summary>Show player in tooltip</summary>
+      <description>Whether the applet tooltip should include the active media player and track.</description>
+    </key>
+  </schema>
+</schemalist>
