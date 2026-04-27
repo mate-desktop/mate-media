@@ -25,7 +25,11 @@
 
 #include <glib.h>
 #include <glib-object.h>
+#include <gtk/gtk.h>
 #include <libmatemixer/matemixer.h>
+
+#include "gvc-mpris-manager.h"
+#include "gvc-mpris-player.h"
 
 G_BEGIN_DECLS
 
@@ -51,18 +55,36 @@ struct _GvcStreamStatusIconClass
         GtkStatusIconClass          parent_class;
 };
 
-GType                 gvc_stream_status_icon_get_type         (void) G_GNUC_CONST;
+GType                 gvc_stream_status_icon_get_type                 (void) G_GNUC_CONST;
 
-GvcStreamStatusIcon * gvc_stream_status_icon_new              (MateMixerStreamControl *control,
-                                                               const gchar           **icon_names);
+GvcStreamStatusIcon * gvc_stream_status_icon_new                      (MateMixerStreamControl *control,
+                                                                       const gchar           **icon_names);
 
-void                  gvc_stream_status_icon_set_icon_names   (GvcStreamStatusIcon    *icon,
-                                                               const gchar           **icon_names);
-void                  gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon    *icon,
-                                                                  const gchar         *display_name);
+void                  gvc_stream_status_icon_set_icon_names           (GvcStreamStatusIcon    *icon,
+                                                                       const gchar           **icon_names);
+void                  gvc_stream_status_icon_set_display_name         (GvcStreamStatusIcon    *icon,
+                                                                       const gchar            *display_name);
 
-void                  gvc_stream_status_icon_set_control      (GvcStreamStatusIcon    *icon,
-                                                               MateMixerStreamControl *control);
+void                  gvc_stream_status_icon_set_control              (GvcStreamStatusIcon    *icon,
+                                                                       MateMixerStreamControl *control);
+
+void                  gvc_stream_status_icon_set_applet_settings      (GvcStreamStatusIcon    *icon,
+                                                                       GSettings              *settings);
+
+void                  gvc_stream_status_icon_set_player_widget        (GvcStreamStatusIcon    *icon,
+                                                                       GtkWidget              *player_widget);
+
+void                  gvc_stream_status_icon_set_mpris_player         (GvcStreamStatusIcon    *icon,
+                                                                       GvcMprisPlayer         *player);
+
+void                  gvc_stream_status_icon_set_player_widget_visible (GvcStreamStatusIcon   *icon,
+                                                                        gboolean               visible);
+
+void                  gvc_stream_status_icon_set_mpris_manager        (GvcStreamStatusIcon    *icon,
+                                                                       GvcMprisManager        *manager);
+
+void                  gvc_stream_status_icon_set_mate_mixer_context   (GvcStreamStatusIcon    *icon,
+                                                                       MateMixerContext       *context);
 
 G_END_DECLS
 
