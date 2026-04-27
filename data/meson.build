@@ -31,3 +31,8 @@ i18n.merge_file(
   install: true,
   install_dir: join_paths(get_option('sysconfdir'), 'xdg', 'autostart')
 )
+
+install_data(
+  'org.mate.volume-control.gschema.xml',
+  install_dir: join_paths(mm_datadir, 'glib-2.0', 'schemas')
+)
