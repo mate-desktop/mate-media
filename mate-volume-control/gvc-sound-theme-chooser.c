@@ -48,6 +48,7 @@ struct GvcSoundThemeChooserPrivate
         GtkWidget *selection_box;
         GtkWidget *click_feedback_button;
         GSettings *sound_settings;
+        gulong     combo_changed_id;
 };
 
 static void     gvc_sound_theme_chooser_dispose   (GObject            *object);
@@ -103,19 +104,24 @@ on_combobox_changed (GtkComboBox          *widget,
 
         g_assert (theme_name != NULL);
 
-        /* It is necessary to update the theme name before any other setting as
-         * the "changed" notification will reload the contents of the widget */
+        /* Block the combobox "changed" signal while writing settings,
+         * otherwise the settings notification resets the combobox and
+         * we end up in a loop */
+        g_signal_handler_block (chooser->priv->combo_box, chooser->priv->combo_changed_id);
+
         g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
 
         /* special case for no sounds */
         if (strcmp (theme_name, NO_SOUNDS_THEME_NAME) == 0) {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, FALSE);
+                g_signal_handler_unblock (chooser->priv->combo_box, chooser->priv->combo_changed_id);
                 g_free (theme_name);
                 return;
         } else {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, TRUE);
         }
 
+        g_signal_handler_unblock (chooser->priv->combo_box, chooser->priv->combo_changed_id);
         g_free (theme_name);
 
         /* FIXME: reset alert model */
@@ -336,10 +342,11 @@ setup_theme_selector (GvcSoundThemeChooser *chooser)
                                         "text", THEME_DISPLAY_COL,
                                         NULL);
 
-        g_signal_connect (G_OBJECT (chooser->priv->combo_box),
-                          "changed",
-                          G_CALLBACK (on_combobox_changed),
-                          chooser);
+        chooser->priv->combo_changed_id =
+                g_signal_connect (G_OBJECT (chooser->priv->combo_box),
+                                  "changed",
+                                  G_CALLBACK (on_combobox_changed),
+                                  chooser);
 }
 
 #define GVC_SOUND_SOUND    (xmlChar *) "sound"
@@ -627,7 +634,9 @@ update_alert (GvcSoundThemeChooser *chooser,
                                                    THEME_IDENTIFIER_COL, CUSTOM_THEME_NAME,
                                                    THEME_PARENT_ID_COL, theme,
                                                    -1);
+                g_signal_handler_block (chooser->priv->combo_box, chooser->priv->combo_changed_id);
                 set_combox_for_theme_name (chooser, CUSTOM_THEME_NAME);
+                g_signal_handler_unblock (chooser->priv->combo_box, chooser->priv->combo_changed_id);
         } else if (remove_custom) {
                 gtk_tree_model_get_iter_first (theme_model, &iter);
                 do {
@@ -646,7 +655,9 @@ update_alert (GvcSoundThemeChooser *chooser,
 
                 delete_custom_theme_dir ();
 
+                g_signal_handler_block (chooser->priv->combo_box, chooser->priv->combo_changed_id);
                 set_combox_for_theme_name (chooser, parent);
+                g_signal_handler_unblock (chooser->priv->combo_box, chooser->priv->combo_changed_id);
         }
 
         update_alert_model (chooser, alert_id);
@@ -954,7 +965,9 @@ update_theme (GvcSoundThemeChooser *chooser)
         gtk_widget_set_sensitive (chooser->priv->selection_box, events_enabled);
         gtk_widget_set_sensitive (chooser->priv->click_feedback_button, events_enabled);
 
+        g_signal_handler_block (chooser->priv->combo_box, chooser->priv->combo_changed_id);
         set_combox_for_theme_name (chooser, theme_name);
+        g_signal_handler_unblock (chooser->priv->combo_box, chooser->priv->combo_changed_id);
 
         update_alerts_from_theme_name (chooser, theme_name);
 
