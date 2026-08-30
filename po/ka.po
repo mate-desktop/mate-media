@@ -1,24 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the mate-media package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-# Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# 
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026.
+#
+# Translators:
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2023-09-02 17:04+0200\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
-"Language-Team: Georgian (https://app.transifex.com/mate/teams/13566/ka/)\n"
+"PO-Revision-Date: 2026-06-23 01:11+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://translate.fedoraproject.org/projects/mate-"
+"desktop/applications/mate-media/ka/>\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ka\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
@@ -33,6 +35,7 @@ msgstr ""
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
 msgstr ""
+"MATE;volume;control;mixer;settings;sound;events;ხმა;მართვა;მიქსერი;მორგება;მოვლენები;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:256
@@ -50,7 +53,7 @@ msgstr ""
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;volume;control;mixer;settings;sound;ხმა;მიქსერი;კონტროლი;"
 
 #: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
@@ -95,13 +98,13 @@ msgstr ""
 #: mate-volume-control/gvc-mixer-dialog.c:2119
 #: mate-volume-control/gvc-status-icon.c:324
 msgid "Input"
-msgstr ""
+msgstr "შეყვანა"
 
 #: mate-volume-control/gvc-applet.c:403
 #: mate-volume-control/gvc-mixer-dialog.c:2209
 #: mate-volume-control/gvc-status-icon.c:325
 msgid "Output"
-msgstr ""
+msgstr "გამოტანა"
 
 #: mate-volume-control/gvc-applet.c:407
 msgid "MATE Volume Control Applet"
@@ -118,49 +121,49 @@ msgstr ""
 #: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
 msgid "Left"
-msgstr "მარცხნივ"
+msgstr "მარცხენა"
 
 #: mate-volume-control/gvc-balance-bar.c:133
 msgctxt "balance"
 msgid "Right"
-msgstr "მარჯვნივ"
+msgstr "მარჯვენა"
 
 #: mate-volume-control/gvc-balance-bar.c:136
 msgctxt "balance"
 msgid "Rear"
-msgstr ""
+msgstr "უკანა"
 
 #: mate-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Front"
-msgstr ""
+msgstr "წინა"
 
 #: mate-volume-control/gvc-balance-bar.c:140
 msgctxt "balance"
 msgid "Minimum"
-msgstr ""
+msgstr "მინიმუმი"
 
 #: mate-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Maximum"
-msgstr ""
+msgstr "მაქსიმუმი"
 
 #: mate-volume-control/gvc-balance-bar.c:329
 msgid "_Balance:"
-msgstr ""
+msgstr "_ბალანსი:"
 
 #: mate-volume-control/gvc-balance-bar.c:332
 msgid "_Fade:"
-msgstr ""
+msgstr "მი_ნავლება:"
 
 #: mate-volume-control/gvc-balance-bar.c:335
 msgid "_Subwoofer:"
-msgstr ""
+msgstr "_საბვუფერი:"
 
 #: mate-volume-control/gvc-channel-bar.c:338
 msgctxt "volume"
 msgid "Unamplified"
-msgstr ""
+msgstr "გაუძლიერებელი"
 
 #: mate-volume-control/gvc-channel-bar.c:355
 msgctxt "volume"
@@ -170,21 +173,21 @@ msgstr "100%"
 #: mate-volume-control/gvc-channel-bar.c:1172
 #: mate-volume-control/gvc-stream-status-icon.c:243
 msgid "Mute"
-msgstr ""
+msgstr "დადუმება"
 
 #: mate-volume-control/gvc-combo-box.c:250
 #: mate-volume-control/gvc-mixer-dialog.c:1651
 msgid "_Profile:"
-msgstr ""
+msgstr "_პროფილი:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:354
 #: mate-volume-control/gvc-mixer-dialog.c:537
 msgid "Co_nnector:"
-msgstr ""
+msgstr "კო_ნექტორი:"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1159
 msgid "Disabled"
-msgstr "გამორთული"
+msgstr "გამორთულია"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1165
 #, c-format
@@ -233,7 +236,7 @@ msgstr ""
 
 #: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
-msgstr ""
+msgstr "აპარატურა"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2081
 msgid "C_hoose a device to configure:"
@@ -281,12 +284,12 @@ msgstr ""
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:438
 msgid "Built-in"
-msgstr ""
+msgstr "ჩაშენებული"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:624
 #: mate-volume-control/sound-theme-file-utils.c:294
 msgid "Custom"
-msgstr "სხვა"
+msgstr "მორგებული"
 
 #: mate-volume-control/gvc-sound-theme-chooser.c:731
 #: mate-volume-control/gvc-sound-theme-chooser.c:742
@@ -320,12 +323,12 @@ msgstr ""
 
 #: mate-volume-control/gvc-speaker-test.c:253
 msgid "Stop"
-msgstr "სტოპ"
+msgstr "გაჩერება"
 
 #: mate-volume-control/gvc-speaker-test.c:253
 #: mate-volume-control/gvc-speaker-test.c:367
 msgid "Test"
-msgstr ""
+msgstr "შემოწმება"
 
 #: mate-volume-control/gvc-status-icon.c:328
 msgid "Microphone Volume"
@@ -352,7 +355,7 @@ msgstr ""
 
 #: mate-volume-control/gvc-stream-status-icon.c:237
 msgid "Unmute"
-msgstr ""
+msgstr "დადუმების მოხსნა"
 
 #: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
@@ -360,7 +363,7 @@ msgstr "უცნობი"
 
 #: mate-volume-control/gvc-utils.c:61 mate-volume-control/gvc-utils.c:109
 msgid "Mono"
-msgstr ""
+msgstr "მონო"
 
 #: mate-volume-control/gvc-utils.c:62
 msgid "Front Left"
@@ -376,7 +379,7 @@ msgstr ""
 
 #: mate-volume-control/gvc-utils.c:65
 msgid "LFE"
-msgstr ""
+msgstr "LFE"
 
 #: mate-volume-control/gvc-utils.c:66
 msgid "Rear Left"
@@ -436,7 +439,7 @@ msgstr ""
 
 #: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
-msgstr ""
+msgstr "სტერეო"
 
 #: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
