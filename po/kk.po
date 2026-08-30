@@ -1,24 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the mate-media package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2018, 2026.
+#
 # Translators:
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2018
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2023-09-02 17:04+0200\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2018\n"
-"Language-Team: Kazakh (https://app.transifex.com/mate/teams/13566/kk/)\n"
+"PO-Revision-Date: 2026-08-30 04:18+0000\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <https://translate.fedoraproject.org/projects/mate-"
+"desktop/applications/mate-media/kk/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
@@ -26,13 +27,13 @@ msgstr "Дыбыс"
 
 #: data/mate-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
-msgstr ""
+msgstr "Дыбыс деңгейін және дыбыстық оқиғаларды өзгерту"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr ""
+msgstr "MATE;дыбыс деңгейі;басқару;микшер;баптаулар;дыбыс;оқиғалар;"
 
 #: data/mate-volume-control-status-icon.desktop.in:3
 #: mate-volume-control/dialog-main.c:256
@@ -50,7 +51,7 @@ msgstr "Жұмыс үстелінің дыбыс деңгейін басқару
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr ""
+msgstr "MATE;дыбыс деңгейі;басқару;микшер;баптаулар;дыбыс;"
 
 #: mate-volume-control/dialog-main.c:144
 msgid "Sound system is not available"
@@ -89,7 +90,7 @@ msgstr "Дыбы_с баптаулары"
 
 #: mate-volume-control/gvc-applet.c:58 mate-volume-control/gvc-applet.c:469
 msgid "Mute Output"
-msgstr ""
+msgstr "Шығыс дыбысын сөндіру"
 
 #: mate-volume-control/gvc-applet.c:402
 #: mate-volume-control/gvc-mixer-dialog.c:2119
@@ -109,11 +110,11 @@ msgstr "MATE дыбысты басқару апплеті"
 
 #: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
-msgstr ""
+msgstr "Шығыс дыбысын іске қосу"
 
 #: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
-msgstr ""
+msgstr "Дыбыс деңгейін басқару апплеті"
 
 #: mate-volume-control/gvc-balance-bar.c:132
 msgctxt "balance"
@@ -190,15 +191,15 @@ msgstr "Сөндірулі"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u шығыс"
+msgstr[1] "%u шығыс"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1174
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u кіріс"
+msgstr[1] "%u кіріс"
 
 #: mate-volume-control/gvc-mixer-dialog.c:1542
 #: mate-volume-control/gvc-mixer-dialog.c:1811
@@ -229,7 +230,7 @@ msgstr "_Шығыс деңгейі: "
 
 #: mate-volume-control/gvc-mixer-dialog.c:2024
 msgid "Allow volume to e_xceed 100%"
-msgstr ""
+msgstr "Дыбыс деңгейін 100%-дан а_сыруға рұқсат ету"
 
 #: mate-volume-control/gvc-mixer-dialog.c:2076
 msgid "Hardware"
@@ -337,7 +338,7 @@ msgstr "Дыбыстың шығыс деңгейі"
 
 #: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
-msgstr ""
+msgstr "MATE дыбыс деңгейін басқару қалып-күй таңбашасы"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
@@ -348,11 +349,11 @@ msgstr "Дыбыстарды басқаруды іске қосу мүмкін �
 #: mate-volume-control/gvc-stream-applet-icon.c:465
 #: mate-volume-control/gvc-stream-status-icon.c:435
 msgid "Muted at"
-msgstr ""
+msgstr "Дыбысы сөндірілген мәні:"
 
 #: mate-volume-control/gvc-stream-status-icon.c:237
 msgid "Unmute"
-msgstr ""
+msgstr "Дыбысты іске қосу"
 
 #: mate-volume-control/gvc-utils.c:59
 msgid "Unknown"
@@ -400,39 +401,39 @@ msgstr "Алдыңғы ортаңғы оң жақ"
 
 #: mate-volume-control/gvc-utils.c:71
 msgid "Side Left"
-msgstr ""
+msgstr "Сол жақ бүйірлік"
 
 #: mate-volume-control/gvc-utils.c:72
 msgid "Side Right"
-msgstr ""
+msgstr "Оң жақ бүйірлік"
 
 #: mate-volume-control/gvc-utils.c:73
 msgid "Top Front Left"
-msgstr ""
+msgstr "Жоғарғы алдыңғы сол жақ"
 
 #: mate-volume-control/gvc-utils.c:74
 msgid "Top Front Right"
-msgstr ""
+msgstr "Жоғарғы алдыңғы оң жақ"
 
 #: mate-volume-control/gvc-utils.c:75
 msgid "Top Front Center"
-msgstr ""
+msgstr "Жоғарғы алдыңғы ортаңғы"
 
 #: mate-volume-control/gvc-utils.c:76
 msgid "Top Center"
-msgstr ""
+msgstr "Жоғарғы ортаңғы"
 
 #: mate-volume-control/gvc-utils.c:77
 msgid "Top Rear Left"
-msgstr ""
+msgstr "Жоғарғы артқы сол жақ"
 
 #: mate-volume-control/gvc-utils.c:78
 msgid "Top Rear Right"
-msgstr ""
+msgstr "Жоғарғы артқы оң жақ"
 
 #: mate-volume-control/gvc-utils.c:79
 msgid "Top Rear Center"
-msgstr ""
+msgstr "Жоғарғы артқы ортаңғы"
 
 #: mate-volume-control/gvc-utils.c:114
 msgid "Stereo"
@@ -440,28 +441,28 @@ msgstr "Стерео"
 
 #: mate-volume-control/gvc-utils.c:121
 msgid "Surround 4.0"
-msgstr ""
+msgstr "Көлемді дыбыс 4.0"
 
 #: mate-volume-control/gvc-utils.c:129
 msgid "Surround 4.1"
-msgstr ""
+msgstr "Көлемді дыбыс 4.1"
 
 #: mate-volume-control/gvc-utils.c:131
 msgid "Surround 5.0"
-msgstr ""
+msgstr "Көлемді дыбыс 5.0"
 
 #: mate-volume-control/gvc-utils.c:141
 msgid "Surround 5.1"
-msgstr ""
+msgstr "Көлемді дыбыс 5.1"
 
 #: mate-volume-control/gvc-utils.c:152
 msgid "Surround 7.1"
-msgstr ""
+msgstr "Көлемді дыбыс 7.1"
 
 #: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:6
 msgid "Volume Control Factory"
-msgstr ""
+msgstr "Дыбыс деңгейін басқару фабрикасы"
 
 #: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
-msgstr ""
+msgstr " — MATE дыбыс деңгейін басқару қалып-күй таңбашасы"
