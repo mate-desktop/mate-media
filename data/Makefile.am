@@ -5,6 +5,9 @@ SUBDIRS =	\
 	sounds	\
 	$(NULL)
 
+gsettings_SCHEMAS = org.mate.volume-control.gschema.xml
+@GSETTINGS_RULES@
+
 if ENABLE_STATUSICON
 autostartdir = $(sysconfdir)/xdg/autostart
 endif
@@ -22,6 +25,7 @@ $(apps_DATA): $(apps_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST =					\
+	$(gsettings_SCHEMAS)			\
 	$(autostart_in_files)			\
 	mate-volume-control.desktop.in.in	\
 	$(NULL)

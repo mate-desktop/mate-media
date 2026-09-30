@@ -59,6 +59,12 @@ noinst_LTLIBRARIES = libmatevolumecontrol.la
 libmatevolumecontrol_la_SOURCES = \
 	gvc-channel-bar.h \
 	gvc-channel-bar.c \
+	gvc-mpris-manager.h \
+	gvc-mpris-manager.c \
+	gvc-mpris-player.h \
+	gvc-mpris-player.c \
+	gvc-player-widget.h \
+	gvc-player-widget.c \
 	$(NULL)
 
 if ENABLE_STATUSICON

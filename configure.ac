@@ -51,6 +51,7 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
                   gobject-2.0 >= $GLIB_REQUIRED_VERSION
                   gtk+-3.0 >= $GTK_REQUIRED_VERSION
                   gio-2.0 >= $GIO_REQUIRED_VERSION
+                  gio-unix-2.0 >= $GIO_REQUIRED_VERSION
                   libcanberra-gtk3 >= $CANBERRA_REQUIRED_VERSION
                   libxml-2.0
                   mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
