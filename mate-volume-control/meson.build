@@ -29,12 +29,10 @@ libmvc_static = static_library(
 
 if enable_applet
   desktop_data = configuration_data()
-  applet_metadata_output = 'org.mate.applets.GvcApplet.mate-panel-applet.desktop'
   
   if enable_process
     desktop_data.set('APPLET_LOCATION', join_paths(mm_libdir, 'libmate-volume-control-applet.so'))
     desktop_data.set('IN_PROCESS', 'true')
-    applet_metadata_output = 'org.mate.applets.GvcApplet.mate-panel-applet'
     
 	    libmvca_shared = library(
 	      'mate-volume-control-applet',
@@ -62,7 +60,7 @@ if enable_applet
 
   else
     desktop_data.set('APPLET_LOCATION', join_paths(mm_execdir, 'mate-volume-control-applet'))
-    desktop_data.set('IN_PROCESS', 'flase')
+    desktop_data.set('IN_PROCESS', 'false')
     
     service_data = configuration_data()
     service_data.set('LOCATION', join_paths(mm_execdir, 'mate-volume-control-applet'))
@@ -105,7 +103,7 @@ if enable_applet
   )
   i18n.merge_file(
     input : desktop_in_file,
-    output : applet_metadata_output,
+    output : 'org.mate.applets.GvcApplet.mate-panel-applet',
     type : 'desktop',
     po_dir : po_dir,
     install : true,
