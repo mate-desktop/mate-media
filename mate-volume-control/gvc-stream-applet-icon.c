@@ -209,6 +209,7 @@ static gboolean
 popup_dock (GvcStreamAppletIcon *icon, guint time)
 {
         GtkAllocation  allocation;
+        GtkAllocation  anchor;
         GdkDisplay    *display;
         GdkScreen     *screen;
         int            x, y;
@@ -355,26 +356,79 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         }
 #endif /* wayland support */
 
+        anchor = allocation;
+#if defined(ENABLE_WAYLAND)
+        if (!GDK_IS_WAYLAND_DISPLAY (display))
+#endif
+        {
+                GtkWidget     *panel;
+                GtkAllocation panel_allocation;
+                gint          panel_x;
+                gint          panel_y;
+
+                // Use the panel window's outer edge for the axis perpendicular to the panel on X11. Wayland doesn't have this isssue.
+                panel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
+                if (GTK_IS_WINDOW (panel) && gtk_widget_get_realized (panel)) {
+                        gtk_widget_get_allocation (panel, &panel_allocation);
+                        gdk_window_get_origin (gtk_widget_get_window (panel), &panel_x, &panel_y);
+
+                        if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
+                            icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+                                anchor.x = panel_x;
+                                anchor.width = panel_allocation.width;
+                        } else {
+                                anchor.y = panel_y;
+                                anchor.height = panel_allocation.height;
+                        }
+                }
+        }
+
         if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
-                if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)
-                        x = allocation.x + allocation.width;
+                if (anchor.x + anchor.width + dock_req.width <= monitor.x + monitor.width)
+                        x = anchor.x + anchor.width;
                 else
-                        x = allocation.x - dock_req.width;
+                        x = anchor.x - dock_req.width;
 
                 if (allocation.y + dock_req.height <= monitor.y + monitor.height)
                         y = allocation.y;
                 else
                         y = monitor.y + monitor.height - dock_req.height;
         } else {
-                if (allocation.y + allocation.height + dock_req.height <= monitor.y + monitor.height)
-                        y = allocation.y + allocation.height;
+                if (anchor.y + anchor.height + dock_req.height <= monitor.y + monitor.height)
+                        y = anchor.y + anchor.height;
                 else
-                        y = allocation.y - dock_req.height;
+                        y = anchor.y - dock_req.height;
 
                 if (allocation.x + dock_req.width <= monitor.x + monitor.width)
                         x = allocation.x;
                 else
                         x = monitor.x + monitor.width - dock_req.width;
+        }
+
+#if defined(ENABLE_WAYLAND)
+        if (!GDK_IS_WAYLAND_DISPLAY (display))
+#endif
+        {
+                GdkRectangle workarea;
+
+                /* X11 workarea excludes the panel's reserved space. An experimental themed
+                 * border management. Might need checks! */
+                gdk_monitor_get_workarea (monitor_num, &workarea);
+                if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
+                    icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+                        if (x > allocation.x)
+                                x = MAX (x, workarea.x);
+                        else
+                                x = MIN (x, workarea.x + workarea.width - dock_req.width);
+                } else {
+                        if (y > allocation.y)
+                                y = MAX (y, workarea.y);
+                        else
+                                y = MIN (y, workarea.y + workarea.height - dock_req.height);
+                }
+
+                x = CLAMP (x, monitor.x, MAX (monitor.x, monitor.x + monitor.width - dock_req.width));
+                y = CLAMP (y, monitor.y, MAX (monitor.y, monitor.y + monitor.height - dock_req.height));
         }
 
         if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
