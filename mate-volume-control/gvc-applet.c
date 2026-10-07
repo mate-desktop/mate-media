@@ -38,8 +38,6 @@
 #include "gvc-player-widget.h"
 #include "gvc-stream-applet-icon.h"
 
-const gchar *mate_panel_applet_get_object_path (MatePanelApplet *applet);
-
 static const gchar *icon_names_output[] = {
         "audio-volume-muted",
         "audio-volume-low",
@@ -60,11 +58,20 @@ static void menu_output_mute (GtkAction *action, GvcApplet *applet);
 static void menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet);
 
 static const GtkActionEntry applet_menu_actions [] = {
+        { "MediaPlayers", "applications-multimedia", N_("Media Players"), NULL, NULL, NULL },
+        { "LaunchPlayer", "applications-multimedia", N_("Launch Player"), NULL, NULL, NULL },
+        { "OutputDevice", "audio-speakers", N_("Output Device"), NULL, NULL, NULL },
+        { "InputDevice", "audio-input-microphone", N_("Input Device"), NULL, NULL, NULL },
         { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute) },
         { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK (menu_activate_open_volume_control) }
 };
 
-static char *ui = "<menuitem name='MuteOutput' action='MuteOutput' />"
+static const char *ui = "<menu name='MediaPlayers' action='MediaPlayers' />"
+                  "<menu name='LaunchPlayer' action='LaunchPlayer' />"
+                  "<menu name='OutputDevice' action='OutputDevice' />"
+                  "<menu name='InputDevice' action='InputDevice' />"
+                  "<separator />"
+                  "<menuitem name='MuteOutput' action='MuteOutput' />"
                   "<menuitem name='Preferences' action='Preferences' />";
 
 struct _GvcAppletPrivate
@@ -90,6 +97,28 @@ struct _GvcAppletPrivate
 G_DEFINE_TYPE_WITH_PRIVATE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
 
 static void update_active_player (GvcApplet *applet);
+
+static void
+gvc_applet_update_mute_action (GvcApplet *applet)
+{
+        GtkAction *action;
+        gboolean   is_muted;
+
+        if (applet->priv->action_group == NULL)
+                return;
+
+        action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
+        if (applet->priv->output == NULL ||
+            mate_mixer_stream_get_default_control (applet->priv->output) == NULL) {
+                gtk_action_set_sensitive (action, FALSE);
+                return;
+        }
+
+        gtk_action_set_sensitive (action, TRUE);
+        is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
+        gtk_action_set_label (action, is_muted ? _("Unmute Output") : _("Mute Output"));
+        gtk_action_set_icon_name (action, is_muted ? "audio-volume-medium" : "audio-volume-muted");
+}
 
 static GSettings *
 new_applet_settings (void)
@@ -456,99 +485,6 @@ on_launch_player_menu_item_activate (GtkMenuItem *item,
 }
 
 static void
-on_custom_menu_mute_activate (GtkMenuItem *item,
-                              GvcApplet   *applet)
-{
-        gboolean is_muted;
-
-        is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
-        gvc_stream_applet_icon_set_mute (applet->priv->icon_output, !is_muted);
-}
-
-static void
-on_custom_menu_preferences_activate (GtkMenuItem *item,
-                                     GvcApplet   *applet)
-{
-        menu_activate_open_volume_control (NULL, applet);
-}
-
-static GtkWidget *
-new_image_menu_item (const gchar *label,
-                     const gchar *icon_name)
-{
-        GtkWidget *item;
-        GtkWidget *image;
-
-        item = gtk_image_menu_item_new_with_label (label);
-        image = gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
-        gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (item), TRUE);
-
-        return item;
-}
-
-static void
-emit_panel_applet_signal (GvcApplet   *applet,
-                          const gchar *signal_name)
-{
-        GDBusConnection *connection = NULL;
-        const gchar     *object_path;
-        GError          *error = NULL;
-
-        if (applet->priv->applet == NULL)
-                return;
-
-        object_path = mate_panel_applet_get_object_path (applet->priv->applet);
-        if (object_path == NULL)
-                return;
-
-        if (g_object_class_find_property (G_OBJECT_GET_CLASS (applet->priv->applet), "connection") == NULL)
-                return;
-
-        g_object_get (applet->priv->applet, "connection", &connection, NULL);
-        if (connection == NULL)
-                return;
-
-        g_dbus_connection_emit_signal (connection,
-                                       NULL,
-                                       object_path,
-                                       "org.mate.panel.applet.Applet",
-                                       signal_name,
-                                       NULL,
-                                       &error);
-        if (error != NULL)
-                g_error_free (error);
-
-        g_object_unref (connection);
-}
-
-static void
-on_panel_menu_remove_activate (GtkMenuItem *item,
-                               GvcApplet   *applet)
-{
-        emit_panel_applet_signal (applet, "RemoveFromPanel");
-}
-
-static void
-on_panel_menu_move_activate (GtkMenuItem *item,
-                             GvcApplet   *applet)
-{
-        emit_panel_applet_signal (applet, "Move");
-}
-
-static void
-on_panel_menu_lock_activate (GtkMenuItem *item,
-                             GvcApplet   *applet)
-{
-        if (applet->priv->applet != NULL &&
-            g_object_class_find_property (G_OBJECT_GET_CLASS (applet->priv->applet), "locked") != NULL)
-                g_object_set (applet->priv->applet,
-                              "locked",
-                              gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (item)),
-                              NULL);
-}
-
-static void
 append_stream_menu_items (GvcApplet          *applet,
                           GtkWidget          *submenu,
                           MateMixerDirection  direction)
@@ -576,7 +512,7 @@ append_stream_menu_items (GvcApplet          *applet,
                         group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (item));
                         gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item), stream == active);
                         g_object_set_data_full (G_OBJECT (item), "gvc-stream", g_object_ref (stream), g_object_unref);
-                        g_signal_connect (item, "toggled", G_CALLBACK (on_stream_menu_item_toggled), applet);
+                        g_signal_connect_object (item, "toggled", G_CALLBACK (on_stream_menu_item_toggled), applet, 0);
                         gtk_menu_shell_append (GTK_MENU_SHELL (submenu), item);
                 }
 
@@ -584,126 +520,114 @@ append_stream_menu_items (GvcApplet          *applet,
         }
 }
 
-static gboolean
-on_applet_icon_context_menu (GtkWidget      *widget,
-                             GdkEventButton *event,
-                             GvcApplet      *applet)
+static GtkWidget *
+get_applet_submenu (GvcApplet   *applet,
+                    const gchar *action_name)
 {
-        GtkWidget *menu;
-        GtkWidget *item;
+        GtkAction *action;
+        GSList    *proxies;
+
+        action = gtk_action_group_get_action (applet->priv->action_group, action_name);
+        if (action == NULL)
+                return NULL;
+
+        for (proxies = gtk_action_get_proxies (action); proxies != NULL; proxies = proxies->next) {
+                GtkWidget *proxy = GTK_WIDGET (proxies->data);
+                GtkWidget *submenu;
+
+                if (!GTK_IS_MENU_ITEM (proxy))
+                        continue;
+
+                submenu = gtk_menu_item_get_submenu (GTK_MENU_ITEM (proxy));
+                if (GTK_IS_MENU (submenu))
+                        return submenu;
+        }
+
+        return NULL;
+}
+
+static void
+clear_applet_submenu (GtkWidget *submenu)
+{
+        GList *children;
+        GList *child;
+
+        children = gtk_container_get_children (GTK_CONTAINER (submenu));
+        for (child = children; child != NULL; child = child->next)
+                gtk_widget_destroy (GTK_WIDGET (child->data));
+        g_list_free (children);
+}
+
+static void
+on_applet_menu_show (GtkWidget *menu,
+                     GvcApplet *applet)
+{
         GtkWidget *submenu;
+        GtkWidget *item;
         GList     *players;
         GList     *l;
         GSList    *player_group = NULL;
-        gboolean   locked = FALSE;
 
-        if (event->type != GDK_BUTTON_PRESS || event->button != 3)
-                return FALSE;
+        /* The panel owns and positions this menu. Refresh only our dynamic
+         * submenus when it is about to be shown, including from the Menu key. */
+        submenu = get_applet_submenu (applet, "MediaPlayers");
+        if (submenu != NULL) {
+                clear_applet_submenu (submenu);
+                players = gvc_mpris_manager_get_players (applet->priv->mpris_manager);
+                for (l = players; l != NULL; l = l->next) {
+                        GvcMprisPlayer *player = GVC_MPRIS_PLAYER (l->data);
+                        const gchar    *label;
 
-        menu = gtk_menu_new ();
+                        if (!gvc_mpris_player_is_ready (player))
+                                continue;
 
-        item = new_image_menu_item (_("Media Players"), "applications-multimedia");
-        submenu = gtk_menu_new ();
-        players = gvc_mpris_manager_get_players (applet->priv->mpris_manager);
-        for (l = players; l != NULL; l = l->next) {
-                GvcMprisPlayer *player = GVC_MPRIS_PLAYER (l->data);
-                GtkWidget      *player_item;
-                const gchar    *label;
-
-                if (!gvc_mpris_player_is_ready (player))
-                        continue;
-
-                label = gvc_mpris_player_get_identity (player);
-                player_item = gtk_radio_menu_item_new_with_label (player_group,
-                                                                  label != NULL && label[0] != '\0' ?
-                                                                  label :
-                                                                  gvc_mpris_player_get_bus_name (player));
-                player_group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (player_item));
-                gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (player_item), player == applet->priv->active_player);
-                g_object_set_data_full (G_OBJECT (player_item), "gvc-player", g_object_ref (player), g_object_unref);
-                g_signal_connect (player_item, "toggled", G_CALLBACK (on_player_menu_item_toggled), applet);
-                gtk_menu_shell_append (GTK_MENU_SHELL (submenu), player_item);
+                        label = gvc_mpris_player_get_identity (player);
+                        item = gtk_radio_menu_item_new_with_label (player_group,
+                                                                   label != NULL && label[0] != '\0' ?
+                                                                   label :
+                                                                   gvc_mpris_player_get_bus_name (player));
+                        player_group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (item));
+                        gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item), player == applet->priv->active_player);
+                        g_object_set_data_full (G_OBJECT (item), "gvc-player", g_object_ref (player), g_object_unref);
+                        g_signal_connect_object (item, "toggled", G_CALLBACK (on_player_menu_item_toggled), applet, 0);
+                        gtk_menu_shell_append (GTK_MENU_SHELL (submenu), item);
+                }
+                g_list_free (players);
+                gtk_widget_show_all (submenu);
         }
-        g_list_free (players);
-        gtk_menu_item_set_submenu (GTK_MENU_ITEM (item), submenu);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        if (applet->priv->applet_settings != NULL) {
+        submenu = get_applet_submenu (applet, "LaunchPlayer");
+        if (submenu != NULL && applet->priv->applet_settings != NULL) {
                 gchar **known;
                 gint    i;
 
-                item = new_image_menu_item (_("Launch Player"), "applications-multimedia");
-                submenu = gtk_menu_new ();
+                clear_applet_submenu (submenu);
                 known = g_settings_get_strv (applet->priv->applet_settings, "known-players");
                 for (i = 0; known != NULL && known[i] != NULL; i++) {
-                        GtkWidget *launcher_item;
-
-                        launcher_item = gtk_menu_item_new_with_label (known[i]);
-                        g_object_set_data_full (G_OBJECT (launcher_item), "desktop-entry", g_strdup (known[i]), g_free);
-                        g_signal_connect (launcher_item, "activate", G_CALLBACK (on_launch_player_menu_item_activate), applet);
-                        gtk_menu_shell_append (GTK_MENU_SHELL (submenu), launcher_item);
+                        item = gtk_menu_item_new_with_label (known[i]);
+                        g_object_set_data_full (G_OBJECT (item), "desktop-entry", g_strdup (known[i]), g_free);
+                        g_signal_connect_object (item, "activate", G_CALLBACK (on_launch_player_menu_item_activate), applet, 0);
+                        gtk_menu_shell_append (GTK_MENU_SHELL (submenu), item);
                 }
                 g_strfreev (known);
-                gtk_menu_item_set_submenu (GTK_MENU_ITEM (item), submenu);
-                gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+                gtk_widget_show_all (submenu);
         }
 
-        item = new_image_menu_item (_("Output Device"), "audio-speakers");
-        submenu = gtk_menu_new ();
-        append_stream_menu_items (applet, submenu, MATE_MIXER_DIRECTION_OUTPUT);
-        gtk_menu_item_set_submenu (GTK_MENU_ITEM (item), submenu);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+        submenu = get_applet_submenu (applet, "OutputDevice");
+        if (submenu != NULL) {
+                clear_applet_submenu (submenu);
+                append_stream_menu_items (applet, submenu, MATE_MIXER_DIRECTION_OUTPUT);
+                gtk_widget_show_all (submenu);
+        }
 
-        item = new_image_menu_item (_("Input Device"), "audio-input-microphone");
-        submenu = gtk_menu_new ();
-        append_stream_menu_items (applet, submenu, MATE_MIXER_DIRECTION_INPUT);
-        gtk_menu_item_set_submenu (GTK_MENU_ITEM (item), submenu);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+        submenu = get_applet_submenu (applet, "InputDevice");
+        if (submenu != NULL) {
+                clear_applet_submenu (submenu);
+                append_stream_menu_items (applet, submenu, MATE_MIXER_DIRECTION_INPUT);
+                gtk_widget_show_all (submenu);
+        }
 
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new ());
-
-        item = new_image_menu_item (gvc_stream_applet_icon_get_mute (applet->priv->icon_output) ?
-                                    _("Unmute Output") :
-                                    _("Mute Output"),
-                                    gvc_stream_applet_icon_get_mute (applet->priv->icon_output) ?
-                                    "audio-volume-medium" :
-                                    "audio-volume-muted");
-        g_signal_connect (item, "activate", G_CALLBACK (on_custom_menu_mute_activate), applet);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        item = new_image_menu_item (_("Sound Preferences"), APPLET_ICON);
-        g_signal_connect (item, "activate", G_CALLBACK (on_custom_menu_preferences_activate), applet);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new ());
-
-        item = new_image_menu_item (_("_Remove From Panel"), "list-remove");
-        gtk_menu_item_set_use_underline (GTK_MENU_ITEM (item), TRUE);
-        g_signal_connect (item, "activate", G_CALLBACK (on_panel_menu_remove_activate), applet);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        item = gtk_menu_item_new_with_mnemonic (_("_Move"));
-        gtk_menu_item_set_use_underline (GTK_MENU_ITEM (item), TRUE);
-        g_signal_connect (item, "activate", G_CALLBACK (on_panel_menu_move_activate), applet);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new ());
-
-        if (applet->priv->applet != NULL &&
-            g_object_class_find_property (G_OBJECT_GET_CLASS (applet->priv->applet), "locked") != NULL)
-                g_object_get (applet->priv->applet, "locked", &locked, NULL);
-
-        item = gtk_check_menu_item_new_with_mnemonic (_("Loc_k To Panel"));
-        gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item), locked);
-        g_signal_connect (item, "activate", G_CALLBACK (on_panel_menu_lock_activate), applet);
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
-
-        g_signal_connect (menu, "selection-done", G_CALLBACK (gtk_widget_destroy), NULL);
-
-        gtk_widget_show_all (menu);
-        gtk_menu_popup_at_pointer (GTK_MENU (menu), (GdkEvent *) event);
-
-        return TRUE;
+        gvc_applet_update_mute_action (applet);
 }
 
 static void
@@ -1171,28 +1095,6 @@ gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
 }
 
 static void
-gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
-{
-        GvcApplet *applet = user_data;
-        gboolean is_muted;
-        GtkAction *action;
-
-        is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
-
-        action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
-
-        if (is_muted) {
-                gtk_action_set_label (action, _("Unmute Output"));
-                gtk_action_set_icon_name (action, "audio-volume-medium");
-        }
-        else
-        {
-                gtk_action_set_label (action, _("Mute Output"));
-                gtk_action_set_icon_name (action, "audio-volume-muted");
-        }
-}
-
-static void
 gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer user_data)
 {
         GvcApplet *applet = user_data;
@@ -1205,20 +1107,11 @@ gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer 
 static void
 menu_output_mute (GtkAction *action, GvcApplet *applet)
 {
-        gboolean               is_muted;
+        gboolean is_muted;
 
-        is_muted = gvc_stream_applet_icon_get_mute(applet->priv->icon_output);
-        if (!is_muted) {
-                gvc_stream_applet_icon_set_mute (applet->priv->icon_output, TRUE);
-                gtk_action_set_label (action, "Unmute Output");
-                gtk_action_set_icon_name( action, "audio-volume-medium");
-
-        }
-        else {
-                gvc_stream_applet_icon_set_mute (applet->priv->icon_output, FALSE);
-                gtk_action_set_label (action, "Mute Output");
-                gtk_action_set_icon_name (action, "audio-volume-muted");
-       }
+        is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
+        gvc_stream_applet_icon_set_mute (applet->priv->icon_output, !is_muted);
+        gvc_applet_update_mute_action (applet);
 }
 
 static void
@@ -1230,6 +1123,9 @@ menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
 gboolean
 gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
 {
+        GtkAction *mute_action;
+        GSList    *proxies;
+
 #ifndef IN_PROCESS
         g_set_application_name (_("Volume Control Applet"));
         gtk_window_set_default_icon_name (APPLET_ICON);
@@ -1270,22 +1166,11 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         /* Enable 'scroll-event' signal to be received  */
         gtk_widget_add_events (GTK_WIDGET(applet->priv->icon_input), GDK_SCROLL_MASK);
         gtk_widget_add_events (GTK_WIDGET(applet->priv->icon_output), GDK_SCROLL_MASK);
-        gtk_widget_add_events (GTK_WIDGET(applet->priv->icon_input), GDK_BUTTON_PRESS_MASK);
-        gtk_widget_add_events (GTK_WIDGET(applet->priv->icon_output), GDK_BUTTON_PRESS_MASK);
-        g_signal_connect (GTK_WIDGET (applet->priv->icon_input),
-                          "button-press-event",
-                          G_CALLBACK (on_applet_icon_context_menu),
-                          applet);
-        g_signal_connect (GTK_WIDGET (applet->priv->icon_output),
-                          "button-press-event",
-                          G_CALLBACK (on_applet_icon_context_menu),
-                          applet);
 
         /* Update icons on size/orientation changes*/
         g_object_connect (applet->priv->applet,
                          "signal::change_size", gvc_applet_set_size, applet,
                          "signal::change_orient", gvc_applet_set_orient, applet,
-                         "signal::event-after", gvc_applet_set_mute, applet,
                          NULL);
 
         /* set up context menu */
@@ -1294,7 +1179,31 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         gtk_action_group_add_actions (applet->priv->action_group, applet_menu_actions,
                                       G_N_ELEMENTS (applet_menu_actions), applet);
 
+        /* GtkUIManager otherwise hides submenu actions while they are empty,
+         * before our first menu-show refresh has populated them. */
+        g_object_set (gtk_action_group_get_action (applet->priv->action_group, "MediaPlayers"),
+                      "hide-if-empty", FALSE, NULL);
+        g_object_set (gtk_action_group_get_action (applet->priv->action_group, "LaunchPlayer"),
+                      "hide-if-empty", FALSE, NULL);
+        g_object_set (gtk_action_group_get_action (applet->priv->action_group, "OutputDevice"),
+                      "hide-if-empty", FALSE, NULL);
+        g_object_set (gtk_action_group_get_action (applet->priv->action_group, "InputDevice"),
+                      "hide-if-empty", FALSE, NULL);
+        gtk_action_set_visible (gtk_action_group_get_action (applet->priv->action_group, "LaunchPlayer"),
+                                applet->priv->applet_settings != NULL);
+
         mate_panel_applet_setup_menu (applet->priv->applet, ui, applet->priv->action_group);
+
+        /* Use the panel's own menu so its theme classes, orientation-aware
+         * placement and Remove/Move/Lock actions remain authoritative. */
+        mute_action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
+        proxies = gtk_action_get_proxies (mute_action);
+        if (proxies != NULL) {
+                GtkWidget *menu = gtk_widget_get_parent (GTK_WIDGET (proxies->data));
+
+                if (GTK_IS_MENU (menu))
+                        g_signal_connect_object (menu, "show", G_CALLBACK (on_applet_menu_show), applet, 0);
+        }
 
         return TRUE;
 }
