@@ -233,32 +233,59 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
 #if defined(ENABLE_WAYLAND)
-        if (GDK_IS_WAYLAND_DISPLAY (display))
+        if (GDK_IS_WAYLAND_DISPLAY (display) &&
+            gtk_layer_is_layer_window (GTK_WINDOW (icon->priv->dock)))
         {
             gboolean top, bottom, left, right;
             GtkWidget *toplevel;
             toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
 
-            if (!gtk_layer_is_layer_window (GTK_WINDOW (icon->priv->dock)))
-            {
-                gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
-                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_TOP);
-                gtk_layer_set_keyboard_mode (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND);
-            }
             /* Layer-shell margins are relative to the selected monitor. */
             gtk_layer_set_monitor (GTK_WINDOW (icon->priv->dock), monitor_num);
 
-            top = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_TOP);
-            bottom = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_BOTTOM);
-            left = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_LEFT);
-            right = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_RIGHT);
+            top = bottom = left = right = FALSE;
+            if (GTK_IS_WINDOW (toplevel) && gtk_layer_is_layer_window (GTK_WINDOW (toplevel))) {
+                top = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_TOP);
+                bottom = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_BOTTOM);
+                left = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_LEFT);
+                right = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_RIGHT);
+            }
+
+            if (!((top && left && right && !bottom) ||
+                  (bottom && left && right && !top) ||
+                  (left && bottom && top && !right) ||
+                  (right && bottom && top && !left))) {
+                /* The panel may use another surface type or anchor pattern. */
+                switch (icon->priv->orient) {
+                case MATE_PANEL_APPLET_ORIENT_DOWN:
+                    top = left = right = TRUE;
+                    bottom = FALSE;
+                    break;
+                case MATE_PANEL_APPLET_ORIENT_UP:
+                    bottom = left = right = TRUE;
+                    top = FALSE;
+                    break;
+                case MATE_PANEL_APPLET_ORIENT_RIGHT:
+                    left = bottom = top = TRUE;
+                    right = FALSE;
+                    break;
+                case MATE_PANEL_APPLET_ORIENT_LEFT:
+                    right = bottom = top = TRUE;
+                    left = FALSE;
+                    break;
+                default:
+                    bottom = left = right = TRUE;
+                    top = FALSE;
+                    break;
+                }
+            }
 
             /*Set anchors to the edges (will hold to panel edge) and position along the panel
              *Unset margins and anchors from any other position so as to avoid rendering issues
              *when orientation changes as when the panel is moved
              */
 
-            if (top && left && right)
+            if (top && left && right && !bottom)
             {
                 configure_dock_layout (icon, TRUE);
                 gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
@@ -271,7 +298,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
                                              MAX (0, monitor.width - dock_req.width)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, 0);
             }
-            if (bottom && left && right)
+            else if (bottom && left && right && !top)
             {
                 configure_dock_layout (icon, FALSE);
                 gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
@@ -284,7 +311,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
                                              MAX (0, monitor.width - dock_req.width)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, 0);
             }
-            if (left && bottom && top && !right)
+            else if (left && bottom && top && !right)
             {
                 configure_dock_layout (icon, TRUE);
                 gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
@@ -297,7 +324,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
                                              MAX (0, monitor.height - dock_req.height)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, 0);
             }
-            if (right && bottom && top && !left)
+            else if (right && bottom && top && !left)
             {
                 configure_dock_layout (icon, FALSE);
                 gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
@@ -319,6 +346,12 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
             gtk_widget_grab_focus (icon->priv->dock);
 
             return TRUE;
+        } else if (GDK_IS_WAYLAND_DISPLAY (display)) {
+            GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
+
+            /* Ordinary Wayland popups need a parent to be positioned. */
+            if (GTK_IS_WINDOW (toplevel))
+                gtk_window_set_transient_for (GTK_WINDOW (icon->priv->dock), GTK_WINDOW (toplevel));
         }
 #endif /* wayland support */
 
@@ -1191,6 +1224,16 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         icon->priv->dock = gtk_window_new (GTK_WINDOW_POPUP);
 
         gtk_window_set_decorated (GTK_WINDOW (icon->priv->dock), FALSE);
+
+#if defined(ENABLE_WAYLAND)
+        /* Configure the layer surface before anything can realize the dock. */
+        if (GDK_IS_WAYLAND_DISPLAY (gtk_widget_get_display (icon->priv->dock)) &&
+            gtk_layer_is_supported ()) {
+                gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
+                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_TOP);
+                gtk_layer_set_keyboard_mode (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND);
+        }
+#endif
 
         g_signal_connect (G_OBJECT (icon->priv->dock),
                           "button-press-event",
