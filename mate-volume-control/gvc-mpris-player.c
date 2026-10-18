@@ -119,7 +119,7 @@ gvc_mpris_player_update_metadata (GvcMprisPlayer *player,
         const gchar *key;
         GVariant    *value;
 
-        if (metadata == NULL)
+        if (metadata == NULL || !g_variant_is_of_type (metadata, G_VARIANT_TYPE_VARDICT))
                 return;
 
         g_clear_pointer (&player->priv->title, g_free);
@@ -149,10 +149,12 @@ gvc_mpris_player_update_metadata (GvcMprisPlayer *player,
                 } else if (g_str_equal (key, "mpris:artUrl")) {
                         g_free (player->priv->art_url);
                         player->priv->art_url = variant_dup_string (value);
-                } else if (g_str_equal (key, "mpris:trackid")) {
+                } else if (g_str_equal (key, "mpris:trackid") &&
+                           g_variant_is_of_type (value, G_VARIANT_TYPE_OBJECT_PATH)) {
                         g_free (player->priv->track_id);
                         player->priv->track_id = variant_dup_string (value);
-                } else if (g_str_equal (key, "mpris:length")) {
+                } else if (g_str_equal (key, "mpris:length") &&
+                           g_variant_is_of_type (value, G_VARIANT_TYPE_INT64)) {
                         player->priv->length = g_variant_get_int64 (value);
                 }
 
@@ -562,7 +564,7 @@ gvc_mpris_player_set_position (GvcMprisPlayer *player,
                                const gchar    *track_id,
                                gint64          position)
 {
-        if (!player->priv->can_seek || track_id == NULL || track_id[0] == '\0')
+        if (!player->priv->can_seek || track_id == NULL || !g_variant_is_object_path (track_id))
                 return;
 
         gvc_mpris_player_call (player,
