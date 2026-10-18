@@ -374,9 +374,9 @@ on_mpris_player_added (GvcMprisManager *manager,
 {
         remember_player (status_icon, player);
 
-        g_signal_connect (player, "status-changed", G_CALLBACK (on_mpris_player_changed), status_icon);
-        g_signal_connect (player, "metadata-changed", G_CALLBACK (on_mpris_player_changed), status_icon);
-        g_signal_connect (player, "capabilities-changed", G_CALLBACK (on_mpris_player_changed), status_icon);
+        g_signal_connect_object (player, "status-changed", G_CALLBACK (on_mpris_player_changed), status_icon, 0);
+        g_signal_connect_object (player, "metadata-changed", G_CALLBACK (on_mpris_player_changed), status_icon, 0);
+        g_signal_connect_object (player, "capabilities-changed", G_CALLBACK (on_mpris_player_changed), status_icon, 0);
 
         update_active_player (status_icon);
 }
@@ -624,6 +624,20 @@ gvc_status_icon_dispose (GObject *object)
         }
         if (status_icon->priv->context != NULL)
                 disconnect_input_stream_control_signals (status_icon);
+
+        if (status_icon->priv->mpris_manager != NULL) {
+                GList *players = gvc_mpris_manager_get_players (status_icon->priv->mpris_manager);
+                GList *l;
+
+                for (l = players; l != NULL; l = l->next)
+                        g_signal_handlers_disconnect_by_data (l->data, status_icon);
+                g_list_free (players);
+                g_signal_handlers_disconnect_by_data (status_icon->priv->mpris_manager, status_icon);
+        }
+        if (status_icon->priv->applet_settings != NULL)
+                g_signal_handlers_disconnect_by_data (status_icon->priv->applet_settings, status_icon);
+        if (status_icon->priv->context != NULL)
+                g_signal_handlers_disconnect_by_data (status_icon->priv->context, status_icon);
 
         g_clear_object (&status_icon->priv->context);
         g_clear_object (&status_icon->priv->active_player);

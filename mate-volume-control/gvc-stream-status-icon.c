@@ -1260,6 +1260,8 @@ gvc_stream_status_icon_dispose (GObject *object)
                 g_clear_object (&icon->priv->player);
         }
 
+        if (icon->priv->control != NULL)
+                g_signal_handlers_disconnect_by_data (icon->priv->control, icon);
         g_clear_object (&icon->priv->control);
         g_clear_object (&icon->priv->mpris_manager);
         g_clear_object (&icon->priv->mixer_context);
@@ -1441,10 +1443,10 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
 
         configure_dock_layout (icon, GTK_ORIENTATION_HORIZONTAL, FALSE);
 
-        g_signal_connect (gtk_settings_get_default (),
-                          "notify::gtk-icon-theme-name",
-                          G_CALLBACK (on_icon_theme_change),
-                          icon);
+        g_signal_connect_object (gtk_settings_get_default (),
+                                 "notify::gtk-icon-theme-name",
+                                 G_CALLBACK (on_icon_theme_change),
+                                 icon, 0);
 }
 
 static void

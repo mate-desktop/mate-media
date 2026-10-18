@@ -1182,7 +1182,11 @@ gvc_stream_applet_icon_dispose (GObject *object)
                 icon->priv->dock = NULL;
         }
 
+        if (icon->priv->player != NULL)
+                g_signal_handlers_disconnect_by_data (icon->priv->player, icon);
         g_clear_object (&icon->priv->player);
+        if (icon->priv->control != NULL)
+                g_signal_handlers_disconnect_by_data (icon->priv->control, icon);
         g_clear_object (&icon->priv->control);
         g_clear_object (&icon->priv->applet_settings);
 
@@ -1360,10 +1364,10 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
                             0);
         gtk_box_pack_start (GTK_BOX (box), icon->priv->volume_box, TRUE, FALSE, 0);
 
-        g_signal_connect (gtk_settings_get_default (),
-                          "notify::gtk-icon-theme-name",
-                          G_CALLBACK (on_icon_theme_change),
-                          icon);
+        g_signal_connect_object (gtk_settings_get_default (),
+                                 "notify::gtk-icon-theme-name",
+                                 G_CALLBACK (on_icon_theme_change),
+                                 icon, 0);
 }
 
 static void

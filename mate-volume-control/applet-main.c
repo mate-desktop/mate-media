@@ -62,6 +62,8 @@ applet_main (MatePanelApplet* applet_widget)
                                            ICON_DATA_DIR);
 
         applet = gvc_applet_new ();
+        g_object_set_data_full (G_OBJECT (applet_widget), "gvc-applet",
+                                applet, g_object_unref);
 
         gvc_applet_fill (applet, applet_widget);
         gvc_applet_start (applet);

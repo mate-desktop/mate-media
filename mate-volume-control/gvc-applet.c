@@ -678,9 +678,9 @@ on_mpris_player_added (GvcMprisManager *manager,
 {
         remember_player (applet, player);
 
-        g_signal_connect (player, "status-changed", G_CALLBACK (on_mpris_player_changed), applet);
-        g_signal_connect (player, "metadata-changed", G_CALLBACK (on_mpris_player_changed), applet);
-        g_signal_connect (player, "capabilities-changed", G_CALLBACK (on_mpris_player_changed), applet);
+        g_signal_connect_object (player, "status-changed", G_CALLBACK (on_mpris_player_changed), applet, 0);
+        g_signal_connect_object (player, "metadata-changed", G_CALLBACK (on_mpris_player_changed), applet, 0);
+        g_signal_connect_object (player, "capabilities-changed", G_CALLBACK (on_mpris_player_changed), applet, 0);
 
         update_active_player (applet);
 }
@@ -976,11 +976,38 @@ gvc_applet_dispose (GObject *object)
         if (applet->priv->context != NULL)
                 disconnect_input_stream_control_signals (applet);
 
+        if (applet->priv->mpris_manager != NULL) {
+                GList *players = gvc_mpris_manager_get_players (applet->priv->mpris_manager);
+                GList *l;
+
+                for (l = players; l != NULL; l = l->next)
+                        g_signal_handlers_disconnect_by_data (l->data, applet);
+                g_list_free (players);
+                g_signal_handlers_disconnect_by_data (applet->priv->mpris_manager, applet);
+        }
+        if (applet->priv->applet_settings != NULL)
+                g_signal_handlers_disconnect_by_data (applet->priv->applet_settings, applet);
+        if (applet->priv->context != NULL)
+                g_signal_handlers_disconnect_by_data (applet->priv->context, applet);
+
         g_clear_object (&applet->priv->context);
         g_clear_object (&applet->priv->active_player);
         g_clear_object (&applet->priv->selected_player);
         g_clear_object (&applet->priv->mpris_manager);
         g_clear_object (&applet->priv->applet_settings);
+        if (applet->priv->applet != NULL)
+                g_signal_handlers_disconnect_by_data (applet->priv->applet, applet);
+        applet->priv->applet = NULL;
+        applet->priv->box = NULL;
+        applet->priv->player_widget = NULL;
+        g_clear_object (&applet->priv->action_group);
+        if (applet->priv->track_label != NULL)
+                gtk_widget_destroy (GTK_WIDGET (applet->priv->track_label));
+        g_clear_object (&applet->priv->track_label);
+        if (applet->priv->icon_input != NULL)
+                gtk_widget_destroy (GTK_WIDGET (applet->priv->icon_input));
+        if (applet->priv->icon_output != NULL)
+                gtk_widget_destroy (GTK_WIDGET (applet->priv->icon_output));
         g_clear_object (&applet->priv->icon_input);
         g_clear_object (&applet->priv->icon_output);
 
@@ -1002,6 +1029,9 @@ gvc_applet_init (GvcApplet *applet)
 
         applet->priv->icon_input  = gvc_stream_applet_icon_new (NULL, icon_names_input);
         applet->priv->icon_output = gvc_stream_applet_icon_new (NULL, icon_names_output);
+        /* Keep references independently of the panel's containers. */
+        g_object_ref_sink (applet->priv->icon_input);
+        g_object_ref_sink (applet->priv->icon_output);
         applet->priv->applet_settings = new_applet_settings ();
         gvc_stream_applet_icon_set_applet_settings (applet->priv->icon_input,
                                                     applet->priv->applet_settings);
@@ -1014,7 +1044,7 @@ gvc_applet_init (GvcApplet *applet)
                           "player-selected",
                           G_CALLBACK (on_player_widget_player_selected),
                           applet);
-        applet->priv->track_label = GTK_LABEL (gtk_label_new (NULL));
+        applet->priv->track_label = GTK_LABEL (g_object_ref_sink (gtk_label_new (NULL)));
         gtk_widget_set_no_show_all (GTK_WIDGET (applet->priv->track_label), TRUE);
         gtk_label_set_ellipsize (applet->priv->track_label, PANGO_ELLIPSIZE_END);
         gtk_label_set_max_width_chars (applet->priv->track_label, 30);
@@ -1120,6 +1150,13 @@ menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
         gvc_stream_applet_icon_volume_control (applet->priv->icon_output);
 }
 
+static void
+on_applet_destroy (GtkWidget *widget, GvcApplet *applet)
+{
+        /* Stop external callbacks before the panel destroys the child widgets. */
+        g_object_run_dispose (G_OBJECT (applet));
+}
+
 gboolean
 gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
 {
@@ -1132,6 +1169,8 @@ gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
         mate_panel_applet_set_flags (applet_widget, MATE_PANEL_APPLET_EXPAND_MINOR);
 #endif
         applet->priv->applet = applet_widget;
+        g_signal_connect_object (applet_widget, "destroy",
+                                 G_CALLBACK (on_applet_destroy), applet, 0);
         switch (mate_panel_applet_get_orient (applet->priv->applet)) {
         case MATE_PANEL_APPLET_ORIENT_UP:
                 applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));

@@ -371,7 +371,11 @@ gvc_mpris_player_dispose (GObject *object)
 {
         GvcMprisPlayer *player = GVC_MPRIS_PLAYER (object);
 
+        if (player->priv->server_proxy != NULL)
+                g_signal_handlers_disconnect_by_data (player->priv->server_proxy, player);
         g_clear_object (&player->priv->server_proxy);
+        if (player->priv->player_proxy != NULL)
+                g_signal_handlers_disconnect_by_data (player->priv->player_proxy, player);
         g_clear_object (&player->priv->player_proxy);
 
         G_OBJECT_CLASS (gvc_mpris_player_parent_class)->dispose (object);
