@@ -67,6 +67,9 @@ format_time (gint64 seconds)
 static void
 set_cover_fallback (GvcPlayerWidget *widget)
 {
+        if (widget->priv->cover == NULL)
+                return;
+
         gtk_image_set_from_icon_name (widget->priv->cover,
                                       "media-optical",
                                       GTK_ICON_SIZE_DIALOG);
@@ -84,7 +87,8 @@ on_cover_pixbuf_ready (GObject      *source_object,
 
         pixbuf = gdk_pixbuf_new_from_stream_finish (res, &error);
         if (pixbuf != NULL) {
-                gtk_image_set_from_pixbuf (widget->priv->cover, pixbuf);
+                if (widget->priv->cover != NULL)
+                        gtk_image_set_from_pixbuf (widget->priv->cover, pixbuf);
                 g_object_unref (pixbuf);
         } else {
                 set_cover_fallback (widget);
@@ -119,7 +123,8 @@ on_cover_file_read_ready (GObject      *source_object,
 
         stream = G_INPUT_STREAM (g_file_read_finish (G_FILE (source_object), res, &error));
         if (stream != NULL) {
-                load_cover_from_stream (widget, stream);
+                if (widget->priv->cover != NULL)
+                        load_cover_from_stream (widget, stream);
                 g_object_unref (stream);
         } else {
                 set_cover_fallback (widget);
@@ -545,11 +550,31 @@ gvc_player_widget_dispose (GObject *object)
 }
 
 static void
+gvc_player_widget_destroy (GtkWidget *object)
+{
+        GvcPlayerWidget *widget = GVC_PLAYER_WIDGET (object);
+
+        /* Async operations own the widget, but not its destroyed children. */
+        widget->priv->cover = NULL;
+        if (widget->priv->seek_timer_id != 0) {
+                g_source_remove (widget->priv->seek_timer_id);
+                widget->priv->seek_timer_id = 0;
+        }
+        if (widget->priv->player != NULL) {
+                g_signal_handlers_disconnect_by_data (widget->priv->player, widget);
+                g_clear_object (&widget->priv->player);
+        }
+
+        GTK_WIDGET_CLASS (gvc_player_widget_parent_class)->destroy (object);
+}
+
+static void
 gvc_player_widget_class_init (GvcPlayerWidgetClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
         object_class->dispose = gvc_player_widget_dispose;
+        GTK_WIDGET_CLASS (klass)->destroy = gvc_player_widget_destroy;
 
         signals[PLAYER_SELECTED] =
                 g_signal_new ("player-selected",
