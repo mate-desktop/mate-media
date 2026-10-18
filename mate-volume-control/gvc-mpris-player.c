@@ -3,8 +3,6 @@
 #include "config.h"
 
 #include <string.h>
-#include <gio/gdesktopappinfo.h>
-#include <gdk/gdk.h>
 
 #include "gvc-mpris-player.h"
 
@@ -341,51 +339,6 @@ gvc_mpris_player_call (GvcMprisPlayer *player,
                            NULL);
 }
 
-static gboolean
-gvc_mpris_player_launch_desktop_entry (GvcMprisPlayer *player)
-{
-        GDesktopAppInfo *app_info;
-        GdkDisplay      *display;
-        GdkAppLaunchContext *context = NULL;
-        GError          *error = NULL;
-        gboolean         launched = FALSE;
-
-        if (player->priv->desktop_entry == NULL ||
-            player->priv->desktop_entry[0] == '\0')
-                return FALSE;
-
-        app_info = g_desktop_app_info_new (player->priv->desktop_entry);
-        if (app_info == NULL && !g_str_has_suffix (player->priv->desktop_entry, ".desktop")) {
-                gchar *desktop_id;
-
-                desktop_id = g_strconcat (player->priv->desktop_entry, ".desktop", NULL);
-                app_info = g_desktop_app_info_new (desktop_id);
-                g_free (desktop_id);
-        }
-
-        if (app_info == NULL)
-                return FALSE;
-
-        display = gdk_display_get_default ();
-        if (display != NULL) {
-                context = gdk_display_get_app_launch_context (display);
-                gdk_app_launch_context_set_timestamp (context, GDK_CURRENT_TIME);
-        }
-
-        launched = g_app_info_launch (G_APP_INFO (app_info),
-                                      NULL,
-                                      context != NULL ? G_APP_LAUNCH_CONTEXT (context) : NULL,
-                                      &error);
-        if (error != NULL)
-                g_error_free (error);
-
-        if (context != NULL)
-                g_object_unref (context);
-        g_object_unref (app_info);
-
-        return launched;
-}
-
 static void
 gvc_mpris_player_set_property_variant (GvcMprisPlayer *player,
                                        const gchar    *property,
@@ -578,7 +531,7 @@ gboolean gvc_mpris_player_get_can_go_previous (GvcMprisPlayer *player) { return 
 gboolean gvc_mpris_player_get_can_play (GvcMprisPlayer *player) { return player->priv->can_play; }
 gboolean gvc_mpris_player_get_can_pause (GvcMprisPlayer *player) { return player->priv->can_pause; }
 gboolean gvc_mpris_player_get_can_seek (GvcMprisPlayer *player) { return player->priv->can_seek; }
-gboolean gvc_mpris_player_get_can_raise (GvcMprisPlayer *player) { return player->priv->can_raise || (player->priv->desktop_entry != NULL && player->priv->desktop_entry[0] != '\0') || (player->priv->identity != NULL && g_ascii_strcasecmp (player->priv->identity, "spotify") == 0); }
+gboolean gvc_mpris_player_get_can_raise (GvcMprisPlayer *player) { return player->priv->can_raise || (player->priv->identity != NULL && g_ascii_strcasecmp (player->priv->identity, "spotify") == 0); }
 gboolean gvc_mpris_player_get_can_quit (GvcMprisPlayer *player) { return player->priv->can_quit; }
 gboolean gvc_mpris_player_get_shuffle (GvcMprisPlayer *player) { return player->priv->shuffle; }
 const gchar * gvc_mpris_player_get_loop_status (GvcMprisPlayer *player) { return player->priv->loop_status ? player->priv->loop_status : "None"; }
@@ -599,8 +552,6 @@ gvc_mpris_player_raise (GvcMprisPlayer *player)
 
         if (player->priv->can_raise)
                 gvc_mpris_player_call (player, player->priv->server_proxy, "Raise", NULL);
-
-        gvc_mpris_player_launch_desktop_entry (player);
 }
 void gvc_mpris_player_quit (GvcMprisPlayer *player) { if (player->priv->can_quit) gvc_mpris_player_call (player, player->priv->server_proxy, "Quit", NULL); }
 void gvc_mpris_player_set_shuffle (GvcMprisPlayer *player, gboolean shuffle) { gvc_mpris_player_set_property_variant (player, "Shuffle", g_variant_new_boolean (shuffle)); }

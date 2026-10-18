@@ -602,6 +602,7 @@ gvc_player_widget_init (GvcPlayerWidget *widget)
         gtk_widget_set_tooltip_text (GTK_WIDGET (widget->priv->player_combo), _("Choose Player"));
         g_object_unref (combo_store);
         widget->priv->raise_button = GTK_BUTTON (new_icon_button ("go-up-symbolic", _("Open Player")));
+        gtk_widget_set_no_show_all (GTK_WIDGET (widget->priv->raise_button), TRUE);
         widget->priv->quit_button = GTK_BUTTON (new_icon_button ("window-close-symbolic", _("Quit Player")));
         gtk_label_set_ellipsize (widget->priv->player_label, PANGO_ELLIPSIZE_END);
         gtk_label_set_max_width_chars (widget->priv->player_label, 34);
