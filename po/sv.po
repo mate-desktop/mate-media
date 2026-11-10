@@ -1,9 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
 # This file is distributed under the same license as the mate-media package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-# Translators:
 # Kristoffer Grundström <lovaren@gmail.com>, 2018
 # 6a42dd6e7ca9a813693714b0d9aa1ad8, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
@@ -13,21 +10,25 @@
 # Tobias Lekare <lekare@linux.com>, 2018
 # Philip Andersen <renegadevi@codeofmagi.net>, 2020
 # Luna Jernberg <droidbittin@gmail.com>, 2021
-# Daniel Nylander <po@danielnylander.se>, 2025
-# 
+# Daniel Nylander <po@danielnylander.se>, 2025, 2026.
+#
+# Translators:
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-media 1.27.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2023-09-02 17:04+0200\n"
-"PO-Revision-Date: 2018-03-11 18:54+0000\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>, 2025\n"
-"Language-Team: Swedish (https://app.transifex.com/mate/teams/13566/sv/)\n"
+"PO-Revision-Date: 2026-10-11 11:33+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <https://translate.fedoraproject.org/projects/mate-"
+"desktop/applications/mate-media/sv/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.10.1\n"
 
 #: data/mate-volume-control.desktop.in.in:3
 msgid "Sound"
@@ -89,7 +90,7 @@ msgstr "Detta programs versionsnummer"
 
 #: mate-volume-control/dialog-main.c:203
 msgid " — MATE Volume Control"
-msgstr " — Volymkontroll för MATE"
+msgstr " : Volymreglage för MATE"
 
 #: mate-volume-control/gvc-applet.c:57
 #: mate-volume-control/gvc-stream-status-icon.c:256
@@ -118,7 +119,7 @@ msgstr "Volymkontrollsapplet för MATE"
 
 #: mate-volume-control/gvc-applet.c:464
 msgid "Unmute Output"
-msgstr "Aktivera utgång "
+msgstr "Aktivera ljudutgång"
 
 #: mate-volume-control/gvc-applet.c:512
 msgid "Volume Control Applet"
@@ -169,7 +170,7 @@ msgstr "_Subwoofer:"
 #: mate-volume-control/gvc-channel-bar.c:338
 msgctxt "volume"
 msgid "Unamplified"
-msgstr "Ej förstärkt"
+msgstr "Inte förstärkt"
 
 #: mate-volume-control/gvc-channel-bar.c:355
 msgctxt "volume"
@@ -342,11 +343,11 @@ msgstr "Mikrofonvolym"
 
 #: mate-volume-control/gvc-status-icon.c:330
 msgid "Sound Output Volume"
-msgstr "Ljudutgångsvolym "
+msgstr "Ljudutgångsvolym"
 
 #: mate-volume-control/gvc-status-icon.c:335
 msgid "MATE Volume Control StatusIcon"
-msgstr "MATE Volymkontroll statusikon"
+msgstr "MATE:s statusikon för volymreglage"
 
 #: mate-volume-control/gvc-stream-applet-icon.c:284
 #: mate-volume-control/gvc-stream-status-icon.c:199
@@ -473,4 +474,4 @@ msgstr "Volymkontrollfabrik"
 
 #: mate-volume-control/status-icon-main.c:56
 msgid " — MATE Volume Control Status Icon"
-msgstr " — MATE Volymkontroll statusikon"
+msgstr " : MATE:s statusikon för volymreglage"
