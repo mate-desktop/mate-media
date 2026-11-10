@@ -39,15 +39,25 @@
 #include <libmate-desktop/mate-desktop-utils.h>
 
 #include "gvc-channel-bar.h"
+#include "gvc-mpris-player.h"
+#include "gvc-player-widget.h"
 #include "gvc-stream-applet-icon.h"
 
 struct _GvcStreamAppletIconPrivate
 {
         GSettings              *sound_settings;
+        GSettings              *applet_settings;
         gchar                 **icon_names;
         GtkImage               *image;
         GtkWidget              *dock;
+        GtkWidget              *dock_box;
+        GtkWidget              *player_widget;
+        GtkWidget              *player_separator;
+        GtkWidget              *volume_box;
+        GtkImage               *volume_image;
         GtkWidget              *bar;
+        GvcMprisPlayer         *player;
+        gboolean                player_widget_visible;
         guint                   current_icon;
         gchar                  *display_name;
         MateMixerStreamControl *control;
@@ -67,13 +77,139 @@ enum
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
 static void gvc_stream_applet_icon_finalize   (GObject *object);
+static void update_icon                       (GvcStreamAppletIcon *icon);
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcStreamAppletIcon, gvc_stream_applet_icon, GTK_TYPE_EVENT_BOX)
+
+static void
+configure_volume_box_layout (GvcStreamAppletIcon *icon,
+                             GtkOrientation       orientation)
+{
+        if (icon->priv->volume_box == NULL ||
+            icon->priv->volume_image == NULL)
+                return;
+
+        gtk_orientable_set_orientation (GTK_ORIENTABLE (icon->priv->volume_box),
+                                        orientation);
+
+        if (orientation == GTK_ORIENTATION_HORIZONTAL) {
+                gtk_box_reorder_child (GTK_BOX (icon->priv->volume_box),
+                                       GTK_WIDGET (icon->priv->volume_image),
+                                       0);
+                gtk_box_reorder_child (GTK_BOX (icon->priv->volume_box),
+                                       icon->priv->bar,
+                                       1);
+        } else {
+                gtk_box_reorder_child (GTK_BOX (icon->priv->volume_box),
+                                       icon->priv->bar,
+                                       0);
+                gtk_box_reorder_child (GTK_BOX (icon->priv->volume_box),
+                                       GTK_WIDGET (icon->priv->volume_image),
+                                       1);
+        }
+}
+
+static void
+configure_dock_layout (GvcStreamAppletIcon *icon,
+                       gboolean             volume_first)
+{
+        gboolean vertical_panel;
+
+        vertical_panel = icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
+                         icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT;
+
+        if (icon->priv->player_widget_visible && vertical_panel) {
+                gtk_orientable_set_orientation (GTK_ORIENTABLE (icon->priv->dock_box),
+                                                GTK_ORIENTATION_HORIZONTAL);
+                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
+                                                 GTK_ORIENTATION_VERTICAL);
+                configure_volume_box_layout (icon, GTK_ORIENTATION_VERTICAL);
+
+                if (icon->priv->player_separator != NULL)
+                        gtk_orientable_set_orientation (GTK_ORIENTABLE (icon->priv->player_separator),
+                                                        GTK_ORIENTATION_VERTICAL);
+
+                if (volume_first) {
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box), icon->priv->volume_box, 0);
+                        if (icon->priv->player_separator != NULL)
+                                gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                                       icon->priv->player_separator,
+                                                       1);
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                               icon->priv->player_widget,
+                                               2);
+                } else {
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                               icon->priv->player_widget,
+                                               0);
+                        if (icon->priv->player_separator != NULL)
+                                gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                                       icon->priv->player_separator,
+                                                       1);
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box), icon->priv->volume_box, 2);
+                }
+
+                gtk_widget_set_size_request (icon->priv->dock, -1, -1);
+                return;
+        }
+
+        gtk_orientable_set_orientation (GTK_ORIENTABLE (icon->priv->dock_box),
+                                        GTK_ORIENTATION_VERTICAL);
+
+        if (icon->priv->player_separator != NULL)
+                gtk_orientable_set_orientation (GTK_ORIENTABLE (icon->priv->player_separator),
+                                                GTK_ORIENTATION_HORIZONTAL);
+
+        if (icon->priv->player_widget_visible && volume_first) {
+                gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box), icon->priv->volume_box, 0);
+                if (icon->priv->player_separator != NULL)
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                               icon->priv->player_separator,
+                                               1);
+                if (icon->priv->player_widget != NULL)
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                               icon->priv->player_widget,
+                                               2);
+        } else {
+                if (icon->priv->player_widget != NULL)
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                               icon->priv->player_widget,
+                                               0);
+                if (icon->priv->player_separator != NULL)
+                        gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                               icon->priv->player_separator,
+                                               1);
+                gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box), icon->priv->volume_box, 2);
+        }
+
+        if (icon->priv->player_widget_visible) {
+                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
+                                                 GTK_ORIENTATION_HORIZONTAL);
+                configure_volume_box_layout (icon, GTK_ORIENTATION_HORIZONTAL);
+                gtk_widget_set_size_request (icon->priv->dock, 336, -1);
+                return;
+        }
+
+        gtk_widget_set_size_request (icon->priv->dock, -1, -1);
+        switch (icon->priv->orient) {
+            case MATE_PANEL_APPLET_ORIENT_LEFT:
+            case MATE_PANEL_APPLET_ORIENT_RIGHT:
+                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_HORIZONTAL);
+                configure_volume_box_layout (icon, GTK_ORIENTATION_HORIZONTAL);
+                break;
+            case MATE_PANEL_APPLET_ORIENT_UP:
+            case MATE_PANEL_APPLET_ORIENT_DOWN:
+            default:
+                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_VERTICAL);
+                configure_volume_box_layout (icon, GTK_ORIENTATION_VERTICAL);
+        }
+}
 
 static gboolean
 popup_dock (GvcStreamAppletIcon *icon, guint time)
 {
         GtkAllocation  allocation;
+        GtkAllocation  anchor;
         GdkDisplay    *display;
         GdkScreen     *screen;
         int            x, y;
@@ -88,84 +224,122 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
 
         /* position roughly */
         gtk_window_set_screen (GTK_WINDOW (icon->priv->dock), screen);
-        switch (icon->priv->orient) {
-            case MATE_PANEL_APPLET_ORIENT_LEFT:
-            case MATE_PANEL_APPLET_ORIENT_RIGHT:
-                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_HORIZONTAL);
-                break;
-            case MATE_PANEL_APPLET_ORIENT_UP:
-            case MATE_PANEL_APPLET_ORIENT_DOWN:
-            default:
-                gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), GTK_ORIENTATION_VERTICAL);
-        }
+        configure_dock_layout (icon, FALSE);
 
         display = gdk_screen_get_display (screen);
-        monitor_num = gdk_display_get_monitor_at_point (display, allocation.x, allocation.y);
+        monitor_num = gdk_display_get_monitor_at_window (display, gtk_widget_get_window (GTK_WIDGET (icon)));
         gdk_monitor_get_geometry (monitor_num, &monitor);
 
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), (GtkCallback) gtk_widget_show_all, NULL);
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
 #if defined(ENABLE_WAYLAND)
-        if (GDK_IS_WAYLAND_DISPLAY (display))
+        if (GDK_IS_WAYLAND_DISPLAY (display) &&
+            gtk_layer_is_layer_window (GTK_WINDOW (icon->priv->dock)))
         {
             gboolean top, bottom, left, right;
             GtkWidget *toplevel;
             toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
 
-            if (!gtk_layer_is_layer_window (GTK_WINDOW (icon->priv->dock)))
-            {
-                gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
-                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_TOP);
-                gtk_layer_set_keyboard_mode (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND);
+            /* Layer-shell margins are relative to the selected monitor. */
+            gtk_layer_set_monitor (GTK_WINDOW (icon->priv->dock), monitor_num);
+
+            top = bottom = left = right = FALSE;
+            if (GTK_IS_WINDOW (toplevel) && gtk_layer_is_layer_window (GTK_WINDOW (toplevel))) {
+                top = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_TOP);
+                bottom = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_BOTTOM);
+                left = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_LEFT);
+                right = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_RIGHT);
             }
 
-            top = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_TOP);
-            bottom = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_BOTTOM);
-            left = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_LEFT);
-            right = gtk_layer_get_anchor (GTK_WINDOW (toplevel), GTK_LAYER_SHELL_EDGE_RIGHT);
+            if (!((top && left && right && !bottom) ||
+                  (bottom && left && right && !top) ||
+                  (left && bottom && top && !right) ||
+                  (right && bottom && top && !left))) {
+                /* The panel may use another surface type or anchor pattern. */
+                switch (icon->priv->orient) {
+                case MATE_PANEL_APPLET_ORIENT_DOWN:
+                    top = left = right = TRUE;
+                    bottom = FALSE;
+                    break;
+                case MATE_PANEL_APPLET_ORIENT_UP:
+                    bottom = left = right = TRUE;
+                    top = FALSE;
+                    break;
+                case MATE_PANEL_APPLET_ORIENT_RIGHT:
+                    left = bottom = top = TRUE;
+                    right = FALSE;
+                    break;
+                case MATE_PANEL_APPLET_ORIENT_LEFT:
+                    right = bottom = top = TRUE;
+                    left = FALSE;
+                    break;
+                default:
+                    bottom = left = right = TRUE;
+                    top = FALSE;
+                    break;
+                }
+            }
 
             /*Set anchors to the edges (will hold to panel edge) and position along the panel
              *Unset margins and anchors from any other position so as to avoid rendering issues
              *when orientation changes as when the panel is moved
              */
 
-            if (top && left && right)
+            if (top && left && right && !bottom)
             {
+                configure_dock_layout (icon, TRUE);
+                gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, FALSE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, FALSE);
-                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, allocation.x);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT,
+                                      CLAMP (allocation.x - monitor.x, 0,
+                                             MAX (0, monitor.width - dock_req.width)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, 0);
             }
-            if (bottom && left && right)
+            else if (bottom && left && right && !top)
             {
+                configure_dock_layout (icon, FALSE);
+                gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, FALSE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, FALSE);
-                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, allocation.x);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT,
+                                      CLAMP (allocation.x - monitor.x, 0,
+                                             MAX (0, monitor.width - dock_req.width)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, 0);
             }
-            if (left && bottom && top && !right)
+            else if (left && bottom && top && !right)
             {
+                configure_dock_layout (icon, TRUE);
+                gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, FALSE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, FALSE);
-                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, allocation.y);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP,
+                                      CLAMP (allocation.y - monitor.y, 0,
+                                             MAX (0, monitor.height - dock_req.height)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, 0);
             }
-            if (right && bottom && top && !left)
+            else if (right && bottom && top && !left)
             {
+                configure_dock_layout (icon, FALSE);
+                gtk_widget_get_preferred_size (icon->priv->dock, NULL, &dock_req);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_RIGHT, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, FALSE);
                 gtk_layer_set_anchor (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_BOTTOM, FALSE);
-                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP, allocation.y);
+                gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_TOP,
+                                      CLAMP (allocation.y - monitor.y, 0,
+                                             MAX (0, monitor.height - dock_req.height)));
                 gtk_layer_set_margin (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_EDGE_LEFT, 0);
             }
+            /* Discard a size retained from a previous popup layout. */
+            gtk_window_resize (GTK_WINDOW (icon->priv->dock), 1, 1);
             gtk_widget_show_all (icon->priv->dock);
 
             /* Grab focus */
@@ -173,30 +347,95 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
             gtk_widget_grab_focus (icon->priv->dock);
 
             return TRUE;
+        } else if (GDK_IS_WAYLAND_DISPLAY (display)) {
+            GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
+
+            /* Ordinary Wayland popups need a parent to be positioned. */
+            if (GTK_IS_WINDOW (toplevel))
+                gtk_window_set_transient_for (GTK_WINDOW (icon->priv->dock), GTK_WINDOW (toplevel));
         }
 #endif /* wayland support */
 
+        anchor = allocation;
+#if defined(ENABLE_WAYLAND)
+        if (!GDK_IS_WAYLAND_DISPLAY (display))
+#endif
+        {
+                GtkWidget     *panel;
+                GtkAllocation panel_allocation;
+                gint          panel_x;
+                gint          panel_y;
+
+                // Use the panel window's outer edge for the axis perpendicular to the panel on X11. Wayland doesn't have this isssue.
+                panel = gtk_widget_get_toplevel (GTK_WIDGET (icon));
+                if (GTK_IS_WINDOW (panel) && gtk_widget_get_realized (panel)) {
+                        gtk_widget_get_allocation (panel, &panel_allocation);
+                        gdk_window_get_origin (gtk_widget_get_window (panel), &panel_x, &panel_y);
+
+                        if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
+                            icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+                                anchor.x = panel_x;
+                                anchor.width = panel_allocation.width;
+                        } else {
+                                anchor.y = panel_y;
+                                anchor.height = panel_allocation.height;
+                        }
+                }
+        }
+
         if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
-                if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)
-                        x = allocation.x + allocation.width;
+                if (anchor.x + anchor.width + dock_req.width <= monitor.x + monitor.width)
+                        x = anchor.x + anchor.width;
                 else
-                        x = allocation.x - dock_req.width;
+                        x = anchor.x - dock_req.width;
 
                 if (allocation.y + dock_req.height <= monitor.y + monitor.height)
                         y = allocation.y;
                 else
                         y = monitor.y + monitor.height - dock_req.height;
         } else {
-                if (allocation.y + allocation.height + dock_req.height <= monitor.y + monitor.height)
-                        y = allocation.y + allocation.height;
+                if (anchor.y + anchor.height + dock_req.height <= monitor.y + monitor.height)
+                        y = anchor.y + anchor.height;
                 else
-                        y = allocation.y - dock_req.height;
+                        y = anchor.y - dock_req.height;
 
                 if (allocation.x + dock_req.width <= monitor.x + monitor.width)
                         x = allocation.x;
                 else
                         x = monitor.x + monitor.width - dock_req.width;
         }
+
+#if defined(ENABLE_WAYLAND)
+        if (!GDK_IS_WAYLAND_DISPLAY (display))
+#endif
+        {
+                GdkRectangle workarea;
+
+                /* X11 workarea excludes the panel's reserved space. An experimental themed
+                 * border management. Might need checks! */
+                gdk_monitor_get_workarea (monitor_num, &workarea);
+                if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
+                    icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+                        if (x > allocation.x)
+                                x = MAX (x, workarea.x);
+                        else
+                                x = MIN (x, workarea.x + workarea.width - dock_req.width);
+                } else {
+                        if (y > allocation.y)
+                                y = MAX (y, workarea.y);
+                        else
+                                y = MIN (y, workarea.y + workarea.height - dock_req.height);
+                }
+
+                x = CLAMP (x, monitor.x, MAX (monitor.x, monitor.x + monitor.width - dock_req.width));
+                y = CLAMP (y, monitor.y, MAX (monitor.y, monitor.y + monitor.height - dock_req.height));
+        }
+
+        if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT ||
+            icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT)
+                configure_dock_layout (icon, x > allocation.x);
+        else
+                configure_dock_layout (icon, y > allocation.y);
 
         gtk_window_move (GTK_WINDOW (icon->priv->dock), x, y);
 
@@ -244,8 +483,41 @@ on_applet_icon_button_press (GtkWidget           *applet_icon,
                 return TRUE;
         }
 
+        if (event->button == 8 && icon->priv->player != NULL) {
+                gvc_mpris_player_previous (icon->priv->player);
+                return TRUE;
+        }
+
+        if (event->button == 9 && icon->priv->player != NULL) {
+                gvc_mpris_player_next (icon->priv->player);
+                return TRUE;
+        }
+
         /* Middle click acts as mute/unmute */
         if (event->button == 2) {
+                gchar *action = NULL;
+
+                if (icon->priv->applet_settings != NULL)
+                        action = g_settings_get_string (icon->priv->applet_settings, "middle-click-action");
+
+                if (g_strcmp0 (action, "player") == 0) {
+                        if (icon->priv->player != NULL) {
+                                gvc_mpris_player_play_pause (icon->priv->player);
+                                g_free (action);
+                                return TRUE;
+                        }
+                } else if (g_strcmp0 (action, "mute-output") != 0 &&
+                           g_strcmp0 (action, "mute-all") != 0 &&
+                           action != NULL) {
+                        g_free (action);
+                        return FALSE;
+                }
+
+                g_free (action);
+
+                if (icon->priv->control == NULL)
+                        return FALSE;
+
                 gboolean is_muted = mate_mixer_stream_control_get_mute (icon->priv->control);
 
                 mate_mixer_stream_control_set_mute (icon->priv->control, !is_muted);
@@ -298,7 +570,40 @@ on_applet_icon_scroll_event (GtkWidget           *event_box,
                              GdkEventScroll      *event,
                              GvcStreamAppletIcon *icon)
 {
+        if (icon->priv->player != NULL) {
+                if (icon->priv->applet_settings != NULL &&
+                    !g_settings_get_boolean (icon->priv->applet_settings, "horizontal-scroll-controls"))
+                        return gvc_channel_bar_scroll (GVC_CHANNEL_BAR (icon->priv->bar), event->direction);
+
+                if (event->direction == GDK_SCROLL_LEFT) {
+                        gvc_mpris_player_previous (icon->priv->player);
+                        return TRUE;
+                }
+                if (event->direction == GDK_SCROLL_RIGHT) {
+                        gvc_mpris_player_next (icon->priv->player);
+                        return TRUE;
+                }
+        }
+
         return gvc_channel_bar_scroll (GVC_CHANNEL_BAR (icon->priv->bar), event->direction);
+}
+
+void
+gvc_stream_applet_icon_set_applet_settings (GvcStreamAppletIcon *icon,
+                                            GSettings           *settings)
+{
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
+        g_return_if_fail (settings == NULL || G_IS_SETTINGS (settings));
+
+        if (icon->priv->applet_settings == settings)
+                return;
+
+        g_clear_object (&icon->priv->applet_settings);
+
+        if (settings != NULL)
+                icon->priv->applet_settings = g_object_ref (settings);
+
+        update_icon (icon);
 }
 
 static void
@@ -314,12 +619,123 @@ gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
         gtk_widget_hide (icon->priv->dock);
 }
 
+void
+gvc_stream_applet_icon_set_player_widget (GvcStreamAppletIcon *icon,
+                                          GtkWidget           *player_widget)
+{
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
+        g_return_if_fail (player_widget == NULL || GTK_IS_WIDGET (player_widget));
+
+        if (icon->priv->player_widget == player_widget)
+                return;
+
+        if (icon->priv->player_widget != NULL) {
+                gtk_container_remove (GTK_CONTAINER (icon->priv->dock_box),
+                                      icon->priv->player_widget);
+                gtk_container_remove (GTK_CONTAINER (icon->priv->dock_box),
+                                      icon->priv->player_separator);
+                icon->priv->player_widget = NULL;
+                icon->priv->player_separator = NULL;
+        }
+
+        if (player_widget != NULL) {
+                GtkWidget *separator;
+
+                icon->priv->player_widget = player_widget;
+                separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+                gtk_widget_set_no_show_all (separator, TRUE);
+                icon->priv->player_separator = separator;
+                gtk_box_pack_start (GTK_BOX (icon->priv->dock_box),
+                                    player_widget,
+                                    FALSE,
+                                    FALSE,
+                                    0);
+                gtk_box_pack_start (GTK_BOX (icon->priv->dock_box),
+                                    separator,
+                                    FALSE,
+                                    FALSE,
+                                    0);
+                gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                       player_widget,
+                                       0);
+                gtk_box_reorder_child (GTK_BOX (icon->priv->dock_box),
+                                       separator,
+                                       1);
+        }
+}
+
+static void
+on_mpris_player_tooltip_changed (GvcMprisPlayer      *player,
+                                 GvcStreamAppletIcon *icon)
+{
+        update_icon (icon);
+}
+
+void
+gvc_stream_applet_icon_set_mpris_player (GvcStreamAppletIcon *icon,
+                                         GvcMprisPlayer      *player)
+{
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
+
+        if (icon->priv->player == player)
+                return;
+
+        if (icon->priv->player != NULL)
+                g_signal_handlers_disconnect_by_data (icon->priv->player, icon);
+
+        g_clear_object (&icon->priv->player);
+
+        if (player != NULL) {
+                icon->priv->player = g_object_ref (player);
+                g_signal_connect (player, "metadata-changed", G_CALLBACK (on_mpris_player_tooltip_changed), icon);
+                g_signal_connect (player, "status-changed", G_CALLBACK (on_mpris_player_tooltip_changed), icon);
+        }
+
+        update_icon (icon);
+}
+
+void
+gvc_stream_applet_icon_set_player_widget_visible (GvcStreamAppletIcon *icon,
+                                                 gboolean             visible)
+{
+        g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
+
+        icon->priv->player_widget_visible = visible;
+
+        if (icon->priv->player_separator != NULL)
+                gtk_widget_set_visible (icon->priv->player_separator, visible);
+}
+
 static gboolean
 on_dock_button_press (GtkWidget           *widget,
                       GdkEventButton      *event,
                       GvcStreamAppletIcon *icon)
 {
+        GtkAllocation allocation;
+        GtkWidget    *current_grab;
+        gint          dock_x;
+        gint          dock_y;
+        gboolean      inside_dock;
+
         if (event->type == GDK_BUTTON_PRESS) {
+                current_grab = gtk_grab_get_current ();
+                if (current_grab != NULL &&
+                    current_grab != icon->priv->dock &&
+                    !gtk_widget_is_ancestor (current_grab, icon->priv->dock))
+                        return FALSE;
+
+                gtk_widget_get_allocation (icon->priv->dock, &allocation);
+                gdk_window_get_origin (gtk_widget_get_window (icon->priv->dock),
+                                       &dock_x,
+                                       &dock_y);
+                inside_dock = event->x_root >= dock_x &&
+                              event->x_root < dock_x + allocation.width &&
+                              event->y_root >= dock_y &&
+                              event->y_root < dock_y + allocation.height;
+
+                if (inside_dock)
+                        return FALSE;
+
                 gvc_icon_release_grab (icon, event);
                 return TRUE;
         }
@@ -336,6 +752,8 @@ popdown_dock (GvcStreamAppletIcon *icon)
 
         GdkSeat *seat = gdk_display_get_default_seat (display);
         gdk_seat_ungrab (seat);
+        if (gtk_widget_has_grab (icon->priv->dock))
+                gtk_grab_remove (icon->priv->dock);
 
         /* Hide again */
         gtk_widget_unset_state_flags (GTK_WIDGET (icon), GTK_STATE_FLAG_CHECKED);
@@ -346,13 +764,16 @@ popdown_dock (GvcStreamAppletIcon *icon)
 static void
 gvc_icon_grab_notify (GvcStreamAppletIcon *icon, gboolean was_grabbed)
 {
+        GtkWidget *current_grab;
+
         if (was_grabbed != FALSE)
                 return;
 
         if (gtk_widget_has_grab (icon->priv->dock) == FALSE)
                 return;
 
-        if (gtk_widget_is_ancestor (gtk_grab_get_current (), icon->priv->dock))
+        current_grab = gtk_grab_get_current ();
+        if (current_grab != NULL)
                 return;
 
         popdown_dock (icon);
@@ -392,6 +813,12 @@ on_dock_scroll_event (GtkWidget           *widget,
                       GdkEventScroll      *event,
                       GvcStreamAppletIcon *icon)
 {
+        if (icon->priv->player_widget_visible &&
+            icon->priv->player_widget != NULL &&
+            GVC_IS_PLAYER_WIDGET (icon->priv->player_widget) &&
+            gvc_player_widget_scroll_is_seek (GVC_PLAYER_WIDGET (icon->priv->player_widget), event))
+                return gvc_player_widget_handle_seek_scroll (GVC_PLAYER_WIDGET (icon->priv->player_widget), event);
+
         /* Forward event to the applet icon */
         on_applet_icon_scroll_event (NULL, event, icon);
         return TRUE;
@@ -401,14 +828,34 @@ static void
 gvc_stream_applet_icon_set_icon_from_name (GvcStreamAppletIcon *icon,
                                            const gchar *icon_name)
 {
-        GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
-        gint icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (icon));
+        GtkIconTheme    *icon_theme;
+        gint             icon_scale;
+        guint            size;
+        cairo_surface_t *surface;
 
-        cairo_surface_t* surface = gtk_icon_theme_load_surface (icon_theme, icon_name,
-                                                                icon->priv->size,
-                                                                icon_scale, NULL,
-                                                                GTK_ICON_LOOKUP_FORCE_SIZE,
-                                                                NULL);
+        if (icon_name == NULL)
+                return;
+
+        size = icon->priv->size;
+        if (size == 0)
+                size = 24;
+
+        icon_theme = gtk_icon_theme_get_default ();
+        icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (icon));
+
+        surface = gtk_icon_theme_load_surface (icon_theme, icon_name,
+                                               size,
+                                               icon_scale, NULL,
+                                               GTK_ICON_LOOKUP_FORCE_SIZE,
+                                               NULL);
+
+        if (surface == NULL) {
+                gtk_image_set_from_icon_name (GTK_IMAGE (icon->priv->image),
+                                              icon_name,
+                                              GTK_ICON_SIZE_LARGE_TOOLBAR);
+                gtk_image_set_pixel_size (GTK_IMAGE (icon->priv->image), size);
+                return;
+        }
 
         gtk_image_set_from_surface (GTK_IMAGE (icon->priv->image), surface);
         cairo_surface_destroy (surface);
@@ -453,16 +900,16 @@ update_icon (GvcStreamAppletIcon *icon)
         if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL)
                 decibel = mate_mixer_stream_control_get_decibel (icon->priv->control);
 
-        /* Apparently applet icon will reset icon even if it doesn't change */
-        if (icon->priv->current_icon != n) {
-                gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[n]);
-                icon->priv->current_icon = n;
-        }
+        gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[n]);
+        icon->priv->current_icon = n;
 
         description = mate_mixer_stream_control_get_label (icon->priv->control);
 
         guint volume_percent = (guint) round (100.0 * volume / normal);
-        if (muted) {
+        if (icon->priv->applet_settings != NULL &&
+            !g_settings_get_boolean (icon->priv->applet_settings, "tooltip-show-volume")) {
+                markup = g_strdup_printf ("<b>%s</b>", icon->priv->display_name);
+        } else if (muted) {
                 markup = g_strdup_printf ("<b>%s: %s %u%%</b>\n<small>%s</small>",
                                           icon->priv->display_name,
                                           _("Muted at"),
@@ -496,6 +943,48 @@ update_icon (GvcStreamAppletIcon *icon)
                                           description);
         }
 
+        if (icon->priv->player != NULL &&
+            icon->priv->applet_settings != NULL &&
+            g_settings_get_boolean (icon->priv->applet_settings, "tooltip-show-player")) {
+                const gchar *title;
+                const gchar *artist;
+                const gchar *identity;
+                gchar       *identity_escaped;
+                gchar       *title_escaped;
+                gchar       *artist_escaped;
+                gchar       *player_markup;
+                gchar       *combined;
+
+                identity = gvc_mpris_player_get_identity (icon->priv->player);
+                title = gvc_mpris_player_get_title (icon->priv->player);
+                artist = gvc_mpris_player_get_artist (icon->priv->player);
+
+                identity_escaped = g_markup_escape_text (identity != NULL ? identity : "", -1);
+                title_escaped = g_markup_escape_text (title != NULL ? title : "", -1);
+                artist_escaped = g_markup_escape_text (artist != NULL ? artist : "", -1);
+
+                if (title_escaped[0] != '\0' && artist_escaped[0] != '\0')
+                        player_markup = g_strdup_printf ("\n<small>%s\n%s - %s</small>",
+                                                         identity_escaped,
+                                                         artist_escaped,
+                                                         title_escaped);
+                else if (title_escaped[0] != '\0')
+                        player_markup = g_strdup_printf ("\n<small>%s\n%s</small>",
+                                                         identity_escaped,
+                                                         title_escaped);
+                else
+                        player_markup = g_strdup_printf ("\n<small>%s</small>",
+                                                         identity_escaped);
+
+                combined = g_strconcat (markup, player_markup, NULL);
+                g_free (markup);
+                g_free (player_markup);
+                g_free (identity_escaped);
+                g_free (title_escaped);
+                g_free (artist_escaped);
+                markup = combined;
+        }
+
         gtk_widget_set_tooltip_markup (GTK_WIDGET (icon), markup);
 
         g_free (markup);
@@ -517,7 +1006,8 @@ gvc_stream_applet_icon_set_size (GvcStreamAppletIcon *icon,
                 size = 32;
 
         icon->priv->size = size;
-        gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[icon->priv->current_icon]);
+        if (icon->priv->icon_names != NULL)
+                gvc_stream_applet_icon_set_icon_from_name (icon, icon->priv->icon_names[icon->priv->current_icon]);
 }
 
 void
@@ -594,8 +1084,11 @@ gvc_stream_applet_icon_set_control (GvcStreamAppletIcon    *icon,
 {
         g_return_if_fail (GVC_IS_STREAM_APPLET_ICON (icon));
 
-        if (icon->priv->control == control)
+        if (icon->priv->control == control) {
+                if (control != NULL)
+                        update_icon (icon);
                 return;
+        }
 
         if (control != NULL)
                 g_object_ref (control);
@@ -623,7 +1116,6 @@ gvc_stream_applet_icon_set_control (GvcStreamAppletIcon    *icon,
                                   G_CALLBACK (on_stream_control_mute_notify),
                                   icon);
 
-                // XXX when no stream set some default icon and "unset" dock
                 update_icon (icon);
         }
 
@@ -690,7 +1182,13 @@ gvc_stream_applet_icon_dispose (GObject *object)
                 icon->priv->dock = NULL;
         }
 
+        if (icon->priv->player != NULL)
+                g_signal_handlers_disconnect_by_data (icon->priv->player, icon);
+        g_clear_object (&icon->priv->player);
+        if (icon->priv->control != NULL)
+                g_signal_handlers_disconnect_by_data (icon->priv->control, icon);
         g_clear_object (&icon->priv->control);
+        g_clear_object (&icon->priv->applet_settings);
 
         G_OBJECT_CLASS (gvc_stream_applet_icon_parent_class)->dispose (object);
 }
@@ -785,6 +1283,16 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
 
         gtk_window_set_decorated (GTK_WINDOW (icon->priv->dock), FALSE);
 
+#if defined(ENABLE_WAYLAND)
+        /* Configure the layer surface before anything can realize the dock. */
+        if (GDK_IS_WAYLAND_DISPLAY (gtk_widget_get_display (icon->priv->dock)) &&
+            gtk_layer_is_supported ()) {
+                gtk_layer_init_for_window (GTK_WINDOW (icon->priv->dock));
+                gtk_layer_set_layer (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_LAYER_TOP);
+                gtk_layer_set_keyboard_mode (GTK_WINDOW (icon->priv->dock), GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND);
+        }
+#endif
+
         g_signal_connect (G_OBJECT (icon->priv->dock),
                           "button-press-event",
                           G_CALLBACK (on_dock_button_press),
@@ -811,6 +1319,11 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         gtk_container_add (GTK_CONTAINER (icon->priv->dock), frame);
 
         icon->priv->bar = gvc_channel_bar_new (NULL);
+        icon->priv->volume_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
+        icon->priv->volume_image = GTK_IMAGE (gtk_image_new_from_icon_name ("multimedia-volume-control",
+                                                                            GTK_ICON_SIZE_MENU));
+        gtk_widget_set_halign (GTK_WIDGET (icon->priv->volume_image), GTK_ALIGN_CENTER);
+        gtk_widget_set_valign (GTK_WIDGET (icon->priv->volume_image), GTK_ALIGN_CENTER);
 
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          GTK_ORIENTATION_VERTICAL);
@@ -838,16 +1351,23 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
 
         box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+        icon->priv->dock_box = box;
 
         gtk_container_set_border_width (GTK_CONTAINER (box), 2);
         gtk_container_add (GTK_CONTAINER (frame), box);
 
-        gtk_box_pack_start (GTK_BOX (box), icon->priv->bar, TRUE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (icon->priv->volume_box), icon->priv->bar, TRUE, TRUE, 0);
+        gtk_box_pack_start (GTK_BOX (icon->priv->volume_box),
+                            GTK_WIDGET (icon->priv->volume_image),
+                            FALSE,
+                            FALSE,
+                            0);
+        gtk_box_pack_start (GTK_BOX (box), icon->priv->volume_box, TRUE, FALSE, 0);
 
-        g_signal_connect (gtk_settings_get_default (),
-                          "notify::gtk-icon-theme-name",
-                          G_CALLBACK (on_icon_theme_change),
-                          icon);
+        g_signal_connect_object (gtk_settings_get_default (),
+                                 "notify::gtk-icon-theme-name",
+                                 G_CALLBACK (on_icon_theme_change),
+                                 icon, 0);
 }
 
 static void
@@ -865,6 +1385,7 @@ gvc_stream_applet_icon_finalize (GObject *object)
                                               icon);
 
         g_clear_object (&icon->priv->sound_settings);
+        g_clear_object (&icon->priv->applet_settings);
 
         G_OBJECT_CLASS (gvc_stream_applet_icon_parent_class)->finalize (object);
 }

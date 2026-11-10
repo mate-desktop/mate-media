@@ -26,7 +26,10 @@
 
 #include <glib.h>
 #include <glib-object.h>
+#include <gio/gio.h>
 #include <libmatemixer/matemixer.h>
+
+#include "gvc-mpris-player.h"
 
 G_BEGIN_DECLS
 
@@ -77,6 +80,15 @@ void                  gvc_stream_applet_icon_set_mute         (GvcStreamAppletIc
                                                                gboolean mute);
 
 void                  gvc_stream_applet_icon_volume_control   (GvcStreamAppletIcon *icon);
+
+void                  gvc_stream_applet_icon_set_player_widget (GvcStreamAppletIcon *icon,
+                                                                GtkWidget           *player_widget);
+void                  gvc_stream_applet_icon_set_mpris_player  (GvcStreamAppletIcon *icon,
+                                                                GvcMprisPlayer      *player);
+void                  gvc_stream_applet_icon_set_player_widget_visible (GvcStreamAppletIcon *icon,
+                                                                        gboolean             visible);
+void                  gvc_stream_applet_icon_set_applet_settings (GvcStreamAppletIcon *icon,
+                                                                  GSettings           *settings);
 
 G_END_DECLS
 
