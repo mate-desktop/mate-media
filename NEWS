@@ -1,3 +1,38 @@
+### mate-media 1.29.0
+
+  * gvc-sound-theme-chooser: Fix sound theme combobox not updating visually
+  * Update translations from Weblate
+  * mpris: Guard destroyed player widgets and cover callbacks
+  * mpris: Fix applet and icon teardown
+  * mpris: validate MPRIS metadata type and track path checks
+  * mpris: change raise button availability
+  * fix: align X11 volume popups with the panel edge
+  * fix: preserve panel context-menu styling and placement
+  * fix: initialize Wayland volume popups before realization
+  * fix: keep Wayland applet popups within monitor bounds
+  * build: fix Meson applet metadata for both build modes
+  * build: add missing MPRIS support to Autotools
+  * mpris: port applet player controls to status icon
+  * mpris: add applet player integration
+  * mpris: add player backend and control widget
+  * build: add MPRIS sources and settings schema
+  * build: fix in-process applet metadata for Wayland
+  * fix mono test audio, issue #117
+  * build(deps): bump actions/checkout from 6 to 7
+  * build(deps): bump actions/cache from 5 to 6
+  * fix invalid po files
+  * remove empty po files
+  * remove invalid po files
+  * add translation coverage badge
+  * retrieve last transifex translations
+  * Weblate migration
+  * build(deps): bump actions/checkout from 5 to 6
+  * ci: migrate from Travis CI to GitHub Actions
+  * fix memleaks
+  * sounds: Remove translated XML attributes
+  * Add css class and set checked state
+  * Reverse menu order
+
 ### mate-media 1.28.1
 
   * Distribute Meson build system
